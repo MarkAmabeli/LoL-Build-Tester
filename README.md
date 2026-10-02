@@ -1,4 +1,4 @@
-# LoL Damage Calculator
+# LoL Build Tester
 
 A League of Legends damage calculator: pick an attacker and a target, set their levels, items and runes, and see what each ability, auto attack and combo actually does after resistances.
 

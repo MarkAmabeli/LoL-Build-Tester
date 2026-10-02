@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <main style={{ fontFamily: 'system-ui, sans-serif', maxWidth: 640, margin: '2rem auto', padding: '0 1rem' }}>
-      <h1>LoL Damage Calculator</h1>
+      <h1>LoL Build Tester</h1>
       <p>Engine preview: one auto attack between two sample champions.</p>
 
       <label>Attacker level {attackerLevel}
