@@ -29,7 +29,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.651
+      "attackspeed": 0.651,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -63,7 +64,8 @@
       "attackdamage": 53,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.2,
-      "attackspeed": 0.668
+      "attackspeed": 0.668,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -96,7 +98,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -130,7 +133,8 @@
       "attackdamage": 52,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 4,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -164,7 +168,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.125,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -198,7 +203,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -232,7 +238,8 @@
       "attackdamage": 57,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.18,
-      "attackspeed": 0.736
+      "attackspeed": 0.736,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -265,7 +272,8 @@
       "attackdamage": 51,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.68,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -299,7 +307,8 @@
       "attackdamage": 50,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.36,
-      "attackspeed": 0.61
+      "attackspeed": 0.61,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -332,7 +341,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.1,
-      "attackspeed": 0.665
+      "attackspeed": 0.665,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -366,7 +376,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -399,7 +410,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -433,7 +445,8 @@
       "attackdamage": 53,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.668
+      "attackspeed": 0.668,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -467,7 +480,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -501,7 +515,8 @@
       "attackdamage": 52,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -534,7 +549,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 0,
-      "attackspeed": 0.67
+      "attackspeed": 0.67,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -568,7 +584,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.13,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -602,7 +619,8 @@
       "attackdamage": 57,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.681
+      "attackspeed": 0.681,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -636,7 +654,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -670,7 +689,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -703,7 +723,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 4,
-      "attackspeed": 0.681
+      "attackspeed": 0.681,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -737,7 +758,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -770,7 +792,8 @@
       "attackdamage": 53,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.647
+      "attackspeed": 0.647,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -804,7 +827,8 @@
       "attackdamage": 69,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.44,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -838,7 +862,8 @@
       "attackdamage": 52,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.8,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -872,7 +897,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -906,7 +932,8 @@
       "attackdamage": 57,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -940,7 +967,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.3,
-      "attackspeed": 0.67
+      "attackspeed": 0.67,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -973,7 +1001,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.7,
-      "attackspeed": 0.679
+      "attackspeed": 0.679,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1007,7 +1036,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.3,
-      "attackspeed": 0.688
+      "attackspeed": 0.688,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1041,7 +1071,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.75,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1075,7 +1106,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.1,
-      "attackspeed": 0.667
+      "attackspeed": 0.667,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1109,7 +1141,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1143,7 +1176,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1177,7 +1211,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.2,
-      "attackspeed": 0.69
+      "attackspeed": 0.69,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1211,7 +1246,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.1,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1245,7 +1281,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1278,7 +1315,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.2,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1312,7 +1350,8 @@
       "attackdamage": 69,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.65,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1346,7 +1385,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 6,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1380,7 +1420,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.05,
-      "attackspeed": 0.675
+      "attackspeed": 0.675,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1413,7 +1454,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.475
+      "attackspeed": 0.475,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1446,7 +1488,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.25,
-      "attackspeed": 0.69
+      "attackspeed": 0.69,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1480,7 +1523,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.67
+      "attackspeed": 0.67,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1514,7 +1558,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.36,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1548,7 +1593,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.69
+      "attackspeed": 0.69,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1582,7 +1628,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1616,7 +1663,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.656
+      "attackspeed": 0.656,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1650,7 +1698,8 @@
       "attackdamage": 50,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.4,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1684,7 +1733,8 @@
       "attackdamage": 47,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1718,7 +1768,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1751,7 +1802,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.4,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1785,7 +1837,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1819,7 +1872,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 0,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1852,7 +1906,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1886,7 +1941,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.688
+      "attackspeed": 0.688,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1920,7 +1976,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.8,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -1953,7 +2010,8 @@
       "attackdamage": 57,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 4.5,
-      "attackspeed": 0.694
+      "attackspeed": 0.694,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -1987,7 +2045,8 @@
       "attackdamage": 49,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.3,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2020,7 +2079,8 @@
       "attackdamage": 46,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2054,7 +2114,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.7,
-      "attackspeed": 0.64
+      "attackspeed": 0.64,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2088,7 +2149,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.74,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2122,7 +2184,8 @@
       "attackdamage": 50,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2156,7 +2219,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.7,
-      "attackspeed": 0.669
+      "attackspeed": 0.669,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2189,7 +2253,8 @@
       "attackdamage": 48,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.4,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2222,7 +2287,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.7,
-      "attackspeed": 0.668
+      "attackspeed": 0.668,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2255,7 +2321,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2288,7 +2355,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2322,7 +2390,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.65,
-      "attackspeed": 0.665
+      "attackspeed": 0.665,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2356,7 +2425,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2390,7 +2460,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.651
+      "attackspeed": 0.651,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2424,7 +2495,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.9,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2458,7 +2530,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.7,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2491,7 +2564,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.656
+      "attackspeed": 0.656,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2525,7 +2599,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.3,
-      "attackspeed": 0.688
+      "attackspeed": 0.688,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2559,7 +2634,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2593,7 +2669,8 @@
       "attackdamage": 47,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.25,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2627,7 +2704,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.669
+      "attackspeed": 0.669,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2661,7 +2739,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.4,
-      "attackspeed": 0.736
+      "attackspeed": 0.736,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2694,7 +2773,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2728,7 +2808,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.125,
-      "attackspeed": 0.8
+      "attackspeed": 0.8,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2762,7 +2843,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.679
+      "attackspeed": 0.679,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2796,7 +2878,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2830,7 +2913,8 @@
       "attackdamage": 48,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2864,7 +2948,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.656
+      "attackspeed": 0.656,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -2898,7 +2983,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2932,7 +3018,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.53,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -2966,7 +3053,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.1,
-      "attackspeed": 0.663
+      "attackspeed": 0.663,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3000,7 +3088,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.61,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3034,7 +3123,8 @@
       "attackdamage": 67,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.48,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3068,7 +3158,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1,
-      "attackspeed": 0.706
+      "attackspeed": 0.706,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3102,7 +3193,8 @@
       "attackdamage": 48,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3136,7 +3228,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.22,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3170,7 +3263,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.25,
-      "attackspeed": 0.697
+      "attackspeed": 0.697,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3204,7 +3298,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.7,
-      "attackspeed": 0.721
+      "attackspeed": 0.721,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3238,7 +3333,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.25,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3272,7 +3368,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.7,
-      "attackspeed": 0.72
+      "attackspeed": 0.72,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3306,7 +3403,8 @@
       "attackdamage": 44,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3339,7 +3437,8 @@
       "attackdamage": 69,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3373,7 +3472,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.95,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3407,7 +3507,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3441,7 +3542,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.667
+      "attackspeed": 0.667,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3474,7 +3576,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.1,
-      "attackspeed": 0.688
+      "attackspeed": 0.688,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3508,7 +3611,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.1,
-      "attackspeed": 0.668
+      "attackspeed": 0.668,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3541,7 +3645,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.635
+      "attackspeed": 0.635,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3574,7 +3679,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.215,
-      "attackspeed": 0.7
+      "attackspeed": 0.7,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3608,7 +3714,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.667
+      "attackspeed": 0.667,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3642,7 +3749,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3676,7 +3784,8 @@
       "attackdamage": 49,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3710,7 +3819,8 @@
       "attackdamage": 69,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.75,
-      "attackspeed": 0.665
+      "attackspeed": 0.665,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3744,7 +3854,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.667
+      "attackspeed": 0.667,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3778,7 +3889,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3812,7 +3924,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.85,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3845,7 +3958,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3879,7 +3993,8 @@
       "attackdamage": 57,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.3,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3912,7 +4027,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.688
+      "attackspeed": 0.688,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -3946,7 +4062,8 @@
       "attackdamage": 50,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.6,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -3980,7 +4097,8 @@
       "attackdamage": 50,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.669
+      "attackspeed": 0.669,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4014,7 +4132,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.75,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4047,7 +4166,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.694
+      "attackspeed": 0.694,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4080,7 +4200,8 @@
       "attackdamage": 64,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.751
+      "attackspeed": 0.751,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4114,7 +4235,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4148,7 +4270,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.9,
-      "attackspeed": 0.7
+      "attackspeed": 0.7,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4182,7 +4305,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.3,
-      "attackspeed": 0.679
+      "attackspeed": 0.679,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4215,7 +4339,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.6,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4249,7 +4374,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4283,7 +4409,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 4,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4317,7 +4444,8 @@
       "attackdamage": 49,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.3,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4351,7 +4479,8 @@
       "attackdamage": 50,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.14,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4385,7 +4514,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4419,7 +4549,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.645
+      "attackspeed": 0.645,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4452,7 +4583,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4486,7 +4618,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4520,7 +4653,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.36,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4553,7 +4687,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.9,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4587,7 +4722,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4621,7 +4757,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.38,
-      "attackspeed": 0.69
+      "attackspeed": 0.69,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4655,7 +4792,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4689,7 +4827,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.5,
-      "attackspeed": 0.656
+      "attackspeed": 0.656,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4723,7 +4862,8 @@
       "attackdamage": 68,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.9,
-      "attackspeed": 0.67
+      "attackspeed": 0.67,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4757,7 +4897,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.4,
-      "attackspeed": 0.67
+      "attackspeed": 0.67,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4791,7 +4932,8 @@
       "attackdamage": 52,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -4825,7 +4967,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.679
+      "attackspeed": 0.679,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4859,7 +5002,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.65
+      "attackspeed": 0.65,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4893,7 +5037,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.75,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4927,7 +5072,8 @@
       "attackdamage": 59,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4961,7 +5107,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.8,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -4994,7 +5141,8 @@
       "attackdamage": 52,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.24,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5028,7 +5176,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.59,
-      "attackspeed": 0.643
+      "attackspeed": 0.643,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5061,7 +5210,8 @@
       "attackdamage": 54,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1,
-      "attackspeed": 0.669
+      "attackspeed": 0.669,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5095,7 +5245,8 @@
       "attackdamage": 61,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.644
+      "attackspeed": 0.644,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5129,7 +5280,8 @@
       "attackdamage": 57,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.75,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5162,7 +5314,8 @@
       "attackdamage": 53,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5196,7 +5349,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5230,7 +5384,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5264,7 +5419,8 @@
       "attackdamage": 65,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.638
+      "attackspeed": 0.638,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5298,7 +5454,8 @@
       "attackdamage": 66,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3,
-      "attackspeed": 0.69
+      "attackspeed": 0.69,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5331,7 +5488,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.9,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5365,7 +5523,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.36,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5399,7 +5558,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.645
+      "attackspeed": 0.645,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5433,7 +5593,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.697
+      "attackspeed": 0.697,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5467,7 +5628,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5501,7 +5663,8 @@
       "attackdamage": 62,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5534,7 +5697,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.65
+      "attackspeed": 0.65,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5568,7 +5732,8 @@
       "attackdamage": 49,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5601,7 +5766,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.625
+      "attackspeed": 0.625,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5635,7 +5801,8 @@
       "attackdamage": 60,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 1.6,
-      "attackspeed": 0.736
+      "attackspeed": 0.736,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5668,7 +5835,8 @@
       "attackdamage": 63,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 3.3,
-      "attackspeed": 0.651
+      "attackspeed": 0.651,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5701,7 +5869,8 @@
       "attackdamage": 56,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ad"
     }
   },
   {
@@ -5734,7 +5903,8 @@
       "attackdamage": 55,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2,
-      "attackspeed": 0.656
+      "attackspeed": 0.656,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5768,7 +5938,8 @@
       "attackdamage": 52,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.13,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5801,7 +5972,8 @@
       "attackdamage": 58,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.5,
-      "attackspeed": 0.658
+      "attackspeed": 0.658,
+      "adaptiveType": "ap"
     }
   },
   {
@@ -5835,7 +6007,8 @@
       "attackdamage": 53,
       "attackdamageperlevel": 0,
       "attackspeedperlevel": 2.11,
-      "attackspeed": 0.681
+      "attackspeed": 0.681,
+      "adaptiveType": "ap"
     }
   }
 ]

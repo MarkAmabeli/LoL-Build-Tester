@@ -10,7 +10,7 @@
  *     values (DataValues) and formulas (SpellCalculations). Data Dragon tooltips no
  *     longer carry usable ability numbers. Also rune stat shards, which Data Dragon lacks.
  */
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
@@ -21,6 +21,7 @@ const CDRAGON = 'https://raw.communitydragon.org';
 const LOCALE = 'en_US';
 const CONCURRENCY = 8;
 const OUT_ROOT = path.resolve('public/data');
+const OVERRIDES = path.resolve('scripts/overrides');
 
 async function getJson<T>(url: string, retries = 2): Promise<T> {
   for (let attempt = 0; ; attempt++) {
@@ -119,10 +120,21 @@ interface BinSpellObject {
 
 const SUMMONERS_RIFT = '11';
 
+/**
+ * Build champions, adding `stats.adaptiveType` from the hand-maintained list in
+ * scripts/overrides/adaptive-magic.json (Data Dragon doesn't have it).
+ */
 async function buildChampions(version: string) {
-  const { data } = await getJson<{ data: Record<string, DDChampionSummary> }>(
-    `${DDRAGON}/cdn/${version}/data/${LOCALE}/champion.json`,
-  );
+  const [{ data }, overrides] = await Promise.all([
+    getJson<{ data: Record<string, DDChampionSummary> }>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/champion.json`),
+    readFile(path.join(OVERRIDES, 'adaptive-magic.json'), 'utf8').then((t) => JSON.parse(t) as { champions: string[] }),
+  ]);
+  const adaptiveMagic = new Set(overrides.champions);
+  const known = new Set(Object.values(data).map((c) => c.name));
+  const warnings = overrides.champions
+    .filter((name) => !known.has(name))
+    .map((name) => `adaptive-magic.json: no champion named "${name}"`);
+
   const champions = Object.values(data)
     .map((c) => ({
       id: c.id,
@@ -132,10 +144,10 @@ async function buildChampions(version: string) {
       tags: c.tags,
       resource: c.partype,
       icon: `${DDRAGON}/cdn/${version}/img/champion/${c.image.full}`,
-      stats: c.stats,
+      stats: { ...c.stats, adaptiveType: adaptiveMagic.has(c.name) ? 'ap' : 'ad' },
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
-  return champions;
+  return { champions, warnings };
 }
 
 /**
@@ -273,7 +285,7 @@ async function main() {
   const outDir = path.join(OUT_ROOT, version);
   console.log(`Building data for ${version} -> ${path.relative(process.cwd(), outDir)}`);
 
-  const [champions, items, runes, shards] = await Promise.all([
+  const [{ champions, warnings: championWarnings }, items, runes, shards] = await Promise.all([
     buildChampions(version),
     buildItems(version),
     buildRunes(version),
@@ -284,7 +296,7 @@ async function main() {
   await writeJson(path.join(outDir, 'runes.json'), runes);
   await writeJson(path.join(outDir, 'shards.json'), shards.data);
   console.log(`  ${champions.length} champions, ${items.length} items, ${Object.keys(shards.data.shards).length} stat shards`);
-  for (const w of shards.warnings) console.warn(`  ! ${w}`);
+  for (const w of [...championWarnings, ...shards.warnings]) console.warn(`  ! ${w}`);
 
   const failures = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);

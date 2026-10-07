@@ -5,7 +5,7 @@
 - [x] Parse item stats that only exist in description text (ability haste, lethality, penetration)
 - [x] Pull CommunityDragon spell DataValues and SpellCalculations per champion
 - [ ] Translate SpellCalculations into `DamageComponent`s (base per rank + ratios)
-- [ ] Hand-maintained overrides file for cases the raw data gets wrong
+- [ ] Hand-maintained overrides file for cases the raw data gets wrong (started: `scripts/overrides/adaptive-magic.json`)
 - [ ] Schema validation on generated output
 
 ## 2. Stat engine
