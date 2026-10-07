@@ -9,5 +9,6 @@ export const rabadonsDeathcap: Effect = {
   name: "Rabadon's Deathcap",
   kind: 'item',
   verifiedPatch: '16.20',
+  statPhase: 'multiply',
   modifyStats: (stats) => ({ ...stats, ap: stats.ap * (1 + AP_AMP) }),
 };

@@ -89,6 +89,13 @@ export interface ResolvedStats {
   magicPenPct: number;
   moveSpeed: number;
   attackRange: number;
+  /** Base attack speed and ratio, kept so effects can add bonus attack speed later. */
+  attackSpeedBase: number;
+  attackSpeedRatio: number;
+  /** Bonus attack speed %, including level growth (as the game counts it). */
+  bonusAttackSpeedPct: number;
+  /** The champion's adaptive tie-break (see `ChampionBaseStats.adaptiveType`). */
+  adaptiveTieBreak: 'ad' | 'ap';
 }
 
 /** Resistance reduction applied to a target (e.g. Black Cleaver shred). Applied before penetration. */
@@ -104,7 +111,7 @@ export interface DamageInstance {
   raw: number;
   /** Human-readable origin, e.g. "Q", "Auto attack", "Liandry's burn". */
   source: string;
-  tags?: Array<'ability' | 'onhit' | 'dot' | 'crit' | 'aoe' | 'auto'>;
+  tags?: Array<'ability' | 'onhit' | 'dot' | 'crit' | 'aoe' | 'auto' | 'proc'>;
 }
 
 export interface MitigatedDamage extends DamageInstance {

@@ -39,6 +39,11 @@ export interface Effect {
   /** Patch the numbers were last checked against, e.g. "16.20". */
   verifiedPatch: string;
   state?: StateField[];
+  /**
+   * When `modifyStats` runs: 'add' (default) for flat additions, 'multiply' for
+   * percent-of-total effects, which must see every addition first.
+   */
+  statPhase?: 'add' | 'multiply';
 
   /** Runs on fully summed stats; returns the changed stats. */
   modifyStats?(stats: ResolvedStats, state: EffectState): ResolvedStats;

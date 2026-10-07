@@ -1,9 +1,8 @@
-import { MAX_LEVEL, MIN_LEVEL, clampLevel, sumBonuses } from './stats';
+import { byLevel, sumBonuses } from './stats';
 import type { LevelScaledStat, ShardData, StatBonuses, StatShard } from './types';
 
 export function scaledStatAt(s: LevelScaledStat, level: number): number {
-  const t = (clampLevel(level) - MIN_LEVEL) / (MAX_LEVEL - MIN_LEVEL);
-  return s.from + (s.to - s.from) * t;
+  return byLevel(s.from, s.to, level);
 }
 
 /** Bonuses from one shard at a level. */

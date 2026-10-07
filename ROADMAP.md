@@ -26,7 +26,7 @@
 ## 4. Effects layer
 - [x] Effect hooks: `modifyStats`, `onHit`, `onAbilityHit`, `preMitigation`, `targetResist` (pilot items: Rabadon's, Black Cleaver, Nashor's, Kraken)
 - [ ] The 20–30 most-built damage items
-- [ ] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
+- [x] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
 
 ## 5. Combo simulator
 - [ ] Ordered action list (Q, AA, E, R…) with stateful stacks, procs and shred
