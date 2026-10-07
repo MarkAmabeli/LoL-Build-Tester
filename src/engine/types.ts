@@ -79,6 +79,7 @@ export interface ResolvedStats {
   magicPenFlat: number;
   magicPenPct: number;
   moveSpeed: number;
+  attackRange: number;
 }
 
 /** Resistance reduction applied to a target (e.g. Black Cleaver shred). Applied before penetration. */

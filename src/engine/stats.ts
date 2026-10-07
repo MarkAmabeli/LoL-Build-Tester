@@ -1,9 +1,12 @@
+import type { ActiveEffect } from './effects/types';
 import type { ChampionBaseStats, ResolvedStats, SplitStat, StatBonuses } from './types';
 
 export const MIN_LEVEL = 1;
 export const MAX_LEVEL = 18;
 export const BASE_CRIT_MULTIPLIER = 1.75;
 export const ATTACK_SPEED_CAP = 2.5;
+/** Champions with a longer attack range than this count as ranged (melee tops out around 250). */
+export const MELEE_RANGE_MAX = 250;
 
 /**
  * Total growth gained by `level`, using Riot's non-linear growth curve:
@@ -51,16 +54,21 @@ export function attackSpeedAt(champ: ChampionBaseStats, level: number, bonusPct 
   return Math.min(ATTACK_SPEED_CAP, as);
 }
 
-/** Resolve a champion's stats at a level with the given bonuses. */
+/**
+ * Resolve a champion's stats at a level with the given bonuses.
+ * Effects' `modifyStats` hooks run afterwards, in order, on the summed stats
+ * (e.g. Rabadon's multiplies total AP, so it must see every flat AP source first).
+ */
 export function resolveStats(
   champ: ChampionBaseStats,
   level: number,
   bonuses: StatBonuses = {},
+  effects: ActiveEffect[] = [],
 ): ResolvedStats {
   const lvl = clampLevel(level);
   const at = (base: number, growth: number) => base + growthAtLevel(growth, lvl);
 
-  return {
+  const stats: ResolvedStats = {
     level: lvl,
     hp: split(at(champ.hp, champ.hpperlevel), bonuses.hp),
     mana: split(at(champ.mp, champ.mpperlevel), bonuses.mana),
@@ -77,7 +85,16 @@ export function resolveStats(
     magicPenFlat: bonuses.magicPenFlat ?? 0,
     magicPenPct: bonuses.magicPenPct ?? 0,
     moveSpeed: champ.movespeed + (bonuses.moveSpeed ?? 0),
+    attackRange: champ.attackrange,
   };
+  return effects.reduce(
+    (s, { effect, state }) => effect.modifyStats?.(s, state) ?? s,
+    stats,
+  );
+}
+
+export function isRanged(stats: ResolvedStats): boolean {
+  return stats.attackRange > MELEE_RANGE_MAX;
 }
 
 /** Cooldown after ability haste: cd × 100 / (100 + AH). */

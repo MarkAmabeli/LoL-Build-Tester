@@ -23,7 +23,7 @@
 - [ ] Execute thresholds, damage reduction effects, shields
 
 ## 4. Effects layer
-- [ ] Modifier hooks: `modifyStats`, `onHit`, `preMitigation`, `postMitigation`
+- [x] Effect hooks: `modifyStats`, `onHit`, `onAbilityHit`, `preMitigation`, `targetResist` (pilot items: Rabadon's, Black Cleaver, Nashor's, Kraken)
 - [ ] The 20–30 most-built damage items
 - [ ] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
 
