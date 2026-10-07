@@ -1,0 +1,387 @@
+{
+  "GangplankRWithRaiseMorale": {
+    "path": "Characters/Gangplank/Spells/GangplankRAbility/GangplankRWithRaiseMorale",
+    "cooldown": [
+      160,
+      160,
+      140,
+      120,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      30000,
+      30000,
+      30000,
+      30000,
+      30000,
+      30000,
+      30000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "OneWaveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerWave",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DeathsDaughterDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DeathsDaughterBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageTooltip": {
+        "mMultiplier": {
+          "mDataValue": "TotalWavesTooltip",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "OneWaveDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "GangplankR": {
+    "path": "Characters/Gangplank/Spells/GangplankRAbility/GangplankR",
+    "cooldown": [
+      160,
+      160,
+      140,
+      120,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      30000,
+      30000,
+      30000,
+      30000,
+      30000,
+      30000,
+      30000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "OneWaveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerWave",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DeathsDaughterDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DeathsDaughterBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageTooltip": {
+        "mMultiplier": {
+          "mDataValue": "TotalWavesTooltip",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "OneWaveDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "GangplankQWrapper": {
+    "path": "Characters/Gangplank/Spells/GangplankQWrapperAbility/GangplankQWrapper",
+    "cooldown": [
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      4.5
+    ],
+    "cost": [
+      50,
+      45,
+      40,
+      35,
+      30,
+      30
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ShotDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SpellDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShotCrit": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mDataValue": "CritDamageMod",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "ShotDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "GangplankESpellPassive": {
+    "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankESpellPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "GangplankE": {
+    "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankE",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "FinalSlowAmount": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BarrelSlow",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BarrelDecayTime": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 2,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GangplankW": {
+    "path": "Characters/Gangplank/Spells/GangplankWAbility/GangplankW",
+    "cooldown": [
+      24,
+      22,
+      20,
+      18,
+      16,
+      14,
+      14
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      110
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseHealth": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GangplankPassive": {
+    "path": "Characters/Gangplank/Spells/GangplankPassiveAbility/GangplankPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mStartValue": 50,
+            "mEndValue": 250,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MoveSpeed": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.15000000596046448,
+            "mEndValue": 0.30000001192092896,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

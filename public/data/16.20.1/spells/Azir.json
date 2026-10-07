@@ -1,0 +1,296 @@
+{
+  "AzirW": {
+    "path": "Characters/Azir/Spells/AzirWAbility/AzirW",
+    "cooldown": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "cost": [
+      40,
+      35,
+      30,
+      25,
+      20,
+      20
+    ],
+    "range": [
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "SecondaryTargetDamageMod": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.20000000298023224,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mBonusPerLevelAtAndAfter": 0.07999999821186066,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 19,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBreakpoints": [
+              {
+                "mLevel": 10,
+                "mBonusPerLevelAtAndAfter": 8,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "AzirQWrapper": {
+    "path": "Characters/Azir/Spells/AzirQWrapperAbility/AzirQWrapper",
+    "cooldown": [
+      14,
+      14,
+      12,
+      10,
+      8,
+      6,
+      6
+    ],
+    "cost": [
+      70,
+      80,
+      90,
+      100,
+      110,
+      110
+    ],
+    "range": [
+      720,
+      720,
+      720,
+      720,
+      720,
+      720,
+      720
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "AzirEWrapper": {
+    "path": "Characters/Azir/Spells/AzirEWrapperAbility/AzirEWrapper",
+    "cooldown": [
+      22,
+      22,
+      20.5,
+      19,
+      17.5,
+      16,
+      16
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "AzirR": {
+    "path": "Characters/Azir/Spells/AzirRAbility/AzirR",
+    "cooldown": [
+      120,
+      120,
+      105,
+      90,
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "AzirPassive": {
+    "path": "Characters/Azir/Spells/AzirPassiveAbility/AzirPassive",
+    "cooldown": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TowerDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 230,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusResists": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 30,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

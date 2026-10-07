@@ -1,0 +1,223 @@
+{
+  "RivenTriCleave": {
+    "path": "Characters/Riven/Spells/RivenTriCleaveAbility/RivenTriCleave",
+    "cooldown": [
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "FirstSlashDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RivenMartyr": {
+    "path": "Characters/Riven/Spells/RivenMartyrAbility/RivenMartyr",
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      7
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RivenFeint": {
+    "path": "Characters/Riven/Spells/RivenFeintAbility/RivenFeint",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.100000023841858,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RivenPassive": {
+    "path": "Characters/Riven/Spells/RivenPassiveAbility/RivenPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mStartValue": 0.30000001192092896,
+              "mEndValue": 0.44999998807907104,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RivenFengShuiEngine": {
+    "path": "Characters/Riven/Spells/RivenFengShuiEngineAbility/RivenFengShuiEngine",
+    "cooldown": [
+      10,
+      120,
+      90,
+      60,
+      60,
+      10,
+      10
+    ],
+    "range": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.649999976158142,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusAD": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "PercentBonusAD",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "PickACard": {
+    "path": "Characters/TwistedFate/Spells/PickACardAbility/PickACard",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BlueDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BlueBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 8,
+            "mSubpart": {
+              "mPart1": {
+                "mDataValue": "BlueCritMultiplier",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mDataValue": "BlueBase",
+                    "__type": "NamedDataValueCalculationPart"
+                  },
+                  {
+                    "mStat": 2,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RedDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mDataValue": "RedBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 8,
+            "mSubpart": {
+              "mPart1": {
+                "mDataValue": "RedCritMultiplier",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mDataValue": "RedBase",
+                    "__type": "NamedDataValueCalculationPart"
+                  },
+                  {
+                    "mStat": 2,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mCoefficient": 0.699999988079071,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "GoldDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mDataValue": "GoldBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 8,
+            "mSubpart": {
+              "mPart1": {
+                "mDataValue": "GoldCritMultiplier",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mDataValue": "GoldBase",
+                    "__type": "NamedDataValueCalculationPart"
+                  },
+                  {
+                    "mStat": 2,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mCoefficient": 0.5,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ttBlueDamage": {
+        "mMultiplier": {
+          "mNumber": 1,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "BlueDamage",
+        "__type": "GameCalculationModified"
+      },
+      "ttRedDamage": {
+        "mMultiplier": {
+          "mNumber": 1,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "RedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "ttGoldDamage": {
+        "mMultiplier": {
+          "mNumber": 1,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "GoldDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "WildCards": {
+    "path": "Characters/TwistedFate/Spells/WildCardsAbility/WildCards",
+    "cooldown": [
+      6,
+      6,
+      5.75,
+      5.5,
+      5.25,
+      5,
+      5
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      110
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Destiny": {
+    "path": "Characters/TwistedFate/Spells/DestinyAbility/Destiny",
+    "cooldown": [
+      170,
+      170,
+      140,
+      110,
+      110,
+      110,
+      110
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      115,
+      130,
+      0
+    ],
+    "range": [
+      5500,
+      5500,
+      5500,
+      5500,
+      5500,
+      5500,
+      5500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "CardmasterStack": {
+    "path": "Characters/TwistedFate/Spells/CardmasterStackAbility/CardmasterStack",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SecondSight": {
+    "path": "Characters/TwistedFate/Spells/SecondSightAbility/SecondSight",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "TryndamereE": {
+    "path": "Characters/Tryndamere/Spells/TryndamereEAbility/TryndamereE",
+    "cooldown": [
+      12,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TryndamerePassive": {
+    "path": "Characters/Tryndamere/Spells/TryndamerePassiveAbility/TryndamerePassive",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveCritConversionTooltip": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.5,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "{dc63b617}": {
+        "mMultiplier": {
+          "mNumber": 0.10000000149011612,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.05000000074505806,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "UndyingRage": {
+    "path": "Characters/Tryndamere/Spells/UndyingRageAbility/UndyingRage",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TryndamereW": {
+    "path": "Characters/Tryndamere/Spells/TryndamereWAbility/TryndamereW",
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TryndamereQ": {
+    "path": "Characters/Tryndamere/Spells/TryndamereQAbility/TryndamereQ",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHealing",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealPerFury": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusHealPerFury",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerFury",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "MaximumHeal": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHealing",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mPart1": {
+              "mCoefficient": 1,
+              "mAbilityResource": 4,
+              "__type": "AbilityResourceByCoefficientCalculationPart"
+            },
+            "mPart2": {
+              "mSubparts": [
+                {
+                  "mDataValue": "BonusHealPerFury",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mDataValue": "APRatioPerFury",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "NamiW": {
+    "path": "Characters/Nami/Spells/NamiWAbility/NamiW",
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      90
+    ],
+    "range": [
+      725,
+      725,
+      725,
+      725,
+      725,
+      725,
+      725
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHeal": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BounceScaling": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BounceRatio",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BounceRatioScaling",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NamiQ": {
+    "path": "Characters/Nami/Spells/NamiQAbility/NamiQ",
+    "cooldown": [
+      12,
+      12,
+      11,
+      10,
+      9,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamageTT": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NamiE": {
+    "path": "Characters/Nami/Spells/NamiEAbility/NamiE",
+    "cooldown": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "cost": [
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AoeMod": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.33000001311302185,
+            "mEndValue": 0.6600000262260437,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalSlow": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseSlow",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SlowRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NamiR": {
+    "path": "Characters/Nami/Spells/NamiRAbility/NamiR",
+    "cooldown": [
+      10,
+      120,
+      110,
+      100,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      400,
+      2200,
+      2200,
+      2200,
+      400,
+      400,
+      400
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NamiPassive": {
+    "path": "Characters/Nami/Spells/NamiPassiveAbility/NamiPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMSBonus": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "FlatMS",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

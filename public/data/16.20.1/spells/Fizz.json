@@ -1,0 +1,292 @@
+{
+  "FizzE": {
+    "path": "Characters/Fizz/Spells/FizzEAbility/FizzE",
+    "cooldown": [
+      16,
+      16,
+      14,
+      12,
+      10,
+      8,
+      6
+    ],
+    "cost": [
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.949999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "FizzPassive": {
+    "path": "Characters/Fizz/Spells/FizzPassiveAbility/FizzPassive",
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageReductionCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MonsterDamageReductionCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterDamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "FizzW": {
+    "path": "Characters/Fizz/Spells/FizzWAbility/FizzW",
+    "cooldown": [
+      7,
+      7,
+      6,
+      5,
+      4,
+      3,
+      3
+    ],
+    "cost": [
+      30,
+      40,
+      50,
+      60,
+      70,
+      80
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DoTDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DoTBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DoTRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ActiveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ActiveRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "OnHitBuffDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "OnHitBuffBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "OnHitRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "FizzR": {
+    "path": "Characters/Fizz/Spells/FizzRAbility/FizzR",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      0
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "SmallSharkDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SmallDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SmallAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{262c3c02}": {
+        "mMultiplier": {
+          "mDataValue": "MidDamageMulti",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "SmallSharkDamage",
+        "__type": "GameCalculationModified"
+      },
+      "BigSharkDamage": {
+        "mMultiplier": {
+          "mDataValue": "LargeDamageMulti",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "SmallSharkDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "FizzQ": {
+    "path": "Characters/Fizz/Spells/FizzQAbility/FizzQ",
+    "cooldown": [
+      8.5,
+      8,
+      7.5,
+      7,
+      6.5,
+      6,
+      6
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {},
+    "calculations": {
+      "QDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

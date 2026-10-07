@@ -1,0 +1,192 @@
+{
+  "VayneCondemn": {
+    "path": "Characters/Vayne/Spells/VayneCondemnAbility/VayneCondemn",
+    "cooldown": [
+      22,
+      20,
+      18,
+      16,
+      14,
+      12,
+      12
+    ],
+    "cost": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamageTT": {
+        "mMultiplier": {
+          "mDataValue": "StunDamage",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "VaynePassive": {
+    "path": "Characters/Vayne/Spells/VaynePassiveAbility/VaynePassive",
+    "range": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "VayneInquisition": {
+    "path": "Characters/Vayne/Spells/VayneInquisitionAbility/VayneInquisition",
+    "cooldown": [
+      100,
+      100,
+      85,
+      70,
+      70,
+      70,
+      70
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "VayneTumble": {
+    "path": "Characters/Vayne/Spells/VayneTumbleAbility/VayneTumble",
+    "cooldown": [
+      6,
+      6,
+      5,
+      4,
+      3,
+      2,
+      2
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ADRatioBonus": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VayneSilveredBolts": {
+    "path": "Characters/Vayne/Spells/VayneSilveredBoltsAbility/VayneSilveredBolts",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthRatio",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

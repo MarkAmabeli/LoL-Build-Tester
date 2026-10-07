@@ -1,0 +1,273 @@
+{
+  "TaliyahE": {
+    "path": "Characters/Taliyah/Spells/TaliyahEAbility/TaliyahE",
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ScatterDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DetonationDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDetonationDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDetonationDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 2.5,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "DetonationDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "TaliyahQ": {
+    "path": "Characters/Taliyah/Spells/TaliyahQAbility/TaliyahQ",
+    "cooldown": [
+      7,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2
+    ],
+    "cost": [
+      55,
+      60,
+      65,
+      70,
+      75,
+      75
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RockDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "BigRockDamage": {
+        "mMultiplier": {
+          "mDataValue": "BigRockDamageMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "RockDamage",
+        "__type": "GameCalculationModified"
+      },
+      "MaxDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 2.5999999046325684,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "RockDamage",
+        "__type": "GameCalculationModified"
+      },
+      "TotalBonusFlatMonsterDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterBonusFlatDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{c363b92e}": {
+        "mMultiplier": {
+          "mDataValue": "BigRockDamageMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalBonusFlatMonsterDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "TaliyahR": {
+    "path": "Characters/Taliyah/Spells/TaliyahRAbility/TaliyahR",
+    "cooldown": [
+      180,
+      180,
+      150,
+      120,
+      0,
+      0,
+      140
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TaliyahPassive": {
+    "path": "Characters/Taliyah/Spells/TaliyahPassiveAbility/TaliyahPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMS": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.10000000149011612,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mAdditionalBonusAtThisLevel": 0.15000000596046448,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 27,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 30,
+                "mAdditionalBonusAtThisLevel": 0.30000001192092896,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TaliyahWVC": {
+    "path": "Characters/Taliyah/Spells/TaliyahWVCAbility/TaliyahWVC",
+    "cooldown": [
+      14,
+      14,
+      12.5,
+      11,
+      9.5,
+      8,
+      8
+    ],
+    "cost": [
+      40,
+      30,
+      20,
+      10,
+      0,
+      0
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

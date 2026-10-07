@@ -1,0 +1,558 @@
+{
+  "YuumiQRelease": {
+    "path": "Characters/Yuumi/Spells/YuumiQAbility/YuumiQRelease",
+    "cooldown": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinAmountToHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealAmountMin",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YuumiQ": {
+    "path": "Characters/Yuumi/Spells/YuumiQAbility/YuumiQ",
+    "cooldown": [
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMissileDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MissileDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalMissileDamageEmpowered": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "EmpoweredMissileDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "EmpoweredAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "OnHitDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mDataValue": "OnHitBase",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YuumiWCast": {
+    "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiWCast",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "YuumiWAttach": {
+    "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiWAttach",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "YuumiW": {
+    "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiW",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AttachCooldown": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": -5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CCAttachLockout": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 5,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealthOnHit": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHealthOnHit",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YuumiWEndWrapper": {
+    "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiWEndWrapper",
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "YuumiP": {
+    "path": "Characters/Yuumi/Spells/YuumiPAbility/YuumiP",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mInitialBonusPerLevel": -1,
+            "mBreakpoints": [
+              {
+                "mLevel": 14,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{656dde8a}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealAmount": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 20,
+            "mEndValue": 110,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YuumiR": {
+    "path": "Characters/Yuumi/Spells/YuumiRAbility/YuumiR",
+    "cooldown": [
+      120,
+      120,
+      110,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMissileDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMissileDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalSingleTargetDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mSubparts": [
+                  {
+                    "mDataValue": "NumberOfWaves",
+                    "__type": "NamedDataValueCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "mPart2": {
+                "mDataValue": "MultiMissileReduction",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalMissileDamage",
+        "__type": "GameCalculationModified"
+      },
+      "MultiMissileTotal": {
+        "mMultiplier": {
+          "mDataValue": "MultiMissileReduction",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "TotalMissileDamage",
+        "__type": "GameCalculationModified"
+      },
+      "TotalHealPerWave": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHealPerWave",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.11999999731779099,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EnhancedHealPerWave": {
+        "mMultiplier": {
+          "mSpellCalculationKey": "AllyHealingPerc",
+          "__type": "{f3cbe7b2}"
+        },
+        "mModifiedGameCalculation": "TotalHealPerWave",
+        "__type": "GameCalculationModified"
+      },
+      "AllyHealingPerc": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 1.2999999523162842,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YuumiE": {
+    "path": "Characters/Yuumi/Spells/YuumiEAbility/YuumiE",
+    "cost": [
+      80,
+      90,
+      100,
+      110,
+      120,
+      130
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShielding": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShielding",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AttackSpeedAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.07999999821186066,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YuumiEURF": {
+    "path": "Characters/Yuumi/Spells/YuumiEURF",
+    "cooldown": [
+      10,
+      15,
+      13.75,
+      12.5,
+      11.25,
+      10,
+      10
+    ],
+    "cost": [
+      80,
+      90,
+      100,
+      110,
+      120,
+      130
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShielding": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShielding",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AttackSpeedAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.07999999821186066,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

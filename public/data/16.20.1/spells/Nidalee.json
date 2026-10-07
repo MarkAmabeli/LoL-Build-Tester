@@ -1,0 +1,342 @@
+{
+  "Takedown": {
+    "path": "Characters/Nidalee/Spells/Takedown",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "JavelinToss": {
+    "path": "Characters/Nidalee/Spells/JavelinTossAbility/JavelinToss",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      1500,
+      1500,
+      1500,
+      1500,
+      1500,
+      1500,
+      1500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HumanMinimumDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SpearMinimumDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SpearMinimumAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HumanMaximumDamage": {
+        "mMultiplier": {
+          "mDataValue": "DamageMulti",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "HumanMinimumDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{38f95809}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "TooltipCougarMinimumDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "PrimalSurge": {
+    "path": "Characters/Nidalee/Spells/PrimalSurgeAbility/PrimalSurge",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.3499999940395355,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxHealing": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "MaxHealMult",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalHealing",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "AspectOfTheCougar": {
+    "path": "Characters/Nidalee/Spells/AspectOfTheCougarAbility/AspectOfTheCougar",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalPounceDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PounceDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "PounceADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "PounceAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalSwipeDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SwipeDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "SwipeADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SwipeAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalTakedownDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "TakedownBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "TakedownADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "TakedownAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Bushwhack": {
+    "path": "Characters/Nidalee/Spells/BushwhackAbility/Bushwhack",
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10,
+      9,
+      9
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MaxTraps": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 4,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 2,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 2,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 2,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "ModesBonusMaxTraps",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamagePerSecond": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamagePerTick",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Pounce": {
+    "path": "Characters/Nidalee/Spells/Pounce",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

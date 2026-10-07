@@ -1,0 +1,493 @@
+{
+  "SmolderW": {
+    "path": "Characters/Smolder/Spells/SmolderWAbility/SmolderW",
+    "cooldown": [
+      14,
+      14,
+      13,
+      12,
+      11,
+      10,
+      10
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      70
+    ],
+    "range": [
+      1500,
+      1500,
+      1500,
+      1500,
+      1500,
+      1500,
+      1500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "HitADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExplosionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExplosionBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SmolderQ": {
+    "path": "Characters/Smolder/Spells/SmolderQAbility/SmolderQ",
+    "cooldown": [
+      5.5,
+      5.5,
+      5,
+      4.5,
+      4,
+      3.5,
+      3.5
+    ],
+    "cost": [
+      25,
+      25,
+      25,
+      25,
+      25,
+      25
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CritRatio",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  },
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Tier2_NumberOfBlowback": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Tier2_BlowbackAmountBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mCoefficient": 0.00800000037997961,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Tier3_ExecuteThreshold": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Tier3_ExecuteThresholdStart",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "Tier3_Burn": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0002500000118743628,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mDataValue": "Tier3_Burn_Stack_Mult",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SmolderR": {
+    "path": "Characters/Smolder/Spells/SmolderRAbility/SmolderR",
+    "cooldown": [
+      120,
+      120,
+      110,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      4200,
+      4200,
+      4200,
+      4200,
+      4200,
+      4200,
+      4200
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TooltipOnly_TotalSweetspotDamage": {
+        "mMultiplier": {
+          "mDataValue": "SweetspotPercentageIncrease",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      },
+      "MomHealCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MomHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SmolderE": {
+    "path": "Characters/Smolder/Spells/SmolderEAbility/SmolderE",
+    "cooldown": [
+      24,
+      24,
+      22,
+      20,
+      18,
+      16,
+      16
+    ],
+    "cost": [
+      65,
+      65,
+      65,
+      65,
+      65,
+      65
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalNumberOfAttacks": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "NumOfAttacksBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mDataValue": "NumAttackStackRatio",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "DamagePerHit": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SmolderP": {
+    "path": "Characters/Smolder/Spells/SmolderPAbility/SmolderP",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Passive_QDamageIncrease": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "QCritRatio",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  },
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mDataValue": "QDamagePerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Passive_WDamageIncrease": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mDataValue": "WDamagePerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TooltipOnly_QStacks": {
+        "mExpandedTooltipCalculationDisplay": 2,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mDataValue": "QDamagePerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TooltipOnly_QCritMultiplier": {
+        "mExpandedTooltipCalculationDisplay": 2,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{098531db}",
+            "mIconKey": "%i:scaleCrit%",
+            "mDataValue": "QCritRatio",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EBonusDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mCoefficient": 0.75,
+                "__type": "StatByCoefficientCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  },
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mBuffName": "{32bcea5d}",
+            "mIconKey": "%i:Smolder%",
+            "mDataValue": "EDamagePerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

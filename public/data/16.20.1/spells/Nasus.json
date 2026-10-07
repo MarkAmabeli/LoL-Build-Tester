@@ -1,0 +1,267 @@
+{
+  "NasusPassive": {
+    "path": "Characters/Nasus/Spells/NasusPassiveAbility/NasusPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {},
+    "calculations": {
+      "LifestealTooltip": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NasusQ": {
+    "path": "Characters/Nasus/Spells/NasusQAbility/NasusQ",
+    "cooldown": [
+      8.5,
+      7.5,
+      6.5,
+      5.5,
+      4.5,
+      3.5,
+      2.5
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      255,
+      255,
+      255,
+      255,
+      255,
+      255,
+      255
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mBuffName": "{1b1d7345}",
+            "mIconKey": "%i:nasusStackIcon%",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CritDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mStat": 9,
+              "mCoefficient": 1,
+              "__type": "StatByCoefficientCalculationPart"
+            },
+            "mPart2": {
+              "mSubparts": [
+                {
+                  "mDataValue": "BonusDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mStat": 2,
+                  "mCoefficient": 1,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          },
+          {
+            "mBuffName": "{1b1d7345}",
+            "mIconKey": "%i:nasusStackIcon%",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NasusE": {
+    "path": "Characters/Nasus/Spells/NasusEAbility/NasusE",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      100
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDotDamage": {
+        "mMultiplier": {
+          "mDataValue": "Duration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerTick",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.11999999731779099,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "InitialDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "InitialHitDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NasusR": {
+    "path": "Characters/Nasus/Spells/NasusRAbility/NasusR",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AoeDamagePercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.00009999999747378752,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NasusW": {
+    "path": "Characters/Nasus/Spells/NasusWAbility/NasusW",
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      11
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

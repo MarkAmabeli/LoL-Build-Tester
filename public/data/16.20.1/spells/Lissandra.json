@@ -1,0 +1,241 @@
+{
+  "LissandraW": {
+    "path": "Characters/Lissandra/Spells/LissandraWAbility/LissandraW",
+    "cooldown": [
+      10,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LissandraR": {
+    "path": "Characters/Lissandra/Spells/LissandraRAbility/LissandraR",
+    "cooldown": [
+      10,
+      120,
+      100,
+      80,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      400,
+      550,
+      550,
+      550,
+      400,
+      400,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "CalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SelfCastFlatHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "PercentMissingHPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LissandraE": {
+    "path": "Characters/Lissandra/Spells/LissandraEAbility/LissandraE",
+    "cooldown": [
+      27,
+      24,
+      21,
+      18,
+      15,
+      12,
+      12
+    ],
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100,
+      105
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LissandraQ": {
+    "path": "Characters/Lissandra/Spells/LissandraQAbility/LissandraQ",
+    "cooldown": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      3
+    ],
+    "cost": [
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LissandraPassive": {
+    "path": "Characters/Lissandra/Spells/LissandraPassiveAbility/LissandraPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 120,
+            "mInitialBonusPerLevel": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 13,
+                "mBonusPerLevelAtAndAfter": 30,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

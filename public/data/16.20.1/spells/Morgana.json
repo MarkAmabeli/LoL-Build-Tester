@@ -1,0 +1,241 @@
+{
+  "Morgana_Skin80_Manager": {
+    "path": "{0fd25b11}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "MorganaSkin80MapWallSpawn": {
+    "path": "{8e93b47b}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "MorganaQ": {
+    "path": "Characters/Morgana/Spells/MorganaQAbility/MorganaQ",
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      1300,
+      1300,
+      1300,
+      1300,
+      1300,
+      1300,
+      1300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "MorganaR": {
+    "path": "Characters/Morgana/Spells/MorganaRAbility/MorganaR",
+    "cooldown": [
+      10,
+      120,
+      110,
+      100,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "MorganaW": {
+    "path": "Characters/Morgana/Spells/MorganaWAbility/MorganaW",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      70,
+      80,
+      90,
+      100,
+      110,
+      120
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMinDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BaseApRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalMaxDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "MissingHealthAmpPercent",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalMinDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "MorganaPassive": {
+    "path": "Characters/Morgana/Spells/MorganaPassiveAbility/MorganaPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "MorganaE": {
+    "path": "Characters/Morgana/Spells/MorganaEAbility/MorganaE",
+    "cooldown": [
+      26,
+      26,
+      23.5,
+      21,
+      18.5,
+      16,
+      16
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShieldStrength": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldStrength",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

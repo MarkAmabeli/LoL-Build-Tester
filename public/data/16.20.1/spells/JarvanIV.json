@@ -1,0 +1,249 @@
+{
+  "JarvanIVMartialCadence": {
+    "path": "Characters/JarvanIV/Spells/JarvanIVMartialCadenceAbility/JarvanIVMartialCadence",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TooltipCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 6,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JarvanIVDragonStrike": {
+    "path": "Characters/JarvanIV/Spells/JarvanIVDragonStrikeAbility/JarvanIVDragonStrike",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      770,
+      770,
+      770,
+      770,
+      770,
+      770,
+      770
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.4500000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JarvanIVCataclysm": {
+    "path": "Characters/JarvanIV/Spells/JarvanIVCataclysmAbility/JarvanIVCataclysm",
+    "cooldown": [
+      0,
+      120,
+      105,
+      90,
+      8,
+      5,
+      0
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.7999999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JarvanIVGoldenAegis": {
+    "path": "Characters/JarvanIV/Spells/JarvanIVGoldenAegisAbility/JarvanIVGoldenAegis",
+    "cooldown": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusShield": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.013000000268220901,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JarvanIVDemacianStandard": {
+    "path": "Characters/JarvanIV/Spells/JarvanIVDemacianStandardAbility/JarvanIVDemacianStandard",
+    "cooldown": [
+      12,
+      12,
+      11.5,
+      11,
+      10.5,
+      10,
+      10
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 2,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

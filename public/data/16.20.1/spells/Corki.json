@@ -1,0 +1,284 @@
+{
+  "MissileBarrage": {
+    "path": "Characters/Corki/Spells/MissileBarrageAbility/MissileBarrage",
+    "cooldown": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RSmallMissileDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RBigMissileDamage": {
+        "mMultiplier": {
+          "mDataValue": "RBigOneMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "RSmallMissileDamage",
+        "__type": "GameCalculationModified"
+      },
+      "AttackRefund": {
+        "mMultiplier": {
+          "mDataValue": "CDReductionOnHit",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 8,
+            "mCoefficient": 2,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "PhosphorusBomb": {
+    "path": "Characters/Corki/Spells/PhosphorusBombAbility/PhosphorusBomb",
+    "cooldown": [
+      8,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      7
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      80
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GGun": {
+    "path": "Characters/Corki/Spells/GGunAbility/GGun",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      70
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CarpetBomb": {
+    "path": "Characters/Corki/Spells/CarpetBombAbility/CarpetBomb",
+    "cooldown": [
+      20,
+      20,
+      18,
+      16,
+      14,
+      12,
+      12
+    ],
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100,
+      100
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MaximumDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DashSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DashSpeedBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 7,
+            "mDataValue": "DashSpeedRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RapidReload": {
+    "path": "Characters/Corki/Spells/RapidReloadAbility/RapidReload",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BasicAttackTOOLTIP": {
+        "DamageType": 2,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "AttackConversion",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CriticalStrikeTOOLTIP": {
+        "mMultiplier": {
+          "mStat": 9,
+          "mCoefficient": 1,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        "mModifiedGameCalculation": "BasicAttackTOOLTIP",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "AlistarPassive": {
+    "path": "Characters/Alistar/Spells/AlistarPassiveAbility/AlistarPassive",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseHeal": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "AlistarPassiveHealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AllyHeal": {
+        "mMultiplier": {
+          "mDataValue": "AlistarPassiveAllyHealRatio",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "BaseHeal",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "FerociousHowl": {
+    "path": "Characters/Alistar/Spells/FerociousHowlAbility/FerociousHowl",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "AlistarE": {
+    "path": "Characters/Alistar/Spells/AlistarEAbility/AlistarE",
+    "cooldown": [
+      12.5,
+      12,
+      11.5,
+      11,
+      10.5,
+      10,
+      9.5
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "TrampleDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackBonusDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mInitialBonusPerLevel": 15,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Pulverize": {
+    "path": "Characters/Alistar/Spells/PulverizeAbility/Pulverize",
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11,
+      10,
+      9
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      330,
+      330,
+      330,
+      330,
+      330,
+      330,
+      330
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Headbutt": {
+    "path": "Characters/Alistar/Spells/HeadbuttAbility/Headbutt",
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11,
+      10,
+      10
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

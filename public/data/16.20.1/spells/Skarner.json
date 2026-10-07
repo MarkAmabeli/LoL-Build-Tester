@@ -1,0 +1,249 @@
+{
+  "SkarnerW": {
+    "path": "Characters/Skarner/Spells/SkarnerWAbility/SkarnerW",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      80
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialShield": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "InitialShieldRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SkarnerR": {
+    "path": "Characters/Skarner/Spells/SkarnerRAbility/SkarnerR",
+    "cooldown": [
+      120,
+      120,
+      105,
+      90,
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SkarnerE": {
+    "path": "Characters/Skarner/Spells/SkarnerEAbility/SkarnerE",
+    "cooldown": [
+      23,
+      22,
+      21,
+      20,
+      19,
+      18,
+      18
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      70
+    ],
+    "range": [
+      1700,
+      1700,
+      1700,
+      1700,
+      1700,
+      1700,
+      1700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PinBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "PinDamageRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SkarnerQ": {
+    "path": "Characters/Skarner/Spells/SkarnerQAbility/SkarnerQ",
+    "cooldown": [
+      8,
+      8,
+      6.75,
+      5.5,
+      4.25,
+      3,
+      3
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AbilityDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "BonusHealthRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SkarnerPassive": {
+    "path": "Characters/Skarner/Spells/SkarnerPassiveAbility/SkarnerPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PercentHealthDamage": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 5,
+            "mEndValue": 9,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "DamageMonsterCap": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 100,
+            "mEndValue": 300,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

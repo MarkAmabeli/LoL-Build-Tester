@@ -1,0 +1,480 @@
+{
+  "KindredQ_URFWrapper": {
+    "path": "Characters/Kindred/Spells/KindredQAbility/KindredQ_URFWrapper",
+    "cooldown": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalQAttackSpeed": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseBonusAS",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mCoefficient": 0.05000000074505806,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KindredQ": {
+    "path": "Characters/Kindred/Spells/KindredQAbility/KindredQ",
+    "cooldown": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalQAttackSpeed": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseBonusAS",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mCoefficient": 0.05000000074505806,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KindredW": {
+    "path": "Characters/Kindred/Spells/KindredWAbility/KindredW",
+    "cooldown": [
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      14
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AttackHeal": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 47,
+            "mInitialBonusPerLevel": 2,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BaseWolfDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "CloneDamageFlat",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "CloneADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PercentWolfDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "CloneBasePercentDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mDataValue": "ClonePercentDamagePerBounty",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "{fe248f68}": {
+        "mMultiplier": {
+          "{a8cb9c14}": true,
+          "mStat": 13,
+          "mSubpart": {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          },
+          "__type": "StatBySubPartCalculationPart"
+        },
+        "DamageType": 1,
+        "mModifiedGameCalculation": "PercentWolfDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "KindredPassiveManager": {
+    "path": "Characters/Kindred/Spells/KindredPassiveManagerAbility/KindredPassiveManager",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QMarkBonus": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mCoefficient": 0.05000000074505806,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "WMarkBonus": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mCoefficient": 0.009999999776482582,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EMarkBonus": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mCoefficient": 0.004999999888241291,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{d34fc902}": {
+        "mMultiplier": {
+          "mDataValue": "FirstTierMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "RangeIncrease",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KindredR": {
+    "path": "Characters/Kindred/Spells/KindredRAbility/KindredR",
+    "cooldown": [
+      160,
+      160,
+      140,
+      120,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "KindredEWrapper": {
+    "path": "Characters/Kindred/Spells/KindredEWrapperAbility/KindredEWrapper",
+    "cooldown": [
+      14,
+      14,
+      12.5,
+      11,
+      9.5,
+      8,
+      8
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseBiteDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CritMod",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PercentBiteDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CritMod",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BasePercentDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{64290302}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mCoefficient": 0.004999999888241291,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "CritDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1.5,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mStat": 9,
+              "mStatFormula": 2,
+              "mCoefficient": 1,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "PercentBiteDamage",
+        "__type": "GameCalculationModified"
+      },
+      "TotalSlow": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlowAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SlowAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

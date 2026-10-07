@@ -1,0 +1,260 @@
+{
+  "TalonR": {
+    "path": "Characters/Talon/Spells/TalonRAbility/TalonR",
+    "cooldown": [
+      100,
+      100,
+      80,
+      60,
+      60,
+      60,
+      60
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TalonE": {
+    "path": "Characters/Talon/Spells/TalonEAbility/TalonE",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      6000,
+      6000,
+      6000,
+      6000,
+      6000,
+      6000,
+      6000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TalonPassive": {
+    "path": "Characters/Talon/Spells/TalonPassiveAbility/TalonPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BleedDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 80,
+            "mEndValue": 280,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TalonW": {
+    "path": "Characters/Talon/Spells/TalonWAbility/TalonW",
+    "cooldown": [
+      9,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      7
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalInitialDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "InitialBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "InitialBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalReturnDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ReturnBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ReturnBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TalonQ": {
+    "path": "Characters/Talon/Spells/TalonQAbility/TalonQ",
+    "cooldown": [
+      8,
+      8,
+      7.5,
+      7,
+      6.5,
+      6,
+      6
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      575,
+      575,
+      575,
+      575,
+      575,
+      575,
+      575
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalHealing": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 9,
+            "mEndValue": 55,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "LeapDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CriticalDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mDataValue": "EnhancedDamageMod",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mStat": 9,
+              "mStatFormula": 2,
+              "mCoefficient": 1,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "LeapDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

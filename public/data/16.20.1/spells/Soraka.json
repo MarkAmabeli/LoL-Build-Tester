@@ -1,0 +1,246 @@
+{
+  "SorakaE": {
+    "path": "Characters/Soraka/Spells/SorakaEAbility/SorakaE",
+    "cooldown": [
+      20,
+      20,
+      19,
+      18,
+      17,
+      16,
+      16
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      90
+    ],
+    "range": [
+      875,
+      875,
+      875,
+      875,
+      875,
+      875,
+      875
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SorakaQ": {
+    "path": "Characters/Soraka/Spells/SorakaQAbility/SorakaQ",
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65,
+      65
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.3499999940395355,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHot": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHot",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Consecration_Self": {
+    "path": "Characters/Soraka/Spells/Consecration_SelfAbility/Consecration_Self",
+    "range": [
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500,
+      2500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "SorakaR": {
+    "path": "Characters/Soraka/Spells/SorakaRAbility/SorakaR",
+    "cooldown": [
+      150,
+      150,
+      135,
+      120,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HealingCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AmpedHealing": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "HealingAmpForLowHealthAllies",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "HealingCalc",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SorakaW": {
+    "path": "Characters/Soraka/Spells/SorakaWAbility/SorakaW",
+    "cooldown": [
+      6,
+      6,
+      5,
+      4,
+      3,
+      2,
+      2
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      60
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinimumHealth": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "MinimumPercentHealth",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

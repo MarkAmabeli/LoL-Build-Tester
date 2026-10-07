@@ -1,0 +1,219 @@
+{
+  "WarwickE": {
+    "path": "Characters/Warwick/Spells/WarwickEAbility/WarwickE",
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      11
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      375,
+      375,
+      375,
+      375,
+      375,
+      375,
+      375
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "WarwickP": {
+    "path": "Characters/Warwick/Spells/WarwickPAbility/WarwickP",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "OnHitDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mStartValue": 6,
+            "mEndValue": 55,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "WarwickW": {
+    "path": "Characters/Warwick/Spells/WarwickWAbility/WarwickW",
+    "cooldown": [
+      80,
+      80,
+      70,
+      60,
+      50,
+      40,
+      40
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "WarwickR": {
+    "path": "Characters/Warwick/Spells/WarwickRAbility/WarwickR",
+    "cooldown": [
+      110,
+      110,
+      90,
+      70,
+      70,
+      70,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCumulative": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.6699999570846558,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "WarwickQ": {
+    "path": "Characters/Warwick/Spells/WarwickQAbility/WarwickQ",
+    "cooldown": [
+      8,
+      8,
+      7.5,
+      7,
+      6.5,
+      6,
+      6
+    ],
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100,
+      100
+    ],
+    "range": [
+      365,
+      365,
+      365,
+      365,
+      365,
+      365,
+      365
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseBiteDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Crepe_WarwickVsVi_StackManager": {
+    "path": "{c8f6de0e}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "Crepe_WarwickVsVi_Shred": {
+    "path": "{e1d2e65d}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

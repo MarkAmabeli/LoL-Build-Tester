@@ -1,0 +1,312 @@
+{
+  "OlafRagnarok": {
+    "path": "Characters/Olaf/Spells/OlafRagnarokAbility/OlafRagnarok",
+    "cooldown": [
+      100,
+      100,
+      90,
+      80,
+      160,
+      160,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AD": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "FlatAD",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "PercentTotalADAmp",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OlafRecklessStrike": {
+    "path": "Characters/Olaf/Spells/OlafRecklessStrikeAbility/OlafRecklessStrike",
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{fcf1daee}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHealthCost",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "HealthCostADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealthCostCalc": {
+        "mMultiplier": {
+          "mDataValue": "HealthCostPercent",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "OlafAxeThrowCast": {
+    "path": "Characters/Olaf/Spells/OlafAxeThrowCastAbility/OlafAxeThrowCast",
+    "cooldown": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      70
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TooltipCDRefund": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinimumCooldown",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OlafFrenziedStrikes": {
+    "path": "Characters/Olaf/Spells/OlafFrenziedStrikesAbility/OlafFrenziedStrikes",
+    "cooldown": [
+      16,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ShieldCalc": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 16,
+            "mSubpart": {
+              "mStat": 12,
+              "mDataValue": "ShieldPercMissingHP",
+              "__type": "StatByNamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxShieldCalc": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mSubpart": {
+              "mPart1": {
+                "mDataValue": "ShieldPercMissingHP",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mNumber": 1,
+                    "__type": "NumberCalculationPart"
+                  },
+                  {
+                    "mPart1": {
+                      "mNumber": -1,
+                      "__type": "NumberCalculationPart"
+                    },
+                    "mPart2": {
+                      "mDataValue": "ThresholdForMax",
+                      "__type": "NamedDataValueCalculationPart"
+                    },
+                    "__type": "ProductOfSubPartsCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OlafBerzerkerRage": {
+    "path": "Characters/Olaf/Spells/OlafBerzerkerRageAbility/OlafBerzerkerRage",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MaxAttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.5,
+            "mEndValue": 1,
+            "mScaleByStatProgressionMultiplier": true,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MaxLifeSteal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.07999999821186066,
+            "mEndValue": 0.25,
+            "mScaleByStatProgressionMultiplier": true,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

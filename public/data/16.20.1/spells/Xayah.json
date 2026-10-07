@@ -1,0 +1,254 @@
+{
+  "XayahE": {
+    "path": "Characters/Xayah/Spells/XayahEAbility/XayahE",
+    "cooldown": [
+      12,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "FeatherDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CritRatio",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinionDamage": {
+        "mMultiplier": {
+          "mDataValue": "MinionMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "FeatherDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "XayahQ": {
+    "path": "Characters/Xayah/Spells/XayahQAbility/XayahQ",
+    "cooldown": [
+      10,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      6
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MultiHitDamage": {
+        "mMultiplier": {
+          "mDataValue": "MultiHitRatio",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "XayahW": {
+    "path": "Characters/Xayah/Spells/XayahWAbility/XayahW",
+    "cooldown": [
+      20,
+      18,
+      17,
+      16,
+      15,
+      14,
+      14
+    ],
+    "cost": [
+      60,
+      55,
+      50,
+      45,
+      40,
+      35
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "XayahR": {
+    "path": "Characters/Xayah/Spells/XayahRAbility/XayahR",
+    "cooldown": [
+      160,
+      140,
+      120,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "XayahPassive": {
+    "path": "Characters/Xayah/Spells/XayahPassiveAbility/XayahPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

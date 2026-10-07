@@ -1,0 +1,320 @@
+{
+  "IllaoiE": {
+    "path": "Characters/Illaoi/Spells/IllaoiEAbility/IllaoiE",
+    "cooldown": [
+      16,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      35,
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TimeBetweenVesselTentacleSlams": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 4,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "EchoPercent": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageTransferPercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "EchoTADScalar",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{87aff6dd}": {
+        "mSimpleTooltipCalculationDisplay": 1,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 5,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "IllaoiQ": {
+    "path": "Characters/Illaoi/Spells/IllaoiQAbility/IllaoiQ",
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TentacleDamageTotal": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "TentacleDamageAmp",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 9,
+            "mEndValue": 180,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamageIncreaseTooltip": {
+        "mMultiplier": {
+          "mDataValue": "TentacleDamageAmp",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 9,
+            "mEndValue": 162,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "IllaoiPassive": {
+    "path": "Characters/Illaoi/Spells/IllaoiPassiveAbility/IllaoiPassive",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "SpawnCD": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 18,
+            "mEndValue": 7,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "IllaoiW": {
+    "path": "Characters/Illaoi/Spells/IllaoiWAbility/IllaoiW",
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HealthPercentTotal": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealthPercentDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "HealthDamageADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "DashSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DashSpeedBonus",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 7,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "IllaoiR": {
+    "path": "Characters/Illaoi/Spells/IllaoiRAbility/IllaoiR",
+    "cooldown": [
+      120,
+      120,
+      95,
+      70,
+      70,
+      70,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

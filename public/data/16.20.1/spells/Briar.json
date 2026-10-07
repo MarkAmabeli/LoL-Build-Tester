@@ -1,0 +1,327 @@
+{
+  "BriarW": {
+    "path": "Characters/Briar/Spells/BriarWAbility/BriarW",
+    "cooldown": [
+      14,
+      14,
+      13,
+      12,
+      11,
+      10,
+      10
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalAttackBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AttackBonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1.0499999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAoEDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "AoEAttackDamagePercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAttackPercentMissingHealth": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AttackPercentMissingHealth",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.02500000037252903,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackMaxHPHeal": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BriarQ": {
+    "path": "Characters/Briar/Spells/BriarQAbility/BriarQ",
+    "cooldown": [
+      13,
+      13,
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BriarP": {
+    "path": "Characters/Briar/Spells/BriarPAbility/BriarP",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{15da76ad}": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 2,
+            "mEndValue": 10,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{f06e5a79}": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{15da76ad}",
+        "__type": "GameCalculationModified"
+      },
+      "BleedDamageOverDurationTooltip": {
+        "mMultiplier": {
+          "mDataValue": "BleedDuration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{15da76ad}",
+        "__type": "GameCalculationModified"
+      },
+      "BleedMaxDamageOverDurationTooltip": {
+        "mMultiplier": {
+          "mPart1": {
+            "mDataValue": "BleedDuration",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          "mPart2": {
+            "mNumber": 2,
+            "__type": "NumberCalculationPart"
+          },
+          "__type": "ProductOfSubPartsCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{15da76ad}",
+        "__type": "GameCalculationModified"
+      },
+      "{b38f3487}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealShieldPerMissingHPPercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0002500000118743628,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHealPerMissingHPPercentTooltip": {
+        "mMultiplier": {
+          "mNumber": 100,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{b38f3487}",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "BriarR": {
+    "path": "Characters/Briar/Spells/BriarRAbility/BriarR",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      12000,
+      12000,
+      12000,
+      12000,
+      12000,
+      12000,
+      12000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.2999999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalResists": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "ResistADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BriarE": {
+    "path": "Characters/Briar/Spells/BriarEAbility/BriarE",
+    "cooldown": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WallHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WallHitBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 2.4000000953674316,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 2.4000000953674316,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PercentMaxHPHeal": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "HealHPPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

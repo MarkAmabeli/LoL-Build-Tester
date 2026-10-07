@@ -1,0 +1,305 @@
+{
+  "GlacialStorm": {
+    "path": "Characters/Anivia/Spells/GlacialStormAbility/GlacialStorm",
+    "cooldown": [
+      4,
+      4,
+      3,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamagePerSecond": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.125,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EnhancedSlow": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mSubparts": [
+                {
+                  "mDataValue": "AdditionalSlowPercentAtMax",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mNumber": 1,
+                  "__type": "NumberCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlowAmount",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamagePerSecondTooltipOnly": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "TotalDamagePerSecond",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "RebirthMarker": {
+    "path": "Characters/Anivia/Spells/RebirthMarkerAbility/RebirthMarker",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BonusResists": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": -40,
+            "mBreakpoints": [
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 8,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusResistsTooltip": {
+        "mMultiplier": {
+          "mNumber": -1,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 1,
+        "mModifiedGameCalculation": "BonusResists",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "FlashFrost": {
+    "path": "Characters/Anivia/Spells/FlashFrostAbility/FlashFrost",
+    "cooldown": [
+      11,
+      11,
+      10,
+      9,
+      8,
+      7,
+      7
+    ],
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalPassthroughDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassthroughBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalExplosionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExplosionBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Frostbite": {
+    "path": "Characters/Anivia/Spells/FrostbiteAbility/Frostbite",
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "Crystallize": {
+    "path": "Characters/Anivia/Spells/CrystallizeAbility/Crystallize",
+    "cooldown": [
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "MalphiteShield": {
+    "path": "Characters/Malphite/Spells/MalphiteShieldAbility/MalphiteShield",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {},
+    "calculations": {
+      "PassiveCooldown": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 8,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalShield": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Obduracy": {
+    "path": "Characters/Malphite/Spells/ObduracyAbility/Obduracy",
+    "cooldown": [
+      10,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalBonusDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ThunderclapBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ThunderclapBaseDamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mDataValue": "ThunderclapBaseDamageArmorRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{185669f9}": {
+        "mMultiplier": {
+          "mDataValue": "ThunderclapSlowDamage",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 0,
+        "mModifiedGameCalculation": "TotalBonusDamage",
+        "__type": "GameCalculationModified"
+      },
+      "ThunderclapSplash": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ThunderclapSplashDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ThunderclapSplashAP",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mDataValue": "ThunderclapSplashArmor",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{71941255}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "BonusArmorPassive",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "BonusArmorPassiveMultiplier",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "UFSlash": {
+    "path": "Characters/Malphite/Spells/UFSlashAbility/UFSlash",
+    "cooldown": [
+      130,
+      130,
+      115,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SeismicShard": {
+    "path": "Characters/Malphite/Spells/SeismicShardAbility/SeismicShard",
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QDamageCalc": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Landslide": {
+    "path": "Characters/Malphite/Spells/LandslideAbility/Landslide",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

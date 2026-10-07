@@ -1,0 +1,276 @@
+{
+  "YasuoQ1Wrapper": {
+    "path": "Characters/Yasuo/Spells/YasuoQ1WrapperAbility/YasuoQ1Wrapper",
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageCrit": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mStat": 9,
+              "mDataValue": "ADRatio",
+              "__type": "StatByNamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YasuoE": {
+    "path": "Characters/Yasuo/Spells/YasuoEAbility/YasuoE",
+    "cooldown": [
+      0.5,
+      0.5,
+      0.4000000059604645,
+      0.30000001192092896,
+      0.20000000298023224,
+      0.10000000149011612,
+      0.10000000149011612
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusDamagePerStack": {
+        "mMultiplier": {
+          "mNumber": 0.25,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "YasuoR": {
+    "path": "Characters/Yasuo/Spells/YasuoRAbility/YasuoR",
+    "cooldown": [
+      105,
+      70,
+      50,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      1400,
+      1400,
+      1400,
+      1400,
+      1400,
+      1400,
+      1400
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YasuoPassive": {
+    "path": "Characters/Yasuo/Spells/YasuoPassiveAbility/YasuoPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ShieldValue": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 125,
+            "mEndValue": 600,
+            "mScaleByStatProgressionMultiplier": true,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{74ce5438}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 55,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 19,
+                "mAdditionalBonusAtThisLevel": -5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 25,
+                "mAdditionalBonusAtThisLevel": -5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CurrentCritDamage": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 9,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "YasuoWMovingWall": {
+    "path": "Characters/Yasuo/Spells/YasuoWMovingWall",
+    "cooldown": [
+      28,
+      26,
+      24,
+      22,
+      20,
+      18,
+      18
+    ],
+    "range": [
+      6000,
+      6000,
+      6000,
+      6000,
+      6000,
+      6000,
+      6000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "YasuoW": {
+    "path": "Characters/Yasuo/Spells/YasuoWAbility/YasuoW",
+    "cooldown": [
+      27,
+      25,
+      23,
+      21,
+      19,
+      17,
+      15
+    ],
+    "range": [
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

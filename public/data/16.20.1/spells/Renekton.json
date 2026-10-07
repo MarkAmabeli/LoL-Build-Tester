@@ -1,0 +1,325 @@
+{
+  "RenektonPreExecute": {
+    "path": "Characters/Renekton/Spells/RenektonPreExecuteAbility/RenektonPreExecute",
+    "cooldown": [
+      0,
+      16,
+      14,
+      12,
+      10,
+      8,
+      0
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BasicTotalDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "HitDamage",
+        "__type": "GameCalculationModified"
+      },
+      "EmpTotalDamage": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "HitDamage",
+        "__type": "GameCalculationModified"
+      },
+      "HitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamagePerHit",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADPerHit",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RenektonPredator": {
+    "path": "Characters/Renekton/Spells/RenektonPredatorAbility/RenektonPredator",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "RenektonDice": {
+    "path": "Characters/Renekton/Spells/RenektonSliceAndDiceAbility/RenektonDice",
+    "cooldown": [
+      18,
+      18,
+      17,
+      16,
+      15,
+      14,
+      18
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "RenektonSliceAndDice": {
+    "path": "Characters/Renekton/Spells/RenektonSliceAndDiceAbility/RenektonSliceAndDice",
+    "cooldown": [
+      16,
+      16,
+      14.5,
+      13,
+      11.5,
+      10,
+      10
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BasicDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BaseADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "EnragedBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "EnragedADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DashSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDashSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 7,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RenektonCleave": {
+    "path": "Characters/Renekton/Spells/RenektonCleaveAbility/RenektonCleave",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "range": [
+      20,
+      325,
+      325,
+      325,
+      325,
+      325,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BasicDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BaseADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "EmpoweredBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "EmpoweredADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "NonChampHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMinionHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "MinionHealADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ChampHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ChampHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ChampionHealADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpNonChampHealing": {
+        "mMultiplier": {
+          "mDataValue": "EmpoweredHealMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "NonChampHealing",
+        "__type": "GameCalculationModified"
+      },
+      "EmpChampHealing": {
+        "mMultiplier": {
+          "mDataValue": "EmpoweredHealMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "ChampHealing",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "RenektonReignOfTheTyrant": {
+    "path": "Characters/Renekton/Spells/RenektonReignOfTheTyrantAbility/RenektonReignOfTheTyrant",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamagePerSecond": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AuraDamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "NunuW": {
+    "path": "Characters/Nunu/Spells/NunuWAbility/NunuW",
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      70
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MaximumSnowballDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MaximumAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "NoImpactSnowballDamage": {
+        "mMultiplier": {
+          "mDataValue": "NoImpactDamageScalar",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "MaximumSnowballDamage",
+        "__type": "GameCalculationModified"
+      },
+      "MaximumStunDuration": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseKnockupDuration",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "AdditionalStunDurationOverTime",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NunuPassive": {
+    "path": "Characters/Nunu/Spells/NunuPassiveAbility/NunuPassive",
+    "cooldown": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "CleaveDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatioForAOE",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NunuE": {
+    "path": "Characters/Nunu/Spells/NunuEAbility/NunuE",
+    "cooldown": [
+      14,
+      14,
+      13,
+      12,
+      11,
+      10,
+      10
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      70
+    ],
+    "range": [
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalSnowballDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.11999999731779099,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalRootDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RootDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RootDuration": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.5,
+            "mEndValue": 1.5,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NunuESnowballBurstFire": {
+    "path": "Characters/Nunu/Spells/NunuEAbility/NunuESnowballBurstFire",
+    "cooldown": [
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "NunuR": {
+    "path": "Characters/Nunu/Spells/NunuRAbility/NunuR",
+    "cooldown": [
+      110,
+      110,
+      100,
+      90,
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShieldAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "ShieldBonusHealthPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaximumDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 3,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinDamage": {
+        "mMultiplier": {
+          "mNumber": 0.5,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "MaximumDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "NunuQ": {
+    "path": "Characters/Nunu/Spells/NunuQAbility/NunuQ",
+    "cooldown": [
+      13,
+      13,
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MonsterHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHealing",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "PercentageOfBonusHP",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MonsterHealingAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalChampionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ChampionDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "BonusMaxHPDamage",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ChampDamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ChampionHealing": {
+        "mMultiplier": {
+          "mDataValue": "ChampionHealingScalar",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "MonsterHealing",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

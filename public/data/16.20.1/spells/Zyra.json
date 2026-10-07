@@ -1,0 +1,252 @@
+{
+  "ZyraR": {
+    "path": "Characters/Zyra/Spells/ZyraRAbility/ZyraR",
+    "cooldown": [
+      110,
+      110,
+      100,
+      90,
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ZyraW": {
+    "path": "Characters/Zyra/Spells/ZyraWAbility/ZyraW",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "ZyraQ": {
+    "path": "Characters/Zyra/Spells/ZyraQAbility/ZyraQ",
+    "cooldown": [
+      7.5,
+      7,
+      6.5,
+      6,
+      5.5,
+      5,
+      5
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ZyraE": {
+    "path": "Characters/Zyra/Spells/ZyraEAbility/ZyraE",
+    "cooldown": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "range": [
+      1150,
+      1150,
+      1150,
+      1150,
+      1150,
+      1150,
+      1150
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ZyraP": {
+    "path": "Characters/Zyra/Spells/ZyraPAbility/ZyraP",
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "SeedCooldown": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 13.600000381469727,
+            "mEndValue": 9.050000190734863,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "PlantDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 15,
+            "mEndValue": 75,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "monstermod": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 50,
+            "mEndValue": 100,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{c951f1e1}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": -1,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

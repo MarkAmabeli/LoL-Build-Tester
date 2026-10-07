@@ -1,0 +1,257 @@
+{
+  "PowerFist": {
+    "path": "Characters/Blitzcrank/Spells/PowerFistAbility/PowerFist",
+    "cooldown": [
+      7,
+      7,
+      6.5,
+      6,
+      5.5,
+      5,
+      5
+    ],
+    "cost": [
+      25,
+      25,
+      25,
+      25,
+      25,
+      25
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 2,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{a9d6b924}": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1.75,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "StaticField": {
+    "path": "Characters/Blitzcrank/Spells/StaticFieldAbility/StaticField",
+    "cooldown": [
+      0,
+      60,
+      40,
+      20,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      150,
+      150,
+      0
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ActiveDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ActiveAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "PassiveAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RocketGrab": {
+    "path": "Characters/Blitzcrank/Spells/RocketGrabAbility/RocketGrab",
+    "cooldown": [
+      21,
+      20,
+      19,
+      18,
+      17,
+      16,
+      16
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Overdrive": {
+    "path": "Characters/Blitzcrank/Spells/OverdriveAbility/Overdrive",
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "range": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{c01903c1}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 60,
+            "mInitialBonusPerLevel": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ManaBarrierIcon": {
+    "path": "Characters/Blitzcrank/Spells/ManaBarrierIconAbility/ManaBarrierIcon",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ShieldAmount": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mCoefficient": 0.3499999940395355,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "CaitlynPassive": {
+    "path": "Characters/Caitlyn/Spells/CaitlynPassiveAbility/CaitlynPassive",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HeadShotBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mSubparts": [
+                {
+                  "mLevel1Value": 0.6000000238418579,
+                  "mBreakpoints": [
+                    {
+                      "mLevel": 7,
+                      "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                      "__type": "Breakpoint"
+                    },
+                    {
+                      "mLevel": 13,
+                      "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                      "__type": "Breakpoint"
+                    }
+                  ],
+                  "__type": "ByCharLevelBreakpointsCalculationPart"
+                },
+                {
+                  "mPart1": {
+                    "mStat": 8,
+                    "mDataValue": "CriticalStrikeScaling",
+                    "__type": "StatByNamedDataValueCalculationPart"
+                  },
+                  "mPart2": {
+                    "mSubparts": [
+                      {
+                        "mStat": 9,
+                        "mCoefficient": 1,
+                        "__type": "StatByCoefficientCalculationPart"
+                      },
+                      {
+                        "mNumber": -1,
+                        "__type": "NumberCalculationPart"
+                      }
+                    ],
+                    "__type": "SumOfSubPartsCalculationPart"
+                  },
+                  "__type": "ProductOfSubPartsCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HeadShotMinionBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mSubparts": [
+                {
+                  "mNumber": 1,
+                  "__type": "NumberCalculationPart"
+                },
+                {
+                  "mPart1": {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  },
+                  "mPart2": {
+                    "mLevel1Value": 0.5,
+                    "mBreakpoints": [
+                      {
+                        "mLevel": 7,
+                        "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                        "__type": "Breakpoint"
+                      },
+                      {
+                        "mLevel": 13,
+                        "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                        "__type": "Breakpoint"
+                      }
+                    ],
+                    "__type": "ByCharLevelBreakpointsCalculationPart"
+                  },
+                  "__type": "ProductOfSubPartsCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BrushAttackTotal": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mNumber": 1,
+                "__type": "NumberCalculationPart"
+              },
+              {
+                "mDataValue": "BrushStackBonus",
+                "__type": "NamedDataValueCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{36ebd3cf}": {
+        "mFormulaParts": [
+          {
+            "mStat": 9,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{42962485}": {
+        "DamageType": 0,
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mSpellCalculationKey": "HeadShotMinionBonusDamage",
+                "__type": "{f3cbe7b2}"
+              },
+              {
+                "mSpellCalculationKey": "HeadShotBonusDamage",
+                "__type": "{f3cbe7b2}"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CaitlynE": {
+    "path": "Characters/Caitlyn/Spells/CaitlynEAbility/CaitlynE",
+    "cooldown": [
+      18,
+      16,
+      14,
+      12,
+      10,
+      8,
+      6
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "NetDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CaitlynW": {
+    "path": "Characters/Caitlyn/Spells/CaitlynWAbility/CaitlynW",
+    "cooldown": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HeadShotBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CaitlynR": {
+    "path": "Characters/Caitlyn/Spells/CaitlynRAbility/CaitlynR",
+    "cooldown": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      3500,
+      3500,
+      3500,
+      3500,
+      3500,
+      3500,
+      3500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RTotalDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CriticalStrikeModifier",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "RADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CaitlynQ": {
+    "path": "Characters/Caitlyn/Spells/CaitlynQAbility/CaitlynQ",
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "range": [
+      1300,
+      1300,
+      1300,
+      1300,
+      1300,
+      1300,
+      1300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mDataValue": "tADRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondaryDamage": {
+        "mMultiplier": {
+          "mDataValue": "SecondaryMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "InitialDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

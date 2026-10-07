@@ -1,0 +1,406 @@
+{
+  "VexR2": {
+    "path": "Characters/Vex/Spells/VexRAbility/VexR2",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RecastDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RecastDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VexR": {
+    "path": "Characters/Vex/Spells/VexRAbility/VexR",
+    "cooldown": [
+      140,
+      140,
+      120,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      2000,
+      2000,
+      2500,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RecastDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RecastDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VexP": {
+    "path": "Characters/Vex/Spells/VexPAbility/VexP",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1600,
+      1600,
+      1600,
+      1600,
+      1600,
+      1600,
+      1600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "GloomProcCalc": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 40,
+            "mEndValue": 150,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "FearDuration": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.75,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "{c21c264c}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 25000,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DoomCD": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 25,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "GloomMinionMod": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.4000000059604645,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VexW": {
+    "path": "Characters/Vex/Spells/VexWAbility/VexW",
+    "cooldown": [
+      17,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ShieldCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VexE": {
+    "path": "Characters/Vex/Spells/VexEAbility/VexE",
+    "cooldown": [
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "cost": [
+      70,
+      80,
+      90,
+      100,
+      110,
+      110
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VexQ": {
+    "path": "Characters/Vex/Spells/VexQAbility/VexQ",
+    "cooldown": [
+      8,
+      8,
+      7,
+      6,
+      5,
+      4,
+      4
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65,
+      65
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{7b4a4737}": {
+        "mMultiplier": {
+          "mNumber": 1.100000023841858,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "SylasPassive": {
+    "path": "Characters/Sylas/Spells/SylasPassiveAbility/SylasPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1.2999999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveAoEDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SylasW": {
+    "path": "Characters/Sylas/Spells/SylasWAbility/SylasW",
+    "cooldown": [
+      12,
+      12,
+      10.5,
+      9,
+      7.5,
+      6,
+      5.25
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Healing",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealMinAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "HealMinHPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxHealing": {
+        "mMultiplier": {
+          "mDataValue": "MaxHealingPercentAmp",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "MinHealing",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SylasR": {
+    "path": "Characters/Sylas/Spells/SylasRAbility/SylasR",
+    "cooldown": [
+      80,
+      80,
+      55,
+      30,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PerTargetCooldown": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "__type": "CooldownMultiplierCalculationPart"
+            },
+            "mPart2": {
+              "mNumber": 200,
+              "__type": "NumberCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SylasQ": {
+    "path": "Characters/Sylas/Spells/SylasQAbility/SylasQ",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio1",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SlowAmountCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlowAmount",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "ExplosionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExplosionBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio2",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SylasE": {
+    "path": "Characters/Sylas/Spells/SylasEAbility/SylasE",
+    "cooldown": [
+      13,
+      13,
+      12,
+      11,
+      10,
+      9,
+      9
+    ],
+    "cost": [
+      65,
+      65,
+      65,
+      65,
+      65,
+      65
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PullDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SylasE2": {
+    "path": "Characters/Sylas/Spells/SylasEAbility/SylasE2",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

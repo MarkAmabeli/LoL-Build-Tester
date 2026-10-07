@@ -1,0 +1,386 @@
+{
+  "HallucinateFull": {
+    "path": "Characters/Shaco/Spells/HallucinateFullAbility/HallucinateFull",
+    "cooldown": [
+      100,
+      100,
+      90,
+      80,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      75,
+      75,
+      0
+    ],
+    "range": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "STDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "STBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AoEDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AoEBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExplosionTotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExplosionBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ShacoPassive": {
+    "path": "Characters/Shaco/Spells/ShacoPassiveAbility/ShacoPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MonsterDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mSubparts": [
+                {
+                  "mDataValue": "MonsterCritMod",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mStat": 9,
+                  "mStatFormula": 2,
+                  "mCoefficient": 1,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BasicAttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 20,
+            "mEndValue": 35,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "AttackBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShivDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 15,
+            "mEndValue": 50,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShivDamageExecute": {
+        "mMultiplier": {
+          "mDataValue": "ShivExecuteDamagePercent",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "ShivDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "JackInTheBox": {
+    "path": "Characters/Shaco/Spells/JackInTheBoxAbility/JackInTheBox",
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      70,
+      65,
+      60,
+      55,
+      50,
+      50
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AoEDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AoEBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "WAoEAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "STDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "STBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "WSingleTargetAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TrapDuration": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BoxDuration",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Deceive": {
+    "path": "Characters/Shaco/Spells/DeceiveAbility/Deceive",
+    "cooldown": [
+      13,
+      13,
+      12.5,
+      12,
+      11.5,
+      11,
+      11
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QCritDamageMod": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mNumber": 1,
+                "__type": "NumberCalculationPart"
+              },
+              {
+                "mPart1": {
+                  "mDataValue": "NonCritBackstabMod",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "mPart2": {
+                  "mSubparts": [
+                    {
+                      "mStat": 9,
+                      "mCoefficient": 1,
+                      "__type": "StatByCoefficientCalculationPart"
+                    },
+                    {
+                      "mNumber": -1,
+                      "__type": "NumberCalculationPart"
+                    }
+                  ],
+                  "__type": "SumOfSubPartsCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TwoShivPoison": {
+    "path": "Characters/Shaco/Spells/TwoShivPoisonAbility/TwoShivPoison",
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalExecuteDamage": {
+        "mMultiplier": {
+          "mDataValue": "ExecuteDamagePercent",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

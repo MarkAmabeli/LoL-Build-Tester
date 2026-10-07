@@ -1,0 +1,245 @@
+{
+  "ForcePulse": {
+    "path": "Characters/Kassadin/Spells/ForcePulseAbility/ForcePulse",
+    "cooldown": [
+      22,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NullLance": {
+    "path": "Characters/Kassadin/Spells/NullLanceAbility/NullLance",
+    "cooldown": [
+      9,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      8
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      80
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NetherBlade": {
+    "path": "Characters/Kassadin/Spells/NetherBladeAbility/NetherBlade",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "range": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ActiveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "OnHitDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VoidStone": {
+    "path": "Characters/Kassadin/Spells/VoidStoneAbility/VoidStone",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "RiftWalk": {
+    "path": "Characters/Kassadin/Spells/RiftWalkAbility/RiftWalk",
+    "cooldown": [
+      5,
+      5,
+      3.5,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "StackDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APStackRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.009999999776482582,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

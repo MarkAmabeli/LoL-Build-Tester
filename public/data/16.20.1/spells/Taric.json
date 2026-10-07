@@ -1,0 +1,282 @@
+{
+  "TaricPassive": {
+    "path": "Characters/Taric/Spells/TaricPassiveAbility/TaricPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mStartValue": 25,
+              "mEndValue": 93,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "BaseDamageMultiplierForModesBalance",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "ArmorDamageValue",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CDR": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mNumber": 1,
+                "__type": "NumberCalculationPart"
+              },
+              {
+                "mSubparts": [
+                  {
+                    "mNumber": 1,
+                    "__type": "NumberCalculationPart"
+                  },
+                  {
+                    "mPart1": {
+                      "__type": "CooldownMultiplierCalculationPart"
+                    },
+                    "mPart2": {
+                      "mNumber": -1,
+                      "__type": "NumberCalculationPart"
+                    },
+                    "__type": "ProductOfSubPartsCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TaricW": {
+    "path": "Characters/Taric/Spells/TaricWAbility/TaricW",
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BonusArmor": {
+        "mFormulaParts": [
+          {
+            "mStat": 1,
+            "mDataValue": "ArmorBonusPercentage",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TaricR": {
+    "path": "Characters/Taric/Spells/TaricRAbility/TaricR",
+    "cooldown": [
+      210,
+      180,
+      150,
+      120,
+      90,
+      60,
+      30
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TaricQ": {
+    "path": "Characters/Taric/Spells/TaricQAbility/TaricQ",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "StackCooldown": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Recharge",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealingPerStack": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealingPerStackBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealingAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "HealingHPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxStackHealing": {
+        "mMultiplier": {
+          "mDataValue": "MaxCharges",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealingPerStackBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealingAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "HealingHPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TaricE": {
+    "path": "Characters/Taric/Spells/TaricEAbility/TaricE",
+    "cooldown": [
+      17,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

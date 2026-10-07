@@ -1,0 +1,210 @@
+{
+  "VeigarBalefulStrike": {
+    "path": "Characters/Veigar/Spells/VeigarBalefulStrikeAbility/VeigarBalefulStrike",
+    "cooldown": [
+      6.5,
+      6,
+      5.5,
+      5,
+      4.5,
+      4,
+      3.5
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50,
+      50
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VeigarPassive": {
+    "path": "Characters/Veigar/Spells/VeigarPassiveAbility/VeigarPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "APPerStack": {
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VeigarEventHorizon": {
+    "path": "Characters/Veigar/Spells/VeigarEventHorizonAbility/VeigarEventHorizon",
+    "cooldown": [
+      20,
+      20,
+      18.5,
+      17,
+      15.5,
+      14,
+      14
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "VeigarDarkMatter": {
+    "path": "Characters/Veigar/Spells/VeigarDarkMatterAbility/VeigarDarkMatter",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "VeigarR": {
+    "path": "Characters/Veigar/Spells/VeigarRAbility/VeigarR",
+    "cooldown": [
+      120,
+      120,
+      90,
+      60,
+      30,
+      30,
+      30
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "MinDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

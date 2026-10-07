@@ -1,0 +1,261 @@
+{
+  "CurseoftheSadMummy": {
+    "path": "Characters/Amumu/Spells/CurseoftheSadMummyAbility/CurseoftheSadMummy",
+    "cooldown": [
+      150,
+      150,
+      125,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      150,
+      200,
+      80,
+      80,
+      0
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RCalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "RCoefficient",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "AmumuP": {
+    "path": "Characters/Amumu/Spells/AmumuPAbility/AmumuP",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "AuraofDespair": {
+    "path": "Characters/Amumu/Spells/AuraofDespairAbility/AuraofDespair",
+    "cooldown": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cost": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{c8e45bc3}": {
+        "mMultiplier": {
+          "mNumber": 0.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHealthDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "{8a96509c}": {
+        "mMultiplier": {
+          "mNumber": 0.004999999888241291,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalHealthDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "Tantrum": {
+    "path": "Characters/Amumu/Spells/TantrumAbility/Tantrum",
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageReduction": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TantrumDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BandageToss": {
+    "path": "Characters/Amumu/Spells/BandageTossAbility/BandageToss",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8500000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

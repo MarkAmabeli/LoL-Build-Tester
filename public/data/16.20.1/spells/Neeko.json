@@ -1,0 +1,276 @@
+{
+  "NeekoW2": {
+    "path": "Characters/Neeko/Spells/NeekoWAbility/NeekoW2",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveBonusDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NeekoW": {
+    "path": "Characters/Neeko/Spells/NeekoWAbility/NeekoW",
+    "cooldown": [
+      16,
+      16,
+      15,
+      14,
+      13,
+      12,
+      12
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveBonusDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NeekoR": {
+    "path": "Characters/Neeko/Spells/NeekoRAbility/NeekoR",
+    "cooldown": [
+      120,
+      120,
+      105,
+      90,
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BaseShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldMultiplier": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldPerChampion",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NeekoQ": {
+    "path": "Characters/Neeko/Spells/NeekoQAbility/NeekoQ",
+    "cooldown": [
+      9,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      7
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90,
+      85
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ExplosionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ZoneDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SecondaryDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "NeekoPassive": {
+    "path": "Characters/Neeko/Spells/NeekoPassiveAbility/NeekoPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "NeekoE": {
+    "path": "Characters/Neeko/Spells/NeekoEAbility/NeekoE",
+    "cooldown": [
+      12,
+      12,
+      11.5,
+      11,
+      10.5,
+      10,
+      10
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      60
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

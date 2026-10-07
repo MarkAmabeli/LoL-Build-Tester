@@ -1,0 +1,252 @@
+{
+  "ThreshQ": {
+    "path": "Characters/Thresh/Spells/ThreshQAbility/ThreshQ",
+    "cooldown": [
+      19,
+      19,
+      16.5,
+      14,
+      11.5,
+      9,
+      9
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ThreshW": {
+    "path": "Characters/Thresh/Spells/ThreshWAbility/ThreshW",
+    "cooldown": [
+      21,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShieldValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mDataValue": "ShieldPerSoul",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ThreshE": {
+    "path": "Characters/Thresh/Spells/ThreshEAbility/ThreshE",
+    "cooldown": [
+      13,
+      13,
+      12.25,
+      11.5,
+      10.75,
+      10,
+      9.25
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "range": [
+      20000,
+      20000,
+      20000,
+      20000,
+      20000,
+      20000,
+      20000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PAttackDamageMin": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mCoefficient": 1.7000000476837158,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PAttackDamageMax": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mCoefficient": 1.7000000476837158,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "PassiveADRatioTT",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ThreshPassiveSouls": {
+    "path": "Characters/Thresh/Spells/ThreshPassiveSoulsAbility/ThreshPassiveSouls",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "CurrentSoulBonus": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mDataValue": "StatValuePerSoul",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ThreshRPenta": {
+    "path": "Characters/Thresh/Spells/ThreshRPentaAbility/ThreshRPenta",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      0
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

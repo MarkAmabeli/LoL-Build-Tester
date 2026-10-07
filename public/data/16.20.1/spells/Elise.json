@@ -1,0 +1,497 @@
+{
+  "EliseSpiderEInitial": {
+    "path": "Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderEInitial",
+    "cooldown": [
+      22,
+      22,
+      21,
+      20,
+      19,
+      18,
+      17
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "EliseSpiderE": {
+    "path": "Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderE",
+    "cooldown": [
+      23,
+      22,
+      21,
+      20,
+      19,
+      18,
+      17
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "EliseHumanEMissile": {
+    "path": "Characters/Elise/Spells/EliseHumanEAbility/EliseHumanEMissile",
+    "cooldown": [
+      12,
+      12,
+      11.5,
+      11,
+      10.5,
+      10,
+      10
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "EliseHumanE": {
+    "path": "Characters/Elise/Spells/EliseHumanEAbility/EliseHumanE",
+    "cooldown": [
+      12,
+      12,
+      11.5,
+      11,
+      10.5,
+      10,
+      10
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalStunDuration": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseStunDuration",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EliseSpiderQCast": {
+    "path": "Characters/Elise/Spells/EliseSpiderQAbility/EliseSpiderQCast",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MissingHPDamage": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "TargetMissingHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "MonsterDamageCapCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterCapDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EliseHumanW": {
+    "path": "Characters/Elise/Spells/EliseHumanWAbility/EliseHumanW",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      110
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EliseSpiderW": {
+    "path": "Characters/Elise/Spells/EliseSpiderWAbility/EliseSpiderW",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "EliseR": {
+    "path": "Characters/Elise/Spells/EliseRAbility/EliseR",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveTotalDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveBonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveTotalHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveHealing",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.07999999821186066,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SpiderlingTotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mDataValue": "SpiderlingBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SpiderlingAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{84a53877}": {
+        "mConditionalGameCalculation": "{60195651}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{93251bfb}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "{e5407a95}": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "SourceObject": "Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderEInitial",
+              "DataValue": "PBonusIncrease",
+              "__type": "{9e9e2e5c}"
+            },
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "PassiveTotalDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{60195651}": {
+        "mDefaultGameCalculation": "PassiveTotalDamage",
+        "mConditionalGameCalculation": "{e5407a95}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{e6fdcc5d}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      }
+    }
+  },
+  "EliseRSpider": {
+    "path": "Characters/Elise/Spells/EliseRAbility/EliseRSpider",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "ElisePassive": {
+    "path": "Characters/Elise/Spells/ElisePassiveAbility/ElisePassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{38943004}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 5,
+            "mInitialBonusPerLevel": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 8,
+                "mBonusPerLevelAtAndAfter": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mBonusPerLevelAtAndAfter": 20,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 14,
+                "mBonusPerLevelAtAndAfter": 25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 17,
+                "mBonusPerLevelAtAndAfter": 30,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EliseHumanQ": {
+    "path": "Characters/Elise/Spells/EliseHumanQAbility/EliseHumanQ",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100,
+      105
+    ],
+    "range": [
+      575,
+      575,
+      575,
+      575,
+      575,
+      575,
+      575
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HumanPercentHealth": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "TargetHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "MonsterDamageCapCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterCapDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

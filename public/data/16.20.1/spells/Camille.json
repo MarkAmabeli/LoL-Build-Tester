@@ -1,0 +1,297 @@
+{
+  "CamillePassive": {
+    "path": "Characters/Camille/Spells/CamillePassiveAbility/CamillePassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 14,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldAmount": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mSubpart": {
+              "mLevel1Value": 0.10000000149011612,
+              "mBreakpoints": [
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 19,
+                  "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CamilleE": {
+    "path": "Characters/Camille/Spells/CamilleEAbility/CamilleE",
+    "cooldown": [
+      16,
+      16,
+      15,
+      14,
+      13,
+      12,
+      12
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "CamilleQ": {
+    "path": "Characters/Camille/Spells/CamilleQAbility/CamilleQ",
+    "cooldown": [
+      9,
+      9,
+      8,
+      7,
+      6,
+      5,
+      5
+    ],
+    "cost": [
+      25,
+      25,
+      25,
+      25,
+      25,
+      25
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageConversionPercentage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.4000000059604645,
+            "mInitialBonusPerLevel": 0.03999999910593033,
+            "mBreakpoints": [
+              {
+                "mLevel": 17,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "BonusDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "tADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredBonusDamage": {
+        "mMultiplier": {
+          "mDataValue": "QEmpoweredAmp",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "BonusDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "CamilleR": {
+    "path": "Characters/Camille/Spells/CamilleRAbility/CamilleR",
+    "cooldown": [
+      140,
+      140,
+      115,
+      90,
+      0,
+      0,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "CamilleW": {
+    "path": "Characters/Camille/Spells/CamilleWAbility/CamilleW",
+    "cooldown": [
+      15,
+      15,
+      14,
+      13,
+      12,
+      11,
+      11
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "OuterEdgeTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "OuterConeMaxHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRequiredTooltipOnly",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "BaseDamageTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MonsterHealthDamageCap": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 300,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

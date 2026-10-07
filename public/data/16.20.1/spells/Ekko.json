@@ -1,0 +1,346 @@
+{
+  "EkkoPassive": {
+    "path": "Characters/Ekko/Spells/EkkoPassiveAbility/EkkoPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BonusMS": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.5,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "ThreeHitDamage": {
+        "mMultiplier": {
+          "mDataValue": "ModesMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 30,
+            "mInitialBonusPerLevel": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SpeedDuration": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 2,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EkkoR": {
+    "path": "Characters/Ekko/Spells/EkkoRAbility/EkkoR",
+    "cooldown": [
+      110,
+      110,
+      80,
+      50,
+      50,
+      50,
+      50
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalBaseHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "FlatHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EkkoW": {
+    "path": "Characters/Ekko/Spells/EkkoWAbility/EkkoW",
+    "cooldown": [
+      24,
+      22,
+      20,
+      18,
+      16,
+      14,
+      14
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50,
+      50
+    ],
+    "range": [
+      1600,
+      1600,
+      1600,
+      1600,
+      1600,
+      1600,
+      1600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MissingHealthPercent": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseOnHitDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{79b6144b}": {
+        "mMultiplier": {
+          "{a8cb9c14}": true,
+          "mStat": 15,
+          "mCoefficient": 1,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        "DamageType": 1,
+        "mModifiedGameCalculation": "MissingHealthPercent",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "EkkoQ": {
+    "path": "Characters/Ekko/Spells/EkkoQAbility/EkkoQ",
+    "cooldown": [
+      9.5,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      7
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "OutgoingDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RecallDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ReturnDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "EkkoE": {
+    "path": "Characters/Ekko/Spells/EkkoEAbility/EkkoE",
+    "cooldown": [
+      9.5,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      7
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      60
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Crepe_JinxVsEkko_EkkoReward": {
+    "path": "{a42ed704}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

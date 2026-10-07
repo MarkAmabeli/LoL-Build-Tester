@@ -1,0 +1,188 @@
+{
+  "SingedP": {
+    "path": "Characters/Singed/Spells/SingedPAbility/SingedP",
+    "range": [
+      225,
+      225,
+      225,
+      225,
+      225,
+      225,
+      225
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "PoisonTrail": {
+    "path": "Characters/Singed/Spells/PoisonTrailAbility/PoisonTrail",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      13,
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamagePerSecond": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerSecond",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ApproximateTotalDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 4.75,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "DamagePerSecond",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "Fling": {
+    "path": "Characters/Singed/Spells/FlingAbility/Fling",
+    "cooldown": [
+      10,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      110
+    ],
+    "range": [
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "InsanityPotion": {
+    "path": "Characters/Singed/Spells/InsanityPotionAbility/InsanityPotion",
+    "cooldown": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "MegaAdhesive": {
+    "path": "Characters/Singed/Spells/MegaAdhesiveAbility/MegaAdhesive",
+    "cooldown": [
+      17,
+      17,
+      16,
+      15,
+      14,
+      13,
+      13
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      100
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

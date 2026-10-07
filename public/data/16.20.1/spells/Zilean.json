@@ -1,0 +1,242 @@
+{
+  "HeightenedLearning": {
+    "path": "Characters/Zilean/Spells/HeightenedLearningAbility/HeightenedLearning",
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{e359ec0d}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.800000011920929,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.6000000238418579,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.6000000238418579,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.4000000059604645,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 21,
+                "mAdditionalBonusAtThisLevel": 0.6000000238418579,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 26,
+                "mAdditionalBonusAtThisLevel": 0.6000000238418579,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 31,
+                "mAdditionalBonusAtThisLevel": 0.6000000238418579,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalXP": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{79ba1a32}",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "XPPer5": {
+        "mMultiplier": {
+          "mNumber": 2.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "{e359ec0d}",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "ZileanQ": {
+    "path": "Characters/Zilean/Spells/ZileanQAbility/ZileanQ",
+    "cooldown": [
+      10.5,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BombBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ChronoShift": {
+    "path": "Characters/Zilean/Spells/ChronoShiftAbility/ChronoShift",
+    "cooldown": [
+      10,
+      120,
+      90,
+      60,
+      0,
+      0,
+      10
+    ],
+    "cost": [
+      125,
+      150,
+      175,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RTotalHeal": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ZileanW": {
+    "path": "Characters/Zilean/Spells/ZileanWAbility/ZileanW",
+    "cooldown": [
+      16,
+      14,
+      12,
+      10,
+      8,
+      6,
+      6
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TimeWarp": {
+    "path": "Characters/Zilean/Spells/TimeWarpAbility/TimeWarp",
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

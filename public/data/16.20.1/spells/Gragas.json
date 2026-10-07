@@ -1,0 +1,322 @@
+{
+  "GragasW": {
+    "path": "Characters/Gragas/Spells/GragasWAbility/GragasW",
+    "cooldown": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageReduction": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageReductionAP",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BaseDamageAP",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GragasQToggle": {
+    "path": "Characters/Gragas/Spells/GragasQAbility/GragasQToggle",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GragasQ": {
+    "path": "Characters/Gragas/Spells/GragasQAbility/GragasQ",
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mMultiplier": {
+          "mNumber": 1.5,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "MinDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "GragasE": {
+    "path": "Characters/Gragas/Spells/GragasEAbility/GragasE",
+    "cooldown": [
+      14,
+      14,
+      13.5,
+      13,
+      12.5,
+      12,
+      12
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GragasR": {
+    "path": "Characters/Gragas/Spells/GragasRAbility/GragasR",
+    "cooldown": [
+      100,
+      100,
+      85,
+      70,
+      70,
+      70,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1050,
+      1050,
+      1050,
+      1050,
+      1050,
+      1050,
+      1050
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageDone": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "GragasPassive": {
+    "path": "Characters/Gragas/Spells/GragasPassiveAbility/GragasPassive",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HealAmount": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "HealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealCooldown": {
+        "mFormulaParts": [
+          {
+            "{91d404a5}": "Level1Value",
+            "{bbd778a2}": "BonusPerLevelAtAndAfter",
+            "{9823b29a}": [
+              {
+                "level": 6,
+                "{ae9b464d}": "AdditionalBonusAtThisLevel",
+                "{b0d8b2ac}": "BonusPerLevelAtAndAfter",
+                "__type": "{0333530c}"
+              },
+              {
+                "level": 11,
+                "{ae9b464d}": "AdditionalBonusAtThisLevel",
+                "{b0d8b2ac}": "BonusPerLevelAtAndAfter",
+                "__type": "{0333530c}"
+              },
+              {
+                "level": 16,
+                "{ae9b464d}": "AdditionalBonusAtThisLevel",
+                "{b0d8b2ac}": "BonusPerLevelAtAndAfter",
+                "__type": "{0333530c}"
+              }
+            ],
+            "__type": "{4ce08984}"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

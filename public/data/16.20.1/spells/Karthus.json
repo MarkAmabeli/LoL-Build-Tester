@@ -1,0 +1,209 @@
+{
+  "KarthusLayWasteA1": {
+    "path": "Characters/Karthus/Spells/KarthusLayWasteA1Ability/KarthusLayWasteA1",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    "range": [
+      875,
+      875,
+      875,
+      875,
+      875,
+      875,
+      875
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QSingleTargetDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "QDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "KarthusDeathDefied": {
+    "path": "Characters/Karthus/Spells/KarthusDeathDefiedAbility/KarthusDeathDefied",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "KarthusFallenOne": {
+    "path": "Characters/Karthus/Spells/KarthusFallenOneAbility/KarthusFallenOne",
+    "cooldown": [
+      200,
+      200,
+      180,
+      160,
+      180,
+      180,
+      200
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KarthusDefile": {
+    "path": "Characters/Karthus/Spells/KarthusDefileAbility/KarthusDefile",
+    "cooldown": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "cost": [
+      30,
+      42,
+      54,
+      66,
+      78,
+      90
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDPS": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerSecond",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{57456bbc}": {
+        "mMultiplier": {
+          "mNumber": 0.25,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDPS",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "KarthusWallOfPain": {
+    "path": "Characters/Karthus/Spells/KarthusWallOfPainAbility/KarthusWallOfPain",
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

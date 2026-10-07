@@ -1,0 +1,308 @@
+{
+  "KarmaSolKimShield": {
+    "path": "Characters/Karma/Spells/KarmaSolKimShieldAbility/KarmaSolKimShield",
+    "cooldown": [
+      10,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KarmaQ": {
+    "path": "Characters/Karma/Spells/KarmaQAbility/KarmaQ",
+    "cooldown": [
+      9,
+      9,
+      8,
+      7,
+      6,
+      5,
+      5
+    ],
+    "cost": [
+      40,
+      50,
+      60,
+      70,
+      80,
+      80
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{087bc3ca}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{5d5198eb}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "IsEmpowered": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mDefaultGameCalculation": "{087bc3ca}",
+        "mConditionalGameCalculation": "{5d5198eb}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{752d125a}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KarmaSpiritBind": {
+    "path": "Characters/Karma/Spells/KarmaSpiritBindAbility/KarmaSpiritBind",
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "range": [
+      675,
+      675,
+      675,
+      675,
+      675,
+      675,
+      675
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KarmaPassive": {
+    "path": "Characters/Karma/Spells/KarmaPassiveAbility/KarmaPassive",
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      4
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "SpellMantraRefund": {
+        "mFormulaParts": [
+          {
+            "mNumber": 4,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KarmaMantra": {
+    "path": "Characters/Karma/Spells/KarmaMantraAbility/KarmaMantra",
+    "cooldown": [
+      40,
+      40,
+      38,
+      36,
+      34,
+      34,
+      34
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RQImpactDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "QBonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "QBonusAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RQFieldDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "QDetonationDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "QDetonationAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "REBonusShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "EBonusShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "EBonusShieldRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RWHealAmount": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "RWBaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "RWHealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "REBonusShieldArea": {
+        "mMultiplier": {
+          "mDataValue": "RESharedRatio",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "REBonusShield",
+        "__type": "GameCalculationModified"
+      }
+    }
+  }
+}

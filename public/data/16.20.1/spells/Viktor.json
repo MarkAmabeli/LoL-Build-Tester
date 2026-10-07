@@ -1,0 +1,321 @@
+{
+  "ViktorPassive": {
+    "path": "Characters/Viktor/Spells/ViktorPassiveAbility/ViktorPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "ViktorE": {
+    "path": "Characters/Viktor/Spells/ViktorEAbility/ViktorE",
+    "cooldown": [
+      12,
+      12,
+      11,
+      10,
+      9,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      100
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "LaserDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageLaser",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "LaserAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AftershockDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageAftershock",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "AftershockAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{86b88e5d}": {
+        "mMultiplier": {
+          "mDataValue": "AftershockMinionMulti",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageAftershock",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "AftershockAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ViktorW": {
+    "path": "Characters/Viktor/Spells/ViktorWAbility/ViktorW",
+    "cooldown": [
+      18,
+      17,
+      16,
+      15,
+      14,
+      13,
+      13
+    ],
+    "cost": [
+      65,
+      65,
+      65,
+      65,
+      65,
+      65
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "ViktorR": {
+    "path": "Characters/Viktor/Spells/ViktorRAbility/ViktorR",
+    "cooldown": [
+      0,
+      120,
+      100,
+      80,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "InitialBurstDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "InitialBurstBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "InitialBurstAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SubsequentBurstDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SubsequentBurstBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SubsequentBurstAPRaio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{d3c6a7eb}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 3,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ViktorQ": {
+    "path": "Characters/Viktor/Spells/ViktorQAbility/ViktorQ",
+    "cooldown": [
+      9,
+      9,
+      8,
+      7,
+      6,
+      5,
+      5
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMissileDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MissileDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MissileAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackTotalDMG": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AABonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HitAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{147c7de9}": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldLevelScaling": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 40,
+            "mEndValue": 140,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAugmentedShieldValue": {
+        "mMultiplier": {
+          "mDataValue": "AugmentShieldBonus",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "ShieldLevelScaling",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "Crepe_ViktorVsJayce_ViktorReward": {
+    "path": "{40cdc0c2}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

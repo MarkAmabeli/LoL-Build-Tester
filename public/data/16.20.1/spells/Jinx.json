@@ -1,0 +1,229 @@
+{
+  "JinxW": {
+    "path": "Characters/Jinx/Spells/JinxWAbility/JinxW",
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JinxE": {
+    "path": "Characters/Jinx/Spells/JinxEAbility/JinxE",
+    "cooldown": [
+      27.5,
+      24,
+      20.5,
+      17,
+      13.5,
+      10,
+      10
+    ],
+    "cost": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "range": [
+      925,
+      925,
+      925,
+      925,
+      925,
+      925,
+      925
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JinxQ": {
+    "path": "Characters/Jinx/Spells/JinxQAbility/JinxQ",
+    "cooldown": [
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.8999999761581421
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RocketDamage": {
+        "DamageType": 0,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "RocketTAD",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "JinxPassiveMarker": {
+    "path": "Characters/Jinx/Spells/JinxPassiveMarkerAbility/JinxPassiveMarker",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "JinxR": {
+    "path": "Characters/Jinx/Spells/JinxRAbility/JinxR",
+    "cooldown": [
+      85,
+      85,
+      65,
+      45,
+      45,
+      45,
+      45
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageFloor": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.11999999731779099,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamageMax": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "Crepe_JinxVsEkko_JinxReward": {
+    "path": "{9b5aa500}",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

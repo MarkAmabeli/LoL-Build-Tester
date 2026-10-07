@@ -1,0 +1,334 @@
+{
+  "KaynE": {
+    "path": "Characters/Kayn/Spells/KaynEAbility/KaynE",
+    "cooldown": [
+      21,
+      21,
+      19,
+      17,
+      15,
+      13,
+      11
+    ],
+    "cost": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalHealing": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaynAssW": {
+    "path": "Characters/Kayn/Spells/KaynWAbility/KaynAssW",
+    "cooldown": [
+      13,
+      13,
+      12,
+      11,
+      10,
+      9,
+      9
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "KaynW": {
+    "path": "Characters/Kayn/Spells/KaynWAbility/KaynW",
+    "cooldown": [
+      13,
+      13,
+      12,
+      11,
+      10,
+      9,
+      9
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.100000023841858,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaynR": {
+    "path": "Characters/Kayn/Spells/KaynRAbility/KaynR",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SlayerDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlayerMaxHPBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "SlayerMaxHPDamagerPer100AD",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "HealValue": {
+        "mMultiplier": {
+          "mDataValue": "SlayerHealPercent",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "SlayerDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "KaynQ": {
+    "path": "Characters/Kayn/Spells/KaynQAbility/KaynQ",
+    "cooldown": [
+      7.5,
+      7,
+      6.5,
+      6,
+      5.5,
+      5,
+      4.5
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DarkinPercentDamage": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlayerBaseMaxHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "SlayerMaxHPPer100BADTOOLTIPONLY",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "DarkinFlatDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaynPassive": {
+    "path": "Characters/Kayn/Spells/KaynPassiveAbility/KaynPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "KaynSlayerHealing": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlayerHealing",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "BonusHealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "KaynAssBonusDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "StartDataValue": "KaynAssMinValue",
+            "EndDataValue": "KaynAssMaxValue",
+            "__type": "{ee18a47b}"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaynPassiveAss": {
+    "path": "Characters/Kayn/Spells/KaynPassiveAss",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "TahmKenchQ": {
+    "path": "Characters/TahmKench/Spells/TahmKenchQAbility/TahmKenchQ",
+    "cooldown": [
+      7.5,
+      7,
+      6.5,
+      6,
+      5.5,
+      5,
+      4.5
+    ],
+    "cost": [
+      50,
+      46,
+      42,
+      38,
+      34,
+      30
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TahmKenchW": {
+    "path": "Characters/TahmKench/Spells/TahmKenchWAbility/TahmKenchW",
+    "cooldown": [
+      22,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      60,
+      75,
+      90,
+      105,
+      120,
+      135
+    ],
+    "range": [
+      900,
+      1000,
+      1050,
+      1100,
+      1150,
+      1200,
+      1250
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TahmKenchPassive": {
+    "path": "Characters/TahmKench/Spells/TahmKenchPassiveAbility/TahmKenchPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 5,
+            "mInitialBonusPerLevel": 5,
+            "mBreakpoints": [
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.03999999910593033,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mSubpart": {
+              "mPart1": {
+                "mStat": 12,
+                "mStatFormula": 2,
+                "mDataValue": "APRatioPer100BonusHP",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mNumber": 0.009999999776482582,
+                "__type": "NumberCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TahmKenchRWrapper": {
+    "path": "Characters/TahmKench/Spells/TahmKenchRWrapperAbility/TahmKenchRWrapper",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PercentHPDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BasePercentHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.000699999975040555,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CDCalc": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "DataCooldown",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "__type": "CooldownMultiplierCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TahmKenchE": {
+    "path": "Characters/TahmKench/Spells/TahmKenchEAbility/TahmKenchE",
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "range": [
+      2400,
+      2400,
+      2400,
+      2400,
+      2400,
+      2400,
+      2400
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "GreyHealthHealingRatio": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.6000000238418579,
+            "mEndValue": 1,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "GreyHealthMaximum": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 3,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

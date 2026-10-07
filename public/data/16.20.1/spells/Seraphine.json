@@ -1,0 +1,277 @@
+{
+  "SeraphineW": {
+    "path": "Characters/Seraphine/Spells/SeraphineWAbility/SeraphineW",
+    "cooldown": [
+      22,
+      22,
+      22,
+      22,
+      22,
+      22,
+      22
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      90
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShieldStrength": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldStrength",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WMSBonusTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WMSBonus",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "WMSBonusAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "WMissingHPHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WMissingHPBase",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "HasteValueAllies": {
+        "mMultiplier": {
+          "mDataValue": "HasteValueForAllies",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "WMSBonusTotal",
+        "__type": "GameCalculationModified"
+      },
+      "ShieldValueSeraphine": {
+        "mMultiplier": {
+          "mDataValue": "ShieldAmpForSeraphine",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "TotalShieldStrength",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SeraphineE": {
+    "path": "Characters/Seraphine/Spells/SeraphineEAbility/SeraphineE",
+    "cooldown": [
+      11,
+      11,
+      10.5,
+      10,
+      9.5,
+      9,
+      9
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      1300,
+      1300,
+      1300,
+      1300,
+      1300,
+      1300,
+      1300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "FinalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SeraphineQ": {
+    "path": "Characters/Seraphine/Spells/SeraphineQAbility/SeraphineQ",
+    "cooldown": [
+      8,
+      8,
+      7.5,
+      7,
+      6.5,
+      6,
+      6
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      100
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ExplosionDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalEmpoweredDamage": {
+        "mMultiplier": {
+          "mNumber": 1.75,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "ExplosionDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SeraphinePassive": {
+    "path": "Characters/Seraphine/Spells/SeraphinePassiveAbility/SeraphinePassive",
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AutoDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStartValue": 4,
+            "mEndValue": 25,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "NoteAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SeraphineR": {
+    "path": "Characters/Seraphine/Spells/SeraphineRAbility/SeraphineR",
+    "cooldown": [
+      160,
+      160,
+      140,
+      120,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "R1TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "R1BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "R1APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

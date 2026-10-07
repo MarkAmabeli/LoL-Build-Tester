@@ -1,0 +1,277 @@
+{
+  "RakanW": {
+    "path": "Characters/Rakan/Spells/RakanWAbility/RakanW",
+    "cooldown": [
+      14,
+      14,
+      13,
+      12,
+      11,
+      10,
+      10
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RakanQ": {
+    "path": "Characters/Rakan/Spells/RakanQAbility/RakanQ",
+    "cooldown": [
+      11,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "cost": [
+      45,
+      45,
+      45,
+      45,
+      45,
+      45
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHeal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 40,
+            "mEndValue": 210,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "HealAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{b88e1204}": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "BaseCDActual",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "__type": "CooldownMultiplierCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RakanE": {
+    "path": "Characters/Rakan/Spells/RakanEAbility/RakanE",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RakanPassive": {
+    "path": "Characters/Rakan/Spells/RakanPassiveAbility/RakanPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 30,
+            "mEndValue": 225,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.949999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 40,
+            "mInitialBonusPerLevel": -1.5,
+            "mBreakpoints": [
+              {
+                "mLevel": 19,
+                "mBonusPerLevelAtAndAfter": -0.875,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "RakanR": {
+    "path": "Characters/Rakan/Spells/RakanRAbility/RakanR",
+    "cooldown": [
+      130,
+      130,
+      110,
+      90,
+      0,
+      0,
+      0
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

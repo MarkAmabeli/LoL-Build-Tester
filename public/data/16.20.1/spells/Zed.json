@@ -1,0 +1,293 @@
+{
+  "ZedPassive": {
+    "path": "Characters/Zed/Spells/ZedPassiveAbility/ZedPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{6a1a62e9}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.05000000074505806,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 0.02500000037252903,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 17,
+                "mAdditionalBonusAtThisLevel": 0.02500000037252903,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 25,
+                "mAdditionalBonusAtThisLevel": 0.02500000037252903,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "{ad3d785f}": {
+        "mFormulaParts": [
+          {
+            "mSpellCalculationKey": "{6a1a62e9}",
+            "__type": "{f3cbe7b2}"
+          },
+          {
+            "mDataValue": "ShenZedQuestBonus",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MaxHPDamage": {
+        "mDefaultGameCalculation": "{6a1a62e9}",
+        "mConditionalGameCalculation": "{ad3d785f}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{ecbd8e2e}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "{a8cb9c14}": true,
+            "mStat": 12,
+            "mSubpart": {
+              "mSpellCalculationKey": "MaxHPDamage",
+              "__type": "{f3cbe7b2}"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "FinalDamage": {
+        "DamageType": 1,
+        "mConditionalGameCalculation": "TotalDamage",
+        "mConditionalCalculationRequirements": {
+          "mSubRequirements": [
+            {
+              "mInvertResult": true,
+              "mBuffName": "{0f6b8c16}",
+              "__type": "HasBuffCastRequirement"
+            },
+            {
+              "mInvertResult": true,
+              "DataValue": "CurrentHealthThreshold",
+              "__type": "AboveHealthPercentCastRequirement"
+            }
+          ],
+          "__type": "HasAllSubRequirementsCastRequirement"
+        },
+        "{353099b0}": true,
+        "__type": "GameCalculationConditional"
+      }
+    }
+  },
+  "ZedW": {
+    "path": "Characters/Zed/Spells/ZedWAbility/ZedW",
+    "cooldown": [
+      20,
+      20,
+      19,
+      18,
+      17,
+      16,
+      16
+    ],
+    "cost": [
+      40,
+      35,
+      30,
+      25,
+      20,
+      15
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "ZedR": {
+    "path": "Characters/Zed/Spells/ZedRAbility/ZedR",
+    "cooldown": [
+      120,
+      120,
+      110,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{43a019eb}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RShadowDurationDisplayed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mNumber": 0.5,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RCalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "ZedQ": {
+    "path": "Characters/Zed/Spells/ZedQAbility/ZedQ",
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "cost": [
+      75,
+      70,
+      65,
+      60,
+      55,
+      50
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassThroughDamage": {
+        "mMultiplier": {
+          "mNumber": 0.6000000238418579,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "ZedE": {
+    "path": "Characters/Zed/Spells/ZedEAbility/ZedE",
+    "cooldown": [
+      5,
+      5,
+      4.5,
+      4,
+      3.5,
+      3,
+      3
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      290,
+      290,
+      290,
+      290,
+      290,
+      290,
+      290
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

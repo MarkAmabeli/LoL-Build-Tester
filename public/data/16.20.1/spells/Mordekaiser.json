@@ -1,0 +1,307 @@
+{
+  "MordekaiserQ": {
+    "path": "Characters/Mordekaiser/Spells/MordekaiserQAbility/MordekaiserQ",
+    "cooldown": [
+      8,
+      8,
+      7,
+      6,
+      5,
+      4,
+      4
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "QBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBreakpoints": [
+              {
+                "mLevel": 10,
+                "mBonusPerLevelAtAndAfter": 7,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamageTooltip": {
+        "mMultiplier": {
+          "mDataValue": "IsolationScalar",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "QDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "MordekaiserW": {
+    "path": "Characters/Mordekaiser/Spells/MordekaiserWAbility/MordekaiserW",
+    "cooldown": [
+      12,
+      12,
+      11,
+      10,
+      9,
+      8,
+      8
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HealthDecay": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mStatFormula": 1,
+            "mDataValue": "DecayPerSecond",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxHealthTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinHealthTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "MordekaiserE": {
+    "path": "Characters/Mordekaiser/Spells/MordekaiserEAbility/MordekaiserE",
+    "cooldown": [
+      18,
+      18,
+      16,
+      14,
+      12,
+      10,
+      10
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "MordekaiserR": {
+    "path": "Characters/Mordekaiser/Spells/MordekaiserRAbility/MordekaiserR",
+    "cooldown": [
+      140,
+      140,
+      120,
+      100,
+      90,
+      80,
+      8
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "MordekaiserPassive": {
+    "path": "Characters/Mordekaiser/Spells/MordekaiserPassiveAbility/MordekaiserPassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "AuraDamagePerStack": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mNumber": 5,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PercentHealthForAura": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 1,
+            "mEndValue": 5,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxAuraMonsterDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mStartValue": 40,
+            "mEndValue": 200,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusAPAuto": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveMovementSpeed": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.029999999329447746,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 19,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 24,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 30,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "MordekaiserSkin54Manager": {
+    "path": "Characters/Mordekaiser/Spells/MordekaiserSkin54Manager",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

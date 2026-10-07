@@ -1,0 +1,338 @@
+{
+  "BrandPassive": {
+    "path": "Characters/Brand/Spells/BrandPassiveAbility/BrandPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "ManaRestore": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mAdditionalBonusAtThisLevel": 3.3329999446868896,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 18,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExplosionDamage": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 6,
+            "mEndValue": 12,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "{4124b2bf}": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "EpicMonsterDPSCap",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mNumber": 0.25,
+              "__type": "NumberCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{afbf404a}": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "JungleMonsterDPSCap",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mNumber": 0.25,
+              "__type": "NumberCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "JungleMonsterExplosionFlatCap": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 270,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 85,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 85,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 85,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BrandW": {
+    "path": "Characters/Brand/Spells/BrandWAbility/BrandW",
+    "cooldown": [
+      10.5,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100,
+      110
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamage": {
+        "mMultiplier": {
+          "mNumber": 1.25,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "BrandE": {
+    "path": "Characters/Brand/Spells/BrandEAbility/BrandE",
+    "cooldown": [
+      13,
+      13,
+      12,
+      11,
+      10,
+      9,
+      9
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "range": [
+      675,
+      675,
+      675,
+      675,
+      675,
+      675,
+      675
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BrandR": {
+    "path": "Characters/Brand/Spells/BrandRAbility/BrandR",
+    "cooldown": [
+      100,
+      100,
+      90,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "BrandQ": {
+    "path": "Characters/Brand/Spells/BrandQAbility/BrandQ",
+    "cooldown": [
+      8.5,
+      8,
+      7.5,
+      7,
+      6.5,
+      6,
+      6
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SpellBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

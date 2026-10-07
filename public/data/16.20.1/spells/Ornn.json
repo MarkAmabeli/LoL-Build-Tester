@@ -1,0 +1,310 @@
+{
+  "OrnnW": {
+    "path": "Characters/Ornn/Spells/OrnnWAbility/OrnnW",
+    "cooldown": [
+      12.5,
+      12,
+      11.5,
+      11,
+      10.5,
+      10,
+      9.5
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BrittlePercentMaxHPCalc": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.09000000357627869,
+            "mEndValue": 0.17000000178813934,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "TotalMinimumDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "MinimumDamagePerTick",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "NumberOfTicks",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalMonsterDamageCap": {
+        "mMultiplier": {
+          "mDataValue": "NumberOfTicks",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterDamagePerTickCap",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OrnnR": {
+    "path": "Characters/Ornn/Spells/OrnnRAbility/OrnnR",
+    "cooldown": [
+      140,
+      140,
+      120,
+      100,
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "RRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinStun": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "RStunDuration",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "RStunReduction",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OrnnP": {
+    "path": "Characters/Ornn/Spells/OrnnPAbility/OrnnP",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{7325018d}": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 90,
+            "mEndValue": 10,
+            "mScalePastDefaultMaxLevel": false,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OrnnPAllyItemGive": {
+    "path": "Characters/Ornn/Spells/OrnnPAbility/OrnnPAllyItemGive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "OrnnQ": {
+    "path": "Characters/Ornn/Spells/OrnnQAbility/OrnnQ",
+    "cooldown": [
+      9,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      6.5
+    ],
+    "cost": [
+      45,
+      45,
+      45,
+      45,
+      45,
+      45
+    ],
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1.100000023841858,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "OrnnE": {
+    "path": "Characters/Ornn/Spells/OrnnEAbility/OrnnE",
+    "cooldown": [
+      14,
+      14,
+      13.5,
+      13,
+      12.5,
+      12,
+      12
+    ],
+    "cost": [
+      35,
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "ArmorRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mDataValue": "MRRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

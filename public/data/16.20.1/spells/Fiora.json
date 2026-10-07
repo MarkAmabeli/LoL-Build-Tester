@@ -1,0 +1,228 @@
+{
+  "FioraPassive": {
+    "path": "Characters/Fiora/Spells/FioraPassiveAbility/FioraPassive",
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PassiveHealAmount": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 35,
+            "mEndValue": 100,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveDamageTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "PassiveDamageADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "RDamageTotal": {
+        "mMultiplier": {
+          "mNumber": 4,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "PassiveDamageTotal",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "FioraQ": {
+    "path": "Characters/Fiora/Spells/FioraQAbility/FioraQ",
+    "cooldown": [
+      13,
+      13,
+      11.25,
+      9.5,
+      7.75,
+      6,
+      6
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mDataValue": "BADRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "FioraR": {
+    "path": "Characters/Fiora/Spells/FioraRAbility/FioraR",
+    "cooldown": [
+      10,
+      110,
+      90,
+      70,
+      10,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "HealPerSecondCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealPerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "FioraW": {
+    "path": "Characters/Fiora/Spells/FioraWAbility/FioraW",
+    "cooldown": [
+      26,
+      24,
+      22,
+      20,
+      18,
+      16,
+      14
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "StabDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "FioraE": {
+    "path": "Characters/Fiora/Spells/FioraEAbility/FioraE",
+    "cooldown": [
+      11,
+      11,
+      10,
+      9,
+      8,
+      7,
+      7
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      425,
+      425,
+      425,
+      425,
+      425,
+      425,
+      425
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

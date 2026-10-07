@@ -1,0 +1,191 @@
+{
+  "TrundlePain": {
+    "path": "Characters/Trundle/Spells/TrundlePainAbility/TrundlePain",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalPercentHPDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "PercentHPDamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TrundleDiseaseOverseer": {
+    "path": "Characters/Trundle/Spells/TrundleDiseaseOverseerAbility/TrundleDiseaseOverseer",
+    "range": [
+      1400,
+      1400,
+      1400,
+      1400,
+      1400,
+      1400,
+      1400
+    ],
+    "dataValues": {},
+    "calculations": {
+      "RegenPercent": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.017999999225139618,
+            "mEndValue": 0.054999999701976776,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "trundledesecrate": {
+    "path": "Characters/Trundle/Spells/trundledesecrateAbility/trundledesecrate",
+    "cooldown": [
+      18,
+      18,
+      17,
+      16,
+      15,
+      14,
+      13
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TrundleCircle": {
+    "path": "Characters/Trundle/Spells/TrundleCircleAbility/TrundleCircle",
+    "cooldown": [
+      21,
+      21,
+      19.5,
+      18,
+      16.5,
+      15,
+      15
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TrundleTrollSmash": {
+    "path": "Characters/Trundle/Spells/TrundleTrollSmashAbility/TrundleTrollSmash",
+    "cooldown": [
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADScaling",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

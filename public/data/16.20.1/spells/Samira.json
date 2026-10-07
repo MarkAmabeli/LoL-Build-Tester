@@ -1,0 +1,717 @@
+{
+  "SamiraE": {
+    "path": "Characters/Samira/Spells/SamiraEAbility/SamiraE",
+    "cooldown": [
+      22,
+      20,
+      18,
+      16,
+      14,
+      12,
+      10
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DashDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraR": {
+    "path": "Characters/Samira/Spells/SamiraRAbility/SamiraR",
+    "cooldown": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CriticalDamageCalc": {
+        "mMultiplier": {
+          "mStat": 9,
+          "mCoefficient": 1,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        "mModifiedGameCalculation": "DamageCalc",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SamiraQ": {
+    "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQ",
+    "cooldown": [
+      6,
+      6,
+      5,
+      4,
+      3,
+      2,
+      2
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "QADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CriticalDamageCalc": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mDataValue": "CritDamageMod",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "DamageCalc",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SamiraQSword": {
+    "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQSword",
+    "cooldown": [
+      22,
+      22,
+      19,
+      16,
+      13,
+      10,
+      7
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraQGun": {
+    "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQGun",
+    "cooldown": [
+      8,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraQBufferedSword": {
+    "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQBufferedSword",
+    "cooldown": [
+      22,
+      22,
+      19,
+      16,
+      13,
+      10,
+      7
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraEBuff": {
+    "path": "Characters/Samira/Spells/SamiraEBuff",
+    "cooldown": [
+      15,
+      15,
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DashDamage": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraPassiveCombo": {
+    "path": "Characters/Samira/Spells/SamiraPassiveCombo",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QueenMaxDashRange": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 800,
+            "mBreakpoints": [
+              {
+                "mLevel": 4,
+                "mAdditionalBonusAtThisLevel": 50,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 8,
+                "mAdditionalBonusAtThisLevel": 50,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 50,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 50,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusMeleeDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mLevel1Value": 2,
+            "mInitialBonusPerLevel": 1,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraW": {
+    "path": "Characters/Samira/Spells/SamiraWAbility/SamiraW",
+    "cooldown": [
+      30,
+      30,
+      28,
+      26,
+      24,
+      22,
+      20
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraPJuggle": {
+    "path": "Characters/Samira/Spells/SamiraPJuggle",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamagePerBullet": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 0.17000000178813934,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mMultiplier": {
+          "mDataValue": "NumShots",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "DamagePerBullet",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SamiraTauntMissile": {
+    "path": "Characters/Samira/Spells/SamiraTauntMissile",
+    "cooldown": [
+      8,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "SamiraPSwordJuggle": {
+    "path": "Characters/Samira/Spells/SamiraPSwordJuggle",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "range": [
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000,
+      10000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "DamagePerBullet": {
+        "mFormulaParts": [
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mMultiplier": {
+          "mDataValue": "NumShots",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "DamagePerBullet",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "SamiraPassive": {
+    "path": "Characters/Samira/Spells/SamiraPassiveAbility/SamiraPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "QueenMaxDashRange": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 650,
+            "mBreakpoints": [
+              {
+                "mLevel": 4,
+                "mAdditionalBonusAtThisLevel": 75,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 8,
+                "mAdditionalBonusAtThisLevel": 75,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 75,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 75,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusMeleeDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 2,
+            "mInitialBonusPerLevel": 1,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mStartValue": 0.03500000014901161,
+              "mEndValue": 0.10499999672174454,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredMeleeDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "BonusMeleeDamage",
+        "__type": "GameCalculationModified"
+      },
+      "MSBonusNew": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.027499999850988388,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.0024999999441206455,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.0024999999441206455,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.0024999999441206455,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

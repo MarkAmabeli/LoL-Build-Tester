@@ -1,0 +1,283 @@
+{
+  "TeemoW": {
+    "path": "Characters/Teemo/Spells/TeemoWAbility/TeemoW",
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TeemoR": {
+    "path": "Characters/Teemo/Spells/TeemoRAbility/TeemoR",
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "cost": [
+      75,
+      55,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      600,
+      600,
+      750,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerTick",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TeemoRDot": {
+    "path": "Characters/Teemo/Spells/TeemoRAbility/TeemoRDot",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "TeemoE": {
+    "path": "Characters/Teemo/Spells/TeemoEAbility/TeemoE",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      680,
+      680,
+      680,
+      680,
+      680,
+      680,
+      680
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TickCalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "TickBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "TickAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "TickBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ImpactCalculatedDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ImpactBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ImpactAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ImpactBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDotDamage": {
+        "mMultiplier": {
+          "mDataValue": "PoisonDuration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "TickCalculatedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{8b70cfd6}": {
+        "mMultiplier": {
+          "mDataValue": "monstermod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "ImpactCalculatedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{938cba49}": {
+        "mMultiplier": {
+          "mDataValue": "monstermod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TickCalculatedDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "TeemoQ": {
+    "path": "Characters/Teemo/Spells/TeemoQAbility/TeemoQ",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "range": [
+      680,
+      680,
+      680,
+      680,
+      680,
+      680,
+      680
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "CalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{0f87e4ba}": {
+        "mMultiplier": {
+          "mDataValue": "MinionMonsterDurationMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BlindDuration",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "TeemoPassive": {
+    "path": "Characters/Teemo/Spells/TeemoPassiveAbility/TeemoPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BonusAttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.20000000298023224,
+            "mBreakpoints": [
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 10,
+                "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

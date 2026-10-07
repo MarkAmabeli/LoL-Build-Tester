@@ -1,0 +1,463 @@
+{
+  "KaisaQ": {
+    "path": "Characters/Kaisa/Spells/KaisaQAbility/KaisaQ",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MaxDamageTotal": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mSubparts": [
+                  {
+                    "mSubparts": [
+                      {
+                        "mDataValue": "BaseDamage",
+                        "__type": "NamedDataValueCalculationPart"
+                      },
+                      {
+                        "mStat": 2,
+                        "mStatFormula": 2,
+                        "mDataValue": "BonusADRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      },
+                      {
+                        "mDataValue": "APRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      }
+                    ],
+                    "__type": "SumOfSubPartsCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              {
+                "mPart1": {
+                  "mPart1": {
+                    "mSubparts": [
+                      {
+                        "mDataValue": "BaseDamage",
+                        "__type": "NamedDataValueCalculationPart"
+                      },
+                      {
+                        "mStat": 2,
+                        "mStatFormula": 2,
+                        "mDataValue": "BonusADRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      },
+                      {
+                        "mDataValue": "APRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      }
+                    ],
+                    "__type": "SumOfSubPartsCalculationPart"
+                  },
+                  "mPart2": {
+                    "mNumber": 5,
+                    "__type": "NumberCalculationPart"
+                  },
+                  "__type": "ProductOfSubPartsCalculationPart"
+                },
+                "mPart2": {
+                  "mDataValue": "ExtraHitReduction",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{b2bd0d2f}": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mSubparts": [
+                  {
+                    "mSubparts": [
+                      {
+                        "mDataValue": "BaseDamage",
+                        "__type": "NamedDataValueCalculationPart"
+                      },
+                      {
+                        "mStat": 2,
+                        "mStatFormula": 2,
+                        "mDataValue": "BonusADRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      },
+                      {
+                        "mDataValue": "APRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      }
+                    ],
+                    "__type": "SumOfSubPartsCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              {
+                "mPart1": {
+                  "mPart1": {
+                    "mSubparts": [
+                      {
+                        "mDataValue": "BaseDamage",
+                        "__type": "NamedDataValueCalculationPart"
+                      },
+                      {
+                        "mStat": 2,
+                        "mStatFormula": 2,
+                        "mDataValue": "BonusADRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      },
+                      {
+                        "mDataValue": "APRatio",
+                        "__type": "StatByNamedDataValueCalculationPart"
+                      }
+                    ],
+                    "__type": "SumOfSubPartsCalculationPart"
+                  },
+                  "mPart2": {
+                    "mNumber": 11,
+                    "__type": "NumberCalculationPart"
+                  },
+                  "__type": "ProductOfSubPartsCalculationPart"
+                },
+                "mPart2": {
+                  "mDataValue": "ExtraHitReduction",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamageDisplay": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mDefaultGameCalculation": "MaxDamageTotal",
+        "mConditionalGameCalculation": "{b2bd0d2f}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{89ae79fa}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "TotalIndividualMissileDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaisaE": {
+    "path": "Characters/Kaisa/Spells/KaisaEAbility/KaisaE",
+    "cooldown": [
+      17,
+      16,
+      14.5,
+      13,
+      11.5,
+      10,
+      11
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalMovespeed": {
+        "mMultiplier": {
+          "mEffectIndex": 1,
+          "__type": "EffectValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mCeiling": 2,
+            "mFloor": 1,
+            "mSubparts": [
+              {
+                "mStat": 4,
+                "mStatFormula": 2,
+                "mCoefficient": 1,
+                "__type": "StatByCoefficientCalculationPart"
+              },
+              {
+                "mNumber": 1,
+                "__type": "NumberCalculationPart"
+              }
+            ],
+            "__type": "ClampSubPartsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalCastTime": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mCeiling": null,
+            "mFloor": 0.6000000238418579,
+            "mSubparts": [
+              {
+                "mEffectIndex": 3,
+                "__type": "EffectValueCalculationPart"
+              },
+              {
+                "mStat": 4,
+                "mCoefficient": -0.4000000059604645,
+                "__type": "StatByCoefficientCalculationPart"
+              }
+            ],
+            "__type": "ClampSubPartsCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaisaPassive": {
+    "path": "Characters/Kaisa/Spells/KaisaPassiveAbility/KaisaPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "PBaseDamage": {
+        "mMultiplier": {
+          "mDataValue": "PTotalDamageMultiplier_ForModesBalance",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mStartValue": 4,
+            "mEndValue": 30,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "PAPRatioBase",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PCurrentPerStackDamage": {
+        "mMultiplier": {
+          "mDataValue": "PTotalDamageMultiplier_ForModesBalance",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 1,
+            "mEndValue": 8,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "PAPRatioPerStack",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PExecutePercentage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PExecuteRatio",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "PExecuteAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaisaW": {
+    "path": "Characters/Kaisa/Spells/KaisaWAbility/KaisaW",
+    "cooldown": [
+      26,
+      22,
+      20,
+      18,
+      16,
+      14,
+      14
+    ],
+    "cost": [
+      55,
+      60,
+      65,
+      70,
+      75,
+      85
+    ],
+    "range": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1.2999999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaisaR": {
+    "path": "Characters/Kaisa/Spells/KaisaRAbility/KaisaR",
+    "cooldown": [
+      130,
+      130,
+      100,
+      70,
+      70,
+      70,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "RCalculatedShieldValue": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "RTotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "RAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KaisaSkin71Manager": {
+    "path": "Characters/Kaisa/Spells/KaisaSkin71Manager",
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  }
+}

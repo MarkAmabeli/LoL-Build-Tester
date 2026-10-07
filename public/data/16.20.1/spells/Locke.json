@@ -1,0 +1,451 @@
+{
+  "LockeE": {
+    "path": "Characters/Locke/Spells/LockeEAbility/LockeE",
+    "cost": [
+      30,
+      40,
+      50,
+      60,
+      70,
+      80
+    ],
+    "range": [
+      425,
+      425,
+      425,
+      425,
+      425,
+      425,
+      425
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "OnHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseOnHitDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DashDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDashDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LockeR": {
+    "path": "Characters/Locke/Spells/LockeRAbility/LockeR",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExecuteBonusCalc": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{b5c3348f}",
+            "mIconKey": "%i:LockeStackIcon%",
+            "mScalingTagKey": "font color='#0bf7de'",
+            "mDataValue": "ExecuteThresholdPerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "{6c540a3a}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExecutionThreshold",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{b5c3348f}",
+            "mIconKey": "%i:LockeStackIcon%",
+            "mScalingTagKey": "font color='#0bf7de'",
+            "mDataValue": "ExecuteThresholdPerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LockeW": {
+    "path": "Characters/Locke/Spells/LockeWAbility/LockeW",
+    "cooldown": [
+      20,
+      20,
+      18,
+      16,
+      14,
+      12,
+      12
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MoveSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMoveSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.00019999999494757503,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "DamageRestoreAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageRestoreAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Duration": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDuration",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.4000000059604645,
+            "mEndValue": 0.699999988079071,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MaxHealingThreshold": {
+        "mFormulaParts": [
+          {
+            "StartDataValue": "HealCapLevel1Value",
+            "EndDataValue": "HealCapLevel18Value",
+            "__type": "{ee18a47b}"
+          },
+          {
+            "mDataValue": "HealCapAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AdditionalHeal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 40,
+            "mEndValue": 200,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DecayTimeHelper": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "DecayTime",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "TimeMaxPower",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LockeWRecast": {
+    "path": "Characters/Locke/Spells/LockeWAbility/LockeWRecast",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MoveSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMoveSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.0005000000237487257,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "DamageRestoreAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageRestoreAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mDataValue": "HealthCost",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LockeQ": {
+    "path": "Characters/Locke/Spells/LockeQAbility/LockeQ",
+    "cooldown": [
+      10,
+      10,
+      9,
+      8,
+      7,
+      6,
+      6
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MissileDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMissileDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "NailDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MarkRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MarkDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AmmoCooldownReset": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.20000000298023224,
+            "mEndValue": 0.3499999940395355,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "LockePassive": {
+    "path": "Characters/Locke/Spells/LockePassiveAbility/LockePassive",
+    "cooldown": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "MinOnHitDamage": {
+        "mFormulaParts": [
+          {
+            "StartDataValue": "MinOnHitStartValue",
+            "EndDataValue": "MinOnHitEndValue",
+            "__type": "{ee18a47b}"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxOnHitDamage": {
+        "mFormulaParts": [
+          {
+            "StartDataValue": "MaxOnHitStartValue",
+            "EndDataValue": "MaxOnHitEndValue",
+            "__type": "{ee18a47b}"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

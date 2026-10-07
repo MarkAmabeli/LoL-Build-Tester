@@ -1,0 +1,841 @@
+{
+  "QiyanaWMis_Grass": {
+    "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaWMis_Grass",
+    "range": [
+      9000,
+      9000,
+      9000,
+      9000,
+      9000,
+      9000,
+      9000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "QiyanaWMis_Water": {
+    "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaWMis_Water",
+    "range": [
+      9000,
+      9000,
+      9000,
+      9000,
+      9000,
+      9000,
+      9000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "QiyanaW": {
+    "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaW",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      25,
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "CleaveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TremorDamage": {
+        "mMultiplier": {
+          "mDataValue": "TremorBonus",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "CleaveDamage",
+        "__type": "GameCalculationModified"
+      },
+      "OnHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "OnHitAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "OnHitADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "QiyanaWMis_Rock": {
+    "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaWMis_Rock",
+    "range": [
+      9000,
+      9000,
+      9000,
+      9000,
+      9000,
+      9000,
+      9000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {}
+  },
+  "QiyanaR": {
+    "path": "Characters/Qiyana/Spells/QiyanaRAbility/QiyanaR",
+    "cooldown": [
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MissingHealthDamageRock": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHPDamageBaseRock",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MonsterCap": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterCapBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "QiyanaQ_Grass": {
+    "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ_Grass",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EnchantedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "VanillaDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "VanillaBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TremorDamage": {
+        "mMultiplier": {
+          "mLevel1Value": 0.6000000238418579,
+          "mBreakpoints": [
+            {
+              "mLevel": 6,
+              "__type": "Breakpoint"
+            },
+            {
+              "mLevel": 11,
+              "__type": "Breakpoint"
+            }
+          ],
+          "__type": "ByCharLevelBreakpointsCalculationPart"
+        },
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{7dc40c72}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.05999999865889549,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0006000000284984708,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "FalloffDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "FalloffMod",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EnchantedFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "VanillaFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "VanillaDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "QiyanaQ_Water": {
+    "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ_Water",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EnchantedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "VanillaDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "VanillaBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TremorDamage": {
+        "mMultiplier": {
+          "mLevel1Value": 0.6000000238418579,
+          "mBreakpoints": [
+            {
+              "mLevel": 6,
+              "__type": "Breakpoint"
+            },
+            {
+              "mLevel": 11,
+              "__type": "Breakpoint"
+            }
+          ],
+          "__type": "ByCharLevelBreakpointsCalculationPart"
+        },
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{7dc40c72}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.05999999865889549,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0006000000284984708,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "FalloffDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "FalloffMod",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EnchantedFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "VanillaFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "VanillaDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "QiyanaQ": {
+    "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      525,
+      525,
+      525,
+      525,
+      525,
+      525,
+      525
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EnchantedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "VanillaDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "VanillaBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TremorDamage": {
+        "mMultiplier": {
+          "mLevel1Value": 0.6000000238418579,
+          "mBreakpoints": [
+            {
+              "mLevel": 6,
+              "__type": "Breakpoint"
+            },
+            {
+              "mLevel": 11,
+              "__type": "Breakpoint"
+            }
+          ],
+          "__type": "ByCharLevelBreakpointsCalculationPart"
+        },
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{7dc40c72}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.05999999865889549,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0006000000284984708,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "FalloffDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "FalloffMod",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EnchantedFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "VanillaFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "VanillaDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "QiyanaQ_Rock": {
+    "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ_Rock",
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "EnchantedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "VanillaDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "VanillaBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TremorDamage": {
+        "mMultiplier": {
+          "mLevel1Value": 0.6000000238418579,
+          "mBreakpoints": [
+            {
+              "mLevel": 6,
+              "__type": "Breakpoint"
+            },
+            {
+              "mLevel": 11,
+              "__type": "Breakpoint"
+            }
+          ],
+          "__type": "ByCharLevelBreakpointsCalculationPart"
+        },
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{7dc40c72}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.05999999865889549,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0006000000284984708,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "FalloffDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "FalloffMod",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EnchantedFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "EnchantedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "VanillaFalloff": {
+        "mMultiplier": {
+          "mDataValue": "FalloffMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "VanillaDamage",
+        "__type": "GameCalculationModified"
+      }
+    }
+  },
+  "QiyanaPassive": {
+    "path": "Characters/Qiyana/Spells/QiyanaPassiveAbility/QiyanaPassive",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "FinalDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 15,
+            "mInitialBonusPerLevel": 4,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mBonusPerLevelAtAndAfter": 4,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mBonusPerLevelAtAndAfter": 4,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ICD": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 14,
+            "mEndValue": 14,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{222614ec}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 1,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "QiyanaE": {
+    "path": "Characters/Qiyana/Spells/QiyanaEAbility/QiyanaE",
+    "cooldown": [
+      11,
+      11,
+      10,
+      9,
+      8,
+      7,
+      7
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      60
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}

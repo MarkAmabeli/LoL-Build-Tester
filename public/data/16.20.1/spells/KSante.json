@@ -1,0 +1,659 @@
+{
+  "KSanteR": {
+    "path": "Characters/KSante/Spells/KSanteRAbility/KSanteR",
+    "cooldown": [
+      120,
+      120,
+      100,
+      80,
+      80,
+      80,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalDamageSlamDown": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlamDownStrikeDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteRMissile1": {
+    "path": "Characters/KSante/Spells/KSanteRAbility/KSanteRMissile1",
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "range": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteP": {
+    "path": "Characters/KSante/Spells/KSantePAbility/KSanteP",
+    "range": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{281dd874}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.10000000149011612,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "PercentHealthDamage": {
+        "mFormulaParts": [
+          {
+            "StartDataValue": "MarkDamagePercentMin",
+            "EndDataValue": "MarkDamagePercentMax",
+            "__type": "{ee18a47b}"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "MaxHealthDamagePercent": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamagePercentBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteESelfDash": {
+    "path": "Characters/KSante/Spells/KSanteEAbility/KSanteESelfDash",
+    "cooldown": [
+      9,
+      9,
+      8.5,
+      8,
+      7.5,
+      7,
+      6.5
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBaseAmountFast",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{5eb30a0d}",
+            "mIconKey": "%i:scaleHealth%",
+            "mCoefficient": 0.15000000596046448,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteEAllyDash": {
+    "path": "Characters/KSante/Spells/KSanteEAbility/KSanteEAllyDash",
+    "cooldown": [
+      8,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmountBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{7a26bd77}",
+            "mIconKey": "%i:scaleHealth%",
+            "mCoefficient": 0.10000000149011612,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteE": {
+    "path": "Characters/KSante/Spells/KSanteEAbility/KSanteE",
+    "cooldown": [
+      10,
+      10,
+      9.5,
+      9,
+      8.5,
+      8,
+      8
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000,
+      25000
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBaseAmountFast",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "ShieldHealthRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteW": {
+    "path": "Characters/KSante/Spells/KSanteWAbility/KSanteW",
+    "cooldown": [
+      16,
+      14,
+      13,
+      12,
+      11,
+      10,
+      12
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "TotalMaxHealthDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteW_AllOut": {
+    "path": "Characters/KSante/Spells/KSanteWAbility/KSanteW_AllOut",
+    "cooldown": [
+      14,
+      14,
+      13,
+      12,
+      11,
+      10,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{98da435c}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 40,
+            "mInitialBonusPerLevel": 12,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxMonsterDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": 25,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteQ3": {
+    "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ3",
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "{04324da6}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageOneBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{cdd991ce}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "CooldownOneBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": -0.0010000000474974513,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredAttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mNumber": 20,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusPercentHealth": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{93574dbd}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mDataValue": "AllOutPercentHealthValor",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "BonusResistsTooltip": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusHealthTooltip": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteQ": {
+    "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ",
+    "cooldown": [
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "undefined": []
+    },
+    "calculations": {
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "FlatDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{9c9367bc}": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{6244221a}",
+            "mIconKey": "%i:scaleArmor%",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          },
+          {
+            "mBuffName": "{e3b83f84}",
+            "mIconKey": "%i:scaleMR%",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  },
+  "KSanteQ3Missile": {
+    "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ3Missile",
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    }
+  }
+}
