@@ -25,6 +25,11 @@ export interface ChampionBaseStats {
    * Not in Data Dragon; defaults to `attackspeed` when missing, which is correct for most champions.
    */
   attackspeedratio?: number;
+  /**
+   * Which stat adaptive force grants when bonus AD and AP are tied (e.g. both 0).
+   * Not in Data Dragon; defaults to 'ad'.
+   */
+  adaptiveType?: 'ad' | 'ap';
   movespeed: number;
   attackrange: number;
 }
@@ -52,6 +57,10 @@ export interface StatBonuses {
   /** Percent magic penetration, 0-1. */
   magicPenPct?: number;
   moveSpeed?: number;
+  /** Percent move speed, as a fraction (0.025 = +2.5%). */
+  moveSpeedPct?: number;
+  /** Adaptive force: becomes AD or AP depending on which bonus is higher (see `adaptiveSplit`). */
+  adaptiveForce?: number;
 }
 
 /** A stat, split into its base (level-derived) and bonus (items, runes, buffs) parts. */
@@ -103,4 +112,37 @@ export interface MitigatedDamage extends DamageInstance {
   final: number;
   /** Effective resistance used for the calculation (after reduction and penetration). */
   effectiveResist: number;
+}
+
+/** A stat that grows linearly from `from` at level 1 to `to` at level 18 (e.g. the 10–180 health shard). */
+export interface LevelScaledStat {
+  stat: keyof StatBonuses;
+  from: number;
+  to: number;
+}
+
+/** One stat shard, as written by the data pipeline to `shards.json`. */
+export interface StatShard {
+  id: number;
+  name: string;
+  /** Description text with markup removed, e.g. "+9 Adaptive Force". */
+  description: string;
+  icon: string;
+  /** Flat bonuses. */
+  stats: StatBonuses;
+  scaling?: LevelScaledStat[];
+  /** Effects the engine doesn't model (e.g. tenacity), kept for display. */
+  unmodeled?: string[];
+}
+
+export interface ShardRow {
+  label: string;
+  /** Shard IDs selectable in this row. */
+  options: number[];
+}
+
+/** `shards.json` */
+export interface ShardData {
+  rows: ShardRow[];
+  shards: Record<number, StatShard>;
 }

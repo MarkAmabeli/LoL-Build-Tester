@@ -12,7 +12,8 @@
 - [x] Base stats by level, base/bonus split
 - [x] Attack speed with ratio and cap
 - [x] Bonus aggregation (% pen stacks multiplicatively)
-- [ ] Rune stat shards, including level-scaling ones
+- [x] Rune stat shards, including level-scaling ones (from CommunityDragon perks)
+- [x] Adaptive force (0.6 AD or 1 AP, by higher bonus; per-champion tie-break)
 - [ ] Conditional/stacking stats (e.g. stack counts set by the user)
 
 ## 3. Damage engine

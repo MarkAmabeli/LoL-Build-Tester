@@ -8,11 +8,13 @@
  *   - Data Dragon: champion base stats, items, runes (official Riot static data)
  *   - CommunityDragon: per-champion game .bin data, which holds the actual spell
  *     values (DataValues) and formulas (SpellCalculations). Data Dragon tooltips no
- *     longer carry usable ability numbers.
+ *     longer carry usable ability numbers. Also rune stat shards, which Data Dragon lacks.
  */
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
+import { cleanText, parseShardText } from './shard-stats.ts';
 
 const DDRAGON = 'https://ddragon.leagueoflegends.com';
 const CDRAGON = 'https://raw.communitydragon.org';
@@ -52,6 +54,22 @@ async function writeJson(file: string, data: unknown) {
 /** "16.19.1" -> "16.19", the patch format CommunityDragon uses. */
 function cdragonPatch(version: string): string {
   return version.split('.').slice(0, 2).join('.');
+}
+
+/**
+ * Fetch a CommunityDragon file for a patch, falling back to "latest" in case
+ * CommunityDragon hasn't published this patch's folder yet. Throws the patch URL's error.
+ */
+async function getCdragonJson<T>(patch: string, subpath: string): Promise<T> {
+  try {
+    return await getJson<T>(`${CDRAGON}/${patch}/${subpath}`);
+  } catch (err) {
+    try {
+      return await getJson<T>(`${CDRAGON}/latest/${subpath}`);
+    } catch {
+      throw err;
+    }
+  }
 }
 
 // ---- Data Dragon shapes (only the fields we use) ----
@@ -131,18 +149,12 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
 
   await mapLimit(championIds, CONCURRENCY, async (id) => {
     const alias = id.toLowerCase();
-    const url = `${CDRAGON}/${patch}/game/data/characters/${alias}/${alias}.bin.json`;
     let bin: Record<string, BinSpellObject>;
     try {
-      bin = await getJson(url);
+      bin = await getCdragonJson(patch, `game/data/characters/${alias}/${alias}.bin.json`);
     } catch (err) {
-      // Fall back to "latest" in case CommunityDragon hasn't published this patch's folder yet.
-      try {
-        bin = await getJson(url.replace(`/${patch}/`, '/latest/'));
-      } catch {
-        failures.push(`${id}: ${(err as Error).message}`);
-        return;
-      }
+      failures.push(`${id}: ${(err as Error).message}`);
+      return;
     }
 
     const spells: Record<string, unknown> = {};
@@ -196,6 +208,60 @@ async function buildRunes(version: string) {
   return getJson<unknown>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/runesReforged.json`);
 }
 
+// ---- CommunityDragon client data shapes (only the fields we use) ----
+const CD_CLIENT_DATA = 'plugins/rcp-be-lol-game-data/global/default/v1';
+interface CDPerk {
+  id: number;
+  name: string;
+  shortDesc: string;
+  iconPath: string;
+}
+interface CDPerkStyles {
+  styles: Array<{ name: string; slots: Array<{ type: string; slotLabel: string; perks: number[] }> }>;
+}
+
+/**
+ * Rune stat shards. Every rune tree lists the same shard rows (kStatMod slots),
+ * so the first tree's rows are used and the rest are checked against it.
+ */
+async function buildShards(version: string): Promise<{ data: ShardData; warnings: string[] }> {
+  const patch = cdragonPatch(version);
+  const [perks, perkStyles] = await Promise.all([
+    getCdragonJson<CDPerk[]>(patch, `${CD_CLIENT_DATA}/perks.json`),
+    getCdragonJson<CDPerkStyles>(patch, `${CD_CLIENT_DATA}/perkstyles.json`),
+  ]);
+  const warnings: string[] = [];
+
+  const rowsOf = (style: CDPerkStyles['styles'][number]) =>
+    style.slots
+      .filter((slot) => slot.type === 'kStatMod')
+      .map((slot) => ({ label: slot.slotLabel, options: slot.perks }));
+  const rows = rowsOf(perkStyles.styles[0]);
+  if (rows.length === 0) throw new Error('No stat shard rows found in perkstyles.json');
+  for (const style of perkStyles.styles.slice(1)) {
+    if (JSON.stringify(rowsOf(style)) !== JSON.stringify(rows)) {
+      warnings.push(`${style.name} has different shard rows than ${perkStyles.styles[0].name}; using the latter`);
+    }
+  }
+
+  const shards: Record<number, StatShard> = {};
+  for (const id of new Set(rows.flatMap((r) => r.options))) {
+    const perk = perks.find((p) => p.id === id);
+    if (!perk) throw new Error(`Shard ${id} is listed in perkstyles.json but missing from perks.json`);
+    const parsed = parseShardText(perk.shortDesc);
+    for (const text of parsed.unmodeled ?? []) warnings.push(`${perk.name} (${id}): not modeled: "${text}"`);
+    shards[id] = {
+      id,
+      name: perk.name,
+      description: cleanText(perk.shortDesc),
+      // "/lol-game-data/assets/v1/perk-images/..." -> CommunityDragon's lowercased file path.
+      icon: `${CDRAGON}/${patch}/${CD_CLIENT_DATA}/${perk.iconPath.replace('/lol-game-data/assets/v1/', '').toLowerCase()}`,
+      ...parsed,
+    };
+  }
+  return { data: { rows, shards }, warnings };
+}
+
 async function main() {
   const requested = process.argv[2];
   const versions = await getJson<string[]>(`${DDRAGON}/api/versions.json`);
@@ -207,15 +273,18 @@ async function main() {
   const outDir = path.join(OUT_ROOT, version);
   console.log(`Building data for ${version} -> ${path.relative(process.cwd(), outDir)}`);
 
-  const [champions, items, runes] = await Promise.all([
+  const [champions, items, runes, shards] = await Promise.all([
     buildChampions(version),
     buildItems(version),
     buildRunes(version),
+    buildShards(version),
   ]);
   await writeJson(path.join(outDir, 'champions.json'), champions);
   await writeJson(path.join(outDir, 'items.json'), items);
   await writeJson(path.join(outDir, 'runes.json'), runes);
-  console.log(`  ${champions.length} champions, ${items.length} items`);
+  await writeJson(path.join(outDir, 'shards.json'), shards.data);
+  console.log(`  ${champions.length} champions, ${items.length} items, ${Object.keys(shards.data.shards).length} stat shards`);
+  for (const w of shards.warnings) console.warn(`  ! ${w}`);
 
   const failures = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);

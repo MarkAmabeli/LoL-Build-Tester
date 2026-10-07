@@ -7,6 +7,9 @@ export const BASE_CRIT_MULTIPLIER = 1.75;
 export const ATTACK_SPEED_CAP = 2.5;
 /** Champions with a longer attack range than this count as ranged (melee tops out around 250). */
 export const MELEE_RANGE_MAX = 250;
+/** One point of adaptive force is worth 0.6 AD or 1 AP. */
+export const ADAPTIVE_AD_PER_POINT = 0.6;
+export const ADAPTIVE_AP_PER_POINT = 1;
 
 /**
  * Total growth gained by `level`, using Riot's non-linear growth curve:
@@ -55,7 +58,24 @@ export function attackSpeedAt(champ: ChampionBaseStats, level: number, bonusPct 
 }
 
 /**
+ * Convert adaptive force into AD or AP: whichever bonus is higher wins,
+ * and `tieBreak` decides when they're equal.
+ */
+export function adaptiveSplit(
+  amount: number,
+  bonusAd: number,
+  bonusAp: number,
+  tieBreak: 'ad' | 'ap' = 'ad',
+): { ad: number; ap: number } {
+  const useAp = bonusAp > bonusAd || (bonusAp === bonusAd && tieBreak === 'ap');
+  return useAp
+    ? { ad: 0, ap: amount * ADAPTIVE_AP_PER_POINT }
+    : { ad: amount * ADAPTIVE_AD_PER_POINT, ap: 0 };
+}
+
+/**
  * Resolve a champion's stats at a level with the given bonuses.
+ * Adaptive force is converted first, using the flat bonus AD and AP.
  * Effects' `modifyStats` hooks run afterwards, in order, on the summed stats
  * (e.g. Rabadon's multiplies total AP, so it must see every flat AP source first).
  */
@@ -67,13 +87,19 @@ export function resolveStats(
 ): ResolvedStats {
   const lvl = clampLevel(level);
   const at = (base: number, growth: number) => base + growthAtLevel(growth, lvl);
+  const adaptive = adaptiveSplit(
+    bonuses.adaptiveForce ?? 0,
+    bonuses.ad ?? 0,
+    bonuses.ap ?? 0,
+    champ.adaptiveType,
+  );
 
   const stats: ResolvedStats = {
     level: lvl,
     hp: split(at(champ.hp, champ.hpperlevel), bonuses.hp),
     mana: split(at(champ.mp, champ.mpperlevel), bonuses.mana),
-    ad: split(at(champ.attackdamage, champ.attackdamageperlevel), bonuses.ad),
-    ap: bonuses.ap ?? 0,
+    ad: split(at(champ.attackdamage, champ.attackdamageperlevel), (bonuses.ad ?? 0) + adaptive.ad),
+    ap: (bonuses.ap ?? 0) + adaptive.ap,
     armor: split(at(champ.armor, champ.armorperlevel), bonuses.armor),
     mr: split(at(champ.spellblock, champ.spellblockperlevel), bonuses.mr),
     attackSpeed: attackSpeedAt(champ, lvl, bonuses.attackSpeedPct),
@@ -84,7 +110,7 @@ export function resolveStats(
     armorPenPct: bonuses.armorPenPct ?? 0,
     magicPenFlat: bonuses.magicPenFlat ?? 0,
     magicPenPct: bonuses.magicPenPct ?? 0,
-    moveSpeed: champ.movespeed + (bonuses.moveSpeed ?? 0),
+    moveSpeed: (champ.movespeed + (bonuses.moveSpeed ?? 0)) * (1 + (bonuses.moveSpeedPct ?? 0)),
     attackRange: champ.attackrange,
   };
   return effects.reduce(
