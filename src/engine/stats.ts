@@ -3,8 +3,10 @@ import type { ChampionBaseStats, ResolvedStats, SplitStat, StatBonuses } from '.
 
 export const MIN_LEVEL = 1;
 export const MAX_LEVEL = 18;
-export const BASE_CRIT_MULTIPLIER = 1.75;
-export const ATTACK_SPEED_CAP = 2.5;
+/** Crits deal 200% (it was 175% from V10.23 until V26.01). */
+export const BASE_CRIT_MULTIPLIER = 2;
+/** One attack per 0.333s. */
+export const ATTACK_SPEED_CAP = 1 / 0.333;
 /** Champions with a longer attack range than this count as ranged (melee tops out around 250). */
 export const MELEE_RANGE_MAX = 250;
 /** One point of adaptive force is worth 0.6 AD or 1 AP. */

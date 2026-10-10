@@ -52,7 +52,7 @@ describe('resolveStats', () => {
   it('applies the attack speed ratio and cap', () => {
     expect(attackSpeedAt(dummy, 1, 0)).toBeCloseTo(0.625);
     expect(attackSpeedAt(dummy, 1, 100)).toBeCloseTo(1.25);
-    expect(attackSpeedAt(dummy, 18, 1000)).toBe(2.5);
+    expect(attackSpeedAt(dummy, 18, 1000)).toBeCloseTo(3.003);
   });
 });
 
@@ -119,8 +119,11 @@ describe('damage evaluation', () => {
 
   it('averages crit for expected auto damage', () => {
     const crit = resolveStats(dummy, 1, { critChance: 0.5 });
-    expect(autoAttack(crit, 'expected').raw).toBeCloseTo(60 * 1.375);
-    expect(autoAttack(crit, true).raw).toBeCloseTo(60 * 1.75);
+    expect(autoAttack(crit, 'expected').raw).toBeCloseTo(60 * 1.5);
+    expect(autoAttack(crit, true).raw).toBeCloseTo(60 * 2);
+    // Infinity Edge's +30% crit damage adds to the 200% base.
+    const ie = resolveStats(dummy, 1, { critChance: 1, critDamageBonus: 0.3 });
+    expect(autoAttack(ie, true).raw).toBeCloseTo(60 * 2.3);
   });
 });
 

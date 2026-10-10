@@ -125,6 +125,8 @@ interface BinSpellObject {
     mana?: number[];
     castRange?: number[];
   };
+  /** On the champion's CharacterRecords/Root record. */
+  damagePerLevelModifiable?: { baseValue?: number };
 }
 
 const SUMMONERS_RIFT = '11';
@@ -179,6 +181,8 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
   const patch = cdragonPatch(version);
   const failures: string[] = [];
   const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
+  /** Champion id → AD per level from the champion's game data (Data Dragon has 0 for everyone). */
+  const adPerLevel = new Map<string, number>();
 
   await mapLimit(championIds, CONCURRENCY, async (id) => {
     const alias = id.toLowerCase();
@@ -195,6 +199,11 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
       failures.push(`${id}: ${(err as Error).message}`);
       return;
     }
+    const root = Object.entries(bin).find(([binPath]) => binPath.endsWith('/CharacterRecords/Root'))?.[1];
+    const adGrowth = root?.damagePerLevelModifiable?.baseValue;
+    // The bin stores floats (2.3499999); the stat itself has at most a few decimals.
+    if (adGrowth !== undefined) adPerLevel.set(id, Math.round(adGrowth * 1e4) / 1e4);
+
     const slotOf = new Map(detail.spells.map((s, i) => [s.id.toLowerCase(), { slot: SLOTS[i], maxRank: s.maxrank }]));
 
     const spells: Record<string, unknown> = {};
@@ -236,7 +245,7 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
     await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
   });
 
-  return { failures, coverage };
+  return { failures, coverage, adPerLevel };
 }
 
 async function buildItems(version: string) {
@@ -340,7 +349,6 @@ async function main() {
     buildRunes(version),
     buildShards(version),
   ]);
-  await writeJson(path.join(outDir, 'champions.json'), champions);
   await writeJson(path.join(outDir, 'items.json'), items);
   const itemsBin = await getCdragonJson<ItemsBin>(cdragonPatch(version), 'game/items.cdtb.bin.json');
   const itemGroups = buildItemGroups(itemsBin, items);
@@ -353,9 +361,19 @@ async function main() {
   );
   for (const w of [...championWarnings, ...shards.warnings]) console.warn(`  ! ${w}`);
 
-  const { failures, coverage } = await buildSpells(version, champions.map((c) => c.id), outDir);
+  const { failures, coverage, adPerLevel } = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);
   for (const f of failures) console.warn(`  ! ${f}`);
+
+  // Data Dragon's attackdamageperlevel is 0 for every champion; take the game data's value instead.
+  for (const champ of champions) {
+    const stats = champ.stats as Record<string, number | string>;
+    const growth = adPerLevel.get(champ.id);
+    if (stats.attackdamageperlevel !== 0) continue;
+    if (growth === undefined) console.warn(`  ! ${champ.id}: no AD per level in game data, left at 0`);
+    else stats.attackdamageperlevel = growth;
+  }
+  await writeJson(path.join(outDir, 'champions.json'), champions);
   const total = coverage.translated + coverage.unsupported;
   console.log(
     `  formulas: ${coverage.translated}/${total} calculations translated ` +

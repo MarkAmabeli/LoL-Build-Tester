@@ -124,7 +124,7 @@ describe('Darius', () => {
     const r = cast('W', 1, { champ: melee });
     expect(r.total).toBeCloseTo(84);
     expect(r.hits[0].tags).toEqual(['auto', 'ability']);
-    expect(cast('W', 1, { champ: melee, crit: true }).total).toBeCloseTo(84 * 1.75);
+    expect(cast('W', 1, { champ: melee, crit: true }).total).toBeCloseTo(84 * 2);
   });
 
   it('Noxian Guillotine: true damage, +20% per Hemorrhage stack, tagged ultimate', () => {
@@ -178,7 +178,7 @@ describe('Nasus', () => {
 
   it('Siphoning Strike: the attack plus 30 and 1 per stack, all of it can crit', () => {
     expect(cast('Q', 1, { champ: melee, state: { stacks: 100 } }).total).toBeCloseTo(60 + 30 + 100);
-    expect(cast('Q', 1, { champ: melee, crit: true }).total).toBeCloseTo((60 + 30) * 1.75);
+    expect(cast('Q', 1, { champ: melee, crit: true }).total).toBeCloseTo((60 + 30) * 2);
   });
 
   it('Spirit Fire: the impact, plus the burn for the seconds spent in it', () => {
@@ -220,8 +220,8 @@ describe('Yunara', () => {
   });
 
   it('Vow of the First Lands: crits deal 10% (+10% per 100 AP) as bonus magic damage', () => {
-    expect(autoWith(effects({}), {}, true).hits[1].raw).toBeCloseTo(105 * 0.1);
-    expect(autoWith(effects({}), { critChance: 0.5, ap: 100 }, 'expected').hits[1].raw).toBeCloseTo(0.5 * 105 * 0.2);
+    expect(autoWith(effects({}), {}, true).hits[1].raw).toBeCloseTo(120 * 0.1);
+    expect(autoWith(effects({}), { critChance: 0.5, ap: 100 }, 'expected').hits[1].raw).toBeCloseTo(0.5 * 120 * 0.2);
     expect(autoWith(effects({}), {}, false).hits).toHaveLength(1);
   });
 
