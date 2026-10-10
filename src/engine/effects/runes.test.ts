@@ -260,3 +260,102 @@ describe('Gathering Storm', () => {
     expect(resolveStats(dummy, 1, {}, effects).ad.bonus).toBeCloseTo(14.4);
   });
 });
+
+describe('Cheap Shot and Sudden Impact', () => {
+  it('add level-scaled true damage to attacks and abilities', () => {
+    const cheap = [activate(rune('8126'))];
+    expect(hit(dummy, 1, {}, cheap, auto).total).toBeCloseTo(60 + 10);
+    expect(hit(dummy, 18, {}, cheap, () => ability).hits[1]).toMatchObject({ type: 'true', raw: 45 });
+    const sudden = [activate(rune('8143'))];
+    expect(hit(dummy, 18, {}, sudden, () => ability).total).toBeCloseTo(100 + 80);
+  });
+
+  it('do nothing when not proccing', () => {
+    expect(hit(dummy, 1, {}, [activate(rune('8126'), { proc: false })], auto).total).toBeCloseTo(60);
+  });
+});
+
+describe('Scorch', () => {
+  it('adds 20–40 magic damage to abilities only', () => {
+    const effects = [activate(rune('8237'))];
+    expect(hit(dummy, 1, {}, effects, () => ability).total).toBeCloseTo(120);
+    expect(hit(dummy, 18, {}, effects, () => ability).total).toBeCloseTo(140);
+    expect(hit(dummy, 1, {}, effects, auto).total).toBeCloseTo(60);
+  });
+});
+
+describe('Axiom Arcanist', () => {
+  const effects = [activate(rune('8224'))];
+
+  it('amplifies ultimates by 12%, or 8% for area damage', () => {
+    const ult: DamageInstance = { ...ability, tags: ['ability', 'ultimate'] };
+    expect(hit(dummy, 1, {}, effects, () => ult).total).toBeCloseTo(112);
+    expect(hit(dummy, 1, {}, effects, () => ({ ...ult, tags: ['ability', 'ultimate', 'aoe'] })).total).toBeCloseTo(108);
+  });
+
+  it('leaves basic abilities alone', () => {
+    expect(hit(dummy, 1, {}, effects, () => ability).total).toBeCloseTo(100);
+  });
+});
+
+describe('Legend runes', () => {
+  it('Alacrity grants 3% + 1.5% attack speed per stack', () => {
+    expect(resolveStats(dummy, 1, {}, [activate(rune('9104'))]).attackSpeed).toBeCloseTo(0.625 * 1.18);
+    expect(resolveStats(dummy, 1, {}, [activate(rune('9104'), { stacks: 0 })]).attackSpeed).toBeCloseTo(0.625 * 1.03);
+  });
+
+  it('Haste grants 1.5 ability haste per stack', () => {
+    expect(resolveStats(dummy, 1, {}, [activate(rune('9105'))]).abilityHaste).toBeCloseTo(15);
+    expect(resolveStats(dummy, 1, {}, [activate(rune('9105'), { stacks: 4 })]).abilityHaste).toBeCloseTo(6);
+  });
+});
+
+describe('Transcendence', () => {
+  it('grants 5 ability haste at level 5 and 5 more at level 8', () => {
+    const effects = [activate(rune('8210'))];
+    expect([4, 5, 7, 8, 18].map((l) => resolveStats(dummy, l, {}, effects).abilityHaste)).toEqual([0, 5, 5, 10, 10]);
+  });
+});
+
+describe('Waterwalking', () => {
+  it('grants 13–30 adaptive force and 10 move speed in the river', () => {
+    const inRiver = resolveStats(dummy, 1, {}, [activate(rune('8232'))]);
+    expect(inRiver.ad.bonus).toBeCloseTo(13 * 0.6);
+    expect(inRiver.moveSpeed).toBe(340);
+    expect(resolveStats(dummy, 18, { ap: 1 }, [activate(rune('8232'))]).ap).toBeCloseTo(31);
+    expect(resolveStats(dummy, 1, {}, [activate(rune('8232'), { river: false })]).moveSpeed).toBe(330);
+  });
+});
+
+describe('Jack of All Trades', () => {
+  it('grants 1 ability haste per stack and 8 / 20 adaptive force at 5 / 10 stacks', () => {
+    const at = (stacks: number) => resolveStats(dummy, 1, {}, [activate(rune('8316'), { stacks })]);
+    expect(at(4)).toMatchObject({ abilityHaste: 4, ad: { bonus: 0 } });
+    expect(at(5).abilityHaste).toBe(5);
+    expect(at(5).ad.bonus).toBeCloseTo(8 * 0.6);
+    expect(at(12).ad.bonus).toBeCloseTo(20 * 0.6);
+  });
+});
+
+describe('Conditioning', () => {
+  it('adds 8 armor and MR, then 3% more', () => {
+    const stats = resolveStats(dummy, 1, { armor: 20 }, [activate(rune('8429'))]);
+    expect(stats.armor.total).toBeCloseTo(58 * 1.03);
+    expect(stats.mr.total).toBeCloseTo(38 * 1.03);
+    expect(stats.armor.base).toBe(30);
+  });
+
+  it('reduces damage taken when on the target', () => {
+    const target = { stats: resolveStats(dummy, 1, {}, [activate(rune('8429'))]) };
+    expect(hit(dummy, 1, {}, [], auto, target).total).toBeCloseTo((60 * 100) / (100 + 38 * 1.03));
+  });
+});
+
+describe('Overgrowth', () => {
+  it('grants 3 health per 8 units, plus 3.5% max health at 120', () => {
+    const hpAt = (units: number) => resolveStats(dummy, 1, {}, [activate(rune('8451'), { units })]).hp.total;
+    expect(hpAt(7)).toBe(600);
+    expect(hpAt(119)).toBe(642);
+    expect(hpAt(120)).toBeCloseTo(645 * 1.035);
+  });
+});

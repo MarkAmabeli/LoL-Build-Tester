@@ -28,7 +28,9 @@
 - [ ] The 20–30 most-built damage items
 - [x] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
 - [x] Minor runes: Coup de Grace, Cut Down, Last Stand, Absolute Focus, Gathering Storm
-- [ ] Other damage-relevant minor runes: Cheap Shot, Sudden Impact, Scorch, Axiom Arcanist, Legend: Alacrity, Legend: Haste, Transcendence, Waterwalking, Jack of All Trades, Grisly Mementos; target-side Conditioning, Overgrowth, Bone Plating
+- [x] More minor runes: Cheap Shot, Sudden Impact, Scorch, Axiom Arcanist (needs `ultimate` tag on R hits), Legend: Alacrity, Legend: Haste, Transcendence, Waterwalking, Jack of All Trades
+- [x] Defensive stat runes for the target's loadout: Conditioning, Overgrowth
+- [ ] Bone Plating: needs a target-side, post-mitigation damage hook (flat reduction per hit)
 
 ## 5. Combo simulator
 - [ ] Ordered action list (Q, AA, E, R…) with stateful stacks, procs and shred

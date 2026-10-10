@@ -78,6 +78,11 @@ export function addBonusAttackSpeed(stats: ResolvedStats, pct: number): Resolved
   };
 }
 
+/** A split stat with `amount` more bonus (for effects). */
+export function addBonus(stat: SplitStat, amount: number): SplitStat {
+  return split(stat.base, stat.bonus + amount);
+}
+
 /**
  * Convert adaptive force into AD or AP: whichever bonus is higher wins,
  * and `tieBreak` decides when they're equal.

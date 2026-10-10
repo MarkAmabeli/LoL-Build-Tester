@@ -4,6 +4,9 @@ import { nashorsTooth } from './items/nashors-tooth';
 import { rabadonsDeathcap } from './items/rabadons-deathcap';
 import { absoluteFocus } from './runes/absolute-focus';
 import { arcaneComet } from './runes/arcane-comet';
+import { axiomArcanist } from './runes/axiom-arcanist';
+import { cheapShot } from './runes/cheap-shot';
+import { conditioning } from './runes/conditioning';
 import { conqueror } from './runes/conqueror';
 import { coupDeGrace } from './runes/coup-de-grace';
 import { cutDown } from './runes/cut-down';
@@ -11,9 +14,17 @@ import { darkHarvest } from './runes/dark-harvest';
 import { electrocute } from './runes/electrocute';
 import { firstStrike } from './runes/first-strike';
 import { gatheringStorm } from './runes/gathering-storm';
+import { jackOfAllTrades } from './runes/jack-of-all-trades';
 import { lastStand } from './runes/last-stand';
+import { legendAlacrity } from './runes/legend-alacrity';
+import { legendHaste } from './runes/legend-haste';
 import { lethalTempo } from './runes/lethal-tempo';
+import { overgrowth } from './runes/overgrowth';
 import { pressTheAttack } from './runes/press-the-attack';
+import { scorch } from './runes/scorch';
+import { suddenImpact } from './runes/sudden-impact';
+import { transcendence } from './runes/transcendence';
+import { waterwalking } from './runes/waterwalking';
 import type { ActiveEffect, Effect, EffectState } from './types';
 
 const ALL: Effect[] = [
@@ -23,6 +34,10 @@ const ALL: Effect[] = [
   conqueror, electrocute, pressTheAttack, lethalTempo, arcaneComet, darkHarvest, firstStrike,
   // Minor runes
   coupDeGrace, cutDown, lastStand, absoluteFocus, gatheringStorm,
+  cheapShot, suddenImpact, scorch, axiomArcanist, legendAlacrity, legendHaste, transcendence, waterwalking,
+  jackOfAllTrades,
+  // Defensive runes (for the target's loadout)
+  conditioning, overgrowth,
 ];
 
 /** Implemented effects by Riot item/rune ID. */

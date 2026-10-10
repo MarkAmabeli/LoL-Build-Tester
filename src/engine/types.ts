@@ -113,7 +113,7 @@ export interface DamageInstance {
   raw: number;
   /** Human-readable origin, e.g. "Q", "Auto attack", "Liandry's burn". */
   source: string;
-  tags?: Array<'ability' | 'onhit' | 'dot' | 'crit' | 'aoe' | 'auto' | 'proc'>;
+  tags?: Array<'ability' | 'ultimate' | 'onhit' | 'dot' | 'crit' | 'aoe' | 'auto' | 'proc'>;
 }
 
 export interface MitigatedDamage extends DamageInstance {
