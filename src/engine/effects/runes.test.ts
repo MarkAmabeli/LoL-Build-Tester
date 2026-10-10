@@ -7,6 +7,7 @@ import {
   computeHit,
   gatheringStormForce,
   getEffect,
+  hasteFor,
   lastStandAmp,
   resolveStats,
   type ActiveEffect,
@@ -304,9 +305,12 @@ describe('Legend runes', () => {
     expect(resolveStats(dummy, 1, {}, [activate(rune('9104'), { stacks: 0 })]).attackSpeed).toBeCloseTo(0.625 * 1.03);
   });
 
-  it('Haste grants 1.5 ability haste per stack', () => {
-    expect(resolveStats(dummy, 1, {}, [activate(rune('9105'))]).abilityHaste).toBeCloseTo(15);
-    expect(resolveStats(dummy, 1, {}, [activate(rune('9105'), { stacks: 4 })]).abilityHaste).toBeCloseTo(6);
+  it('Haste grants 1.5 basic ability haste per stack, not counted for the ultimate', () => {
+    const stats = resolveStats(dummy, 1, { abilityHaste: 10 }, [activate(rune('9105'))]);
+    expect(stats.basicHaste).toBeCloseTo(15);
+    expect(hasteFor(stats, 'basic')).toBeCloseTo(25);
+    expect(hasteFor(stats, 'ultimate')).toBe(10);
+    expect(resolveStats(dummy, 1, {}, [activate(rune('9105'), { stacks: 4 })]).basicHaste).toBeCloseTo(6);
   });
 });
 

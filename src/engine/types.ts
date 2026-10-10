@@ -49,6 +49,8 @@ export interface StatBonuses {
   /** Extra crit damage on top of the base 175%, as a fraction (0.4 = +40%). */
   critDamageBonus?: number;
   abilityHaste?: number;
+  /** Ability haste for basic abilities only, on top of `abilityHaste` (e.g. Legend: Haste). */
+  basicHaste?: number;
   /** Ability haste for the ultimate only, on top of `abilityHaste` (e.g. Malignance). */
   ultimateHaste?: number;
   /** Flat armor penetration (lethality is flat armor pen in the current game). */
@@ -85,6 +87,8 @@ export interface ResolvedStats {
   critChance: number;
   critMultiplier: number;
   abilityHaste: number;
+  /** Extra haste for basic abilities only; see `hasteFor`. */
+  basicHaste: number;
   /** Extra haste for the ultimate only; see `hasteFor`. */
   ultimateHaste: number;
   lethality: number;

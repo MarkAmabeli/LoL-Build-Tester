@@ -4,7 +4,7 @@ import type { Effect } from '../types';
 const PER_STACK = 1.5;
 const MAX_STACKS = 10;
 
-/** Gain 1.5 basic ability haste per Legend stack (up to 10). Counted as general ability haste, which also speeds up the ultimate. */
+/** Gain 1.5 basic ability haste per Legend stack (up to 10). */
 export const legendHaste: Effect = {
   id: '9105',
   name: 'Legend: Haste',
@@ -13,6 +13,6 @@ export const legendHaste: Effect = {
   state: [{ key: 'stacks', label: 'Legend stacks', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
   modifyStats: (stats, state) => ({
     ...stats,
-    abilityHaste: stats.abilityHaste + PER_STACK * Math.min(MAX_STACKS, Number(state.stacks)),
+    basicHaste: stats.basicHaste + PER_STACK * Math.min(MAX_STACKS, Number(state.stacks)),
   }),
 };

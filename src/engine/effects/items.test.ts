@@ -258,5 +258,7 @@ describe('ultimate haste', () => {
   it('defaults to 0 and can come from flat bonuses', () => {
     expect(resolveStats(dummy, 1).ultimateHaste).toBe(0);
     expect(resolveStats(dummy, 1, { ultimateHaste: 15 }).ultimateHaste).toBe(15);
+    expect(resolveStats(dummy, 1).basicHaste).toBe(0);
+    expect(hasteFor(resolveStats(dummy, 1, { basicHaste: 25, ultimateHaste: 15 }), 'basic')).toBe(25);
   });
 });

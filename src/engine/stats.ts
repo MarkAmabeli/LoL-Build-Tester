@@ -151,6 +151,7 @@ export function resolveStats(
     critChance: Math.min(1, bonuses.critChance ?? 0),
     critMultiplier: BASE_CRIT_MULTIPLIER + (bonuses.critDamageBonus ?? 0),
     abilityHaste: bonuses.abilityHaste ?? 0,
+    basicHaste: bonuses.basicHaste ?? 0,
     ultimateHaste: bonuses.ultimateHaste ?? 0,
     lethality: bonuses.lethality ?? 0,
     armorPenPct: bonuses.armorPenPct ?? 0,
@@ -178,9 +179,9 @@ export function isRanged(stats: ResolvedStats): boolean {
   return stats.attackRange > MELEE_RANGE_MAX;
 }
 
-/** Total ability haste for a slot: ultimate haste adds to ability haste for the ultimate only. */
+/** Total ability haste for a slot: ability haste plus that slot's own basic or ultimate haste. */
 export function hasteFor(stats: ResolvedStats, slot: 'basic' | 'ultimate'): number {
-  return stats.abilityHaste + (slot === 'ultimate' ? stats.ultimateHaste : 0);
+  return stats.abilityHaste + (slot === 'ultimate' ? stats.ultimateHaste : stats.basicHaste);
 }
 
 /** Cooldown after ability haste: cd × 100 / (100 + AH). */
