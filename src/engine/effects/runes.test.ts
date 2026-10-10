@@ -5,7 +5,9 @@ import {
   autoAttack,
   byLevel,
   computeHit,
+  gatheringStormForce,
   getEffect,
+  lastStandAmp,
   resolveStats,
   type ActiveEffect,
   type ChampionBaseStats,
@@ -192,5 +194,69 @@ describe('First Strike', () => {
 
   it('does nothing when inactive', () => {
     expect(hit(dummy, 1, {}, [activate(rune('8369'), { active: false })], auto).total).toBeCloseTo(60);
+  });
+});
+
+describe('Coup de Grace', () => {
+  const effects = [activate(rune('8014'))];
+
+  it('amplifies damage by 8% below 40% target health', () => {
+    expect(hit(dummy, 1, {}, effects, auto, { ...bare, currentHp: 239 }).total).toBeCloseTo(60 * 1.08);
+    expect(hit(dummy, 1, {}, effects, auto, { ...bare, currentHp: 240 }).total).toBeCloseTo(60);
+    expect(hit(dummy, 1, {}, effects, auto).total).toBeCloseTo(60);
+  });
+});
+
+describe('Cut Down', () => {
+  const effects = [activate(rune('8017'))];
+
+  it('amplifies damage by 8% above 60% target health', () => {
+    expect(hit(dummy, 1, {}, effects, auto).total).toBeCloseTo(60 * 1.08);
+    expect(hit(dummy, 1, {}, effects, auto, { ...bare, currentHp: 361 }).total).toBeCloseTo(60 * 1.08);
+    expect(hit(dummy, 1, {}, effects, auto, { ...bare, currentHp: 360 }).total).toBeCloseTo(60);
+  });
+});
+
+describe('Last Stand', () => {
+  it('rises from 5% below 60% health to 11% at 30%', () => {
+    expect(lastStandAmp(1)).toBe(0);
+    expect(lastStandAmp(0.6)).toBe(0);
+    expect(lastStandAmp(0.59)).toBeCloseTo(0.05 + 0.06 * (0.01 / 0.3));
+    expect(lastStandAmp(0.45)).toBeCloseTo(0.08);
+    expect(lastStandAmp(0.3)).toBeCloseTo(0.11);
+    expect(lastStandAmp(0.1)).toBeCloseTo(0.11);
+  });
+
+  it("uses the attacker's current health", () => {
+    const effects = [activate(rune('8299'))];
+    const hurt = resolveStats(dummy, 1, {}, effects, { currentHpPct: 0.45 });
+    expect(computeHit(auto(hurt), { attacker: hurt, target: bare, effects }).total).toBeCloseTo(60 * 1.08);
+    const healthy = resolveStats(dummy, 1, {}, effects);
+    expect(computeHit(auto(healthy), { attacker: healthy, target: bare, effects }).total).toBeCloseTo(60);
+  });
+});
+
+describe('Absolute Focus', () => {
+  const effects = [activate(rune('8233'))];
+
+  it('grants 3–30 adaptive force by level above 70% health', () => {
+    expect(resolveStats(dummy, 1, {}, effects).ad.bonus).toBeCloseTo(1.8);
+    expect(resolveStats(dummy, 18, { ap: 50 }, effects).ap).toBeCloseTo(80);
+  });
+
+  it('turns off at 70% health or lower', () => {
+    expect(resolveStats(dummy, 1, {}, effects, { currentHpPct: 0.7 }).ad.bonus).toBe(0);
+  });
+});
+
+describe('Gathering Storm', () => {
+  it('grants 8 × (1 + 2 + … + n) adaptive force after n 10-minute steps', () => {
+    expect([0, 9.9, 10, 20, 30, 60].map(gatheringStormForce)).toEqual([0, 0, 8, 24, 48, 168]);
+  });
+
+  it('matches the in-game table: 24 AP or ~14 AD at 20 minutes', () => {
+    const effects = [activate(rune('8236'), { minutes: 20 })];
+    expect(resolveStats(dummy, 1, { ap: 10 }, effects).ap).toBeCloseTo(34);
+    expect(resolveStats(dummy, 1, {}, effects).ad.bonus).toBeCloseTo(14.4);
   });
 });

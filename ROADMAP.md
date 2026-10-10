@@ -27,6 +27,8 @@
 - [x] Effect hooks: `modifyStats`, `onHit`, `onAbilityHit`, `preMitigation`, `targetResist` (pilot items: Rabadon's, Black Cleaver, Nashor's, Kraken)
 - [ ] The 20–30 most-built damage items
 - [x] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
+- [x] Minor runes: Coup de Grace, Cut Down, Last Stand, Absolute Focus, Gathering Storm
+- [ ] Other damage-relevant minor runes: Cheap Shot, Sudden Impact, Scorch, Axiom Arcanist, Legend: Alacrity, Legend: Haste, Transcendence, Waterwalking, Jack of All Trades, Grisly Mementos; target-side Conditioning, Overgrowth, Bone Plating
 
 ## 5. Combo simulator
 - [ ] Ordered action list (Q, AA, E, R…) with stateful stacks, procs and shred

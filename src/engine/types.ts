@@ -96,6 +96,8 @@ export interface ResolvedStats {
   bonusAttackSpeedPct: number;
   /** The champion's adaptive tie-break (see `ChampionBaseStats.adaptiveType`). */
   adaptiveTieBreak: 'ad' | 'ap';
+  /** Current health as a fraction of max (1 = full), for effects like Last Stand. */
+  currentHpPct: number;
 }
 
 /** Resistance reduction applied to a target (e.g. Black Cleaver shred). Applied before penetration. */

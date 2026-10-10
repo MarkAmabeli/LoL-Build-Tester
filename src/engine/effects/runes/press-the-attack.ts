@@ -1,4 +1,5 @@
 import { byLevel } from '../../stats';
+import { amplify } from '../amplify';
 import type { Effect } from '../types';
 import { adaptiveProc } from './adaptive';
 
@@ -25,5 +26,5 @@ export const pressTheAttack: Effect = {
   onHit: ({ attacker, state }) =>
     state.proc ? [adaptiveProc(attacker, byLevel(DAMAGE_L1, DAMAGE_L18, attacker.level), 'Press the Attack')] : [],
   preMitigation: (hit, { state }) =>
-    state.exposed && !state.proc ? { ...hit, raw: hit.raw * (1 + DAMAGE_AMP) } : hit,
+    state.exposed && !state.proc ? amplify(hit, DAMAGE_AMP) : hit,
 };

@@ -1,3 +1,4 @@
+import { targetHpPct } from '../../damage';
 import { isRanged } from '../../stats';
 import type { Effect } from '../types';
 
@@ -27,8 +28,7 @@ export const krakenSlayer: Effect = {
   state: [{ key: 'proc', label: 'Third attack (proc)', kind: 'toggle', default: true }],
   onHit: ({ attacker, target, state }) => {
     if (!state.proc) return [];
-    const maxHp = target.stats.hp.total;
-    const missingPct = maxHp > 0 ? 1 - (target.currentHp ?? maxHp) / maxHp : 0;
+    const missingPct = 1 - targetHpPct(target);
     const amp = 1 + (MAX_AMP - 1) * Math.min(1, Math.max(0, missingPct));
     const rangedMult = isRanged(attacker) ? RANGED_MULT : 1;
     return [{

@@ -1,3 +1,4 @@
+import { targetHpPct } from '../../damage';
 import type { Effect, HitContext } from '../types';
 import { adaptiveProc } from './adaptive';
 
@@ -9,9 +10,7 @@ const AP_RATIO = 0.05;
 const HEALTH_THRESHOLD = 0.5;
 
 const proc = ({ attacker, target, state }: HitContext) => {
-  const maxHp = target.stats.hp.total;
-  const below = (target.currentHp ?? maxHp) < HEALTH_THRESHOLD * maxHp;
-  if (!state.proc || !below) return [];
+  if (!state.proc || targetHpPct(target) >= HEALTH_THRESHOLD) return [];
   const raw = BASE + PER_SOUL * Number(state.souls) + BONUS_AD_RATIO * attacker.ad.bonus + AP_RATIO * attacker.ap;
   return [adaptiveProc(attacker, raw, 'Dark Harvest')];
 };

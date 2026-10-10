@@ -1,3 +1,4 @@
+import { amplify } from '../amplify';
 import type { Effect } from '../types';
 
 // CommunityDragon perks Inspiration/FirstStrike: DamageAmp 0.07.
@@ -14,5 +15,5 @@ export const firstStrike: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [{ key: 'active', label: 'First Strike active', kind: 'toggle', default: true }],
-  preMitigation: (hit, { state }) => (state.active ? { ...hit, raw: hit.raw * (1 + DAMAGE_AMP) } : hit),
+  preMitigation: (hit, { state }) => (state.active ? amplify(hit, DAMAGE_AMP) : hit),
 };

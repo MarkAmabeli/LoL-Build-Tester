@@ -118,6 +118,7 @@ export function resolveStats(
   level: number,
   bonuses: StatBonuses = {},
   effects: ActiveEffect[] = [],
+  situation: { currentHpPct?: number } = {},
 ): ResolvedStats {
   const lvl = clampLevel(level);
   const at = (base: number, growth: number) => base + growthAtLevel(growth, lvl);
@@ -151,6 +152,7 @@ export function resolveStats(
     attackSpeedRatio: asRatio,
     bonusAttackSpeedPct: growthAtLevel(champ.attackspeedperlevel, lvl) + (bonuses.attackSpeedPct ?? 0),
     adaptiveTieBreak: champ.adaptiveType ?? 'ad',
+    currentHpPct: Math.min(1, Math.max(0, situation.currentHpPct ?? 1)),
   };
   const ordered = [
     ...effects.filter((a) => (a.effect.statPhase ?? 'add') === 'add'),

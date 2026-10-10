@@ -37,6 +37,12 @@ export interface TargetState {
   currentHp?: number;
 }
 
+/** Target's current health as a fraction of max (1 = full). */
+export function targetHpPct(target: TargetState): number {
+  const max = target.stats.hp.total;
+  return max > 0 ? (target.currentHp ?? max) / max : 1;
+}
+
 function atRank(value: number | number[], rank: number): number {
   if (!Array.isArray(value)) return value;
   if (value.length === 0) return 0;
