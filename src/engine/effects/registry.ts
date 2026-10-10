@@ -2,6 +2,7 @@ import { archangelsStaff, seraphsEmbrace } from './items/archangels-staff';
 import { blackCleaver } from './items/black-cleaver';
 import { blackfireTorch } from './items/blackfire-torch';
 import { bladeOfTheRuinedKing } from './items/blade-of-the-ruined-king';
+import { rapidFirecannon, statikkShiv } from './items/energized';
 import { experimentalHexplate } from './items/experimental-hexplate';
 import { guinsoosRageblade } from './items/guinsoos-rageblade';
 import { hubris } from './items/hubris';
@@ -16,8 +17,11 @@ import { nashorsTooth } from './items/nashors-tooth';
 import { rabadonsDeathcap } from './items/rabadons-deathcap';
 import { riftmaker } from './items/riftmaker';
 import { shadowflame } from './items/shadowflame';
+import { bloodsong, duskAndDawn, essenceReaver, icebornGauntlet, lichBane, sheen, trinityForce } from './items/spellblade';
 import { stormsurge } from './items/stormsurge';
+import { sunderedSky } from './items/sundered-sky';
 import { terminus } from './items/terminus';
+import { theCollector } from './items/the-collector';
 import { titanicHydra } from './items/titanic-hydra';
 import { voltaicCyclosword } from './items/voltaic-cyclosword';
 import { witsEnd } from './items/wits-end';
@@ -53,6 +57,8 @@ const ALL: Effect[] = [
   lordDominiksRegards, shadowflame, liandrysTorment, riftmaker,
   manamune, muramana, archangelsStaff, seraphsEmbrace, blackfireTorch, hubris, voltaicCyclosword, experimentalHexplate,
   ludensEcho, malignance, stormsurge,
+  sheen, trinityForce, lichBane, essenceReaver, icebornGauntlet, bloodsong, duskAndDawn,
+  statikkShiv, rapidFirecannon, theCollector, sunderedSky,
   // Keystones
   conqueror, electrocute, pressTheAttack, lethalTempo, arcaneComet, darkHarvest, firstStrike,
   // Minor runes

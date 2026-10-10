@@ -176,3 +176,70 @@ describe('ability procs', () => {
     expect(procs(hit(dummy, { ap: 100 }, [activate(item('4646'))], () => ability))).toEqual([['Squall', 'magic', 135]]);
   });
 });
+
+describe('Spellblade items', () => {
+  const proc = (id: string, bonuses: StatBonuses = {}, champ = dummy) =>
+    hit(champ, bonuses, [activate(item(id))], auto).hits.slice(1).map((h) => [h.type, h.raw]);
+
+  it('scale with base AD (and AP for the magic ones)', () => {
+    expect(proc('3057')).toEqual([['physical', 60]]);
+    expect(proc('3078', { ad: 40 })).toEqual([['physical', 120]]);
+    expect(proc('6662')).toEqual([['physical', 90]]);
+    expect(proc('3100', { ap: 100 })).toEqual([['magic', 45 + 45]]);
+    expect(proc('2510', { ap: 100 })).toEqual([['magic', 45 + 10]]);
+  });
+
+  it('Essence Reaver adds 50 per 100% crit chance', () => {
+    expect(proc('3508', { critChance: 0.5 })[0][1]).toBeCloseTo(75 + 25);
+  });
+
+  it('only proc on attacks, when ready', () => {
+    expect(hit(dummy, {}, [activate(item('3078'))], () => ability).hits).toHaveLength(1);
+    expect(hit(dummy, {}, [activate(item('3078'), { proc: false })], auto).hits).toHaveLength(1);
+  });
+
+  it('Bloodsong Maim amplifies all damage by 8% (ranged 5%)', () => {
+    expect(hit(melee, {}, [activate(item('3877'), { proc: false })], () => ability).total).toBeCloseTo(108);
+    expect(hit(dummy, {}, [activate(item('3877'))], auto).total).toBeCloseTo(120 * 1.05);
+  });
+});
+
+describe('Energized items', () => {
+  it('Statikk Shiv and Rapid Firecannon both add to the same Energized attack', () => {
+    const effects = [activate(item('3087')), activate(item('3094'))];
+    expect(procs(hit(dummy, {}, effects, auto))).toEqual([['Statikk Shiv', 'magic', 60], ['Rapid Firecannon', 'magic', 40]]);
+    expect(hit(dummy, {}, [activate(item('3087'), { proc: false })], auto).hits).toHaveLength(1);
+  });
+});
+
+describe('The Collector', () => {
+  const effects = [activate(item('6676'))];
+
+  it('executes a target left below 5% health', () => {
+    // 600 max health: 29 left is below 30 (5%).
+    expect(hit(dummy, {}, effects, auto, { ...bare, currentHp: 89 }).executedBy).toBe('The Collector');
+  });
+
+  it("doesn't execute above the threshold, or a target already killed", () => {
+    expect(hit(dummy, {}, effects, auto, { ...bare, currentHp: 90 }).executedBy).toBeUndefined();
+    expect(hit(dummy, {}, effects, auto, { ...bare, currentHp: 50 }).executedBy).toBeUndefined();
+    expect(hit(dummy, {}, [], auto, { ...bare, currentHp: 89 }).executedBy).toBeUndefined();
+  });
+});
+
+describe('Sundered Sky', () => {
+  it('makes the attack a 150% crit, whatever the crit chance', () => {
+    const r = hit(dummy, { critChance: 0.5 }, [activate(item('6610'))], auto);
+    expect(r.hits[0]).toMatchObject({ raw: 90, tags: ['auto', 'crit'] });
+  });
+
+  it('leaves abilities and spent procs alone', () => {
+    expect(hit(dummy, {}, [activate(item('6610'))], () => ability).total).toBeCloseTo(100);
+    expect(hit(dummy, {}, [activate(item('6610'), { proc: false })], auto).total).toBeCloseTo(60);
+  });
+
+  it('procs see the modified hit', () => {
+    const effects = [activate(item('6610')), activate(item('3087'))];
+    expect(hit(dummy, {}, effects, auto).total).toBeCloseTo(90 + 60);
+  });
+});

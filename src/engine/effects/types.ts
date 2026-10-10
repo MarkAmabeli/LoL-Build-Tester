@@ -49,6 +49,11 @@ export interface Effect {
 
   /** Runs on fully summed stats; returns the changed stats. */
   modifyStats?(stats: ResolvedStats, state: EffectState): ResolvedStats;
+  /**
+   * Changes the attack or ability itself before procs run (e.g. Sundered Sky's guaranteed
+   * crit). Only the triggering hit goes through this, not procs.
+   */
+  modifyHit?(hit: DamageInstance, ctx: HitContext): DamageInstance;
   /** Extra damage when an auto attack hits. */
   onHit?(ctx: HitContext): DamageInstance[];
   /** Extra damage when an ability hits. */
@@ -57,6 +62,8 @@ export interface Effect {
   preMitigation?(hit: DamageInstance, ctx: HitContext): DamageInstance;
   /** Armor/MR reduction this effect has applied to the target. */
   targetResist?(ctx: HitContext): TargetResistChange;
+  /** Health fraction (0.05 = 5%) below which a hit's damage executes the target (e.g. The Collector). */
+  executeThreshold?(ctx: HitContext): number;
 }
 
 /** An effect in a loadout, with its state resolved. */

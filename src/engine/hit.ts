@@ -19,6 +19,11 @@ export interface HitResult {
   /** The hit itself first, then any on-hit/on-ability procs it triggered. */
   hits: MitigatedDamage[];
   total: number;
+  /**
+   * Name of the effect that executed the target: the hit left it alive but below that
+   * effect's `executeThreshold`. `total` doesn't include the executed health.
+   */
+  executedBy?: string;
 }
 
 /** Combine reductions: flat adds, percent stacks multiplicatively (like % penetration). */
@@ -34,11 +39,13 @@ export function combineReductions(...rs: Array<ResistReduction | undefined>): Re
 
 /**
  * Resolve one hit through the effect pipeline:
- *   1. procs: `onHit` for auto attacks, `onAbilityHit` for abilities (procs don't proc again)
- *   2. `preMitigation` on every instance
- *   3. resistances, with shred from every effect's `targetResist`
+ *   1. `modifyHit` on the hit itself
+ *   2. procs: `onHit` for auto attacks, `onAbilityHit` for abilities (procs don't proc again)
+ *   3. `preMitigation` on every instance
+ *   4. resistances, with shred from every effect's `targetResist`
+ *   5. execute check against every effect's `executeThreshold`
  */
-export function computeHit(hit: DamageInstance, input: HitInput): HitResult {
+export function computeHit(baseHit: DamageInstance, input: HitInput): HitResult {
   const effects = input.effects ?? [];
   const ctx = (a: ActiveEffect, trigger?: DamageInstance): HitContext => ({
     attacker: input.attacker,
@@ -47,6 +54,7 @@ export function computeHit(hit: DamageInstance, input: HitInput): HitResult {
     hit: trigger,
   });
 
+  const hit = effects.reduce((h, a) => a.effect.modifyHit?.(h, ctx(a)) ?? h, baseHit);
   const isAuto = hit.tags?.includes('auto') ?? false;
   const isAbility = hit.tags?.includes('ability') ?? false;
   const procs = effects.flatMap((a) => [
@@ -72,5 +80,9 @@ export function computeHit(hit: DamageInstance, input: HitInput): HitResult {
     });
   });
 
-  return { hits, total: hits.reduce((sum, h) => sum + h.final, 0) };
+  const total = hits.reduce((sum, h) => sum + h.final, 0);
+  const maxHp = input.target.stats.hp.total;
+  const remaining = (input.target.currentHp ?? maxHp) - total;
+  const executor = effects.find((a) => remaining > 0 && remaining < (a.effect.executeThreshold?.(ctx(a)) ?? 0) * maxHp);
+  return executor ? { hits, total, executedBy: executor.effect.name } : { hits, total };
 }
