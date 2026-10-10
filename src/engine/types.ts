@@ -155,3 +155,14 @@ export interface ShardData {
   rows: ShardRow[];
   shards: Record<number, StatShard>;
 }
+
+/** A shop limit: a build may hold at most `max` items from `items` (`item-groups.json`). */
+export interface ItemLimitGroup {
+  /** CommunityDragon bin key of the group. */
+  id: string;
+  /** Readable name, e.g. "Spellblade", "LastWhisper", or the item's name for one-copy groups. */
+  name: string;
+  max: number;
+  /** Item IDs in the group. */
+  items: string[];
+}

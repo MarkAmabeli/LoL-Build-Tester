@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "{d4211923}",
+    "name": "Abyssal Mask",
+    "max": 1,
+    "items": [
+      "328020",
+      "8020"
+    ]
+  },
+  {
+    "id": "{f0405968}",
+    "name": "Actualizer",
+    "max": 1,
+    "items": [
+      "2522"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/APMultiplier",
+    "name": "APMultiplier",
+    "max": 1,
+    "items": [
+      "3089"
+    ]
+  },
+  {
+    "id": "{2bb000ae}",
+    "name": "Archangel's Staff",
+    "max": 1,
+    "items": [
+      "3003",
+      "323003"
+    ]
+  },
+  {
+    "id": "{5aa31b15}",
+    "name": "Ardent Censer",
+    "max": 1,
+    "items": [
+      "323504",
+      "3504"
+    ]
+  },
+  {
+    "id": "{9c3607ae}",
+    "name": "Armored Advance",
+    "max": 1,
+    "items": [
+      "3174"
+    ]
+  },
+  {
+    "id": "{601ffc9e}",
+    "name": "Atma's Reckoning",
+    "max": 1,
+    "items": [
+      "663039"
+    ]
+  },
+  {
+    "id": "{bd69c87a}",
+    "name": "Axiom Arc",
+    "max": 1,
+    "items": [
+      "6696"
+    ]
+  },
+  {
+    "id": "{f64062da}",
+    "name": "Bandlepipes",
+    "max": 1,
+    "items": [
+      "2524"
+    ]
+  },
+  {
+    "id": "{103d7a0f}",
+    "name": "Banshee's Veil",
+    "max": 1,
+    "items": [
+      "3102"
+    ]
+  },
+  {
+    "id": "{f2405c8e}",
+    "name": "Bastionbreaker",
+    "max": 1,
+    "items": [
+      "2520"
+    ]
+  },
+  {
+    "id": "{24adb712}",
+    "name": "Black Cleaver",
+    "max": 1,
+    "items": [
+      "3071"
+    ]
+  },
+  {
+    "id": "{693b07b5}",
+    "name": "Blackfire Torch",
+    "max": 1,
+    "items": [
+      "2503"
+    ]
+  },
+  {
+    "id": "{973182a1}",
+    "name": "Blade of The Ruined King",
+    "max": 1,
+    "items": [
+      "3153"
+    ]
+  },
+  {
+    "id": "{23adb57f}",
+    "name": "Bloodthirster",
+    "max": 1,
+    "items": [
+      "3072"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/Boots",
+    "name": "Boots",
+    "max": 1,
+    "items": [
+      "1001",
+      "3006",
+      "3008",
+      "3009",
+      "3020",
+      "3047",
+      "3111",
+      "3158",
+      "3168",
+      "3170",
+      "3171",
+      "3172",
+      "3173",
+      "3174",
+      "3175"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/BootsWithoutActives",
+    "name": "BootsWithoutActives",
+    "max": 1,
+    "items": [
+      "1001",
+      "3006",
+      "3008",
+      "3009",
+      "3020",
+      "3047",
+      "3111",
+      "3158",
+      "3168"
+    ]
+  },
+  {
+    "id": "{9f360c67}",
+    "name": "Chainlaced Crushers",
+    "max": 1,
+    "items": [
+      "3173"
+    ]
+  },
+  {
+    "id": "{b458712e}",
+    "name": "Chempunk Chainsword",
+    "max": 1,
+    "items": [
+      "6609"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/CleaveItems",
+    "name": "CleaveItems",
+    "max": 1,
+    "items": [
+      "3074",
+      "3077",
+      "3748",
+      "6631",
+      "6698"
+    ]
+  },
+  {
+    "id": "{642f0d74}",
+    "name": "Cloak of Starry Night",
+    "max": 1,
+    "items": [
+      "663059"
+    ]
+  },
+  {
+    "id": "{456ece4e}",
+    "name": "Cosmic Drive",
+    "max": 1,
+    "items": [
+      "4629"
+    ]
+  },
+  {
+    "id": "{a1360f8d}",
+    "name": "Crimson Lucidity",
+    "max": 1,
+    "items": [
+      "3171"
+    ]
+  },
+  {
+    "id": "{a7bd77ab}",
+    "name": "Crown of the Shattered Queen",
+    "max": 1,
+    "items": [
+      "664644"
+    ]
+  },
+  {
+    "id": "{be7d0453}",
+    "name": "Crown of the Shattered Queen",
+    "max": 1,
+    "items": [
+      "664644"
+    ]
+  },
+  {
+    "id": "{c642a473}",
+    "name": "Crown of the Shattered Queen",
+    "max": 1,
+    "items": [
+      "664644"
+    ]
+  },
+  {
+    "id": "{8d2acc26}",
+    "name": "Cruelty",
+    "max": 1,
+    "items": [
+      "667109"
+    ]
+  },
+  {
+    "id": "{3432bd77}",
+    "name": "Dawncore",
+    "max": 1,
+    "items": [
+      "326621",
+      "6621"
+    ]
+  },
+  {
+    "id": "{1b1c30d5}",
+    "name": "Dead Man's Plate",
+    "max": 1,
+    "items": [
+      "3742"
+    ]
+  },
+  {
+    "id": "{92901b7d}",
+    "name": "Dead Man's Plate",
+    "max": 1,
+    "items": [
+      "3742"
+    ]
+  },
+  {
+    "id": "{001c1988}",
+    "name": "Death's Dance",
+    "max": 1,
+    "items": [
+      "6333"
+    ]
+  },
+  {
+    "id": "{5b2eff49}",
+    "name": "Demon King's Crown",
+    "max": 1,
+    "items": [
+      "663056"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/DoransItems",
+    "name": "DoransItems",
+    "max": 1,
+    "items": [
+      "1054",
+      "1055",
+      "1056",
+      "1086",
+      "1101",
+      "1102",
+      "1103",
+      "1105",
+      "1106",
+      "1107",
+      "1120",
+      "3865",
+      "3869",
+      "3870",
+      "3871",
+      "3876",
+      "3877"
+    ]
+  },
+  {
+    "id": "{6c3d4b05}",
+    "name": "Dusk and Dawn",
+    "max": 1,
+    "items": [
+      "2510"
+    ]
+  },
+  {
+    "id": "{395dbfbb}",
+    "name": "Echoes of Helia",
+    "max": 1,
+    "items": [
+      "326620",
+      "6620"
+    ]
+  },
+  {
+    "id": "{b969c22e}",
+    "name": "Eclipse",
+    "max": 1,
+    "items": [
+      "6692"
+    ]
+  },
+  {
+    "id": "{c6c2af47}",
+    "name": "Edge of Night",
+    "max": 1,
+    "items": [
+      "3814"
+    ]
+  },
+  {
+    "id": "{b4a76613}",
+    "name": "Elixir of Iron",
+    "max": 1,
+    "items": [
+      "2138"
+    ]
+  },
+  {
+    "id": "{653d4000}",
+    "name": "Endless Hunger",
+    "max": 1,
+    "items": [
+      "2517"
+    ]
+  },
+  {
+    "id": "{5ea32161}",
+    "name": "Essence Reaver",
+    "max": 1,
+    "items": [
+      "3508"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/EternityItems",
+    "name": "EternityItems",
+    "max": 1,
+    "items": [
+      "326657",
+      "3803",
+      "6657"
+    ]
+  },
+  {
+    "id": "{22adb3ec}",
+    "name": "Experimental Hexplate",
+    "max": 1,
+    "items": [
+      "3073"
+    ]
+  },
+  {
+    "id": "{6a3d47df}",
+    "name": "Fiendhunter Bolts",
+    "max": 1,
+    "items": [
+      "2512"
+    ]
+  },
+  {
+    "id": "{9228956e}",
+    "name": "Flesheater",
+    "max": 1,
+    "items": [
+      "667112"
+    ]
+  },
+  {
+    "id": "{27df203e}",
+    "name": "Force of Nature",
+    "max": 1,
+    "items": [
+      "4401"
+    ]
+  },
+  {
+    "id": "{0c3b352c}",
+    "name": "Frozen Heart",
+    "max": 1,
+    "items": [
+      "3110",
+      "323110"
+    ]
+  },
+  {
+    "id": "{952ad8be}",
+    "name": "Gambler's Blade",
+    "max": 1,
+    "items": [
+      "667101"
+    ]
+  },
+  {
+    "id": "{cc07ff85}",
+    "name": "Gargoyle Stoneplate",
+    "max": 1,
+    "items": [
+      "663193"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/Glory",
+    "name": "Glory",
+    "max": 1,
+    "items": [
+      "1082",
+      "3041"
+    ]
+  },
+  {
+    "id": "{aba63cd2}",
+    "name": "Gluttonous Greaves",
+    "max": 1,
+    "items": [
+      "3008"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/GoldItems",
+    "name": "GoldItems",
+    "max": 1,
+    "items": [
+      "1101",
+      "1102",
+      "1103",
+      "1105",
+      "1106",
+      "1107",
+      "3865",
+      "3869",
+      "3870",
+      "3871",
+      "3876",
+      "3877"
+    ]
+  },
+  {
+    "id": "{2da0f94a}",
+    "name": "Guardian Angel",
+    "max": 1,
+    "items": [
+      "3026"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/GuardianItems",
+    "name": "GuardianItems",
+    "max": 1,
+    "items": [
+      "2051",
+      "3112",
+      "3177",
+      "3184"
+    ]
+  },
+  {
+    "id": "{9a42d07b}",
+    "name": "Guinsoo's Rageblade",
+    "max": 1,
+    "items": [
+      "3124"
+    ]
+  },
+  {
+    "id": "{9e360ad4}",
+    "name": "Gunmetal Greaves",
+    "max": 1,
+    "items": [
+      "3172"
+    ]
+  },
+  {
+    "id": "{9b33c784}",
+    "name": "Haunting Guise",
+    "max": 1,
+    "items": [
+      "3147"
+    ]
+  },
+  {
+    "id": "{9f92a236}",
+    "name": "Heartsteel",
+    "max": 1,
+    "items": [
+      "3084"
+    ]
+  },
+  {
+    "id": "{f1405afb}",
+    "name": "Hexoptics C44",
+    "max": 1,
+    "items": [
+      "2523"
+    ]
+  },
+  {
+    "id": "{48ecedcf}",
+    "name": "Hextech Gunblade",
+    "max": 1,
+    "items": [
+      "663146"
+    ]
+  },
+  {
+    "id": "{9c33c917}",
+    "name": "Hextech Gunblade",
+    "max": 1,
+    "items": [
+      "3146"
+    ]
+  },
+  {
+    "id": "{9631810e}",
+    "name": "Hextech Rocketbelt",
+    "max": 1,
+    "items": [
+      "3152"
+    ]
+  },
+  {
+    "id": "{ad6770b3}",
+    "name": "Hollow Radiance",
+    "max": 1,
+    "items": [
+      "6664"
+    ]
+  },
+  {
+    "id": "{466ecfe1}",
+    "name": "Horizon Focus",
+    "max": 1,
+    "items": [
+      "4628"
+    ]
+  },
+  {
+    "id": "{be69ca0d}",
+    "name": "Hubris",
+    "max": 1,
+    "items": [
+      "6697"
+    ]
+  },
+  {
+    "id": "{212a0d1a}",
+    "name": "Hullbreaker",
+    "max": 1,
+    "items": [
+      "3181"
+    ]
+  },
+  {
+    "id": "{3aa8b165}",
+    "name": "HuntersTalismanGroup",
+    "max": 1,
+    "items": [
+      "1101",
+      "1102",
+      "1103",
+      "1105",
+      "1106",
+      "1107"
+    ]
+  },
+  {
+    "id": "{3541a6d4}",
+    "name": "HydraItems",
+    "max": 3,
+    "items": [
+      "3074",
+      "3748",
+      "6698"
+    ]
+  },
+  {
+    "id": "{b3677a25}",
+    "name": "Iceborn Gauntlet",
+    "max": 1,
+    "items": [
+      "6662"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/ImmolateItems",
+    "name": "ImmolateItems",
+    "max": 1,
+    "items": [
+      "3068",
+      "6660",
+      "6664"
+    ]
+  },
+  {
+    "id": "{0e38f9bb}",
+    "name": "Immortal Path",
+    "max": 1,
+    "items": [
+      "3168"
+    ]
+  },
+  {
+    "id": "{aa652d63}",
+    "name": "Immortal Shieldbow",
+    "max": 1,
+    "items": [
+      "6673"
+    ]
+  },
+  {
+    "id": "{5f2a99fe}",
+    "name": "Imperial Mandate",
+    "max": 1,
+    "items": [
+      "324005",
+      "4005"
+    ]
+  },
+  {
+    "id": "{0321bdeb}",
+    "name": "Infinity Edge",
+    "max": 1,
+    "items": [
+      "3031"
+    ]
+  },
+  {
+    "id": "{aca3ffce}",
+    "name": "Infinity Edge",
+    "max": 1,
+    "items": [
+      "3031"
+    ]
+  },
+  {
+    "id": "{ac676f20}",
+    "name": "Jak'Sho, The Protean",
+    "max": 1,
+    "items": [
+      "6665"
+    ]
+  },
+  {
+    "id": "{623afcb0}",
+    "name": "Kaenic Rookern",
+    "max": 1,
+    "items": [
+      "2504"
+    ]
+  },
+  {
+    "id": "{193d883a}",
+    "name": "Knight's Vow",
+    "max": 1,
+    "items": [
+      "3109",
+      "323109"
+    ]
+  },
+  {
+    "id": "{a9652bd0}",
+    "name": "Kraken Slayer",
+    "max": 1,
+    "items": [
+      "6672"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/LastWhisper",
+    "name": "LastWhisper",
+    "max": 1,
+    "items": [
+      "3033",
+      "3035",
+      "3036",
+      "3071",
+      "3302",
+      "6694"
+    ]
+  },
+  {
+    "id": "{42600c7d}",
+    "name": "Liandry's Torment",
+    "max": 1,
+    "items": [
+      "6653"
+    ]
+  },
+  {
+    "id": "{123d7d35}",
+    "name": "Lich Bane",
+    "max": 1,
+    "items": [
+      "3100"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/LifelineItems",
+    "name": "LifelineItems",
+    "max": 1,
+    "items": [
+      "2525",
+      "3003",
+      "3053",
+      "3155",
+      "3156",
+      "323003",
+      "6673"
+    ]
+  },
+  {
+    "id": "{9c26fd24}",
+    "name": "Locket of the Iron Solari",
+    "max": 1,
+    "items": [
+      "3190",
+      "323190"
+    ]
+  },
+  {
+    "id": "{3c60030b}",
+    "name": "Luden's Echo",
+    "max": 1,
+    "items": [
+      "6655"
+    ]
+  },
+  {
+    "id": "{143b41c4}",
+    "name": "Malignance",
+    "max": 1,
+    "items": [
+      "3118"
+    ]
+  },
+  {
+    "id": "{29affd88}",
+    "name": "Manamune",
+    "max": 1,
+    "items": [
+      "3004",
+      "323004"
+    ]
+  },
+  {
+    "id": "{bf3ed580}",
+    "name": "Mikael's Blessing",
+    "max": 1,
+    "items": [
+      "3222",
+      "323222"
+    ]
+  },
+  {
+    "id": "{ae562925}",
+    "name": "Moonstone Renewer",
+    "max": 1,
+    "items": [
+      "326617",
+      "6617"
+    ]
+  },
+  {
+    "id": "{0938f1dc}",
+    "name": "Morellonomicon",
+    "max": 1,
+    "items": [
+      "3165"
+    ]
+  },
+  {
+    "id": "{aaa3fca8}",
+    "name": "Mortal Reminder",
+    "max": 1,
+    "items": [
+      "3033"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/MythicItems",
+    "name": "MythicItems",
+    "max": 1,
+    "items": [
+      "3802"
+    ]
+  },
+  {
+    "id": "{093b3073}",
+    "name": "Nashor's Tooth",
+    "max": 1,
+    "items": [
+      "3115"
+    ]
+  },
+  {
+    "id": "{b06536d5}",
+    "name": "Navori Flickerblade",
+    "max": 1,
+    "items": [
+      "6675"
+    ]
+  },
+  {
+    "id": "{673b048f}",
+    "name": "Overlord's Bloodmail",
+    "max": 1,
+    "items": [
+      "2501"
+    ]
+  },
+  {
+    "id": "{2db003d4}",
+    "name": "Phantom Dancer",
+    "max": 1,
+    "items": [
+      "3046"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/Potion",
+    "name": "Potion",
+    "max": 1,
+    "items": [
+      "2003",
+      "2031"
+    ]
+  },
+  {
+    "id": "{af69b270}",
+    "name": "Profane Hydra",
+    "max": 1,
+    "items": [
+      "6698"
+    ]
+  },
+  {
+    "id": "{f740646d}",
+    "name": "Protoplasm Harness",
+    "max": 1,
+    "items": [
+      "2525"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/Quicksilver",
+    "name": "Quicksilver",
+    "max": 1,
+    "items": [
+      "3139",
+      "3140"
+    ]
+  },
+  {
+    "id": "{ac92b6ad}",
+    "name": "Rabadon's Deathcap",
+    "max": 1,
+    "items": [
+      "3089"
+    ]
+  },
+  {
+    "id": "{9733c138}",
+    "name": "Randuin's Omen",
+    "max": 1,
+    "items": [
+      "3143"
+    ]
+  },
+  {
+    "id": "{ad94f6d7}",
+    "name": "Rapid Firecannon",
+    "max": 1,
+    "items": [
+      "3094"
+    ]
+  },
+  {
+    "id": "{21adb259}",
+    "name": "Ravenous Hydra",
+    "max": 1,
+    "items": [
+      "3074"
+    ]
+  },
+  {
+    "id": "{0b3d7230}",
+    "name": "Redemption",
+    "max": 1,
+    "items": [
+      "3107",
+      "323107"
+    ]
+  },
+  {
+    "id": "{bb6bb679}",
+    "name": "Riftmaker",
+    "max": 1,
+    "items": [
+      "4633"
+    ]
+  },
+  {
+    "id": "{3e600631}",
+    "name": "Rod of Ages",
+    "max": 1,
+    "items": [
+      "326657",
+      "6657"
+    ]
+  },
+  {
+    "id": "{78ac5965}",
+    "name": "Runaan's Hurricane",
+    "max": 1,
+    "items": [
+      "3085"
+    ]
+  },
+  {
+    "id": "{a092a3c9}",
+    "name": "Runaan's Hurricane",
+    "max": 1,
+    "items": [
+      "3085"
+    ]
+  },
+  {
+    "id": "{0a3b3206}",
+    "name": "Rylai's Crystal Scepter",
+    "max": 1,
+    "items": [
+      "3116"
+    ]
+  },
+  {
+    "id": "{bc69c6e7}",
+    "name": "Serpent's Fang",
+    "max": 1,
+    "items": [
+      "6695"
+    ]
+  },
+  {
+    "id": "{1c3fcb8a}",
+    "name": "Serrated Dirk",
+    "max": 1,
+    "items": [
+      "3134"
+    ]
+  },
+  {
+    "id": "{bd7d02c0}",
+    "name": "Shadowflame",
+    "max": 1,
+    "items": [
+      "4645"
+    ]
+  },
+  {
+    "id": "{652f0f07}",
+    "name": "Shield of Molten Stone",
+    "max": 1,
+    "items": [
+      "663058"
+    ]
+  },
+  {
+    "id": "{3179bd6e}",
+    "name": "Shurelya's Battlesong",
+    "max": 1,
+    "items": [
+      "2065",
+      "322065"
+    ]
+  },
+  {
+    "id": "{0538eb90}",
+    "name": "Spear of Shojin",
+    "max": 1,
+    "items": [
+      "3161"
+    ]
+  },
+  {
+    "id": "{8b55a7b3}",
+    "name": "Spellblade",
+    "max": 1,
+    "items": [
+      "2510",
+      "3057",
+      "3078",
+      "3100",
+      "3508",
+      "3877",
+      "6662"
+    ]
+  },
+  {
+    "id": "{3fcdbdac}",
+    "name": "SpellShield",
+    "max": 1,
+    "items": [
+      "3102",
+      "3814",
+      "4632"
+    ]
+  },
+  {
+    "id": "{9d360941}",
+    "name": "Spellslinger's Shoes",
+    "max": 1,
+    "items": [
+      "3175"
+    ]
+  },
+  {
+    "id": "{1cab6be3}",
+    "name": "Spirit Visage",
+    "max": 1,
+    "items": [
+      "3065"
+    ]
+  },
+  {
+    "id": "{ad562792}",
+    "name": "Staff of Flowing Water",
+    "max": 1,
+    "items": [
+      "326616",
+      "6616"
+    ]
+  },
+  {
+    "id": "{9e92a0a3}",
+    "name": "Statikk Shiv",
+    "max": 1,
+    "items": [
+      "3087"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/StopwatchGroup",
+    "name": "StopwatchGroup",
+    "max": 1,
+    "items": [
+      "2420",
+      "2421"
+    ]
+  },
+  {
+    "id": "{ac94f544}",
+    "name": "Stormrazor",
+    "max": 1,
+    "items": [
+      "3095"
+    ]
+  },
+  {
+    "id": "{c07d0779}",
+    "name": "Stormsurge",
+    "max": 1,
+    "items": [
+      "4646"
+    ]
+  },
+  {
+    "id": "{b45aafc5}",
+    "name": "Stridebreaker",
+    "max": 1,
+    "items": [
+      "6631"
+    ]
+  },
+  {
+    "id": "{a7561e20}",
+    "name": "Sundered Sky",
+    "max": 1,
+    "items": [
+      "6610"
+    ]
+  },
+  {
+    "id": "{27ab7d34}",
+    "name": "Sunfire Aegis",
+    "max": 1,
+    "items": [
+      "3068"
+    ]
+  },
+  {
+    "id": "{a0360dfa}",
+    "name": "Swiftmarch",
+    "max": 1,
+    "items": [
+      "3170"
+    ]
+  },
+  {
+    "id": "{28689c5f}",
+    "name": "Sword of Blossoming Dawn",
+    "max": 1,
+    "items": [
+      "664011"
+    ]
+  },
+  {
+    "id": "{eb279334}",
+    "name": "Sword of the Divine",
+    "max": 1,
+    "items": [
+      "663060"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/TearItems",
+    "name": "TearItems",
+    "max": 1,
+    "items": [
+      "2526",
+      "3003",
+      "3004",
+      "3070",
+      "3119",
+      "322526",
+      "323003",
+      "323004",
+      "323070",
+      "323119"
+    ]
+  },
+  {
+    "id": "{370ee665}",
+    "name": "Terminus",
+    "max": 1,
+    "items": [
+      "3302"
+    ]
+  },
+  {
+    "id": "{ad65321c}",
+    "name": "The Collector",
+    "max": 1,
+    "items": [
+      "6676",
+      "667666"
+    ]
+  },
+  {
+    "id": "{20adb0c6}",
+    "name": "Thornmail",
+    "max": 1,
+    "items": [
+      "3075",
+      "323075"
+    ]
+  },
+  {
+    "id": "{87f1e822}",
+    "name": "Thorns",
+    "max": 1,
+    "items": [
+      "3075",
+      "3076",
+      "323075"
+    ]
+  },
+  {
+    "id": "{88900bbf}",
+    "name": "Titanic Hydra",
+    "max": 1,
+    "items": [
+      "3748"
+    ]
+  },
+  {
+    "id": "{2dadc53d}",
+    "name": "Trinity Force",
+    "max": 1,
+    "items": [
+      "3078"
+    ]
+  },
+  {
+    "id": "{993602f5}",
+    "name": "Umbral Glaive",
+    "max": 1,
+    "items": [
+      "3179"
+    ]
+  },
+  {
+    "id": "{683b0622}",
+    "name": "Unending Despair",
+    "max": 1,
+    "items": [
+      "2502"
+    ]
+  },
+  {
+    "id": "{e7278ce8}",
+    "name": "Veigar's Talisman of Ascension",
+    "max": 1,
+    "items": [
+      "663064"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/VoidPen",
+    "name": "VoidPen",
+    "max": 1,
+    "items": [
+      "3135",
+      "3137",
+      "3302",
+      "4630",
+      "8010"
+    ]
+  },
+  {
+    "id": "{b069b403}",
+    "name": "Voltaic Cyclosword",
+    "max": 1,
+    "items": [
+      "6699"
+    ]
+  },
+  {
+    "id": "Items/ItemGroups/WardPink",
+    "name": "WardPink",
+    "max": 1,
+    "items": [
+      "2055"
+    ]
+  },
+  {
+    "id": "{a292a6ef}",
+    "name": "Warmog's Armor",
+    "max": 1,
+    "items": [
+      "3083"
+    ]
+  },
+  {
+    "id": "{f4405fb4}",
+    "name": "Whispering Circlet",
+    "max": 1,
+    "items": [
+      "2526",
+      "322526"
+    ]
+  },
+  {
+    "id": "{f842a497}",
+    "name": "Whispering Circlet",
+    "max": 1,
+    "items": [
+      "2526",
+      "322526"
+    ]
+  },
+  {
+    "id": "{153b4357}",
+    "name": "Winter's Approach",
+    "max": 1,
+    "items": [
+      "3119",
+      "323119"
+    ]
+  },
+  {
+    "id": "{9d42d534}",
+    "name": "Winter's Approach",
+    "max": 1,
+    "items": [
+      "3119",
+      "323119"
+    ]
+  },
+  {
+    "id": "{a894eef8}",
+    "name": "Wit's End",
+    "max": 1,
+    "items": [
+      "3091"
+    ]
+  },
+  {
+    "id": "{9833c2cb}",
+    "name": "Youmuu's Ghostblade",
+    "max": 1,
+    "items": [
+      "3142"
+    ]
+  },
+  {
+    "id": "{aba3fe3b}",
+    "name": "Yun Tal Wildarrows",
+    "max": 1,
+    "items": [
+      "3032"
+    ]
+  },
+  {
+    "id": "{31b248b7}",
+    "name": "Zeke's Convergence",
+    "max": 1,
+    "items": [
+      "3050",
+      "323050"
+    ]
+  },
+  {
+    "id": "{4aef2f8c}",
+    "name": "Zephyr",
+    "max": 1,
+    "items": [
+      "663172"
+    ]
+  },
+  {
+    "id": "{9b3188ed}",
+    "name": "Zhonya's Hourglass",
+    "max": 1,
+    "items": [
+      "3157"
+    ]
+  }
+]

@@ -8,11 +8,13 @@
  *   - Data Dragon: champion base stats, items, runes (official Riot static data)
  *   - CommunityDragon: per-champion game .bin data, which holds the actual spell
  *     values (DataValues) and formulas (SpellCalculations). Data Dragon tooltips no
- *     longer carry usable ability numbers. Also rune stat shards, which Data Dragon lacks.
+ *     longer carry usable ability numbers. Also rune stat shards, which Data Dragon lacks,
+ *     and item shop limits (item groups) from items.cdtb.bin.
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
+import { buildItemGroups, type ItemsBin } from './item-groups.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
 import { cleanText, parseShardText } from './shard-stats.ts';
 
@@ -293,9 +295,15 @@ async function main() {
   ]);
   await writeJson(path.join(outDir, 'champions.json'), champions);
   await writeJson(path.join(outDir, 'items.json'), items);
+  const itemsBin = await getCdragonJson<ItemsBin>(cdragonPatch(version), 'game/items.cdtb.bin.json');
+  const itemGroups = buildItemGroups(itemsBin, items);
+  await writeJson(path.join(outDir, 'item-groups.json'), itemGroups);
   await writeJson(path.join(outDir, 'runes.json'), runes);
   await writeJson(path.join(outDir, 'shards.json'), shards.data);
-  console.log(`  ${champions.length} champions, ${items.length} items, ${Object.keys(shards.data.shards).length} stat shards`);
+  console.log(
+    `  ${champions.length} champions, ${items.length} items (${itemGroups.length} shop limit groups), ` +
+      `${Object.keys(shards.data.shards).length} stat shards`,
+  );
   for (const w of [...championWarnings, ...shards.warnings]) console.warn(`  ! ${w}`);
 
   const failures = await buildSpells(version, champions.map((c) => c.id), outDir);
