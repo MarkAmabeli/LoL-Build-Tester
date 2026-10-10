@@ -1,5 +1,28 @@
 # Roadmap
 
+## Next up (in order)
+From the engine review before starting the UI. Work these top to bottom.
+
+1. [ ] **Duplicate items.** 26 items appear twice in `items.json` (e.g. Frozen Heart `3110` and `323110`); both pass the Summoner's Rift/purchasable filter. Keep one entry per item, choosing by best assumption (e.g. the ID effects are registered under); a manual review of the item list follows.
+2. [ ] **Proc state starts unstacked.** At the start of a combat or combo, procs are not ready: Electrocute only procs once its hit count is reached, Silver Bolts on the third hit, Spellblade after an ability. Track what's needed to cycle them: hit counters (Vayne W procs again on the next third hit), cooldowns (Electrocute can't proc again until its cooldown expires and it's re-stacked), buff windows. This is the state the combo simulator (section 5) drives; the static table uses the same "unstacked at start" defaults.
+3. [ ] **Engine helpers for the UI.** One call that sums a build's item stats, shards and checks shop limits; add `cooldown`, `cost` and `range` to the engine's `SpellRecord` type (they're already in the spell files) for cooldown-with-haste columns. Raise questions and feedback before implementing.
+4. [ ] **Tracked hand-entered values.** Every hand-entered value or override (item/rune/champion constants, data interpretations, overrides files) is declared in one consistent, findable way so none lingers untracked. Each records the source value it was checked against; after a data fetch, flag any whose source value changed and now conflicts. Conflicts that existed before and didn't change with the update aren't flagged.
+5. [ ] **Summoner spells.** Ignite (true damage over time) first, then the others that affect damage (e.g. Exhaust once defence exists).
+6. [ ] **Fix the stale comment** in `src/engine/types.ts` (`critDamageBonus` still says base 175%).
+
+Damage is calculated against a **target dummy**: max health, current health, armor and magic resist only, with no defensive items or effects. Defence comes in phase 2.
+
+## Phase 2: Defence
+- [ ] Target-side hook for incoming damage, run inside `computeHit`, fed by the target's own loadout
+- [ ] Target items: Plated Steelcaps (−10% damage from attacks), Randuin's Omen (−30% crit damage), Frozen Heart (attack speed slow), Thornmail
+- [ ] Bone Plating (flat reduction per hit; see section 4)
+- [ ] Shields (Sterak's Gage, Maw of Malmortius, Kaenic Rookern) and damage reduction (see section 3)
+
+## Later
+- [ ] Healing and sustain: life steal and omnivamp stats, healing from items, runes and abilities (Conqueror, BotRK, Darius), for duels and time-to-kill
+- [ ] Move speed soft caps (above 415 and 490), for move-speed-scaling effects
+- [ ] Yunara's passive under expected crits estimates the crit from total AD, ignoring earlier `modifyHit` changes (e.g. Sundered Sky)
+
 ## 1. Data pipeline
 - [x] Fetch Data Dragon champions, items and runes per patch
 - [x] Parse item stats that only exist in description text (ability haste, lethality, penetration)
