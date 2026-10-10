@@ -2,14 +2,102 @@
   "Morgana_Skin80_Manager": {
     "path": "{0fd25b11}",
     "dataValues": {
-      "undefined": []
+      "TotalCCDurationThreshold": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "SecondsOutOfCombatTillTransform": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "DeathVFXDuration": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "QCCValue": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "RSlowCCValue": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RStunCCValue": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RDebuffKillCCValue": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
     },
     "calculations": {}
   },
   "MorganaSkin80MapWallSpawn": {
     "path": "{8e93b47b}",
     "dataValues": {
-      "undefined": []
+      "TriggerRadius": [
+        2400,
+        2400,
+        2400,
+        2400,
+        2400,
+        2400,
+        2400
+      ],
+      "MaxNumberButterflies": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "DetectRadius": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
     },
     "calculations": {}
   },
@@ -33,7 +121,24 @@
       1300
     ],
     "dataValues": {
-      "undefined": []
+      "Damage": [
+        25,
+        80,
+        135,
+        190,
+        245,
+        300,
+        355
+      ],
+      "RootDuration": [
+        1.75,
+        2,
+        2.25,
+        2.5,
+        2.75,
+        3,
+        3.25
+      ]
     },
     "calculations": {
       "TotalDamage": {
@@ -81,7 +186,51 @@
       625
     ],
     "dataValues": {
-      "undefined": []
+      "Damage": [
+        125,
+        200,
+        275,
+        350,
+        425,
+        500,
+        575
+      ],
+      "ChainDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "StunDuration": [
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25,
+        2.5,
+        2.75
+      ],
+      "SlowPercent": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "HastePercent": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ]
     },
     "calculations": {
       "TotalDamage": {
@@ -129,7 +278,69 @@
       900
     ],
     "dataValues": {
-      "undefined": []
+      "BaseDamage": [
+        5,
+        18,
+        31,
+        44,
+        57,
+        70,
+        83
+      ],
+      "BaseAPRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "TickRate": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MissingHealthAmpPercent": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "WDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "CDRefundPercent": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "MonsterMod": [
+        170,
+        170,
+        170,
+        170,
+        170,
+        170,
+        170
+      ]
     },
     "calculations": {
       "TotalMinDamage": {
@@ -186,7 +397,15 @@
       0
     ],
     "dataValues": {
-      "undefined": []
+      "HealPercent": [
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18
+      ]
     },
     "calculations": {}
   },
@@ -219,7 +438,24 @@
       800
     ],
     "dataValues": {
-      "undefined": []
+      "ShieldStrength": [
+        45,
+        100,
+        155,
+        210,
+        265,
+        320,
+        375
+      ],
+      "ShieldDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
     },
     "calculations": {
       "TotalShieldStrength": {

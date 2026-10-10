@@ -28,7 +28,51 @@
       700
     ],
     "dataValues": {
-      "undefined": []
+      "PlantDamageBonus": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "KnockupDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "EnragedBonusHealthPercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseDamage": [
+        200,
+        200,
+        300,
+        400,
+        400,
+        400,
+        400
+      ],
+      "EnragePlantsBonusDamage": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ]
     },
     "calculations": {
       "TotalDamage": {
@@ -69,7 +113,43 @@
       850
     ],
     "dataValues": {
-      "undefined": []
+      "KillAmmoRefundMinion": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "KillAmmoRefundChamp": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "VisionGranted": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SeedDuration": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "FlurryDamageBonus": []
     },
     "calculations": {}
   },
@@ -102,7 +182,15 @@
       800
     ],
     "dataValues": {
-      "undefined": []
+      "BaseDamage": [
+        60,
+        60,
+        100,
+        140,
+        180,
+        220,
+        260
+      ]
     },
     "calculations": {
       "InitialDamage": {
@@ -151,7 +239,60 @@
       1150
     ],
     "dataValues": {
-      "undefined": []
+      "MaxSlowStacks": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PheromoneDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "RootDuration": [
+        0.75,
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25
+      ],
+      "BaseDamage": [
+        25,
+        60,
+        95,
+        130,
+        165,
+        200,
+        235
+      ],
+      "SlowAmountPlantAttack": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "SlowDurationPlantAttack": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
     },
     "calculations": {
       "TotalDamage": {
@@ -199,7 +340,42 @@
       600
     ],
     "dataValues": {
-      "undefined": []
+      "PlantDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "PlantBaseDmg": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "PlantLvlScaling": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "APRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
     },
     "calculations": {
       "SeedCooldown": {

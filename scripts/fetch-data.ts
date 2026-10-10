@@ -103,8 +103,11 @@ interface DDItem {
 }
 
 // ---- CommunityDragon bin shapes (loose; the format is not officially documented) ----
+// Current bins use `name`/`values`; the `m`-prefixed spellings are kept in case older patches use them.
 interface BinDataValue {
-  mName: string;
+  name?: string;
+  values?: number[];
+  mName?: string;
   mValues?: number[];
 }
 interface BinSpellObject {
@@ -182,7 +185,9 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
         cooldown: spell.cooldownTime,
         cost: spell.mana,
         range: spell.castRange,
-        dataValues: Object.fromEntries(dataValues.map((d) => [d.mName, d.mValues ?? []])),
+        dataValues: Object.fromEntries(
+          dataValues.map((d) => [d.name ?? d.mName ?? '', d.values ?? d.mValues ?? []]),
+        ),
         calculations: spell.mSpellCalculations ?? {},
       };
     }
