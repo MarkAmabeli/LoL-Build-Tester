@@ -1,6 +1,8 @@
 {
   "TwitchHideInShadows": {
     "path": "Characters/Twitch/Spells/TwitchHideInShadowsAbility/TwitchHideInShadows",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -101,10 +103,13 @@
         1000
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TwitchDeadlyVenomMarker": {
     "path": "Characters/Twitch/Spells/TwitchDeadlyVenomMarkerAbility/TwitchDeadlyVenomMarker",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -217,10 +222,102 @@
         "mModifiedGameCalculation": "DamagePerSecond",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.03
+          }
+        ]
+      },
+      "DamagePerSecondMax": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          6,
+          6,
+          6,
+          12,
+          12,
+          12,
+          12,
+          18,
+          18,
+          18,
+          18,
+          24,
+          24,
+          24,
+          24,
+          30,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.18
+          }
+        ]
+      },
+      "DamageMaxTotal": {
+        "base": 0,
+        "baseByLevel": [
+          36,
+          36,
+          36,
+          36,
+          72,
+          72,
+          72,
+          72,
+          108,
+          108,
+          108,
+          108,
+          144,
+          144,
+          144,
+          144,
+          180,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.08
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TwitchFullAutomatic": {
     "path": "Characters/Twitch/Spells/TwitchFullAutomaticAbility/TwitchFullAutomatic",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       90,
       90,
@@ -312,10 +409,14 @@
         250
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TwitchExpunge": {
     "path": "Characters/Twitch/Spells/TwitchExpungeAbility/TwitchExpunge",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       12,
@@ -458,10 +559,63 @@
         "mModifiedGameCalculation": "MagicDamagePerStack",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "PhysicalDamagePerStack": {
+        "base": [
+          15,
+          20,
+          25,
+          30,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      },
+      "MagicDamagePerStack": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "MaxPhysicalDamage": {
+        "base": [
+          110,
+          150,
+          190,
+          230,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.1
+          }
+        ]
+      },
+      "MaxMagicDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TwitchVenomCask": {
     "path": "Characters/Twitch/Spells/TwitchVenomCaskAbility/TwitchVenomCask",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       13,
@@ -540,6 +694,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalSlowAmount": {
+        "base": [
+          30,
+          35,
+          40,
+          45,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

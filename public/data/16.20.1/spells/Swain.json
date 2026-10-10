@@ -1,6 +1,8 @@
 {
   "SwainR": {
     "path": "Characters/Swain/Spells/SwainRAbility/SwainR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -258,10 +260,75 @@
         "mModifiedGameCalculation": "HealingCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          15,
+          25,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          }
+        ]
+      },
+      "HealingCalc": {
+        "base": [
+          15,
+          30,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.015
+          }
+        ]
+      },
+      "DemonflareDamageTotal": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "MinionMonsterHeal": {
+        "base": [
+          1.5,
+          3,
+          4.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.005
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.0015
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SwainQ": {
     "path": "Characters/Swain/Spells/SwainQAbility/SwainQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -365,10 +432,60 @@
         "mModifiedGameCalculation": "InitialDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "ExtraBoltDamage": {
+        "base": [
+          15,
+          22.5,
+          30,
+          37.5,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1125
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          120,
+          180,
+          240,
+          300,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SwainE": {
     "path": "Characters/Swain/Spells/SwainEAbility/SwainE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -465,10 +582,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "SecondaryDamage": {
+        "base": [
+          90,
+          130,
+          170,
+          210,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SwainPassive": {
     "path": "Characters/Swain/Spells/SwainPassiveAbility/SwainPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       1150,
       1150,
@@ -531,10 +668,49 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "PassiveHealPercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ]
+      },
+      "MaxHealthGained": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 15
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "PassiveHealCalculated": "StatByCoefficientCalculationPart scales with a stat (stat × stat)"
     }
   },
   "SwainW": {
     "path": "Characters/Swain/Spells/SwainWAbility/SwainW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -657,6 +833,39 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          115,
+          160,
+          205,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": [
+          35,
+          57.5,
+          80,
+          102.5,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "JaxPassive": {
     "path": "Characters/Jax/Spells/JaxPassiveAbility/JaxPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -130,10 +132,86 @@
         "mModifiedGameCalculation": "BelvethVsJaxQuestRewardAttackSpeedPerStack",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "AttackSpeedPerStack": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.05,
+          0.05,
+          0.065,
+          0.065,
+          0.065,
+          0.08,
+          0.08,
+          0.08,
+          0.095,
+          0.095,
+          0.095,
+          0.11,
+          0.11,
+          0.11,
+          0.125,
+          0.125,
+          0.125
+        ]
+      },
+      "MaxBonusAttackSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.52,
+          0.52,
+          0.52,
+          0.64,
+          0.64,
+          0.64,
+          0.76,
+          0.76,
+          0.76,
+          0.88,
+          0.88,
+          0.88,
+          1,
+          1,
+          1
+        ]
+      },
+      "BelvethVsJaxQuestRewardAttackSpeedPerStack": {
+        "base": 0,
+        "baseByLevel": [
+          0.0028,
+          0.0034,
+          0.004,
+          0.0046,
+          0.0052,
+          0.0058,
+          0.0064,
+          0.007,
+          0.0076,
+          0.0082,
+          0.0088,
+          0.0094,
+          0.01,
+          0.0106,
+          0.0112,
+          0.0118,
+          0.0124,
+          0.013
+        ]
+      }
+    },
+    "unsupported": {
+      "BelvethVsJaxQuestRewardAttackSpeed": "BuffCounterByCoefficientCalculationPart scales with a stat (stat × stat)"
     }
   },
   "JaxW": {
     "path": "Characters/Jax/Spells/JaxWAbility/JaxW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       8,
       7,
@@ -202,10 +280,32 @@
         },
         "__type": "GameCalculationConditional"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "FinalDamage": "conditional calculation (depends on a game condition)"
     }
   },
   "JaxR": {
     "path": "Characters/Jax/Spells/JaxRAbility/JaxR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -397,10 +497,95 @@
         },
         "__type": "GameCalculationConditional"
       }
+    },
+    "formulas": {
+      "OnHitDamage": {
+        "base": [
+          75,
+          130,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "BaseArmor": {
+        "base": [
+          45,
+          60,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "BonusArmor": {
+        "base": [
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "SwingDamageTotal": {
+        "base": [
+          100,
+          175,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "BaseMR": {
+        "base": [
+          27,
+          36,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.24
+          }
+        ]
+      },
+      "BonusMR": {
+        "base": [
+          12,
+          15,
+          18
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "FinalDamage": "conditional calculation (depends on a game condition)"
     }
   },
   "JaxE": {
     "path": "Characters/Jax/Spells/JaxEAbility/JaxE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       17,
       17,
@@ -550,10 +735,71 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          40,
+          70,
+          100,
+          130,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          80,
+          140,
+          200,
+          260,
+          320
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.4
+          }
+        ]
+      },
+      "MaxPercentHealthDamage": {
+        "base": 8
+      },
+      "MonsterDamageCap": {
+        "base": 0,
+        "baseByLevel": [
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000,
+          9000
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JaxQ": {
     "path": "Characters/Jax/Spells/JaxQAbility/JaxQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -607,6 +853,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          105,
+          145,
+          185,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

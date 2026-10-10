@@ -1,6 +1,8 @@
 {
   "RyzeW": {
     "path": "Characters/Ryze/Spells/RyzeWAbility/RyzeW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -75,10 +77,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "WDamageCalc": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "bonusMana",
+            "value": 0.03
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RyzeQWrapper": {
     "path": "Characters/Ryze/Spells/RyzeQWrapperAbility/RyzeQWrapper",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -180,10 +206,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QDamageCalc": {
+        "base": [
+          75,
+          95,
+          115,
+          135,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          },
+          {
+            "stat": "bonusMana",
+            "value": 0.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RyzeR": {
     "path": "Characters/Ryze/Spells/RyzeRAbility/RyzeR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       180,
       180,
@@ -284,10 +334,14 @@
         1000
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "RyzeE": {
     "path": "Characters/Ryze/Spells/RyzeEAbility/RyzeE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       3.75,
       3.5,
@@ -398,10 +452,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EDamageCalc": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusMana",
+            "value": 0.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RyzePassive": {
     "path": "Characters/Ryze/Spells/RyzePassiveAbility/RyzePassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -464,6 +542,27 @@
         "mPrecision": -1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{92bc0080}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "PassiveManaCalcTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

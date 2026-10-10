@@ -1,6 +1,8 @@
 {
   "NasusPassive": {
     "path": "Characters/Nasus/Spells/NasusPassiveAbility/NasusPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -33,10 +35,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "LifestealTooltip": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NasusQ": {
     "path": "Characters/Nasus/Spells/NasusQAbility/NasusQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8.5,
       7.5,
@@ -166,10 +196,36 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CritDamage": "stat code 9/0"
     }
   },
   "NasusE": {
     "path": "Characters/Nasus/Spells/NasusEAbility/NasusE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -269,10 +325,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDotDamage": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "InitialDamage": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NasusR": {
     "path": "Characters/Nasus/Spells/NasusRAbility/NasusR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -406,10 +497,28 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          0.03,
+          0.04,
+          0.05
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0001
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NasusW": {
     "path": "Characters/Nasus/Spells/NasusWAbility/NasusW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       16,
       15,
@@ -483,6 +592,8 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

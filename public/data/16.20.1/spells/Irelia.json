@@ -1,6 +1,8 @@
 {
   "IreliaR": {
     "path": "Characters/Irelia/Spells/IreliaRAbility/IreliaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       125,
       125,
@@ -130,10 +132,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MissileDamage": {
+        "base": [
+          125,
+          200,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "ZoneDamage": {
+        "base": [
+          125,
+          200,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "IreliaPassive": {
     "path": "Characters/Irelia/Spells/IreliaPassiveAbility/IreliaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -229,10 +262,40 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "SingleStackAS": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10.88235,
+          11.76471,
+          12.64706,
+          13.52941,
+          14.41176,
+          15.29412,
+          16.17647,
+          17.05882,
+          17.94118,
+          18.82353,
+          19.70588,
+          20.58824,
+          21.47059,
+          22.35294,
+          23.23529,
+          24.11765,
+          25
+        ]
+      }
+    },
+    "unsupported": {
+      "OnHitBonus": "part type {b22609db}"
     }
   },
   "IreliaE": {
     "path": "Characters/Irelia/Spells/IreliaEAbility/IreliaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -357,10 +420,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "IreliaW": {
     "path": "Characters/Irelia/Spells/IreliaWAbility/IreliaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -515,10 +598,111 @@
         "mModifiedGameCalculation": "FinalPhysicalDR",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "FinalPhysicalDR": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          41.76471,
+          43.52941,
+          45.29412,
+          47.05882,
+          48.82353,
+          50.58824,
+          52.35294,
+          54.11765,
+          55.88235,
+          57.64706,
+          59.41176,
+          61.17647,
+          62.94118,
+          64.70588,
+          66.47059,
+          68.23529,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.08
+          }
+        ]
+      },
+      "MinDamageCalc": {
+        "base": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.4
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "MaxDamageCalc": {
+        "base": [
+          30,
+          60,
+          90,
+          120,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      },
+      "FinalMagicDR": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20.88235,
+          21.76471,
+          22.64706,
+          23.52941,
+          24.41176,
+          25.29412,
+          26.17647,
+          27.05882,
+          27.94118,
+          28.82353,
+          29.70588,
+          30.58824,
+          31.47059,
+          32.35294,
+          33.23529,
+          34.11765,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "IreliaQ": {
     "path": "Characters/Irelia/Spells/IreliaQAbility/IreliaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -621,6 +805,74 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ChampionDamage": {
+        "base": [
+          5,
+          25,
+          45,
+          65,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.8
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": [
+          5,
+          25,
+          45,
+          65,
+          85
+        ],
+        "baseByLevel": [
+          50,
+          61,
+          72,
+          83,
+          94,
+          105,
+          116,
+          127,
+          138,
+          149,
+          160,
+          171,
+          182,
+          193,
+          204,
+          215,
+          226,
+          237
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.8
+          }
+        ]
+      },
+      "HealAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.09,
+              0.1,
+              0.11,
+              0.12,
+              0.13
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "SamiraE": {
     "path": "Characters/Samira/Spells/SamiraEAbility/SamiraE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       20,
@@ -90,10 +92,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DashDamage": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraR": {
     "path": "Characters/Samira/Spells/SamiraRAbility/SamiraR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       5,
       5,
@@ -183,10 +205,30 @@
         "mModifiedGameCalculation": "DamageCalc",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          20,
+          40,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CriticalDamageCalc": "stat code 9/0"
     }
   },
   "SamiraQ": {
     "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -309,10 +351,31 @@
         "mModifiedGameCalculation": "DamageCalc",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          0,
+          5,
+          10,
+          15,
+          20
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CriticalDamageCalc": "stat code 9/0"
     }
   },
   "SamiraQSword": {
     "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQSword",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -358,10 +421,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          90,
+          120,
+          150,
+          180,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraQGun": {
     "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQGun",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -437,10 +519,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraQBufferedSword": {
     "path": "Characters/Samira/Spells/SamiraQAbility/SamiraQBufferedSword",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -494,10 +599,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          90,
+          120,
+          150,
+          180,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraEBuff": {
     "path": "Characters/Samira/Spells/SamiraEBuff",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -579,10 +703,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DashDamage": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraPassiveCombo": {
     "path": "Characters/Samira/Spells/SamiraPassiveCombo",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -650,10 +794,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QueenMaxDashRange": {
+        "base": 0,
+        "baseByLevel": [
+          800,
+          800,
+          800,
+          850,
+          850,
+          850,
+          850,
+          900,
+          900,
+          900,
+          900,
+          950,
+          950,
+          950,
+          950,
+          1000,
+          1000,
+          1000
+        ]
+      },
+      "BonusMeleeDamage": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraW": {
     "path": "Characters/Samira/Spells/SamiraWAbility/SamiraW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       30,
       30,
@@ -716,10 +917,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraPJuggle": {
     "path": "Characters/Samira/Spells/SamiraPJuggle",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -813,10 +1033,32 @@
         "mModifiedGameCalculation": "DamagePerBullet",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamagePerBullet": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.17
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraTauntMissile": {
     "path": "Characters/Samira/Spells/SamiraTauntMissile",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -892,10 +1134,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraPSwordJuggle": {
     "path": "Characters/Samira/Spells/SamiraPSwordJuggle",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -993,10 +1258,41 @@
         "mModifiedGameCalculation": "DamagePerBullet",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamagePerBullet": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          },
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SamiraPassive": {
     "path": "Characters/Samira/Spells/SamiraPassiveAbility/SamiraPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -1122,6 +1418,153 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QueenMaxDashRange": {
+        "base": 0,
+        "baseByLevel": [
+          650,
+          650,
+          650,
+          725,
+          725,
+          725,
+          725,
+          800,
+          800,
+          800,
+          800,
+          875,
+          875,
+          875,
+          875,
+          950,
+          950,
+          950
+        ]
+      },
+      "BonusMeleeDamage": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.035,
+              0.03911765,
+              0.04323529,
+              0.04735294,
+              0.05147059,
+              0.05558823,
+              0.05970588,
+              0.06382353,
+              0.06794118,
+              0.07205882,
+              0.07617647,
+              0.08029412,
+              0.08441176,
+              0.08852941,
+              0.09264706,
+              0.0967647,
+              0.1008823,
+              0.105
+            ]
+          }
+        ]
+      },
+      "EmpoweredMeleeDamageTooltip": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36,
+          38
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.07,
+              0.07823529,
+              0.08647059,
+              0.09470588,
+              0.1029412,
+              0.1111765,
+              0.1194118,
+              0.1276471,
+              0.1358824,
+              0.1441176,
+              0.1523529,
+              0.1605882,
+              0.1688235,
+              0.1770588,
+              0.1852941,
+              0.1935294,
+              0.2017647,
+              0.21
+            ]
+          }
+        ]
+      },
+      "MSBonusNew": {
+        "base": 0,
+        "baseByLevel": [
+          0.0275,
+          0.0275,
+          0.0275,
+          0.0275,
+          0.0275,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.0325,
+          0.0325,
+          0.0325,
+          0.0325,
+          0.0325,
+          0.035,
+          0.035,
+          0.035
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

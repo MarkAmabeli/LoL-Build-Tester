@@ -1,6 +1,8 @@
 {
   "FiddleSticksW": {
     "path": "Characters/Fiddlesticks/Spells/FiddleSticksWAbility/FiddleSticksW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -151,10 +153,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DrainDamageCalc": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FiddleSticksQ": {
     "path": "Characters/Fiddlesticks/Spells/FiddleSticksQAbility/FiddleSticksQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       16,
       15,
@@ -234,10 +256,45 @@
         "mModifiedGameCalculation": "TotalPercentHealthDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalPercentHealthDamage": {
+        "base": [
+          0.04,
+          0.045,
+          0.05,
+          0.055,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "TotalPercentHealthDamageFeared": {
+        "base": [
+          0.08,
+          0.09,
+          0.1,
+          0.11,
+          0.12
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0006
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FiddleSticksR": {
     "path": "Characters/Fiddlesticks/Spells/FiddleSticksRAbility/FiddleSticksR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -365,10 +422,72 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageDone": {
+        "base": [
+          37.5,
+          62.5,
+          87.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.125
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          750,
+          1250,
+          1750
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.5
+          }
+        ]
+      },
+      "APRatioFullDuration": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.5
+          }
+        ]
+      },
+      "APRatioTick": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "{d0d3db7f}": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FiddleSticksE": {
     "path": "Characters/Fiddlesticks/Spells/FiddleSticksEAbility/FiddleSticksE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -456,6 +575,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

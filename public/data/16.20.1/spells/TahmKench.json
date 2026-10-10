@@ -1,6 +1,8 @@
 {
   "TahmKenchQ": {
     "path": "Characters/TahmKench/Spells/TahmKenchQAbility/TahmKenchQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7.5,
       7,
@@ -97,10 +99,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          120,
+          165,
+          210,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TahmKenchW": {
     "path": "Characters/TahmKench/Spells/TahmKenchWAbility/TahmKenchW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       22,
       21,
@@ -206,10 +228,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          100,
+          135,
+          170,
+          205,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TahmKenchPassive": {
     "path": "Characters/TahmKench/Spells/TahmKenchPassiveAbility/TahmKenchPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -299,10 +341,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   },
   "TahmKenchRWrapper": {
     "path": "Characters/TahmKench/Spells/TahmKenchRWrapperAbility/TahmKenchRWrapper",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0,
       0,
@@ -502,10 +550,39 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "PercentHPDamage": {
+        "base": 0.15,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0007
+          }
+        ]
+      },
+      "TotalShield": {
+        "base": [
+          650,
+          800,
+          950
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CDCalc": "part type CooldownMultiplierCalculationPart"
     }
   },
   "TahmKenchE": {
     "path": "Characters/TahmKench/Spells/TahmKenchEAbility/TahmKenchE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       3,
       3,
@@ -611,6 +688,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "GreyHealthHealingRatio": {
+        "base": 0,
+        "baseByLevel": [
+          0.6,
+          0.6235294,
+          0.6470588,
+          0.6705883,
+          0.6941177,
+          0.7176471,
+          0.7411765,
+          0.7647059,
+          0.7882353,
+          0.8117647,
+          0.8352941,
+          0.8588235,
+          0.8823529,
+          0.9058824,
+          0.9294118,
+          0.9529412,
+          0.9764706,
+          1
+        ]
+      },
+      "GreyHealthMaximum": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

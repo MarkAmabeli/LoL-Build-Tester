@@ -1,6 +1,8 @@
 {
   "KayleE": {
     "path": "Characters/Kayle/Spells/KayleEAbility/KayleE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -133,10 +135,58 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{266027bf}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "EPassiveTotalDamage": {
+        "base": [
+          15,
+          20,
+          25,
+          30,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "ActiveTotalExecuteDamage": {
+        "base": [
+          0.08,
+          0.085,
+          0.09,
+          0.095,
+          0.1
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KayleQ": {
     "path": "Characters/Kayle/Spells/KayleQAbility/KayleQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -312,10 +362,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaylePassive": {
     "path": "Characters/Kayle/Spells/KaylePassiveAbility/KaylePassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -489,10 +563,51 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EnrageTotalASPerStack": {
+        "base": 6
+      },
+      "PassiveWaveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          23,
+          26,
+          29,
+          32,
+          35,
+          38,
+          41
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KayleW": {
     "path": "Characters/Kayle/Spells/KayleWAbility/KayleW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -576,10 +691,45 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalHeal": {
+        "base": [
+          55,
+          80,
+          105,
+          130,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalHaste": {
+        "base": [
+          0.24,
+          0.28,
+          0.32,
+          0.36,
+          0.4
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0008
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KayleR": {
     "path": "Characters/Kayle/Spells/KayleRAbility/KayleR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -655,6 +805,26 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

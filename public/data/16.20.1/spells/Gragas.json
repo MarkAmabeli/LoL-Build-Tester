@@ -1,6 +1,8 @@
 {
   "GragasW": {
     "path": "Characters/Gragas/Spells/GragasWAbility/GragasW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -151,10 +153,44 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageReduction": {
+        "base": [
+          0.1,
+          0.14,
+          0.18,
+          0.22,
+          0.26
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          20,
+          50,
+          80,
+          110,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GragasQToggle": {
     "path": "Characters/Gragas/Spells/GragasQAbility/GragasQToggle",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -198,10 +234,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GragasQ": {
     "path": "Characters/Gragas/Spells/GragasQAbility/GragasQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       10,
@@ -316,10 +372,45 @@
         "mModifiedGameCalculation": "MinDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          120,
+          180,
+          240,
+          300,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GragasE": {
     "path": "Characters/Gragas/Spells/GragasEAbility/GragasE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -425,10 +516,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GragasR": {
     "path": "Characters/Gragas/Spells/GragasRAbility/GragasR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -498,10 +609,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageDone": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GragasPassive": {
     "path": "Characters/Gragas/Spells/GragasPassiveAbility/GragasPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -591,6 +720,20 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "HealAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.055
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "HealCooldown": "part type {4ce08984}"
     }
   }
 }

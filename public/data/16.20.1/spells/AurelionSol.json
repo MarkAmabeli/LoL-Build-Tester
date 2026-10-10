@@ -1,6 +1,8 @@
 {
   "AurelionSolQ": {
     "path": "Characters/AurelionSol/Spells/AurelionSolQAbility/AurelionSolQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       3,
       3,
@@ -223,10 +225,76 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "BurstDamage": {
+        "base": [
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "BurstBonusTrueDamageToChamps": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.00031
+          }
+        ]
+      },
+      "LevelBasedRangeScaling": {
+        "base": 0,
+        "baseByLevel": [
+          750,
+          760,
+          770,
+          780,
+          790,
+          800,
+          810,
+          820,
+          830,
+          840,
+          850,
+          860,
+          870,
+          880,
+          890,
+          900,
+          910,
+          920
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AurelionSolR2": {
     "path": "Characters/AurelionSol/Spells/AurelionSolRAbility/AurelionSolR2",
+    "maxRank": 5,
     "cooldown": [
       120,
       120,
@@ -453,10 +521,69 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MaxDamageTooltip": {
+        "base": [
+          300,
+          500,
+          700,
+          900,
+          1100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MinDamageTooltip": {
+        "base": [
+          200,
+          275,
+          350,
+          425,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "{047a61eb}": {
+        "base": [
+          250,
+          350,
+          450,
+          550,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "{06c03ad2}": {
+        "base": 151249.9,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 477.465
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AurelionSolR": {
     "path": "Characters/AurelionSol/Spells/AurelionSolRAbility/AurelionSolR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -675,10 +802,63 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MaxDamageTooltip": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "R2Damage": {
+        "base": [
+          187.5,
+          312.5,
+          437.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9375
+          }
+        ]
+      },
+      "ShockwaveDamage": {
+        "base": [
+          135,
+          225,
+          315
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.675
+          }
+        ]
+      },
+      "{1d7ce9ef}": {
+        "base": 75624.96,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 286.479
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AurelionSolE": {
     "path": "Characters/AurelionSol/Spells/AurelionSolEAbility/AurelionSolE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -1024,10 +1204,114 @@
         "mModifiedGameCalculation": "{5dfac189}",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "{b0a79c98}": {
+        "base": 275,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      },
+      "CurrentExecutionThreshold": {
+        "base": 5,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.026
+          }
+        ]
+      },
+      "{7741d788}": {
+        "base": 0,
+        "baseByLevel": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          130,
+          140,
+          150,
+          150,
+          150,
+          150,
+          150,
+          150,
+          150,
+          150,
+          150,
+          150,
+          150
+        ]
+      },
+      "LevelBasedRangeScaling": {
+        "base": 0,
+        "baseByLevel": [
+          750,
+          760,
+          770,
+          780,
+          790,
+          800,
+          810,
+          820,
+          830,
+          840,
+          850,
+          860,
+          870,
+          880,
+          890,
+          900,
+          910,
+          920
+        ]
+      },
+      "{5dfac189}": {
+        "base": 75624.96,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 286.479
+          }
+        ]
+      },
+      "{94f76880}": {
+        "base": 15124.99,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 57.2958
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{57c521f0}": "data value \"GravityIncPerBreakpoint\" has no numbers"
     }
   },
   "AurelionSolPassive": {
     "path": "Characters/AurelionSol/Spells/AurelionSolPassiveAbility/AurelionSolPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -1138,10 +1422,35 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "QPassiveScaling": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.00031
+          }
+        ]
+      },
+      "EPassiveScalingExecute": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.026
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ExecuteHealthThreshold": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   },
   "AurelionSolW": {
     "path": "Characters/AurelionSol/Spells/AurelionSolWAbility/AurelionSolW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       23.5,
       22,
@@ -1308,10 +1617,64 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DashSpeed": {
+        "base": 340,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{70212d39}": {
+        "base": 170,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 0.5
+          }
+        ]
+      },
+      "{ffd78035}": {
+        "base": 340,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{e3ddb2ca}": {
+        "base": 0,
+        "baseByLevel": [
+          0.8,
+          0.8235294,
+          0.8470588,
+          0.8705883,
+          0.8941177,
+          0.9176471,
+          0.9411765,
+          0.9647059,
+          0.9882353,
+          1.011765,
+          1.035294,
+          1.058824,
+          1.082353,
+          1.105882,
+          1.129412,
+          1.152941,
+          1.176471,
+          1.2
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AurelionSolWToggle": {
     "path": "Characters/AurelionSol/Spells/AurelionSolWAbility/AurelionSolWToggle",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -1470,6 +1833,59 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DashSpeed": {
+        "base": 340,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{70212d39}": {
+        "base": 170,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 0.5
+          }
+        ]
+      },
+      "{ffd78035}": {
+        "base": 340,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{e3ddb2ca}": {
+        "base": 0,
+        "baseByLevel": [
+          0.8,
+          0.8235294,
+          0.8470588,
+          0.8705883,
+          0.8941177,
+          0.9176471,
+          0.9411765,
+          0.9647059,
+          0.9882353,
+          1.011765,
+          1.035294,
+          1.058824,
+          1.082353,
+          1.105882,
+          1.129412,
+          1.152941,
+          1.176471,
+          1.2
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

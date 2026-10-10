@@ -1,6 +1,8 @@
 {
   "ZeriPassive": {
     "path": "Characters/Zeri/Spells/ZeriPassiveAbility/ZeriPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -79,10 +81,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveAttackSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZeriQMis": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMis",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -158,10 +187,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZeriQMisEmpoweredPierce": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisEmpoweredPierce",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -237,10 +289,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZeriQ": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -458,10 +534,147 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "ActiveDamageThatCanCrit": {
+        "base": [
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.02,
+              1.04,
+              1.06,
+              1.08,
+              1.1
+            ]
+          }
+        ]
+      },
+      "MinDamage": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10.88235,
+          11.76471,
+          12.64706,
+          13.52941,
+          14.41176,
+          15.29412,
+          16.17647,
+          17.05882,
+          17.94118,
+          18.82353,
+          19.70588,
+          20.58824,
+          21.47059,
+          22.35294,
+          23.23529,
+          24.11765,
+          25
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.03
+          }
+        ]
+      },
+      "PassiveMaxDamage": {
+        "base": 0,
+        "baseByLevel": [
+          75,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140,
+          145,
+          150,
+          155,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.1
+          }
+        ]
+      },
+      "PassiveMaxChargePercentHealth": {
+        "base": 0,
+        "baseByLevel": [
+          0.01,
+          0.01588235,
+          0.02176471,
+          0.02764706,
+          0.03352941,
+          0.03941176,
+          0.04529412,
+          0.05117647,
+          0.05705882,
+          0.06294118,
+          0.06882353,
+          0.07470588,
+          0.08058823,
+          0.08647059,
+          0.09235294,
+          0.09823529,
+          0.1041176,
+          0.11
+        ]
+      },
+      "PassiveExecuteThreshold": {
+        "base": 0,
+        "baseByLevel": [
+          70,
+          75.29412,
+          80.58824,
+          85.88235,
+          91.17647,
+          96.47059,
+          101.7647,
+          107.0588,
+          112.3529,
+          117.6471,
+          122.9412,
+          128.2353,
+          133.5294,
+          138.8235,
+          144.1176,
+          149.4118,
+          154.7059,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CurrentCritDamage": "stat code 9/0"
     }
   },
   "ZeriQMisPierce": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisPierce",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -537,10 +750,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZeriQMisEmpowered": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisEmpowered",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -616,10 +852,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZeriW": {
     "path": "Characters/Zeri/Spells/ZeriWAbility/ZeriW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -809,10 +1069,36 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          70,
+          110,
+          150,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "WallDamage": "stat code 9/0"
     }
   },
   "ZeriR": {
     "path": "Characters/Zeri/Spells/ZeriRAbility/ZeriR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       80,
       80,
@@ -1002,10 +1288,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalBonusDamage": {
+        "base": [
+          5,
+          10,
+          15
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "TotalActiveDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.1
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "ChainPhysicalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZeriE": {
     "path": "Characters/Zeri/Spells/ZeriEAbility/ZeriE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       24,
       24,
@@ -1242,6 +1572,29 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "DashSpeed": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{93e3e1a0}": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "BonusDamageTotal": "stat code 9/0"
     }
   }
 }

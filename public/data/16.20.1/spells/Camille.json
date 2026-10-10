@@ -1,6 +1,8 @@
 {
   "CamillePassive": {
     "path": "Characters/Camille/Spells/CamillePassiveAbility/CamillePassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -74,10 +76,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          11,
+          11,
+          11,
+          11,
+          11,
+          11,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "ShieldAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0,
+            "valueByLevel": [
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "CamilleE": {
     "path": "Characters/Camille/Spells/CamilleEAbility/CamilleE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -221,10 +280,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "CamilleQ": {
     "path": "Characters/Camille/Spells/CamilleQAbility/CamilleQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -361,10 +440,68 @@
         "mModifiedGameCalculation": "BonusDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamageConversionPercentage": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.44,
+          0.48,
+          0.52,
+          0.56,
+          0.6,
+          0.64,
+          0.68,
+          0.72,
+          0.76,
+          0.8,
+          0.84,
+          0.88,
+          0.92,
+          0.96,
+          1,
+          1.04,
+          1.08
+        ]
+      },
+      "BonusDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.2,
+              0.25,
+              0.3,
+              0.35,
+              0.4
+            ]
+          }
+        ]
+      },
+      "EmpoweredBonusDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "CamilleR": {
     "path": "Characters/Camille/Spells/CamilleRAbility/CamilleR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -421,10 +558,14 @@
         425
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "CamilleW": {
     "path": "Characters/Camille/Spells/CamilleWAbility/CamilleW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -603,6 +744,42 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "OuterEdgeTooltip": {
+        "base": [
+          0.07,
+          0.075,
+          0.08,
+          0.085,
+          0.09
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00025
+          }
+        ]
+      },
+      "BaseDamageTotal": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "MonsterHealthDamageCap": {
+        "base": 300
+      }
+    },
+    "unsupported": {}
   }
 }

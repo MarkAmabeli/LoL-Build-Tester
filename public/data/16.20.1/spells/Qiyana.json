@@ -1,6 +1,7 @@
 {
   "QiyanaWMis_Grass": {
     "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaWMis_Grass",
+    "maxRank": 5,
     "range": [
       9000,
       9000,
@@ -21,10 +22,13 @@
         1
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "QiyanaWMis_Water": {
     "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaWMis_Water",
+    "maxRank": 5,
     "range": [
       9000,
       9000,
@@ -45,10 +49,14 @@
         1
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "QiyanaW": {
     "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -220,10 +228,63 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "CleaveDamage": {
+        "base": [
+          8,
+          16,
+          24,
+          32,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "TremorDamage": {
+        "base": [
+          2.8,
+          5.6,
+          8.4,
+          11.2,
+          14
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      },
+      "OnHitDamage": {
+        "base": [
+          8,
+          16,
+          24,
+          32,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaWMis_Rock": {
     "path": "Characters/Qiyana/Spells/QiyanaWAbility/QiyanaWMis_Rock",
+    "maxRank": 5,
     "range": [
       9000,
       9000,
@@ -244,10 +305,14 @@
         1
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "QiyanaR": {
     "path": "Characters/Qiyana/Spells/QiyanaRAbility/QiyanaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -408,10 +473,43 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          100,
+          200,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.25
+          }
+        ]
+      },
+      "MissingHealthDamageRock": {
+        "base": 0.1
+      },
+      "MonsterCap": {
+        "base": [
+          500,
+          750,
+          1000
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaQ_Grass": {
     "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ_Grass",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -642,10 +740,101 @@
         "mModifiedGameCalculation": "VanillaDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "EnchantedDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "VanillaDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "TremorDamage": {
+        "base": [
+          48,
+          66,
+          84,
+          102,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.54
+          }
+        ]
+      },
+      "{7dc40c72}": {
+        "base": 0.06,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0006
+          }
+        ]
+      },
+      "FalloffDamage": {
+        "base": 0.75
+      },
+      "EnchantedFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      },
+      "VanillaFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaQ_Water": {
     "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ_Water",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -876,10 +1065,102 @@
         "mModifiedGameCalculation": "VanillaDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "EnchantedDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "VanillaDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "TremorDamage": {
+        "base": [
+          48,
+          66,
+          84,
+          102,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.54
+          }
+        ]
+      },
+      "{7dc40c72}": {
+        "base": 0.06,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0006
+          }
+        ]
+      },
+      "FalloffDamage": {
+        "base": 0.75
+      },
+      "EnchantedFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      },
+      "VanillaFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaQ": {
     "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -1110,10 +1391,101 @@
         "mModifiedGameCalculation": "VanillaDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "EnchantedDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "VanillaDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "TremorDamage": {
+        "base": [
+          48,
+          66,
+          84,
+          102,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.54
+          }
+        ]
+      },
+      "{7dc40c72}": {
+        "base": 0.06,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0006
+          }
+        ]
+      },
+      "FalloffDamage": {
+        "base": 0.75
+      },
+      "EnchantedFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      },
+      "VanillaFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaQ_Rock": {
     "path": "Characters/Qiyana/Spells/QiyanaQAbility/QiyanaQ_Rock",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -1344,10 +1716,102 @@
         "mModifiedGameCalculation": "VanillaDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "EnchantedDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "VanillaDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "TremorDamage": {
+        "base": [
+          48,
+          66,
+          84,
+          102,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.54
+          }
+        ]
+      },
+      "{7dc40c72}": {
+        "base": 0.06,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0006
+          }
+        ]
+      },
+      "FalloffDamage": {
+        "base": 0.75
+      },
+      "EnchantedFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      },
+      "VanillaFalloff": {
+        "base": [
+          60,
+          82.5,
+          105,
+          127.5,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.675
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaPassive": {
     "path": "Characters/Qiyana/Spells/QiyanaPassiveAbility/QiyanaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -1516,10 +1980,94 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FinalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          19,
+          23,
+          27,
+          31,
+          35,
+          39,
+          43,
+          47,
+          51,
+          55,
+          59,
+          63,
+          67,
+          71,
+          75,
+          79,
+          83
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.25
+          },
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "ICD": {
+        "base": 0,
+        "baseByLevel": [
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14
+        ]
+      },
+      "{222614ec}": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QiyanaE": {
     "path": "Characters/Qiyana/Spells/QiyanaEAbility/QiyanaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -1600,6 +2148,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          50,
+          90,
+          130,
+          170,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "SmolderW": {
     "path": "Characters/Smolder/Spells/SmolderWAbility/SmolderW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -145,10 +147,49 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "ExplosionDamage": {
+        "base": [
+          10,
+          35,
+          60,
+          85,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          },
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SmolderQ": {
     "path": "Characters/Smolder/Spells/SmolderQAbility/SmolderQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       5.5,
       5.5,
@@ -454,10 +495,42 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "Tier2_NumberOfBlowback": {
+        "base": 2,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.008
+          }
+        ]
+      },
+      "Tier3_ExecuteThreshold": {
+        "base": 0.065
+      },
+      "Tier3_Burn": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00025
+          },
+          {
+            "stat": "stacks",
+            "value": 0.00005
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "stat code 9/0"
     }
   },
   "SmolderR": {
     "path": "Characters/Smolder/Spells/SmolderRAbility/SmolderR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -678,10 +751,66 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "TooltipOnly_TotalSweetspotDamage": {
+        "base": [
+          225,
+          375,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          },
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      },
+      "MomHealCalc": {
+        "base": [
+          100,
+          175,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          },
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SmolderE": {
     "path": "Characters/Smolder/Spells/SmolderEAbility/SmolderE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       24,
       24,
@@ -804,10 +933,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalNumberOfAttacks": {
+        "base": 5,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.01
+          }
+        ]
+      },
+      "DamagePerHit": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SmolderP": {
     "path": "Characters/Smolder/Spells/SmolderPAbility/SmolderP",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -997,6 +1154,39 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "Passive_WDamageIncrease": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.55
+          }
+        ]
+      },
+      "TooltipOnly_QStacks": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.25
+          }
+        ]
+      },
+      "TooltipOnly_QCritMultiplier": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1.4
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "Passive_QDamageIncrease": "stat code 9/0",
+      "EBonusDamage": "stat code 9/0"
     }
   }
 }

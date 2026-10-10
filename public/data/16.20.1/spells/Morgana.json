@@ -1,6 +1,7 @@
 {
   "Morgana_Skin80_Manager": {
     "path": "{0fd25b11}",
+    "maxRank": 5,
     "dataValues": {
       "TotalCCDurationThreshold": [
         15,
@@ -66,10 +67,13 @@
         2
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "MorganaSkin80MapWallSpawn": {
     "path": "{8e93b47b}",
+    "maxRank": 5,
     "dataValues": {
       "TriggerRadius": [
         2400,
@@ -99,10 +103,14 @@
         200
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "MorganaQ": {
     "path": "Characters/Morgana/Spells/MorganaQAbility/MorganaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cost": [
       50,
       55,
@@ -155,10 +163,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          135,
+          190,
+          245,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MorganaR": {
     "path": "Characters/Morgana/Spells/MorganaRAbility/MorganaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       120,
@@ -247,10 +275,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          275,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MorganaW": {
     "path": "Characters/Morgana/Spells/MorganaWAbility/MorganaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -374,10 +420,45 @@
         "mModifiedGameCalculation": "TotalMinDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalMinDamage": {
+        "base": [
+          18,
+          31,
+          44,
+          57,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "TotalMaxDamage": {
+        "base": [
+          36,
+          62,
+          88,
+          114,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MorganaPassive": {
     "path": "Characters/Morgana/Spells/MorganaPassiveAbility/MorganaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -407,10 +488,14 @@
         18
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "MorganaE": {
     "path": "Characters/Morgana/Spells/MorganaEAbility/MorganaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       26,
       26,
@@ -472,6 +557,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShieldStrength": {
+        "base": [
+          100,
+          155,
+          210,
+          265,
+          320
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

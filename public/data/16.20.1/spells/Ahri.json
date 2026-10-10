@@ -1,6 +1,7 @@
 {
   "AhriSkin86Manager": {
     "path": "Characters/Ahri/Spells/AhriSkin86Manager",
+    "maxRank": 5,
     "dataValues": {
       "GoldToNextForm": [
         2000,
@@ -30,10 +31,14 @@
         3
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "AhriPassive": {
     "path": "Characters/Ahri/Spells/AhriPassiveAbility/AhriPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -101,10 +106,73 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ChampionHeal": {
+        "base": 0,
+        "baseByLevel": [
+          75,
+          80.29412,
+          85.58824,
+          90.88235,
+          96.17647,
+          101.4706,
+          106.7647,
+          112.0588,
+          117.3529,
+          122.6471,
+          127.9412,
+          133.2353,
+          138.5294,
+          143.8235,
+          149.1176,
+          154.4118,
+          159.7059,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "MinionHeal": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          38.52941,
+          42.05882,
+          45.58824,
+          49.11765,
+          52.64706,
+          56.17647,
+          59.70588,
+          63.23529,
+          66.76471,
+          70.29412,
+          73.82353,
+          77.35294,
+          80.88235,
+          84.41176,
+          87.94118,
+          91.47059,
+          95
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AhriW": {
     "path": "Characters/Ahri/Spells/AhriWAbility/AhriW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -274,10 +342,45 @@
         "mModifiedGameCalculation": "SingleFireDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "SingleFireDamage": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "MultiFireDamage": {
+        "base": [
+          16,
+          24,
+          32,
+          40,
+          48
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.16
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AhriR": {
     "path": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -419,10 +522,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RCalculatedDamage": {
+        "base": [
+          75,
+          125,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AhriQ": {
     "path": "Characters/Ahri/Spells/AhriQAbility/AhriQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -475,10 +596,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AhriE": {
     "path": "Characters/Ahri/Spells/AhriEAbility/AhriE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -558,6 +699,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -4,7 +4,8 @@
 - [x] Fetch Data Dragon champions, items and runes per patch
 - [x] Parse item stats that only exist in description text (ability haste, lethality, penetration)
 - [x] Pull CommunityDragon spell DataValues and SpellCalculations per champion
-- [ ] Translate SpellCalculations into `DamageComponent`s (base per rank + ratios)
+- [x] Translate SpellCalculations into `Formula`s (base per rank and by level + ratios), with Q/W/E/R slots and max ranks from Data Dragon; 90.5% of calculations translate, the rest are listed per spell as unsupported with a reason
+- [ ] Raise formula coverage: crit damage (stat 9), cooldown multipliers, conditional calculations, `ByCharLevelFormula`, `EffectValue`, clamps, stat × stat
 - [ ] Hand-maintained overrides file for cases the raw data gets wrong (started: `scripts/overrides/adaptive-magic.json`)
 - [ ] Schema validation on generated output
 

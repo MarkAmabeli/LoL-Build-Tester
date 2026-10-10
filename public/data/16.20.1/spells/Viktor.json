@@ -1,6 +1,8 @@
 {
   "ViktorPassive": {
     "path": "Characters/Viktor/Spells/ViktorPassiveAbility/ViktorPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -66,10 +68,14 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "ViktorE": {
     "path": "Characters/Viktor/Spells/ViktorEAbility/ViktorE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -205,10 +211,60 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "LaserDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "AftershockDamage": {
+        "base": [
+          20,
+          50,
+          80,
+          110,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "{86b88e5d}": {
+        "base": [
+          10,
+          25,
+          40,
+          55,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViktorW": {
     "path": "Characters/Viktor/Spells/ViktorWAbility/ViktorW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18,
       17,
@@ -310,10 +366,14 @@
       ],
       "IGNORE___replaced_the_values_in_the__json": []
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "ViktorR": {
     "path": "Characters/Viktor/Spells/ViktorRAbility/ViktorR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0,
       120,
@@ -540,10 +600,44 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialBurstDamage": {
+        "base": [
+          100,
+          175,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "SubsequentBurstDamage": {
+        "base": [
+          65,
+          105,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "{d3c6a7eb}": {
+        "base": 3
+      }
+    },
+    "unsupported": {}
   },
   "ViktorQ": {
     "path": "Characters/Viktor/Spells/ViktorQAbility/ViktorQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -726,10 +820,115 @@
         "mModifiedGameCalculation": "ShieldLevelScaling",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalMissileDamage": {
+        "base": [
+          60,
+          75,
+          90,
+          105,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "AttackTotalDMG": {
+        "base": [
+          20,
+          45,
+          70,
+          95,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "{147c7de9}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "ShieldLevelScaling": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          45.88235,
+          51.76471,
+          57.64706,
+          63.52941,
+          69.41176,
+          75.29412,
+          81.17647,
+          87.05882,
+          92.94118,
+          98.82353,
+          104.7059,
+          110.5882,
+          116.4706,
+          122.3529,
+          128.2353,
+          134.1176,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalAugmentedShieldValue": {
+        "base": 0,
+        "baseByLevel": [
+          64,
+          73.41177,
+          82.82353,
+          92.2353,
+          101.6471,
+          111.0588,
+          120.4706,
+          129.8824,
+          139.2941,
+          148.7059,
+          158.1176,
+          167.5294,
+          176.9412,
+          186.3529,
+          195.7647,
+          205.1765,
+          214.5882,
+          224
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Crepe_ViktorVsJayce_ViktorReward": {
     "path": "{40cdc0c2}",
+    "maxRank": 5,
     "dataValues": {
       "BonusADPercent": [
         0.3499999940395355,
@@ -797,6 +996,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": 400,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

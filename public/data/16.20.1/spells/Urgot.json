@@ -1,6 +1,8 @@
 {
   "UrgotW": {
     "path": "Characters/Urgot/Spells/UrgotWAbility/UrgotW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -141,10 +143,32 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "DamagePerShot": {
+        "base": 12,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.2,
+              0.235,
+              0.27,
+              0.305,
+              0.34
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "RangeCheck": "stat code 31/2"
     }
   },
   "UrgotE": {
     "path": "Characters/Urgot/Spells/UrgotEAbility/UrgotE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -300,10 +324,49 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ETotalShieldHealth": {
+        "base": [
+          55,
+          75,
+          95,
+          115,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.35
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.135
+          }
+        ]
+      },
+      "EDamage": {
+        "base": [
+          90,
+          120,
+          150,
+          180,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "UrgotR": {
     "path": "Characters/Urgot/Spells/UrgotRAbility/UrgotR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -429,10 +492,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RCalculatedDamage": {
+        "base": [
+          100,
+          225,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "UrgotQ": {
     "path": "Characters/Urgot/Spells/UrgotQAbility/UrgotQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -539,10 +620,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          25,
+          70,
+          115,
+          160,
+          205
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "UrgotPassive": {
     "path": "Characters/Urgot/Spells/UrgotPassiveAbility/UrgotPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -708,6 +809,110 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "PerLegCD": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          20,
+          20,
+          20,
+          10,
+          10,
+          5,
+          5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5
+        ]
+      },
+      "ADDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.52,
+              0.52,
+              0.52,
+              0.64,
+              0.64,
+              0.76,
+              0.76,
+              0.88,
+              0.88,
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      "PercentHPRatio": {
+        "base": 0,
+        "baseByLevel": [
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.03,
+          0.03,
+          0.03,
+          0.04,
+          0.04,
+          0.05,
+          0.05,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ]
+      },
+      "MonsterCap": {
+        "base": 0,
+        "baseByLevel": [
+          100,
+          115.2941,
+          130.5882,
+          145.8824,
+          161.1765,
+          176.4706,
+          191.7647,
+          207.0588,
+          222.3529,
+          237.6471,
+          252.9412,
+          268.2353,
+          283.5294,
+          298.8235,
+          314.1176,
+          329.4118,
+          344.7059,
+          360
+        ]
+      }
+    },
+    "unsupported": {
+      "TriggerRange": "stat code 31/2",
+      "CastRange": "stat code 31/2"
     }
   }
 }

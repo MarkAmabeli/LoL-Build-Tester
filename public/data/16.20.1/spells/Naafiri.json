@@ -1,6 +1,7 @@
 {
   "NaafiriP": {
     "path": "Characters/Naafiri/Spells/NaafiriPAbility/NaafiriP",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -334,10 +335,165 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PackmateSpawnCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          25,
+          25,
+          25,
+          20,
+          20,
+          20,
+          15,
+          15,
+          15,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "PackmateCap": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      "PackmateTotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10.58824,
+          11.17647,
+          11.76471,
+          12.35294,
+          12.94118,
+          13.52941,
+          14.11765,
+          14.70588,
+          15.29412,
+          15.88235,
+          16.47059,
+          17.05882,
+          17.64706,
+          18.23529,
+          18.82353,
+          19.41176,
+          20
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.04
+          }
+        ]
+      },
+      "MinionExecuteThreshold": {
+        "base": 0,
+        "baseByLevel": [
+          25,
+          28,
+          31,
+          34,
+          37,
+          40,
+          43,
+          46,
+          49,
+          52,
+          55,
+          58,
+          61,
+          64,
+          67,
+          70,
+          73,
+          76
+        ]
+      },
+      "FrenzyDamageTooltipOnly": {
+        "base": 0,
+        "baseByLevel": [
+          13,
+          13.76471,
+          14.52941,
+          15.29412,
+          16.05882,
+          16.82353,
+          17.58823,
+          18.35294,
+          19.11765,
+          19.88235,
+          20.64706,
+          21.41176,
+          22.17647,
+          22.94118,
+          23.70588,
+          24.47059,
+          25.23529,
+          26
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.052
+          }
+        ]
+      },
+      "AOEDamageModifier": {
+        "base": 0,
+        "baseByLevel": [
+          0.76,
+          0.745,
+          0.73,
+          0.715,
+          0.7,
+          0.685,
+          0.67,
+          0.655,
+          0.64,
+          0.625,
+          0.61,
+          0.595,
+          0.58,
+          0.565,
+          0.55,
+          0.535,
+          0.52,
+          0.505
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NaafiriQ": {
     "path": "Characters/Naafiri/Spells/NaafiriQAbility/NaafiriQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -597,10 +753,113 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageFirstCast": {
+        "base": [
+          35,
+          40,
+          45,
+          50,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "TotalMinDamageSecondCast": {
+        "base": [
+          30,
+          42.5,
+          55,
+          67.5,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalHealSecondCast": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalBleedDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      },
+      "MinionExecuteThreshold": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          34,
+          38,
+          42,
+          46,
+          50,
+          54,
+          58,
+          62,
+          66,
+          70,
+          74,
+          78,
+          82,
+          86,
+          90,
+          94,
+          98
+        ]
+      },
+      "TotalMaxDamageSecondCast": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NaafiriW": {
     "path": "Characters/Naafiri/Spells/NaafiriWAbility/NaafiriW",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -813,10 +1072,77 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          125,
+          200,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "PackmateDamage": {
+        "base": [
+          12.5,
+          20,
+          27.5
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "ArmorShred": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36,
+          38,
+          40
+        ]
+      },
+      "ShieldTotal": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NaafiriR": {
     "path": "Characters/Naafiri/Spells/NaafiriRAbility/NaafiriR",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       26,
       26,
@@ -911,10 +1237,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusAD": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NaafiriE": {
     "path": "Characters/Naafiri/Spells/NaafiriEAbility/NaafiriE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -1055,6 +1395,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageFirstSlash": {
+        "base": [
+          15,
+          25,
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalDamageSecondSlash": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

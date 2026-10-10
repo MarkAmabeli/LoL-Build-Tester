@@ -1,6 +1,8 @@
 {
   "VeigarBalefulStrike": {
     "path": "Characters/Veigar/Spells/VeigarBalefulStrikeAbility/VeigarBalefulStrike",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6.5,
       6,
@@ -61,10 +63,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.5,
+              0.55,
+              0.6,
+              0.65,
+              0.7
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VeigarPassive": {
     "path": "Characters/Veigar/Spells/VeigarPassiveAbility/VeigarPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -140,10 +168,18 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "APPerStack": {
+        "base": 1
+      }
+    },
+    "unsupported": {}
   },
   "VeigarEventHorizon": {
     "path": "Characters/Veigar/Spells/VeigarEventHorizonAbility/VeigarEventHorizon",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -190,10 +226,14 @@
         0.5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "VeigarDarkMatter": {
     "path": "Characters/Veigar/Spells/VeigarDarkMatterAbility/VeigarDarkMatter",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -272,10 +312,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          85,
+          140,
+          195,
+          250,
+          305
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.7,
+              0.8,
+              0.9,
+              1,
+              1.1
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VeigarR": {
     "path": "Characters/Veigar/Spells/VeigarRAbility/VeigarR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -353,6 +419,43 @@
         "mModifiedGameCalculation": "MinDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          175,
+          250,
+          325
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.65,
+              0.7,
+              0.75
+            ]
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          350,
+          500,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              1.3,
+              1.4,
+              1.5
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "DianaOrbs": {
     "path": "Characters/Diana/Spells/DianaOrbsAbility/DianaOrbs",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -124,10 +126,64 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "ShieldValue": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.14
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          20,
+          32,
+          44,
+          56,
+          68
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.18
+          }
+        ]
+      },
+      "TotalMaxDamage": {
+        "base": [
+          60,
+          96,
+          132,
+          168,
+          204
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.54
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DianaQ": {
     "path": "Characters/Diana/Spells/DianaQAbility/DianaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -197,10 +253,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DianaR": {
     "path": "Characters/Diana/Spells/DianaRAbility/DianaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -319,10 +395,54 @@
         "mModifiedGameCalculation": "RMultiHitAmplification",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "RExplosionDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "RMultiHitAmplification": {
+        "base": [
+          35,
+          60,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          175,
+          300,
+          425
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DianaTeleport": {
     "path": "Characters/Diana/Spells/DianaTeleportAbility/DianaTeleport",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -392,10 +512,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DianaPassive": {
     "path": "Characters/Diana/Spells/DianaPassiveAbility/DianaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       32,
       28,
@@ -504,6 +644,84 @@
         "mModifiedGameCalculation": "BonusAS",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "CleaveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          55,
+          65,
+          75,
+          85,
+          95,
+          110,
+          125,
+          140,
+          155,
+          170,
+          195,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "BonusAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.1617647,
+          0.1735294,
+          0.1852941,
+          0.1970588,
+          0.2088235,
+          0.2205882,
+          0.2323529,
+          0.2441176,
+          0.2558824,
+          0.2676471,
+          0.2794118,
+          0.2911765,
+          0.3029412,
+          0.3147059,
+          0.3264706,
+          0.3382353,
+          0.35
+        ]
+      },
+      "EmpoweredAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.45,
+          0.4852941,
+          0.5205882,
+          0.5558824,
+          0.5911765,
+          0.6264706,
+          0.6617647,
+          0.6970588,
+          0.7323529,
+          0.7676471,
+          0.8029412,
+          0.8382353,
+          0.8735294,
+          0.9088235,
+          0.9441176,
+          0.9794118,
+          1.014706,
+          1.05
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

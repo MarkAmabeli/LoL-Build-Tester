@@ -1,6 +1,8 @@
 {
   "KarmaSolKimShield": {
     "path": "Characters/Karma/Spells/KarmaSolKimShieldAbility/KarmaSolKimShield",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -88,10 +90,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KarmaQ": {
     "path": "Characters/Karma/Spells/KarmaQAbility/KarmaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -201,10 +223,38 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "{087bc3ca}": {
+        "base": null
+      },
+      "{5d5198eb}": {
+        "base": 1
+      },
+      "TotalDamage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "IsEmpowered": "conditional calculation (depends on a game condition)"
     }
   },
   "KarmaSpiritBind": {
     "path": "Characters/Karma/Spells/KarmaSpiritBindAbility/KarmaSpiritBind",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -292,10 +342,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KarmaPassive": {
     "path": "Characters/Karma/Spells/KarmaPassiveAbility/KarmaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       9,
       8,
@@ -335,10 +405,18 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "SpellMantraRefund": {
+        "base": 4
+      }
+    },
+    "unsupported": {}
   },
   "KarmaMantra": {
     "path": "Characters/Karma/Spells/KarmaMantraAbility/KarmaMantra",
+    "slot": "R",
+    "maxRank": 4,
     "cooldown": [
       40,
       40,
@@ -542,6 +620,74 @@
         "mModifiedGameCalculation": "REBonusShield",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "RQImpactDamage": {
+        "base": [
+          40,
+          100,
+          160,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "RQFieldDamage": {
+        "base": [
+          40,
+          130,
+          220,
+          310
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "REBonusShield": {
+        "base": [
+          45,
+          85,
+          125,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "RWHealAmount": {
+        "base": 0.17,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0001
+          }
+        ]
+      },
+      "REBonusShieldArea": {
+        "base": [
+          45,
+          85,
+          125,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

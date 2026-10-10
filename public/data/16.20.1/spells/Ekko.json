@@ -1,6 +1,8 @@
 {
   "EkkoPassive": {
     "path": "Characters/Ekko/Spells/EkkoPassiveAbility/EkkoPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -114,10 +116,90 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusMS": {
+        "base": 0,
+        "baseByLevel": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "ThreeHitDamage": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "SpeedDuration": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EkkoR": {
     "path": "Characters/Ekko/Spells/EkkoRAbility/EkkoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -209,10 +291,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          350,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.75
+          }
+        ]
+      },
+      "TotalBaseHeal": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EkkoW": {
     "path": "Characters/Ekko/Spells/EkkoWAbility/EkkoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       24,
       22,
@@ -383,10 +496,41 @@
         "mModifiedGameCalculation": "MissingHealthPercent",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "MissingHealthPercent": {
+        "base": 0.03,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "TotalShield": {
+        "base": [
+          100,
+          120,
+          140,
+          160,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{79b6144b}": "target stat code 15/0"
     }
   },
   "EkkoQ": {
     "path": "Characters/Ekko/Spells/EkkoQAbility/EkkoQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9.5,
       9,
@@ -490,10 +634,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          80,
+          95,
+          110,
+          125,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "RecallDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EkkoE": {
     "path": "Characters/Ekko/Spells/EkkoEAbility/EkkoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       9.5,
       9,
@@ -573,10 +752,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Crepe_JinxVsEkko_EkkoReward": {
     "path": "{a42ed704}",
+    "maxRank": 5,
     "dataValues": {
       "AH": [
         10,
@@ -588,6 +786,8 @@
         10
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

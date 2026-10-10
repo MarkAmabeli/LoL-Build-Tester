@@ -1,6 +1,8 @@
 {
   "MissileBarrage": {
     "path": "Characters/Corki/Spells/MissileBarrageAbility/MissileBarrage",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       2,
       2,
@@ -144,10 +146,50 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RSmallMissileDamage": {
+        "base": [
+          90,
+          170,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.85
+          }
+        ]
+      },
+      "RBigMissileDamage": {
+        "base": [
+          180,
+          340,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.7
+          }
+        ]
+      },
+      "AttackRefund": {
+        "base": 2,
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PhosphorusBomb": {
     "path": "Characters/Corki/Spells/PhosphorusBombAbility/PhosphorusBomb",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       9,
@@ -232,10 +274,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          105,
+          150,
+          195,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.25
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GGun": {
     "path": "Characters/Corki/Spells/GGunAbility/GGun",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -343,10 +409,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "CarpetBomb": {
     "path": "Characters/Corki/Spells/CarpetBombAbility/CarpetBomb",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -508,10 +594,42 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MaximumDamage": {
+        "base": [
+          150,
+          225,
+          300,
+          375,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          },
+          {
+            "stat": "bonusAD",
+            "value": 2
+          }
+        ]
+      },
+      "DashSpeed": {
+        "base": 650,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RapidReload": {
     "path": "Characters/Corki/Spells/RapidReloadAbility/RapidReload",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -589,6 +707,20 @@
         "mModifiedGameCalculation": "BasicAttackTOOLTIP",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "BasicAttackTOOLTIP": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CriticalStrikeTOOLTIP": "stat code 9/0"
     }
   }
 }

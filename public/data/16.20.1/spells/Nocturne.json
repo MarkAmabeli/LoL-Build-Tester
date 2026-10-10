@@ -1,6 +1,7 @@
 {
   "NocturneP": {
     "path": "Characters/Nocturne/Spells/NocturnePAbility/NocturneP",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -155,10 +156,35 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamageNoCrit": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          }
+        ]
+      },
+      "TotalDamageCrit": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalHealing": "part type {ee18a47b}"
     }
   },
   "NocturneShroudofDarkness": {
     "path": "Characters/Nocturne/Spells/NocturneShroudofDarknessAbility/NocturneShroudofDarkness",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       22,
       20,
@@ -223,10 +249,14 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "NocturneDuskbringer": {
     "path": "Characters/Nocturne/Spells/NocturneDuskbringerAbility/NocturneDuskbringer",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -307,10 +337,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          105,
+          145,
+          185,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NocturneParanoia2": {
     "path": "Characters/Nocturne/Spells/NocturneParanoiaAbility/NocturneParanoia2",
+    "maxRank": 5,
     "cooldown": [
       150,
       150,
@@ -356,10 +405,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          275,
+          400,
+          525,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NocturneParanoia": {
     "path": "Characters/Nocturne/Spells/NocturneParanoiaAbility/NocturneParanoia",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -440,10 +509,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          275,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NocturneUnspeakableHorror": {
     "path": "Characters/Nocturne/Spells/NocturneUnspeakableHorrorAbility/NocturneUnspeakableHorror",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       15,
@@ -531,6 +618,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

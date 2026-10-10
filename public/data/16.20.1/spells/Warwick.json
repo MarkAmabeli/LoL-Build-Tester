@@ -1,6 +1,8 @@
 {
   "WarwickE": {
     "path": "Characters/Warwick/Spells/WarwickEAbility/WarwickE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       15,
@@ -74,10 +76,13 @@
         2.5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "WarwickP": {
     "path": "Characters/Warwick/Spells/WarwickPAbility/WarwickP",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -175,10 +180,48 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "OnHitDamage": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          8.882353,
+          11.76471,
+          14.64706,
+          17.52941,
+          20.41176,
+          23.29412,
+          26.17647,
+          29.05882,
+          31.94118,
+          34.82353,
+          37.70588,
+          40.58824,
+          43.47059,
+          46.35294,
+          49.23529,
+          52.11765,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.15
+          },
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "WarwickW": {
     "path": "Characters/Warwick/Spells/WarwickWAbility/WarwickW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       80,
       80,
@@ -297,10 +340,14 @@
         120
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "WarwickR": {
     "path": "Characters/Warwick/Spells/WarwickRAbility/WarwickR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -363,10 +410,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCumulative": {
+        "base": [
+          175,
+          350,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.67
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "WarwickQ": {
     "path": "Characters/Warwick/Spells/WarwickQAbility/WarwickQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -492,10 +557,27 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseBiteDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Crepe_WarwickVsVi_StackManager": {
     "path": "{c8f6de0e}",
+    "maxRank": 5,
     "dataValues": {
       "MaxHealthPercent": [
         0.05000000074505806,
@@ -516,10 +598,13 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "Crepe_WarwickVsVi_Shred": {
     "path": "{e1d2e65d}",
+    "maxRank": 5,
     "dataValues": {
       "ReducedArmorPer": [
         0.05000000074505806,
@@ -540,6 +625,8 @@
         0.05000000074505806
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

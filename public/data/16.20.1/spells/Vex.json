@@ -1,6 +1,7 @@
 {
   "VexR2": {
     "path": "Characters/Vex/Spells/VexRAbility/VexR2",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -44,10 +45,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RecastDamageCalc": {
+        "base": [
+          150,
+          250,
+          350,
+          450,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VexR": {
     "path": "Characters/Vex/Spells/VexRAbility/VexR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -148,10 +169,40 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RDamageCalc": {
+        "base": [
+          75,
+          125,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "RecastDamageCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VexP": {
     "path": "Characters/Vex/Spells/VexPAbility/VexP",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -398,10 +449,116 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "GloomProcCalc": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          46.47059,
+          52.94118,
+          59.41176,
+          65.88235,
+          72.35294,
+          78.82353,
+          85.29412,
+          91.76471,
+          98.23529,
+          104.7059,
+          111.1765,
+          117.6471,
+          124.1176,
+          130.5882,
+          137.0588,
+          143.5294,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "FearDuration": {
+        "base": 0,
+        "baseByLevel": [
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          1,
+          1,
+          1,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5
+        ]
+      },
+      "{c21c264c}": {
+        "base": 25000
+      },
+      "DoomCD": {
+        "base": 0,
+        "baseByLevel": [
+          25,
+          25,
+          25,
+          25,
+          25,
+          22,
+          22,
+          22,
+          22,
+          22,
+          19,
+          19,
+          19,
+          19,
+          19,
+          16,
+          16,
+          16
+        ]
+      },
+      "GloomMinionMod": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.45,
+          0.45,
+          0.45,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.55,
+          0.55,
+          0.55,
+          0.6,
+          0.6,
+          0.6
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VexW": {
     "path": "Characters/Vex/Spells/VexWAbility/VexW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       17,
       16,
@@ -511,10 +668,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldCalc": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "WDamageCalc": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VexE": {
     "path": "Characters/Vex/Spells/VexEAbility/VexE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -638,10 +830,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EDamageCalc": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.4,
+              0.45,
+              0.5,
+              0.55,
+              0.6
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VexQ": {
     "path": "Characters/Vex/Spells/VexQAbility/VexQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -719,6 +937,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QDamageCalc": {
+        "base": [
+          70,
+          115,
+          160,
+          205,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "{7b4a4737}": {
+        "base": [
+          77,
+          126.5,
+          176,
+          225.5,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -108,6 +108,54 @@ export interface ResolvedStats {
   currentHpPct: number;
 }
 
+/** A stat an ability can scale with. Target-based stats read from the target. */
+export type ScalingStat =
+  | 'totalAD'
+  | 'bonusAD'
+  | 'baseAD'
+  | 'AP'
+  | 'maxHP'
+  | 'baseHP'
+  | 'bonusHP'
+  | 'totalArmor'
+  | 'bonusArmor'
+  | 'totalMR'
+  | 'bonusMR'
+  | 'maxMana'
+  | 'bonusMana'
+  | 'attackSpeed'
+  /** Bonus attack speed as a fraction (0.4 = +40%). */
+  | 'bonusAttackSpeed'
+  | 'critChance'
+  | 'lethality'
+  | 'moveSpeed'
+  /** A stack count the caller supplies (e.g. Nasus's Siphoning Strike stacks). */
+  | 'stacks'
+  | 'targetMaxHP'
+  | 'targetBonusHP'
+  | 'targetCurrentHP'
+  | 'targetMissingHP';
+
+export interface Ratio {
+  stat: ScalingStat;
+  /** Ratio value as a fraction (0.6 = 60%). Either one value or one per rank. */
+  value: number | number[];
+  /** Ratio by champion level (index 0 = level 1); used instead of `value` when set. */
+  valueByLevel?: number[];
+}
+
+/**
+ * A damage (or other) formula: base per rank, plus an optional base by level, plus ratios.
+ * The data pipeline translates CommunityDragon SpellCalculations into this shape.
+ */
+export interface Formula {
+  /** Base value per rank. A single value applies to all ranks. */
+  base: number | number[];
+  /** Added to `base`, by champion level (index 0 = level 1). */
+  baseByLevel?: number[];
+  ratios?: Ratio[];
+}
+
 /** Resistance reduction applied to a target (e.g. Black Cleaver shred). Applied before penetration. */
 export interface ResistReduction {
   flat?: number;

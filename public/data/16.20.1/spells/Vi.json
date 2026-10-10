@@ -1,6 +1,8 @@
 {
   "ViR": {
     "path": "Characters/Vi/Spells/ViRAbility/ViR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -125,10 +127,41 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "SecondaryTargetDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViQ": {
     "path": "Characters/Vi/Spells/ViQAbility/ViQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -298,10 +331,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViE": {
     "path": "Characters/Vi/Spells/ViEAbility/ViE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       1,
       1,
@@ -400,10 +468,36 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          10,
+          30,
+          50,
+          70,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{36ebd3cf}": "stat code 9/0"
     }
   },
   "ViPassive": {
     "path": "Characters/Vi/Spells/ViPassiveAbility/ViPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -465,10 +559,47 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "ShieldCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          16,
+          15.5,
+          15,
+          14.5,
+          14,
+          13.5,
+          13,
+          12.5,
+          12,
+          11.5,
+          11,
+          10.5,
+          10,
+          9.5,
+          9,
+          8.5,
+          8,
+          7.5
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViW": {
     "path": "Characters/Vi/Spells/ViWAbility/ViW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -582,10 +713,29 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00035
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Crepe_WarwickVsVi_ViReward": {
     "path": "{1cbfc886}",
+    "maxRank": 5,
     "dataValues": {
       "BonusDamagePerc": [
         0.10000000149011612,
@@ -624,6 +774,8 @@
         0.20000000298023224
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

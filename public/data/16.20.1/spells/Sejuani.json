@@ -1,6 +1,8 @@
 {
   "SejuaniR": {
     "path": "Characters/Sejuani/Spells/SejuaniRAbility/SejuaniR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -128,10 +130,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "MinorDamageTooltip": {
+        "base": [
+          125,
+          150,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SejuaniPassive": {
     "path": "Characters/Sejuani/Spells/SejuaniPassiveAbility/SejuaniPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "FrostArmorDuration": [
         3,
@@ -248,10 +281,59 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PercentHPDamage": {
+        "base": 0.1
+      },
+      "TotalArmorTooltip": {
+        "base": 10,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.75
+          }
+        ]
+      },
+      "TotalMRTooltip": {
+        "base": 10,
+        "ratios": [
+          {
+            "stat": "bonusMR",
+            "value": 0.75
+          }
+        ]
+      },
+      "FrostArmorOOC": {
+        "base": 0,
+        "baseByLevel": [
+          12,
+          11.64706,
+          11.29412,
+          10.94118,
+          10.58824,
+          10.23529,
+          9.882353,
+          9.529412,
+          9.176471,
+          8.823529,
+          8.470588,
+          8.117647,
+          7.764706,
+          7.411765,
+          7.058824,
+          6.705882,
+          6.352941,
+          6
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SejuaniE": {
     "path": "Characters/Sejuani/Spells/SejuaniEAbility/SejuaniE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       1.5,
       1.5,
@@ -357,10 +439,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          55,
+          105,
+          155,
+          205,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SejuaniW": {
     "path": "Characters/Sejuani/Spells/SejuaniWAbility/SejuaniW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10,
       9,
@@ -498,10 +600,53 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FirstHitDamageTooltip": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.04
+          }
+        ]
+      },
+      "SecondHitDamageTooltip": {
+        "base": [
+          5,
+          25,
+          45,
+          65,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.08
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SejuaniQ": {
     "path": "Characters/Sejuani/Spells/SejuaniQAbility/SejuaniQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -589,6 +734,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          90,
+          140,
+          190,
+          240,
+          290
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,7 @@
 {
   "Incinerate": {
     "path": "Characters/Annie/Spells/Incinerate",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -38,10 +39,14 @@
         295
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "AnnieR": {
     "path": "Characters/Annie/Spells/AnnieRAbility/AnnieR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -271,10 +276,105 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialBurstDamage": {
+        "base": [
+          150,
+          275,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "TibbersAuraDamage": {
+        "base": [
+          8,
+          12,
+          16
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          }
+        ]
+      },
+      "TibbersAADamage": {
+        "base": [
+          30,
+          45,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "TibbersTotalHP": {
+        "base": [
+          1150,
+          1150,
+          1150,
+          1150,
+          1150,
+          1150,
+          1200,
+          1250,
+          1300,
+          1350,
+          1600,
+          1850,
+          2100,
+          2350,
+          2600,
+          2900,
+          3200,
+          3500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TibbersTotalResists": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AnniePassive": {
     "path": "Characters/Annie/Spells/AnniePassiveAbility/AnniePassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "MaxStacks": [
         4,
@@ -327,10 +427,38 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "StunDuration": {
+        "base": 0,
+        "baseByLevel": [
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AnnieQ": {
     "path": "Characters/Annie/Spells/AnnieQAbility/AnnieQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -391,10 +519,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AnnieE": {
     "path": "Characters/Annie/Spells/AnnieEAbility/AnnieE",
+    "slot": "E",
+    "maxRank": 5,
     "cost": [
       60,
       65,
@@ -516,10 +664,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageReturn": {
+        "base": [
+          25,
+          35,
+          45,
+          55,
+          65
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "MoveSpeedCalc": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2176471,
+          0.2352941,
+          0.2529412,
+          0.2705882,
+          0.2882353,
+          0.3058824,
+          0.3235294,
+          0.3411765,
+          0.3588235,
+          0.3764706,
+          0.3941176,
+          0.4117647,
+          0.4294118,
+          0.4470588,
+          0.4647059,
+          0.4823529,
+          0.5
+        ]
+      },
+      "ShieldBlockTotal": {
+        "base": [
+          60,
+          95,
+          130,
+          165,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "InfernalGuardian": {
     "path": "Characters/Annie/Spells/InfernalGuardian",
+    "maxRank": 5,
     "cooldown": [
       120,
       120,
@@ -629,10 +834,14 @@
         0.15000000596046448
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "AnnieW": {
     "path": "Characters/Annie/Spells/AnnieWAbility/AnnieW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -693,6 +902,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

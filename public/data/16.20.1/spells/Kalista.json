@@ -1,6 +1,8 @@
 {
   "KalistaRx": {
     "path": "Characters/Kalista/Spells/KalistaRxAbility/KalistaRx",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -38,10 +40,14 @@
         0
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KalistaPassiveBuff": {
     "path": "Characters/Kalista/Spells/KalistaPassiveBuffAbility/KalistaPassiveBuff",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -170,10 +176,44 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "MoveSpeedMultiplier": {
+        "base": 0.28,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 0.002
+          }
+        ]
+      },
+      "{c3169619}": {
+        "base": 1.5,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 1.5
+          }
+        ]
+      },
+      "{091295b4}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "attackSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{5728f7e1}": "part type ClampSubPartsCalculationPart"
     }
   },
   "KalistaW": {
     "path": "Characters/Kalista/Spells/KalistaWAbility/KalistaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       30,
       30,
@@ -240,10 +280,14 @@
       ],
       "ProcDamage": []
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KalistaMysticShot": {
     "path": "Characters/Kalista/Spells/KalistaMysticShotAbility/KalistaMysticShot",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -305,10 +349,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          10,
+          75,
+          140,
+          205,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KalistaExpungeWrapper": {
     "path": "Characters/Kalista/Spells/KalistaExpungeWrapperAbility/KalistaExpungeWrapper",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -505,6 +569,68 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "NormalDamage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.7
+          },
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "AdditionalDamage": {
+        "base": [
+          7,
+          14,
+          21,
+          28,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.2,
+              0.275,
+              0.35,
+              0.425,
+              0.5
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalSlowAmount": {
+        "base": [
+          0.1,
+          0.18,
+          0.26,
+          0.34,
+          0.42
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

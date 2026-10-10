@@ -1,6 +1,8 @@
 {
   "ReapTheWhirlwind": {
     "path": "Characters/Janna/Spells/ReapTheWhirlwindAbility/ReapTheWhirlwind",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -125,10 +127,41 @@
         "mModifiedGameCalculation": "HealPerSecond",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "HealPerSecond": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalHeal": {
+        "base": [
+          300,
+          450,
+          600
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EyeOfTheStorm": {
     "path": "Characters/Janna/Spells/EyeOfTheStormAbility/EyeOfTheStorm",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -258,10 +291,44 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "TotalAD": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TailwindSelf": {
     "path": "Characters/Janna/Spells/TailwindSelfAbility/TailwindSelf",
+    "maxRank": 5,
     "range": [
       1200,
       1200,
@@ -315,10 +382,20 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "MSToOnHitConversionRate": {
+        "base": 0.3
+      }
+    },
+    "unsupported": {
+      "BonusDamage": "stat code 7/2"
     }
   },
   "HowlingGale": {
     "path": "Characters/Janna/Spells/HowlingGaleAbility/HowlingGale",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -531,10 +608,63 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MinimumDamage": {
+        "base": [
+          55,
+          90,
+          125,
+          160,
+          195
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "ExtraDamagePerSecondCharged": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          85,
+          135,
+          185,
+          235,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "MaxKnockup": {
+        "base": 1.25
+      }
+    },
+    "unsupported": {}
   },
   "SowTheWind": {
     "path": "Characters/Janna/Spells/SowTheWindAbility/SowTheWind",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -673,6 +803,54 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalMS": {
+        "base": [
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.1
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          55,
+          85,
+          115,
+          145,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalSlow": {
+        "base": [
+          0.2,
+          0.24,
+          0.28,
+          0.32,
+          0.36
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0006
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

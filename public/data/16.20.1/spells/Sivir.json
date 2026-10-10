@@ -1,6 +1,8 @@
 {
   "SivirQ": {
     "path": "Characters/Sivir/Spells/SivirQAbility/SivirQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -192,10 +194,45 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "PreCritDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "CritScaling": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "stat code 9/0"
     }
   },
   "SivirR": {
     "path": "Characters/Sivir/Spells/SivirRAbility/SivirR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       120,
@@ -305,10 +342,14 @@
         0.5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "SivirPassive": {
     "path": "Characters/Sivir/Spells/SivirPassiveAbility/SivirPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -372,10 +413,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FlatMS": {
+        "base": 0,
+        "baseByLevel": [
+          55,
+          55,
+          55,
+          55,
+          55,
+          60,
+          60,
+          60,
+          60,
+          60,
+          65,
+          65,
+          65,
+          65,
+          65,
+          70,
+          70,
+          75
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SivirW": {
     "path": "Characters/Sivir/Spells/SivirWAbility/SivirW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -506,10 +575,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BounceDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.4,
+              0.425,
+              0.45,
+              0.475,
+              0.5
+            ]
+          }
+        ]
+      },
+      "FirstTargetDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "TotalMaxDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              4.2,
+              4.4,
+              4.6,
+              4.8,
+              5
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SivirE": {
     "path": "Characters/Sivir/Spells/SivirEAbility/SivirE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       25,
       24,
@@ -572,6 +685,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalHeal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.6,
+              0.65,
+              0.7,
+              0.75,
+              0.8
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

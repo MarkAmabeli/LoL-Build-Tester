@@ -1,6 +1,8 @@
 {
   "FizzE": {
     "path": "Characters/Fizz/Spells/FizzEAbility/FizzE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -88,10 +90,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EDamage": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.95
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FizzPassive": {
     "path": "Characters/Fizz/Spells/FizzPassiveAbility/FizzPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cost": [
       40,
       40,
@@ -174,10 +196,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageReductionCalc": {
+        "base": 4,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.01
+          }
+        ]
+      },
+      "MonsterDamageReductionCalc": {
+        "base": 14,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.01
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FizzW": {
     "path": "Characters/Fizz/Spells/FizzWAbility/FizzW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -381,10 +426,60 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DoTDamage": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "ActiveDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "OnHitBuffDamage": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FizzR": {
     "path": "Characters/Fizz/Spells/FizzRAbility/FizzR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -551,10 +646,54 @@
         "mModifiedGameCalculation": "SmallSharkDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "SmallSharkDamage": {
+        "base": [
+          180,
+          300,
+          420
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "{262c3c02}": {
+        "base": [
+          225,
+          375,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "BigSharkDamage": {
+        "base": [
+          270,
+          450,
+          630
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FizzQ": {
     "path": "Characters/Fizz/Spells/FizzQAbility/FizzQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8.5,
       8,
@@ -607,6 +746,20 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "QDamage": "part type EffectValueCalculationPart"
     }
   }
 }

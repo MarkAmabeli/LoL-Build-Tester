@@ -1,6 +1,8 @@
 {
   "TristanaE": {
     "path": "Characters/Tristana/Spells/TristanaEAbility/TristanaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -219,10 +221,33 @@
         "mModifiedGameCalculation": "ActiveDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ActiveDamage": "stat code 9/0",
+      "ActiveMaxDamage": "stat code 9/0"
     }
   },
   "TristanaPassive": {
     "path": "Characters/Tristana/Spells/TristanaPassiveAbility/TristanaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -252,10 +277,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusPassiveRange": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          8.823529,
+          17.64706,
+          26.47059,
+          35.29412,
+          44.11765,
+          52.94118,
+          61.76471,
+          70.58824,
+          79.41176,
+          88.23529,
+          97.05882,
+          105.8824,
+          114.7059,
+          123.5294,
+          132.3529,
+          141.1765,
+          150
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TristanaR": {
     "path": "Characters/Tristana/Spells/TristanaRAbility/TristanaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -349,10 +402,32 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          225,
+          275,
+          325
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TristanaQ": {
     "path": "Characters/Tristana/Spells/TristanaQAbility/TristanaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       21,
       20,
@@ -399,10 +474,13 @@
         7
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TristanaSkin80Manager": {
     "path": "Characters/Tristana/Spells/TristanaSkin80Manager",
+    "maxRank": 5,
     "dataValues": {
       "GoldToNextForm": [
         2000,
@@ -441,10 +519,14 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TristanaW": {
     "path": "Characters/Tristana/Spells/TristanaWAbility/TristanaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       24,
       22,
@@ -547,6 +629,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "LandingDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

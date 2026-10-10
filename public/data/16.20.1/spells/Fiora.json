@@ -1,6 +1,8 @@
 {
   "FioraPassive": {
     "path": "Characters/Fiora/Spells/FioraPassiveAbility/FioraPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       1100,
       1100,
@@ -76,10 +78,56 @@
         "mModifiedGameCalculation": "PassiveDamageTotal",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "PassiveHealAmount": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          38.82353,
+          42.64706,
+          46.47059,
+          50.29412,
+          54.11765,
+          57.94118,
+          61.76471,
+          65.58824,
+          69.41176,
+          73.23529,
+          77.05882,
+          80.88235,
+          84.70588,
+          88.52941,
+          92.35294,
+          96.17647,
+          100
+        ]
+      },
+      "PassiveDamageTotal": {
+        "base": 0.03,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0004
+          }
+        ]
+      },
+      "RDamageTotal": {
+        "base": 0.12,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0016
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FioraQ": {
     "path": "Characters/Fiora/Spells/FioraQAbility/FioraQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -145,10 +193,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          80,
+          90,
+          100,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.9,
+              0.95,
+              1,
+              1.05,
+              1.1
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FioraR": {
     "path": "Characters/Fiora/Spells/FioraRAbility/FioraR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       110,
@@ -275,10 +349,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HealPerSecondCalc": {
+        "base": [
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FioraW": {
     "path": "Characters/Fiora/Spells/FioraWAbility/FioraW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       26,
       24,
@@ -385,10 +477,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "StabDamage": {
+        "base": [
+          110,
+          150,
+          190,
+          230,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FioraE": {
     "path": "Characters/Fiora/Spells/FioraEAbility/FioraE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -471,6 +583,8 @@
         2.0999999046325684
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

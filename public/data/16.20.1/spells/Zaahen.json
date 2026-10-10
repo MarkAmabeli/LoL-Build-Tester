@@ -1,6 +1,8 @@
 {
   "ZaahenPassive": {
     "path": "Characters/Zaahen/Spells/ZaahenPassiveAbility/ZaahenPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       100,
       100,
@@ -192,10 +194,41 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "ReviveCooldownCalc": {
+        "base": 0,
+        "baseByLevel": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          240,
+          240,
+          240,
+          240,
+          240,
+          180,
+          180,
+          180,
+          180,
+          180,
+          120,
+          120,
+          120
+        ]
+      }
+    },
+    "unsupported": {
+      "RevivePercentCalc": "part type {4ce08984}",
+      "PercentBonusADCalc": "part type {ee18a47b}"
     }
   },
   "ZaahenQ": {
     "path": "Characters/Zaahen/Spells/ZaahenQAbility/ZaahenQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -345,10 +378,57 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          15,
+          30,
+          45,
+          60,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.2,
+              0.25,
+              0.3,
+              0.35,
+              0.4
+            ]
+          }
+        ]
+      },
+      "SecondHitDamage": {
+        "base": [
+          30,
+          60,
+          90,
+          120,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.2,
+              0.25,
+              0.3,
+              0.35,
+              0.4
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZaahenE": {
     "path": "Characters/Zaahen/Spells/ZaahenEAbility/ZaahenE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -491,10 +571,45 @@
         "mModifiedGameCalculation": "BaseDamageCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamageCalc": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "BonusDamageCalc": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZaahenR": {
     "path": "Characters/Zaahen/Spells/ZaahenRAbility/ZaahenR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -620,10 +735,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageEndCalc": {
+        "base": [
+          250,
+          400,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZaahenW": {
     "path": "Characters/Zaahen/Spells/ZaahenWAbility/ZaahenW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -719,6 +852,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "SecondaryDamage": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

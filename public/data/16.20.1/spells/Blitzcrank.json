@@ -1,6 +1,8 @@
 {
   "PowerFist": {
     "path": "Characters/Blitzcrank/Spells/PowerFistAbility/PowerFist",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -68,10 +70,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 2
+          },
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "{a9d6b924}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.75
+          },
+          {
+            "stat": "AP",
+            "value": 1.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "StaticField": {
     "path": "Characters/Blitzcrank/Spells/StaticFieldAbility/StaticField",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0,
       60,
@@ -205,10 +238,49 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ActiveDamage": {
+        "base": [
+          275,
+          400,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "PassiveDamage": {
+        "base": [
+          50,
+          100,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.3,
+              0.4,
+              0.5
+            ]
+          },
+          {
+            "stat": "maxMana",
+            "value": 0.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RocketGrab": {
     "path": "Characters/Blitzcrank/Spells/RocketGrabAbility/RocketGrab",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       21,
       20,
@@ -280,10 +352,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          110,
+          160,
+          210,
+          260,
+          310
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Overdrive": {
     "path": "Characters/Blitzcrank/Spells/OverdriveAbility/Overdrive",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -402,10 +494,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{c01903c1}": {
+        "base": 0,
+        "baseByLevel": [
+          60,
+          80,
+          100,
+          120,
+          140,
+          160,
+          165,
+          170,
+          175,
+          180,
+          185,
+          190,
+          195,
+          200,
+          205,
+          210,
+          215,
+          220
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ManaBarrierIcon": {
     "path": "Characters/Blitzcrank/Spells/ManaBarrierIconAbility/ManaBarrierIcon",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -473,6 +592,18 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxMana",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

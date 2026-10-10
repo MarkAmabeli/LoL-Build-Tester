@@ -1,6 +1,8 @@
 {
   "LissandraW": {
     "path": "Characters/Lissandra/Spells/LissandraWAbility/LissandraW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -79,10 +81,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LissandraR": {
     "path": "Characters/Lissandra/Spells/LissandraRAbility/LissandraR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       120,
@@ -237,10 +259,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "CalculatedDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "HealAmount": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LissandraE": {
     "path": "Characters/Lissandra/Spells/LissandraEAbility/LissandraE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       27,
       24,
@@ -292,10 +345,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LissandraQ": {
     "path": "Characters/Lissandra/Spells/LissandraQAbility/LissandraQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       7,
@@ -383,10 +456,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LissandraPassive": {
     "path": "Characters/Lissandra/Spells/LissandraPassiveAbility/LissandraPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -456,6 +549,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          120,
+          140,
+          160,
+          180,
+          200,
+          220,
+          240,
+          260,
+          280,
+          300,
+          320,
+          340,
+          370,
+          400,
+          430,
+          460,
+          490,
+          520
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

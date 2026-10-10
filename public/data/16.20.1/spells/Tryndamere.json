@@ -1,6 +1,8 @@
 {
   "TryndamereE": {
     "path": "Characters/Tryndamere/Spells/TryndamereEAbility/TryndamereE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -113,10 +115,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TryndamerePassive": {
     "path": "Characters/Tryndamere/Spells/TryndamerePassiveAbility/TryndamerePassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "CherryFuryModifier": [
         1.5,
@@ -153,10 +179,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveCritConversionTooltip": {
+        "base": 0.5
+      },
+      "{dc63b617}": {
+        "base": 0,
+        "baseByLevel": [
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005,
+          0.005
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "UndyingRage": {
     "path": "Characters/Tryndamere/Spells/UndyingRageAbility/UndyingRage",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -195,10 +252,14 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TryndamereW": {
     "path": "Characters/Tryndamere/Spells/TryndamereWAbility/TryndamereW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -246,10 +307,14 @@
         3.25
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TryndamereQ": {
     "path": "Characters/Tryndamere/Spells/TryndamereQAbility/TryndamereQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -379,6 +444,41 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "BaseHeal": {
+        "base": [
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "HealPerFury": {
+        "base": [
+          0.5,
+          0.95,
+          1.4,
+          1.85,
+          2.3
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.012
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "MaximumHeal": "product of two stats (stat × stat)"
     }
   }
 }

@@ -1,6 +1,8 @@
 {
   "JayceStaticField": {
     "path": "Characters/Jayce/Spells/JayceStaticFieldAbility/JayceStaticField",
+    "slot": "W",
+    "maxRank": 6,
     "cost": [
       40,
       40,
@@ -61,10 +63,31 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          140,
+          200,
+          260,
+          320,
+          380,
+          440
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JaycePassive": {
     "path": "Characters/Jayce/Spells/JaycePassiveAbility/JaycePassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -103,10 +126,13 @@
         0.75
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "JayceShockBlast": {
     "path": "Characters/Jayce/Spells/JayceShockBlastAbility/JayceShockBlast",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -196,10 +222,45 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          80,
+          121,
+          162,
+          203,
+          244
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.3
+          }
+        ]
+      },
+      "EmpoweredDamage": {
+        "base": [
+          112,
+          169.4,
+          226.8,
+          284.2,
+          341.6
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.82
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JayceThunderingBlow": {
     "path": "Characters/Jayce/Spells/JayceThunderingBlowAbility/JayceThunderingBlow",
+    "slot": "E",
+    "maxRank": 6,
     "cooldown": [
       20,
       20,
@@ -276,10 +337,23 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FlatDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JayceHyperCharge": {
     "path": "Characters/Jayce/Spells/JayceHyperChargeAbility/JayceHyperCharge",
+    "maxRank": 5,
     "cooldown": [
       14.600000381469727,
       13,
@@ -355,10 +429,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ActualDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.7,
+              0.78,
+              0.86,
+              0.94,
+              1.02
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JayceStanceHtG": {
     "path": "Characters/Jayce/Spells/JayceStanceHtGAbility/JayceStanceHtG",
+    "slot": "R",
+    "maxRank": 1,
     "cooldown": [
       6,
       6,
@@ -498,10 +592,95 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RangedFormShred": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.35,
+          0.35,
+          0.35
+        ]
+      },
+      "Damage": {
+        "base": 0,
+        "baseByLevel": [
+          25,
+          25,
+          25,
+          25,
+          25,
+          60,
+          60,
+          60,
+          60,
+          60,
+          95,
+          95,
+          95,
+          95,
+          95,
+          130,
+          130,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.3
+          }
+        ]
+      },
+      "Resists": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          12,
+          12,
+          12,
+          12,
+          12,
+          19,
+          19,
+          19,
+          19,
+          19,
+          26,
+          26,
+          26
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.075
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JayceAccelerationGate": {
     "path": "Characters/Jayce/Spells/JayceAccelerationGateAbility/JayceAccelerationGate",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -584,10 +763,14 @@
         10
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "JayceToTheSkies": {
     "path": "Characters/Jayce/Spells/JayceToTheSkiesAbility/JayceToTheSkies",
+    "slot": "Q",
+    "maxRank": 6,
     "cooldown": [
       18,
       16,
@@ -668,10 +851,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260,
+          310
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Crepe_ViktorVsJayce_JayceReward": {
     "path": "{6334911c}",
+    "maxRank": 5,
     "dataValues": {
       "BonusADPercent": [
         0.3499999940395355,
@@ -729,6 +932,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": 400,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          },
+          {
+            "stat": "totalAD",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

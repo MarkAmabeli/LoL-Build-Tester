@@ -1,6 +1,8 @@
 {
   "AmbessaPassive": {
     "path": "Characters/Ambessa/Spells/AmbessaPassiveAbility/AmbessaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -218,10 +220,104 @@
         "mModifiedGameCalculation": "Calc_OnHit_Damage_Flat",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "{57d26a55}": {
+        "base": 0,
+        "baseByLevel": [
+          770,
+          770,
+          770,
+          770,
+          770,
+          830,
+          830,
+          830,
+          830,
+          830,
+          890,
+          890,
+          890,
+          890,
+          890,
+          950,
+          950,
+          950
+        ],
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "Calc_OnHit_Damage_Flat": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          6.176471,
+          7.352941,
+          8.529412,
+          9.705882,
+          10.88235,
+          12.05882,
+          13.23529,
+          14.41176,
+          15.58824,
+          16.76471,
+          17.94118,
+          19.11765,
+          20.29412,
+          21.47059,
+          22.64706,
+          23.82353,
+          25
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "Calc_OnHit_Energy_Refund": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          55,
+          55,
+          55,
+          55,
+          55,
+          55,
+          70,
+          70,
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "Calc_Attack_Speed": {
+        "base": 0.5
+      },
+      "{d87d470b}": {
+        "base": 0
+      }
+    },
+    "unsupported": {
+      "{01a5d393}": "stat code 9/0"
     }
   },
   "AmbessaQ": {
     "path": "Characters/Ambessa/Spells/AmbessaQAbility/AmbessaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -481,10 +577,167 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{a7907b77}": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.3
+          }
+        ]
+      },
+      "Calc_Damage_1_Max": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "{17768f39}": {
+        "base": [
+          0.02,
+          0.0225,
+          0.025,
+          0.0275,
+          0.03
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00015
+          }
+        ]
+      },
+      "Calc_Damage_1_Percent_Max": {
+        "base": [
+          0.04,
+          0.045,
+          0.05,
+          0.055,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0003
+          }
+        ]
+      },
+      "{3ce89b9e}": {
+        "base": [
+          25,
+          37.5,
+          50,
+          62.5,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.45
+          }
+        ]
+      },
+      "Calc_Damage_2_Max": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "{1442dbe0}": {
+        "base": [
+          0.02,
+          0.0225,
+          0.025,
+          0.0275,
+          0.03
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0002
+          }
+        ]
+      },
+      "Calc_Damage_2_Percent_Max": {
+        "base": [
+          0.04,
+          0.045,
+          0.05,
+          0.055,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0004
+          }
+        ]
+      },
+      "Calc_Damage_1_Min_Ratio": {
+        "base": 0.5
+      },
+      "Calc_Damage_2_Min_Ratio": {
+        "base": 0.5
+      },
+      "Calc_Damage_Monster_Flat_Bonus": {
+        "base": 75
+      },
+      "Calc_Damage_Monster_Percent_Cap": {
+        "base": 0,
+        "baseByLevel": [
+          100,
+          111.7647,
+          123.5294,
+          135.2941,
+          147.0588,
+          158.8235,
+          170.5882,
+          182.3529,
+          194.1176,
+          205.8824,
+          217.6471,
+          229.4118,
+          241.1765,
+          252.9412,
+          264.7059,
+          276.4706,
+          288.2353,
+          300
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AmbessaR": {
     "path": "Characters/Ambessa/Spells/AmbessaRAbility/AmbessaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -617,10 +870,30 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "Calc_Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "Calc_Omnivamp": "stat code 18/0"
     }
   },
   "AmbessaW": {
     "path": "Characters/Ambessa/Spells/AmbessaWAbility/AmbessaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -743,10 +1016,74 @@
         "mModifiedGameCalculation": "Calc_Damage_Low",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Calc_Shield": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          65.88235,
+          81.76471,
+          97.64706,
+          113.5294,
+          129.4118,
+          145.2941,
+          161.1765,
+          177.0588,
+          192.9412,
+          208.8235,
+          224.7059,
+          240.5882,
+          256.4706,
+          272.3529,
+          288.2353,
+          304.1176,
+          320
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      },
+      "Calc_Damage_Low": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "Calc_Damage_High": {
+        "base": [
+          75,
+          112.5,
+          150,
+          187.5,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AmbessaE": {
     "path": "Characters/Ambessa/Spells/AmbessaEAbility/AmbessaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -827,6 +1164,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Calc_Damage_Flat": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

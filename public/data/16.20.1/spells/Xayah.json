@@ -1,6 +1,8 @@
 {
   "XayahE": {
     "path": "Characters/Xayah/Spells/XayahEAbility/XayahE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -156,10 +158,17 @@
         "mModifiedGameCalculation": "FeatherDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "FeatherDamage": "stat code 9/0",
+      "MinionDamage": "stat code 9/0"
     }
   },
   "XayahQ": {
     "path": "Characters/Xayah/Spells/XayahQAbility/XayahQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -293,10 +302,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "MultiHitDamage": {
+        "base": [
+          22.5,
+          30,
+          37.5,
+          45,
+          52.5
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XayahW": {
     "path": "Characters/Xayah/Spells/XayahWAbility/XayahW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       20,
       18,
@@ -379,10 +423,14 @@
         1000
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "XayahR": {
     "path": "Characters/Xayah/Spells/XayahRAbility/XayahR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       140,
@@ -455,10 +503,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XayahPassive": {
     "path": "Characters/Xayah/Spells/XayahPassiveAbility/XayahPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -560,6 +626,8 @@
         0.44999998807907104
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

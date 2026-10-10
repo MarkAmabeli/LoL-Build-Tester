@@ -1,6 +1,8 @@
 {
   "AzirW": {
     "path": "Characters/Azir/Spells/AzirWAbility/AzirW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       1.5,
       1.5,
@@ -129,10 +131,79 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "SecondaryTargetDamageMod": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.28,
+          0.36,
+          0.44,
+          0.52,
+          0.6,
+          0.68,
+          0.76,
+          0.84,
+          0.92,
+          1
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          50,
+          65,
+          80,
+          95,
+          110
+        ],
+        "baseByLevel": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.35,
+              0.425,
+              0.5,
+              0.575,
+              0.65
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AzirQWrapper": {
     "path": "Characters/Azir/Spells/AzirQWrapperAbility/AzirQWrapper",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -229,10 +300,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          95,
+          115,
+          135,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.35,
+              0.4,
+              0.45,
+              0.5,
+              0.55
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AzirEWrapper": {
     "path": "Characters/Azir/Spells/AzirEWrapperAbility/AzirEWrapper",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -351,10 +448,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AzirR": {
     "path": "Characters/Azir/Spells/AzirRAbility/AzirR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -424,10 +556,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          400,
+          600
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AzirPassive": {
     "path": "Characters/Azir/Spells/AzirPassiveAbility/AzirPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       90,
       90,
@@ -521,6 +671,61 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TowerDamage": {
+        "base": 0,
+        "baseByLevel": [
+          230,
+          230,
+          230,
+          230,
+          230,
+          230,
+          245,
+          260,
+          275,
+          290,
+          305,
+          320,
+          335,
+          350,
+          365,
+          380,
+          395,
+          410
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "BonusResists": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

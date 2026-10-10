@@ -1,6 +1,8 @@
 {
   "EvelynnQ": {
     "path": "Characters/Evelynn/Spells/EvelynnQAbility/EvelynnQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -130,10 +132,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MissileDamage": {
+        "base": [
+          25,
+          30,
+          35,
+          40,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalBonusDamage": {
+        "base": [
+          15,
+          25,
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EvelynnW": {
     "path": "Characters/Evelynn/Spells/EvelynnWAbility/EvelynnW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -285,10 +322,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MonsterDamageTotalTOOLTIP": {
+        "base": [
+          250,
+          300,
+          350,
+          400,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EvelynnR": {
     "path": "Characters/Evelynn/Spells/EvelynnRAbility/EvelynnR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -384,10 +441,41 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          125,
+          250,
+          375
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "CritDamage": {
+        "base": [
+          300,
+          600,
+          900
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EvelynnPassive": {
     "path": "Characters/Evelynn/Spells/EvelynnPassiveAbility/EvelynnPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "TOOLTIP_ONLY_VARS": [],
       "DemonShadeTimer": [
@@ -436,10 +524,66 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HealingThresholdTOOLTIP": {
+        "base": 0,
+        "baseByLevel": [
+          250,
+          270,
+          290,
+          310,
+          330,
+          350,
+          370,
+          390,
+          410,
+          430,
+          450,
+          470,
+          490,
+          510,
+          530,
+          550,
+          570,
+          590
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.5
+          }
+        ]
+      },
+      "HealPerSecondTOOLTIP": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          22.94118,
+          30.88235,
+          38.82353,
+          46.76471,
+          54.70588,
+          62.64706,
+          70.58824,
+          78.52941,
+          86.47059,
+          94.41176,
+          102.3529,
+          110.2941,
+          118.2353,
+          126.1765,
+          134.1176,
+          142.0588,
+          150
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EvelynnE2": {
     "path": "Characters/Evelynn/Spells/EvelynnEAbility/EvelynnE2",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -477,10 +621,14 @@
         0.30000001192092896
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "EvelynnE": {
     "path": "Characters/Evelynn/Spells/EvelynnEAbility/EvelynnE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -639,6 +787,27 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PercentHealthBaseTOOLTIP": {
+        "base": 0.03,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      },
+      "PercentHealthEmpoweredTOOLTIP": {
+        "base": 0.04,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

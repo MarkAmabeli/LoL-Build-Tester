@@ -1,6 +1,8 @@
 {
   "SonaW": {
     "path": "Characters/Sona/Spells/SonaWAbility/SonaW",
+    "slot": "W",
+    "maxRank": 5,
     "cost": [
       80,
       85,
@@ -160,10 +162,54 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalHeal": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalShield": {
+        "base": [
+          25,
+          45,
+          65,
+          85,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalDiminuendoWeakenPercent": {
+        "base": 0.25,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SonaE": {
     "path": "Characters/Sona/Spells/SonaEAbility/SonaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -316,10 +362,48 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalSelfMovementSpeed": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TotalAllyMovementSpeed": {
+        "base": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          0.18
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TotalTempoMoveSpeedSlow": {
+        "base": 0.5,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SonaQ": {
     "path": "Characters/Sona/Spells/SonaQAbility/SonaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -477,10 +561,74 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalOnHitDamage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "TotalStaccatoDamage": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          45,
+          60,
+          75,
+          90,
+          105,
+          120,
+          135,
+          157.5,
+          180,
+          202.5,
+          225,
+          247.5,
+          270,
+          292.5,
+          315,
+          337.5,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SonaPassive": {
     "path": "Characters/Sona/Spells/SonaPassiveAbility/SonaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -569,10 +717,53 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PowerChordDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          105,
+          120,
+          135,
+          150,
+          165,
+          180,
+          195,
+          210,
+          225,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "AccelerandoAHCurrent": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SonaR": {
     "path": "Characters/Sona/Spells/SonaRAbility/SonaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -633,6 +824,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

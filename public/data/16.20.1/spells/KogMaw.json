@@ -1,6 +1,8 @@
 {
   "KogMawBioArcaneBarrage": {
     "path": "Characters/KogMaw/Spells/KogMawBioArcaneBarrageAbility/KogMawBioArcaneBarrage",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       17,
       17,
@@ -94,10 +96,30 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalHealthDamage": {
+        "base": [
+          0.03,
+          0.0375,
+          0.045,
+          0.0525,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KogMawLivingArtillery": {
     "path": "Characters/KogMaw/Spells/KogMawLivingArtilleryAbility/KogMawLivingArtillery",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       2,
       2,
@@ -270,10 +292,78 @@
         "mModifiedGameCalculation": "BaseDamageCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamageCalc": {
+        "base": [
+          100,
+          140,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.35,
+              0.4,
+              0.45
+            ]
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      },
+      "MidDamageCalc": {
+        "base": [
+          150,
+          210,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.525,
+              0.6,
+              0.675
+            ]
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1.125
+          }
+        ]
+      },
+      "MaxDamageCalc": {
+        "base": [
+          200,
+          280,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.7,
+              0.8,
+              0.9
+            ]
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KogMawQ": {
     "path": "Characters/KogMaw/Spells/KogMawQAbility/KogMawQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -361,10 +451,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KogMawVoidOoze": {
     "path": "Characters/KogMaw/Spells/KogMawVoidOozeAbility/KogMawVoidOoze",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -452,10 +562,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KogMawIcathianSurprise": {
     "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianSurprise",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -513,10 +642,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          125,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325,
+          350,
+          375,
+          400,
+          425,
+          450,
+          475,
+          500,
+          525,
+          550
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KogMawIcathianDisplay": {
     "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianDisplay",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -557,10 +713,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          140,
+          170,
+          200,
+          230,
+          260,
+          290,
+          320,
+          350,
+          380,
+          410,
+          440,
+          470,
+          500,
+          530,
+          560,
+          590,
+          620,
+          650
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KogMawIcathianSurpriseReady": {
     "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianSurpriseReady",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -601,6 +784,32 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          140,
+          170,
+          200,
+          230,
+          260,
+          290,
+          320,
+          350,
+          380,
+          410,
+          440,
+          470,
+          500,
+          530,
+          560,
+          590,
+          620,
+          650
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

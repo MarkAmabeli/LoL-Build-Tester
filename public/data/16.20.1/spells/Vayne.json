@@ -1,6 +1,8 @@
 {
   "VayneCondemn": {
     "path": "Characters/Vayne/Spells/VayneCondemnAbility/VayneCondemn",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       20,
@@ -89,10 +91,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "EmpoweredDamageTT": {
+        "base": [
+          75,
+          127.5,
+          180,
+          232.5,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VaynePassive": {
     "path": "Characters/Vayne/Spells/VaynePassiveAbility/VaynePassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       2000,
       2000,
@@ -122,10 +159,14 @@
         2000
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "VayneInquisition": {
     "path": "Characters/Vayne/Spells/VayneInquisitionAbility/VayneInquisition",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -217,10 +258,14 @@
         80
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "VayneTumble": {
     "path": "Characters/Vayne/Spells/VayneTumbleAbility/VayneTumble",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -292,10 +337,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ADRatioBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.75,
+              0.85,
+              0.95,
+              1.05,
+              1.15
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VayneSilveredBolts": {
     "path": "Characters/Vayne/Spells/VayneSilveredBoltsAbility/VayneSilveredBolts",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -364,6 +433,18 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          0.04,
+          0.055,
+          0.07,
+          0.085,
+          0.1
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

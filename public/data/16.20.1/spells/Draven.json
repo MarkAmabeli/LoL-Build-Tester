@@ -1,6 +1,8 @@
 {
   "DravenSpinning": {
     "path": "Characters/Draven/Spells/DravenSpinningAbility/DravenSpinning",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -82,10 +84,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          40,
+          45,
+          50,
+          55,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.75,
+              0.85,
+              0.95,
+              1.05,
+              1.15
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DravenFury": {
     "path": "Characters/Draven/Spells/DravenFuryAbility/DravenFury",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -195,10 +223,14 @@
         -0.09399999678134918
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "DravenDoubleShot": {
     "path": "Characters/Draven/Spells/DravenDoubleShotAbility/DravenDoubleShot",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       19,
       18,
@@ -280,10 +312,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          110,
+          145,
+          180,
+          215
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DravenPassive": {
     "path": "Characters/Draven/Spells/DravenPassiveAbility/DravenPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -383,10 +435,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DravenPassiveGoldEarned": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      },
+      "DravenPassiveHighestBounty": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DravenRCast": {
     "path": "Characters/Draven/Spells/DravenRCastAbility/DravenRCast",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -488,6 +563,35 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RCalculatedDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              1.1,
+              1.3,
+              1.5
+            ]
+          }
+        ]
+      },
+      "RPassiveTrueDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

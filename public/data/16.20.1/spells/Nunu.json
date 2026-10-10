@@ -1,6 +1,8 @@
 {
   "NunuW": {
     "path": "Characters/Nunu/Spells/NunuWAbility/NunuW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -372,10 +374,48 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MaximumSnowballDamage": {
+        "base": [
+          180,
+          225,
+          270,
+          315,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      },
+      "NoImpactSnowballDamage": {
+        "base": [
+          59.94,
+          74.925,
+          89.91,
+          104.895,
+          119.88
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4995
+          }
+        ]
+      },
+      "MaximumStunDuration": {
+        "base": 1.25
+      }
+    },
+    "unsupported": {}
   },
   "NunuPassive": {
     "path": "Characters/Nunu/Spells/NunuPassiveAbility/NunuPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -469,10 +509,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "CleaveDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NunuE": {
     "path": "Characters/Nunu/Spells/NunuEAbility/NunuE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -611,10 +665,67 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalSnowballDamage": {
+        "base": [
+          15,
+          22.5,
+          30,
+          37.5,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "TotalRootDamage": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "RootDuration": {
+        "base": 0,
+        "baseByLevel": [
+          0.5,
+          0.5588235,
+          0.6176471,
+          0.6764706,
+          0.7352941,
+          0.7941176,
+          0.8529412,
+          0.9117647,
+          0.9705882,
+          1.029412,
+          1.088235,
+          1.147059,
+          1.205882,
+          1.264706,
+          1.323529,
+          1.382353,
+          1.441176,
+          1.5
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NunuESnowballBurstFire": {
     "path": "Characters/Nunu/Spells/NunuEAbility/NunuESnowballBurstFire",
+    "maxRank": 5,
     "cooldown": [
       0.8999999761581421,
       0.8999999761581421,
@@ -644,10 +755,14 @@
         3
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "NunuR": {
     "path": "Characters/Nunu/Spells/NunuRAbility/NunuR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -799,10 +914,62 @@
         "mModifiedGameCalculation": "MaximumDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalShieldAmount": {
+        "base": [
+          65,
+          75,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": [
+              0.3,
+              0.4,
+              0.5
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      },
+      "MaximumDamage": {
+        "base": [
+          625,
+          925,
+          1275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 3
+          }
+        ]
+      },
+      "MinDamage": {
+        "base": [
+          312.5,
+          462.5,
+          637.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NunuQ": {
     "path": "Characters/Nunu/Spells/NunuQAbility/NunuQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -968,6 +1135,66 @@
         "mModifiedGameCalculation": "MonsterHealing",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "MonsterHealing": {
+        "base": [
+          65,
+          95,
+          125,
+          155,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.1
+          },
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      },
+      "TotalChampionDamage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.05
+          },
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "ChampionHealing": {
+        "base": [
+          39,
+          57,
+          75,
+          93,
+          111
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.06
+          },
+          {
+            "stat": "AP",
+            "value": 0.54
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

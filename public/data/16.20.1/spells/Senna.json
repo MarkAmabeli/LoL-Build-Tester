@@ -1,6 +1,8 @@
 {
   "SennaR": {
     "path": "Characters/Senna/Spells/SennaRAbility/SennaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -123,10 +125,48 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          250,
+          400,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1.15
+          }
+        ]
+      },
+      "TotalShield": {
+        "base": [
+          120,
+          160,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "stacks",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SennaSkin56Manager": {
     "path": "Characters/Senna/Spells/SennaSkin56Manager",
+    "maxRank": 5,
     "dataValues": {
       "TransformDuration": [
         8,
@@ -156,10 +196,14 @@
         30
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "SennaE": {
     "path": "Characters/Senna/Spells/SennaEAbility/SennaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       26,
       26,
@@ -293,10 +337,24 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalMS": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SennaQ": {
     "path": "Characters/Senna/Spells/SennaQAbility/SennaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -506,10 +564,62 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          55,
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "TotalHeal": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalSlow": {
+        "base": 0.15,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0007
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.0015
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SennaW": {
     "path": "Characters/Senna/Spells/SennaWAbility/SennaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -581,10 +691,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SennaPassive": {
     "path": "Characters/Senna/Spells/SennaPassiveAbility/SennaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -904,6 +1034,98 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "BonusOnHitDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "MSSteal": {
+        "base": 0,
+        "baseByLevel": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.15,
+          0.15,
+          0.15,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      },
+      "{bb59ad08}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.75
+          }
+        ]
+      },
+      "BonusCurentHealthDamage": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      "DebuffDuration": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    "unsupported": {
+      "CriticalDamage": "stat code 9/0"
     }
   }
 }

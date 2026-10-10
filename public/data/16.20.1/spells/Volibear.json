@@ -1,6 +1,8 @@
 {
   "VolibearR": {
     "path": "Characters/Volibear/Spells/VolibearRAbility/VolibearR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -206,10 +208,90 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ADRatio": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.5
+          }
+        ]
+      },
+      "{4402b0fa}": {
+        "base": [
+          300,
+          500,
+          700
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.5
+          },
+          {
+            "stat": "AP",
+            "value": 1.25
+          }
+        ]
+      },
+      "APRatioTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.25
+          }
+        ]
+      },
+      "TowerDamageTooltip": {
+        "base": [
+          300,
+          500,
+          700
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.25
+          },
+          {
+            "stat": "bonusAD",
+            "value": 2.5
+          }
+        ]
+      },
+      "SweetSpotDamageTooltip": {
+        "base": [
+          300,
+          500,
+          700
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.25
+          },
+          {
+            "stat": "bonusAD",
+            "value": 2.5
+          }
+        ]
+      },
+      "{d9a2963e}": {
+        "base": [
+          175,
+          350,
+          525
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VolibearQAttack": {
     "path": "Characters/Volibear/Spells/VolibearQAbility/VolibearQAttack",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -266,10 +348,14 @@
         70
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "VolibearQ": {
     "path": "Characters/Volibear/Spells/VolibearQAbility/VolibearQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       0,
       14,
@@ -431,10 +517,75 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "CalculatedDamage": {
+        "base": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1.6
+          }
+        ]
+      },
+      "ADRatioTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.6
+          }
+        ]
+      },
+      "MinSpeedCalc": {
+        "base": [
+          0.12,
+          0.155,
+          0.19,
+          0.225,
+          0.26
+        ]
+      },
+      "MaxSpeedCalc": {
+        "base": [
+          0.24,
+          0.31,
+          0.38,
+          0.45,
+          0.52
+        ]
+      },
+      "{10404951}": {
+        "base": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VolibearP": {
     "path": "Characters/Volibear/Spells/VolibearPAbility/VolibearP",
+    "maxRank": 5,
     "dataValues": {
       "PDamageRatio": [
         0.20000000298023224,
@@ -535,10 +686,57 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ChainLightningDamage": {
+        "base": 0,
+        "baseByLevel": [
+          11,
+          12,
+          13,
+          15,
+          17,
+          19,
+          22,
+          25,
+          28,
+          31,
+          34,
+          37,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "AttackSpeedCalc": {
+        "base": 0.05,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VolibearW": {
     "path": "Characters/Volibear/Spells/VolibearWAbility/VolibearW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -689,10 +887,45 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          5,
+          30,
+          55,
+          80,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.06
+          }
+        ]
+      },
+      "PercentMissingHealthHealingRatio": {
+        "base": [
+          0.08,
+          0.11,
+          0.14,
+          0.17,
+          0.2
+        ]
+      }
+    },
+    "unsupported": {
+      "EmpoweredDamage": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   },
   "VolibearE": {
     "path": "Characters/Volibear/Spells/VolibearEAbility/VolibearE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -877,6 +1110,85 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldValue": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.14
+          },
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "CalculatedDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "APRatioTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "ShieldAPRatioTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "MonsterDamageCap": {
+        "base": [
+          150,
+          265,
+          380,
+          495,
+          610
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "IllaoiE": {
     "path": "Characters/Illaoi/Spells/IllaoiEAbility/IllaoiE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -171,10 +173,76 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TimeBetweenVesselTentacleSlams": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "EchoPercent": {
+        "base": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.0008
+          }
+        ]
+      },
+      "{87aff6dd}": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "IllaoiQ": {
     "path": "Characters/Illaoi/Spells/IllaoiQAbility/IllaoiQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       10,
@@ -304,10 +372,17 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TentacleDamageTotal": "Product of a per-rank and a per-level value",
+      "DamageIncreaseTooltip": "Product of a per-rank and a per-level value"
     }
   },
   "IllaoiPassive": {
     "path": "Characters/Illaoi/Spells/IllaoiPassiveAbility/IllaoiPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "MissingHPPercentHeal": [
         0.05000000074505806,
@@ -375,10 +450,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "SpawnCD": {
+        "base": 0,
+        "baseByLevel": [
+          18,
+          17.35294,
+          16.70588,
+          16.05882,
+          15.41176,
+          14.76471,
+          14.11765,
+          13.47059,
+          12.82353,
+          12.17647,
+          11.52941,
+          10.88235,
+          10.23529,
+          9.588235,
+          8.941176,
+          8.294118,
+          7.647059,
+          7
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "IllaoiW": {
     "path": "Characters/Illaoi/Spells/IllaoiWAbility/IllaoiW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -504,10 +607,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HealthPercentTotal": {
+        "base": [
+          0.03,
+          0.035,
+          0.04,
+          0.045,
+          0.05
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.00035
+          }
+        ]
+      },
+      "DashSpeed": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "IllaoiR": {
     "path": "Characters/Illaoi/Spells/IllaoiRAbility/IllaoiR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -580,6 +712,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "GravesChargeShot": {
     "path": "Characters/Graves/Spells/GravesChargeShotAbility/GravesChargeShot",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -89,10 +91,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          275,
+          425,
+          575
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      },
+      "FalloffDamage": {
+        "base": [
+          200,
+          320,
+          440
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GravesQLineSpell": {
     "path": "Characters/Graves/Spells/GravesQLineSpellAbility/GravesQLineSpell",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -197,10 +230,51 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.55
+          }
+        ]
+      },
+      "TotalDetonationDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.45,
+              0.6,
+              0.75,
+              0.9,
+              1.05
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GravesSmokeGrenade": {
     "path": "Characters/Graves/Spells/GravesSmokeGrenadeAbility/GravesSmokeGrenade",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       26,
       26,
@@ -288,10 +362,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ImpactDamage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GravesPassive": {
     "path": "Characters/Graves/Spells/GravesPassiveAbility/GravesPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -414,10 +508,19 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "SingleBulletDamage": "part type ByCharLevelFormulaCalculationPart",
+      "MultiBulletDamage": "part type ByCharLevelFormulaCalculationPart",
+      "CritDamageMult": "stat code 9/0",
+      "{549cda4d}": "stat code 9/0"
     }
   },
   "GravesMove": {
     "path": "Characters/Graves/Spells/GravesMoveAbility/GravesMove",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       17,
       16,
@@ -543,6 +646,18 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MRGrant": {
+        "base": [
+          3.5,
+          5,
+          6.5,
+          8,
+          9.5
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

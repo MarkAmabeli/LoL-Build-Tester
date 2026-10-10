@@ -1,6 +1,8 @@
 {
   "MissFortuneScattershot": {
     "path": "Characters/MissFortune/Spells/MissFortuneScattershotAbility/MissFortuneScattershot",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       20,
       18,
@@ -129,10 +131,54 @@
         "mModifiedGameCalculation": "TotalDamagePerSecond",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamagePerSecond": {
+        "base": [
+          35,
+          50,
+          65,
+          80,
+          95
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "TotalSlowAmount": {
+        "base": 0.4,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0006
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MissFortuneRicochetShot": {
     "path": "Characters/MissFortune/Spells/MissFortuneRicochetShotAbility/MissFortuneRicochetShot",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       7,
@@ -261,10 +307,37 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          20,
+          45,
+          70,
+          95,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamageCrit": "stat code 9/0",
+      "{5a1fd353}": "stat code 9/0"
     }
   },
   "MissFortunePassive": {
     "path": "Characters/MissFortune/Spells/MissFortunePassiveAbility/MissFortunePassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -349,10 +422,73 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.5,
+              0.5,
+              0.5,
+              0.6,
+              0.6,
+              0.6,
+              0.7,
+              0.7,
+              0.8,
+              0.8,
+              0.9,
+              0.9,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.25,
+              0.25,
+              0.25,
+              0.3,
+              0.3,
+              0.3,
+              0.35,
+              0.35,
+              0.4,
+              0.4,
+              0.45,
+              0.45,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MissFortuneViciousStrikes": {
     "path": "Characters/MissFortune/Spells/MissFortuneViciousStrikesAbility/MissFortuneViciousStrikes",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -458,10 +594,16 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "LoveTapRefund": "part type CooldownMultiplierCalculationPart"
     }
   },
   "MissFortuneBulletTime": {
     "path": "Characters/MissFortune/Spells/MissFortuneBulletTimeAbility/MissFortuneBulletTime",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       120,
@@ -607,6 +749,53 @@
         "mModifiedGameCalculation": "PhysicalDamagePerWave",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "PhysicalDamagePerWave": {
+        "base": [
+          20,
+          30,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.6
+          },
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalPhysicalDamage": {
+        "base": [
+          280,
+          480,
+          720
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              8.4,
+              9.6,
+              10.8
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": [
+              3.5,
+              4,
+              4.5
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CritDamagePerWave": "stat code 9/0"
     }
   }
 }

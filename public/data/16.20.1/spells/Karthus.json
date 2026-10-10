@@ -1,6 +1,8 @@
 {
   "KarthusLayWasteA1": {
     "path": "Characters/Karthus/Spells/KarthusLayWasteA1Ability/KarthusLayWasteA1",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -79,10 +81,44 @@
         "mModifiedGameCalculation": "QDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "QDamage": {
+        "base": [
+          40,
+          59,
+          78,
+          97,
+          116
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "QSingleTargetDamage": {
+        "base": [
+          80,
+          118,
+          156,
+          194,
+          232
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KarthusDeathDefied": {
     "path": "Characters/Karthus/Spells/KarthusDeathDefiedAbility/KarthusDeathDefied",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -103,10 +139,14 @@
         7
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KarthusFallenOne": {
     "path": "Characters/Karthus/Spells/KarthusFallenOneAbility/KarthusFallenOne",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       200,
       200,
@@ -167,10 +207,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          350,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KarthusDefile": {
     "path": "Characters/Karthus/Spells/KarthusDefileAbility/KarthusDefile",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0.5,
       0.5,
@@ -248,10 +306,45 @@
         "mModifiedGameCalculation": "TotalDPS",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDPS": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "{57456bbc}": {
+        "base": [
+          7.5,
+          12.5,
+          17.5,
+          22.5,
+          27.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KarthusWallOfPain": {
     "path": "Characters/Karthus/Spells/KarthusWallOfPainAbility/KarthusWallOfPain",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -325,6 +418,8 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

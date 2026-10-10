@@ -1,6 +1,8 @@
 {
   "NilahQ": {
     "path": "Characters/Nilah/Spells/NilahQAbility/NilahQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -226,10 +228,67 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "AttackTotalDamageTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "BonusAttackSpeedCalc": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          12.94118,
+          15.88235,
+          18.82353,
+          21.76471,
+          24.70588,
+          27.64706,
+          30.58824,
+          33.52941,
+          36.47059,
+          39.41176,
+          42.35294,
+          45.29412,
+          48.23529,
+          51.17647,
+          54.11765,
+          57.05882,
+          60
+        ]
+      },
+      "CritLifesteal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 0.2
+          }
+        ]
+      },
+      "CritArmorPen": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "DamageCalc": "stat code 9/0"
     }
   },
   "NilahW": {
     "path": "Characters/Nilah/Spells/NilahWAbility/NilahW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       26,
       26,
@@ -312,10 +371,14 @@
         0.25
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "NilahE": {
     "path": "Characters/Nilah/Spells/NilahEAbility/NilahE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0.5,
       0.5,
@@ -387,10 +450,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DashDamage": {
+        "base": [
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NilahPassive": {
     "path": "Characters/Nilah/Spells/NilahPassiveAbility/NilahPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       1000,
       1000,
@@ -447,10 +530,14 @@
         4
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "NilahR": {
     "path": "Characters/Nilah/Spells/NilahRAbility/NilahR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       110,
       110,
@@ -612,6 +699,70 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          125,
+          225,
+          325
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "ShieldCalc": {
+        "base": [
+          65,
+          115,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "DamagePerTickCalc": {
+        "base": [
+          15,
+          25,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "DamagePerTickCalcTooltip": {
+        "base": [
+          60,
+          100,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "ChampHealingPercent": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

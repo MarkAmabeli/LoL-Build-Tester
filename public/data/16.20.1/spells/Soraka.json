@@ -1,6 +1,8 @@
 {
   "SorakaE": {
     "path": "Characters/Soraka/Spells/SorakaEAbility/SorakaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -70,10 +72,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SorakaQ": {
     "path": "Characters/Soraka/Spells/SorakaQAbility/SorakaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       8,
@@ -201,10 +223,44 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          85,
+          120,
+          155,
+          190,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "TotalHot": {
+        "base": [
+          60,
+          75,
+          90,
+          105,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Consecration_Self": {
     "path": "Characters/Soraka/Spells/Consecration_SelfAbility/Consecration_Self",
+    "maxRank": 5,
     "range": [
       2500,
       2500,
@@ -234,10 +290,14 @@
         0.4000000059604645
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "SorakaR": {
     "path": "Characters/Soraka/Spells/SorakaRAbility/SorakaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       150,
       150,
@@ -315,10 +375,41 @@
         "mModifiedGameCalculation": "HealingCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "HealingCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "AmpedHealing": {
+        "base": [
+          225,
+          375,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SorakaW": {
     "path": "Characters/Soraka/Spells/SorakaWAbility/SorakaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -407,6 +498,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalHeal": {
+        "base": [
+          90,
+          110,
+          130,
+          150,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "MinimumHealth": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

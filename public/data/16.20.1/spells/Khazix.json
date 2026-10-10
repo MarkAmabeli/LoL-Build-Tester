@@ -1,6 +1,8 @@
 {
   "KhazixQ": {
     "path": "Characters/Khazix/Spells/KhazixQAbility/KhazixQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -101,10 +103,25 @@
         "mModifiedGameCalculation": "BaseDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)",
+      "BaseDamage": "part type EffectValueCalculationPart",
+      "IsoDamage": "part type EffectValueCalculationPart"
     }
   },
   "KhazixR": {
     "path": "Characters/Khazix/Spells/KhazixRAbility/KhazixR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -238,10 +255,23 @@
         },
         "__type": "GameCalculationConditional"
       }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)"
     }
   },
   "KhazixE": {
     "path": "Characters/Khazix/Spells/KhazixEAbility/KhazixE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       20,
@@ -344,10 +374,24 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)",
+      "TotalDamage": "part type EffectValueCalculationPart"
     }
   },
   "KhazixW": {
     "path": "Characters/Khazix/Spells/KhazixWAbility/KhazixW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -491,10 +535,39 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      },
+      "HealAmount": {
+        "base": [
+          55,
+          75,
+          95,
+          115,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)",
+      "BaseDamage": "part type EffectValueCalculationPart"
     }
   },
   "KhazixPassive": {
     "path": "Characters/Khazix/Spells/KhazixPassiveAbility/KhazixPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -590,6 +663,10 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
     }
   }
 }

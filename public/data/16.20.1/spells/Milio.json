@@ -1,6 +1,8 @@
 {
   "MilioQ": {
     "path": "Characters/Milio/Spells/MilioQAbility/MilioQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cost": [
       50,
       55,
@@ -156,10 +158,45 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          80,
+          140,
+          200,
+          260,
+          320
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      },
+      "SlowAmountPercent": {
+        "base": [
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MilioPassive": {
     "path": "Characters/Milio/Spells/MilioPassiveAbility/MilioPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -253,10 +290,40 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "ADBurstRatio": {
+        "base": 0,
+        "baseByLevel": [
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.11,
+          0.11,
+          0.11,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      }
+    },
+    "unsupported": {
+      "BurnDamage": "part type {ee18a47b}"
     }
   },
   "MilioR": {
     "path": "Characters/Milio/Spells/MilioRAbility/MilioR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -335,10 +402,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HealCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MilioE": {
     "path": "Characters/Milio/Spells/MilioEAbility/MilioE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0.5,
       0.5,
@@ -417,10 +502,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldCalc": {
+        "base": [
+          45,
+          75,
+          105,
+          135,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MilioW": {
     "path": "Characters/Milio/Spells/MilioWAbility/MilioW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       29,
       29,
@@ -530,6 +635,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RangePercent": {
+        "base": [
+          0.1,
+          0.125,
+          0.15,
+          0.175,
+          0.2
+        ]
+      },
+      "HealingOverTime": {
+        "base": [
+          70,
+          90,
+          110,
+          130,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

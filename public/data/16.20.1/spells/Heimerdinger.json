@@ -1,6 +1,8 @@
 {
   "HeimerdingerW": {
     "path": "Characters/Heimerdinger/Spells/HeimerdingerWAbility/HeimerdingerW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -122,10 +124,75 @@
         "mModifiedGameCalculation": "ExtraHitDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "ExtraHitDamage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          90,
+          135,
+          180,
+          225,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.03
+          }
+        ]
+      },
+      "ExtraHitDamageMinions": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.36
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HeimerdingerR": {
     "path": "Characters/Heimerdinger/Spells/HeimerdingerRAbility/HeimerdingerR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -385,10 +452,171 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QUltTurretHealth": {
+        "base": 0,
+        "baseByLevel": [
+          725,
+          725,
+          725,
+          725,
+          725,
+          725,
+          750,
+          775,
+          800,
+          825,
+          875,
+          925,
+          975,
+          1025,
+          1075,
+          1225,
+          1375,
+          1525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "QUltDamage": {
+        "base": [
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "QUltDamageBeam": {
+        "base": [
+          100,
+          140,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "WUltDamage": {
+        "base": [
+          135,
+          180,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "{a8af07ef}": {
+        "base": [
+          32,
+          45,
+          58
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "{f058914b}": {
+        "base": [
+          16,
+          22.5,
+          29
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.06
+          }
+        ]
+      },
+      "WUltTotalDamage": {
+        "base": [
+          503,
+          697.5,
+          892
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.83
+          }
+        ]
+      },
+      "EUltDamage": {
+        "base": [
+          100,
+          200,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "{0df0e2e2}": {
+        "base": [
+          10060,
+          13950,
+          17840
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 36.6
+          }
+        ]
+      },
+      "RQTurretResists": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HeimerdingerE": {
     "path": "Characters/Heimerdinger/Spells/HeimerdingerEAbility/HeimerdingerE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -467,10 +695,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HeimerdingerQ": {
     "path": "Characters/Heimerdinger/Spells/HeimerdingerQAbility/HeimerdingerQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       1,
       1,
@@ -722,10 +970,143 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TurretHealth": {
+        "base": 0,
+        "baseByLevel": [
+          130,
+          160,
+          190,
+          220,
+          250,
+          280,
+          310,
+          340,
+          370,
+          400,
+          430,
+          460,
+          490,
+          520,
+          550,
+          580,
+          610,
+          640
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0,
+            "valueByLevel": [
+              0.05,
+              0.055,
+              0.06,
+              0.065,
+              0.07,
+              0.075,
+              0.08,
+              0.085,
+              0.09,
+              0.13,
+              0.17,
+              0.21,
+              0.25,
+              0.29,
+              0.33,
+              0.37,
+              0.41,
+              0.45
+            ]
+          }
+        ]
+      },
+      "{f0517331}": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          5,
+          10,
+          10,
+          15,
+          20,
+          25,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "{8109ae7b}": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0.5,
+          1,
+          1,
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          41
+        ]
+      },
+      "Damage": {
+        "base": [
+          7,
+          11,
+          15,
+          19,
+          23
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "DamageBeam": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "KitCooldown": "part type CooldownMultiplierCalculationPart",
+      "BeamCooldown": "part type CooldownMultiplierCalculationPart"
     }
   },
   "HeimerdingerPassive": {
     "path": "Characters/Heimerdinger/Spells/HeimerdingerPassiveAbility/HeimerdingerPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "MovementSpeed": [
         0.20000000298023224,
@@ -737,10 +1118,14 @@
         0.20000000298023224
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "HeimerdingerPassiveSpeed": {
     "path": "Characters/Heimerdinger/Spells/HeimerdingerPassiveAbility/HeimerdingerPassiveSpeed",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "MovementSpeed": [
         0.20000000298023224,
@@ -752,10 +1137,13 @@
         0.20000000298023224
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "Crepe_SingedVsHeimerdinger_HeimerdingerReward": {
     "path": "{b4cf2b74}",
+    "maxRank": 5,
     "dataValues": {
       "ShieldMaxPer": [
         0.15000000596046448,
@@ -776,6 +1164,8 @@
         300
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

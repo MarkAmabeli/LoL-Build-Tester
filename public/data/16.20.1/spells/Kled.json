@@ -1,6 +1,8 @@
 {
   "KledE": {
     "path": "Characters/Kled/Spells/KledEAbility/KledE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       13,
@@ -101,10 +103,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KledRiderQ": {
     "path": "Characters/Kled/Spells/KledRiderQAbility/KledRiderQ",
+    "maxRank": 5,
     "cooldown": [
       3,
       3,
@@ -233,10 +254,47 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          35,
+          50,
+          65,
+          80,
+          95
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.65
+          }
+        ]
+      },
+      "MountedQCalc": {
+        "base": [
+          30,
+          55,
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TOOLTIPAmmoRecharge": "part type CooldownMultiplierCalculationPart"
     }
   },
   "KledQ": {
     "path": "Characters/Kled/Spells/KledQAbility/KledQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       11,
@@ -398,10 +456,60 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          55,
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "TotalYankDamage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      },
+      "DismountedQDamage": {
+        "base": [
+          35,
+          50,
+          65,
+          80,
+          95
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KledR": {
     "path": "Characters/Kled/Spells/KledRAbility/KledR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -570,10 +678,76 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{31b91b32}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 3
+          }
+        ]
+      },
+      "{598e3ed3}": {
+        "base": [
+          4,
+          6,
+          8
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.03
+          }
+        ]
+      },
+      "MaximumShield": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 3
+          }
+        ]
+      },
+      "MaximumChargeDamage": {
+        "base": [
+          0.12,
+          0.18,
+          0.24
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0009
+          }
+        ]
+      },
+      "MinimumDamageTooltip": {
+        "base": [
+          0.04,
+          0.06,
+          0.08
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0003
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KledPassive": {
     "path": "Characters/Kled/Spells/KledPassiveAbility/KledPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -821,10 +995,128 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DismountedMS": {
+        "base": 0,
+        "baseByLevel": [
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140,
+          145,
+          150,
+          155
+        ]
+      },
+      "SkaarlHealth": {
+        "base": 0,
+        "baseByLevel": [
+          400,
+          458.8235,
+          517.6471,
+          576.4706,
+          635.2941,
+          694.1176,
+          752.9412,
+          811.7647,
+          870.5882,
+          929.4118,
+          988.2353,
+          1047.059,
+          1105.882,
+          1164.706,
+          1223.529,
+          1282.353,
+          1341.176,
+          1400
+        ]
+      },
+      "SkaarlRemountHealth": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.7,
+          0.7,
+          0.7
+        ]
+      },
+      "DismountedResistBonus": {
+        "base": 4,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.01
+          }
+        ]
+      },
+      "MountCooldown": {
+        "base": 30
+      },
+      "DismountedResistBonusMax": {
+        "base": 10,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.025
+          }
+        ]
+      },
+      "DismountedAttackPenalty": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          3.72529e-9,
+          3.72529e-9,
+          3.72529e-9
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KledW": {
     "path": "Characters/Kled/Spells/KledWAbility/KledW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       13,
@@ -946,6 +1238,28 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PercentDamage": {
+        "base": [
+          0.045,
+          0.05,
+          0.055,
+          0.06,
+          0.065
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0002
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.00004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

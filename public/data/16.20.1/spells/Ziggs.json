@@ -1,6 +1,8 @@
 {
   "ZiggsQ": {
     "path": "Characters/Ziggs/Spells/ZiggsQAbility/ZiggsQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6.5,
       6,
@@ -115,10 +117,36 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.6,
+              0.65,
+              0.7,
+              0.75,
+              0.8
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZiggsR": {
     "path": "Characters/Ziggs/Spells/ZiggsRAbility/ZiggsR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -214,10 +242,41 @@
         "mModifiedGameCalculation": "EmpoweredDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "EmpoweredDamage": {
+        "base": [
+          300,
+          500,
+          700
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "BlastDamage": {
+        "base": [
+          195,
+          325,
+          455
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZiggsE": {
     "path": "Characters/Ziggs/Spells/ZiggsEAbility/ZiggsE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -343,10 +402,57 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          70,
+          110,
+          150,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.25,
+              0.3,
+              0.35,
+              0.4,
+              0.45
+            ]
+          }
+        ]
+      },
+      "ReducedDamage": {
+        "base": [
+          12,
+          28,
+          44,
+          60,
+          76
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.1,
+              0.12,
+              0.14,
+              0.16,
+              0.18
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZiggsW": {
     "path": "Characters/Ziggs/Spells/ZiggsWAbility/ZiggsW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -488,10 +594,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZiggsPassiveBuff": {
     "path": "Characters/Ziggs/Spells/ZiggsPassiveBuffAbility/ZiggsPassiveBuff",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -589,6 +715,90 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          100,
+          112,
+          124,
+          136,
+          148,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "SpellCdr": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ]
+      },
+      "StructureDamage": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          42,
+          49,
+          56,
+          63,
+          70,
+          84,
+          98,
+          112,
+          126,
+          140,
+          154,
+          175,
+          196,
+          217,
+          238,
+          259,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.875
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

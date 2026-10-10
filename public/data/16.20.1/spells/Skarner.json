@@ -1,6 +1,8 @@
 {
   "SkarnerW": {
     "path": "Characters/Skarner/Spells/SkarnerWAbility/SkarnerW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -107,10 +109,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialShield": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.08
+          }
+        ]
+      },
+      "Damage": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SkarnerR": {
     "path": "Characters/Skarner/Spells/SkarnerRAbility/SkarnerR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -234,10 +265,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SkarnerE": {
     "path": "Characters/Skarner/Spells/SkarnerEAbility/SkarnerE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       23,
       22,
@@ -503,10 +552,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PinDamage": {
+        "base": [
+          30,
+          60,
+          90,
+          120,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SkarnerQ": {
     "path": "Characters/Skarner/Spells/SkarnerQAbility/SkarnerQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -656,10 +729,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "AbilityDamage": {
+        "base": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.03
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SkarnerPassive": {
     "path": "Characters/Skarner/Spells/SkarnerPassiveAbility/SkarnerPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -725,6 +822,55 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PercentHealthDamage": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.05235294,
+          0.05470588,
+          0.05705882,
+          0.05941176,
+          0.0617647,
+          0.06411765,
+          0.06647059,
+          0.06882353,
+          0.07117647,
+          0.07352941,
+          0.07588235,
+          0.07823529,
+          0.08058823,
+          0.08294117,
+          0.08529412,
+          0.08764706,
+          0.09
+        ]
+      },
+      "DamageMonsterCap": {
+        "base": 0,
+        "baseByLevel": [
+          100,
+          111.7647,
+          123.5294,
+          135.2941,
+          147.0588,
+          158.8235,
+          170.5882,
+          182.3529,
+          194.1176,
+          205.8824,
+          217.6471,
+          229.4118,
+          241.1765,
+          252.9412,
+          264.7059,
+          276.4706,
+          288.2353,
+          300
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

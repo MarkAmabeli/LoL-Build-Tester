@@ -1,6 +1,8 @@
 {
   "LeonaSunlightPassive": {
     "path": "Characters/Leona/Spells/LeonaSunlightPassiveAbility/LeonaSunlightPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -63,10 +65,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
     }
   },
   "LeonaShieldOfDaybreak": {
     "path": "Characters/Leona/Spells/LeonaShieldOfDaybreakAbility/LeonaShieldOfDaybreak",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -128,10 +136,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          10,
+          35,
+          60,
+          85,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeonaZenithBlade": {
     "path": "Characters/Leona/Spells/LeonaZenithBladeAbility/LeonaZenithBlade",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       12,
@@ -193,10 +221,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          50,
+          90,
+          130,
+          170,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeonaSolarFlare": {
     "path": "Characters/Leona/Spells/LeonaSolarFlareAbility/LeonaSolarFlare",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       90,
       90,
@@ -334,10 +382,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{f4c90e5c}": {
+        "base": [
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "ExplosionCalculatedDamage": {
+        "base": [
+          150,
+          225,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeonaSolarBarrier": {
     "path": "Characters/Leona/Spells/LeonaSolarBarrierAbility/LeonaSolarBarrier",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -476,6 +555,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusArmorTooltip": {
+        "base": [
+          20,
+          27.5,
+          35,
+          42.5,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.2
+          }
+        ]
+      },
+      "BonusMRTooltip": {
+        "base": [
+          20,
+          27.5,
+          35,
+          42.5,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusMR",
+            "value": 0.2
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          55,
+          85,
+          115,
+          145,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

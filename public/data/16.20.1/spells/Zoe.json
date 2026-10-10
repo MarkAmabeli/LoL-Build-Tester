@@ -1,6 +1,8 @@
 {
   "ZoeE": {
     "path": "Characters/Zoe/Spells/ZoeEAbility/ZoeE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -128,10 +130,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "BreakDamageTooltip": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZoeW": {
     "path": "Characters/Zoe/Spells/ZoeWAbility/ZoeW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       0.25,
       0.25,
@@ -229,10 +266,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MissileDamageTooltip": {
+        "base": [
+          15,
+          25,
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZoeQ": {
     "path": "Characters/Zoe/Spells/ZoeQAbility/ZoeQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8.5,
       8.5,
@@ -328,10 +385,85 @@
         "mModifiedGameCalculation": "TotalDamageTooltip",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "baseByLevel": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          21,
+          24,
+          27,
+          30,
+          34,
+          38,
+          42,
+          46,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          125,
+          200,
+          275,
+          350,
+          425
+        ],
+        "baseByLevel": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          52.5,
+          60,
+          67.5,
+          75,
+          85,
+          95,
+          105,
+          115,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZoePassive": {
     "path": "Characters/Zoe/Spells/ZoePassiveAbility/ZoePassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -402,6 +534,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          42,
+          48,
+          54,
+          60,
+          66,
+          74,
+          82,
+          90,
+          100,
+          110,
+          120,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

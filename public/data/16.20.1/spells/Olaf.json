@@ -1,6 +1,8 @@
 {
   "OlafRagnarok": {
     "path": "Characters/Olaf/Spells/OlafRagnarokAbility/OlafRagnarok",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -98,10 +100,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "AD": {
+        "base": [
+          10,
+          20,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "OlafRecklessStrike": {
     "path": "Characters/Olaf/Spells/OlafRecklessStrikeAbility/OlafRecklessStrike",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       11,
@@ -249,10 +269,60 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          115,
+          160,
+          205,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "{fcf1daee}": {
+        "base": [
+          28,
+          46,
+          64,
+          82,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "HealthCostCalc": {
+        "base": [
+          28,
+          46,
+          64,
+          82,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "OlafAxeThrowCast": {
     "path": "Characters/Olaf/Spells/OlafAxeThrowCastAbility/OlafAxeThrowCast",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -410,10 +480,32 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          120,
+          170,
+          220,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TooltipCDRefund": "part type CooldownMultiplierCalculationPart"
     }
   },
   "OlafFrenziedStrikes": {
     "path": "Characters/Olaf/Spells/OlafFrenziedStrikesAbility/OlafFrenziedStrikes",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -559,10 +651,31 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "MaxShieldCalc": {
+        "base": [
+          10,
+          40,
+          70,
+          100,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.1225
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ShieldCalc": "stat code 16/0"
     }
   },
   "OlafBerzerkerRage": {
     "path": "Characters/Olaf/Spells/OlafBerzerkerRageAbility/OlafBerzerkerRage",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -626,6 +739,55 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MaxAttackSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.5,
+          0.5294118,
+          0.5588235,
+          0.5882353,
+          0.6176471,
+          0.6470588,
+          0.6764706,
+          0.7058824,
+          0.7352941,
+          0.7647059,
+          0.7941176,
+          0.8235294,
+          0.8529412,
+          0.8823529,
+          0.9117647,
+          0.9411765,
+          0.9705882,
+          1
+        ]
+      },
+      "MaxLifeSteal": {
+        "base": 0,
+        "baseByLevel": [
+          0.08,
+          0.09,
+          0.1,
+          0.11,
+          0.12,
+          0.13,
+          0.14,
+          0.15,
+          0.16,
+          0.17,
+          0.18,
+          0.19,
+          0.2,
+          0.21,
+          0.22,
+          0.23,
+          0.24,
+          0.25
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

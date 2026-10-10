@@ -1,6 +1,8 @@
 {
   "YoneQ": {
     "path": "Characters/Yone/Spells/YoneQAbility/YoneQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -189,10 +191,32 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "QDamage": {
+        "base": [
+          25,
+          50,
+          75,
+          100,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamageCrit": "stat code 9/0"
     }
   },
   "YoneR": {
     "path": "Characters/Yone/Spells/YoneRAbility/YoneR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -309,10 +333,41 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          200,
+          400,
+          600
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      },
+      "TooltipDamage": {
+        "base": [
+          100,
+          200,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "YoneE": {
     "path": "Characters/Yone/Spells/YoneEAbility/YoneE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -438,10 +493,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{df232269}": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "YoneW": {
     "path": "Characters/Yone/Spells/YoneWAbility/YoneW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -721,10 +796,113 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "WDamage": {
+        "base": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "{8dfeb810}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.2,
+              0.2470588,
+              0.2941176,
+              0.3411765,
+              0.3882353,
+              0.4352941,
+              0.4823529,
+              0.5294118,
+              0.5764706,
+              0.6235294,
+              0.6705882,
+              0.7176471,
+              0.7647059,
+              0.8117647,
+              0.8588235,
+              0.9058824,
+              0.9529412,
+              1
+            ]
+          }
+        ]
+      },
+      "WShield": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          42.94118,
+          45.88235,
+          48.82353,
+          51.76471,
+          54.70588,
+          57.64706,
+          60.58824,
+          63.52941,
+          66.47059,
+          69.41176,
+          72.35294,
+          75.29412,
+          78.23529,
+          81.17647,
+          84.11765,
+          87.05882,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.65
+          }
+        ]
+      },
+      "MinimumDamageMinions": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          50,
+          70,
+          90,
+          110,
+          130,
+          170,
+          210,
+          250,
+          290,
+          330
+        ]
+      }
+    },
+    "unsupported": {
+      "MonsterDamageCap": "part type ByCharLevelFormulaCalculationPart"
     }
   },
   "YonePassive": {
     "path": "Characters/Yone/Spells/YonePassiveAbility/YonePassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -794,6 +972,10 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "CurrentCritDamage": "stat code 9/0"
     }
   }
 }

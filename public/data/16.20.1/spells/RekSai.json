@@ -1,6 +1,8 @@
 {
   "RekSaiE": {
     "path": "Characters/RekSai/Spells/RekSaiEAbility/RekSaiE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -189,10 +191,66 @@
         "mModifiedGameCalculation": "DashSpeed",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamageCalculation": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "EmpoweredDamageCalculation": {
+        "base": [
+          84,
+          114,
+          144,
+          174,
+          204
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7200001
+          }
+        ]
+      },
+      "DashSpeed": {
+        "base": 500,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{009db1c8}": {
+        "base": 600
+      },
+      "{438d87f9}": {
+        "base": 325,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RekSaiPassive": {
     "path": "Characters/RekSai/Spells/RekSaiPassiveAbility/RekSaiPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -291,10 +349,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "HealAmount": "part type {ee18a47b}"
     }
   },
   "RekSaiQ": {
     "path": "Characters/RekSai/Spells/RekSaiQAbility/RekSaiQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -445,10 +509,48 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.3,
+              0.35,
+              0.4,
+              0.45,
+              0.5
+            ]
+          }
+        ]
+      },
+      "BurrowDamageTooltip": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.25
+          },
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RekSaiRWrapper": {
     "path": "Characters/RekSai/Spells/RekSaiRAbility/RekSaiRWrapper",
+    "maxRank": 5,
     "cooldown": [
       100,
       100,
@@ -575,10 +677,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RBaseDamageCalc": {
+        "base": [
+          150,
+          300,
+          450,
+          600,
+          750
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RekSaiR": {
     "path": "Characters/RekSai/Spells/RekSaiRAbility/RekSaiR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -705,10 +827,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RBaseDamageCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RekSaiW": {
     "path": "Characters/RekSai/Spells/RekSaiWAbility/RekSaiW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -897,6 +1037,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "UnburrowDamage": {
+        "base": [
+          30,
+          55,
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

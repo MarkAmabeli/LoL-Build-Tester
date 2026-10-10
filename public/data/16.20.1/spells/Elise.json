@@ -1,6 +1,7 @@
 {
   "EliseSpiderEInitial": {
     "path": "Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderEInitial",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -39,10 +40,13 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "EliseSpiderE": {
     "path": "Characters/Elise/Spells/EliseSpiderEAbility/EliseSpiderE",
+    "maxRank": 5,
     "cooldown": [
       23,
       22,
@@ -81,10 +85,13 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "EliseHumanEMissile": {
     "path": "Characters/Elise/Spells/EliseHumanEAbility/EliseHumanEMissile",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -141,10 +148,14 @@
         115
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "EliseHumanE": {
     "path": "Characters/Elise/Spells/EliseHumanEAbility/EliseHumanE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -220,10 +231,23 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalStunDuration": {
+        "base": [
+          1.6,
+          1.8,
+          2,
+          2.2,
+          2.4
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EliseSpiderQCast": {
     "path": "Characters/Elise/Spells/EliseSpiderQAbility/EliseSpiderQCast",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -324,10 +348,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MissingHPDamage": {
+        "base": 0.08,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "MonsterDamageCapCalc": {
+        "base": [
+          65,
+          85,
+          105,
+          125,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EliseHumanW": {
     "path": "Characters/Elise/Spells/EliseHumanWAbility/EliseHumanW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -408,10 +461,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EliseSpiderW": {
     "path": "Characters/Elise/Spells/EliseSpiderWAbility/EliseSpiderW",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -459,10 +531,14 @@
         3
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "EliseR": {
     "path": "Characters/Elise/Spells/EliseRAbility/EliseR",
+    "slot": "R",
+    "maxRank": 4,
     "cooldown": [
       3,
       3,
@@ -652,10 +728,60 @@
         },
         "__type": "GameCalculationConditional"
       }
+    },
+    "formulas": {
+      "PassiveTotalDamage": {
+        "base": [
+          14,
+          24,
+          34,
+          44
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "PassiveTotalHealing": {
+        "base": [
+          6,
+          8,
+          10,
+          12
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.08
+          }
+        ]
+      },
+      "SpiderlingTotalDamage": {
+        "base": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{84a53877}": "conditional calculation (depends on a game condition)",
+      "{e5407a95}": "part type {9e9e2e5c}",
+      "{60195651}": "conditional calculation (depends on a game condition)"
     }
   },
   "EliseRSpider": {
     "path": "Characters/Elise/Spells/EliseRAbility/EliseRSpider",
+    "maxRank": 5,
     "cooldown": [
       3,
       3,
@@ -721,10 +847,14 @@
         0
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "ElisePassive": {
     "path": "Characters/Elise/Spells/ElisePassiveAbility/ElisePassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -787,10 +917,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{38943004}": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          15,
+          25,
+          35,
+          45,
+          55,
+          65,
+          80,
+          95,
+          110,
+          130,
+          150,
+          170,
+          195,
+          220,
+          245,
+          275,
+          305
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "EliseHumanQ": {
     "path": "Characters/Elise/Spells/EliseHumanQAbility/EliseHumanQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -898,6 +1056,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HumanPercentHealth": {
+        "base": 0.04,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "MonsterDamageCapCalc": {
+        "base": [
+          65,
+          85,
+          105,
+          125,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

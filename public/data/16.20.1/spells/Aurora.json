@@ -1,6 +1,8 @@
 {
   "AuroraE": {
     "path": "Characters/Aurora/Spells/AuroraEAbility/AuroraE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -106,10 +108,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AuroraPassive": {
     "path": "Characters/Aurora/Spells/AuroraPassiveAbility/AuroraPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -279,10 +301,139 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "ProcDamage": {
+        "base": 0.01,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00027
+          }
+        ]
+      },
+      "MoveSpeedCalc": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.054,
+          0.056,
+          0.058,
+          0.06,
+          0.062,
+          0.064,
+          0.066,
+          0.068,
+          0.07,
+          0.072,
+          0.074,
+          0.076,
+          0.078,
+          0.08,
+          0.082,
+          0.084,
+          0.086
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "HealCalc": {
+        "base": 0,
+        "baseByLevel": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.02
+          }
+        ]
+      },
+      "{394d1781}": {
+        "base": 90,
+        "baseByLevel": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180
+        ]
+      },
+      "BonusMSCalc": {
+        "base": 0.02,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      },
+      "CooldownDuration": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      }
+    },
+    "unsupported": {
+      "{406b6e3e}": "{f3cbe7b2} scales with a stat (stat × stat)"
     }
   },
   "AuroraR": {
     "path": "Characters/Aurora/Spells/AuroraRAbility/AuroraR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -424,10 +575,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          175,
+          275,
+          375
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AuroraQ": {
     "path": "Characters/Aurora/Spells/AuroraQAbility/AuroraQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -564,10 +733,59 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "{f7c018c7}": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "Q2DamageMax": {
+        "base": [
+          67.5,
+          105,
+          142.5,
+          180,
+          217.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AuroraQReturnMissile": {
     "path": "Characters/Aurora/Spells/AuroraQAbility/AuroraQReturnMissile",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -630,10 +848,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AuroraW": {
     "path": "Characters/Aurora/Spells/AuroraWAbility/AuroraW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -698,6 +936,8 @@
         45
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

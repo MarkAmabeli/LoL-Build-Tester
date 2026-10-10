@@ -1,6 +1,8 @@
 {
   "BrandPassive": {
     "path": "Characters/Brand/Spells/BrandPassiveAbility/BrandPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -179,10 +181,96 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ManaRestore": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20,
+          23.33,
+          23.33,
+          23.33,
+          26.66,
+          26.66,
+          26.66,
+          29.99,
+          29.99,
+          29.99,
+          33.32,
+          33.32,
+          33.32,
+          36.653,
+          36.653,
+          36.653,
+          39.983
+        ]
+      },
+      "ExplosionDamage": {
+        "base": 0,
+        "baseByLevel": [
+          0.06,
+          0.06352941,
+          0.06705882,
+          0.07058823,
+          0.07411765,
+          0.07764706,
+          0.08117647,
+          0.08470588,
+          0.08823529,
+          0.0917647,
+          0.09529412,
+          0.09882353,
+          0.1023529,
+          0.1058824,
+          0.1094118,
+          0.1129412,
+          0.1164706,
+          0.12
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "{4124b2bf}": {
+        "base": 20
+      },
+      "{afbf404a}": {
+        "base": 12.5
+      },
+      "JungleMonsterExplosionFlatCap": {
+        "base": 0,
+        "baseByLevel": [
+          270,
+          270,
+          270,
+          270,
+          270,
+          355,
+          355,
+          355,
+          355,
+          355,
+          440,
+          440,
+          440,
+          440,
+          440,
+          525,
+          525,
+          525
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BrandW": {
     "path": "Characters/Brand/Spells/BrandWAbility/BrandW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10.5,
       10,
@@ -262,10 +350,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          120,
+          165,
+          210,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "EmpoweredDamage": {
+        "base": [
+          93.75,
+          150,
+          206.25,
+          262.5,
+          318.75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.875
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BrandE": {
     "path": "Characters/Brand/Spells/BrandEAbility/BrandE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -326,10 +449,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EDamageCalc": {
+        "base": [
+          55,
+          80,
+          105,
+          130,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BrandR": {
     "path": "Characters/Brand/Spells/BrandRAbility/BrandR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -408,10 +551,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          100,
+          175,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BrandQ": {
     "path": "Characters/Brand/Spells/BrandQAbility/BrandQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8.5,
       8,
@@ -472,6 +633,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

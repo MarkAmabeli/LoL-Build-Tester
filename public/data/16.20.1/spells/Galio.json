@@ -1,6 +1,8 @@
 {
   "GalioR": {
     "path": "Characters/Galio/Spells/GalioRAbility/GalioR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       180,
       180,
@@ -76,10 +78,31 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          },
+          {
+            "stat": "bonusMR",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GalioW2": {
     "path": "Characters/Galio/Spells/GalioWAbility/GalioW2",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -118,10 +141,14 @@
         0.6000000238418579
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "GalioW": {
     "path": "Characters/Galio/Spells/GalioWAbility/GalioW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -377,10 +404,175 @@
         "mModifiedGameCalculation": "MagicDamageReduction",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalPassiveShield": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": [
+              0.075,
+              0.09,
+              0.105,
+              0.12,
+              0.135
+            ]
+          }
+        ]
+      },
+      "MagicDamageReduction": {
+        "base": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.0008
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.0001
+          }
+        ]
+      },
+      "PhysicalDamageReduction": {
+        "base": [
+          0.125,
+          0.15,
+          0.175,
+          0.2,
+          0.225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.0004
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.00005
+          }
+        ]
+      },
+      "MinTotalDamage": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "MaxTotalDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      },
+      "PassiveShieldOOCTimer": {
+        "base": 0,
+        "baseByLevel": [
+          12,
+          12,
+          12,
+          12,
+          12,
+          11,
+          11,
+          11,
+          11,
+          11,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "{7a7521c1}": {
+        "base": [
+          25,
+          30,
+          35,
+          40,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.08
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.01
+          }
+        ]
+      },
+      "{c9a870dd}": {
+        "base": [
+          12.5,
+          15,
+          17.5,
+          20,
+          22.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.02
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.04
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GalioPassive": {
     "path": "Characters/Galio/Spells/GalioPassiveAbility/GalioPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -454,10 +646,54 @@
         "mPrecision": -1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          20.88235,
+          26.76471,
+          32.64706,
+          38.52941,
+          44.41176,
+          50.29412,
+          56.17647,
+          62.05882,
+          67.94118,
+          73.82353,
+          79.70588,
+          85.58824,
+          91.47059,
+          97.35294,
+          103.2353,
+          109.1176,
+          115
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.4
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "PassiveCooldownModified": "part type CooldownMultiplierCalculationPart"
     }
   },
   "GalioQ": {
     "path": "Characters/Galio/Spells/GalioQAbility/GalioQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -583,10 +819,51 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QMissileDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "{85f4c0e9}": {
+        "base": 2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.01
+          }
+        ]
+      },
+      "PercentSuperQDamageTT": {
+        "base": 8,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          }
+        ]
+      },
+      "SuperQMonsterMaxDamageTotal": {
+        "base": 200
+      }
+    },
+    "unsupported": {}
   },
   "GalioE": {
     "path": "Characters/Galio/Spells/GalioEAbility/GalioE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -664,6 +941,39 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          100,
+          135,
+          170,
+          205,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "PVEDamage": {
+        "base": [
+          80,
+          108,
+          136,
+          164,
+          192
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

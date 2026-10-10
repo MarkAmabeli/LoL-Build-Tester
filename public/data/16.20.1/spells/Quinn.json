@@ -1,6 +1,8 @@
 {
   "QuinnW": {
     "path": "Characters/Quinn/Spells/QuinnWAbility/QuinnW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       55,
       50,
@@ -75,10 +77,14 @@
         2
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "QuinnR": {
     "path": "Characters/Quinn/Spells/QuinnRAbility/QuinnR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       3,
       3,
@@ -177,10 +183,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          90,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QuinnPassive": {
     "path": "Characters/Quinn/Spells/QuinnPassiveAbility/QuinnPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "RevealDuration": [
         4,
@@ -240,10 +264,47 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          21.17647,
+          27.35294,
+          33.52941,
+          39.70588,
+          45.88235,
+          52.05882,
+          58.23529,
+          64.41176,
+          70.58824,
+          76.76471,
+          82.94118,
+          89.11765,
+          95.29412,
+          101.4706,
+          107.6471,
+          113.8235,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "BonusMonsterDmg": {
+        "base": 75
+      }
+    },
+    "unsupported": {}
   },
   "QuinnE": {
     "path": "Characters/Quinn/Spells/QuinnEAbility/QuinnE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       12,
@@ -315,10 +376,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "QuinnQ": {
     "path": "Characters/Quinn/Spells/QuinnQAbility/QuinnQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11.5,
       11,
@@ -438,6 +519,59 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          100,
+          135,
+          170,
+          205
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.8,
+              0.85,
+              0.9,
+              0.95,
+              1
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalDamageMonster": {
+        "base": [
+          130,
+          200,
+          270,
+          340,
+          410
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              1.6,
+              1.7,
+              1.8,
+              1.9,
+              2
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

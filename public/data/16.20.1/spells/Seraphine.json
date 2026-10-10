@@ -1,6 +1,8 @@
 {
   "SeraphineW": {
     "path": "Characters/Seraphine/Spells/SeraphineWAbility/SeraphineW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -169,10 +171,72 @@
         "mModifiedGameCalculation": "TotalShieldStrength",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalShieldStrength": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "WMSBonusTotal": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "WMissingHPHeal": {
+        "base": [
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      "HasteValueAllies": {
+        "base": 0.08,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00008
+          }
+        ]
+      },
+      "ShieldValueSeraphine": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SeraphineE": {
     "path": "Characters/Seraphine/Spells/SeraphineEAbility/SeraphineE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -260,10 +324,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FinalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SeraphineQ": {
     "path": "Characters/Seraphine/Spells/SeraphineQAbility/SeraphineQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -353,10 +437,45 @@
         "mModifiedGameCalculation": "ExplosionDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "ExplosionDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalEmpoweredDamage": {
+        "base": [
+          105,
+          148.75,
+          192.5,
+          236.25,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SeraphinePassive": {
     "path": "Characters/Seraphine/Spells/SeraphinePassiveAbility/SeraphinePassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       800,
       800,
@@ -483,10 +602,44 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "AutoDamage": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          5.235294,
+          6.470588,
+          7.705882,
+          8.941176,
+          10.17647,
+          11.41176,
+          12.64706,
+          13.88235,
+          15.11765,
+          16.35294,
+          17.58824,
+          18.82353,
+          20.05882,
+          21.29412,
+          22.52941,
+          23.76471,
+          25
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SeraphineR": {
     "path": "Characters/Seraphine/Spells/SeraphineRAbility/SeraphineR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -583,6 +736,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "R1TotalDamage": {
+        "base": [
+          150,
+          200,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

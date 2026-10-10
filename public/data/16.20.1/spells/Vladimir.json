@@ -1,6 +1,8 @@
 {
   "VladimirE": {
     "path": "Characters/Vladimir/Spells/VladimirEAbility/VladimirE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       15,
       13,
@@ -132,10 +134,61 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MinDamageTooltip": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.015
+          },
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.06
+          },
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "ChargeHealthTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.08
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VladimirBloodGorged": {
     "path": "Characters/Vladimir/Spells/VladimirBloodGorgedAbility/VladimirBloodGorged",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -264,10 +317,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ApproximateAPBonusAvoidingRecursion": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.0353298
+          },
+          {
+            "stat": "AP",
+            "value": -0.05652768
+          }
+        ]
+      },
+      "ApproximateHPBonusAvoidingRecursion": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.696
+          },
+          {
+            "stat": "bonusHP",
+            "value": -0.05652768
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VladimirHemoplague": {
     "path": "Characters/Vladimir/Spells/VladimirHemoplagueAbility/VladimirHemoplague",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -355,10 +439,41 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "SecondaryHealingTooltip": {
+        "base": [
+          60,
+          100,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.28
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VladimirSanguinePool": {
     "path": "Characters/Vladimir/Spells/VladimirSanguinePoolAbility/VladimirSanguinePool",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       31,
       28,
@@ -475,10 +590,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          135,
+          190,
+          245,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.15
+          }
+        ]
+      },
+      "TotalHeal": {
+        "base": [
+          24,
+          40.5,
+          57,
+          73.5,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.045
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VladimirQ": {
     "path": "Characters/Vladimir/Spells/VladimirQAbility/VladimirQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10.100000381469727,
       9,
@@ -677,6 +827,141 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamageTooltip": {
+        "base": [
+          80,
+          100,
+          120,
+          140,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "BaseHealTooltip": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "EmpoweredDamageTooltip": {
+        "base": [
+          148,
+          185,
+          222,
+          259,
+          296
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.11
+          }
+        ]
+      },
+      "EmpoweredHealPercentTooltip": {
+        "base": 0.05,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      },
+      "{097cda4f}": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180,
+          190,
+          200
+        ]
+      },
+      "EmpoweredHealTooltip": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180,
+          190,
+          200
+        ]
+      },
+      "EmpoweredHealPercent": {
+        "base": 0.05,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      },
+      "MovementSpeedOnQ2": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          20,
+          20,
+          20,
+          20,
+          20,
+          30,
+          30,
+          30,
+          30,
+          30,
+          40,
+          40,
+          40
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

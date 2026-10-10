@@ -1,6 +1,8 @@
 {
   "ZedPassive": {
     "path": "Characters/Zed/Spells/ZedPassiveAbility/ZedPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -153,10 +155,65 @@
         "{353099b0}": true,
         "__type": "GameCalculationConditional"
       }
+    },
+    "formulas": {
+      "{6a1a62e9}": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.1,
+          0.1
+        ]
+      },
+      "{ad3d785f}": {
+        "base": 0.02,
+        "baseByLevel": [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.1,
+          0.1
+        ]
+      }
+    },
+    "unsupported": {
+      "MaxHPDamage": "conditional calculation (depends on a game condition)",
+      "TotalDamage": "conditional calculation (depends on a game condition)",
+      "FinalDamage": "conditional calculation (depends on a game condition)"
     }
   },
   "ZedW": {
     "path": "Characters/Zed/Spells/ZedWAbility/ZedW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -239,10 +296,14 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "ZedR": {
     "path": "Characters/Zed/Spells/ZedRAbility/ZedR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -351,10 +412,27 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{43a019eb}": {
+        "base": 8
+      },
+      "RCalculatedDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZedQ": {
     "path": "Characters/Zed/Spells/ZedQAbility/ZedQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -425,10 +503,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "PassThroughDamage": {
+        "base": [
+          48,
+          72,
+          96,
+          120,
+          144
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZedE": {
     "path": "Characters/Zed/Spells/ZedEAbility/ZedE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -545,6 +658,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          92.5,
+          115,
+          137.5,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

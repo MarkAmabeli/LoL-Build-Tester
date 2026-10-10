@@ -1,6 +1,8 @@
 {
   "BraumW": {
     "path": "Characters/Braum/Spells/BraumWAbility/BraumW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       13,
       12,
@@ -144,10 +146,75 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "GrantedAllyArmor": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.12
+          }
+        ]
+      },
+      "GrantedAllyMR": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "bonusMR",
+            "value": 0.12
+          }
+        ]
+      },
+      "GrantedBraumArmor": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.36
+          }
+        ]
+      },
+      "GrantedBraumMR": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "bonusMR",
+            "value": 0.36
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BraumE": {
     "path": "Characters/Braum/Spells/BraumEAbility/BraumE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       18,
       16,
@@ -212,10 +279,14 @@
         10
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "BraumQ": {
     "path": "Characters/Braum/Spells/BraumQAbility/BraumQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8.5,
       8,
@@ -323,10 +394,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          120,
+          165,
+          210,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BraumRWrapper": {
     "path": "Characters/Braum/Spells/BraumRWrapperAbility/BraumRWrapper",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -450,10 +541,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BraumPassive": {
     "path": "Characters/Braum/Spells/BraumPassiveAbility/BraumPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -587,6 +696,58 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "StunCD": {
+        "base": 0,
+        "baseByLevel": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          6,
+          6,
+          6,
+          6,
+          6,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      "StunDuration": {
+        "base": 0,
+        "baseByLevel": [
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75,
+          1.75
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart",
+      "OnHitDamage": "part type ByCharLevelFormulaCalculationPart"
     }
   }
 }

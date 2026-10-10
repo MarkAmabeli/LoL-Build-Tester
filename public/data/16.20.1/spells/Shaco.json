@@ -1,6 +1,8 @@
 {
   "HallucinateFull": {
     "path": "Characters/Shaco/Spells/HallucinateFullAbility/HallucinateFull",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -159,10 +161,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "STDamage": {
+        "base": [
+          25,
+          50,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "AoEDamage": {
+        "base": [
+          10,
+          20,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "ExplosionTotalDamage": {
+        "base": [
+          150,
+          225,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ShacoPassive": {
     "path": "Characters/Shaco/Spells/ShacoPassiveAbility/ShacoPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -322,10 +368,104 @@
         "mModifiedGameCalculation": "ShivDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "BasicAttackDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20.88235,
+          21.76471,
+          22.64706,
+          23.52941,
+          24.41176,
+          25.29412,
+          26.17647,
+          27.05882,
+          27.94118,
+          28.82353,
+          29.70588,
+          30.58824,
+          31.47059,
+          32.35294,
+          33.23529,
+          34.11765,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "ShivDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          17.05882,
+          19.11765,
+          21.17647,
+          23.23529,
+          25.29412,
+          27.35294,
+          29.41176,
+          31.47059,
+          33.52941,
+          35.58824,
+          37.64706,
+          39.70588,
+          41.76471,
+          43.82353,
+          45.88235,
+          47.94118,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "ShivDamageExecute": {
+        "base": 0,
+        "baseByLevel": [
+          22.5,
+          25.58824,
+          28.67647,
+          31.76471,
+          34.85294,
+          37.94118,
+          41.02941,
+          44.11765,
+          47.20588,
+          50.29412,
+          53.38235,
+          56.47059,
+          59.55882,
+          62.64706,
+          65.73529,
+          68.82353,
+          71.91176,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "MonsterDamageTooltip": "stat code 9/2"
     }
   },
   "JackInTheBox": {
     "path": "Characters/Shaco/Spells/JackInTheBoxAbility/JackInTheBox",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -484,10 +624,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "AoEDamage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "STDamage": {
+        "base": [
+          25,
+          40,
+          55,
+          70,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.18
+          }
+        ]
+      },
+      "TrapDuration": {
+        "base": 40,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Deceive": {
     "path": "Characters/Shaco/Spells/DeceiveAbility/Deceive",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -631,10 +815,32 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          25,
+          35,
+          45,
+          55,
+          65
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "QCritDamageMod": "stat code 9/0"
     }
   },
   "TwoShivPoison": {
     "path": "Characters/Shaco/Spells/TwoShivPoisonAbility/TwoShivPoison",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -763,6 +969,47 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "TotalExecuteDamage": {
+        "base": [
+          105,
+          142.5,
+          180,
+          217.5,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

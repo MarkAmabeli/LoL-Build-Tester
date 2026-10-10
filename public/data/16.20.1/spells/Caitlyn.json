@@ -1,6 +1,8 @@
 {
   "CaitlynPassive": {
     "path": "Characters/Caitlyn/Spells/CaitlynPassiveAbility/CaitlynPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "CriticalStrikeScaling": [
         1,
@@ -182,10 +184,51 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "HeadShotMinionBonusDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.09999999,
+              0.09999999,
+              0.09999999,
+              0.09999999,
+              0.09999999,
+              0.09999999
+            ]
+          }
+        ]
+      },
+      "BrushAttackTotal": {
+        "base": 2
+      }
+    },
+    "unsupported": {
+      "HeadShotBonusDamage": "stat code 9/0",
+      "{36ebd3cf}": "stat code 9/0",
+      "{42962485}": "stat code 9/0"
     }
   },
   "CaitlynE": {
     "path": "Characters/Caitlyn/Spells/CaitlynEAbility/CaitlynE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       18,
       16,
@@ -255,10 +298,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "NetDamage": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "CaitlynW": {
     "path": "Characters/Caitlyn/Spells/CaitlynWAbility/CaitlynW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       0.5,
       0.5,
@@ -357,10 +420,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HeadShotBonusDamage": {
+        "base": [
+          35,
+          80,
+          125,
+          170,
+          215
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "CaitlynR": {
     "path": "Characters/Caitlyn/Spells/CaitlynRAbility/CaitlynR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       90,
       90,
@@ -463,10 +546,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "RTotalDamage": "stat code 9/0"
     }
   },
   "CaitlynQ": {
     "path": "Characters/Caitlyn/Spells/CaitlynQAbility/CaitlynQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       10,
@@ -548,6 +637,51 @@
         "mModifiedGameCalculation": "InitialDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          50,
+          90,
+          130,
+          170,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.25,
+              1.45,
+              1.65,
+              1.85,
+              2.05
+            ]
+          }
+        ]
+      },
+      "SecondaryDamage": {
+        "base": [
+          30,
+          54,
+          78,
+          102,
+          126
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.75,
+              0.8700001,
+              0.99,
+              1.11,
+              1.23
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

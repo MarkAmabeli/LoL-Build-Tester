@@ -1,6 +1,8 @@
 {
   "Feast": {
     "path": "Characters/Chogath/Spells/FeastAbility/Feast",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       70,
       80,
@@ -171,10 +173,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RMonsterDamage": {
+        "base": 1200,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "RDamage": {
+        "base": [
+          300,
+          475,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "BonusAttackRange": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": [
+              4.7,
+              6.2,
+              7.7
+            ]
+          }
+        ]
+      },
+      "{9f798bd0}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 2.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VorpalSpikes": {
     "path": "Characters/Chogath/Spells/VorpalSpikesAbility/VorpalSpikes",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -337,10 +396,45 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FlatDamageCalc": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "MaxHealthPercentCalc": {
+        "base": [
+          0.025,
+          0.0285,
+          0.032,
+          0.0355,
+          0.039
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FeralScream": {
     "path": "Characters/Chogath/Spells/FeralScreamAbility/FeralScream",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -383,10 +477,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamageTooltip": "part type EffectValueCalculationPart"
     }
   },
   "Rupture": {
     "path": "Characters/Chogath/Spells/RuptureAbility/Rupture",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -448,10 +548,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          80,
+          135,
+          190,
+          245,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Carnivore": {
     "path": "Characters/Chogath/Spells/CarnivoreAbility/Carnivore",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -484,6 +603,55 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ChogathCarnivoreHeal": {
+        "base": 0,
+        "baseByLevel": [
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36,
+          38,
+          40,
+          42,
+          44,
+          46,
+          48,
+          50,
+          52
+        ]
+      },
+      "ChogathCarnivoreMana": {
+        "base": 0,
+        "baseByLevel": [
+          4.72,
+          5,
+          5.28,
+          5.56,
+          5.84,
+          6.12,
+          6.4,
+          6.68,
+          6.96,
+          7.24,
+          7.52,
+          7.8,
+          8.08,
+          8.36,
+          8.64,
+          8.92,
+          9.2,
+          9.48
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

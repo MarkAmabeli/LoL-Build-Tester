@@ -1,6 +1,8 @@
 {
   "KatarinaR": {
     "path": "Characters/Katarina/Spells/KatarinaRAbility/KatarinaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       75,
       75,
@@ -165,10 +167,44 @@
         "mModifiedGameCalculation": "ADDamageCalc",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          25,
+          37.5,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.19
+          }
+        ]
+      },
+      "TotalDamageCalc": {
+        "base": [
+          375,
+          562.5,
+          750
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.85
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ADDamageCalc": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "TotalADDamageCalc": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   },
   "KatarinaQ": {
     "path": "Characters/Katarina/Spells/KatarinaQAbility/KatarinaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       11,
@@ -248,10 +284,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KatarinaEWrapper": {
     "path": "Characters/Katarina/Spells/KatarinaEWrapperAbility/KatarinaEWrapper",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -405,10 +461,82 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          },
+          {
+            "stat": "totalAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "{016cd4b3}": {
+        "base": 0,
+        "baseByLevel": [
+          0.78,
+          0.78,
+          0.78,
+          0.78,
+          0.78,
+          0.84,
+          0.84,
+          0.84,
+          0.84,
+          0.84,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.96,
+          0.96,
+          0.96
+        ]
+      },
+      "TooltipDaggerReduction": {
+        "base": 0,
+        "baseByLevel": [
+          0.78,
+          0.78,
+          0.78,
+          0.78,
+          0.78,
+          0.84,
+          0.84,
+          0.84,
+          0.84,
+          0.84,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.96,
+          0.96,
+          0.96
+        ]
+      }
+    },
+    "unsupported": {
+      "DaggerCooldownReduction": "part type CooldownMultiplierCalculationPart"
     }
   },
   "KatarinaW": {
     "path": "Characters/Katarina/Spells/KatarinaWAbility/KatarinaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       16,
       15,
@@ -447,10 +575,14 @@
         100
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KatarinaPassive": {
     "path": "Characters/Katarina/Spells/KatarinaPassiveAbility/KatarinaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       340,
       340,
@@ -605,6 +737,34 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "{e1ba6b0f}": {
+        "base": 0,
+        "baseByLevel": [
+          0.78,
+          0.78,
+          0.78,
+          0.78,
+          0.78,
+          0.84,
+          0.84,
+          0.84,
+          0.84,
+          0.84,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.96,
+          0.96,
+          0.96
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
     }
   }
 }

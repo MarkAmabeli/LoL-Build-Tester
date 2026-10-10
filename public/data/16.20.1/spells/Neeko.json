@@ -1,6 +1,7 @@
 {
   "NeekoW2": {
     "path": "Characters/Neeko/Spells/NeekoWAbility/NeekoW2",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -107,10 +108,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveBonusDamageCalc": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NeekoW": {
     "path": "Characters/Neeko/Spells/NeekoWAbility/NeekoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -235,10 +256,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveBonusDamageCalc": {
+        "base": [
+          30,
+          65,
+          100,
+          135,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NeekoR": {
     "path": "Characters/Neeko/Spells/NeekoRAbility/NeekoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -397,10 +438,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          350,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      },
+      "BaseShield": {
+        "base": [
+          75,
+          100,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "ShieldMultiplier": {
+        "base": [
+          40,
+          60,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NeekoQ": {
     "path": "Characters/Neeko/Spells/NeekoQAbility/NeekoQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -510,10 +595,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ExplosionDamage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "SecondDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NeekoPassive": {
     "path": "Characters/Neeko/Spells/NeekoPassiveAbility/NeekoPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -561,10 +681,14 @@
         6
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "NeekoE": {
     "path": "Characters/Neeko/Spells/NeekoEAbility/NeekoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -670,6 +794,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

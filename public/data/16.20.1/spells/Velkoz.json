@@ -1,6 +1,8 @@
 {
   "VelkozQ": {
     "path": "Characters/Velkoz/Spells/VelkozQAbility/VelkozQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -106,10 +108,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VelkozE": {
     "path": "Characters/Velkoz/Spells/VelkozEAbility/VelkozE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -215,10 +237,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VelkozW": {
     "path": "Characters/Velkoz/Spells/VelkozWAbility/VelkozW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       1.5,
       1.5,
@@ -301,10 +343,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "SecondaryDamage": {
+        "base": [
+          45,
+          75,
+          105,
+          135,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VelkozR": {
     "path": "Characters/Velkoz/Spells/VelkozRAbility/VelkozR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       100,
@@ -357,10 +434,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
     }
   },
   "VelkozPassive": {
     "path": "Characters/Velkoz/Spells/VelkozPassiveAbility/VelkozPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "Duration": [
         7,
@@ -396,6 +479,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          43.52941,
+          52.05882,
+          60.58824,
+          69.11765,
+          77.64706,
+          86.17647,
+          94.70588,
+          103.2353,
+          111.7647,
+          120.2941,
+          128.8235,
+          137.3529,
+          145.8824,
+          154.4118,
+          162.9412,
+          171.4706,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

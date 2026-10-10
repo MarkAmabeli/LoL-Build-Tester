@@ -1,6 +1,8 @@
 {
   "TalonR": {
     "path": "Characters/Talon/Spells/TalonRAbility/TalonR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -72,10 +74,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          90,
+          135,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TalonE": {
     "path": "Characters/Talon/Spells/TalonEAbility/TalonE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -132,10 +152,14 @@
         2
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TalonPassive": {
     "path": "Characters/Talon/Spells/TalonPassiveAbility/TalonPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -209,10 +233,44 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BleedDamage": {
+        "base": 0,
+        "baseByLevel": [
+          80,
+          91.76471,
+          103.5294,
+          115.2941,
+          127.0588,
+          138.8235,
+          150.5882,
+          162.3529,
+          174.1176,
+          185.8824,
+          197.6471,
+          209.4118,
+          221.1765,
+          232.9412,
+          244.7059,
+          256.4706,
+          268.2353,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TalonW": {
     "path": "Characters/Talon/Spells/TalonWAbility/TalonW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -344,10 +402,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalInitialDamage": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalReturnDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TalonQ": {
     "path": "Characters/Talon/Spells/TalonQAbility/TalonQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -457,6 +550,49 @@
         "mModifiedGameCalculation": "LeapDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "TotalHealing": {
+        "base": 0,
+        "baseByLevel": [
+          9,
+          11.70588,
+          14.41176,
+          17.11765,
+          19.82353,
+          22.52941,
+          25.23529,
+          27.94118,
+          30.64706,
+          33.35294,
+          36.05882,
+          38.76471,
+          41.47059,
+          44.17647,
+          46.88235,
+          49.58824,
+          52.29412,
+          55
+        ]
+      },
+      "LeapDamage": {
+        "base": [
+          65,
+          85,
+          105,
+          125,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CriticalDamage": "stat code 9/2"
     }
   }
 }

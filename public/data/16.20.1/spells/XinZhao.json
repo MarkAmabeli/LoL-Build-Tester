@@ -1,6 +1,8 @@
 {
   "XinZhaoE": {
     "path": "Characters/XinZhao/Spells/XinZhaoEAbility/XinZhaoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -124,10 +126,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ChargeDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XinZhaoW": {
     "path": "Characters/XinZhao/Spells/XinZhaoWAbility/XinZhaoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -300,10 +322,64 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "SlashDamage": {
+        "base": [
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.3
+          }
+        ]
+      },
+      "MinionMod": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          53.333,
+          56.666,
+          59.999,
+          63.332,
+          66.665,
+          69.998,
+          73.331,
+          76.664,
+          79.997,
+          83.33,
+          86.663,
+          89.996,
+          93.329,
+          96.662,
+          103.335,
+          106.668,
+          110.001
+        ]
+      },
+      "TotalSlowDuration": {
+        "base": 1.5,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.005
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ThrustDamage": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   },
   "XinZhaoR": {
     "path": "Characters/XinZhao/Spells/XinZhaoRAbility/XinZhaoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -398,10 +474,32 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          175,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XinZhaoQ": {
     "path": "Characters/XinZhao/Spells/XinZhaoQAbility/XinZhaoQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -474,10 +572,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusDamage": {
+        "base": [
+          15,
+          30,
+          45,
+          60,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XinZhaoP": {
     "path": "Characters/XinZhao/Spells/XinZhaoPAbility/XinZhaoP",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -627,6 +744,161 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.6,
+              0.6,
+              0.6
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0,
+            "valueByLevel": [
+              0.05,
+              0.05,
+              0.05,
+              0.05,
+              0.05,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.2,
+              0.2,
+              0.2
+            ]
+          }
+        ]
+      },
+      "TotalHealing": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0,
+            "valueByLevel": [
+              0.02,
+              0.02,
+              0.02,
+              0.02,
+              0.02,
+              0.035,
+              0.035,
+              0.035,
+              0.035,
+              0.035,
+              0.05,
+              0.05,
+              0.05,
+              0.05,
+              0.05,
+              0.05,
+              0.05,
+              0.05
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0,
+            "valueByLevel": [
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7
+            ]
+          }
+        ]
+      },
+      "HealHPRatio": {
+        "base": 0,
+        "baseByLevel": [
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      },
+      "HealAPRatio": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7,
+          0.7
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

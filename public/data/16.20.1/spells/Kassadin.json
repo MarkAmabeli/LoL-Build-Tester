@@ -1,6 +1,8 @@
 {
   "ForcePulse": {
     "path": "Characters/Kassadin/Spells/ForcePulseAbility/ForcePulse",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       21,
@@ -79,10 +81,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NullLance": {
     "path": "Characters/Kassadin/Spells/NullLanceAbility/NullLance",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -165,10 +187,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          65,
+          95,
+          125,
+          155,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NetherBlade": {
     "path": "Characters/Kassadin/Spells/NetherBladeAbility/NetherBlade",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -261,10 +318,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ActiveDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "OnHitDamage": {
+        "base": 25,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VoidStone": {
     "path": "Characters/Kassadin/Spells/VoidStoneAbility/VoidStone",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -285,10 +370,14 @@
         0.10000000149011612
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "RiftWalk": {
     "path": "Characters/Kassadin/Spells/RiftWalkAbility/RiftWalk",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       5,
       5,
@@ -460,6 +549,43 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          80,
+          95,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "maxMana",
+            "value": 0.02
+          }
+        ]
+      },
+      "BonusDamage": {
+        "base": [
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.07
+          },
+          {
+            "stat": "maxMana",
+            "value": 0.01
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

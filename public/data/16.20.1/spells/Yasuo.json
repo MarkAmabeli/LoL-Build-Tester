@@ -1,6 +1,8 @@
 {
   "YasuoQ1Wrapper": {
     "path": "Characters/Yasuo/Spells/YasuoQ1WrapperAbility/YasuoQ1Wrapper",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -136,10 +138,32 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          45,
+          70,
+          95,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.05
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamageCrit": "stat code 9/0"
     }
   },
   "YasuoE": {
     "path": "Characters/Yasuo/Spells/YasuoEAbility/YasuoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0.5,
       0.5,
@@ -251,10 +275,53 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          85,
+          100,
+          115,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "BonusDamagePerStack": {
+        "base": [
+          17.5,
+          21.25,
+          25,
+          28.75,
+          32.5
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.05
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "YasuoR": {
     "path": "Characters/Yasuo/Spells/YasuoRAbility/YasuoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       105,
       70,
@@ -345,10 +412,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          200,
+          350,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "YasuoPassive": {
     "path": "Characters/Yasuo/Spells/YasuoPassiveAbility/YasuoPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -442,10 +527,62 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "ShieldValue": {
+        "base": 0,
+        "baseByLevel": [
+          125,
+          152.9412,
+          180.8824,
+          208.8235,
+          236.7647,
+          264.7059,
+          292.6471,
+          320.5882,
+          348.5294,
+          376.4706,
+          404.4118,
+          432.3529,
+          460.2941,
+          488.2353,
+          516.1765,
+          544.1176,
+          572.0588,
+          600
+        ]
+      },
+      "{74ce5438}": {
+        "base": 0,
+        "baseByLevel": [
+          55,
+          55,
+          55,
+          55,
+          55,
+          55,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          45,
+          45,
+          45,
+          45,
+          45,
+          45
+        ]
+      }
+    },
+    "unsupported": {
+      "CurrentCritDamage": "stat code 9/0"
     }
   },
   "YasuoWMovingWall": {
     "path": "Characters/Yasuo/Spells/YasuoWMovingWall",
+    "maxRank": 5,
     "cooldown": [
       28,
       26,
@@ -475,10 +612,14 @@
         4
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "YasuoW": {
     "path": "Characters/Yasuo/Spells/YasuoWAbility/YasuoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       27,
       25,
@@ -544,6 +685,8 @@
         100
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

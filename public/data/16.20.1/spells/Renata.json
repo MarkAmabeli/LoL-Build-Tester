@@ -1,6 +1,8 @@
 {
   "RenataR": {
     "path": "Characters/Renata/Spells/RenataRAbility/RenataR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       150,
       150,
@@ -47,10 +49,14 @@
         1
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "RenataE": {
     "path": "Characters/Renata/Spells/RenataEAbility/RenataE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -193,10 +199,48 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          95,
+          125,
+          155,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "{fe737c05}": {
+        "base": 0.3
+      },
+      "ShieldCalc": {
+        "base": [
+          50,
+          65,
+          80,
+          95,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RenataPassive": {
     "path": "Characters/Renata/Spells/RenataPassiveAbility/RenataPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -310,10 +354,73 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PercentAmpCalc": {
+        "base": 0,
+        "baseByLevel": [
+          0.01,
+          0.0112,
+          0.0124,
+          0.0136,
+          0.0148,
+          0.0161,
+          0.0174,
+          0.0187,
+          0.0213,
+          0.0226,
+          0.0239,
+          0.0252,
+          0.0265,
+          0.0278,
+          0.0291,
+          0.0304,
+          0.0317,
+          0.033
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "PercentAmpCalcSelf": {
+        "base": 0,
+        "baseByLevel": [
+          0.01,
+          0.0112,
+          0.0124,
+          0.0136,
+          0.0148,
+          0.0161,
+          0.0174,
+          0.0187,
+          0.0213,
+          0.0226,
+          0.0239,
+          0.0252,
+          0.0265,
+          0.0278,
+          0.0291,
+          0.0304,
+          0.0317,
+          0.033
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RenataW": {
     "path": "Characters/Renata/Spells/RenataWAbility/RenataW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       24,
       28,
@@ -509,10 +616,78 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ASCalc": {
+        "base": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0001
+          }
+        ]
+      },
+      "MSCalc": {
+        "base": [
+          0.1,
+          0.125,
+          0.15,
+          0.175,
+          0.2
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0001
+          }
+        ]
+      },
+      "{85d7d7f0}": {
+        "base": 2.5
+      },
+      "FinalASCalc": {
+        "base": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "FinalMSCalc": {
+        "base": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RenataQ": {
     "path": "Characters/Renata/Spells/RenataQAbility/RenataQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -610,6 +785,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

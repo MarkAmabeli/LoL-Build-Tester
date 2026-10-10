@@ -1,6 +1,8 @@
 {
   "OrnnW": {
     "path": "Characters/Ornn/Spells/OrnnWAbility/OrnnW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12.5,
       12,
@@ -181,10 +183,56 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BrittlePercentMaxHPCalc": {
+        "base": 0,
+        "baseByLevel": [
+          0.09,
+          0.09470589,
+          0.09941177,
+          0.1041177,
+          0.1088235,
+          0.1135294,
+          0.1182353,
+          0.1229412,
+          0.1276471,
+          0.1323529,
+          0.1370588,
+          0.1417647,
+          0.1464706,
+          0.1511765,
+          0.1558824,
+          0.1605882,
+          0.1652941,
+          0.17
+        ]
+      },
+      "TotalMinimumDamage": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ]
+      },
+      "TotalMonsterDamageCap": {
+        "base": [
+          260,
+          320,
+          380,
+          440,
+          500
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "OrnnR": {
     "path": "Characters/Ornn/Spells/OrnnRAbility/OrnnR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -336,10 +384,30 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RDamageCalc": {
+        "base": [
+          125,
+          175,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "MinStun": {
+        "base": 0.5
+      }
+    },
+    "unsupported": {}
   },
   "OrnnP": {
     "path": "Characters/Ornn/Spells/OrnnPAbility/OrnnP",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -480,10 +548,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{7325018d}": {
+        "base": 0,
+        "baseByLevel": [
+          90,
+          85.29412,
+          80.58824,
+          75.88235,
+          71.17647,
+          66.47059,
+          61.76471,
+          57.05882,
+          52.35294,
+          47.64706,
+          42.94118,
+          38.23529,
+          33.52941,
+          28.82353,
+          24.11765,
+          19.41176,
+          14.70588,
+          10
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "OrnnPAllyItemGive": {
     "path": "Characters/Ornn/Spells/OrnnPAbility/OrnnPAllyItemGive",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -513,10 +608,14 @@
         13
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "OrnnQ": {
     "path": "Characters/Ornn/Spells/OrnnQAbility/OrnnQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -596,10 +695,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          45,
+          70,
+          95,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "OrnnE": {
     "path": "Characters/Ornn/Spells/OrnnEAbility/OrnnE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -731,6 +850,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.4
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

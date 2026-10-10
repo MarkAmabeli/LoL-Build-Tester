@@ -1,6 +1,8 @@
 {
   "LuxPrismaticWave": {
     "path": "Characters/Lux/Spells/LuxPrismaticWaveAbility/LuxPrismaticWave",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -71,10 +73,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShieldTT": {
+        "base": [
+          40,
+          55,
+          70,
+          85,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuxLightBinding": {
     "path": "Characters/Lux/Spells/LuxLightBindingAbility/LuxLightBinding",
+    "slot": "Q",
+    "maxRank": 5,
     "cost": [
       50,
       50,
@@ -136,10 +158,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTT": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuxIlluminationPassive": {
     "path": "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminationPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -225,10 +267,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
     }
   },
   "LuxLightStrikeKugel": {
     "path": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -330,10 +378,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTT": {
+        "base": [
+          65,
+          115,
+          165,
+          215,
+          265
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "{ee9714e4}": {
+        "base": [
+          -0.25,
+          -0.3,
+          -0.35,
+          -0.4,
+          -0.45
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuxR": {
     "path": "Characters/Lux/Spells/LuxRAbility/LuxR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       60,
       60,
@@ -404,6 +481,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          300,
+          400,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

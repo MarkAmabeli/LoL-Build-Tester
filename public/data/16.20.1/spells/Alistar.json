@@ -1,6 +1,8 @@
 {
   "AlistarPassive": {
     "path": "Characters/Alistar/Spells/AlistarPassiveAbility/AlistarPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       3,
       3,
@@ -96,10 +98,33 @@
         "mModifiedGameCalculation": "BaseHeal",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "BaseHeal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.05
+          }
+        ]
+      },
+      "AllyHeal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.07
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "FerociousHowl": {
     "path": "Characters/Alistar/Spells/FerociousHowlAbility/FerociousHowl",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -146,10 +171,14 @@
         105
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "AlistarE": {
     "path": "Characters/Alistar/Spells/AlistarEAbility/AlistarE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12.5,
       12,
@@ -295,10 +324,53 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "AttackBonusDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          35,
+          50,
+          65,
+          80,
+          95,
+          110,
+          125,
+          140,
+          155,
+          170,
+          185,
+          200,
+          215,
+          230,
+          245,
+          260,
+          275
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Pulverize": {
     "path": "Characters/Alistar/Spells/PulverizeAbility/Pulverize",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       15,
       14,
@@ -378,10 +450,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Headbutt": {
     "path": "Characters/Alistar/Spells/HeadbuttAbility/Headbutt",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       14,
@@ -470,6 +562,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          55,
+          110,
+          165,
+          220,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

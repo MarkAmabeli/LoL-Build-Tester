@@ -1,6 +1,8 @@
 {
   "HecarimRamp": {
     "path": "Characters/Hecarim/Spells/HecarimRampAbility/HecarimRamp",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -144,10 +146,45 @@
         "mModifiedGameCalculation": "MinDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HecarimRapidSlash": {
     "path": "Characters/Hecarim/Spells/HecarimRapidSlashAbility/HecarimRapidSlash",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -289,10 +326,54 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": [
+          36,
+          54,
+          72,
+          90,
+          108
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.54
+          }
+        ]
+      },
+      "RampageBonusDamagePerc": {
+        "base": 3,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.03
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HecarimUlt": {
     "path": "Characters/Hecarim/Spells/HecarimUltAbility/HecarimUlt",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0,
       140,
@@ -398,10 +479,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageDone": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HecarimW": {
     "path": "Characters/Hecarim/Spells/HecarimWAbility/HecarimW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -543,10 +642,36 @@
         "mModifiedGameCalculation": "LeechAmount",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "LeechAmount": {
+        "base": 25
+      },
+      "AllyTooltipLeachValue": {
+        "base": 12.5
+      }
+    },
+    "unsupported": {}
   },
   "HecarimPassive": {
     "path": "Characters/Hecarim/Spells/HecarimPassiveAbility/HecarimPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -604,6 +729,10 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "BonusAD": "stat code 7/2"
     }
   }
 }

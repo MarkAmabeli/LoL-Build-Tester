@@ -1,6 +1,7 @@
 {
   "JarvanIVMartialCadence": {
     "path": "Characters/JarvanIV/Spells/JarvanIVMartialCadenceAbility/JarvanIVMartialCadence",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -66,10 +67,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TooltipCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JarvanIVDragonStrike": {
     "path": "Characters/JarvanIV/Spells/JarvanIVDragonStrikeAbility/JarvanIVDragonStrike",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -132,10 +161,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          90,
+          130,
+          170,
+          210,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JarvanIVCataclysm": {
     "path": "Characters/JarvanIV/Spells/JarvanIVCataclysmAbility/JarvanIVCataclysm",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0,
       120,
@@ -198,10 +247,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          200,
+          325,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JarvanIVGoldenAegis": {
     "path": "Characters/JarvanIV/Spells/JarvanIVGoldenAegisAbility/JarvanIVGoldenAegis",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -265,10 +332,26 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "BonusShield": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.013
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalShield": "part type EffectValueCalculationPart"
     }
   },
   "JarvanIVDemacianStandard": {
     "path": "Characters/JarvanIV/Spells/JarvanIVDemacianStandardAbility/JarvanIVDemacianStandard",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -365,6 +448,10 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
     }
   }
 }

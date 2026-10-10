@@ -1,6 +1,8 @@
 {
   "NautilusPiercingGaze": {
     "path": "Characters/Nautilus/Spells/NautilusPiercingGazeAbility/NautilusPiercingGaze",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -102,10 +104,51 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DotDamageCalc": {
+        "base": [
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "ShieldCalc": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": [
+              0.08,
+              0.09,
+              0.1,
+              0.11,
+              0.12
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NautilusSplashZone": {
     "path": "Characters/Nautilus/Spells/NautilusSplashZoneAbility/NautilusSplashZone",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       7.5,
       7,
@@ -233,10 +276,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          55,
+          90,
+          125,
+          160,
+          195
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "MonsterBonusCalc": {
+        "base": [
+          125,
+          165,
+          205,
+          245,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NautilusAnchorDrag": {
     "path": "Characters/Nautilus/Spells/NautilusAnchorDragAbility/NautilusAnchorDrag",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -324,10 +402,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QDamageCalc": {
+        "base": [
+          85,
+          125,
+          165,
+          205,
+          245
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NautilusGrandLine": {
     "path": "Characters/Nautilus/Spells/NautilusGrandLineAbility/NautilusGrandLine",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -410,10 +508,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PrimaryTargetDamage": {
+        "base": [
+          150,
+          275,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "SecondaryTargetDamage": {
+        "base": [
+          125,
+          175,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "NautilusPassive": {
     "path": "Characters/Nautilus/Spells/NautilusPassiveAbility/NautilusPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -561,6 +690,35 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "RootDuration": {
+        "base": 0,
+        "baseByLevel": [
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.5,
+          1.5,
+          1.5
+        ]
+      }
+    },
+    "unsupported": {
+      "BonusDamage": "part type ByCharLevelFormulaCalculationPart",
+      "TotalDamageTooltip": "part type ByCharLevelFormulaCalculationPart"
     }
   }
 }

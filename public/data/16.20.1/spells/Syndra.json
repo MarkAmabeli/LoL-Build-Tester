@@ -1,6 +1,8 @@
 {
   "SyndraE": {
     "path": "Characters/Syndra/Spells/SyndraEAbility/SyndraE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -106,10 +108,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          95,
+          130,
+          165,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SyndraPassive": {
     "path": "Characters/Syndra/Spells/SyndraPassiveAbility/SyndraPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -260,10 +282,61 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "StacksPerProc": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3
+        ]
+      },
+      "ManaPerProc": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          46,
+          52,
+          58,
+          64,
+          79,
+          94,
+          109,
+          124,
+          139,
+          159,
+          179,
+          199
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SyndraR": {
     "path": "Characters/Syndra/Spells/SyndraRAbility/SyndraR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -386,10 +459,54 @@
         "mModifiedGameCalculation": "DamageCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          80,
+          120,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "MinDamageCalc": {
+        "base": [
+          240,
+          360,
+          480
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageCalc": {
+        "base": [
+          560,
+          840,
+          1120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SyndraQ": {
     "path": "Characters/Syndra/Spells/SyndraQAbility/SyndraQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -469,10 +586,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          90,
+          125,
+          160,
+          195,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SyndraQUpgrade": {
     "path": "Characters/Syndra/Spells/SyndraQAbility/SyndraQUpgrade",
+    "maxRank": 5,
     "cooldown": [
       1.25,
       1.25,
@@ -534,10 +670,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          90,
+          125,
+          160,
+          195,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SyndraW": {
     "path": "Characters/Syndra/Spells/SyndraWAbility/SyndraW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -671,6 +827,38 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "ThrowDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "TotalSlowAmount": {
+        "base": 25
+      },
+      "TOOLTIPONLYPassiveBonusPercent": {
+        "base": 0.12,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "PassiveBonusDamage": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   }
 }

@@ -1,6 +1,8 @@
 {
   "KennenPassive": {
     "path": "Characters/Kennen/Spells/KennenPassiveAbility/KennenPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -57,10 +59,14 @@
         6
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KennenShurikenStorm": {
     "path": "Characters/Kennen/Spells/KennenShurikenStormAbility/KennenShurikenStorm",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -150,10 +156,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PerTickDamageCalculated": {
+        "base": [
+          40,
+          80,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KennenLightningRush": {
     "path": "Characters/Kennen/Spells/KennenLightningRushAbility/KennenLightningRush",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -289,10 +313,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KennenShurikenHurlMissile1": {
     "path": "Characters/Kennen/Spells/KennenShurikenHurlMissile1Ability/KennenShurikenHurlMissile1",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       7,
@@ -345,10 +389,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          125,
+          175,
+          225,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KennenBringTheLight": {
     "path": "Characters/Kennen/Spells/KennenBringTheLightAbility/KennenBringTheLight",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -470,6 +534,51 @@
         "mModifiedGameCalculation": "TotalDamagePassive",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "TotalDamagePassive": {
+        "base": [
+          35,
+          45,
+          55,
+          65,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          },
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.8,
+              0.9,
+              1,
+              1.1,
+              1.2
+            ]
+          }
+        ]
+      },
+      "TotalDamageActive": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamagePassiveCrit": "stat code 9/2"
     }
   }
 }

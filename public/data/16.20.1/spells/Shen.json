@@ -1,6 +1,8 @@
 {
   "ShenQ": {
     "path": "Characters/Shen/Spells/ShenQAbility/ShenQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8.75,
       8,
@@ -240,10 +242,91 @@
         "mModifiedGameCalculation": "BaseFlatDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "BaseFlatDamage": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          16,
+          16,
+          16,
+          22,
+          22,
+          22,
+          28,
+          28,
+          28,
+          34,
+          34,
+          34,
+          40,
+          40,
+          40
+        ]
+      },
+      "BasePercentHealth": {
+        "base": [
+          0.02,
+          0.025,
+          0.03,
+          0.035,
+          0.04
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      },
+      "EmpPercentHealth": {
+        "base": [
+          0.05,
+          0.055,
+          0.06,
+          0.065,
+          0.07
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TowerDamageCalc": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          16,
+          16,
+          16,
+          22,
+          22,
+          22,
+          28,
+          28,
+          28,
+          34,
+          34,
+          34,
+          40,
+          40,
+          40
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ShenE": {
     "path": "Characters/Shen/Spells/ShenEAbility/ShenE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       20,
       18,
@@ -381,10 +464,53 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "energyrefund": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "TauntDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.11
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ShenPassive": {
     "path": "Characters/Shen/Spells/ShenPassiveAbility/ShenPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -563,10 +689,157 @@
         },
         "__type": "GameCalculationConditional"
       }
+    },
+    "formulas": {
+      "{58a09e24}": {
+        "base": 0,
+        "baseByLevel": [
+          47,
+          51.29412,
+          55.58824,
+          59.88235,
+          64.17647,
+          68.47059,
+          72.76471,
+          77.05882,
+          81.35294,
+          85.64706,
+          89.94118,
+          94.23529,
+          98.52941,
+          102.8235,
+          107.1176,
+          111.4118,
+          115.7059,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.13
+          }
+        ]
+      },
+      "ShieldCooldownReduction": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          4.235,
+          4.47,
+          4.705,
+          4.94,
+          5.175,
+          5.41,
+          5.645,
+          5.88,
+          6.115,
+          6.35,
+          6.585,
+          6.82,
+          7.055,
+          7.29,
+          7.525,
+          7.76,
+          7.995
+        ]
+      },
+      "{87290189}": {
+        "base": 0,
+        "baseByLevel": [
+          47,
+          50.17647,
+          53.35294,
+          56.52941,
+          59.70588,
+          62.88235,
+          66.05882,
+          69.23529,
+          72.41176,
+          75.58824,
+          78.76471,
+          81.94118,
+          85.11765,
+          88.29412,
+          91.47059,
+          94.64706,
+          97.82353,
+          101
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.07
+          }
+        ]
+      },
+      "{7e912bc4}": {
+        "base": 0,
+        "baseByLevel": [
+          61.1,
+          66.68235,
+          72.2647,
+          77.84706,
+          83.42941,
+          89.01176,
+          94.59411,
+          100.1765,
+          105.7588,
+          111.3412,
+          116.9235,
+          122.5059,
+          128.0882,
+          133.6706,
+          139.2529,
+          144.8353,
+          150.4176,
+          156
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.169
+          }
+        ]
+      },
+      "{a7305d7f}": {
+        "base": 0,
+        "baseByLevel": [
+          61.1,
+          65.22941,
+          69.35882,
+          73.48823,
+          77.61764,
+          81.74706,
+          85.87647,
+          90.00588,
+          94.13529,
+          98.2647,
+          102.3941,
+          106.5235,
+          110.6529,
+          114.7823,
+          118.9118,
+          123.0412,
+          127.1706,
+          131.3
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.091
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ShieldValue": "conditional calculation (depends on a game condition)",
+      "{ff986284}": "conditional calculation (depends on a game condition)"
     }
   },
   "ShenR": {
     "path": "Characters/Shen/Spells/ShenRAbility/ShenR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       200,
       200,
@@ -696,10 +969,49 @@
         "mModifiedGameCalculation": "Shield",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Shield": {
+        "base": [
+          120,
+          220,
+          320
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.15
+          },
+          {
+            "stat": "AP",
+            "value": 1.35
+          }
+        ]
+      },
+      "MaxShield": {
+        "base": [
+          192,
+          352,
+          512
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.24
+          },
+          {
+            "stat": "AP",
+            "value": 2.16
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ShenW": {
     "path": "Characters/Shen/Spells/ShenWAbility/ShenW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18.5,
       16,
@@ -741,6 +1053,8 @@
       "UnnamedEffectAmount5": [],
       "UnnamedEffectAmount9": []
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

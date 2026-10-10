@@ -1,6 +1,8 @@
 {
   "RakanW": {
     "path": "Characters/Rakan/Spells/RakanWAbility/RakanW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -72,10 +74,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          120,
+          170,
+          220,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RakanQ": {
     "path": "Characters/Rakan/Spells/RakanQAbility/RakanQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -192,10 +214,61 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          115,
+          160,
+          205,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "TotalHeal": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180,
+          190,
+          200,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{b88e1204}": "part type CooldownMultiplierCalculationPart"
     }
   },
   "RakanE": {
     "path": "Characters/Rakan/Spells/RakanEAbility/RakanE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -292,10 +365,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RakanPassive": {
     "path": "Characters/Rakan/Spells/RakanPassiveAbility/RakanPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -358,10 +451,67 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          41.47059,
+          52.94118,
+          64.41176,
+          75.88235,
+          87.35294,
+          98.82353,
+          110.2941,
+          121.7647,
+          133.2353,
+          144.7059,
+          156.1765,
+          167.6471,
+          179.1176,
+          190.5882,
+          202.0588,
+          213.5294,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.95
+          }
+        ]
+      },
+      "ShieldCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          38.5,
+          37,
+          35.5,
+          34,
+          32.5,
+          31,
+          29.5,
+          28,
+          26.5,
+          25,
+          23.5,
+          22,
+          20.5,
+          19,
+          17.5,
+          16,
+          14.5
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RakanR": {
     "path": "Characters/Rakan/Spells/RakanRAbility/RakanR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -467,6 +617,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          100,
+          200,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

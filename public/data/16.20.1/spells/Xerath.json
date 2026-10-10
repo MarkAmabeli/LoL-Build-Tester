@@ -1,6 +1,8 @@
 {
   "XerathLocusOfPower2": {
     "path": "Characters/Xerath/Spells/XerathLocusOfPower2Ability/XerathLocusOfPower2",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -119,10 +121,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TooltipTotalDamage": {
+        "base": [
+          170,
+          220,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "RampDamageCalc": {
+        "base": [
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XerathArcanopulseChargeUp": {
     "path": "Characters/Xerath/Spells/XerathArcanopulseChargeUpAbility/XerathArcanopulseChargeUp",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       9,
@@ -237,10 +270,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TooltipTotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XerathMageSpear": {
     "path": "Characters/Xerath/Spells/XerathMageSpearAbility/XerathMageSpear",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13.5,
       13,
@@ -328,10 +381,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TooltipTotalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XerathAscended2": {
     "path": "Characters/Xerath/Spells/XerathAscended2Ability/XerathAscended2",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -393,10 +465,61 @@
         "mModifiedGameCalculation": "MinionManaRestoreTT",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "MinionManaRestoreTT": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          33,
+          36,
+          42,
+          48,
+          54,
+          63,
+          72,
+          81,
+          90,
+          102,
+          114,
+          126,
+          138,
+          150,
+          165,
+          180,
+          195
+        ]
+      },
+      "ChampionManaRestoreTT": {
+        "base": 0,
+        "baseByLevel": [
+          60,
+          66,
+          72,
+          84,
+          96,
+          108,
+          126,
+          144,
+          162,
+          180,
+          204,
+          228,
+          252,
+          276,
+          300,
+          330,
+          360,
+          390
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "XerathArcaneBarrage2": {
     "path": "Characters/Xerath/Spells/XerathArcaneBarrage2Ability/XerathArcaneBarrage2",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       14,
@@ -510,6 +633,39 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "SweetSpotTotalDamage": {
+        "base": [
+          83.35,
+          141.695,
+          200.04,
+          258.385,
+          316.73
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.08355
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "MordekaiserQ": {
     "path": "Characters/Mordekaiser/Spells/MordekaiserQAbility/MordekaiserQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -133,10 +135,56 @@
         "mModifiedGameCalculation": "QDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "QDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "baseByLevel": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          14,
+          21,
+          28,
+          35,
+          42,
+          49,
+          56,
+          63
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "EmpoweredDamageTooltip": "Product of a per-rank and a per-level value"
     }
   },
   "MordekaiserW": {
     "path": "Characters/Mordekaiser/Spells/MordekaiserWAbility/MordekaiserW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -272,10 +320,42 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HealthDecay": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "baseHP",
+            "value": 0.005
+          }
+        ]
+      },
+      "MaxHealthTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.3
+          }
+        ]
+      },
+      "MinHealthTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MordekaiserE": {
     "path": "Characters/Mordekaiser/Spells/MordekaiserEAbility/MordekaiserE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -365,10 +445,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MordekaiserR": {
     "path": "Characters/Mordekaiser/Spells/MordekaiserRAbility/MordekaiserR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -425,10 +525,14 @@
         0.6000000238418579
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "MordekaiserPassive": {
     "path": "Characters/Mordekaiser/Spells/MordekaiserPassiveAbility/MordekaiserPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -605,10 +709,101 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "AuraDamagePerStack": {
+        "base": 5,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "PercentHealthForAura": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1.235294,
+          1.470588,
+          1.705882,
+          1.941176,
+          2.176471,
+          2.411765,
+          2.647059,
+          2.882353,
+          3.117647,
+          3.352941,
+          3.588235,
+          3.823529,
+          4.058824,
+          4.294118,
+          4.529412,
+          4.764706,
+          5
+        ]
+      },
+      "MaxAuraMonsterDamage": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          49.41176,
+          58.82353,
+          68.23529,
+          77.64706,
+          87.05882,
+          96.47059,
+          105.8824,
+          115.2941,
+          124.7059,
+          134.1176,
+          143.5294,
+          152.9412,
+          162.3529,
+          171.7647,
+          181.1765,
+          190.5882,
+          200
+        ]
+      },
+      "BonusAPAuto": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "PassiveMovementSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.09,
+          0.09,
+          0.09,
+          0.09,
+          0.09,
+          0.09,
+          0.09,
+          0.09
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MordekaiserSkin54Manager": {
     "path": "Characters/Mordekaiser/Spells/MordekaiserSkin54Manager",
+    "maxRank": 5,
     "dataValues": {
       "StatsStolenToNextForm": [
         325,
@@ -629,6 +824,8 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "RumbleShield": {
     "path": "Characters/Rumble/Spells/RumbleShieldAbility/RumbleShield",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -128,10 +130,62 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          25,
+          55,
+          85,
+          115,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.04
+          }
+        ]
+      },
+      "EmpoweredShield": {
+        "base": [
+          37.5,
+          82.5,
+          127.5,
+          172.5,
+          217.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.06
+          }
+        ]
+      },
+      "EmpoweredMS": {
+        "base": [
+          0.15,
+          0.225,
+          0.3,
+          0.375,
+          0.45
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RumbleFlameThrower": {
     "path": "Characters/Rumble/Spells/RumbleFlameThrowerAbility/RumbleFlameThrower",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -309,10 +363,92 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FlatDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.05
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": [
+          35,
+          52.5,
+          70,
+          87.5,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.735
+          }
+        ]
+      },
+      "EmpoweredDamage": {
+        "base": [
+          75,
+          112.5,
+          150,
+          187.5,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.575
+          }
+        ]
+      },
+      "EmpoweredHealth": {
+        "base": [
+          0.09,
+          0.0975,
+          0.105,
+          0.1125,
+          0.12
+        ]
+      },
+      "MonsterCap": {
+        "base": 0,
+        "baseByLevel": [
+          65,
+          78.82353,
+          92.64706,
+          106.4706,
+          120.2941,
+          134.1176,
+          147.9412,
+          161.7647,
+          175.5882,
+          189.4118,
+          203.2353,
+          217.0588,
+          230.8824,
+          244.7059,
+          258.5294,
+          272.3529,
+          286.1765,
+          300
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RumbleGrenade": {
     "path": "Characters/Rumble/Spells/RumbleGrenadeAbility/RumbleGrenade",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0.5,
       0.5,
@@ -428,10 +564,45 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          55,
+          80,
+          105,
+          130,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "EmpDamage": {
+        "base": [
+          82.5,
+          120,
+          157.5,
+          195,
+          232.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RumbleCarpetBomb": {
     "path": "Characters/Rumble/Spells/RumbleCarpetBombAbility/RumbleCarpetBomb",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -538,10 +709,40 @@
         "mModifiedGameCalculation": "DamagePerSecond",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          120,
+          200,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          540,
+          900,
+          1260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.575
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RumbleHeatSystem": {
     "path": "Characters/Rumble/Spells/RumbleHeatSystemAbility/RumbleHeatSystem",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -645,6 +846,84 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalBaseDamage": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          7.058824,
+          9.117647,
+          11.17647,
+          13.23529,
+          15.29412,
+          17.35294,
+          19.41176,
+          21.47059,
+          23.52941,
+          25.58824,
+          27.64706,
+          29.70588,
+          31.76471,
+          33.82353,
+          35.88235,
+          37.94118,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "OverheatAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.3,
+          0.3411765,
+          0.382353,
+          0.4235294,
+          0.4647059,
+          0.5058824,
+          0.5470588,
+          0.5882353,
+          0.6294118,
+          0.6705882,
+          0.7117647,
+          0.7529412,
+          0.7941177,
+          0.8352941,
+          0.8764706,
+          0.9176471,
+          0.9588235,
+          1
+        ]
+      },
+      "MonsterCapScaling": {
+        "base": 0,
+        "baseByLevel": [
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140,
+          145,
+          150,
+          155,
+          160,
+          165,
+          170,
+          175
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

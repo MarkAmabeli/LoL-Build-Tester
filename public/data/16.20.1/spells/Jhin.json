@@ -1,6 +1,8 @@
 {
   "JhinE": {
     "path": "Characters/Jhin/Spells/JhinEAbility/JhinE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       2,
       2,
@@ -165,10 +167,36 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          80,
+          140,
+          200,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "AmmoRechargeRateTooltip": "stat code 10/0"
     }
   },
   "JhinPassive": {
     "path": "Characters/Jhin/Spells/JhinPassiveAbility/JhinPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -337,10 +365,80 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FourthShotExecutePercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "TotalADPercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.1,
+          0.11,
+          0.12,
+          0.14,
+          0.16,
+          0.2,
+          0.24,
+          0.28,
+          0.32,
+          0.36,
+          0.4,
+          0.44
+        ],
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 0.35
+          },
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 0.3
+          }
+        ]
+      },
+      "CritMoveSpeedPercent": {
+        "base": 0.14,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 0.44
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JhinR": {
     "path": "Characters/Jhin/Spells/JhinRAbility/JhinR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -466,10 +564,41 @@
         "mModifiedGameCalculation": "DamageCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          64,
+          128,
+          192
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.25
+          }
+        ]
+      },
+      "MaxIncreaseCalc": {
+        "base": [
+          256,
+          512,
+          768
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JhinW": {
     "path": "Characters/Jhin/Spells/JhinWAbility/JhinW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -550,10 +679,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JhinQ": {
     "path": "Characters/Jhin/Spells/JhinQAbility/JhinQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7.5,
       7,
@@ -665,6 +814,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          44,
+          69,
+          94,
+          119,
+          144
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.44,
+              0.515,
+              0.59,
+              0.665,
+              0.74
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "TooltipMaxTargetsHit": {
+        "base": 4
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "ViegoE": {
     "path": "Characters/Viego/Spells/ViegoEAbility/ViegoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -99,10 +101,30 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalMovespeed": {
+        "base": [
+          0.25,
+          0.275,
+          0.3,
+          0.325,
+          0.35
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViegoR": {
     "path": "Characters/Viego/Spells/ViegoRAbility/ViegoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -261,10 +283,30 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalPercentHealth": {
+        "base": [
+          12,
+          16,
+          20
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "stat code 9/0"
     }
   },
   "ViegoPassive": {
     "path": "Characters/Viego/Spells/ViegoPassiveAbility/ViegoPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -363,10 +405,35 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PercentHealthHeal": {
+        "base": 2,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.025
+          },
+          {
+            "stat": "AP",
+            "value": 0.02
+          },
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 5
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViegoSkin43Manager": {
     "path": "{6b528185}",
+    "maxRank": 5,
     "dataValues": {
       "BPBStartingState": [],
       "NumberOfPossessionsToUnlockBPB": [
@@ -379,10 +446,14 @@
         15
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "ViegoW": {
     "path": "Characters/Viego/Spells/ViegoWAbility/ViegoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -516,10 +587,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          135,
+          190,
+          245,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ViegoQ": {
     "path": "Characters/Viego/Spells/ViegoQAbility/ViegoQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -786,6 +877,34 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "SecondAttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "TotalPercentHealthOnHit": {
+        "base": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "stat code 9/0",
+      "HealthCritDamage": "stat code 9/0"
     }
   }
 }

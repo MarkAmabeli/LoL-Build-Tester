@@ -1,6 +1,8 @@
 {
   "PickACard": {
     "path": "Characters/TwistedFate/Spells/PickACardAbility/PickACard",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -297,10 +299,21 @@
         "mModifiedGameCalculation": "GoldDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "BlueDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "RedDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "GoldDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "ttBlueDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "ttRedDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "ttGoldDamage": "ProductOfSubPartsCalculationPart scales with a stat (stat × stat)"
     }
   },
   "WildCards": {
     "path": "Characters/TwistedFate/Spells/WildCardsAbility/WildCards",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -376,10 +389,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          105,
+          150,
+          195,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          },
+          {
+            "stat": "AP",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Destiny": {
     "path": "Characters/TwistedFate/Spells/DestinyAbility/Destiny",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       170,
       170,
@@ -417,10 +454,14 @@
         16
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "CardmasterStack": {
     "path": "Characters/TwistedFate/Spells/CardmasterStackAbility/CardmasterStack",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -506,10 +547,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusDamage": {
+        "base": [
+          65,
+          90,
+          115,
+          140,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SecondSight": {
     "path": "Characters/TwistedFate/Spells/SecondSightAbility/SecondSight",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -548,6 +612,8 @@
         1
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

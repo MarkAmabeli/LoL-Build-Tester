@@ -1,6 +1,8 @@
 {
   "KaynE": {
     "path": "Characters/Kayn/Spells/KaynEAbility/KaynE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       21,
       21,
@@ -118,10 +120,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalHealing": {
+        "base": [
+          90,
+          100,
+          110,
+          120,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaynAssW": {
     "path": "Characters/Kayn/Spells/KaynWAbility/KaynAssW",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -177,10 +198,14 @@
         -0.6000000238418579
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KaynW": {
     "path": "Characters/Kayn/Spells/KaynWAbility/KaynW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -280,10 +305,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          85,
+          130,
+          175,
+          220,
+          265
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaynR": {
     "path": "Characters/Kayn/Spells/KaynRAbility/KaynR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -451,10 +496,46 @@
         "mModifiedGameCalculation": "SlayerDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      },
+      "SlayerDamage": {
+        "base": 0.15,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.001
+          }
+        ]
+      },
+      "HealValue": {
+        "base": 0.1125,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00075
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaynQ": {
     "path": "Characters/Kayn/Spells/KaynQAbility/KaynQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7.5,
       7,
@@ -614,10 +695,48 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          105,
+          135,
+          165,
+          195
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.85
+          }
+        ]
+      },
+      "DarkinPercentDamage": {
+        "base": 0.06,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00035
+          }
+        ]
+      },
+      "DarkinFlatDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaynPassive": {
     "path": "Characters/Kayn/Spells/KaynPassiveAbility/KaynPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -748,10 +867,26 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "KaynSlayerHealing": {
+        "base": 0.25,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.00005
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "KaynAssBonusDamage": "part type {ee18a47b}"
     }
   },
   "KaynPassiveAss": {
     "path": "Characters/Kayn/Spells/KaynPassiveAss",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "PAmpCooldown": [
         8,
@@ -790,6 +925,8 @@
         1.7647099494934082
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "VarusE": {
     "path": "Characters/Varus/Spells/VarusEAbility/VarusE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -117,10 +119,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VarusW": {
     "path": "Characters/Varus/Spells/VarusWAbility/VarusW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       40,
       40,
@@ -331,10 +353,82 @@
         "mModifiedGameCalculation": "QEmpowerPercentHP",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "PercentHPPerStack": {
+        "base": [
+          0.03,
+          0.035,
+          0.04,
+          0.045,
+          0.05
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00013
+          }
+        ]
+      },
+      "QEmpowerPercentHP": {
+        "base": [
+          0.06,
+          0.08,
+          0.1,
+          0.12,
+          0.14
+        ]
+      },
+      "OnHitDamage": {
+        "base": [
+          4,
+          13,
+          22,
+          31,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.15
+          }
+        ]
+      },
+      "MaxPercentHPPerStack": {
+        "base": [
+          0.09,
+          0.105,
+          0.12,
+          0.135,
+          0.15
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00039
+          }
+        ]
+      },
+      "MaxQEmpowerPercentHP": {
+        "base": [
+          0.09,
+          0.12,
+          0.15,
+          0.18,
+          0.21
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VarusPassive": {
     "path": "Characters/Varus/Spells/VarusPassiveAbility/VarusPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       650,
       650,
@@ -540,10 +634,100 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MinionAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      },
+      "ChampionAS": {
+        "base": 0.3
+      },
+      "ASDuration": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          7,
+          7,
+          7,
+          7,
+          7,
+          9,
+          9,
+          9,
+          9,
+          9,
+          11,
+          11,
+          11
+        ]
+      },
+      "MinionAD": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 11
+          }
+        ]
+      },
+      "MinionAP": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 11
+          }
+        ]
+      },
+      "ChampionAD": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 33
+          }
+        ]
+      },
+      "ChampionAP": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 33
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VarusQ": {
     "path": "Characters/Varus/Spells/VarusQAbility/VarusQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       17,
       16,
@@ -694,10 +878,60 @@
         "mModifiedGameCalculation": "TotalDamageMax",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "{b3ef3984}": {
+        "base": [
+          53.3336,
+          100.0005,
+          146.6674,
+          193.3343,
+          240.0012
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8000041
+          }
+        ]
+      },
+      "TotalDamageMax": {
+        "base": [
+          80,
+          150,
+          220,
+          290,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      },
+      "TotalDamageMinTooltip": {
+        "base": [
+          53.3336,
+          100.0005,
+          146.6674,
+          193.3343,
+          240.0012
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8000041
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "VarusR": {
     "path": "Characters/Varus/Spells/VarusRAbility/VarusR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -830,6 +1064,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

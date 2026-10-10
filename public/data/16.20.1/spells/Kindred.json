@@ -1,6 +1,7 @@
 {
   "KindredQ_URFWrapper": {
     "path": "Characters/Kindred/Spells/KindredQAbility/KindredQ_URFWrapper",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -116,10 +117,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalQAttackSpeed": {
+        "base": 0.35,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.05
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KindredQ": {
     "path": "Characters/Kindred/Spells/KindredQAbility/KindredQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -235,10 +265,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalQAttackSpeed": {
+        "base": 0.35,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.05
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KindredW": {
     "path": "Characters/Kindred/Spells/KindredWAbility/KindredW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       19,
       18,
@@ -427,10 +486,68 @@
         "mModifiedGameCalculation": "PercentWolfDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "AttackHeal": {
+        "base": 0,
+        "baseByLevel": [
+          47,
+          49,
+          51,
+          53,
+          55,
+          57,
+          59,
+          61,
+          63,
+          65,
+          67,
+          69,
+          71,
+          73,
+          75,
+          77,
+          79,
+          81
+        ]
+      },
+      "BaseWolfDamage": {
+        "base": [
+          25,
+          30,
+          35,
+          40,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "PercentWolfDamage": {
+        "base": 0.015,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.01
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{fe248f68}": "StatBySubPartCalculationPart scales with a stat (stat × stat)"
     }
   },
   "KindredPassiveManager": {
     "path": "Characters/Kindred/Spells/KindredPassiveManagerAbility/KindredPassiveManager",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -565,10 +682,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QMarkBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.05
+          }
+        ]
+      },
+      "WMarkBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.01
+          }
+        ]
+      },
+      "EMarkBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.005
+          }
+        ]
+      },
+      "{d34fc902}": {
+        "base": 75
+      }
+    },
+    "unsupported": {}
   },
   "KindredR": {
     "path": "Characters/Kindred/Spells/KindredRAbility/KindredR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -624,10 +776,14 @@
         530
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "KindredEWrapper": {
     "path": "Characters/Kindred/Spells/KindredEWrapperAbility/KindredEWrapper",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -865,6 +1021,22 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalSlow": {
+        "base": 30,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "BaseBiteDamage": "stat code 9/0",
+      "PercentBiteDamage": "stat code 9/0",
+      "CritDamage": "stat code 9/0"
     }
   }
 }

@@ -1,6 +1,8 @@
 {
   "GnarW": {
     "path": "Characters/Gnar/Spells/GnarWAbility/GnarW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -139,10 +141,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MiniTotalDamage": {
+        "base": [
+          0,
+          10,
+          20,
+          30,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "MegaTotalDamage": {
+        "base": [
+          45,
+          75,
+          105,
+          135,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GnarR": {
     "path": "Characters/Gnar/Spells/GnarRAbility/GnarR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0,
       90,
@@ -262,10 +299,49 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "WallDamage": {
+        "base": [
+          300,
+          450,
+          600
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GnarQ": {
     "path": "Characters/Gnar/Spells/GnarQAbility/GnarQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       17.5,
       16,
@@ -440,10 +516,60 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MiniTotalDamage": {
+        "base": [
+          5,
+          45,
+          85,
+          125,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.25
+          }
+        ]
+      },
+      "{4b371c72}": {
+        "base": [
+          2.5,
+          22.5,
+          42.5,
+          62.5,
+          82.5
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.625
+          }
+        ]
+      },
+      "MegaTotalDamage": {
+        "base": [
+          45,
+          90,
+          135,
+          180,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GnarPassive": {
     "path": "Characters/Gnar/Spells/GnarPassiveAbility/GnarPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -571,10 +697,154 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalAttackRange": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          5.882353,
+          11.76471,
+          17.64706,
+          23.52941,
+          29.41176,
+          35.29412,
+          41.17647,
+          47.05882,
+          52.94118,
+          58.82353,
+          64.70588,
+          70.58824,
+          76.47059,
+          82.35294,
+          88.23529,
+          94.11765,
+          100
+        ]
+      },
+      "TotalMS": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          18,
+          20
+        ]
+      },
+      "TotalAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.055,
+          0.11,
+          0.165,
+          0.22,
+          0.275,
+          0.33,
+          0.385,
+          0.44,
+          0.495,
+          0.55,
+          0.605,
+          0.66,
+          0.715,
+          0.77,
+          0.825,
+          0.88,
+          0.935,
+          0.99
+        ]
+      },
+      "TotalMegaGnarArmor": {
+        "base": 0,
+        "baseByLevel": [
+          3.5,
+          6.5,
+          9.5,
+          12.5,
+          15.5,
+          18.5,
+          21.5,
+          24.5,
+          27.5,
+          30.5,
+          33.5,
+          36.5,
+          39.5,
+          42.5,
+          45.5,
+          48.5,
+          51.5,
+          54.5
+        ]
+      },
+      "TotalMegaGnarMR": {
+        "base": 0,
+        "baseByLevel": [
+          3.5,
+          7,
+          10.5,
+          14,
+          17.5,
+          21,
+          24.5,
+          28,
+          31.5,
+          35,
+          38.5,
+          42,
+          45.5,
+          49,
+          52.5,
+          56,
+          59.5,
+          63
+        ]
+      },
+      "TotalMegaGnarAD": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          8.5,
+          11,
+          13.5,
+          16,
+          18.5,
+          21,
+          23.5,
+          26,
+          28.5,
+          31,
+          33.5,
+          36,
+          38.5,
+          41,
+          43.5,
+          46,
+          48.5
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalMegaGnarHealth": "part type {ee18a47b}"
     }
   },
   "GnarBigQ": {
     "path": "Characters/Gnar/Spells/GnarBigQAbility/GnarBigQ",
+    "maxRank": 5,
     "cooldown": [
       17.5,
       16,
@@ -673,10 +943,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MegaTotalDamage": {
+        "base": [
+          45,
+          90,
+          135,
+          180,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GnarE": {
     "path": "Characters/Gnar/Spells/GnarEAbility/GnarE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       24.5,
       22,
@@ -852,6 +1142,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MiniTotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.06
+          }
+        ]
+      },
+      "MegaTotalDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

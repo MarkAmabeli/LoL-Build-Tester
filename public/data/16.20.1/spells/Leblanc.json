@@ -1,6 +1,8 @@
 {
   "LeblancE": {
     "path": "Characters/Leblanc/Spells/LeblancEAbility/LeblancE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -119,10 +121,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "DelayedDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeblancQ": {
     "path": "Characters/Leblanc/Spells/LeblancQAbility/LeblancQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -242,10 +279,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          65,
+          90,
+          115,
+          140,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "MarkDamage": {
+        "base": [
+          65,
+          90,
+          115,
+          140,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "BonusMinionDamage": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          18,
+          26,
+          34,
+          42,
+          50,
+          58,
+          66,
+          74,
+          82,
+          90,
+          98,
+          106,
+          114,
+          122,
+          130,
+          138,
+          146
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeblancP": {
     "path": "Characters/Leblanc/Spells/LeblancPAbility/LeblancP",
+    "maxRank": 5,
     "cooldown": [
       60,
       60,
@@ -284,10 +378,14 @@
         60
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "LeblancW": {
     "path": "Characters/Leblanc/Spells/LeblancWAbility/LeblancW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -384,10 +482,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          115,
+          155,
+          195,
+          235
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeblancR": {
     "path": "Characters/Leblanc/Spells/LeblancRAbility/LeblancR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       45,
       45,
@@ -537,6 +655,74 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RQ1Damage": {
+        "base": [
+          70,
+          150,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "RQ2Damage": {
+        "base": [
+          140,
+          300,
+          460
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "RWDamage": {
+        "base": [
+          150,
+          315,
+          480
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      },
+      "RE1Damage": {
+        "base": [
+          70,
+          150,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "RE2Damage": {
+        "base": [
+          140,
+          300,
+          460
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "LeeSinPassive": {
     "path": "Characters/LeeSin/Spells/LeeSinPassiveAbility/LeeSinPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -62,10 +64,61 @@
         "mModifiedGameCalculation": "EnergyReturn",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "EnergyReturn": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "TTFirstHitEnergy": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeeSinQOne": {
     "path": "Characters/LeeSin/Spells/LeeSinQOneAbility/LeeSinQOne",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       10,
@@ -209,10 +262,60 @@
         "mModifiedGameCalculation": "RecastDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "RecastDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "EmpoweredDamage": {
+        "base": [
+          120,
+          180,
+          240,
+          300,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeeSinR": {
     "path": "Characters/LeeSin/Spells/LeeSinRAbility/LeeSinR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       110,
@@ -277,10 +380,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          175,
+          400,
+          625
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeeSinEOne": {
     "path": "Characters/LeeSin/Spells/LeeSinEOneAbility/LeeSinEOne",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -360,10 +481,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LeeSinWOne": {
     "path": "Characters/LeeSin/Spells/LeeSinWOneAbility/LeeSinWOne",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -470,6 +611,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldAmount": {
+        "base": [
+          60,
+          105,
+          150,
+          195,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

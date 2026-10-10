@@ -1,6 +1,8 @@
 {
   "PantheonPassive": {
     "path": "Characters/Pantheon/Spells/PantheonPassiveAbility/PantheonPassive",
+    "slot": "P",
+    "maxRank": 5,
     "dataValues": {
       "ActionsToEmpower": [
         5,
@@ -66,10 +68,14 @@
         -1
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "PantheonW": {
     "path": "Characters/Pantheon/Spells/PantheonWAbility/PantheonW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -235,10 +241,101 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "{1b016817}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.4,
+              0.4088235,
+              0.4176471,
+              0.4264706,
+              0.4352941,
+              0.4441177,
+              0.4529412,
+              0.4617647,
+              0.4705882,
+              0.4794118,
+              0.4882353,
+              0.4970588,
+              0.5058824,
+              0.5147059,
+              0.5235294,
+              0.532353,
+              0.5411765,
+              0.55
+            ]
+          }
+        ]
+      },
+      "EmpoweredDamageMultCalcModified": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              1.2,
+              1.226471,
+              1.252941,
+              1.279412,
+              1.305882,
+              1.332353,
+              1.358824,
+              1.385294,
+              1.411765,
+              1.438235,
+              1.464706,
+              1.491177,
+              1.517647,
+              1.544118,
+              1.570588,
+              1.597059,
+              1.623529,
+              1.65
+            ]
+          }
+        ]
+      },
+      "MaxHealthDamageCalc": {
+        "base": [
+          0.06,
+          0.065,
+          0.07,
+          0.075,
+          0.08
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.00004
+          },
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PantheonQ": {
     "path": "Characters/Pantheon/Spells/PantheonQAbility/PantheonQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -465,10 +562,108 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HoldDamageCalc": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.15
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TapDamageCalc": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.15
+          }
+        ]
+      },
+      "EmpoweredDamageCalc": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          32.94118,
+          45.88235,
+          58.82353,
+          71.76471,
+          84.70588,
+          97.64706,
+          110.5882,
+          123.5294,
+          136.4706,
+          149.4118,
+          162.3529,
+          175.2941,
+          188.2353,
+          201.1765,
+          214.1176,
+          227.0588,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.15
+          }
+        ]
+      },
+      "{6fc04dc0}": {
+        "base": [
+          85,
+          130,
+          175,
+          220,
+          265
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.15
+          }
+        ]
+      },
+      "ExecuteDamageCalcModified": {
+        "base": [
+          155,
+          230,
+          305,
+          380,
+          455
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PantheonE": {
     "path": "Characters/Pantheon/Spells/PantheonEAbility/PantheonE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -674,10 +869,115 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "ShieldDamageCalc": {
+        "base": [
+          55,
+          105,
+          155,
+          205,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      },
+      "{e62bc5e9}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.167
+          }
+        ]
+      },
+      "EmpoweredDamageCalc": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.67
+          }
+        ]
+      },
+      "HealCalc": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          85,
+          95,
+          105,
+          115,
+          125,
+          135,
+          155,
+          175,
+          195,
+          215
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      },
+      "ResistsCalc": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          6.470588,
+          7.941176,
+          9.411765,
+          10.88235,
+          12.35294,
+          13.82353,
+          15.29412,
+          16.76471,
+          18.23529,
+          19.70588,
+          21.17647,
+          22.64706,
+          24.11765,
+          25.58824,
+          27.05882,
+          28.52941,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PantheonR": {
     "path": "Characters/Pantheon/Spells/PantheonRAbility/PantheonR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       180,
       180,
@@ -810,10 +1110,40 @@
         "mModifiedGameCalculation": "DamageCalc",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          300,
+          500,
+          700
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "MinDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PantheonRFall": {
     "path": "Characters/Pantheon/Spells/PantheonRAbility/PantheonRFall",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -835,6 +1165,8 @@
     "dataValues": {
       "BaseDamage": []
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

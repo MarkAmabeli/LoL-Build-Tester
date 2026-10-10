@@ -1,6 +1,8 @@
 {
   "AkaliW": {
     "path": "Characters/Akali/Spells/AkaliWAbility/AkaliW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       20,
       20,
@@ -116,10 +118,37 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{955fbaa3}": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0.9,
+          0.9,
+          0.9,
+          0.825,
+          0.825,
+          0.825,
+          0.725,
+          0.725,
+          0.725,
+          0.625,
+          0.625,
+          0.625
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliPWeapon": {
     "path": "Characters/Akali/Spells/AkaliPAbility/AkaliPWeapon",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -211,10 +240,93 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EnergyRestore": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "Damage": {
+        "base": 0,
+        "baseByLevel": [
+          39,
+          42,
+          45,
+          48,
+          51,
+          54,
+          57,
+          60,
+          69,
+          78,
+          87,
+          96,
+          105,
+          120,
+          135,
+          150,
+          165,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "PassiveSpeedBonus": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.7,
+          0.7,
+          0.7
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliP": {
     "path": "Characters/Akali/Spells/AkaliPAbility/AkaliP",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -348,10 +460,52 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "EnergyRestore": {
+        "base": 0
+      },
+      "Damage": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          38,
+          41,
+          44,
+          47,
+          50,
+          53,
+          62,
+          71,
+          80,
+          89,
+          98,
+          107,
+          122,
+          137,
+          152,
+          167,
+          182
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          },
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "PassiveSpeedBonus": "part type {4ce08984}"
     }
   },
   "AkaliPZoneGround": {
     "path": "Characters/Akali/Spells/AkaliPAbility/AkaliPZoneGround",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -443,10 +597,94 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EnergyRestore": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "Damage": {
+        "base": 0,
+        "baseByLevel": [
+          39,
+          42,
+          45,
+          48,
+          51,
+          54,
+          57,
+          60,
+          69,
+          78,
+          87,
+          96,
+          105,
+          120,
+          135,
+          150,
+          165,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "PassiveSpeedBonus": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.7,
+          0.7,
+          0.7
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliQSpellPassive": {
     "path": "Characters/Akali/Spells/AkaliQAbility/AkaliQSpellPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -538,10 +776,94 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EnergyRestore": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "Damage": {
+        "base": 0,
+        "baseByLevel": [
+          39,
+          42,
+          45,
+          48,
+          51,
+          54,
+          57,
+          60,
+          69,
+          78,
+          87,
+          96,
+          105,
+          120,
+          135,
+          150,
+          165,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "PassiveSpeedBonus": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.7,
+          0.7,
+          0.7
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliQ": {
     "path": "Characters/Akali/Spells/AkaliQAbility/AkaliQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       1.5,
       1.5,
@@ -654,10 +976,52 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.65
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.65
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliRb": {
     "path": "Characters/Akali/Spells/AkaliRAbility/AkaliRb",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -711,10 +1075,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Cast2DamageMin": {
+        "base": [
+          70,
+          140,
+          210,
+          280,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliR": {
     "path": "Characters/Akali/Spells/AkaliRAbility/AkaliR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -851,10 +1235,58 @@
         "mModifiedGameCalculation": "Cast2DamageMin",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Cast1Damage": {
+        "base": [
+          110,
+          220,
+          330
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          },
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "Cast2DamageMin": {
+        "base": [
+          70,
+          140,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "Cast2DamageMax": {
+        "base": [
+          210,
+          420,
+          630
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkaliE": {
     "path": "Characters/Akali/Spells/AkaliEAbility/AkaliE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -984,6 +1416,47 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "E1Damage": {
+        "base": [
+          21,
+          42,
+          63,
+          84,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.3
+          },
+          {
+            "stat": "AP",
+            "value": 0.33
+          }
+        ]
+      },
+      "E2DamageCalc": {
+        "base": [
+          49,
+          98,
+          147,
+          196,
+          245
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.7
+          },
+          {
+            "stat": "AP",
+            "value": 0.77
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

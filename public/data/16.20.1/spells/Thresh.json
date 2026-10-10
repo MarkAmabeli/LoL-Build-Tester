@@ -1,6 +1,8 @@
 {
   "ThreshQ": {
     "path": "Characters/Thresh/Spells/ThreshQAbility/ThreshQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       19,
       19,
@@ -89,10 +91,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ThreshW": {
     "path": "Characters/Thresh/Spells/ThreshWAbility/ThreshW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       21,
       21,
@@ -173,10 +195,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ThreshE": {
     "path": "Characters/Thresh/Spells/ThreshEAbility/ThreshE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -356,10 +398,58 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PAttackDamageMin": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1.7
+          }
+        ]
+      },
+      "PAttackDamageMax": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1.7
+          },
+          {
+            "stat": "totalAD",
+            "value": [
+              0.9,
+              1.2,
+              1.5,
+              1.8,
+              2.1
+            ]
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          65,
+          110,
+          155,
+          200,
+          245
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ThreshPassiveSouls": {
     "path": "Characters/Thresh/Spells/ThreshPassiveSoulsAbility/ThreshPassiveSouls",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -402,10 +492,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "CurrentSoulBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ThreshRPenta": {
     "path": "Characters/Thresh/Spells/ThreshRPentaAbility/ThreshRPenta",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -521,6 +625,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          250,
+          400,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,7 @@
 {
   "BardPTooltip_D_nS": {
     "path": "Characters/Bard/Spells/BardPTooltip_D_nSAbility/BardPTooltip_D_nS",
+    "maxRank": 5,
     "dataValues": {
       "TooltipMSPerStack": [
         24,
@@ -171,10 +172,33 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MeepDamageNoChime": {
+        "base": 30,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "ChimesForSlowUpgrade": {
+        "base": 5
+      },
+      "ChimesForSplashDamageUpgrade": {
+        "base": 15
+      },
+      "ChimesForSplashAreaUpgrade": {
+        "base": 35
+      }
+    },
+    "unsupported": {}
   },
   "BardR": {
     "path": "Characters/Bard/Spells/BardRAbility/BardR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       110,
@@ -212,10 +236,14 @@
         2.5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "BardE": {
     "path": "Characters/Bard/Spells/BardEAbility/BardE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       22,
       22,
@@ -271,10 +299,14 @@
         900
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "BardQ": {
     "path": "Characters/Bard/Spells/BardQAbility/BardQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       11,
@@ -362,10 +394,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BardW": {
     "path": "Characters/Bard/Spells/BardWAbility/BardW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -551,6 +603,54 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "InitialHeal": {
+        "base": [
+          25,
+          50,
+          75,
+          100,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "MaxHeal": {
+        "base": [
+          50,
+          87.5,
+          125,
+          162.5,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "Calc_MoveSpeed": {
+        "base": [
+          0.2,
+          0.225,
+          0.25,
+          0.275,
+          0.3
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0006
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

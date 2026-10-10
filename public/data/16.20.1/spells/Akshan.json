@@ -1,6 +1,8 @@
 {
   "AkshanPassive": {
     "path": "Characters/Akshan/Spells/AkshanPassiveAbility/AkshanPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -240,10 +242,131 @@
         "mModifiedGameCalculation": "SecondAutoDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "MS": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          23.23529,
+          26.47059,
+          29.70588,
+          32.94118,
+          36.17647,
+          39.41176,
+          42.64706,
+          45.88235,
+          49.11765,
+          52.35294,
+          55.58824,
+          58.82353,
+          62.05882,
+          65.29412,
+          68.52941,
+          71.76471,
+          75
+        ]
+      },
+      "TotalShieldAmount": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          54.11765,
+          68.23529,
+          82.35294,
+          96.47059,
+          110.5882,
+          124.7059,
+          138.8235,
+          152.9412,
+          167.0588,
+          181.1765,
+          195.2941,
+          209.4118,
+          223.5294,
+          237.6471,
+          251.7647,
+          265.8824,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      },
+      "PassiveProcDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          15,
+          15,
+          15,
+          15,
+          40,
+          40,
+          40,
+          40,
+          40,
+          80,
+          80,
+          80,
+          80,
+          80,
+          150,
+          150,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "SecondAutoDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "PassiveCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          12,
+          12,
+          12,
+          12,
+          12,
+          8,
+          8,
+          8,
+          8,
+          8,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    "unsupported": {
+      "ASModdedMS": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "{82593567}": "stat code 9/0"
     }
   },
   "AkshanQ": {
     "path": "Characters/Akshan/Spells/AkshanQAbility/AkshanQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -374,10 +497,39 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FinalDamage": {
+        "base": [
+          45,
+          75,
+          105,
+          135,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          }
+        ]
+      },
+      "TotalHaste": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkshanW": {
     "path": "Characters/Akshan/Spells/AkshanWAbility/AkshanW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10,
       18,
@@ -543,10 +695,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "SecondAutoDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.46,
+              0.52,
+              0.58,
+              0.64,
+              0.7
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AkshanE": {
     "path": "Characters/Akshan/Spells/AkshanEAbility/AkshanE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       8,
       18,
@@ -775,10 +947,18 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "DamageToDeal": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "CriticalCalc": "SumOfSubPartsCalculationPart scales with a stat (stat × stat)",
+      "{36ebd3cf}": "stat code 9/0"
     }
   },
   "AkshanR": {
     "path": "Characters/Akshan/Spells/AkshanRAbility/AkshanR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       100,
       100,
@@ -942,6 +1122,11 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "MaxDamagePerBullet": "stat code 9/0",
+      "DamagePerBulletWithCrit": "stat code 9/0"
     }
   }
 }

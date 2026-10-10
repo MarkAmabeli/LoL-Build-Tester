@@ -1,6 +1,8 @@
 {
   "LuluQ": {
     "path": "Characters/Lulu/Spells/LuluQAbility/LuluQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -123,10 +125,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          95,
+          130,
+          165,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "BonusMissileDamage": {
+        "base": [
+          30,
+          47.5,
+          65,
+          82.5,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuluW": {
     "path": "Characters/Lulu/Spells/LuluWAbility/LuluW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -225,10 +262,24 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalMS": {
+        "base": 0.25,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuluE": {
     "path": "Characters/Lulu/Spells/LuluEAbility/LuluE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -347,10 +398,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalShield": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuluR": {
     "path": "Characters/Lulu/Spells/LuluRAbility/LuluR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       120,
@@ -447,10 +533,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalBonusHealth": {
+        "base": [
+          275,
+          425,
+          575
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LuluPassive": {
     "path": "Characters/Lulu/Spells/LuluPassiveAbility/LuluPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -503,6 +607,67 @@
         "mModifiedGameCalculation": "TotalDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23,
+          25,
+          27,
+          29,
+          31,
+          33,
+          35,
+          37,
+          39
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "CombinedDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          21,
+          27,
+          33,
+          39,
+          45,
+          51,
+          57,
+          63,
+          69,
+          75,
+          81,
+          87,
+          93,
+          99,
+          105,
+          111,
+          117
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

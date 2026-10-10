@@ -1,6 +1,8 @@
 {
   "CurseoftheSadMummy": {
     "path": "Characters/Amumu/Spells/CurseoftheSadMummyAbility/CurseoftheSadMummy",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       150,
       150,
@@ -70,10 +72,27 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RCalculatedDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AmumuP": {
     "path": "Characters/Amumu/Spells/AmumuPAbility/AmumuP",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -112,10 +131,14 @@
         0.10000000149011612
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "AuraofDespair": {
     "path": "Characters/Amumu/Spells/AuraofDespairAbility/AuraofDespair",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       1,
       1,
@@ -207,10 +230,48 @@
         "mModifiedGameCalculation": "TotalHealthDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "{c8e45bc3}": {
+        "base": 5
+      },
+      "TotalHealthDamage": {
+        "base": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.005
+          }
+        ]
+      },
+      "{8a96509c}": {
+        "base": [
+          0.005,
+          0.00625,
+          0.0075,
+          0.00875,
+          0.01
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.000025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Tantrum": {
     "path": "Characters/Amumu/Spells/TantrumAbility/Tantrum",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       9,
@@ -320,10 +381,49 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageReduction": {
+        "base": [
+          5,
+          7,
+          9,
+          11,
+          13
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.03
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.03
+          }
+        ]
+      },
+      "TantrumDamage": {
+        "base": [
+          65,
+          95,
+          125,
+          155,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BandageToss": {
     "path": "Characters/Amumu/Spells/BandageTossAbility/BandageToss",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       3,
       3,
@@ -395,6 +495,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

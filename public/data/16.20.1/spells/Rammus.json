@@ -1,6 +1,8 @@
 {
   "DefensiveBallCurl": {
     "path": "Characters/Rammus/Spells/DefensiveBallCurlAbility/DefensiveBallCurl",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -201,10 +203,83 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ReturnDamageCalc": {
+        "base": 15,
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": 0.1
+          },
+          {
+            "stat": "totalMR",
+            "value": 0.1
+          }
+        ]
+      },
+      "BonusArmorTooltip": {
+        "base": [
+          35.1,
+          44,
+          53.65,
+          64.05,
+          75.2
+        ],
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": [
+              0.3,
+              0.375,
+              0.45,
+              0.525,
+              0.6
+            ]
+          }
+        ]
+      },
+      "BonusMRTooltip": {
+        "base": [
+          26,
+          34.375,
+          43.5,
+          53.375,
+          64
+        ],
+        "ratios": [
+          {
+            "stat": "totalMR",
+            "value": [
+              0.3,
+              0.375,
+              0.45,
+              0.525,
+              0.6
+            ]
+          }
+        ]
+      },
+      "RecastDamageTooltip": {
+        "base": 15,
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": 0.1
+          },
+          {
+            "stat": "totalMR",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PowerBall": {
     "path": "Characters/Rammus/Spells/PowerBallAbility/PowerBall",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -361,10 +436,76 @@
         "mModifiedGameCalculation": "MinimumMoveSpeed",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "PowerBallDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "MinimumMoveSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.25,
+          0.2582941,
+          0.2665882,
+          0.2748824,
+          0.2831765,
+          0.2914706,
+          0.2997647,
+          0.3080588,
+          0.3163529,
+          0.3246471,
+          0.3329412,
+          0.3412353,
+          0.3495294,
+          0.3578235,
+          0.3661176,
+          0.3744118,
+          0.3827059,
+          0.391
+        ]
+      },
+      "MaximumMoveSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          1.5,
+          1.549765,
+          1.599529,
+          1.649294,
+          1.699059,
+          1.748824,
+          1.798588,
+          1.848353,
+          1.898118,
+          1.947882,
+          1.997647,
+          2.047412,
+          2.097176,
+          2.146941,
+          2.196706,
+          2.246471,
+          2.296235,
+          2.346
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Tremors2": {
     "path": "Characters/Rammus/Spells/Tremors2Ability/Tremors2",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -614,10 +755,38 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "InitialDamageCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxSlow": {
+        "base": [
+          90,
+          120,
+          150
+        ]
+      }
+    },
+    "unsupported": {
+      "PulseDamageCalc": "data value \"PulseBaseDamage\" has no numbers",
+      "TooltipMaxDamageCalc": "data value \"BonusDamageMultiplier\" has no numbers"
     }
   },
   "PuncturingTaunt": {
     "path": "Characters/Rammus/Spells/PuncturingTauntAbility/PuncturingTaunt",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -687,10 +856,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MonsterDamageCalc": {
+        "base": [
+          80,
+          100,
+          120,
+          140,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "RammusP": {
     "path": "Characters/Rammus/Spells/RammusPAbility/RammusP",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -745,6 +933,22 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": 0.15
+          },
+          {
+            "stat": "totalMR",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

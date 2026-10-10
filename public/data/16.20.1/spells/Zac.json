@@ -1,6 +1,8 @@
 {
   "ZacR": {
     "path": "Characters/Zac/Spells/ZacRAbility/ZacR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -229,10 +231,57 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamagePerBounce": {
+        "base": [
+          120,
+          190,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "DamagePerSubsequentBounce": {
+        "base": [
+          60,
+          95,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "DurationTooltip": {
+        "base": 3
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          300,
+          475,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "ZacW": {
     "path": "Characters/Zac/Spells/ZacWAbility/ZacW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       5,
       5,
@@ -373,10 +422,32 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "DisplayPercentDamage": {
+        "base": [
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TooltipHealthCost": "stat code 14/0"
     }
   },
   "ZacQ": {
     "path": "Characters/Zac/Spells/ZacQAbility/ZacQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -569,10 +640,55 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.03
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          120,
+          180,
+          240,
+          300,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "HealthCostTooltip": "stat code 14/0"
     }
   },
   "ZacE": {
     "path": "Characters/Zac/Spells/ZacEAbility/ZacE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       25,
       22,
@@ -741,10 +857,35 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "MaxStun": {
+        "base": 1
+      },
+      "Damage": {
+        "base": [
+          60,
+          105,
+          150,
+          195,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "HealthCostTooltip": "stat code 14/0"
     }
   },
   "ZacPassiveChunkDrop": {
     "path": "Characters/Zac/Spells/ZacPassiveChunkDropAbility/ZacPassiveChunkDrop",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       300,
       300,
@@ -818,6 +959,57 @@
         "mModifiedGameCalculation": "HealPercent",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "HealPercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.04,
+          0.04235294,
+          0.04470588,
+          0.04705882,
+          0.04941176,
+          0.0517647,
+          0.05411765,
+          0.05647059,
+          0.05882353,
+          0.06117647,
+          0.06352941,
+          0.06588235,
+          0.06823529,
+          0.07058823,
+          0.07294117,
+          0.07529412,
+          0.07764706,
+          0.08
+        ]
+      },
+      "ReviveBlobletDuration": {
+        "base": 0,
+        "baseByLevel": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          7,
+          7,
+          7,
+          7,
+          6,
+          6,
+          6,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalHeal": "StatByCoefficientCalculationPart scales with a stat (stat × stat)"
     }
   }
 }

@@ -1,6 +1,8 @@
 {
   "MaokaiPassive": {
     "path": "Characters/Maokai/Spells/MaokaiPassiveAbility/MaokaiPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -72,10 +74,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          29.41176,
+          28.82353,
+          28.23529,
+          27.64706,
+          27.05882,
+          26.47059,
+          25.88235,
+          25.29412,
+          24.70588,
+          24.11765,
+          23.52941,
+          22.94118,
+          22.35294,
+          21.76471,
+          21.17647,
+          20.58824,
+          20
+        ]
+      },
+      "PassiveHealingTotal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0,
+            "valueByLevel": [
+              0.04,
+              0.042,
+              0.044,
+              0.046,
+              0.048,
+              0.05,
+              0.0565,
+              0.063,
+              0.0695,
+              0.076,
+              0.0825,
+              0.089,
+              0.0955,
+              0.102,
+              0.1085,
+              0.115,
+              0.1215,
+              0.128
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MaokaiR": {
     "path": "Characters/Maokai/Spells/MaokaiRAbility/MaokaiR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -173,10 +232,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          225,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MaokaiQ": {
     "path": "Characters/Maokai/Spells/MaokaiQAbility/MaokaiQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -321,10 +398,39 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          120,
+          165,
+          210,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalPercentHealth": {
+        "base": [
+          0.02,
+          0.025,
+          0.03,
+          0.035,
+          0.04
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MaokaiW": {
     "path": "Characters/Maokai/Spells/MaokaiWAbility/MaokaiW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -396,10 +502,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MaokaiE": {
     "path": "Characters/Maokai/Spells/MaokaiEAbility/MaokaiE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -636,6 +762,92 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EmpoweredSaplingDuration": {
+        "base": 30,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.015
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.05
+          }
+        ]
+      },
+      "TotalEmpoweredDamage": {
+        "base": [
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "EmpoweredSlowAmount": {
+        "base": 0.45,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0001
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.0001
+          }
+        ]
+      },
+      "SaplingMoveSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          400,
+          405,
+          410,
+          415,
+          420,
+          425,
+          430,
+          435,
+          440,
+          445,
+          450,
+          455,
+          460,
+          465,
+          470,
+          475,
+          480,
+          485
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

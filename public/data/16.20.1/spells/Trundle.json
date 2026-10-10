@@ -1,6 +1,8 @@
 {
   "TrundlePain": {
     "path": "Characters/Trundle/Spells/TrundlePainAbility/TrundlePain",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -125,10 +127,27 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalPercentHPDamage": {
+        "base": [
+          0.2,
+          0.25,
+          0.3
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TrundleDiseaseOverseer": {
     "path": "Characters/Trundle/Spells/TrundleDiseaseOverseerAbility/TrundleDiseaseOverseer",
+    "maxRank": 5,
     "range": [
       1400,
       1400,
@@ -152,10 +171,38 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RegenPercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.018,
+          0.02017647,
+          0.02235294,
+          0.02452941,
+          0.02670588,
+          0.02888235,
+          0.03105882,
+          0.03323529,
+          0.03541176,
+          0.03758823,
+          0.03976471,
+          0.04194118,
+          0.04411765,
+          0.04629412,
+          0.04847059,
+          0.05064706,
+          0.05282353,
+          0.055
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "trundledesecrate": {
     "path": "Characters/Trundle/Spells/trundledesecrateAbility/trundledesecrate",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -229,10 +276,14 @@
         775
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TrundleCircle": {
     "path": "Characters/Trundle/Spells/TrundleCircleAbility/TrundleCircle",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       21,
       21,
@@ -333,10 +384,14 @@
         60
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TrundleTrollSmash": {
     "path": "Characters/Trundle/Spells/TrundleTrollSmashAbility/TrundleTrollSmash",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       3.5,
       3.5,
@@ -470,6 +525,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          10,
+          30,
+          50,
+          70,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.15,
+              1.25,
+              1.35,
+              1.45,
+              1.55
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

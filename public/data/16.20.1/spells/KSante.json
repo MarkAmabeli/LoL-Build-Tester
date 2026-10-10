@@ -1,6 +1,8 @@
 {
   "KSanteR": {
     "path": "Characters/KSante/Spells/KSanteRAbility/KSanteR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -465,10 +467,27 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageSlamDown": {
+        "base": [
+          80,
+          115,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteRMissile1": {
     "path": "Characters/KSante/Spells/KSanteRAbility/KSanteRMissile1",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -503,10 +522,15 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
     }
   },
   "KSanteP": {
     "path": "Characters/KSante/Spells/KSantePAbility/KSanteP",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -664,10 +688,52 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "{281dd874}": {
+        "base": 0,
+        "baseByLevel": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.13,
+          0.13,
+          0.13,
+          0.13,
+          0.13,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.19,
+          0.19,
+          0.19
+        ]
+      },
+      "MaxHealthDamagePercent": {
+        "base": 0.01,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.0001
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.0001
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "PercentHealthDamage": "part type {ee18a47b}"
     }
   },
   "KSanteESelfDash": {
     "path": "Characters/KSante/Spells/KSanteEAbility/KSanteESelfDash",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -796,10 +862,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          45,
+          65,
+          85,
+          105,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteEAllyDash": {
     "path": "Characters/KSante/Spells/KSanteEAbility/KSanteEAllyDash",
+    "maxRank": 5,
     "cooldown": [
       8,
       6,
@@ -999,10 +1084,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          90,
+          130,
+          170,
+          210,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteE": {
     "path": "Characters/KSante/Spells/KSanteEAbility/KSanteE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -1166,10 +1271,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          70,
+          112.5,
+          155,
+          197.5,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.135
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteW": {
     "path": "Characters/KSante/Spells/KSanteWAbility/KSanteW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       16,
       14,
@@ -1447,10 +1572,27 @@
         "mPrecision": -1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalMaxHealthDamage": {
+        "base": 0.08,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.0002
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.0002
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteW_AllOut": {
     "path": "Characters/KSante/Spells/KSanteWAbility/KSanteW_AllOut",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -1581,10 +1723,60 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{98da435c}": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          52,
+          64,
+          76,
+          88,
+          100,
+          112,
+          124,
+          136,
+          148,
+          160,
+          172,
+          184,
+          196,
+          208,
+          220,
+          232,
+          244
+        ]
+      },
+      "MaxMonsterDamage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          75,
+          100,
+          125,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325,
+          350,
+          375,
+          400,
+          425,
+          450,
+          475
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteQ3": {
     "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ3",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -2035,10 +2227,100 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{04324da6}": {
+        "base": [
+          15,
+          30,
+          45,
+          60,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "{cdd991ce}": {
+        "base": 4,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": -0.001
+          }
+        ]
+      },
+      "RDamage": {
+        "base": [
+          35,
+          55,
+          75,
+          95,
+          115
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "EmpoweredAttackDamage": {
+        "base": 20,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "BonusPercentHealth": {
+        "base": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.001
+          }
+        ]
+      },
+      "BonusResistsTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 1
+          },
+          {
+            "stat": "bonusMR",
+            "value": 1
+          }
+        ]
+      },
+      "BonusHealthTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteQ": {
     "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       3.5,
       3.5,
@@ -2334,10 +2616,42 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.4
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.4
+          }
+        ]
+      },
+      "{9c9367bc}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KSanteQ3Missile": {
     "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ3Missile",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -2372,6 +2686,10 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
     }
   }
 }

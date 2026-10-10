@@ -1,6 +1,8 @@
 {
   "JinxW": {
     "path": "Characters/Jinx/Spells/JinxWAbility/JinxW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       9,
       8,
@@ -98,10 +100,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          10,
+          60,
+          110,
+          160,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JinxE": {
     "path": "Characters/Jinx/Spells/JinxEAbility/JinxE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       27.5,
       24,
@@ -180,10 +202,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          90,
+          140,
+          190,
+          240,
+          290
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JinxQ": {
     "path": "Characters/Jinx/Spells/JinxQAbility/JinxQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       0.8999999761581421,
       0.8999999761581421,
@@ -287,10 +329,24 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RocketDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "JinxPassiveMarker": {
     "path": "Characters/Jinx/Spells/JinxPassiveMarkerAbility/JinxPassiveMarker",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -347,10 +403,14 @@
         3
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "JinxR": {
     "path": "Characters/Jinx/Spells/JinxRAbility/JinxR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       85,
       85,
@@ -464,10 +524,40 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "DamageFloor": {
+        "base": [
+          20,
+          35,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.12
+          }
+        ]
+      },
+      "DamageMax": {
+        "base": [
+          200,
+          350,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Crepe_JinxVsEkko_JinxReward": {
     "path": "{9b5aa500}",
+    "maxRank": 5,
     "dataValues": {
       "AH": [
         10,
@@ -479,6 +569,8 @@
         10
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

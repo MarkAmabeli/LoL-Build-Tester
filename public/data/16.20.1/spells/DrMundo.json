@@ -1,6 +1,7 @@
 {
   "DrMundoP": {
     "path": "Characters/DrMundo/Spells/DrMundoPassiveAbility/DrMundoP",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -164,10 +165,61 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          60,
+          60,
+          51,
+          51,
+          51,
+          42,
+          42,
+          42,
+          33,
+          33,
+          33,
+          24,
+          24,
+          24,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "MaxHealthRegen": {
+        "base": 0,
+        "baseByLevel": [
+          0.004,
+          0.0045,
+          0.005,
+          0.0055,
+          0.006,
+          0.0065,
+          0.0075,
+          0.0085,
+          0.0095,
+          0.0105,
+          0.0115,
+          0.0125,
+          0.014,
+          0.0155,
+          0.017,
+          0.019,
+          0.021,
+          0.023
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DrMundoE": {
     "path": "Characters/DrMundo/Spells/DrMundoEAbility/DrMundoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       9,
       9,
@@ -324,10 +376,47 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "AdditionalDamage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.05
+          }
+        ]
+      },
+      "MaxDamageAmpTooltip": {
+        "base": 0.4
+      },
+      "PassiveBonusAD": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": [
+              0.02,
+              0.023,
+              0.026,
+              0.029,
+              0.032
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DrMundoWRecast": {
     "path": "Characters/DrMundo/Spells/DrMundoWAbility/DrMundoWRecast",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -432,10 +521,34 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          15,
+          20,
+          25,
+          30,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DrMundoW": {
     "path": "Characters/DrMundo/Spells/DrMundoWAbility/DrMundoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       17,
       17,
@@ -573,10 +686,53 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.07
+          }
+        ]
+      },
+      "GrayHealthStorageInitial": {
+        "base": 0,
+        "baseByLevel": [
+          0.8,
+          0.8088235,
+          0.8176471,
+          0.8264706,
+          0.8352941,
+          0.8441177,
+          0.8529412,
+          0.8617647,
+          0.8705882,
+          0.8794118,
+          0.8882353,
+          0.8970588,
+          0.9058823,
+          0.9147059,
+          0.9235294,
+          0.9323529,
+          0.9411765,
+          0.95
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "DrMundoR": {
     "path": "Characters/DrMundo/Spells/DrMundoRAbility/DrMundoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -651,10 +807,14 @@
         0.05000000074505806
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "DrMundoQ": {
     "path": "Characters/DrMundo/Spells/DrMundoQAbility/DrMundoQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -784,6 +944,27 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HealthRestoreOnHitChampionMonster": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "HealthRestoreOnHitMinion": {
+        "base": [
+          25,
+          30,
+          35,
+          40,
+          45
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "TeemoW": {
     "path": "Characters/Teemo/Spells/TeemoWAbility/TeemoW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -65,10 +67,14 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TeemoR": {
     "path": "Characters/Teemo/Spells/TeemoRAbility/TeemoR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       0.25,
       0.25,
@@ -228,10 +234,27 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          325,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TeemoRDot": {
     "path": "Characters/Teemo/Spells/TeemoRAbility/TeemoRDot",
+    "maxRank": 5,
     "dataValues": {
       "VisionRadius": [
         175,
@@ -243,10 +266,14 @@
         175
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TeemoE": {
     "path": "Characters/Teemo/Spells/TeemoEAbility/TeemoE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -413,10 +440,110 @@
         "mModifiedGameCalculation": "TickCalculatedDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TickCalculatedDamage": {
+        "base": [
+          6,
+          12,
+          18,
+          24,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.025
+          }
+        ]
+      },
+      "ImpactCalculatedDamage": {
+        "base": [
+          9,
+          23,
+          37,
+          51,
+          65
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.05
+          }
+        ]
+      },
+      "TotalDotDamage": {
+        "base": [
+          24,
+          48,
+          72,
+          96,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "{8b70cfd6}": {
+        "base": [
+          14.4,
+          36.8,
+          59.2,
+          81.6,
+          104
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.48
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.08
+          }
+        ]
+      },
+      "{938cba49}": {
+        "base": [
+          9.6,
+          19.2,
+          28.8,
+          38.4,
+          48
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.16
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.04
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TeemoQ": {
     "path": "Characters/Teemo/Spells/TeemoQAbility/TeemoQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -517,10 +644,39 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "CalculatedDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "{0f87e4ba}": {
+        "base": [
+          4,
+          4.5,
+          5,
+          5.5,
+          6
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TeemoPassive": {
     "path": "Characters/Teemo/Spells/TeemoPassiveAbility/TeemoPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -578,6 +734,32 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BonusAttackSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

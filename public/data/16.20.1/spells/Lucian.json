@@ -1,6 +1,8 @@
 {
   "LucianR": {
     "path": "Characters/Lucian/Spells/LucianRAbility/LucianR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       110,
@@ -212,10 +214,35 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "DamagePerBullet": {
+        "base": [
+          15,
+          30,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.25
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "stat code 9/0",
+      "TotalNumShots": "stat code 9/0"
     }
   },
   "LucianW": {
     "path": "Characters/Lucian/Spells/LucianWAbility/LucianW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       14,
@@ -330,10 +357,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          110,
+          145,
+          180,
+          215
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LucianPassive": {
     "path": "Characters/Lucian/Spells/LucianPassiveAbility/LucianPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -497,10 +544,65 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6
+            ]
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "PassiveTotalDamage": {
+        "base": 5,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CritDamage": "stat code 9/2",
+      "MinionCritDamage": "stat code 9/2"
     }
   },
   "LucianQ": {
     "path": "Characters/Lucian/Spells/LucianQAbility/LucianQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       9,
@@ -581,10 +683,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          90,
+          130,
+          170,
+          210,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "LucianE": {
     "path": "Characters/Lucian/Spells/LucianEAbility/LucianE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       16,
       16,
@@ -658,6 +780,8 @@
         1350
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "BelvethQ": {
     "path": "Characters/Belveth/Spells/BelvethQAbility/BelvethQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4,
       4,
@@ -191,10 +193,39 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.05
+          }
+        ]
+      },
+      "{290ee56e}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "attackSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BelvethR": {
     "path": "Characters/Belveth/Spells/BelvethRAbility/BelvethR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       1,
       1,
@@ -480,10 +511,71 @@
         "mModifiedGameCalculation": "FinalOnHitDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "FinalOnHitDamage": {
+        "base": [
+          2,
+          4,
+          6
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.03
+          }
+        ]
+      },
+      "MaxHealthOnDevour": {
+        "base": [
+          100,
+          250,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          },
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      },
+      "TotalExplosionDamage": {
+        "base": [
+          150,
+          200,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      },
+      "MaxMonsterOnHitTooltip": {
+        "base": [
+          16,
+          32,
+          48
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.24
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BelvethPassive": {
     "path": "Characters/Belveth/Spells/BelvethPassiveAbility/BelvethPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -671,10 +763,41 @@
         "mModifiedGameCalculation": "AttackSpeedPerStack",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "SheenSpeedPerStack": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      }
+    },
+    "unsupported": {
+      "AttackSpeedPerStack": "part type {4ce08984}",
+      "TotalAttackSpeedFromStacks": "part type {4ce08984}"
     }
   },
   "BelvethW": {
     "path": "Characters/Belveth/Spells/BelvethWAbility/BelvethW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -746,10 +869,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          80,
+          140,
+          200,
+          260,
+          320
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "BelvethE": {
     "path": "Characters/Belveth/Spells/BelvethEAbility/BelvethE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       24,
       24,
@@ -907,6 +1050,57 @@
         "mModifiedGameCalculation": "DamagePerStrike",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalStrikes": {
+        "base": 6,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 2.4
+          }
+        ]
+      },
+      "DamagePerStrike": {
+        "base": [
+          10,
+          12,
+          14,
+          16,
+          18
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.12
+          }
+        ]
+      },
+      "TotalLifesteal": {
+        "base": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ]
+      },
+      "MaxDamagePerStrikeTooltip": {
+        "base": [
+          20,
+          24,
+          28,
+          32,
+          36
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.24
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

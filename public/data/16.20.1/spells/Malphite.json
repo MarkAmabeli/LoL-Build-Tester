@@ -1,6 +1,7 @@
 {
   "MalphiteShield": {
     "path": "Characters/Malphite/Spells/MalphiteShieldAbility/MalphiteShield",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -45,10 +46,47 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PassiveCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ]
+      },
+      "TotalShield": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Obduracy": {
     "path": "Characters/Malphite/Spells/ObduracyAbility/Obduracy",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -241,10 +279,81 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalBonusDamage": {
+        "base": [
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          },
+          {
+            "stat": "totalArmor",
+            "value": 0.15
+          }
+        ]
+      },
+      "{185669f9}": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          },
+          {
+            "stat": "totalArmor",
+            "value": 0.3
+          }
+        ]
+      },
+      "ThunderclapSplash": {
+        "base": [
+          15,
+          25,
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "totalArmor",
+            "value": 0.15
+          }
+        ]
+      },
+      "{71941255}": {
+        "base": [
+          0.3,
+          0.45,
+          0.6,
+          0.75,
+          0.9
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "UFSlash": {
     "path": "Characters/Malphite/Spells/UFSlashAbility/UFSlash",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -305,10 +414,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SeismicShard": {
     "path": "Characters/Malphite/Spells/SeismicShardAbility/SeismicShard",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -379,10 +506,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "QDamageCalc": {
+        "base": [
+          70,
+          120,
+          170,
+          220,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Landslide": {
     "path": "Characters/Malphite/Spells/LandslideAbility/Landslide",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -448,6 +595,28 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "EDamageCalc": {
+        "base": [
+          60,
+          95,
+          130,
+          165,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": 0.4
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

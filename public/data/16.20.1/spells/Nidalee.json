@@ -1,6 +1,7 @@
 {
   "Takedown": {
     "path": "Characters/Nidalee/Spells/Takedown",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -48,10 +49,14 @@
         75
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "JavelinToss": {
     "path": "Characters/Nidalee/Spells/JavelinTossAbility/JavelinToss",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -166,10 +171,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "HumanMinimumDamage": {
+        "base": [
+          70,
+          90,
+          110,
+          130,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "HumanMaximumDamage": {
+        "base": [
+          227.5,
+          292.5,
+          357.5,
+          422.5,
+          487.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.625
+          }
+        ]
+      },
+      "{38f95809}": {
+        "base": [
+          5,
+          30,
+          55,
+          80,
+          105
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "PrimalSurge": {
     "path": "Characters/Nidalee/Spells/PrimalSurgeAbility/PrimalSurge",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       12,
       12,
@@ -274,10 +323,45 @@
         "mModifiedGameCalculation": "TotalHealing",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "TotalHealing": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "MaxHealing": {
+        "base": [
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "AspectOfTheCougar": {
     "path": "Characters/Nidalee/Spells/AspectOfTheCougarAbility/AspectOfTheCougar",
+    "slot": "R",
+    "maxRank": 4,
     "cooldown": [
       3,
       3,
@@ -463,10 +547,69 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalPounceDamage": {
+        "base": [
+          55,
+          100,
+          145,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          },
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalSwipeDamage": {
+        "base": [
+          70,
+          130,
+          190,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          },
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "TotalTakedownDamage": {
+        "base": [
+          5,
+          30,
+          55,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.75
+          },
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "Bushwhack": {
     "path": "Characters/Nidalee/Spells/BushwhackAbility/Bushwhack",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       13,
@@ -578,10 +721,31 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "MaxTraps": "data value \"ModesBonusMaxTraps\" has no numbers"
     }
   },
   "Pounce": {
     "path": "Characters/Nidalee/Spells/Pounce",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -611,6 +775,8 @@
         750
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

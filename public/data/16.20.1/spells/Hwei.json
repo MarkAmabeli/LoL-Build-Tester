@@ -1,6 +1,8 @@
 {
   "HweiR": {
     "path": "Characters/Hwei/Spells/HweiRAbility/HweiR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       120,
       120,
@@ -140,10 +142,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          200,
+          325,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "DamageOverTime": {
+        "base": [
+          10,
+          20,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "TotalMaxDamage": {
+        "base": [
+          230,
+          385,
+          540
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.95
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiE": {
     "path": "Characters/Hwei/Spells/HweiEAbility/HweiE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -269,10 +315,59 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Tooltip_EQDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "Tooltip_EWDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "Tooltip_EEDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiEQ": {
     "path": "Characters/Hwei/Spells/HweiEAbility/HweiEQ",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -351,10 +446,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiEW": {
     "path": "Characters/Hwei/Spells/HweiEAbility/HweiEW",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -478,10 +592,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiEE": {
     "path": "Characters/Hwei/Spells/HweiEAbility/HweiEE",
+    "maxRank": 5,
     "cooldown": [
       13,
       13,
@@ -569,10 +702,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiWE": {
     "path": "Characters/Hwei/Spells/HweiWAbility/HweiWE",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -677,10 +829,54 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "OnHitDamage": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "TotalOnHitDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "{a14e3318}": {
+        "base": [
+          48,
+          53,
+          58,
+          63,
+          68
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiW": {
     "path": "Characters/Hwei/Spells/HweiWAbility/HweiW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -820,10 +1016,74 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Tooltip_WQMoveSpeed": {
+        "base": [
+          0.3,
+          0.325,
+          0.35,
+          0.375,
+          0.4
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "Tooltip_WWShieldAmount": {
+        "base": [
+          100,
+          140,
+          180,
+          220,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "Tooltip_WWStartShieldAmount": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "Tooltip_WEOnHitDamage": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiWQ": {
     "path": "Characters/Hwei/Spells/HweiWAbility/HweiWQ",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -907,10 +1167,29 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MoveSpeed": {
+        "base": [
+          0.3,
+          0.325,
+          0.35,
+          0.375,
+          0.4
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiWW": {
     "path": "Characters/Hwei/Spells/HweiWAbility/HweiWW",
+    "maxRank": 5,
     "cooldown": [
       18,
       18,
@@ -1042,10 +1321,45 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldAmount": {
+        "base": [
+          100,
+          140,
+          180,
+          220,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "{20a3d822}": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiPassive": {
     "path": "Characters/Hwei/Spells/HweiPassiveAbility/HweiPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -1090,10 +1404,43 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          54.41176,
+          68.82353,
+          83.23529,
+          97.64706,
+          112.0588,
+          126.4706,
+          140.8824,
+          155.2941,
+          169.7059,
+          184.1176,
+          198.5294,
+          212.9412,
+          227.3529,
+          241.7647,
+          256.1765,
+          270.5882,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiQE": {
     "path": "Characters/Hwei/Spells/HweiQAbility/HweiQE",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -1232,10 +1579,67 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "DamagePerSecond": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.24
+          }
+        ]
+      },
+      "{a8f705ac}": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          15.88235,
+          16.76471,
+          17.64706,
+          18.52941,
+          19.41176,
+          20.29412,
+          21.17647,
+          22.05882,
+          22.94118,
+          23.82353,
+          24.70588,
+          25.58824,
+          26.47059,
+          27.35294,
+          28.23529,
+          29.11765,
+          30
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiQQ": {
     "path": "Characters/Hwei/Spells/HweiQAbility/HweiQQ",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -1314,10 +1718,29 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiQW": {
     "path": "Characters/Hwei/Spells/HweiQAbility/HweiQW",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -1413,10 +1836,51 @@
         "mModifiedGameCalculation": "Damage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "BonusDamage": {
+        "base": [
+          120,
+          201.875,
+          302.5,
+          421.875,
+          560
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.6,
+              0.7125,
+              0.825,
+              0.9375,
+              1.05
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "HweiQ": {
     "path": "Characters/Hwei/Spells/HweiQAbility/HweiQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -1565,6 +2029,90 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "Tooltip_QQDamage": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "Tooltip_QWDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "Tooltip_QWBonusDamage": {
+        "base": [
+          120,
+          201.875,
+          302.5,
+          421.875,
+          560
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.6,
+              0.7125,
+              0.825,
+              0.9375,
+              1.05
+            ]
+          }
+        ]
+      },
+      "Tooltip_QEDamage": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "Tooltip_QEDamagePerSecond": {
+        "base": [
+          20,
+          35,
+          50,
+          65,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.24
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

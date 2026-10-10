@@ -1,6 +1,8 @@
 {
   "MalzaharW": {
     "path": "Characters/Malzahar/Spells/MalzaharWAbility/MalzaharW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       8,
       8,
@@ -157,10 +159,76 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{c2505620}": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          8.5,
+          12,
+          15.5,
+          19,
+          22.5,
+          26,
+          29.5,
+          33,
+          36.5,
+          40,
+          43.5,
+          47,
+          50.5,
+          54,
+          57.5,
+          61,
+          64.5
+        ]
+      },
+      "VoidlingBonusDamageTooltip": {
+        "base": [
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "baseByLevel": [
+          5,
+          8.5,
+          12,
+          15.5,
+          19,
+          22.5,
+          26,
+          29.5,
+          33,
+          36.5,
+          40,
+          43.5,
+          47,
+          50.5,
+          54,
+          57.5,
+          61,
+          64.5
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          },
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MalzaharWCancel": {
     "path": "Characters/Malzahar/Spells/MalzaharWAbility/MalzaharWCancel",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -309,10 +377,77 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "{c2505620}": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          8.5,
+          12,
+          15.5,
+          19,
+          22.5,
+          26,
+          29.5,
+          33,
+          36.5,
+          40,
+          43.5,
+          47,
+          50.5,
+          54,
+          57.5,
+          61,
+          64.5
+        ]
+      },
+      "VoidlingBonusDamageTooltip": {
+        "base": [
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "baseByLevel": [
+          5,
+          8.5,
+          12,
+          15.5,
+          19,
+          22.5,
+          26,
+          29.5,
+          33,
+          36.5,
+          40,
+          43.5,
+          47,
+          50.5,
+          54,
+          57.5,
+          61,
+          64.5
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          },
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MalzaharQ": {
     "path": "Characters/Malzahar/Spells/MalzaharQAbility/MalzaharQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       6,
       6,
@@ -383,10 +518,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MalzaharPassive": {
     "path": "Characters/Malzahar/Spells/MalzaharPassiveAbility/MalzaharPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -443,10 +598,38 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ShieldCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          24,
+          24,
+          24,
+          24,
+          24,
+          18,
+          18,
+          18,
+          18,
+          18,
+          12,
+          12,
+          12
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MalzaharR": {
     "path": "Characters/Malzahar/Spells/MalzaharRAbility/MalzaharR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       140,
       140,
@@ -608,10 +791,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "ZoneDamageTooltip": {
+        "base": [
+          0.1,
+          0.15,
+          0.2
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00025
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          125,
+          200,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "MalzaharE": {
     "path": "Characters/Malzahar/Spells/MalzaharEAbility/MalzaharE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       11,
       11,
@@ -709,6 +923,56 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "ManaRestore": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxMana",
+            "value": 0.02
+          }
+        ]
+      },
+      "MinionExecuteThreshold": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36,
+          38,
+          40,
+          42,
+          44
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

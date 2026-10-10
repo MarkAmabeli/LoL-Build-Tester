@@ -1,6 +1,7 @@
 {
   "GangplankRWithRaiseMorale": {
     "path": "Characters/Gangplank/Spells/GangplankRAbility/GangplankRWithRaiseMorale",
+    "maxRank": 5,
     "cooldown": [
       160,
       160,
@@ -172,10 +173,60 @@
         "mModifiedGameCalculation": "OneWaveDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "OneWaveDamage": {
+        "base": [
+          40,
+          70,
+          100,
+          130,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "DeathsDaughterDamage": {
+        "base": [
+          120,
+          210,
+          300,
+          390,
+          480
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          480,
+          840,
+          1200,
+          1560,
+          1920
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GangplankR": {
     "path": "Characters/Gangplank/Spells/GangplankRAbility/GangplankR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       160,
       160,
@@ -347,10 +398,54 @@
         "mModifiedGameCalculation": "OneWaveDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "OneWaveDamage": {
+        "base": [
+          40,
+          70,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "DeathsDaughterDamage": {
+        "base": [
+          120,
+          210,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          480,
+          840,
+          1200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GangplankQWrapper": {
     "path": "Characters/Gangplank/Spells/GangplankQWrapperAbility/GangplankQWrapper",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       4.5,
       4.5,
@@ -501,10 +596,32 @@
         "mModifiedGameCalculation": "ShotDamage",
         "__type": "GameCalculationModified"
       }
+    },
+    "formulas": {
+      "ShotDamage": {
+        "base": [
+          10,
+          40,
+          70,
+          100,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ShotCrit": "stat code 9/0"
     }
   },
   "GangplankESpellPassive": {
     "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankESpellPassive",
+    "slot": "P",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -543,10 +660,14 @@
         90
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "GangplankE": {
     "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       0,
       0,
@@ -690,10 +811,47 @@
         "mPrecision": 1,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "FinalSlowAmount": {
+        "base": [
+          40,
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "BarrelDecayTime": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GangplankW": {
     "path": "Characters/Gangplank/Spells/GangplankWAbility/GangplankW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       24,
       22,
@@ -773,10 +931,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "BaseHealth": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "GangplankPassive": {
     "path": "Characters/Gangplank/Spells/GangplankPassiveAbility/GangplankPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -862,6 +1040,61 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          61.76471,
+          73.52941,
+          85.29412,
+          97.05882,
+          108.8235,
+          120.5882,
+          132.3529,
+          144.1176,
+          155.8824,
+          167.6471,
+          179.4118,
+          191.1765,
+          202.9412,
+          214.7059,
+          226.4706,
+          238.2353,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "MoveSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.1588235,
+          0.1676471,
+          0.1764706,
+          0.1852941,
+          0.1941177,
+          0.2029412,
+          0.2117647,
+          0.2205882,
+          0.2294118,
+          0.2382353,
+          0.2470588,
+          0.2558824,
+          0.2647059,
+          0.2735294,
+          0.282353,
+          0.2911765,
+          0.3
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

@@ -1,6 +1,8 @@
 {
   "TaliyahE": {
     "path": "Characters/Taliyah/Spells/TaliyahEAbility/TaliyahE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -155,10 +157,60 @@
         "mModifiedGameCalculation": "DetonationDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "ScatterDamage": {
+        "base": [
+          60,
+          105,
+          150,
+          195,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "DetonationDamage": {
+        "base": [
+          25,
+          40,
+          55,
+          70,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "MaxDetonationDamageTooltip": {
+        "base": [
+          62.5,
+          100,
+          137.5,
+          175,
+          212.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TaliyahQ": {
     "path": "Characters/Taliyah/Spells/TaliyahQAbility/TaliyahQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       7,
       7,
@@ -372,10 +424,78 @@
         "mModifiedGameCalculation": "TotalBonusFlatMonsterDamage",
         "__type": "GameCalculationModified"
       }
-    }
+    },
+    "formulas": {
+      "RockDamage": {
+        "base": [
+          55,
+          72.5,
+          90,
+          107.5,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "BigRockDamage": {
+        "base": [
+          99,
+          130.5,
+          162,
+          193.5,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          143,
+          188.5,
+          234,
+          279.5,
+          325
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.3
+          }
+        ]
+      },
+      "TotalBonusFlatMonsterDamage": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ]
+      },
+      "{c363b92e}": {
+        "base": [
+          36,
+          45,
+          54,
+          63,
+          72
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TaliyahR": {
     "path": "Characters/Taliyah/Spells/TaliyahRAbility/TaliyahR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       180,
       180,
@@ -485,10 +605,14 @@
         100
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "TaliyahPassive": {
     "path": "Characters/Taliyah/Spells/TaliyahPassiveAbility/TaliyahPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -547,10 +671,38 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalMS": {
+        "base": 0,
+        "baseByLevel": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.15,
+          0.15,
+          0.15,
+          0.25,
+          0.25,
+          0.25,
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "TaliyahWVC": {
     "path": "Characters/Taliyah/Spells/TaliyahWVCAbility/TaliyahWVC",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       14,
       14,
@@ -597,6 +749,8 @@
         400
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }

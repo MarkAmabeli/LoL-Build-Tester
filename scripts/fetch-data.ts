@@ -16,6 +16,7 @@ import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
+import { translateSpell, type Calculation } from './spell-formulas.ts';
 import { cleanText, parseShardText } from './shard-stats.ts';
 
 const DDRAGON = 'https://ddragon.leagueoflegends.com';
@@ -86,6 +87,9 @@ interface DDChampionSummary {
   image: { full: string };
   stats: Record<string, number>;
 }
+interface DDChampionDetail {
+  spells: Array<{ id: string; maxrank: number }>;
+}
 interface DDItem {
   name: string;
   description: string;
@@ -116,7 +120,7 @@ interface BinSpellObject {
   mSpell?: {
     DataValues?: BinDataValue[];
     mDataValues?: BinDataValue[];
-    mSpellCalculations?: Record<string, unknown>;
+    mSpellCalculations?: Record<string, Calculation>;
     cooldownTime?: number[];
     mana?: number[];
     castRange?: number[];
@@ -155,24 +159,43 @@ async function buildChampions(version: string) {
   return { champions, warnings };
 }
 
+const SLOTS = ['Q', 'W', 'E', 'R'] as const;
+/** Ranks for spells Data Dragon doesn't list (passives, sub-spells like Darius's bleed). */
+const DEFAULT_MAX_RANK = 5;
+
+interface SpellCoverage {
+  translated: number;
+  unsupported: number;
+  /** Reason → count, across all champions. */
+  reasons: Record<string, number>;
+}
+
 /**
- * Pull each champion's spell DataValues + SpellCalculations from CommunityDragon.
- * Stored mostly raw for now; turning SpellCalculations into our DamageComponent
- * model is the next milestone (see ROADMAP.md).
+ * Pull each champion's spell DataValues + SpellCalculations from CommunityDragon,
+ * tag spells with their Q/W/E/R slot and max rank from Data Dragon, and translate
+ * the calculations into engine formulas (see spell-formulas.ts).
  */
 async function buildSpells(version: string, championIds: string[], outDir: string) {
   const patch = cdragonPatch(version);
   const failures: string[] = [];
+  const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
 
   await mapLimit(championIds, CONCURRENCY, async (id) => {
     const alias = id.toLowerCase();
     let bin: Record<string, BinSpellObject>;
+    let detail: DDChampionDetail;
     try {
-      bin = await getCdragonJson(patch, `game/data/characters/${alias}/${alias}.bin.json`);
+      [bin, detail] = await Promise.all([
+        getCdragonJson<Record<string, BinSpellObject>>(patch, `game/data/characters/${alias}/${alias}.bin.json`),
+        getJson<{ data: Record<string, DDChampionDetail> }>(
+          `${DDRAGON}/cdn/${version}/data/${LOCALE}/champion/${id}.json`,
+        ).then((r) => r.data[id]),
+      ]);
     } catch (err) {
       failures.push(`${id}: ${(err as Error).message}`);
       return;
     }
+    const slotOf = new Map(detail.spells.map((s, i) => [s.id.toLowerCase(), { slot: SLOTS[i], maxRank: s.maxrank }]));
 
     const spells: Record<string, unknown> = {};
     for (const [binPath, obj] of Object.entries(bin)) {
@@ -180,21 +203,40 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
       if (!spell) continue;
       const dataValues = spell.DataValues ?? spell.mDataValues ?? [];
       if (dataValues.length === 0 && !spell.mSpellCalculations) continue;
-      spells[obj.mScriptName ?? binPath] = {
-        path: binPath,
-        cooldown: spell.cooldownTime,
-        cost: spell.mana,
-        range: spell.castRange,
+      const name = obj.mScriptName ?? binPath;
+      const known = slotOf.get(name.toLowerCase());
+      const slot = known?.slot ?? (/passive/i.test(name) ? 'P' : undefined);
+      const maxRank = known?.maxRank ?? DEFAULT_MAX_RANK;
+      const raw = {
         dataValues: Object.fromEntries(
           dataValues.map((d) => [d.name ?? d.mName ?? '', d.values ?? d.mValues ?? []]),
         ),
         calculations: spell.mSpellCalculations ?? {},
       };
+      const { formulas, unsupported } = translateSpell(raw, maxRank);
+      coverage.translated += Object.keys(formulas).length;
+      coverage.unsupported += Object.keys(unsupported).length;
+      for (const reason of Object.values(unsupported)) {
+        // Group by reason kind, not the specific value name.
+        const kind = reason.replace(/"[^"]*"/g, '"…"');
+        coverage.reasons[kind] = (coverage.reasons[kind] ?? 0) + 1;
+      }
+      spells[name] = {
+        path: binPath,
+        ...(slot ? { slot } : {}),
+        maxRank,
+        cooldown: spell.cooldownTime,
+        cost: spell.mana,
+        range: spell.castRange,
+        ...raw,
+        formulas,
+        unsupported,
+      };
     }
     await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
   });
 
-  return failures;
+  return { failures, coverage };
 }
 
 async function buildItems(version: string) {
@@ -311,9 +353,17 @@ async function main() {
   );
   for (const w of [...championWarnings, ...shards.warnings]) console.warn(`  ! ${w}`);
 
-  const failures = await buildSpells(version, champions.map((c) => c.id), outDir);
+  const { failures, coverage } = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);
   for (const f of failures) console.warn(`  ! ${f}`);
+  const total = coverage.translated + coverage.unsupported;
+  console.log(
+    `  formulas: ${coverage.translated}/${total} calculations translated ` +
+      `(${((100 * coverage.translated) / Math.max(1, total)).toFixed(1)}%); unsupported by reason:`,
+  );
+  for (const [reason, count] of Object.entries(coverage.reasons).sort((a, b) => b[1] - a[1])) {
+    console.log(`    ${String(count).padStart(4)}  ${reason}`);
+  }
 
   await writeJson(path.join(OUT_ROOT, 'manifest.json'), {
     latest: version,

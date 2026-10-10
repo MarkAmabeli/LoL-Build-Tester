@@ -1,6 +1,8 @@
 {
   "SionE": {
     "path": "Characters/Sion/Spells/SionEAbility/SionE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       13,
       12,
@@ -98,10 +100,30 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          100,
+          135,
+          170,
+          205
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SionW": {
     "path": "Characters/Sion/Spells/SionWAbility/SionW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       15,
       15,
@@ -270,10 +292,55 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          60,
+          75,
+          90,
+          105,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          },
+          {
+            "stat": "maxHP",
+            "value": [
+              0.08,
+              0.1,
+              0.12,
+              0.14,
+              0.16
+            ]
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SionPassive": {
     "path": "Characters/Sion/Spells/SionPassiveAbility/SionPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -321,10 +388,14 @@
         0.4000000059604645
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   },
   "SionR": {
     "path": "Characters/Sion/Spells/SionRAbility/SionR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       10,
       140,
@@ -449,10 +520,41 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MinDamageTotal": {
+        "base": [
+          150,
+          300,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageTotal": {
+        "base": [
+          400,
+          800,
+          1200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "SionQ": {
     "path": "Characters/Sion/Spells/SionQAbility/SionQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       11,
       10,
@@ -583,6 +685,51 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "MinDamageTotal": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8
+            ]
+          }
+        ]
+      },
+      "MaxDamageTotal": {
+        "base": [
+          90,
+          155,
+          220,
+          285,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.2,
+              1.5,
+              1.8,
+              2.1,
+              2.4
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   }
 }

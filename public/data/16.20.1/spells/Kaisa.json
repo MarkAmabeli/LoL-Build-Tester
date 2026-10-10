@@ -1,6 +1,8 @@
 {
   "KaisaQ": {
     "path": "Characters/Kaisa/Spells/KaisaQAbility/KaisaQ",
+    "slot": "Q",
+    "maxRank": 5,
     "cooldown": [
       10,
       10,
@@ -285,10 +287,74 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {
+      "MaxDamageTotal": {
+        "base": [
+          90,
+          123.75,
+          157.5,
+          191.25,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2375
+          },
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "{b2bd0d2f}": {
+        "base": [
+          150,
+          206.25,
+          262.5,
+          318.75,
+          375
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.0625
+          },
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "TotalIndividualMissileDamage": {
+        "base": [
+          40,
+          55,
+          70,
+          85,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.55
+          },
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "MaxDamageDisplay": "conditional calculation (depends on a game condition)"
     }
   },
   "KaisaE": {
     "path": "Characters/Kaisa/Spells/KaisaEAbility/KaisaE",
+    "slot": "E",
+    "maxRank": 5,
     "cooldown": [
       17,
       16,
@@ -369,10 +435,17 @@
         "mPrecision": 2,
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalMovespeed": "part type ClampSubPartsCalculationPart",
+      "TotalCastTime": "part type ClampSubPartsCalculationPart"
     }
   },
   "KaisaPassive": {
     "path": "Characters/Kaisa/Spells/KaisaPassiveAbility/KaisaPassive",
+    "slot": "P",
+    "maxRank": 5,
     "range": [
       0,
       0,
@@ -526,10 +599,82 @@
         "mDisplayAsPercent": true,
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "PBaseDamage": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          5.529412,
+          7.058824,
+          8.588235,
+          10.11765,
+          11.64706,
+          13.17647,
+          14.70588,
+          16.23529,
+          17.76471,
+          19.29412,
+          20.82353,
+          22.35294,
+          23.88235,
+          25.41176,
+          26.94118,
+          28.47059,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "PCurrentPerStackDamage": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1.411765,
+          1.823529,
+          2.235294,
+          2.647059,
+          3.058824,
+          3.470588,
+          3.882353,
+          4.294118,
+          4.705882,
+          5.117647,
+          5.529412,
+          5.941176,
+          6.352941,
+          6.764706,
+          7.176471,
+          7.588235,
+          8
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.03
+          }
+        ]
+      },
+      "PExecutePercentage": {
+        "base": 0.15,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0006
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaisaW": {
     "path": "Characters/Kaisa/Spells/KaisaWAbility/KaisaW",
+    "slot": "W",
+    "maxRank": 5,
     "cooldown": [
       26,
       22,
@@ -577,10 +722,16 @@
         ],
         "__type": "GameCalculation"
       }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
     }
   },
   "KaisaR": {
     "path": "Characters/Kaisa/Spells/KaisaRAbility/KaisaR",
+    "slot": "R",
+    "maxRank": 3,
     "cooldown": [
       130,
       130,
@@ -673,10 +824,35 @@
         ],
         "__type": "GameCalculation"
       }
-    }
+    },
+    "formulas": {
+      "RCalculatedShieldValue": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.9,
+              1.35,
+              1.8
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
   },
   "KaisaSkin71Manager": {
     "path": "Characters/Kaisa/Spells/KaisaSkin71Manager",
+    "maxRank": 5,
     "dataValues": {
       "GoldToNextForm": [
         2000,
@@ -697,6 +873,8 @@
         5
       ]
     },
-    "calculations": {}
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
   }
 }
