@@ -22,6 +22,13 @@ describe('parseItemDescriptionStats', () => {
     ).toEqual({ magicPenFlat: 15 });
   });
 
+  it("reads crit damage (Infinity Edge) without confusing it with crit chance", () => {
+    const desc =
+      '<stats><attention>75</attention> Attack Damage<br><attention>25%</attention> Critical Strike Chance' +
+      '<br><attention>30%</attention> Critical Strike Damage</stats>';
+    expect(parseItemDescriptionStats(desc)).toEqual({ critDamageBonus: 0.3 });
+  });
+
   it('ignores text outside the <stats> block', () => {
     expect(parseItemDescriptionStats('<passive>Gain 10 Lethality</passive>')).toEqual({});
   });

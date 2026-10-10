@@ -2761,7 +2761,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3031.png",
     "stats": {
       "ad": 75,
-      "critChance": 0.25
+      "critChance": 0.25,
+      "critDamageBonus": 0.3
     },
     "description": "<mainText><stats><attention>75</attention> Attack Damage<br><attention>25%</attention> Critical Strike Chance<br><attention>30%</attention> Critical Strike Damage</stats><br><br></mainText>"
   },

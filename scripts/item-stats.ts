@@ -2,7 +2,7 @@ import type { StatBonuses } from '../src/engine/types.ts';
 
 /**
  * Data Dragon's structured `stats` only covers some item stats. Ability haste,
- * lethality and penetration appear only in the HTML description's <stats> block,
+ * lethality, penetration and crit damage appear only in the HTML description's <stats> block,
  * e.g. "<stats><attention>20</attention> Ability Haste<br>...</stats>".
  */
 export interface DescriptionStats {
@@ -11,6 +11,8 @@ export interface DescriptionStats {
   armorPenPct?: number;
   magicPenFlat?: number;
   magicPenPct?: number;
+  /** Extra crit damage as a fraction (0.3 = +30%), e.g. Infinity Edge. */
+  critDamageBonus?: number;
 }
 
 const PATTERNS: Array<[keyof DescriptionStats, RegExp, boolean]> = [
@@ -20,6 +22,7 @@ const PATTERNS: Array<[keyof DescriptionStats, RegExp, boolean]> = [
   ['armorPenPct', /(\d+(?:\.\d+)?)%\s*Armor Penetration/i, true],
   ['magicPenPct', /(\d+(?:\.\d+)?)%\s*Magic Penetration/i, true],
   ['magicPenFlat', /(\d+(?:\.\d+)?)\s*Magic Penetration/i, false],
+  ['critDamageBonus', /(\d+(?:\.\d+)?)%\s*Critical Strike Damage/i, true],
 ];
 
 export function parseItemDescriptionStats(description: string): DescriptionStats {
