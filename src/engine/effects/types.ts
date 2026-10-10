@@ -18,6 +18,8 @@ export interface HitContext {
   target: TargetState;
   /** This effect's own state (defaults filled in). */
   state: EffectState;
+  /** The attack or ability that triggered `onHit` / `onAbilityHit` (unset in other hooks). */
+  hit?: DamageInstance;
 }
 
 /** Shred an effect applies to the target, combined with any other reductions. */

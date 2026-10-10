@@ -40,13 +40,18 @@ export function combineReductions(...rs: Array<ResistReduction | undefined>): Re
  */
 export function computeHit(hit: DamageInstance, input: HitInput): HitResult {
   const effects = input.effects ?? [];
-  const ctx = (a: ActiveEffect): HitContext => ({ attacker: input.attacker, target: input.target, state: a.state });
+  const ctx = (a: ActiveEffect, trigger?: DamageInstance): HitContext => ({
+    attacker: input.attacker,
+    target: input.target,
+    state: a.state,
+    hit: trigger,
+  });
 
   const isAuto = hit.tags?.includes('auto') ?? false;
   const isAbility = hit.tags?.includes('ability') ?? false;
   const procs = effects.flatMap((a) => [
-    ...(isAuto ? a.effect.onHit?.(ctx(a)) ?? [] : []),
-    ...(isAbility ? a.effect.onAbilityHit?.(ctx(a)) ?? [] : []),
+    ...(isAuto ? a.effect.onHit?.(ctx(a, hit)) ?? [] : []),
+    ...(isAbility ? a.effect.onAbilityHit?.(ctx(a, hit)) ?? [] : []),
   ]);
 
   const shred = effects.map((a) => a.effect.targetResist?.(ctx(a)) ?? {});

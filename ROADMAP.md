@@ -25,7 +25,9 @@
 
 ## 4. Effects layer
 - [x] Effect hooks: `modifyStats`, `onHit`, `onAbilityHit`, `preMitigation`, `targetResist` (pilot items: Rabadon's, Black Cleaver, Nashor's, Kraken)
-- [ ] The 20–30 most-built damage items
+- [x] Damage items on existing hooks: Wit's End, Terminus, BotRK, Guinsoo's, Hullbreaker, Titanic Hydra, Lord Dominik's, Shadowflame, Liandry's, Riftmaker, Manamune/Muramana, Archangel's/Seraph's, Blackfire Torch, Hubris, Voltaic Cyclosword, Experimental Hexplate, Luden's, Malignance, Stormsurge
+- [ ] Spellblade items (Trinity Force, Lich Bane, Essence Reaver, Iceborn Gauntlet, Bloodsong), Energized items (Statikk Shiv, Rapid Firecannon), The Collector, Sundered Sky
+- [ ] Ultimate haste stat (Malignance, Experimental Hexplate); Guinsoo's double on-hit (needs combo simulator)
 - [x] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
 - [x] Minor runes: Coup de Grace, Cut Down, Last Stand, Absolute Focus, Gathering Storm
 - [x] More minor runes: Cheap Shot, Sudden Impact, Scorch, Axiom Arcanist (needs `ultimate` tag on R hits), Legend: Alacrity, Legend: Haste, Transcendence, Waterwalking, Jack of All Trades
@@ -34,6 +36,7 @@
 
 ## 5. Combo simulator
 - [ ] Ordered action list (Q, AA, E, R…) with stateful stacks, procs and shred
+- [ ] Burn over time for Liandry's, Blackfire Torch and Malignance (and similar damage over time): today each burn is one full-duration hit. How ticks, durations and refreshes feed into calculations is still to be decided
 - [ ] Total damage, per-source breakdown, time-to-kill, effective HP
 
 ## 6. UI

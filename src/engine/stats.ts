@@ -37,6 +37,11 @@ function split(base: number, bonus = 0): SplitStat {
   return { base, bonus, total: base + bonus };
 }
 
+/** Combine two percentages (0-1) that stack multiplicatively, like percent penetration. */
+export function stackPct(a: number, b: number): number {
+  return 1 - (1 - a) * (1 - b);
+}
+
 /** Merge any number of bonus blocks (items, runes, buffs) into one. */
 export function sumBonuses(...blocks: StatBonuses[]): StatBonuses {
   const out: Record<string, number> = {};
@@ -44,8 +49,7 @@ export function sumBonuses(...blocks: StatBonuses[]): StatBonuses {
     for (const [key, value] of Object.entries(block)) {
       if (typeof value !== 'number') continue;
       if (key === 'armorPenPct' || key === 'magicPenPct') {
-        // Percent penetration from separate sources stacks multiplicatively.
-        out[key] = 1 - (1 - (out[key] ?? 0)) * (1 - value);
+        out[key] = stackPct(out[key] ?? 0, value);
       } else {
         out[key] = (out[key] ?? 0) + value;
       }
