@@ -6,3 +6,4 @@ export * from './hit';
 export * from './shards';
 export * from './items';
 export * from './effects';
+export * from './champions';

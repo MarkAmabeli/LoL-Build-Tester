@@ -1,0 +1,56 @@
+{
+  "_about": "Wiki pages (wiki.leagueoflegends.com) used to fill in mechanics the game data lacks. 'changes' is the champion's last-changed patch in Module:ChampionData/data when checked; 'revision' pins the page text used; 'matched' lists numbers that agreed with our spell data (the cross-check). Run `npm run wiki:check` before regenerating data for a new patch.",
+  "champions": {
+    "Vayne": {
+      "checkedPatch": "16.20",
+      "changes": "V26.20",
+      "pages": [
+        { "page": "Template:Data Vayne/Tumble", "revision": 4078271, "facts": ["The attack is basic and spell damage; the bonus is spell damage"], "matched": ["75–115% AD (+50% AP) bonus"] },
+        { "page": "Template:Data Vayne/Silver Bolts", "revision": 4057477, "facts": ["Third stack deals true damage: % of target's max health, with a minimum"], "matched": ["4–10% max health", "40–100 minimum"] },
+        { "page": "Template:Data Vayne/Condemn", "revision": 4008541, "facts": ["Wall collision adds 150% bonus damage"], "matched": ["50–190 (+50% bonus AD)", "cooldown 20–12"] },
+        { "page": "Template:Data Vayne/Final Hour", "revision": 3807995, "facts": ["Grants bonus AD while active"], "matched": ["35/50/65 bonus AD"] }
+      ]
+    },
+    "Darius": {
+      "checkedPatch": "16.20",
+      "changes": "V26.04",
+      "pages": [
+        { "page": "Template:Data Darius/Hemorrhage", "revision": 4063939, "facts": ["Per-stack damage is the total over 5s", "Noxian Might: bonus AD by level at 5 stacks"], "matched": ["13–30 (+30% bonus AD) per stack", "Noxian Might 30 → 230"] },
+        { "page": "Template:Data Darius/Decimate", "revision": 4007591, "facts": ["Inner circle (handle) deals 35%"], "matched": ["50–170 (+100–140% AD)"] },
+        { "page": "Template:Data Darius/Crippling Strike", "revision": 4013692, "facts": ["Empowered attack, affected by crit; basic and spell damage"], "matched": ["40–60% AD bonus (140–160% total)"] },
+        { "page": "Template:Data Darius/Apprehend", "revision": 3906616, "facts": ["Passive percent armor penetration"], "matched": ["20–40% armor penetration"] },
+        { "page": "Template:Data Darius/Noxian Guillotine", "revision": 4004898, "facts": ["+20% per Hemorrhage stack, up to +100% at 5"], "matched": ["125–375 (+75% bonus AD)", "cooldown 120–80"] }
+      ]
+    },
+    "Veigar": {
+      "checkedPatch": "16.20",
+      "changes": "V26.07",
+      "pages": [
+        { "page": "Template:Data Veigar/Phenomenal Evil Power", "revision": 3932550, "facts": ["1 AP per stack"], "matched": [] },
+        { "page": "Template:Data Veigar/Baleful Strike", "revision": 4050924, "facts": [], "matched": ["80–240 (+50–70% AP)"] },
+        { "page": "Template:Data Veigar/Dark Matter", "revision": 3991312, "facts": [], "matched": ["85–305 (+70–110% AP)"] },
+        { "page": "Template:Data Veigar/Primordial Burst", "revision": 4004085, "facts": ["+1.5% damage per 1% target missing health, capped at 66.66% missing (2×)"], "matched": ["175–325 (+65–75% AP)", "cooldown 120–60"] }
+      ]
+    },
+    "Nasus": {
+      "checkedPatch": "16.20",
+      "changes": "V26.19",
+      "pages": [
+        { "page": "Template:Data Nasus/Siphoning Strike", "revision": 4064857, "facts": ["Empowered attack; the flat bonus damage is affected by crit; basic and spell damage"], "matched": ["30–110 (+100% stacks)", "cooldown 7.5–3.5"] },
+        { "page": "Template:Data Nasus/Spirit Fire", "revision": 4035787, "facts": ["Burn each second for 5s; armor reduction while inside"], "matched": ["50–170 (+60% AP) impact", "10–34 (+12% AP) per tick", "30–50% armor reduction"], "conflicts": ["Wiki total burn is per tick × 10; data's TotalDotDamage is Duration (5) × per tick. Data used."] },
+        { "page": "Template:Data Nasus/Fury of the Sands", "revision": 4007699, "facts": ["Aura damage is % of target's max health, capped at 240 per second", "Bonus health and resistances while active"], "matched": ["300/450/600 bonus health", "40/55/70 resistances", "1.5–2.5% (+0.5% per 100 AP) per 0.5s tick = data's 3–5% (+1% per 100 AP) per second"] }
+      ]
+    },
+    "Yunara": {
+      "checkedPatch": "16.20",
+      "changes": "V26.20",
+      "pages": [
+        { "page": "Template:Data Yunara/Vow of the First Lands", "revision": 4058999, "facts": ["Crits deal bonus magic damage as a % of the crit's pre-mitigation damage"], "matched": ["10% (+10% per 100 AP)"] },
+        { "page": "Template:Data Yunara/Cultivation of Spirit", "revision": 4078272, "facts": ["Passive on-hit magic damage; active adds attack speed and more on-hit magic damage; attack reset"], "matched": ["20–60% bonus attack speed"] },
+        { "page": "Template:Data Yunara/Arc of Judgment", "revision": 4008650, "facts": ["Lingering bead deals a share of the impact damage over time"], "matched": [] },
+        { "page": "Template:Data Yunara/Arc of Ruin", "revision": 4039441, "facts": ["Uses the R rank; counts as ultimate damage (Malignance, Axiom Arcanist)"], "matched": ["160–480 (+120% bonus AD) (+75% AP)"] },
+        { "page": "Template:Data Yunara/Transcend One's Self", "revision": 4038856, "facts": ["Upgrades W into Arc of Ruin during the ultimate"], "matched": ["cooldown 100–80"] }
+      ]
+    }
+  }
+}

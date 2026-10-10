@@ -37,6 +37,13 @@
 - [x] Defensive stat runes for the target's loadout: Conditioning, Overgrowth
 - [ ] Bone Plating: needs a target-side, post-mitigation damage hook (flat reduction per hit)
 
+## 4b. Champions
+- [x] Champion definitions (`src/engine/champions/`): damage type, tags, empowered attacks (basic + spell damage), passives and self-buffs as effects; `abilityHit` runs abilities through the item/rune pipeline, R-rank abilities deal ultimate damage
+- [x] MVP champions: Vayne, Darius, Veigar, Nasus, Yunara
+- [x] Wiki sources (wiki.leagueoflegends.com) recorded per page with revision and `changes` patch; `npm run wiki:check` flags changed pages before a new patch
+- [ ] Yunara's spread attacks and other multi-target effects; Vayne/Yunara movement; Nasus/Veigar stack gain over a fight (combo simulator)
+- [ ] More champions
+
 ## 5. Combo simulator
 - [ ] Ordered action list (Q, AA, E, R…) with stateful stacks, procs and shred
 - [ ] Burn over time for Liandry's, Blackfire Torch and Malignance (and similar damage over time): today each burn is one full-duration hit. How ticks, durations and refreshes feed into calculations is still to be decided

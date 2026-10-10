@@ -9,6 +9,11 @@ export interface HitInput {
   target: TargetState;
   /** The attacker's item/rune effects. */
   effects?: ActiveEffect[];
+  /**
+   * More hits from the same attack or ability (e.g. Vayne's Tumble bonus damage). They
+   * get damage amps, resistances and the execute check, but don't trigger procs.
+   */
+  extra?: DamageInstance[];
   /** Reductions from outside the effect list (e.g. an ability's own shred). */
   armorReduction?: ResistReduction;
   mrReduction?: ResistReduction;
@@ -16,7 +21,7 @@ export interface HitInput {
 }
 
 export interface HitResult {
-  /** The hit itself first, then any on-hit/on-ability procs it triggered. */
+  /** The hit itself first, then any `extra` hits, then the on-hit/on-ability procs it triggered. */
   hits: MitigatedDamage[];
   total: number;
   /**
@@ -40,7 +45,7 @@ export function combineReductions(...rs: Array<ResistReduction | undefined>): Re
 /**
  * Resolve one hit through the effect pipeline:
  *   1. `modifyHit` on the hit itself
- *   2. procs: `onHit` for auto attacks, `onAbilityHit` for abilities (procs don't proc again)
+ *   2. procs: `onHit` for auto attacks, `onAbilityHit` for abilities (procs and `extra` hits don't proc)
  *   3. `preMitigation` on every instance
  *   4. resistances, with shred from every effect's `targetResist`
  *   5. execute check against every effect's `executeThreshold`
@@ -66,7 +71,7 @@ export function computeHit(baseHit: DamageInstance, input: HitInput): HitResult 
   const armorReduction = combineReductions(input.armorReduction, ...shred.map((s) => s.armor));
   const mrReduction = combineReductions(input.mrReduction, ...shred.map((s) => s.mr));
 
-  const hits = [hit, ...procs].map((instance) => {
+  const hits = [hit, ...(input.extra ?? []), ...procs].map((instance) => {
     const amped = effects.reduce(
       (h, a) => a.effect.preMitigation?.(h, ctx(a)) ?? h,
       instance,

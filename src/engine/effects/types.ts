@@ -34,10 +34,10 @@ export interface TargetResistChange {
  * data and re-checked each patch (see `verifiedPatch`).
  */
 export interface Effect {
-  /** Riot item or rune ID, matching `items.json` / `runes.json`. */
+  /** Riot item or rune ID, matching `items.json` / `runes.json`; "<Champion>:<ability>" for champion effects. */
   id: string;
   name: string;
-  kind: 'item' | 'rune';
+  kind: 'item' | 'rune' | 'champion';
   /** Patch the numbers were last checked against, e.g. "16.20". */
   verifiedPatch: string;
   state?: StateField[];
