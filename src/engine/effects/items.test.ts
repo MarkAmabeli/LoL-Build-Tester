@@ -3,7 +3,9 @@ import {
   activate,
   autoAttack,
   computeHit,
+  cooldownWithHaste,
   getEffect,
+  hasteFor,
   resolveStats,
   type ActiveEffect,
   type ChampionBaseStats,
@@ -241,5 +243,20 @@ describe('Sundered Sky', () => {
   it('procs see the modified hit', () => {
     const effects = [activate(item('6610')), activate(item('3087'))];
     expect(hit(dummy, {}, effects, auto).total).toBeCloseTo(90 + 60);
+  });
+});
+
+describe('ultimate haste', () => {
+  it('Malignance and Experimental Hexplate add 20 and 30 ultimate haste on top of ability haste', () => {
+    const stats = resolveStats(dummy, 1, { abilityHaste: 20 }, [activate(item('3118')), activate(item('3073'), { overdrive: false })]);
+    expect(stats.ultimateHaste).toBe(50);
+    expect(hasteFor(stats, 'basic')).toBe(20);
+    expect(hasteFor(stats, 'ultimate')).toBe(70);
+    expect(cooldownWithHaste(100, hasteFor(stats, 'ultimate'))).toBeCloseTo(100 / 1.7);
+  });
+
+  it('defaults to 0 and can come from flat bonuses', () => {
+    expect(resolveStats(dummy, 1).ultimateHaste).toBe(0);
+    expect(resolveStats(dummy, 1, { ultimateHaste: 15 }).ultimateHaste).toBe(15);
   });
 });

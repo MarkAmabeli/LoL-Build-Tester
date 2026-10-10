@@ -28,7 +28,8 @@
 - [x] Effect hooks: `modifyStats`, `onHit`, `onAbilityHit`, `preMitigation`, `targetResist` (pilot items: Rabadon's, Black Cleaver, Nashor's, Kraken)
 - [x] Damage items on existing hooks: Wit's End, Terminus, BotRK, Guinsoo's, Hullbreaker, Titanic Hydra, Lord Dominik's, Shadowflame, Liandry's, Riftmaker, Manamune/Muramana, Archangel's/Seraph's, Blackfire Torch, Hubris, Voltaic Cyclosword, Experimental Hexplate, Luden's, Malignance, Stormsurge
 - [x] Spellblade items (Sheen, Trinity Force, Lich Bane, Essence Reaver, Iceborn Gauntlet, Bloodsong, Dusk and Dawn), Energized items (Statikk Shiv, Rapid Firecannon), The Collector (`executeThreshold` hook), Sundered Sky (`modifyHit` hook)
-- [ ] Ultimate haste stat (Malignance, Experimental Hexplate); Guinsoo's double on-hit (needs combo simulator)
+- [x] Ultimate haste stat (Malignance, Experimental Hexplate)
+- [ ] Guinsoo's double on-hit (needs combo simulator)
 - [x] Keystone runes (Conqueror, Electrocute, Press the Attack, Lethal Tempo, Arcane Comet, Dark Harvest, First Strike)
 - [x] Minor runes: Coup de Grace, Cut Down, Last Stand, Absolute Focus, Gathering Storm
 - [x] More minor runes: Cheap Shot, Sudden Impact, Scorch, Axiom Arcanist (needs `ultimate` tag on R hits), Legend: Alacrity, Legend: Haste, Transcendence, Waterwalking, Jack of All Trades
