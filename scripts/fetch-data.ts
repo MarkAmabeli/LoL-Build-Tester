@@ -292,6 +292,57 @@ async function buildItems(version: string) {
   return { items: built, dropped };
 }
 
+interface DDSummoner {
+  id: string;
+  key: string;
+  name: string;
+  description: string;
+  modes: string[];
+  image: { full: string };
+}
+
+/** Data Dragon's mode name for Summoner's Rift. */
+const CLASSIC_MODE = 'CLASSIC';
+
+/**
+ * Summoner's Rift summoner spells: names and icons from Data Dragon, values from
+ * CommunityDragon's shared bin (Data Dragon's tooltips have no numbers), translated
+ * like champion spells (one rank).
+ */
+async function buildSummoners(version: string) {
+  const [{ data }, shared] = await Promise.all([
+    getJson<{ data: Record<string, DDSummoner> }>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/summoner.json`),
+    getCdragonJson<Record<string, BinSpellObject>>(cdragonPatch(version), 'game/shared.cdtb.bin.json'),
+  ]);
+  const warnings: string[] = [];
+  const summoners = Object.values(data)
+    .filter((s) => s.modes.includes(CLASSIC_MODE))
+    .map((s) => {
+      const spell = shared[`Shared/Spells/${s.id}`]?.mSpell;
+      if (!spell) warnings.push(`${s.name} (${s.id}): no spell values in shared.cdtb.bin`);
+      const dataValues = spell?.DataValues ?? spell?.mDataValues ?? [];
+      const raw = {
+        dataValues: Object.fromEntries(dataValues.map((d) => [d.name ?? d.mName ?? '', d.values ?? d.mValues ?? []])),
+        calculations: spell?.mSpellCalculations ?? {},
+      };
+      const { formulas, unsupported } = translateSpell(raw, 1);
+      return {
+        id: s.id,
+        key: s.key,
+        name: s.name,
+        description: s.description,
+        icon: `${DDRAGON}/cdn/${version}/img/spell/${s.image.full}`,
+        cooldown: cooldownByRank(spell?.cooldownTime, 1)?.[0],
+        range: rangeByRank(spell?.castRange, 1)?.[0],
+        ...raw,
+        formulas,
+        unsupported,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+  return { summoners, warnings };
+}
+
 async function buildRunes(version: string) {
   return getJson<unknown>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/runesReforged.json`);
 }
@@ -373,6 +424,10 @@ async function main() {
   await writeJson(path.join(outDir, 'item-groups.json'), itemGroups);
   await writeJson(path.join(outDir, 'runes.json'), runes);
   await writeJson(path.join(outDir, 'shards.json'), shards.data);
+  const summoners = await buildSummoners(version);
+  await writeJson(path.join(outDir, 'summoners.json'), summoners.summoners);
+  console.log(`  ${summoners.summoners.length} summoner spells`);
+  for (const w of summoners.warnings) console.warn(`  ! ${w}`);
   console.log(
     `  ${champions.length} champions, ${items.length} items (${itemGroups.length} shop limit groups), ` +
       `${Object.keys(shards.data.shards).length} stat shards`,

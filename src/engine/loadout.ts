@@ -6,10 +6,12 @@ import type { ActiveEffect, EffectState } from './effects/types';
 import { checkItemLimits } from './items';
 import { shardBonuses } from './shards';
 import { clampLevel, resolveStats, sumBonuses } from './stats';
+import type { SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
 
 /** Inventory slots. Role quests will change this for bot lane (boots get their own slot); not modeled yet. */
 export const MAX_ITEMS = hand('loadout.maxItems', 6, assumed('Standard inventory: six item slots'));
+export const MAX_SUMMONERS = hand('loadout.maxSummoners', 2, assumed('Two summoner spell slots'));
 /** Item tags that aren't part of a build here. */
 const EXCLUDED_TAGS = ['Trinket', 'Consumable'] as const;
 /** Default max ranks when there's no spell data; per-champion maxima come from the spell files. */
@@ -43,6 +45,8 @@ export interface LoadoutData {
   itemGroups: ItemLimitGroup[];
   runes: RuneTree[];
   shards: ShardData;
+  /** Summoner's Rift summoner spells (summoners.json). */
+  summoners: SummonerSpellRecord[];
 }
 
 /** One champion's setup: the attacker, or the target dummy. */
@@ -58,6 +62,8 @@ export interface Loadout {
   runes?: number[];
   /** Stat shard IDs, one per row. */
   shards?: number[];
+  /** Summoner spell Data Dragon IDs, e.g. ["SummonerFlash", "SummonerDot"]. */
+  summoners?: string[];
   /** State overrides by effect ID (item/rune ID, or "<Champion>:<ability>"). */
   state?: Record<string, EffectState>;
   /** Current health as a fraction of max. */
@@ -71,7 +77,8 @@ export type LoadoutWarning =
   | { kind: 'itemLimit'; group: ItemLimitGroup; items: string[] }
   | { kind: 'runePage'; message: string }
   | { kind: 'shard'; message: string }
-  | { kind: 'skillRanks'; message: string };
+  | { kind: 'skillRanks'; message: string }
+  | { kind: 'summoners'; message: string };
 
 export interface ResolvedLoadout {
   stats: ResolvedStats;
@@ -79,6 +86,8 @@ export interface ResolvedLoadout {
   effects: ActiveEffect[];
   /** Flat bonuses from items and shards, before effects. */
   bonuses: StatBonuses;
+  /** The loadout's known summoner spells, for `summonerHit`. */
+  summoners: SummonerSpellRecord[];
   /**
    * Problems that would make the build impossible in game. The loadout is still resolved
    * (excluded and unknown items are skipped), so "what if" setups keep working.
@@ -183,6 +192,17 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
     else shardStats.push(shardBonuses(shard, loadout.level));
   });
 
+  const summonerIds = loadout.summoners ?? [];
+  const summoners = [...new Set(summonerIds)].flatMap((id) => {
+    const spell = data.summoners.find((s) => s.id === id);
+    if (!spell) warnings.push({ kind: 'summoners', message: `Unknown summoner spell ${id}` });
+    return spell ? [spell] : [];
+  });
+  if (summonerIds.length > MAX_SUMMONERS) {
+    warnings.push({ kind: 'summoners', message: `${summonerIds.length} summoner spells; a loadout has ${MAX_SUMMONERS}` });
+  }
+  if (new Set(summonerIds).size !== summonerIds.length) warnings.push({ kind: 'summoners', message: 'The same summoner spell is taken twice' });
+
   const ranks = loadout.ranks ?? {};
   for (const message of checkSkillRanks(ranks, loadout.level, loadout.champion?.spells)) warnings.push({ kind: 'skillRanks', message });
 
@@ -203,5 +223,5 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
 
   const bonuses = sumBonuses(...items.map((id) => byId.get(id)!.stats), ...shardStats);
   const stats = resolveStats(loadout.stats, loadout.level, bonuses, effects, { currentHpPct: loadout.currentHpPct });
-  return { stats, effects, bonuses, warnings };
+  return { stats, effects, bonuses, summoners, warnings };
 }

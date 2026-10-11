@@ -47,6 +47,7 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
     'champion/<id>.json: Q/W/E/R spell IDs and max ranks',
     'item.json: items, gold, recipes, stats, descriptions',
     'runesReforged.json: rune trees',
+    "summoner.json: summoner spell names, IDs, icons and modes (its tooltips and values have no numbers)",
   ],
   modifications: [
     {
@@ -109,6 +110,7 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
     'game/data/characters/<id>/<id>.bin.json: spell DataValues and SpellCalculations; CharacterRecords/Root base stats',
     'game/items.cdtb.bin.json: shop limit groups, and item values for game-values.json',
     'game/perks.cdtb.bin.json: rune values for game-values.json',
+    'game/shared.cdtb.bin.json: summoner spell values (Shared/Spells/<id>), ~8.6 MB',
     '<clientDataPath>/perks.json and perkstyles.json: stat shard rows and text',
   ],
   modifications: [
@@ -123,6 +125,12 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
       what: 'Spell cooldown, cost and range become one value per rank (index 0 = rank 1). Missing or all-zero cooldowns and costs are omitted; ranges are omitted when any rank is a placeholder (≤ 1 or ≥ 10000). Slotted abilities without a cooldown are listed in the build log',
       why: 'cooldownTime and castRange have a placeholder entry 0 (rank N = entry N) but mana does not (rank N = entry N − 1); ranges like 0, 1, 10000 and 25000 stand for self-cast or global',
       where: ['scripts/spell-ranks.ts', 'scripts/spell-ranks.test.ts', 'scripts/fetch-data.ts', 'scripts/spell-data.test.ts'],
+    },
+    {
+      id: 'summoner-spells',
+      what: "summoners.json: Summoner's Rift spells (Data Dragon mode CLASSIC) with names and icons from Data Dragon and data values, cooldown, range and translated formulas from Shared/Spells/<id>",
+      why: "Data Dragon's summoner values are placeholders",
+      where: ['scripts/fetch-data.ts', 'scripts/summoner-data.test.ts', 'src/engine/summoners.ts'],
     },
     {
       id: 'game-values',

@@ -2,11 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { getChampion } from './champions';
 import type { ChampionSpells } from './champions/types';
 import { checkRunePage, checkSkillRanks, resolveLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
+import type { SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ShardData } from './types';
 
 // The committed data for the latest patch (no Node APIs in src, so via Vite).
 const files = import.meta.glob<unknown>(
-  ['/public/data/manifest.json', '/public/data/*/{items,item-groups,runes,shards}.json', '/public/data/*/spells/Vayne.json'],
+  ['/public/data/manifest.json', '/public/data/*/{items,item-groups,runes,shards,summoners}.json', '/public/data/*/spells/Vayne.json'],
   { eager: true, import: 'default' },
 );
 const { latest } = files['/public/data/manifest.json'] as { latest: string };
@@ -20,6 +21,7 @@ const data: LoadoutData = {
   itemGroups: file<ItemLimitGroup[]>('item-groups.json'),
   runes: file<RuneTree[]>('runes.json'),
   shards: file<ShardData>('shards.json'),
+  summoners: file<SummonerSpellRecord[]>('summoners.json'),
 };
 const vayneSpells = file<ChampionSpells>('spells/Vayne.json');
 
@@ -99,6 +101,20 @@ describe('resolveLoadout', () => {
     const r = resolveLoadout(at(1, { shards: [5011, 5008, 5005] }), data);
     expect(r.warnings.map((w) => w.kind)).toEqual(['shard', 'shard']);
     expect(r.bonuses).toEqual({ adaptiveForce: 9 });
+  });
+});
+
+describe('summoner spells in a loadout', () => {
+  it('resolves known spells and warns about unknown, duplicate or extra ones', () => {
+    const r = resolveLoadout(at(1, { summoners: ['SummonerFlash', 'SummonerDot'] }), data);
+    expect(r.warnings).toEqual([]);
+    expect(r.summoners.map((s) => s.name)).toEqual(['Flash', 'Ignite']);
+    expect(resolveLoadout(at(1, { summoners: ['SummonerFlash', 'SummonerDot', 'SummonerHeal'] }), data).warnings)
+      .toEqual([{ kind: 'summoners', message: '3 summoner spells; a loadout has 2' }]);
+    expect(resolveLoadout(at(1, { summoners: ['SummonerDot', 'SummonerDot'] }), data).warnings)
+      .toEqual([{ kind: 'summoners', message: 'The same summoner spell is taken twice' }]);
+    expect(resolveLoadout(at(1, { summoners: ['SummonerSnowball'] }), data).warnings)
+      .toEqual([{ kind: 'summoners', message: 'Unknown summoner spell SummonerSnowball' }]);
   });
 });
 

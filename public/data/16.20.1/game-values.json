@@ -3243,13 +3243,7 @@
     "Ahri": {
       "critDamageMultiplier": 2
     },
-    "Akshan": {
-      "critDamageMultiplier": 2
-    },
-    "Akali": {
-      "critDamageMultiplier": 2
-    },
-    "Alistar": {
+    "Annie": {
       "critDamageMultiplier": 2
     },
     "Ashe": {
@@ -3258,31 +3252,34 @@
     "AurelionSol": {
       "critDamageMultiplier": 2
     },
-    "Ambessa": {
+    "Akshan": {
       "critDamageMultiplier": 2
     },
     "Aurora": {
       "critDamageMultiplier": 2
     },
-    "Anivia": {
+    "Azir": {
       "critDamageMultiplier": 2
     },
     "Bard": {
       "critDamageMultiplier": 2
     },
-    "Azir": {
+    "Belveth": {
       "critDamageMultiplier": 2
     },
-    "Belveth": {
+    "Aphelios": {
       "critDamageMultiplier": 2
     },
     "Blitzcrank": {
       "critDamageMultiplier": 2
     },
-    "Braum": {
+    "Brand": {
       "critDamageMultiplier": 2
     },
-    "Brand": {
+    "Akali": {
+      "critDamageMultiplier": 2
+    },
+    "Braum": {
       "critDamageMultiplier": 2
     },
     "Caitlyn": {
@@ -3294,34 +3291,31 @@
     "Cassiopeia": {
       "critDamageMultiplier": 2
     },
-    "Annie": {
-      "critDamageMultiplier": 2
-    },
-    "Aphelios": {
-      "critDamageMultiplier": 2
-    },
-    "Chogath": {
-      "critDamageMultiplier": 2
-    },
-    "Corki": {
+    "Briar": {
       "critDamageMultiplier": 2
     },
     "Darius": {
       "critDamageMultiplier": 2
     },
-    "Diana": {
-      "critDamageMultiplier": 2
-    },
-    "Ekko": {
-      "critDamageMultiplier": 2
-    },
     "DrMundo": {
+      "critDamageMultiplier": 2
+    },
+    "Diana": {
       "critDamageMultiplier": 2
     },
     "Draven": {
       "critDamageMultiplier": 2
     },
+    "Ekko": {
+      "critDamageMultiplier": 2
+    },
     "Elise": {
+      "critDamageMultiplier": 2
+    },
+    "Ezreal": {
+      "critDamageMultiplier": 2
+    },
+    "Chogath": {
       "critDamageMultiplier": 2
     },
     "Evelynn": {
@@ -3333,13 +3327,13 @@
     "Fiora": {
       "critDamageMultiplier": 2
     },
-    "Ezreal": {
+    "Corki": {
       "critDamageMultiplier": 2
     },
     "Fizz": {
       "critDamageMultiplier": 2
     },
-    "Amumu": {
+    "Garen": {
       "critDamageMultiplier": 2
     },
     "Gangplank": {
@@ -3348,28 +3342,25 @@
     "Galio": {
       "critDamageMultiplier": 2
     },
-    "Garen": {
-      "critDamageMultiplier": 2
-    },
-    "Gragas": {
+    "Gnar": {
       "critDamageMultiplier": 2
     },
     "Gwen": {
       "critDamageMultiplier": 2
     },
-    "Heimerdinger": {
-      "critDamageMultiplier": 2
-    },
     "Graves": {
       "critDamageMultiplier": 2
     },
-    "Gnar": {
+    "Hecarim": {
       "critDamageMultiplier": 2
     },
-    "Hwei": {
+    "Gragas": {
       "critDamageMultiplier": 2
     },
     "Illaoi": {
+      "critDamageMultiplier": 2
+    },
+    "Hwei": {
       "critDamageMultiplier": 2
     },
     "Irelia": {
@@ -3381,28 +3372,22 @@
     "Janna": {
       "critDamageMultiplier": 2
     },
-    "Briar": {
+    "Jax": {
       "critDamageMultiplier": 2
     },
-    "Jax": {
+    "JarvanIV": {
       "critDamageMultiplier": 2
     },
     "Jayce": {
       "critDamageMultiplier": 2
     },
-    "Jhin": {
-      "critDamageMultiplier": 2
-    },
-    "Jinx": {
-      "critDamageMultiplier": 2
-    },
-    "KSante": {
-      "critDamageMultiplier": 2
-    },
-    "Kalista": {
+    "Alistar": {
       "critDamageMultiplier": 2
     },
     "Kaisa": {
+      "critDamageMultiplier": 2
+    },
+    "Heimerdinger": {
       "critDamageMultiplier": 2
     },
     "Karma": {
@@ -3411,25 +3396,25 @@
     "Karthus": {
       "critDamageMultiplier": 2
     },
+    "Jinx": {
+      "critDamageMultiplier": 2
+    },
+    "KSante": {
+      "critDamageMultiplier": 2
+    },
     "Kassadin": {
       "critDamageMultiplier": 2
     },
-    "Kennen": {
-      "critDamageMultiplier": 2
-    },
-    "Katarina": {
+    "Kalista": {
       "critDamageMultiplier": 2
     },
     "Kayn": {
       "critDamageMultiplier": 2
     },
-    "Khazix": {
+    "Kayle": {
       "critDamageMultiplier": 2
     },
-    "KogMaw": {
-      "critDamageMultiplier": 2
-    },
-    "Leblanc": {
+    "Katarina": {
       "critDamageMultiplier": 2
     },
     "Kindred": {
@@ -3438,13 +3423,22 @@
     "Kled": {
       "critDamageMultiplier": 2
     },
+    "KogMaw": {
+      "critDamageMultiplier": 2
+    },
+    "Khazix": {
+      "critDamageMultiplier": 2
+    },
+    "Leblanc": {
+      "critDamageMultiplier": 2
+    },
+    "Jhin": {
+      "critDamageMultiplier": 2
+    },
     "LeeSin": {
       "critDamageMultiplier": 2
     },
     "Leona": {
-      "critDamageMultiplier": 2
-    },
-    "Lissandra": {
       "critDamageMultiplier": 2
     },
     "Locke": {
@@ -3453,28 +3447,22 @@
     "Lillia": {
       "critDamageMultiplier": 2
     },
-    "Lucian": {
-      "critDamageMultiplier": 2
-    },
-    "Hecarim": {
+    "Kennen": {
       "critDamageMultiplier": 2
     },
     "Lulu": {
       "critDamageMultiplier": 2
     },
-    "JarvanIV": {
+    "Malphite": {
       "critDamageMultiplier": 2
     },
     "Lux": {
       "critDamageMultiplier": 2
     },
-    "Malzahar": {
-      "critDamageMultiplier": 2
-    },
-    "Malphite": {
-      "critDamageMultiplier": 2
-    },
     "Maokai": {
+      "critDamageMultiplier": 2
+    },
+    "Lissandra": {
       "critDamageMultiplier": 2
     },
     "MasterYi": {
@@ -3483,52 +3471,55 @@
     "Mel": {
       "critDamageMultiplier": 2
     },
-    "Milio": {
-      "critDamageMultiplier": 2
-    },
     "MissFortune": {
-      "critDamageMultiplier": 2
-    },
-    "Morgana": {
       "critDamageMultiplier": 2
     },
     "Mordekaiser": {
       "critDamageMultiplier": 2
     },
+    "Morgana": {
+      "critDamageMultiplier": 2
+    },
     "Naafiri": {
+      "critDamageMultiplier": 2
+    },
+    "Milio": {
+      "critDamageMultiplier": 2
+    },
+    "Nautilus": {
       "critDamageMultiplier": 2
     },
     "Nasus": {
       "critDamageMultiplier": 2
     },
-    "Nami": {
+    "Malzahar": {
       "critDamageMultiplier": 2
     },
     "Neeko": {
       "critDamageMultiplier": 2
     },
+    "Nilah": {
+      "critDamageMultiplier": 2
+    },
     "Nidalee": {
+      "critDamageMultiplier": 2
+    },
+    "Nami": {
       "critDamageMultiplier": 2
     },
     "Nocturne": {
       "critDamageMultiplier": 2
     },
-    "Nilah": {
-      "critDamageMultiplier": 2
-    },
     "Olaf": {
-      "critDamageMultiplier": 2
-    },
-    "Kayle": {
-      "critDamageMultiplier": 2
-    },
-    "Orianna": {
       "critDamageMultiplier": 2
     },
     "Ornn": {
       "critDamageMultiplier": 2
     },
-    "Pantheon": {
+    "Nunu": {
+      "critDamageMultiplier": 2
+    },
+    "Orianna": {
       "critDamageMultiplier": 2
     },
     "Poppy": {
@@ -3540,16 +3531,13 @@
     "Quinn": {
       "critDamageMultiplier": 2
     },
-    "Qiyana": {
-      "critDamageMultiplier": 2
-    },
-    "Rakan": {
+    "Pantheon": {
       "critDamageMultiplier": 2
     },
     "Rammus": {
       "critDamageMultiplier": 2
     },
-    "RekSai": {
+    "Qiyana": {
       "critDamageMultiplier": 2
     },
     "Rell": {
@@ -3561,49 +3549,52 @@
     "Renata": {
       "critDamageMultiplier": 2
     },
-    "Riven": {
+    "Rengar": {
       "critDamageMultiplier": 2
     },
-    "Rumble": {
+    "Rakan": {
+      "critDamageMultiplier": 2
+    },
+    "Riven": {
       "critDamageMultiplier": 2
     },
     "Samira": {
       "critDamageMultiplier": 2
     },
+    "Ryze": {
+      "critDamageMultiplier": 2
+    },
+    "Rumble": {
+      "critDamageMultiplier": 2
+    },
     "Sejuani": {
-      "critDamageMultiplier": 2
-    },
-    "Senna": {
-      "critDamageMultiplier": 2
-    },
-    "Sett": {
       "critDamageMultiplier": 2
     },
     "Seraphine": {
       "critDamageMultiplier": 2
     },
-    "Shaco": {
+    "Lucian": {
       "critDamageMultiplier": 2
     },
-    "Shen": {
+    "Sett": {
       "critDamageMultiplier": 2
     },
-    "Nautilus": {
+    "Senna": {
+      "critDamageMultiplier": 2
+    },
+    "RekSai": {
       "critDamageMultiplier": 2
     },
     "Shyvana": {
       "critDamageMultiplier": 2
     },
+    "Shen": {
+      "critDamageMultiplier": 2
+    },
+    "Sion": {
+      "critDamageMultiplier": 2
+    },
     "Singed": {
-      "critDamageMultiplier": 2
-    },
-    "Nunu": {
-      "critDamageMultiplier": 2
-    },
-    "Sivir": {
-      "critDamageMultiplier": 2
-    },
-    "Skarner": {
       "critDamageMultiplier": 2
     },
     "Smolder": {
@@ -3612,13 +3603,13 @@
     "Sona": {
       "critDamageMultiplier": 2
     },
-    "Soraka": {
+    "Sivir": {
       "critDamageMultiplier": 2
     },
     "Swain": {
       "critDamageMultiplier": 2
     },
-    "Sylas": {
+    "Shaco": {
       "critDamageMultiplier": 2
     },
     "Syndra": {
@@ -3627,19 +3618,25 @@
     "TahmKench": {
       "critDamageMultiplier": 2
     },
+    "Sylas": {
+      "critDamageMultiplier": 2
+    },
     "Taliyah": {
+      "critDamageMultiplier": 2
+    },
+    "Skarner": {
       "critDamageMultiplier": 2
     },
     "Taric": {
       "critDamageMultiplier": 2
     },
-    "Teemo": {
+    "Talon": {
       "critDamageMultiplier": 2
     },
     "Thresh": {
       "critDamageMultiplier": 2
     },
-    "Rengar": {
+    "Tryndamere": {
       "critDamageMultiplier": 2
     },
     "Tristana": {
@@ -3648,28 +3645,22 @@
     "Trundle": {
       "critDamageMultiplier": 2
     },
-    "Tryndamere": {
-      "critDamageMultiplier": 2
-    },
     "TwistedFate": {
       "critDamageMultiplier": 2
     },
-    "Udyr": {
+    "Twitch": {
       "critDamageMultiplier": 2
     },
     "Urgot": {
       "critDamageMultiplier": 2
     },
-    "Ryze": {
-      "critDamageMultiplier": 2
-    },
     "Vayne": {
       "critDamageMultiplier": 2
     },
-    "Sion": {
+    "Teemo": {
       "critDamageMultiplier": 2
     },
-    "Vex": {
+    "Varus": {
       "critDamageMultiplier": 2
     },
     "Velkoz": {
@@ -3678,19 +3669,40 @@
     "Veigar": {
       "critDamageMultiplier": 2
     },
-    "Vi": {
+    "Soraka": {
+      "critDamageMultiplier": 2
+    },
+    "Vex": {
       "critDamageMultiplier": 2
     },
     "Viego": {
       "critDamageMultiplier": 2
     },
-    "Viktor": {
+    "Vi": {
+      "critDamageMultiplier": 2
+    },
+    "Udyr": {
       "critDamageMultiplier": 2
     },
     "Volibear": {
       "critDamageMultiplier": 2
     },
+    "Viktor": {
+      "critDamageMultiplier": 2
+    },
     "MonkeyKing": {
+      "critDamageMultiplier": 2
+    },
+    "Vladimir": {
+      "critDamageMultiplier": 2
+    },
+    "Xayah": {
+      "critDamageMultiplier": 2
+    },
+    "Warwick": {
+      "critDamageMultiplier": 2
+    },
+    "Yasuo": {
       "critDamageMultiplier": 2
     },
     "Xerath": {
@@ -3699,34 +3711,25 @@
     "XinZhao": {
       "critDamageMultiplier": 2
     },
-    "Talon": {
-      "critDamageMultiplier": 2
-    },
-    "Yasuo": {
-      "critDamageMultiplier": 2
-    },
-    "Yorick": {
-      "critDamageMultiplier": 2
-    },
     "Yone": {
       "critDamageMultiplier": 2
     },
     "Yunara": {
       "critDamageMultiplier": 2
     },
-    "Twitch": {
+    "Yorick": {
       "critDamageMultiplier": 2
     },
-    "Zaahen": {
-      "critDamageMultiplier": 2
-    },
-    "Zed": {
+    "Zac": {
       "critDamageMultiplier": 2
     },
     "Yuumi": {
       "critDamageMultiplier": 2
     },
-    "Varus": {
+    "Zaahen": {
+      "critDamageMultiplier": 2
+    },
+    "Ziggs": {
       "critDamageMultiplier": 2
     },
     "Zeri": {
@@ -3735,25 +3738,22 @@
     "Zoe": {
       "critDamageMultiplier": 2
     },
-    "Ziggs": {
-      "critDamageMultiplier": 2
-    },
-    "Vladimir": {
+    "Zilean": {
       "critDamageMultiplier": 2
     },
     "Zyra": {
       "critDamageMultiplier": 2
     },
-    "Warwick": {
+    "Zed": {
       "critDamageMultiplier": 2
     },
-    "Xayah": {
+    "Ambessa": {
       "critDamageMultiplier": 2
     },
-    "Zac": {
+    "Amumu": {
       "critDamageMultiplier": 2
     },
-    "Zilean": {
+    "Anivia": {
       "critDamageMultiplier": 2
     }
   }

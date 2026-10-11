@@ -27,8 +27,8 @@ export const electrocute: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [{ key: 'proc', label: 'Third hit (proc)', scope: 'combat', kind: 'toggle', default: false }],
-  // The window starts at the first hit and doesn't refresh.
-  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: HITS, window: { seconds: WINDOW_SECONDS, from: 'first' }, cooldown: COOLDOWN }],
+  // The window starts at the first hit and doesn't refresh. Ignite's cast counts as a hit (wiki).
+  cycles: [{ kind: 'proc', field: 'proc', counts: ['hit', 'igniteCast'], hits: HITS, window: { seconds: WINDOW_SECONDS, from: 'first' }, cooldown: COOLDOWN }],
   onHit: proc,
   onAbilityHit: proc,
 };

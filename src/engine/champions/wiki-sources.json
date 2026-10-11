@@ -57,6 +57,7 @@
     { "page": "Attack speed", "revision": 4073067, "facts": ["The attack speed cap is 1 attack per 0.333s (≈3.003)"], "matched": [] },
     { "page": "Adaptive force", "revision": 4063874, "facts": ["1 adaptive force = 0.6 bonus AD or 1 AP, by the higher bonus; the champion's adaptive type breaks ties"], "matched": [] },
     { "page": "Champion statistic", "revision": 4069636, "facts": ["Growth by level: g × (n − 1) × (0.7025 + 0.0175 × (n − 1))"], "matched": [] },
-    { "page": "Critical strike", "revision": 4059009, "facts": ["Crits deal 200% since V26.01 (175% from V10.23)"], "matched": [] }
+    { "page": "Critical strike", "revision": 4059009, "facts": ["Crits deal 200% since V26.01 (175% from V10.23)"], "matched": [] },
+    { "page": "Ignite", "revision": 4053158, "facts": ["Damage can't be amplified by damage modifiers; applies no spell effects", "Activation grants 2 Conqueror stacks and 1 Electrocute stack"], "matched": ["70, +20 per level through 5, then +25 per level (70–475)"] }
   ]
 }

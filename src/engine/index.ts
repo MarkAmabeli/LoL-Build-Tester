@@ -8,3 +8,4 @@ export * from './items';
 export * from './effects';
 export * from './champions';
 export * from './loadout';
+export * from './summoners';

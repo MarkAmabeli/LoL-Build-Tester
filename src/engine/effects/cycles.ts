@@ -20,7 +20,9 @@ export type Trigger =
   | 'cast'
   | 'ultimateCast'
   /** A dash, leap, blink, teleport or leaving stealth. */
-  | 'dash';
+  | 'dash'
+  /** Casting Ignite on a champion (it counts for Electrocute and Conqueror; wiki). */
+  | 'igniteCast';
 
 /**
  * Conditions the combo simulator decides and reports on an event. A cycle that
@@ -54,7 +56,8 @@ export type Seconds = number | { from: number; to: number };
 export interface ProcCycle {
   kind: 'proc';
   field: string;
-  counts: Trigger;
+  /** One trigger, or several that each count. */
+  counts: Trigger | readonly Trigger[];
   /** Counted events needed; the last one procs. */
   hits: number;
   /** All the hits must land within `seconds` of the first one, or of the previous one. */
@@ -82,11 +85,11 @@ export interface StackCycle {
   kind: 'stacks';
   field: string;
   /** 'second': one stack per second in combat (since the first hit), e.g. Liandry's. */
-  counts: Trigger | 'second';
+  counts: Trigger | readonly Trigger[] | 'second';
   /** Stacks per counted event (default 1), or by melee/ranged. */
   perHit?: number | { melee: number; ranged: number };
-  /** Stacks per ability hit that isn't an attack, when it differs from `perHit` (Conqueror). */
-  perAbilityHit?: number;
+  /** Stacks per counted event that isn't a basic attack (abilities, Ignite), when it differs from `perHit` (Conqueror). */
+  perNonAttackHit?: number;
   /** Gain on every `every`-th counted event only (Terminus: every other attack is Dark). */
   every?: number;
   max: number;
@@ -117,7 +120,9 @@ export interface Cycled {
 export interface CombatEvent {
   /** Seconds since the start of combat. */
   time: number;
-  type: 'hit' | 'cast' | 'dash';
+  /** 'summoner': a summoner spell cast (`spell` is its Data Dragon ID). */
+  type: 'hit' | 'cast' | 'dash' | 'summoner';
+  spell?: string;
   /** A hit that is (or includes) a basic attack. */
   attack?: boolean;
   /** A hit that is (or includes) ability damage. */
@@ -155,7 +160,8 @@ export type CycleTracker = Readonly<Record<string, FieldTrack>>;
 
 const EMPTY: FieldTrack = { count: 0, readyAt: 0, stacks: 0 };
 
-function matches(trigger: Trigger, e: CombatEvent): boolean {
+function matches(trigger: Trigger | readonly Trigger[], e: CombatEvent): boolean {
+  if (typeof trigger !== 'string') return trigger.some((t) => matches(t, e));
   switch (trigger) {
     case 'attack': return e.type === 'hit' && !!e.attack;
     case 'ability': return e.type === 'hit' && !!e.ability;
@@ -164,10 +170,12 @@ function matches(trigger: Trigger, e: CombatEvent): boolean {
     case 'cast': return e.type === 'cast';
     case 'ultimateCast': return e.type === 'cast' && !!e.ultimate;
     case 'dash': return e.type === 'dash';
+    case 'igniteCast': return e.type === 'summoner' && e.spell === 'SummonerDot';
   }
 }
 
-const isHitTrigger = (t: Trigger) => t === 'attack' || t === 'ability' || t === 'hit' || t === 'physicalHit';
+const isHitTrigger = (t: Trigger | readonly Trigger[]): boolean =>
+  typeof t === 'string' ? t === 'attack' || t === 'ability' || t === 'hit' || t === 'physicalHit' : t.some(isHitTrigger);
 
 export function secondsAt(s: Seconds, level: number): number {
   if (typeof s === 'number') return s;
@@ -252,7 +260,8 @@ function stepStacks(c: StackCycle, t0: FieldTrack, e: CombatEvent, ctx: CycleCon
     track.lastAt = t;
     if (track.count % (c.every ?? 1) === 0) {
       const perHit = typeof c.perHit === 'object' ? (ctx.ranged ? c.perHit.ranged : c.perHit.melee) : (c.perHit ?? 1);
-      const gain = e.ability && !e.attack && c.perAbilityHit !== undefined ? c.perAbilityHit : perHit;
+      const nonAttack = !e.attack && (e.ability || e.type === 'summoner');
+      const gain = nonAttack && c.perNonAttackHit !== undefined ? c.perNonAttackHit : perHit;
       track.stacks = Math.min(c.max, track.stacks + gain);
     }
   }

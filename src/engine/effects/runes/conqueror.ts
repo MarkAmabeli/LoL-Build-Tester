@@ -16,8 +16,9 @@ export const conqueror: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [{ key: 'stacks', label: 'Stacks', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS }],
-  // Abilities only stack once per cast instance (wiki), which counts as one event here.
-  cycles: [{ kind: 'stacks', field: 'stacks', counts: 'hit', perHit: { melee: STACKS_PER_HIT, ranged: RANGED_ATTACK_STACKS }, perAbilityHit: STACKS_PER_HIT, max: MAX_STACKS, expiresAfter: STACK_SECONDS }],
+  // Abilities only stack once per cast instance (wiki), which counts as one event here. Ignite's
+  // cast grants 2 stacks (wiki).
+  cycles: [{ kind: 'stacks', field: 'stacks', counts: ['hit', 'igniteCast'], perHit: { melee: STACKS_PER_HIT, ranged: RANGED_ATTACK_STACKS }, perNonAttackHit: STACKS_PER_HIT, max: MAX_STACKS, expiresAfter: STACK_SECONDS }],
   modifyStats: (stats, state) =>
     addAdaptiveForce(stats, Math.min(MAX_STACKS, Number(state.stacks)) * byLevel(PER_STACK_L1, PER_STACK_L18, stats.level)),
 };

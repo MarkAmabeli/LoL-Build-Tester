@@ -37,6 +37,13 @@ describe('proc cycles', () => {
       .toEqual([false, false, true, false, false, true]);
   });
 
+  it("Ignite's cast counts as one Electrocute hit", () => {
+    const ignite: CombatEvent = { time: 0.5, type: 'summoner', spell: 'SummonerDot' };
+    const flash: CombatEvent = { time: 0.5, type: 'summoner', spell: 'SummonerFlash' };
+    expect(field(run(effect('8112'), [attack(0), ignite, attack(1)]), 'proc')).toEqual([false, false, true]);
+    expect(field(run(effect('8112'), [attack(0), flash, attack(1)]), 'proc')).toEqual([false, false, false]);
+  });
+
   it("Electrocute's window doesn't refresh: the third hit must land within 3s of the first", () => {
     expect(field(run(effect('8112'), [attack(0), attack(2), attack(3.5), attack(4), attack(5)]), 'proc'))
       .toEqual([false, false, false, false, true]);
@@ -126,6 +133,11 @@ describe('stack cycles', () => {
     expect(field(run(conq, [attack(0), attack(1), ability(2), attack(3)], ranged), 'stacks')).toEqual([0, 1, 2, 4]);
     expect(field(run(conq, [attack(0), attack(1), attack(7)]), 'stacks')).toEqual([0, 2, 0]);
     expect(field(run(conq, Array.from({ length: 8 }, (_, i) => attack(i))), 'stacks').at(-1)).toBe(12);
+  });
+
+  it("Conqueror: Ignite's cast grants 2 stacks, even for ranged champions", () => {
+    const ignite: CombatEvent = { time: 1, type: 'summoner', spell: 'SummonerDot' };
+    expect(field(run(effect('8010'), [attack(0), ignite, attack(2)], ranged), 'stacks')).toEqual([0, 1, 3]);
   });
 
   it('Black Cleaver only counts physical hits', () => {
