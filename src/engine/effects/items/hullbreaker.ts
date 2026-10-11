@@ -4,7 +4,7 @@ import { hand, item, itemText, sourced } from '../../hand';
 
 const BASE_AD_RATIO = sourced('hullbreaker.baseAdRatio', item('3181', 'SkipperADRatio', 1.2));
 const HP_RATIO = sourced('hullbreaker.hpRatio', item('3181', 'MaxStackDamageHPRatio', 0.05));
-const RANGED_MULT = hand('hullbreaker.rangedMult', 0.7, item('3181', 'RangedSkipperADRatio', 0.7), 'Applied to the whole proc; the name suggests it may be the ranged base AD ratio instead (to review)');
+const RANGED_MULT = hand('hullbreaker.rangedMult', 0.7, item('3181', 'RangedSkipperADRatio', 0.7), 'Ranged is 70% as effective: applies to both the base AD and max health parts (84% base AD + 3.5% max health)');
 const ATTACKS = hand('hullbreaker.attacks', 5, itemText('3181', 'Every fifth Attack'));
 const STACK_SECONDS = sourced('hullbreaker.stackSeconds', item('3181', 'SkipperStackDuration', 10));
 
