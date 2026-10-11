@@ -18,6 +18,12 @@ Damage is calculated against a **target dummy**: max health, current health, arm
 - [ ] Bone Plating (flat reduction per hit; see section 4)
 - [ ] Shields (Sterak's Gage, Maw of Malmortius, Kaenic Rookern) and damage reduction (see section 3)
 
+## Role quests
+A controlled, deliberate implementation; nothing role-quest specific is coded until this step.
+- [ ] Model each role's quest and what it changes in a loadout (e.g. bot lane moves boots to a separate slot, leaving room for a seventh item)
+- [ ] `resolveLoadout`: make the item slot count (`MAX_ITEMS`, currently 6) depend on the role quest, and validate the boots slot
+- [ ] Review the `32xxxx`/`66xxxx` item variants dropped by `scripts/item-dedupe.ts`, in case they belong to role quests
+
 ## Later
 - [ ] Healing and sustain: life steal and omnivamp stats, healing from items, runes and abilities (Conqueror, BotRK, Darius), for duels and time-to-kill
 - [ ] Move speed soft caps (above 415 and 490), for move-speed-scaling effects
