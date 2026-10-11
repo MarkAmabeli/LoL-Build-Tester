@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { activate, getEffect } from './effects/registry';
 import { computeHit } from './hit';
-import { resolveLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
-import { applyRoleQuest, type RoleQuestItems } from './role-quests';
+import { playerLoadout, resolveLoadout, targetDummyLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
+import { applyRoleQuest, DEFAULT_PLAYER_ROLE, TARGET_DUMMY_ROLE, type RoleQuestItems } from './role-quests';
 import { summonerHit, type SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ShardData } from './types';
 
@@ -32,7 +32,8 @@ const dummy: ChampionBaseStats = {
   attackspeed: 0.625, attackspeedperlevel: 2,
   movespeed: 330, attackrange: 550,
 };
-const at = (level: number, more: Partial<Loadout> = {}): Loadout => ({ stats: dummy, level, ...more });
+// Player builds default to the bot lane role.
+const at = (level: number, more: Partial<Loadout> = {}): Loadout => ({ ...playerLoadout(dummy, level), ...more, role: more.role ?? DEFAULT_PLAYER_ROLE });
 const resolve = (l: Loadout) => resolveLoadout(l, data);
 const kinds = (l: Loadout) => resolve(l).warnings.map((w) => w.kind);
 
@@ -92,13 +93,13 @@ describe('support quest', () => {
     expect(kinds(at(1, { role: 'mid', items: [sword] }))).toEqual([]);
   });
 
-  it('is bound to the support role: other roles warn, no role is allowed', () => {
+  it('is bound to the support role: other player roles warn, the target dummy may hold it', () => {
     for (const id of [atlas, compass, bounty]) {
       expect(resolve(at(1, { role: 'top', items: [id] })).warnings).toEqual([
         { kind: 'roleItem', id, name: data.items.find((i) => i.id === id)!.name, needs: 'support' },
       ]);
     }
-    expect(kinds(at(1, { items: [atlas] }))).toEqual([]);
+    expect(kinds(at(1, { role: TARGET_DUMMY_ROLE, items: [atlas] }))).toEqual([]);
   });
 
   it("counts every stage at World Atlas's price and adds their health", () => {
@@ -118,7 +119,7 @@ describe('support quest', () => {
 
   it('removes every form of the support item when the role changes away from support', () => {
     for (const id of [atlas, compass, bounty, bloodsong]) expect(applyRoleQuest([id, sword], 'bot', false, data.roleQuests)).toEqual([sword]);
-    expect(applyRoleQuest([atlas, sword], undefined, false, data.roleQuests)).toEqual([atlas, sword]);
+    expect(applyRoleQuest([atlas, sword], TARGET_DUMMY_ROLE, false, data.roleQuests)).toEqual([atlas, sword]);
   });
 
   it('upgrades World Atlas to Bounty of Worlds when completed, and upgrades back when not', () => {
@@ -194,4 +195,32 @@ it('lets every role mark its quest completed', () => {
     const items = applyRoleQuest([], role, true, data.roleQuests);
     expect(kinds(at(9, { role, roleQuestCompleted: true, items }))).toEqual([]);
   }
+});
+
+describe('roles', () => {
+  it('defaults player builds to bot lane, quest not completed', () => {
+    const l = playerLoadout(dummy, 1);
+    expect(l.role).toBe('bot');
+    expect(l.roleQuestCompleted).toBeUndefined();
+    expect(at(1).role).toBe('bot');
+  });
+
+  it('gives target dummy builds the target dummy role, which counts as completed for items only', () => {
+    const l = targetDummyLoadout(dummy, 18);
+    expect(l.role).toBe('targetDummy');
+    const upgraded = [idOf('Swiftmarch'), idOf('Bloodsong'), idOf('Long Sword')];
+    for (const done of [undefined, true, false]) {
+      const r = resolve({ ...l, roleQuestCompleted: done, items: upgraded });
+      expect(r.warnings).toEqual([]);
+      expect(r.levelCap).toBe(18);
+      expect(r.effects.filter((e) => e.effect.kind === 'roleQuest')).toEqual([]);
+      expect(r.smite).toBe('basic');
+    }
+    expect(kinds({ ...l, items: [idOf('World Atlas')] })).toEqual([]);
+  });
+
+  it('never changes a target dummy\'s items', () => {
+    const items = [idOf("Berserker's Greaves"), idOf('Gunmetal Greaves'), idOf('World Atlas'), idOf('Bloodsong')];
+    for (const done of [true, false]) expect(applyRoleQuest(items, TARGET_DUMMY_ROLE, done, data.roleQuests)).toEqual(items);
+  });
 });

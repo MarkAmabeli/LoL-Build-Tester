@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { getChampion } from './champions';
 import type { ChampionSpells } from './champions/types';
-import { checkRunePage, checkSkillRanks, resolveLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
-import type { RoleQuestItems } from './role-quests';
+import { checkRunePage, checkSkillRanks, playerLoadout, resolveLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
+import { DEFAULT_PLAYER_ROLE, type RoleQuestItems } from './role-quests';
 import type { SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ShardData } from './types';
 
@@ -37,7 +37,8 @@ const dummy: ChampionBaseStats = {
   attackspeed: 0.625, attackspeedperlevel: 2,
   movespeed: 330, attackrange: 550,
 };
-const at = (level: number, more: Partial<Loadout> = {}): Loadout => ({ stats: dummy, level, ...more });
+// Player builds default to the bot lane role.
+const at = (level: number, more: Partial<Loadout> = {}): Loadout => ({ ...playerLoadout(dummy, level), ...more, role: more.role ?? DEFAULT_PLAYER_ROLE });
 const idOf = (name: string) => {
   const item = data.items.find((i) => i.name === name);
   if (!item) throw new Error(`no item ${name}`);

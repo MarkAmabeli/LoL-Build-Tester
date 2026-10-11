@@ -15,7 +15,19 @@ import { addBonus, MAX_LEVEL } from './stats';
  * other roles can't buy it. Its stages (World Atlas → Runic Compass → Bounty of Worlds) come from its
  * own gold quest, not the role quest.
  */
-export type Role = 'top' | 'jungle' | 'mid' | 'bot' | 'support';
+export type PlayerRole = 'top' | 'jungle' | 'mid' | 'bot' | 'support';
+/**
+ * Every loadout has a role. Player builds pick one of the player roles (bot by default); the
+ * target dummy role is only for target dummy builds (the engine doesn't enforce that). It counts
+ * as having completed the quests for items only: it can hold any upgraded item and the support
+ * item, but gets no quest rewards (stat amp, level cap, Primal Smite, boots slot) and no
+ * automatic item changes.
+ */
+export type Role = PlayerRole | 'targetDummy';
+/** The roles a player build can pick, in lane order. */
+export const PLAYER_ROLES: readonly PlayerRole[] = ['top', 'jungle', 'mid', 'bot', 'support'];
+export const DEFAULT_PLAYER_ROLE: PlayerRole = 'bot';
+export const TARGET_DUMMY_ROLE = 'targetDummy' satisfies Role;
 
 /** role-quests.json: item structure derived from the data by the import. */
 export interface RoleQuestItems {
@@ -38,10 +50,10 @@ const TOP_LEVEL_CAP_BONUS = sourced('roleQuest.top.levelCapBonus', item('1221', 
 /** Extra item slots the bot lane reward gives, for boots only. */
 export const BOT_BOOTS_SLOTS = hand('roleQuest.bot.bootsSlots', 1, wiki('Role Quests', 'The Role Quest slot is now reserved for any equipped Boots item'));
 
-const completed = (role: Role | undefined, done: boolean | undefined, which: Role) => role === which && !!done;
+const completed = (role: Role, done: boolean | undefined, which: PlayerRole) => role === which && !!done;
 
 /** Highest level the loadout can reach. */
-export function roleQuestLevelCap(role?: Role, done?: boolean): number {
+export function roleQuestLevelCap(role: Role, done?: boolean): number {
   return completed(role, done, 'top') ? MAX_LEVEL + TOP_LEVEL_CAP_BONUS : MAX_LEVEL;
 }
 
@@ -60,12 +72,12 @@ export const midQuestReward: Effect = {
 };
 
 /** The role quest's effects for a loadout. */
-export function roleQuestEffects(role?: Role, done?: boolean): Effect[] {
+export function roleQuestEffects(role: Role, done?: boolean): Effect[] {
   return completed(role, done, 'mid') ? [midQuestReward] : [];
 }
 
 /** Smite's level: Primal once the jungle quest is done. The intermediate Unleashed Smite isn't modeled yet. */
-export function smiteTier(role?: Role, done?: boolean): 'basic' | 'primal' {
+export function smiteTier(role: Role, done?: boolean): 'basic' | 'primal' {
   return completed(role, done, 'jungle') ? 'primal' : 'basic';
 }
 
@@ -77,9 +89,11 @@ export function smiteTier(role?: Role, done?: boolean): 'basic' | 'primal' {
  *   - support: World Atlas goes in the first slot if no form of the support item is there. With
  *     the quest completed, World Atlas and Runic Compass become Bounty of Worlds (its upgrade is
  *     the player's choice); otherwise an upgrade goes back to Bounty of Worlds.
- *   - any other role: every form of the support item is removed. With no role, items are kept.
+ *   - any other player role: every form of the support item is removed.
+ *   - target dummy: items are left as they are.
  */
-export function applyRoleQuest(items: string[], role: Role | undefined, done: boolean | undefined, data: RoleQuestItems): string[] {
+export function applyRoleQuest(items: string[], role: Role, done: boolean | undefined, data: RoleQuestItems): string[] {
+  if (role === TARGET_DUMMY_ROLE) return items;
   const up = data.bootsUpgrades;
   const down = Object.fromEntries(Object.entries(up).map(([t2, t3]) => [t3, t2]));
   let result = completed(role, done, 'mid') ? items.map((id) => up[id] ?? id) : items.map((id) => down[id] ?? id);
@@ -90,7 +104,7 @@ export function applyRoleQuest(items: string[], role: Role | undefined, done: bo
     const bounty = data.supportStages[data.supportStages.length - 1];
     const toBounty = new Set(done ? data.supportStages : data.supportUpgrades);
     result = result.map((id) => (toBounty.has(id) ? bounty : id));
-  } else if (role) {
+  } else {
     result = result.filter((id) => !forms.has(id));
   }
   return result;

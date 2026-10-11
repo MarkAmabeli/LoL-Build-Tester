@@ -7,7 +7,18 @@ import { checkItemLimits } from './items';
 import { shardBonuses } from './shards';
 import { clampLevel, resolveStats, sumBonuses } from './stats';
 import type { SummonerSpellRecord } from './summoners';
-import { BOT_BOOTS_SLOTS, roleQuestEffects, roleQuestLevelCap, smiteTier, supportItems, type Role, type RoleQuestItems } from './role-quests';
+import {
+  BOT_BOOTS_SLOTS,
+  DEFAULT_PLAYER_ROLE,
+  roleQuestEffects,
+  roleQuestLevelCap,
+  smiteTier,
+  supportItems,
+  TARGET_DUMMY_ROLE,
+  type PlayerRole,
+  type Role,
+  type RoleQuestItems,
+} from './role-quests';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
 
 /** Inventory slots. Role quests will change this for bot lane (boots get their own slot); not modeled yet. */
@@ -91,8 +102,9 @@ export interface Loadout {
   shards?: number[];
   /** Summoner spell Data Dragon IDs, e.g. ["SummonerFlash", "SummonerDot"]. */
   summoners?: string[];
-  role?: Role;
-  /** The role quest is completed (see role-quests.ts for what that changes). */
+  /** Always set: a player role (bot by default), or the target dummy role for target dummy builds. */
+  role: Role;
+  /** The role quest is completed (see role-quests.ts for what that changes). Ignored for the target dummy, which counts as completed. */
   roleQuestCompleted?: boolean;
   /** State overrides by effect ID (item/rune ID, or "<Champion>:<ability>"). */
   state?: Record<string, EffectState>;
@@ -114,7 +126,7 @@ export type LoadoutWarning =
    * An item the loadout's role can't hold: tier 3 boots need the completed mid quest, Bounty of
    * Worlds' upgrades the completed support quest, and the support item's stages the support role.
    */
-  | { kind: 'roleItem'; id: string; name: string; needs: Role }
+  | { kind: 'roleItem'; id: string; name: string; needs: PlayerRole }
   /** A support without the support item (World Atlas or what it becomes). */
   | { kind: 'supportItem'; message: string }
   | { kind: 'roleQuest'; message: string };
@@ -138,6 +150,16 @@ export interface ResolvedLoadout {
    * (excluded and unknown items are skipped), so "what if" setups keep working.
    */
   warnings: LoadoutWarning[];
+}
+
+/** A new player build: bot lane role (until changed), quest not completed, nothing else set. */
+export function playerLoadout(stats: ChampionBaseStats, level: number, role: PlayerRole = DEFAULT_PLAYER_ROLE): Loadout {
+  return { stats, level, role };
+}
+
+/** A new target dummy build: the target dummy role, which only target dummy builds use. */
+export function targetDummyLoadout(stats: ChampionBaseStats, level: number): Loadout {
+  return { stats, level, role: TARGET_DUMMY_ROLE };
 }
 
 /** Check a rune page: one keystone, a rune from each primary row, two secondary runes from different rows of another tree. */
@@ -223,7 +245,10 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
     return true;
   });
   const { role, roleQuestCompleted: done } = loadout;
-  const quest = (r: Role) => role === r && !!done;
+  const quest = (r: PlayerRole) => role === r && !!done;
+  // The target dummy counts as having completed every quest for items, so it can hold any
+  // upgraded item (tier 3 boots, Bounty of Worlds' upgrades) and the support item.
+  const dummy = role === TARGET_DUMMY_ROLE;
   const boots = new Set(data.roleQuests.boots);
   // The bot lane reward gives boots their own slot, outside the six.
   const ownSlot = quest('bot') ? Math.min(BOT_BOOTS_SLOTS, items.filter((id) => boots.has(id)).length) : 0;
@@ -231,12 +256,11 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
   const tier3Boots = new Set(Object.values(data.roleQuests.bootsUpgrades));
   const supportUpgrades = new Set(data.roleQuests.supportUpgrades);
   const supportStages = new Set(data.roleQuests.supportStages);
-  // With no role there's no role binding, so the support item's stages are allowed.
-  const offSupport = role !== undefined && role !== 'support';
+  const offSupport = role !== 'support' && !dummy;
   for (const id of new Set(items)) {
-    const needs: Role | undefined =
-      tier3Boots.has(id) && !quest('mid') ? 'mid'
-      : (supportUpgrades.has(id) && !quest('support')) || (supportStages.has(id) && offSupport) ? 'support'
+    const needs: PlayerRole | undefined =
+      tier3Boots.has(id) && !quest('mid') && !dummy ? 'mid'
+      : (supportUpgrades.has(id) && !quest('support') && !dummy) || (supportStages.has(id) && offSupport) ? 'support'
       : undefined;
     if (needs) warnings.push({ kind: 'roleItem', id, name: byId.get(id)!.name, needs });
   }
