@@ -7,11 +7,16 @@
  * Sources: Data Dragon (base stats, items, runes) and CommunityDragon (spell values and
  * formulas, stat shards, shop limits). Their settings, every change this script makes to
  * their data, and notes on each are in sources.ts; add to it when changing the import.
+ *
+ * Every download is retried on errors. Champions that still fail are retried once more after
+ * a short delay; if any fail again, the import stops before writing anything, so a refresh
+ * never leaves partial data.
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
+import { runWithRetry, sleep } from './concurrency.ts';
 import { dedupeItemsByName } from './item-dedupe.ts';
 import { buildRoleQuestItems } from './role-quests.ts';
 import { itemValues, perkValues, type ValueMap } from './game-values.ts';
@@ -28,28 +33,25 @@ const CONCURRENCY = 8;
 const OUT_ROOT = path.resolve('public/data');
 const OVERRIDES = path.resolve('scripts/overrides');
 
+/**
+ * Fetch JSON, retrying (with a growing delay) on error statuses and on network errors or
+ * truncated bodies, which `fetch` and `res.json()` throw. A 404 isn't retried.
+ */
 async function getJson<T>(url: string, retries = 2): Promise<T> {
   for (let attempt = 0; ; attempt++) {
-    const res = await fetch(url);
-    if (res.ok) return (await res.json()) as T;
-    if (attempt >= retries || res.status === 404) {
-      throw new Error(`${res.status} ${res.statusText} for ${url}`);
+    let failure: string;
+    try {
+      const res = await fetch(url);
+      if (res.ok) return (await res.json()) as T;
+      if (res.status === 404) throw new Error(`404 ${res.statusText} for ${url}`);
+      failure = `${res.status} ${res.statusText}`;
+    } catch (err) {
+      if ((err as Error).message.startsWith('404 ')) throw err;
+      failure = (err as Error).message;
     }
-    await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+    if (attempt >= retries) throw new Error(`${failure} for ${url}`);
+    await sleep(500 * (attempt + 1));
   }
-}
-
-async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let next = 0;
-  async function worker() {
-    while (next < items.length) {
-      const i = next++;
-      results[i] = await fn(items[i]);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
 }
 
 async function writeJson(file: string, data: unknown) {
@@ -175,46 +177,51 @@ interface SpellCoverage {
   reasons: Record<string, number>;
 }
 
+/** Wait before retrying champions whose downloads failed, then stop the import if any still fail. */
+const CHAMPION_RETRY_DELAY_MS = 5000;
+
+/** One champion's spell data, built in memory (nothing is written until every champion succeeds). */
+interface ChampionSpellResult {
+  spells: Record<string, unknown>;
+  adGrowth?: number;
+  critDamageMultiplier?: number;
+  translated: number;
+  unsupportedReasons: string[];
+  noCooldown: string[];
+}
+
 /**
  * Pull each champion's spell DataValues + SpellCalculations from CommunityDragon,
  * tag spells with their Q/W/E/R slot and max rank from Data Dragon, and translate
  * the calculations into engine formulas (see spell-formulas.ts).
+ *
+ * Champions whose downloads fail are retried once after CHAMPION_RETRY_DELAY_MS; if any
+ * still fail, this throws, so the import stops before writing anything.
  */
-async function buildSpells(version: string, championIds: string[], outDir: string) {
+async function buildSpells(version: string, championIds: string[]) {
   const patch = cdragonPatch(version);
-  const failures: string[] = [];
-  const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
-  /** Champion id → AD per level from the champion's game data (Data Dragon has 0 for everyone). */
-  const adPerLevel = new Map<string, number>();
-  /** Champion id → Root values hand-entered engine constants are checked against (game-values.json). */
-  const rootValues: Record<string, ValueMap> = {};
-  /** "Champion Q (Spell)" for Q/W/E/R spells with no usable cooldown in the data. */
-  const noCooldown: string[] = [];
 
-  await mapLimit(championIds, CONCURRENCY, async (id) => {
+  const loadChampion = async (id: string): Promise<ChampionSpellResult> => {
     const alias = id.toLowerCase();
-    let bin: Record<string, BinSpellObject>;
-    let detail: DDChampionDetail;
-    try {
-      [bin, detail] = await Promise.all([
-        getCdragonJson<Record<string, BinSpellObject>>(patch, `game/data/characters/${alias}/${alias}.bin.json`),
-        getJson<{ data: Record<string, DDChampionDetail> }>(
-          `${DDRAGON}/cdn/${version}/data/${LOCALE}/champion/${id}.json`,
-        ).then((r) => r.data[id]),
-      ]);
-    } catch (err) {
-      failures.push(`${id}: ${(err as Error).message}`);
-      return;
-    }
+    const [bin, detail] = await Promise.all([
+      getCdragonJson<Record<string, BinSpellObject>>(patch, `game/data/characters/${alias}/${alias}.bin.json`),
+      getJson<{ data: Record<string, DDChampionDetail> }>(
+        `${DDRAGON}/cdn/${version}/data/${LOCALE}/champion/${id}.json`,
+      ).then((r) => r.data[id]),
+    ]);
     const root = Object.entries(bin).find(([binPath]) => binPath.endsWith('/CharacterRecords/Root'))?.[1];
     const adGrowth = root?.damagePerLevelModifiable?.baseValue;
-    // The bin stores floats (2.3499999); the stat itself has at most a few decimals.
-    if (adGrowth !== undefined) adPerLevel.set(id, Math.round(adGrowth * 1e4) / 1e4);
-    if (root?.critDamageMultiplier !== undefined) rootValues[id] = { critDamageMultiplier: root.critDamageMultiplier };
+    const result: ChampionSpellResult = {
+      spells: {},
+      // The bin stores floats (2.3499999); the stat itself has at most a few decimals.
+      adGrowth: adGrowth === undefined ? undefined : Math.round(adGrowth * 1e4) / 1e4,
+      critDamageMultiplier: root?.critDamageMultiplier,
+      translated: 0,
+      unsupportedReasons: [],
+      noCooldown: [],
+    };
 
     const slotOf = new Map(detail.spells.map((s, i) => [s.id.toLowerCase(), { slot: SLOTS[i], maxRank: s.maxrank }]));
-
-    const spells: Record<string, unknown> = {};
     for (const [binPath, obj] of Object.entries(bin)) {
       const spell = obj?.mSpell;
       if (!spell) continue;
@@ -231,16 +238,11 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
         calculations: spell.mSpellCalculations ?? {},
       };
       const { formulas, unsupported } = translateSpell(raw, maxRank);
-      coverage.translated += Object.keys(formulas).length;
-      coverage.unsupported += Object.keys(unsupported).length;
-      for (const reason of Object.values(unsupported)) {
-        // Group by reason kind, not the specific value name.
-        const kind = reason.replace(/"[^"]*"/g, '"…"');
-        coverage.reasons[kind] = (coverage.reasons[kind] ?? 0) + 1;
-      }
+      result.translated += Object.keys(formulas).length;
+      result.unsupportedReasons.push(...Object.values(unsupported));
       const cooldown = cooldownByRank(spell.cooldownTime, maxRank);
-      if (slot && slot !== 'P' && !cooldown) noCooldown.push(`${id} ${slot} (${name})`);
-      spells[name] = {
+      if (slot && slot !== 'P' && !cooldown) result.noCooldown.push(`${id} ${slot} (${name})`);
+      result.spells[name] = {
         path: binPath,
         ...(slot ? { slot } : {}),
         maxRank,
@@ -253,10 +255,45 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
         unsupported,
       };
     }
-    await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
-  });
+    return result;
+  };
 
-  return { failures, coverage, adPerLevel, rootValues, noCooldown: noCooldown.sort() };
+  const { results, failed } = await runWithRetry(championIds, loadChampion, {
+    limit: CONCURRENCY,
+    delayMs: CHAMPION_RETRY_DELAY_MS,
+    onRetry: (first) =>
+      console.warn(`  ! ${first.length} champions failed to download (${first.map((f) => f.item).join(', ')}); retrying in ${CHAMPION_RETRY_DELAY_MS / 1000}s`),
+  });
+  if (failed.length > 0) {
+    throw new Error(
+      `Import stopped: ${failed.length} champions still failed after a retry, so nothing was written:\n` +
+        failed.map((f) => `  ${f.item}: ${f.error.message}`).join('\n'),
+    );
+  }
+
+  const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
+  /** Champion id → AD per level from the champion's game data (Data Dragon has 0 for everyone). */
+  const adPerLevel = new Map<string, number>();
+  /** Champion id → Root values hand-entered engine constants are checked against (game-values.json). */
+  const rootValues: Record<string, ValueMap> = {};
+  /** "Champion Q (Spell)" for Q/W/E/R spells with no usable cooldown in the data. */
+  const noCooldown: string[] = [];
+  const spellsById = new Map<string, Record<string, unknown>>();
+  for (const id of championIds) {
+    const r = results.get(id)!;
+    spellsById.set(id, r.spells);
+    if (r.adGrowth !== undefined) adPerLevel.set(id, r.adGrowth);
+    if (r.critDamageMultiplier !== undefined) rootValues[id] = { critDamageMultiplier: r.critDamageMultiplier };
+    noCooldown.push(...r.noCooldown);
+    coverage.translated += r.translated;
+    coverage.unsupported += r.unsupportedReasons.length;
+    for (const reason of r.unsupportedReasons) {
+      // Group by reason kind, not the specific value name.
+      const kind = reason.replace(/"[^"]*"/g, '"…"');
+      coverage.reasons[kind] = (coverage.reasons[kind] ?? 0) + 1;
+    }
+  }
+  return { spellsById, coverage, adPerLevel, rootValues, noCooldown: noCooldown.sort() };
 }
 
 async function buildItems(version: string) {
@@ -415,35 +452,21 @@ async function main() {
   const outDir = path.join(OUT_ROOT, version);
   console.log(`Building data for ${version} -> ${path.relative(process.cwd(), outDir)}`);
 
+  // Download and build everything first; files are only written once every download has
+  // succeeded, so a failed import leaves the existing data untouched.
   const [{ champions, warnings: championWarnings }, { items, dropped: droppedItems, recipes }, runes, shards] = await Promise.all([
     buildChampions(version),
     buildItems(version),
     buildRunes(version),
     buildShards(version),
   ]);
-  await writeJson(path.join(outDir, 'items.json'), items);
-  const itemsBin = await getCdragonJson<ItemsBin>(cdragonPatch(version), 'game/items.cdtb.bin.json');
+  const [itemsBin, perksBin, summoners] = await Promise.all([
+    getCdragonJson<ItemsBin>(cdragonPatch(version), 'game/items.cdtb.bin.json'),
+    getCdragonJson<Record<string, unknown>>(cdragonPatch(version), 'game/perks.cdtb.bin.json'),
+    buildSummoners(version),
+  ]);
   const itemGroups = buildItemGroups(itemsBin, items);
-  await writeJson(path.join(outDir, 'item-groups.json'), itemGroups);
-  await writeJson(path.join(outDir, 'role-quests.json'), buildRoleQuestItems(items, recipes, itemGroups));
-  await writeJson(path.join(outDir, 'runes.json'), runes);
-  await writeJson(path.join(outDir, 'shards.json'), shards.data);
-  const summoners = await buildSummoners(version);
-  await writeJson(path.join(outDir, 'summoners.json'), summoners.summoners);
-  console.log(`  ${summoners.summoners.length} summoner spells`);
-  for (const w of summoners.warnings) console.warn(`  ! ${w}`);
-  console.log(
-    `  ${champions.length} champions, ${items.length} items (${itemGroups.length} shop limit groups), ` +
-      `${Object.keys(shards.data.shards).length} stat shards`,
-  );
-  for (const w of [...championWarnings, ...shards.warnings]) console.warn(`  ! ${w}`);
-  console.log(`  ${droppedItems.length} items listed more than once; kept one each (see item-dedupe.ts):`);
-  for (const d of droppedItems) console.log(`    ${d.name}: kept ${d.kept}, dropped ${d.dropped.join(', ')}`);
-
-  const { failures, coverage, adPerLevel, rootValues, noCooldown } = await buildSpells(version, champions.map((c) => c.id), outDir);
-  console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);
-  for (const f of failures) console.warn(`  ! ${f}`);
-  console.log(`  ${noCooldown.length} abilities have no usable cooldown in the data (shown as unknown): ${noCooldown.join(', ')}`);
+  const { spellsById, coverage, adPerLevel, rootValues, noCooldown } = await buildSpells(version, champions.map((c) => c.id));
 
   // Data Dragon's attackdamageperlevel is 0 for every champion; take the game data's value instead.
   for (const champ of champions) {
@@ -453,16 +476,32 @@ async function main() {
     if (growth === undefined) console.warn(`  ! ${champ.id}: no AD per level in game data, left at 0`);
     else stats.attackdamageperlevel = growth;
   }
-  await writeJson(path.join(outDir, 'champions.json'), champions);
 
+  await writeJson(path.join(outDir, 'items.json'), items);
+  await writeJson(path.join(outDir, 'item-groups.json'), itemGroups);
+  await writeJson(path.join(outDir, 'role-quests.json'), buildRoleQuestItems(items, recipes, itemGroups));
+  await writeJson(path.join(outDir, 'runes.json'), runes);
+  await writeJson(path.join(outDir, 'shards.json'), shards.data);
+  await writeJson(path.join(outDir, 'summoners.json'), summoners.summoners);
+  await writeJson(path.join(outDir, 'champions.json'), champions);
+  for (const [id, spells] of spellsById) await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
   // Values hand-entered engine constants are checked against (src/engine/hand.ts).
-  const perksBin = await getCdragonJson<Record<string, unknown>>(cdragonPatch(version), 'game/perks.cdtb.bin.json');
   await writeJson(path.join(outDir, 'game-values.json'), {
     items: itemValues(itemsBin as Record<string, unknown>),
     perks: perkValues(perksBin),
     // Sorted: champions finish downloading in any order.
     champions: Object.fromEntries(Object.entries(rootValues).sort(([a], [b]) => a.localeCompare(b))),
   });
+
+  console.log(
+    `  ${champions.length} champions, ${items.length} items (${itemGroups.length} shop limit groups), ` +
+      `${Object.keys(shards.data.shards).length} stat shards, ${summoners.summoners.length} summoner spells`,
+  );
+  for (const w of [...championWarnings, ...shards.warnings, ...summoners.warnings]) console.warn(`  ! ${w}`);
+  console.log(`  ${droppedItems.length} items listed more than once; kept one each (see item-dedupe.ts):`);
+  for (const d of droppedItems) console.log(`    ${d.name}: kept ${d.kept}, dropped ${d.dropped.join(', ')}`);
+  console.log(`  spells: ${spellsById.size}/${champions.length} champions`);
+  console.log(`  ${noCooldown.length} abilities have no usable cooldown in the data (shown as unknown): ${noCooldown.join(', ')}`);
   const total = coverage.translated + coverage.unsupported;
   console.log(
     `  formulas: ${coverage.translated}/${total} calculations translated ` +
