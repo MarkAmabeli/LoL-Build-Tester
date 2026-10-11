@@ -10,3 +10,4 @@ export * from './champions';
 export * from './loadout';
 export * from './summoners';
 export * from './role-quests';
+export * from './gold-efficiency';

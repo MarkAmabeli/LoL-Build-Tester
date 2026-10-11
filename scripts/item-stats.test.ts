@@ -29,6 +29,20 @@ describe('parseItemDescriptionStats', () => {
     expect(parseItemDescriptionStats(desc)).toEqual({ critDamageBonus: 0.3 });
   });
 
+  it('reads omnivamp, tenacity, heal and shield power and base regen as fractions, and gold per 10 seconds', () => {
+    const desc =
+      '<stats><attention>5%</attention> Omnivamp<br><attention>20%</attention> Tenacity<br><attention>10%</attention> Heal and Shield Power' +
+      '<br><attention>100%</attention> Base Health Regen<br><attention>125%</attention> Base Mana Regen<br><attention>9</attention> Gold Per 10 Seconds</stats>';
+    expect(parseItemDescriptionStats(desc)).toEqual({
+      omnivamp: 0.05,
+      tenacity: 0.2,
+      healShieldPower: 0.1,
+      baseHpRegenPct: 1,
+      baseManaRegenPct: 1.25,
+      goldPer10: 9,
+    });
+  });
+
   it('ignores text outside the <stats> block', () => {
     expect(parseItemDescriptionStats('<passive>Gain 10 Lethality</passive>')).toEqual({});
   });
@@ -39,5 +53,9 @@ describe('toStatBonuses', () => {
     expect(
       toStatBonuses({ FlatPhysicalDamageMod: 40, PercentAttackSpeedMod: 0.25, FlatArmorMod: 0 }, {}),
     ).toEqual({ ad: 40, attackSpeedPct: 25 });
+  });
+
+  it('keeps percent move speed and life steal as fractions', () => {
+    expect(toStatBonuses({ PercentMovementSpeedMod: 0.04, PercentLifeStealMod: 0.07 }, {})).toEqual({ moveSpeedPct: 0.04, lifeSteal: 0.07 });
   });
 });

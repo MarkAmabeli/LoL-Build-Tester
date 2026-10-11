@@ -88,7 +88,7 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
     },
     {
       id: 'items-description-stats',
-      what: 'Ability haste, lethality, penetration and crit damage are parsed from the description <stats> block; percentages are converted to the engine units',
+      what: 'Ability haste, lethality, penetration, crit damage, omnivamp, tenacity, heal and shield power and base health/mana regen and gold per 10 seconds are parsed from the description <stats> block; percentages are converted to the engine units',
       why: "The structured `stats` field doesn't include them",
       where: ['scripts/item-stats.ts', 'scripts/item-stats.test.ts'],
     },
@@ -105,6 +105,7 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
     'Base stats other than AD per level matched the wiki for Vayne, Darius, Veigar, Nasus and Yunara (16.20).',
     'Symbiotic Soles, Synchronized Souls and Forever Forward are in item.json but not purchasable (16.20), so items.json leaves them out; the user reports Symbiotic Soles is no longer in the game.',
     'Role quest items (1200–1211, 1220–1222, 1090–1094) are in item.json but not purchasable; their reward values are in the items bin (game-values.json).',
+    "Item stats not imported: FlatHPRegenMod (Doran's Shield, Guardian's Horn; not in their <stats> text) and Adaptive Force (only on the 66xxxx variants, pending their review).",
   ],
 };
 

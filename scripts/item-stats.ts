@@ -1,8 +1,9 @@
 import type { StatBonuses } from '../src/engine/types.ts';
 
 /**
- * Data Dragon's structured `stats` only covers some item stats. Ability haste,
- * lethality, penetration and crit damage appear only in the HTML description's <stats> block,
+ * Data Dragon's structured `stats` only covers some item stats. Ability haste, lethality,
+ * penetration, crit damage, omnivamp, tenacity, heal and shield power, base health/mana
+ * regen and gold per 10 seconds appear only in the HTML description's <stats> block,
  * e.g. "<stats><attention>20</attention> Ability Haste<br>...</stats>".
  */
 export interface DescriptionStats {
@@ -13,6 +14,12 @@ export interface DescriptionStats {
   magicPenPct?: number;
   /** Extra crit damage as a fraction (0.3 = +30%), e.g. Infinity Edge. */
   critDamageBonus?: number;
+  omnivamp?: number;
+  tenacity?: number;
+  healShieldPower?: number;
+  baseHpRegenPct?: number;
+  baseManaRegenPct?: number;
+  goldPer10?: number;
 }
 
 const PATTERNS: Array<[keyof DescriptionStats, RegExp, boolean]> = [
@@ -23,6 +30,12 @@ const PATTERNS: Array<[keyof DescriptionStats, RegExp, boolean]> = [
   ['magicPenPct', /(\d+(?:\.\d+)?)%\s*Magic Penetration/i, true],
   ['magicPenFlat', /(\d+(?:\.\d+)?)\s*Magic Penetration/i, false],
   ['critDamageBonus', /(\d+(?:\.\d+)?)%\s*Critical Strike Damage/i, true],
+  ['omnivamp', /(\d+(?:\.\d+)?)%\s*Omnivamp/i, true],
+  ['tenacity', /(\d+(?:\.\d+)?)%\s*Tenacity/i, true],
+  ['healShieldPower', /(\d+(?:\.\d+)?)%\s*Heal and Shield Power/i, true],
+  ['baseHpRegenPct', /(\d+(?:\.\d+)?)%\s*Base Health Regen/i, true],
+  ['baseManaRegenPct', /(\d+(?:\.\d+)?)%\s*Base Mana Regen/i, true],
+  ['goldPer10', /(\d+(?:\.\d+)?)\s*Gold Per 10 Seconds/i, false],
 ];
 
 export function parseItemDescriptionStats(description: string): DescriptionStats {
@@ -56,6 +69,8 @@ export function toStatBonuses(dd: Record<string, number>, text: DescriptionStats
     attackSpeedPct: dd.PercentAttackSpeedMod !== undefined ? dd.PercentAttackSpeedMod * 100 : undefined,
     critChance: dd.FlatCritChanceMod,
     moveSpeed: dd.FlatMovementSpeedMod,
+    moveSpeedPct: dd.PercentMovementSpeedMod,
+    lifeSteal: dd.PercentLifeStealMod,
     ...text,
   };
   // Drop undefined/zero entries to keep the JSON small.

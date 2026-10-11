@@ -111,10 +111,11 @@ describe('build gold', () => {
   const gold = (items: string[], more: Partial<Loadout> = {}) => resolveLoadout(at(1, { items, ...more }), data).gold;
 
   it('adds up the inventory at shop price, components included once', () => {
-    expect(gold([idOf('Infinity Edge'), idOf('Long Sword'), idOf('Long Sword')])).toEqual({
-      total: 3500 + 350 + 350,
-      items: [{ id: idOf('Infinity Edge'), cost: 3500 }, { id: idOf('Long Sword'), cost: 350 }, { id: idOf('Long Sword'), cost: 350 }],
-    });
+    const g = gold([idOf('Infinity Edge'), idOf('Long Sword'), idOf('Long Sword')]);
+    expect(g.total).toBe(3500 + 350 + 350);
+    expect(g.items.map(({ id, cost }) => ({ id, cost }))).toEqual([
+      { id: idOf('Infinity Edge'), cost: 3500 }, { id: idOf('Long Sword'), cost: 350 }, { id: idOf('Long Sword'), cost: 350 },
+    ]);
   });
 
   it('skips trinkets, consumables and unknown items', () => {

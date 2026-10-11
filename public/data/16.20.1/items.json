@@ -69,7 +69,8 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3113.png",
     "stats": {
-      "ap": 30
+      "ap": 30,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>30</attention> Ability Power<br><attention>4%</attention> Move Speed</stats><br><br></mainText>"
   },
@@ -149,7 +150,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3504.png",
     "stats": {
-      "ap": 45
+      "ap": 45,
+      "moveSpeedPct": 0.04,
+      "healShieldPower": 0.1,
+      "baseManaRegenPct": 1.25
     },
     "description": "<mainText><stats><attention>45</attention> Ability Power<br><attention>10%</attention> Heal and Shield Power<br><attention>125%</attention> Base Mana Regen<br><attention>4%</attention> Move Speed</stats><br><br><passive>Sanctify</passive><br>Healing or Shielding an ally enhances you both for 6 seconds, granting <attackSpeed>25% Attack Speed</attackSpeed> and <magicDamage>20 magic damage</magicDamage> <OnHit>On-Hit</OnHit>.</mainText>"
   },
@@ -286,6 +290,7 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4642.png",
     "stats": {
       "ap": 20,
+      "baseManaRegenPct": 1,
       "abilityHaste": 10
     },
     "description": "<mainText><stats><attention>20</attention> Ability Power<br><attention>100%</attention> Base Mana Regen<br><attention>10</attention> Ability Haste</stats><br><br></mainText>"
@@ -459,7 +464,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3153.png",
     "stats": {
       "ad": 40,
-      "attackSpeedPct": 25
+      "attackSpeedPct": 25,
+      "lifeSteal": 0.1
     },
     "description": "<mainText><stats><attention>40</attention> Attack Damage<br><attention>25%</attention> Attack Speed<br><attention>10%</attention> Life Steal</stats><br><br><passive>Mist's Edge</passive><br>Attacks deal <physicalDamage>a percentage</physicalDamage> of enemy's current Health as <physicalDamage>bonus physical damage</physicalDamage> <OnHit>On-Hit</OnHit>.<br><br><passive>Clawing Shadows</passive><br>Attacking a champion 3 times <status>Slows</status> them by 30% for 1 second.</mainText>"
   },
@@ -556,7 +562,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3877.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.75,
+      "goldPer10": 9
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>9</attention> Gold Per 10 Seconds</stats><br><br><passive>Spellblade</passive><br>After using an Ability, your next Attack deals <physicalDamage>bonus physical damage</physicalDamage> <OnHit>On-Hit</OnHit>. If the target is a champion, they take increased damage for 4 seconds.<active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -577,7 +586,8 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3072.png",
     "stats": {
-      "ad": 80
+      "ad": 80,
+      "lifeSteal": 0.15
     },
     "description": "<mainText><stats><attention>80</attention> Attack Damage<br><attention>15%</attention> Life Steal</stats><br><br><passive>Ichorshield</passive><br>Convert excess healing from your Lifesteal to a <shield>Shield</shield>.</mainText>"
   },
@@ -647,7 +657,10 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3867.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "goldPer10": 5,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.75
     },
     "description": "<mainText><stats><attention>5</attention> Gold Per 10 Seconds<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>200</attention> Health</stats><br><br><passive>Upgrade</passive> <br>This item can be upgraded into <rarityLegendary>Bloodsong</rarityLegendary>, <rarityLegendary>Celestial Opposition</rarityLegendary>, <rarityLegendary>Dream Maker</rarityLegendary>, <rarityLegendary>Zaz'Zak's Realmspike</rarityLegendary>, or <rarityLegendary>Solstice Sleigh</rarityLegendary> for free.<active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -769,7 +782,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3869.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.75,
+      "goldPer10": 9
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>9</attention> Gold Per 10 Seconds</stats><br><br><passive>Blessing of the Mountain</passive><br>Reduce incoming champion damage for 2 seconds after taking damage from a champion. When the effect ends, slow nearby enemies by 50% for 1.5 seconds.<br><active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -817,7 +833,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3173.png",
     "stats": {
       "mr": 25,
-      "moveSpeed": 45
+      "moveSpeed": 45,
+      "tenacity": 0.3
     },
     "description": "<mainText><stats><attention>25</attention> Magic Resist<br><attention>45</attention> Move Speed<br><attention>30%</attention> Tenacity</stats><br><br><passive>Noxian Persistence</passive> (0s)<br>After taking magic damage from a Champion, gain a <shield></shield> <magicDamage>magic</magicDamage> <shield>shield</shield> for 5 seconds.</mainText>"
   },
@@ -954,6 +971,7 @@
     "stats": {
       "hp": 350,
       "ap": 70,
+      "moveSpeedPct": 0.04,
       "abilityHaste": 25
     },
     "description": "<mainText><stats><attention>70</attention> Ability Power<br><attention>350</attention> Health<br><attention>25</attention> Ability Haste<br><attention>4%</attention> Move Speed</stats><br><br><passive>Spelldance</passive><br>Dealing <magicDamage>magic</magicDamage> or <trueDamage>true damage</trueDamage> to champions grants <speed>Move Speed</speed> for 4 seconds. </mainText>"
@@ -1063,7 +1081,8 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3801.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>100%</attention> Base Health Regen</stats><br><br></mainText>"
   },
@@ -1150,7 +1169,9 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/6621.png",
     "stats": {
-      "ap": 45
+      "ap": 45,
+      "healShieldPower": 0.16,
+      "baseManaRegenPct": 1
     },
     "description": "<mainText><stats><attention>45</attention> Ability Power<br><attention>16%</attention> Heal and Shield Power<br><attention>100%</attention> Base Mana Regen</stats><br><br><passive>First Light</passive><br>Gain <healing>2% Heal and Shield Power</healing> and <scaleAP>10 Ability Power</scaleAP> per 100% Base Mana Regen.</mainText>"
   },
@@ -1174,7 +1195,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3742.png",
     "stats": {
       "hp": 350,
-      "armor": 55
+      "armor": 55,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>350</attention> Health<br><attention>55</attention> Armor<br><attention>4%</attention> Move Speed</stats><br><br><passive>Shipwrecker</passive><br>While moving, build up to <speed>20 bonus Move Speed</speed>. Your next Attack discharges built up Move Speed to deal <physicalDamage>bonus physical damage</physicalDamage>.<br><br><passive>Unsinkable</passive><br>Reduce the effectiveness of <keyword>Slows</keyword> by 15%.</mainText>"
   },
@@ -1239,7 +1261,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1055.png",
     "stats": {
       "hp": 80,
-      "ad": 10
+      "ad": 10,
+      "omnivamp": 0.025
     },
     "description": "<mainText><stats><attention>10</attention> Attack Damage<br><attention>80</attention> Health<br><attention>2.5%</attention> Omnivamp</stats><br><br></mainText>"
   },
@@ -1259,7 +1282,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1086.png",
     "stats": {
       "ad": 8,
-      "attackSpeedPct": 15
+      "attackSpeedPct": 15,
+      "omnivamp": 0.015
     },
     "description": "<mainText><stats><attention>8</attention> Attack Damage<br><attention>15%</attention> Attack Speed<br><attention>1.5%</attention> Omnivamp</stats><br><br></mainText>"
   },
@@ -1341,7 +1365,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3870.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.75,
+      "goldPer10": 9
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>9</attention> Gold Per 10 Seconds</stats><br><br><passive>Dream Maker</passive><br>Healing or Shielding another ally blows Dream Bubbles to them for 3 seconds. Their next Attack deals <magicDamage>bonus magic damage</magicDamage> <OnHit>On-Hit</OnHit> and the next damage they take is reduced.<active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -1394,7 +1421,8 @@
     "stats": {
       "hp": 200,
       "ap": 35,
-      "abilityHaste": 20
+      "abilityHaste": 20,
+      "baseManaRegenPct": 1.25
     },
     "description": "<mainText><stats><attention>35</attention> Ability Power<br><attention>200</attention> Health<br><attention>20</attention> Ability Haste<br><attention>125%</attention> Base Mana Regen</stats><br><br><passive>Soul Siphon</passive><br>Gain 30% of pre-mitigation damage dealt to champions as Soul Charges. Healing or Shielding an ally consumes all <passive>Soul Charges</passive> to restore <healing>Health</healing>.</mainText>"
   },
@@ -1514,7 +1542,9 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/2517.png",
     "stats": {
-      "ad": 65
+      "ad": 65,
+      "omnivamp": 0.05,
+      "tenacity": 0.2
     },
     "description": "<mainText><stats><attention>65</attention> Attack Damage<br><attention>5%</attention> Omnivamp<br><attention>20%</attention> Tenacity</stats><br><br><passive>Famine</passive><br>Gain Ability Haste based on your Bonus AD.<br><br><passive>Feast</passive><br>When a champion that you damaged recently dies, gain Omnivamp for a moderate duration. </mainText>"
   },
@@ -1607,7 +1637,9 @@
       "4642"
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1004.png",
-    "stats": {},
+    "stats": {
+      "baseManaRegenPct": 0.5
+    },
     "description": "<mainText><stats><attention>50%</attention> Base Mana Regen</stats><br><br></mainText>"
   },
   {
@@ -1666,7 +1698,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/2512.png",
     "stats": {
       "attackSpeedPct": 45,
-      "critChance": 0.25
+      "critChance": 0.25,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>45%</attention> Attack Speed<br><attention>25%</attention> Critical Strike Chance<br><attention>4%</attention> Move Speed</stats><br><br><passive>Night Vigil</passive><br>Gain 30 Ultimate Ability Haste.<br><br><passive>Opening Barrage</passive><br>After casting your Ultimate, your next 3 basic attacks gain <attackSpeed>50% Attack Speed</attackSpeed> and Critically Strike for 80% of your normal Critical Strike damage for 8 seconds. If an attack would already Critically Strike, instead it deals <trueDamage>15% bonus true damage</trueDamage>.</mainText>"
   },
@@ -1741,7 +1774,10 @@
       "6621"
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3114.png",
-    "stats": {},
+    "stats": {
+      "baseManaRegenPct": 0.5,
+      "healShieldPower": 0.08
+    },
     "description": "<mainText><stats><attention>50%</attention> Base Mana Regen<br><attention>8%</attention> Heal and Shield Power</stats><br><br></mainText>"
   },
   {
@@ -1763,7 +1799,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4401.png",
     "stats": {
       "hp": 400,
-      "mr": 55
+      "mr": 55,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>400</attention> Health<br><attention>55</attention> Magic Resist<br><attention>4%</attention> Move Speed</stats><br><br><passive>Steadfast</passive><br>Gain <scaleMR>70 Magic Resist</scaleMR> and <speed>6% bonus Move Speed</speed> after taking magic damage from Champions 8 times.</mainText>"
   },
@@ -1808,6 +1845,7 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/667101.png",
     "stats": {
+      "moveSpeedPct": 0.15,
       "abilityHaste": 10,
       "lethality": 15,
       "magicPenFlat": 15
@@ -1832,6 +1870,7 @@
     "stats": {
       "armor": 55,
       "mr": 55,
+      "moveSpeedPct": 0.08,
       "abilityHaste": 10
     },
     "description": "<mainText><stats><attention>55</attention> Armor<br><attention>55</attention> Magic Resist<br><attention>10</attention> Ability Haste<br><attention>8%</attention> Move Speed</stats><br><br><active>Active -</active> <active>Unbreakable:</active> Gain a Shield that decays and grow in size.</mainText>"
@@ -1936,7 +1975,8 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3008.png",
     "stats": {
-      "moveSpeed": 45
+      "moveSpeed": 45,
+      "omnivamp": 0.04
     },
     "description": "<mainText><stats><attention>45</attention> Move Speed<br><attention>4%</attention> Omnivamp</stats><br><br><passive>Slay</passive><br>Gain 0.6% Omnivamp on Champion takedown, stacking up to 10 times.</mainText>"
   },
@@ -1998,7 +2038,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3184.png",
     "stats": {
       "hp": 150,
-      "ad": 25
+      "ad": 25,
+      "lifeSteal": 0.05
     },
     "description": "<mainText><stats><attention>25</attention> Attack Damage<br><attention>150</attention> Health<br><attention>5%</attention> Life Steal</stats><br><br></mainText>"
   },
@@ -2082,7 +2123,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3172.png",
     "stats": {
       "attackSpeedPct": 45,
-      "moveSpeed": 45
+      "moveSpeed": 45,
+      "lifeSteal": 0.05
     },
     "description": "<mainText><stats><attention>45%</attention> Attack Speed<br><attention>45</attention> Move Speed<br><attention>5%</attention> Life Steal</stats><br><br></mainText>"
   },
@@ -2185,7 +2227,8 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3084.png",
     "stats": {
-      "hp": 900
+      "hp": 900,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>900</attention> Health<br><attention>100%</attention> Base Health Regen</stats><br><br><passive>Colossal Consumption</passive> (0s) per target<br>If an enemy champion is nearby for a few seconds, your next Attack against them deals <physicalDamage>70 plus 6%</physicalDamage> of your max Health as <physicalDamage>bonus physical damage</physicalDamage> and grants <scaleHealth>10%</scaleHealth> of the damage as <scaleHealth>max Health.</scaleHealth><br><br><passive>Goliath</passive><br>For each <scaleHealth>1000 max Health</scaleHealth>, gain 3% increased size, up to 30%. </mainText>"
   },
@@ -2281,7 +2324,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3146.png",
     "stats": {
       "ad": 40,
-      "ap": 80
+      "ap": 80,
+      "omnivamp": 0.1
     },
     "description": "<mainText><stats><attention>80</attention> Ability Power<br><attention>40</attention> Attack Damage<br><attention>10%</attention> Omnivamp</stats><br><br><br><br><active>ACTIVE</active> (0s)<br><active>Lightning Bolt</active><br>Shocks the target enemy champion, dealing  magic damage and slowing them by 25% for 1.5 seconds.</mainText>"
   },
@@ -2334,7 +2378,8 @@
     "stats": {
       "hp": 400,
       "mr": 40,
-      "abilityHaste": 10
+      "abilityHaste": 10,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>400</attention> Health<br><attention>40</attention> Magic Resist<br><attention>10</attention> Ability Haste<br><attention>100%</attention> Base Health Regen</stats><br><br><passive>Immolate</passive><br>After taking or dealing damage, deal <magicDamage>magic damage</magicDamage> per second to nearby enemies for 3 seconds. <br><br><passive>Desolate</passive><br>Killing an enemy deals <magicDamage>magic damage</magicDamage> around them.</mainText>"
   },
@@ -2404,7 +2449,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3181.png",
     "stats": {
       "hp": 500,
-      "ad": 40
+      "ad": 40,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>40</attention> Attack Damage<br><attention>500</attention> Health<br><attention>4%</attention> Move Speed</stats><br><br><passive>Skipper</passive><br>Every fifth Attack against champions and epic monsters deals <physicalDamage>bonus physical damage</physicalDamage>, increased against Structures.<br><br><passive>Boarding Party</passive><br>Nearby allied siege and super minions gain <scaleArmor>Armor</scaleArmor> and <scaleMR>Magic Resist</scaleMR>.</mainText>"
   },
@@ -2451,7 +2497,8 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3168.png",
     "stats": {
-      "moveSpeed": 45
+      "moveSpeed": 45,
+      "omnivamp": 0.04
     },
     "description": "<mainText><stats><attention>45</attention> Move Speed<br><attention>4%</attention> Omnivamp</stats><br><br><passive>Slay</passive><br>Gain 0.6% Omnivamp on Champion takedown, stacking up to 10 times.<br><br><passive>Now and Forever</passive><br>While above half Health, deal 4% increased damage. <br><br>While below half Health, gain 12% increased healing, shielding, and regeneration.</mainText>"
   },
@@ -2496,7 +2543,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4005.png",
     "stats": {
       "ap": 60,
-      "abilityHaste": 15
+      "abilityHaste": 15,
+      "baseManaRegenPct": 1.5
     },
     "description": "<mainText><stats><attention>60</attention> Ability Power<br><attention>15</attention> Ability Haste<br><attention>150%</attention> Base Mana Regen</stats><br><br><passive>Control</passive><br>Gain 20 Ability Haste for your abilities with <keyword>Immobilizing</keyword> effects.<br><br><passive>Command</passive><br>On <keyword>Immobilizing</keyword> an enemy champion, mark them as 7% <Keyword>Vulnerable</Keyword> for 4 seconds.<br></mainText>"
   },
@@ -2589,7 +2637,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/2504.png",
     "stats": {
       "hp": 400,
-      "mr": 80
+      "mr": 80,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>400</attention> Health<br><attention>80</attention> Magic Resist<br><attention>100%</attention> Base Health Regen</stats><br><br><passive>Magebane</passive><br>After not taking magic damage for 15 seconds, gain a <shield>magic shield</shield>. </mainText>"
   },
@@ -2657,7 +2706,8 @@
     "stats": {
       "hp": 200,
       "armor": 40,
-      "abilityHaste": 10
+      "abilityHaste": 10,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>40</attention> Armor<br><attention>10</attention> Ability Haste<br><attention>100%</attention> Base Health Regen</stats><br><br><passive>Sacrifice</passive><br>While near your <attention>Worthy</attention> ally, take 14% of the damage they receive and <healing>heal for 12%</healing> of the damage they deal to champions.<active>Pledge</active> (0s)<br>Designate an ally as <attention>Worthy</attention>.</mainText>"
   },
@@ -2681,7 +2731,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/6672.png",
     "stats": {
       "ad": 45,
-      "attackSpeedPct": 40
+      "attackSpeedPct": 40,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>45</attention> Attack Damage<br><attention>40%</attention> Attack Speed<br><attention>4%</attention> Move Speed</stats><br><br><passive>Bring It Down</passive><br>Every third Attack deals <physicalDamage>bonus physical damage</physicalDamage> <OnHit>On-Hit</OnHit>, increased based on their missing Health.</mainText>"
   },
@@ -2751,6 +2802,7 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3100.png",
     "stats": {
       "ap": 100,
+      "moveSpeedPct": 0.06,
       "abilityHaste": 10
     },
     "description": "<mainText><stats><attention>100</attention> Ability Power<br><attention>6%</attention> Move Speed<br><attention>10</attention> Ability Haste</stats><br><br><passive>Spellblade</passive><br>After using an Ability, your next Attack deals <magicDamage>bonus magic damage</magicDamage> <OnHit>On-Hit</OnHit>.</mainText>"
@@ -3018,7 +3070,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3139.png",
     "stats": {
       "ad": 50,
-      "mr": 35
+      "mr": 35,
+      "lifeSteal": 0.1
     },
     "description": "<mainText><stats><attention>50</attention> Attack Damage<br><attention>35</attention> Magic Resist<br><attention>10%</attention> Life Steal</stats><br><br><br><br><active>ACTIVE</active><br><active>Quicksilver</active><br>Removes all crowd control debuffs (excluding <keyword>Airborne</keyword>) and grants Move Speed.</mainText>"
   },
@@ -3042,7 +3095,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3111.png",
     "stats": {
       "mr": 20,
-      "moveSpeed": 45
+      "moveSpeed": 45,
+      "tenacity": 0.3
     },
     "description": "<mainText><stats><attention>20</attention> Magic Resist<br><attention>45</attention> Move Speed<br><attention>30%</attention> Tenacity</stats><br><br></mainText>"
   },
@@ -3067,6 +3121,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3222.png",
     "stats": {
       "hp": 250,
+      "baseManaRegenPct": 1,
+      "healShieldPower": 0.12,
       "abilityHaste": 15
     },
     "description": "<mainText><stats><attention>250</attention> Health<br><attention>100%</attention> Base Mana Regen<br><attention>12%</attention> Heal and Shield Power<br><attention>15</attention> Ability Haste</stats><br><br><active>Purify</active><br>Remove all crowd control debuffs (excluding <keyword>Airborne</keyword> and <keyword>Suppression</keyword>) from an ally champion and restore <healing>100 - 250 Health</healing>.</mainText>"
@@ -3092,7 +3148,8 @@
     "stats": {
       "hp": 200,
       "ap": 25,
-      "abilityHaste": 20
+      "abilityHaste": 20,
+      "baseManaRegenPct": 1.25
     },
     "description": "<mainText><stats><attention>25</attention> Ability Power<br><attention>200</attention> Health<br><attention>20</attention> Ability Haste<br><attention>125%</attention> Base Mana Regen</stats><br><br><passive>Starlit Grace</passive><br>Healing or shielding an ally chains the effect to another ally (excluding yourself), <healing>healing 30%</healing> or <shield>shielding 35%</shield> of the original amount.</mainText>"
   },
@@ -3203,7 +3260,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/6675.png",
     "stats": {
       "attackSpeedPct": 40,
-      "critChance": 0.25
+      "critChance": 0.25,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>40%</attention> Attack Speed<br><attention>25%</attention> Critical Strike Chance<br><attention>4%</attention> Move Speed</stats><br><br><passive>Transcendence</passive><br>Attacks reduce Basic Ability cooldowns by <attention>15%</attention> of their remaining cooldown.</mainText>"
   },
@@ -3406,7 +3464,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3046.png",
     "stats": {
       "attackSpeedPct": 65,
-      "critChance": 0.25
+      "critChance": 0.25,
+      "moveSpeedPct": 0.1
     },
     "description": "<mainText><stats><attention>65%</attention> Attack Speed<br><attention>25%</attention> Critical Strike Chance<br><attention>10%</attention> Move Speed</stats><br><br><passive>Spectral Waltz</passive><br>Become <keyword>Ghosted</keyword>.</mainText>"
   },
@@ -3597,7 +3656,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3094.png",
     "stats": {
       "attackSpeedPct": 35,
-      "critChance": 0.25
+      "critChance": 0.25,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>35%</attention> Attack Speed<br><attention>25%</attention> Critical Strike Chance<br><attention>4%</attention> Move Speed</stats><br><br><passive>Sharpshooter</passive><br>Your <keyword>Energized Attack</keyword> deals <magicDamage>40 bonus magic damage</magicDamage> and gains 35% bonus Attack Range.</mainText>"
   },
@@ -3622,6 +3682,7 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3074.png",
     "stats": {
       "ad": 65,
+      "lifeSteal": 0.12,
       "abilityHaste": 15
     },
     "description": "<mainText><stats><attention>65</attention> Attack Damage<br><attention>15</attention> Ability Haste<br><attention>12%</attention> Life Steal</stats><br><br><passive>Cleave</passive><br>Attacks deal <physicalDamage>physical damage</physicalDamage> to nearby enemies.<active>Ravenous Crescent</active><br>Deal <physicalDamage>physical damage</physicalDamage> to enemies around you. <br>Your Life Steal applies to this damage.</mainText>"
@@ -3644,7 +3705,8 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/6690.png",
     "stats": {
-      "ad": 15
+      "ad": 15,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>15</attention> Attack Damage<br><attention>4%</attention> Move Speed</stats><br><br></mainText>"
   },
@@ -3693,7 +3755,9 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3107.png",
     "stats": {
       "ap": 30,
-      "abilityHaste": 15
+      "abilityHaste": 15,
+      "baseManaRegenPct": 1,
+      "healShieldPower": 0.1
     },
     "description": "<mainText><stats><attention>30</attention> Ability Power<br><attention>15</attention> Ability Haste<br><attention>100%</attention> Base Mana Regen<br><attention>10%</attention> Heal and Shield Power</stats><br><br><active>Intervention</active><br>Restore <healing>150 - 350 Health</healing> to allied units and deal <trueDamage>10% max Health true damage</trueDamage> to enemy champions after 2.5 seconds.</mainText>"
   },
@@ -3730,7 +3794,9 @@
       "3801"
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1006.png",
-    "stats": {},
+    "stats": {
+      "baseHpRegenPct": 1
+    },
     "description": "<mainText><stats><attention>100%</attention> Base Health Regen</stats><br><br></mainText>"
   },
   {
@@ -3838,7 +3904,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3085.png",
     "stats": {
       "attackSpeedPct": 40,
-      "critChance": 0.25
+      "critChance": 0.25,
+      "moveSpeedPct": 0.05
     },
     "description": "<mainText><stats><attention>40%</attention> Attack Speed<br><attention>25%</attention> Critical Strike Chance<br><attention>5%</attention> Move Speed</stats><br><br><passive>Wind's Fury</passive><br>Attacks fire bolts at 2 additional enemies near the target.<br>Each bolt deals <physicalDamage>physical damage</physicalDamage> and applies <OnHit>On-Hit</OnHit> effects.</mainText>"
   },
@@ -3858,7 +3925,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3866.png",
     "stats": {
-      "hp": 60
+      "hp": 60,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.5,
+      "goldPer10": 5
     },
     "description": "<mainText><stats><attention>60</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>50%</attention> Base Mana Regen<br><attention>5</attention> Gold Per 10 Seconds</stats><br><br><passive>Support Quest</passive><br>Earn <keywordMajor>0</keywordMajor> gold from this item to transform it into <rarityGeneric>Bounty of Worlds</rarityGeneric>. <br><br><passive>Shared Riches</passive> (0s, max 0 charges)<br>While near an ally champion, damage enemy champions or kill minions to gain gold.<active>Active</active> (3 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -4150,7 +4220,9 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/2065.png",
     "stats": {
       "ap": 50,
-      "abilityHaste": 15
+      "moveSpeedPct": 0.04,
+      "abilityHaste": 15,
+      "baseManaRegenPct": 1.25
     },
     "description": "<mainText><stats><attention>50</attention> Ability Power<br><attention>15</attention> Ability Haste<br><attention>4%</attention> Move Speed<br><attention>125%</attention> Base Mana Regen</stats><br><br><active>Inspiring Speech</active><br>Grant nearby allies <speed>30% Move Speed</speed> for 4 seconds.</mainText>"
   },
@@ -4173,7 +4245,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3876.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.75,
+      "goldPer10": 9
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>9</attention> Gold Per 10 Seconds</stats><br><br><passive>Going Sledding</passive><br><keyword>Slowing</keyword> or <keyword>Immobilizing</keyword> an enemy champion near allies restores <healing>Health</healing> and grants <speed>20% decaying Move Speed</speed> for 2.5 seconds to you and a nearby ally. <active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -4245,7 +4320,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3211.png",
     "stats": {
       "hp": 200,
-      "mr": 35
+      "mr": 35,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>35</attention> Magic Resist<br><attention>100%</attention> Base Health Regen</stats><br><br></mainText>"
   },
@@ -4291,7 +4367,8 @@
     "stats": {
       "hp": 400,
       "mr": 50,
-      "abilityHaste": 10
+      "abilityHaste": 10,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>400</attention> Health<br><attention>50</attention> Magic Resist<br><attention>10</attention> Ability Haste<br><attention>100%</attention> Base Health Regen</stats><br><br><passive>Boundless Vitality</passive><br>Heals and Shields on you are increased by 25%.</mainText>"
   },
@@ -4314,6 +4391,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/6616.png",
     "stats": {
       "ap": 35,
+      "healShieldPower": 0.1,
+      "baseManaRegenPct": 1.25,
       "abilityHaste": 10
     },
     "description": "<mainText><stats><attention>35</attention> Ability Power<br><attention>10%</attention> Heal and Shield Power<br><attention>125%</attention> Base Mana Regen<br><attention>10</attention> Ability Haste</stats><br><br><passive>Rapids</passive><br>Healing or Shielding an ally grants you both <magicDamage>40 Ability Power</magicDamage> and <attention>15 Ability Haste</attention> for 6 seconds.</mainText>"
@@ -4340,7 +4419,8 @@
     "stats": {
       "ad": 45,
       "ap": 45,
-      "attackSpeedPct": 30
+      "attackSpeedPct": 30,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>45</attention> Attack Damage<br><attention>45</attention> Ability Power<br><attention>30%</attention> Attack Speed<br><attention>4%</attention> Move Speed</stats><br><br><passive>Electrospark</passive><br>Your <keyword>Energized Attacks</keyword> fire chain lightning, applying <OnHit>On-Hit</OnHit> effects and dealing <magicDamage>magic damage</magicDamage> to nearby targets.<br><br><passive>Electroshock</passive> <br>Basic Attacks grant extra <keyword>Energized</keyword> stacks.</mainText>"
   },
@@ -4405,7 +4485,8 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3053.png",
     "stats": {
-      "hp": 400
+      "hp": 400,
+      "tenacity": 0.2
     },
     "description": "<mainText><stats><attention>400</attention> Health<br><attention>20%</attention> Tenacity</stats><br><br><passive>The Claws that Catch</passive><br>Gain <scaleAD>bonus Attack Damage</scaleAD>.<br><br><passive>Lifeline</passive><br>Taking damage that would reduce your Health below 30% grants a <shield>decaying Shield</shield> for 4.5 seconds.</mainText>"
   },
@@ -4453,6 +4534,7 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4646.png",
     "stats": {
       "ap": 90,
+      "moveSpeedPct": 0.06,
       "magicPenFlat": 15
     },
     "description": "<mainText><stats><attention>90</attention> Ability Power<br><attention>15</attention> Magic Penetration<br><attention>6%</attention> Move Speed</stats><br><br><passive>Stormraider</passive><br>Dealing 25% of a champion's maximum Health within 2.5s applies <passive>Squall</passive> to them.<br><br><passive>Squall</passive><br>After 2 seconds, deal <magicDamage>magic damage</magicDamage>. If the target dies before <passive>Squall</passive> triggers, it damages nearby enemies.</mainText>"
@@ -4567,6 +4649,7 @@
     "stats": {
       "hp": 150,
       "ap": 35,
+      "healShieldPower": 0.1,
       "abilityHaste": 10
     },
     "description": "<mainText><stats><attention>35</attention> Ability Power<br><attention>150</attention> Health<br><attention>10%</attention> Heal and Shield Power<br><attention>10</attention> Ability Haste</stats><br><br><passive>Effervescence</passive><br>Gain +<attackSpeed>1% Attack Speed</attackSpeed> for every <healing>1% Heal and Shield Power</healing> you have. <br><br><passive>Peppermint</passive><br><OnHit>On-Hit</OnHit>, <healing>heal the lowest health</healing> ally champion near you for , prioritizing lower health allies.</mainText>"
@@ -4888,7 +4971,8 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1053.png",
     "stats": {
-      "ad": 15
+      "ad": 15,
+      "lifeSteal": 0.07
     },
     "description": "<mainText><stats><attention>15</attention> Attack Damage<br><attention>7%</attention> Life Steal</stats><br><br></mainText>"
   },
@@ -5014,7 +5098,8 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3083.png",
     "stats": {
-      "hp": 1000
+      "hp": 1000,
+      "baseHpRegenPct": 1
     },
     "description": "<mainText><stats><attention>1000</attention> Health<br><attention>100%</attention> Base Health Regen</stats><br><br><passive>Warmog's Heart</passive> <br>If you have 2000 bonus Health and have not taken damage within 8 seconds, restore <healing></healing> Health per second.<br><br><passive>Warmog's Vitality</passive><br>Gain bonus Health equal to 12% of your Item Health (<healing>0</healing>).</mainText>"
   },
@@ -5037,7 +5122,9 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/2526.png",
     "stats": {
       "hp": 200,
-      "mana": 300
+      "mana": 300,
+      "healShieldPower": 0.08,
+      "baseManaRegenPct": 0.75
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>8%</attention> Heal and Shield Power<br><attention>75%</attention> Base Mana Regen<br><attention>300</attention> Mana</stats><br><br><passive>Harmony</passive><br>Gain % Heal and Shield Power.<br><br><passive>Manaflow</passive> (8s, max 5 charges)<br>Landing Abilities grants <scaleMana>4 max Mana</scaleMana> (doubled vs. champions).<br>Transforms into <rarityLegendary>Diadem of Songs</rarityLegendary> at <scaleMana>360 max Mana</scaleMana>.</mainText>"
   },
@@ -5060,7 +5147,8 @@
     ],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3066.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>4%</attention> Move Speed</stats><br><br></mainText>"
   },
@@ -5108,7 +5196,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3091.png",
     "stats": {
       "mr": 45,
-      "attackSpeedPct": 50
+      "attackSpeedPct": 50,
+      "tenacity": 0.2
     },
     "description": "<mainText><stats><attention>50%</attention> Attack Speed<br><attention>45</attention> Magic Resist<br><attention>20%</attention> Tenacity</stats><br><br><passive>Fray</passive><br>Attacks deal <magicDamage>bonus magic damage</magicDamage> <OnHit>On-Hit</OnHit>.</mainText>"
   },
@@ -5150,6 +5239,7 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3142.png",
     "stats": {
       "ad": 55,
+      "moveSpeedPct": 0.04,
       "lethality": 18
     },
     "description": "<mainText><stats><attention>55</attention> Attack Damage<br><attention>18</attention> Lethality<br><attention>4%</attention> Move Speed</stats><br><br><passive>Haunt</passive> <br>Gain <speed> Move Speed</speed> while out of combat.<br><br><active>Wraith Step</active><br>Gain <speed>Move Speed</speed> and <keyword>Ghosting</keyword> for  seconds.</mainText>"
@@ -5196,7 +5286,10 @@
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3871.png",
     "stats": {
-      "hp": 200
+      "hp": 200,
+      "baseHpRegenPct": 0.75,
+      "baseManaRegenPct": 0.75,
+      "goldPer10": 9
     },
     "description": "<mainText><stats><attention>200</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>9</attention> Gold Per 10 Seconds</stats><br><br><passive>Void Explosion</passive><br>Dealing Ability damage to a champion causes an explosion that deals <magicDamage>magic damage</magicDamage>.<br><br><active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
@@ -5224,7 +5317,8 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3086.png",
     "stats": {
       "attackSpeedPct": 15,
-      "critChance": 0.15
+      "critChance": 0.15,
+      "moveSpeedPct": 0.04
     },
     "description": "<mainText><stats><attention>15%</attention> Attack Speed<br><attention>15%</attention> Critical Strike Chance<br><attention>4%</attention> Move Speed</stats><br><br></mainText>"
   },
@@ -5271,7 +5365,9 @@
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/663172.png",
     "stats": {
       "attackSpeedPct": 40,
-      "abilityHaste": 25
+      "moveSpeedPct": 0.08,
+      "abilityHaste": 25,
+      "tenacity": 0.2
     },
     "description": "<mainText><stats><attention>40%</attention> Attack Speed<br><attention>8%</attention> Move Speed<br><attention>25</attention> Ability Haste<br><attention>20%</attention> Tenacity</stats><br><br><passive>Like the Wind</passive><br>Gain 5% Move Speed <OnHit>On-Hit</OnHit> for 6 seconds, stacking up to 25% Move Speed.</mainText>"
   },

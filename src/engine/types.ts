@@ -65,6 +65,21 @@ export interface StatBonuses {
   moveSpeedPct?: number;
   /** Adaptive force: becomes AD or AP depending on which bonus is higher (see `adaptiveSplit`). */
   adaptiveForce?: number;
+  // Carried for gold efficiency; not used in calculations yet (life steal and omnivamp wait for healing).
+  /** Life steal, as a fraction (0.07 = 7%). */
+  lifeSteal?: number;
+  /** Omnivamp, as a fraction. */
+  omnivamp?: number;
+  /** Tenacity, as a fraction. */
+  tenacity?: number;
+  /** Heal and shield power, as a fraction. */
+  healShieldPower?: number;
+  /** Base health regeneration, as a fraction of base (1 = +100%). */
+  baseHpRegenPct?: number;
+  /** Base mana regeneration, as a fraction of base (1 = +100%). */
+  baseManaRegenPct?: number;
+  /** Gold generated per 10 seconds (support items). */
+  goldPer10?: number;
 }
 
 /** A stat, split into its base (level-derived) and bonus (items, runes, buffs) parts. */

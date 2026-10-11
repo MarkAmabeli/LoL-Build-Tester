@@ -82,7 +82,7 @@ describe('hand-entered values', () => {
 // files (and the top-level constants of stats.ts and loadout.ts) for numeric literals
 // outside a declaration. 0, 1 and 100 (percent conversion) are allowed everywhere.
 const sources = import.meta.glob<string>(
-  ['./effects/**/*.ts', './champions/*.ts', './stats.ts', './loadout.ts', '!./**/*.test.ts'],
+  ['./effects/**/*.ts', './champions/*.ts', './stats.ts', './loadout.ts', './gold-efficiency.ts', '!./**/*.test.ts'],
   { eager: true, query: '?raw', import: 'default' },
 );
 /** Framework files with no gameplay numbers of their own. */

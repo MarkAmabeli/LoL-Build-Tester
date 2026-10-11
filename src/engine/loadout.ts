@@ -3,6 +3,7 @@ import type { ChampionDefinition, ChampionSpells, Ranks, Slot } from './champion
 import { activate, getEffect } from './effects/registry';
 import { assumed, hand } from './hand';
 import type { ActiveEffect, EffectState } from './effects/types';
+import { goldValue, statGoldValues, type GoldValue } from './gold-efficiency';
 import { checkItemLimits } from './items';
 import { shardBonuses } from './shards';
 import { clampLevel, resolveStats, sumBonuses } from './stats';
@@ -46,11 +47,18 @@ export interface ItemRecord {
   stats: StatBonuses;
 }
 
-/** A build's gold: what its inventory is worth, item by item. */
+/**
+ * A build's gold: what its inventory costs and its gold efficiency, item by item. Efficiency
+ * uses each item's build cost (`itemCost`), so role quest upgrades show their free upgrade.
+ */
 export interface BuildCost {
   total: number;
+  /** Gold value of the inventory's stats (gold-efficiency.ts). */
+  value: number;
+  /** value ÷ total (1 = 100%); undefined for an empty or free inventory. */
+  efficiency?: number;
   /** In inventory order, duplicates included. */
-  items: Array<{ id: string; cost: number }>;
+  items: Array<{ id: string; cost: number } & GoldValue>;
 }
 
 /**
@@ -318,7 +326,13 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
 
   const bonuses = sumBonuses(...items.map((id) => byId.get(id)!.stats), ...shardStats);
   const stats = resolveStats(loadout.stats, loadout.level, bonuses, effects, { currentHpPct: loadout.currentHpPct, levelCap });
-  const costs = items.map((id) => ({ id, cost: itemCost(id, data) }));
-  const gold = { total: costs.reduce((sum, c) => sum + c.cost, 0), items: costs };
+  const perPoint = statGoldValues(data.items);
+  const costs = items.map((id) => {
+    const cost = itemCost(id, data);
+    return { id, cost, ...goldValue(byId.get(id)!.stats, cost, perPoint) };
+  });
+  const total = costs.reduce((sum, c) => sum + c.cost, 0);
+  const value = costs.reduce((sum, c) => sum + c.value, 0);
+  const gold: BuildCost = { total, value, efficiency: total > 0 ? value / total : undefined, items: costs };
   return { stats, effects, bonuses, summoners, smite: smiteTier(role, done), levelCap, gold, warnings };
 }
