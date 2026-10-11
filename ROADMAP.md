@@ -20,10 +20,10 @@ Damage is calculated against a **target dummy**: max health, current health, arm
 - [ ] Exhaust (35% damage reduction for 3s) and Barrier's shield, from `summoners.json`
 
 ## Role quests
-A controlled, deliberate implementation; nothing role-quest specific is coded until this step.
-- [ ] Model each role's quest and what it changes in a loadout (e.g. bot lane moves boots to a separate slot, leaving room for a seventh item)
-- [ ] `resolveLoadout`: make the item slot count (`MAX_ITEMS`, currently 6) depend on the role quest, and validate the boots slot
-- [ ] Review the `32xxxx`/`66xxxx` item variants dropped by `scripts/item-dedupe.ts`, in case they belong to role quests
+- [x] `Loadout.role` and `roleQuestCompleted` (every role can mark it): mid +8% bonus AD and AP (multiplicative with other multipliers; assumed) and tier 3 boots, mid-only (`applyRoleQuest` swaps tier 2 ↔ tier 3 when the quest is toggled); bot boots get their own slot; top level cap 20 (stats grow to 20, level-scaled effects stay at 18); support unlocks Bounty of Worlds' upgrades; jungle makes Smite Primal Smite (40 true damage to champions). Item structure in `role-quests.json`, values from the items bin and the wiki. Quest points, gold, experience, Teleport and control wards aren't modeled.
+- [ ] Full Smite levelling: Unleashed Smite (the intermediate upgrade, FirstPVPDamage) from feeding the pet, then Primal Smite; the pets' Primal Smite effects (e.g. Scorchclaw's burn)
+- [ ] Tier 3 boots passives that affect damage (e.g. Swiftmarch: 5% move speed as adaptive force)
+- [ ] Review the `32xxxx`/`66xxxx` item variants dropped by `scripts/item-dedupe.ts` (no link to role quests found in the data)
 
 ## Later
 - [ ] Healing and sustain: life steal and omnivamp stats, healing from items, runes and abilities (Conqueror, BotRK, Darius), for duels and time-to-kill

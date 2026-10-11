@@ -13,6 +13,7 @@ import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
 import { dedupeItemsByName } from './item-dedupe.ts';
+import { buildRoleQuestItems } from './role-quests.ts';
 import { itemValues, perkValues, type ValueMap } from './game-values.ts';
 import { COMMUNITY_DRAGON, DATA_DRAGON } from './sources.ts';
 import { cooldownByRank, costByRank, rangeByRank } from './spell-ranks.ts';
@@ -289,7 +290,9 @@ async function buildItems(version: string) {
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
-  return { items: built, dropped };
+  // Full recipes, for role quest items whose sources aren't in the store (Bounty of Worlds).
+  const recipes = Object.fromEntries(Object.entries(data).map(([id, item]) => [id, item.from]));
+  return { items: built, dropped, recipes };
 }
 
 interface DDSummoner {
@@ -412,7 +415,7 @@ async function main() {
   const outDir = path.join(OUT_ROOT, version);
   console.log(`Building data for ${version} -> ${path.relative(process.cwd(), outDir)}`);
 
-  const [{ champions, warnings: championWarnings }, { items, dropped: droppedItems }, runes, shards] = await Promise.all([
+  const [{ champions, warnings: championWarnings }, { items, dropped: droppedItems, recipes }, runes, shards] = await Promise.all([
     buildChampions(version),
     buildItems(version),
     buildRunes(version),
@@ -422,6 +425,7 @@ async function main() {
   const itemsBin = await getCdragonJson<ItemsBin>(cdragonPatch(version), 'game/items.cdtb.bin.json');
   const itemGroups = buildItemGroups(itemsBin, items);
   await writeJson(path.join(outDir, 'item-groups.json'), itemGroups);
+  await writeJson(path.join(outDir, 'role-quests.json'), buildRoleQuestItems(items, recipes, itemGroups));
   await writeJson(path.join(outDir, 'runes.json'), runes);
   await writeJson(path.join(outDir, 'shards.json'), shards.data);
   const summoners = await buildSummoners(version);
@@ -456,7 +460,8 @@ async function main() {
   await writeJson(path.join(outDir, 'game-values.json'), {
     items: itemValues(itemsBin as Record<string, unknown>),
     perks: perkValues(perksBin),
-    champions: rootValues,
+    // Sorted: champions finish downloading in any order.
+    champions: Object.fromEntries(Object.entries(rootValues).sort(([a], [b]) => a.localeCompare(b))),
   });
   const total = coverage.translated + coverage.unsupported;
   console.log(

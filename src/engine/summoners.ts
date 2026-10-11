@@ -24,6 +24,10 @@ export interface SummonerContext {
   target: TargetState;
   /** A translated formula of this spell, at the attacker's level. */
   formula(name: string): number;
+  /** A data value of this spell. */
+  value(name: string): number;
+  /** Smite's level (role quests: Primal once the jungle quest is done). */
+  smite: 'basic' | 'primal';
 }
 
 /** Hand-written summoner spell damage. Spells that deal no damage to champions have none. */
@@ -45,20 +49,44 @@ export const ignite: SummonerDefinition = {
   ],
 };
 
+/**
+ * Smite: only Primal Smite (jungle quest completed) can hit champions here, for 40 true damage
+ * (SecondPVPDamage). Like Ignite, its damage isn't amplified and applies no spell effects
+ * (wiki, "Smite"). The intermediate Unleashed Smite (FirstPVPDamage) and the pets' Primal
+ * Smite effects aren't modeled yet.
+ */
+export const smite: SummonerDefinition = {
+  id: 'SummonerSmite',
+  hits: ({ value, smite: tier }) =>
+    tier === 'primal' ? [{ type: 'true', raw: value('SecondPVPDamage'), source: 'Primal Smite', tags: ['summoner'] }] : [],
+};
+
 /** Summoner spells with damage definitions, by Data Dragon ID. */
-export const SUMMONER_DEFINITIONS: ReadonlyMap<string, SummonerDefinition> = new Map([ignite].map((d) => [d.id, d]));
+export const SUMMONER_DEFINITIONS: ReadonlyMap<string, SummonerDefinition> = new Map([ignite, smite].map((d) => [d.id, d]));
 
 /**
  * One use of a summoner spell against the target. Only resistances apply (true damage
- * ignores them); no item or rune effects run, since Ignite can't be amplified and applies
- * no spell effects. A spell with no damage definition deals nothing.
+ * ignores them); no item or rune effects run, since Ignite and Smite can't be amplified and
+ * apply no spell effects. A spell with no damage definition deals nothing. `smite` comes
+ * from the loadout (`ResolvedLoadout.smite`).
  */
-export function summonerHit(spell: SummonerSpellRecord, input: { attacker: ResolvedStats; target: TargetState }): HitResult {
+export function summonerHit(
+  spell: SummonerSpellRecord,
+  input: { attacker: ResolvedStats; target: TargetState; smite?: 'basic' | 'primal' },
+): HitResult {
   const def = SUMMONER_DEFINITIONS.get(spell.id);
   if (!def) return { hits: [], total: 0 };
   const hits = def
     .hits({
-      ...input,
+      attacker: input.attacker,
+      target: input.target,
+      smite: input.smite ?? 'basic',
+      value: (name) => {
+        const values = spell.dataValues[name];
+        if (!values?.length) throw new Error(`No data value "${name}" in ${spell.name}`);
+        // Entry 0 is a placeholder, as in champion spells; one rank.
+        return values[Math.min(1, values.length - 1)];
+      },
       formula: (name) => {
         const formula = spell.formulas[name];
         if (!formula) throw new Error(`No translated formula "${name}" in ${spell.name}`);

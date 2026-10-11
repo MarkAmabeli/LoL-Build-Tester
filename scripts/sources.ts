@@ -81,6 +81,12 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
       where: ['scripts/fetch-data.ts', 'scripts/item-data.test.ts'],
     },
     {
+      id: 'role-quest-items',
+      what: "role-quests.json: boots (shop group), tier 2 → tier 3 boots (a tier 3 is built from exactly one tier 2, which has its own recipe), Bounty of Worlds' upgrades (built from item 3867) and jungle pets (shop group), from the full recipes before items.json filters them",
+      why: 'Role quest rewards decide which items a build can hold; Bounty of Worlds is not in the store, so only the raw recipes link its upgrades',
+      where: ['scripts/role-quests.ts', 'scripts/role-quests.test.ts', 'scripts/role-quests-data.test.ts', 'scripts/fetch-data.ts', 'src/engine/role-quests.ts'],
+    },
+    {
       id: 'items-description-stats',
       what: 'Ability haste, lethality, penetration and crit damage are parsed from the description <stats> block; percentages are converted to the engine units',
       why: "The structured `stats` field doesn't include them",
@@ -97,6 +103,8 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
     'No attack speed ratio, windup or missile speed; those are in the CommunityDragon champion bins.',
     'Ability tooltips no longer carry usable numbers; spell values come from the CommunityDragon bins.',
     'Base stats other than AD per level matched the wiki for Vayne, Darius, Veigar, Nasus and Yunara (16.20).',
+    'Symbiotic Soles, Synchronized Souls and Forever Forward are in item.json but not purchasable (16.20), so items.json leaves them out; the user reports Symbiotic Soles is no longer in the game.',
+    'Role quest items (1200–1211, 1220–1222, 1090–1094) are in item.json but not purchasable; their reward values are in the items bin (game-values.json).',
   ],
 };
 
@@ -111,6 +119,7 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
     'game/items.cdtb.bin.json: shop limit groups, and item values for game-values.json',
     'game/perks.cdtb.bin.json: rune values for game-values.json',
     'game/shared.cdtb.bin.json: summoner spell values (Shared/Spells/<id>), ~8.6 MB',
+    'game/items.cdtb.bin.json: role quest reward values (items 1206 mid, 1207 bot, 1221 top) in game-values.json',
     '<clientDataPath>/perks.json and perkstyles.json: stat shard rows and text',
   ],
   modifications: [

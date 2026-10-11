@@ -7,6 +7,7 @@ import { checkItemLimits } from './items';
 import { shardBonuses } from './shards';
 import { clampLevel, resolveStats, sumBonuses } from './stats';
 import type { SummonerSpellRecord } from './summoners';
+import { BOT_BOOTS_SLOTS, roleQuestEffects, roleQuestLevelCap, smiteTier, type Role, type RoleQuestItems } from './role-quests';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
 
 /** Inventory slots. Role quests will change this for bot lane (boots get their own slot); not modeled yet. */
@@ -47,6 +48,8 @@ export interface LoadoutData {
   shards: ShardData;
   /** Summoner's Rift summoner spells (summoners.json). */
   summoners: SummonerSpellRecord[];
+  /** Role quest item structure (role-quests.json). */
+  roleQuests: RoleQuestItems;
 }
 
 /** One champion's setup: the attacker, or the target dummy. */
@@ -64,6 +67,9 @@ export interface Loadout {
   shards?: number[];
   /** Summoner spell Data Dragon IDs, e.g. ["SummonerFlash", "SummonerDot"]. */
   summoners?: string[];
+  role?: Role;
+  /** The role quest is completed (see role-quests.ts for what that changes). */
+  roleQuestCompleted?: boolean;
   /** State overrides by effect ID (item/rune ID, or "<Champion>:<ability>"). */
   state?: Record<string, EffectState>;
   /** Current health as a fraction of max. */
@@ -78,7 +84,11 @@ export type LoadoutWarning =
   | { kind: 'runePage'; message: string }
   | { kind: 'shard'; message: string }
   | { kind: 'skillRanks'; message: string }
-  | { kind: 'summoners'; message: string };
+  | { kind: 'summoners'; message: string }
+  | { kind: 'level'; message: string }
+  /** An item only a completed role quest unlocks (tier 3 boots: mid; Bounty of Worlds upgrades: support). */
+  | { kind: 'roleItem'; id: string; name: string; needs: Role }
+  | { kind: 'roleQuest'; message: string };
 
 export interface ResolvedLoadout {
   stats: ResolvedStats;
@@ -88,6 +98,10 @@ export interface ResolvedLoadout {
   bonuses: StatBonuses;
   /** The loadout's known summoner spells, for `summonerHit`. */
   summoners: SummonerSpellRecord[];
+  /** Smite's level for `summonerHit`. */
+  smite: 'basic' | 'primal';
+  /** Highest level the loadout can reach (20 with the top lane quest). */
+  levelCap: number;
   /**
    * Problems that would make the build impossible in game. The loadout is still resolved
    * (excluded and unknown items are skipped), so "what if" setups keep working.
@@ -138,8 +152,8 @@ function maxRankOf(spells: ChampionSpells | undefined, slot: Slot): number {
  * Champions with different rules (e.g. an ultimate at level 1) get warnings until they're
  * handled per champion.
  */
-export function checkSkillRanks(ranks: Ranks, level: number, spells?: ChampionSpells): string[] {
-  const lvl = clampLevel(level);
+export function checkSkillRanks(ranks: Ranks, level: number, spells?: ChampionSpells, levelCap?: number): string[] {
+  const lvl = clampLevel(level, levelCap);
   const problems: string[] = [];
   let total = 0;
   for (const slot of ['Q', 'W', 'E', 'R'] as const) {
@@ -177,7 +191,23 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
     }
     return true;
   });
-  if (items.length > MAX_ITEMS) warnings.push({ kind: 'tooManyItems', count: items.length, max: MAX_ITEMS });
+  const { role, roleQuestCompleted: done } = loadout;
+  const quest = (r: Role) => role === r && !!done;
+  const boots = new Set(data.roleQuests.boots);
+  // The bot lane reward gives boots their own slot, outside the six.
+  const ownSlot = quest('bot') ? Math.min(BOT_BOOTS_SLOTS, items.filter((id) => boots.has(id)).length) : 0;
+  if (items.length - ownSlot > MAX_ITEMS) warnings.push({ kind: 'tooManyItems', count: items.length, max: MAX_ITEMS + ownSlot });
+  const tier3Boots = new Set(Object.values(data.roleQuests.bootsUpgrades));
+  const supportUpgrades = new Set(data.roleQuests.supportUpgrades);
+  for (const id of new Set(items)) {
+    const needs: Role | undefined = tier3Boots.has(id) && !quest('mid') ? 'mid' : supportUpgrades.has(id) && !quest('support') ? 'support' : undefined;
+    if (needs) warnings.push({ kind: 'roleItem', id, name: byId.get(id)!.name, needs });
+  }
+  if (quest('jungle') && !items.some((id) => data.roleQuests.junglePets.includes(id))) {
+    warnings.push({ kind: 'roleQuest', message: 'The jungle quest needs a jungle pet' });
+  }
+  const levelCap = roleQuestLevelCap(role, done);
+  if (loadout.level > levelCap) warnings.push({ kind: 'level', message: `Level ${loadout.level} is above the level cap ${levelCap}` });
   for (const v of checkItemLimits(items, data.itemGroups)) warnings.push({ kind: 'itemLimit', ...v });
 
   const runes = loadout.runes ?? [];
@@ -204,7 +234,7 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
   if (new Set(summonerIds).size !== summonerIds.length) warnings.push({ kind: 'summoners', message: 'The same summoner spell is taken twice' });
 
   const ranks = loadout.ranks ?? {};
-  for (const message of checkSkillRanks(ranks, loadout.level, loadout.champion?.spells)) warnings.push({ kind: 'skillRanks', message });
+  for (const message of checkSkillRanks(ranks, loadout.level, loadout.champion?.spells, levelCap)) warnings.push({ kind: 'skillRanks', message });
 
   const overrides = loadout.state ?? {};
   const effectIds = [...new Set([...items, ...runes.map(String)])];
@@ -219,9 +249,10 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
           state: { ...a.state, ...overrides[a.effect.id] },
         }))
       : []),
+    ...roleQuestEffects(role, done).map((e) => activate(e, overrides[e.id])),
   ];
 
   const bonuses = sumBonuses(...items.map((id) => byId.get(id)!.stats), ...shardStats);
-  const stats = resolveStats(loadout.stats, loadout.level, bonuses, effects, { currentHpPct: loadout.currentHpPct });
-  return { stats, effects, bonuses, summoners, warnings };
+  const stats = resolveStats(loadout.stats, loadout.level, bonuses, effects, { currentHpPct: loadout.currentHpPct, levelCap });
+  return { stats, effects, bonuses, summoners, smite: smiteTier(role, done), levelCap, warnings };
 }

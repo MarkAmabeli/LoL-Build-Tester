@@ -2,12 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { getChampion } from './champions';
 import type { ChampionSpells } from './champions/types';
 import { checkRunePage, checkSkillRanks, resolveLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
+import type { RoleQuestItems } from './role-quests';
 import type { SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ShardData } from './types';
 
 // The committed data for the latest patch (no Node APIs in src, so via Vite).
 const files = import.meta.glob<unknown>(
-  ['/public/data/manifest.json', '/public/data/*/{items,item-groups,runes,shards,summoners}.json', '/public/data/*/spells/Vayne.json'],
+  ['/public/data/manifest.json', '/public/data/*/{items,item-groups,runes,shards,summoners,role-quests}.json', '/public/data/*/spells/Vayne.json'],
   { eager: true, import: 'default' },
 );
 const { latest } = files['/public/data/manifest.json'] as { latest: string };
@@ -22,6 +23,7 @@ const data: LoadoutData = {
   runes: file<RuneTree[]>('runes.json'),
   shards: file<ShardData>('shards.json'),
   summoners: file<SummonerSpellRecord[]>('summoners.json'),
+  roleQuests: file<RoleQuestItems>('role-quests.json'),
 };
 const vayneSpells = file<ChampionSpells>('spells/Vayne.json');
 

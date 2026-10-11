@@ -49,7 +49,7 @@ export interface Effect {
   /** Riot item or rune ID, matching `items.json` / `runes.json`; "<Champion>:<ability>" for champion effects. */
   id: string;
   name: string;
-  kind: 'item' | 'rune' | 'champion';
+  kind: 'item' | 'rune' | 'champion' | 'roleQuest';
   /** Patch the numbers were last checked against, e.g. "16.20". */
   verifiedPatch: string;
   state?: StateField[];

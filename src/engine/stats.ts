@@ -19,15 +19,16 @@ const GROWTH_PER_LEVEL = hand('engine.growthPerLevel', 0.0175, wiki('Champion st
 /**
  * Total growth gained by `level`, using Riot's non-linear growth curve:
  *   growth × (n − 1) × (0.7025 + 0.0175 × (n − 1))
- * At level 1 this is 0; at level 18 it is exactly growth × 17.
+ * At level 1 this is 0; at level 18 it is exactly growth × 17. Growth continues past 18
+ * when the level cap is raised (top lane role quest).
  */
-export function growthAtLevel(growth: number, level: number): number {
-  const n = clampLevel(level) - 1;
+export function growthAtLevel(growth: number, level: number, cap = MAX_LEVEL): number {
+  const n = clampLevel(level, cap) - 1;
   return growth * n * (GROWTH_BASE + GROWTH_PER_LEVEL * n);
 }
 
-export function clampLevel(level: number): number {
-  return Math.min(MAX_LEVEL, Math.max(MIN_LEVEL, Math.round(level)));
+export function clampLevel(level: number, cap = MAX_LEVEL): number {
+  return Math.min(cap, Math.max(MIN_LEVEL, Math.round(level)));
 }
 
 /**
@@ -67,9 +68,9 @@ export function sumBonuses(...blocks: StatBonuses[]): StatBonuses {
  * Attack speed = base AS + ratio × (level growth% + bonus AS%) / 100, capped.
  * Level growth uses the same curve as other stats.
  */
-export function attackSpeedAt(champ: ChampionBaseStats, level: number, bonusPct = 0): number {
+export function attackSpeedAt(champ: ChampionBaseStats, level: number, bonusPct = 0, cap = MAX_LEVEL): number {
   const ratio = champ.attackspeedratio ?? champ.attackspeed;
-  const growthPct = growthAtLevel(champ.attackspeedperlevel, level);
+  const growthPct = growthAtLevel(champ.attackspeedperlevel, level, cap);
   return cappedAttackSpeed(champ.attackspeed, ratio, growthPct + bonusPct);
 }
 
@@ -132,10 +133,13 @@ export function resolveStats(
   level: number,
   bonuses: StatBonuses = {},
   effects: ActiveEffect[] = [],
-  situation: { currentHpPct?: number } = {},
+  situation: { currentHpPct?: number; levelCap?: number } = {},
 ): ResolvedStats {
-  const lvl = clampLevel(level);
-  const at = (base: number, growth: number) => base + growthAtLevel(growth, lvl);
+  // Stats grow up to the level cap (20 with the top lane role quest). Level-scaled effect
+  // values (`byLevel`, spell formulas) stay at their level 18 value.
+  const cap = situation.levelCap ?? MAX_LEVEL;
+  const lvl = clampLevel(level, cap);
+  const at = (base: number, growth: number) => base + growthAtLevel(growth, lvl, cap);
   const asRatio = champ.attackspeedratio ?? champ.attackspeed;
   const adaptive = adaptiveSplit(
     bonuses.adaptiveForce ?? 0,
@@ -152,7 +156,7 @@ export function resolveStats(
     ap: (bonuses.ap ?? 0) + adaptive.ap,
     armor: split(at(champ.armor, champ.armorperlevel), bonuses.armor),
     mr: split(at(champ.spellblock, champ.spellblockperlevel), bonuses.mr),
-    attackSpeed: attackSpeedAt(champ, lvl, bonuses.attackSpeedPct),
+    attackSpeed: attackSpeedAt(champ, lvl, bonuses.attackSpeedPct, cap),
     critChance: Math.min(1, bonuses.critChance ?? 0),
     critMultiplier: BASE_CRIT_MULTIPLIER + (bonuses.critDamageBonus ?? 0),
     abilityHaste: bonuses.abilityHaste ?? 0,
@@ -166,7 +170,7 @@ export function resolveStats(
     attackRange: champ.attackrange,
     attackSpeedBase: champ.attackspeed,
     attackSpeedRatio: asRatio,
-    bonusAttackSpeedPct: growthAtLevel(champ.attackspeedperlevel, lvl) + (bonuses.attackSpeedPct ?? 0),
+    bonusAttackSpeedPct: growthAtLevel(champ.attackspeedperlevel, lvl, cap) + (bonuses.attackSpeedPct ?? 0),
     adaptiveTieBreak: champ.adaptiveType ?? 'ad',
     currentHpPct: Math.min(1, Math.max(0, situation.currentHpPct ?? 1)),
   };
