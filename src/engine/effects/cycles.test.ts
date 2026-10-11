@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { CHAMPIONS } from '../champions/registry';
 import type { ChampionSpells, Ranks } from '../champions/types';
 import { combatStartValue, cycleStep, type CombatEvent, type CycleContext, type Cycled, type CycleTracker } from './cycles';
+import { midQuestReward } from '../role-quests';
+import { scorchclawsSlash } from './role-quests/scorchclaws-slash';
 import { EFFECTS, getEffect } from './registry';
 import type { EffectState } from './types';
 
@@ -158,7 +160,7 @@ describe('stack cycles', () => {
 // Every effect and champion ability, with all ranks learned.
 const ALL_RANKS: Ranks = { P: 1, Q: 5, W: 5, E: 5, R: 3 };
 const owners: Array<[string, Cycled]> = [
-  ...[...EFFECTS.values()].map((e): [string, Cycled] => [e.name, e]),
+  ...[...EFFECTS.values(), midQuestReward, scorchclawsSlash].map((e): [string, Cycled] => [e.name, e]),
   ...Object.values(CHAMPIONS).flatMap((def) => [
     ...(def.effects?.({} as ChampionSpells, ALL_RANKS) ?? []).map((e): [string, Cycled] => [e.id, e]),
     ...def.abilities.map((a): [string, Cycled] => [`${def.id} ${a.id}`, a]),

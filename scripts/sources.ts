@@ -105,6 +105,7 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
     'Base stats other than AD per level matched the wiki for Vayne, Darius, Veigar, Nasus and Yunara (16.20).',
     'Symbiotic Soles, Synchronized Souls and Forever Forward are in item.json but not purchasable (16.20), so items.json leaves them out; the user reports Symbiotic Soles is no longer in the game.',
     'Role quest items (1200–1211, 1220–1222, 1090–1094) are in item.json but not purchasable; their reward values are in the items bin (game-values.json).',
+    "Jungle pets (items bin): TotalCounters 35 is the treats to the final evolution (Primal Smite); Breakpoint1 20 is treats remaining at the first evolution (15 fed, Unleashed Smite), matching the wiki's 15 and 35.",
     "Item stats not imported: FlatHPRegenMod (Doran's Shield, Guardian's Horn; not in their <stats> text) and Adaptive Force (only on the 66xxxx variants, pending their review).",
   ],
 };

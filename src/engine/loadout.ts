@@ -11,18 +11,21 @@ import type { SummonerSpellRecord } from './summoners';
 import {
   BOT_BOOTS_SLOTS,
   DEFAULT_PLAYER_ROLE,
+  JUNGLE_PET_SLOTS,
   roleQuestEffects,
   roleQuestLevelCap,
+  SMITE,
   smiteTier,
   supportItems,
   TARGET_DUMMY_ROLE,
   type PlayerRole,
   type Role,
   type RoleQuestItems,
+  type SmiteTier,
 } from './role-quests';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
 
-/** Inventory slots. Role quests will change this for bot lane (boots get their own slot); not modeled yet. */
+/** Inventory slots. The role quest slot adds one for bot lane's boots or the jungler's consumed pet (role-quests.ts). */
 export const MAX_ITEMS = hand('loadout.maxItems', 6, assumed('Standard inventory: six item slots'));
 export const MAX_SUMMONERS = hand('loadout.maxSummoners', 2, assumed('Two summoner spell slots'));
 /** Item tags that aren't part of a build here. */
@@ -114,6 +117,8 @@ export interface Loadout {
   role: Role;
   /** The role quest is completed (see role-quests.ts for what that changes). Ignored for the target dummy, which counts as completed. */
   roleQuestCompleted?: boolean;
+  /** Jungle only: the pet's first evolution (Unleashed Smite). Ignored once the jungle quest is completed. */
+  petFirstEvolution?: boolean;
   /** State overrides by effect ID (item/rune ID, or "<Champion>:<ability>"). */
   state?: Record<string, EffectState>;
   /** Current health as a fraction of max. */
@@ -137,6 +142,8 @@ export type LoadoutWarning =
   | { kind: 'roleItem'; id: string; name: string; needs: PlayerRole }
   /** A support without the support item (World Atlas or what it becomes). */
   | { kind: 'supportItem'; message: string }
+  /** Jungle pet rules: a pet needs Smite, and a jungler holds a pet before other items. */
+  | { kind: 'junglePet'; message: string }
   | { kind: 'roleQuest'; message: string };
 
 export interface ResolvedLoadout {
@@ -148,7 +155,7 @@ export interface ResolvedLoadout {
   /** The loadout's known summoner spells, for `summonerHit`. */
   summoners: SummonerSpellRecord[];
   /** Smite's level for `summonerHit`. */
-  smite: 'basic' | 'primal';
+  smite: SmiteTier;
   /** Highest level the loadout can reach (20 with the top lane quest). */
   levelCap: number;
   /** The inventory's gold (skipped items don't count). */
@@ -258,8 +265,12 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
   // upgraded item (tier 3 boots, Bounty of Worlds' upgrades) and the support item.
   const dummy = role === TARGET_DUMMY_ROLE;
   const boots = new Set(data.roleQuests.boots);
-  // The bot lane reward gives boots their own slot, outside the six.
-  const ownSlot = quest('bot') ? Math.min(BOT_BOOTS_SLOTS, items.filter((id) => boots.has(id)).length) : 0;
+  const pets = new Set(data.roleQuests.junglePets);
+  const hasPet = items.some((id) => pets.has(id));
+  // The role quest slot, outside the six: boots with the bot lane reward, the consumed pet with the jungle reward.
+  const ownSlot = quest('bot')
+    ? Math.min(BOT_BOOTS_SLOTS, items.filter((id) => boots.has(id)).length)
+    : quest('jungle') ? Math.min(JUNGLE_PET_SLOTS, items.filter((id) => pets.has(id)).length) : 0;
   if (items.length - ownSlot > MAX_ITEMS) warnings.push({ kind: 'tooManyItems', count: items.length, max: MAX_ITEMS + ownSlot });
   const tier3Boots = new Set(Object.values(data.roleQuests.bootsUpgrades));
   const supportUpgrades = new Set(data.roleQuests.supportUpgrades);
@@ -275,8 +286,17 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
   if (role === 'support' && !items.some((id) => supportStages.has(id) || supportUpgrades.has(id))) {
     warnings.push({ kind: 'supportItem', message: 'A support needs the support item (World Atlas or what it becomes)' });
   }
-  if (quest('jungle') && !items.some((id) => data.roleQuests.junglePets.includes(id))) {
+  const hasSmite = (loadout.summoners ?? []).includes(SMITE);
+  if (!dummy) {
+    if (role === 'jungle' && !hasSmite) warnings.push({ kind: 'summoners', message: 'A jungler needs Smite' });
+    if (role !== 'jungle' && hasSmite) warnings.push({ kind: 'summoners', message: 'Smite is only for the jungle role' });
+    if (hasPet && !hasSmite) warnings.push({ kind: 'junglePet', message: 'A jungle pet needs Smite' });
+  }
+  if (quest('jungle') && !hasPet) {
     warnings.push({ kind: 'roleQuest', message: 'The jungle quest needs a jungle pet' });
+  } else if (role === 'jungle' && !hasPet) {
+    if (items.length > 0) warnings.push({ kind: 'junglePet', message: 'A jungler needs a jungle pet before other items' });
+    if (loadout.petFirstEvolution) warnings.push({ kind: 'junglePet', message: "The pet's first evolution needs a jungle pet" });
   }
   const levelCap = roleQuestLevelCap(role, done);
   if (loadout.level > levelCap) warnings.push({ kind: 'level', message: `Level ${loadout.level} is above the level cap ${levelCap}` });
@@ -321,7 +341,7 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
           state: { ...a.state, ...overrides[a.effect.id] },
         }))
       : []),
-    ...roleQuestEffects(role, done).map((e) => activate(e, overrides[e.id])),
+    ...roleQuestEffects(role, done, items).map((e) => activate(e, overrides[e.id])),
   ];
 
   const bonuses = sumBonuses(...items.map((id) => byId.get(id)!.stats), ...shardStats);
@@ -334,5 +354,5 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
   const total = costs.reduce((sum, c) => sum + c.cost, 0);
   const value = costs.reduce((sum, c) => sum + c.value, 0);
   const gold: BuildCost = { total, value, efficiency: total > 0 ? value / total : undefined, items: costs };
-  return { stats, effects, bonuses, summoners, smite: smiteTier(role, done), levelCap, gold, warnings };
+  return { stats, effects, bonuses, summoners, smite: smiteTier(role, done, loadout.petFirstEvolution), levelCap, gold, warnings };
 }

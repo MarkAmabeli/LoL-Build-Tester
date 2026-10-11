@@ -1,6 +1,7 @@
 import { evaluateFormula, type TargetState } from './damage';
 import type { HitResult } from './hit';
 import { mitigate } from './mitigation';
+import type { SmiteTier } from './role-quests';
 import type { DamageInstance, Formula, ResolvedStats } from './types';
 
 /** A summoner spell as written to summoners.json. Values come from the game data (one rank). */
@@ -26,8 +27,8 @@ export interface SummonerContext {
   formula(name: string): number;
   /** A data value of this spell. */
   value(name: string): number;
-  /** Smite's level (role quests: Primal once the jungle quest is done). */
-  smite: 'basic' | 'primal';
+  /** Smite's level (role quests: Unleashed after the pet's first evolution, Primal once the jungle quest is done). */
+  smite: SmiteTier;
 }
 
 /** Hand-written summoner spell damage. Spells that deal no damage to champions have none. */
@@ -50,15 +51,22 @@ export const ignite: SummonerDefinition = {
 };
 
 /**
- * Smite: only Primal Smite (jungle quest completed) can hit champions here, for 40 true damage
- * (SecondPVPDamage). Like Ignite, its damage isn't amplified and applies no spell effects
- * (wiki, "Smite"). The intermediate Unleashed Smite (FirstPVPDamage) and the pets' Primal
- * Smite effects aren't modeled yet.
+ * Smite: Unleashed Smite (the pet's first evolution) and Primal Smite (jungle quest completed)
+ * can hit champions, for 40 true damage each (FirstPVPDamage, SecondPVPDamage); basic Smite
+ * can't. Like Ignite, its damage isn't amplified and applies no spell effects (wiki, "Smite").
+ * The slow isn't modeled; Scorchclaw's Slash is a role quest effect.
  */
 export const smite: SummonerDefinition = {
   id: 'SummonerSmite',
   hits: ({ value, smite: tier }) =>
-    tier === 'primal' ? [{ type: 'true', raw: value('SecondPVPDamage'), source: 'Primal Smite', tags: ['summoner'] }] : [],
+    tier === 'basic'
+      ? []
+      : [{
+          type: 'true',
+          raw: value(tier === 'primal' ? 'SecondPVPDamage' : 'FirstPVPDamage'),
+          source: tier === 'primal' ? 'Primal Smite' : 'Unleashed Smite',
+          tags: ['summoner'],
+        }],
 };
 
 /** Summoner spells with damage definitions, by Data Dragon ID. */
@@ -72,7 +80,7 @@ export const SUMMONER_DEFINITIONS: ReadonlyMap<string, SummonerDefinition> = new
  */
 export function summonerHit(
   spell: SummonerSpellRecord,
-  input: { attacker: ResolvedStats; target: TargetState; smite?: 'basic' | 'primal' },
+  input: { attacker: ResolvedStats; target: TargetState; smite?: SmiteTier },
 ): HitResult {
   const def = SUMMONER_DEFINITIONS.get(spell.id);
   if (!def) return { hits: [], total: 0 };

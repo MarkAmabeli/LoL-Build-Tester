@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { activate, getEffect } from './effects/registry';
 import { computeHit } from './hit';
 import { playerLoadout, resolveLoadout, targetDummyLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
-import { applyRoleQuest, DEFAULT_PLAYER_ROLE, TARGET_DUMMY_ROLE, type RoleQuestItems } from './role-quests';
+import { applyRoleQuest, DEFAULT_PLAYER_ROLE, TARGET_DUMMY_ROLE, type Role, type RoleQuestItems } from './role-quests';
 import { summonerHit, type SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ShardData } from './types';
 
@@ -36,6 +36,8 @@ const dummy: ChampionBaseStats = {
 const at = (level: number, more: Partial<Loadout> = {}): Loadout => ({ ...playerLoadout(dummy, level), ...more, role: more.role ?? DEFAULT_PLAYER_ROLE });
 const resolve = (l: Loadout) => resolveLoadout(l, data);
 const kinds = (l: Loadout) => resolve(l).warnings.map((w) => w.kind);
+/** The items after a role or quest change. */
+const applyItems = (items: string[], role: Role, done: boolean | undefined) => applyRoleQuest({ role, roleQuestCompleted: done, items }, data.roleQuests).items!;
 
 describe('mid lane quest', () => {
   it('grants +8% bonus AD and +8% AP when completed', () => {
@@ -55,10 +57,10 @@ describe('mid lane quest', () => {
 
   it('upgrades tier 2 boots to tier 3 when completed, and back when not', () => {
     const items = [idOf("Berserker's Greaves"), idOf('B. F. Sword')];
-    const upgraded = applyRoleQuest(items, 'mid', true, data.roleQuests);
+    const upgraded = applyItems(items, 'mid', true);
     expect(upgraded).toEqual([idOf('Gunmetal Greaves'), idOf('B. F. Sword')]);
-    expect(applyRoleQuest(upgraded, 'mid', false, data.roleQuests)).toEqual(items);
-    expect(applyRoleQuest(items, 'top', true, data.roleQuests)).toEqual(items);
+    expect(applyItems(upgraded, 'mid', false)).toEqual(items);
+    expect(applyItems(items, 'top', true)).toEqual(items);
   });
 
   it('allows tier 3 boots only for a completed mid quest', () => {
@@ -109,28 +111,28 @@ describe('support quest', () => {
   });
 
   it('puts World Atlas in the first slot when the role becomes support', () => {
-    expect(applyRoleQuest([sword], 'support', false, data.roleQuests)).toEqual([atlas, sword]);
-    expect(applyRoleQuest([sword, compass], 'support', false, data.roleQuests)).toEqual([sword, compass]);
+    expect(applyItems([sword], 'support', false)).toEqual([atlas, sword]);
+    expect(applyItems([sword, compass], 'support', false)).toEqual([sword, compass]);
     // A full inventory still gets it, with a warning rather than a dropped item.
-    const full = applyRoleQuest(Array(6).fill(sword), 'support', false, data.roleQuests);
+    const full = applyItems(Array(6).fill(sword), 'support', false);
     expect(full[0]).toBe(atlas);
     expect(kinds(at(1, { role: 'support', items: full }))).toEqual(['tooManyItems']);
   });
 
   it('removes every form of the support item when the role changes away from support', () => {
-    for (const id of [atlas, compass, bounty, bloodsong]) expect(applyRoleQuest([id, sword], 'bot', false, data.roleQuests)).toEqual([sword]);
-    expect(applyRoleQuest([atlas, sword], TARGET_DUMMY_ROLE, false, data.roleQuests)).toEqual([atlas, sword]);
+    for (const id of [atlas, compass, bounty, bloodsong]) expect(applyItems([id, sword], 'bot', false)).toEqual([sword]);
+    expect(applyItems([atlas, sword], TARGET_DUMMY_ROLE, false)).toEqual([atlas, sword]);
   });
 
   it('upgrades World Atlas to Bounty of Worlds when completed, and upgrades back when not', () => {
-    for (const id of [atlas, compass]) expect(applyRoleQuest([id], 'support', true, data.roleQuests)).toEqual([bounty]);
-    expect(applyRoleQuest([sword], 'support', true, data.roleQuests)).toEqual([bounty, sword]);
-    expect(applyRoleQuest([bloodsong], 'support', true, data.roleQuests)).toEqual([bloodsong]);
-    expect(applyRoleQuest([bloodsong], 'support', false, data.roleQuests)).toEqual([bounty]);
+    for (const id of [atlas, compass]) expect(applyItems([id], 'support', true)).toEqual([bounty]);
+    expect(applyItems([sword], 'support', true)).toEqual([bounty, sword]);
+    expect(applyItems([bloodsong], 'support', true)).toEqual([bloodsong]);
+    expect(applyItems([bloodsong], 'support', false)).toEqual([bounty]);
     // Checking or unchecking never leaves an invalid support item.
     for (const done of [true, false]) {
       for (const id of [atlas, compass, bounty, bloodsong]) {
-        expect(kinds(at(1, { role: 'support', roleQuestCompleted: done, items: applyRoleQuest([id], 'support', done, data.roleQuests) }))).toEqual([]);
+        expect(kinds(at(1, { role: 'support', roleQuestCompleted: done, items: applyItems([id], 'support', done) }))).toEqual([]);
       }
     }
   });
@@ -174,25 +176,86 @@ describe('top lane quest', () => {
 describe('jungle quest', () => {
   const smite = data.summoners.find((s) => s.id === 'SummonerSmite')!;
   const target = { stats: resolve(at(18)).stats };
+  const pup = idOf('Scorchclaw Pup');
+  const gust = idOf('Gustwalker Hatchling');
+  const sword = idOf('Long Sword');
+  const smiteDamage = (l: Loadout) => {
+    const r = resolve(l);
+    return summonerHit(smite, { attacker: r.stats, target, smite: r.smite }).total;
+  };
+  const jungler = (more: Partial<Loadout> = {}) => at(9, { role: 'jungle', summoners: ['SummonerSmite', 'SummonerFlash'], items: [gust], ...more });
 
-  it('makes Smite Primal Smite: 40 true damage to champions', () => {
-    const r = resolve(at(9, { role: 'jungle', roleQuestCompleted: true, items: [idOf('Scorchclaw Pup')], summoners: ['SummonerSmite'] }));
-    expect(r.warnings).toEqual([]);
-    expect(r.smite).toBe('primal');
-    expect(summonerHit(smite, { attacker: r.stats, target, smite: r.smite }).total).toBe(40);
+  it('levels Smite: none to champions, then Unleashed and Primal for 40 true damage', () => {
+    expect(resolve(jungler()).smite).toBe('basic');
+    expect(smiteDamage(jungler())).toBe(0);
+    const unleashed = resolve(jungler({ petFirstEvolution: true }));
+    expect(unleashed.warnings).toEqual([]);
+    expect(unleashed.smite).toBe('unleashed');
+    expect(smiteDamage(jungler({ petFirstEvolution: true }))).toBe(40);
+    const primal = resolve(jungler({ roleQuestCompleted: true }));
+    expect(primal.warnings).toEqual([]);
+    expect(primal.smite).toBe('primal');
+    expect(smiteDamage(jungler({ roleQuestCompleted: true }))).toBe(40);
+    // The first evolution is ignored once the quest is done, and off the jungle role.
+    expect(resolve(jungler({ roleQuestCompleted: true, petFirstEvolution: false })).smite).toBe('primal');
+    expect(resolve(at(9, { role: 'top', petFirstEvolution: true })).smite).toBe('basic');
   });
 
-  it("deals no champion damage before the quest, and the quest needs a pet", () => {
-    const r = resolve(at(9, { role: 'jungle', summoners: ['SummonerSmite'] }));
-    expect(summonerHit(smite, { attacker: r.stats, target, smite: r.smite }).total).toBe(0);
-    expect(resolve(at(9, { role: 'jungle', roleQuestCompleted: true })).warnings)
-      .toEqual([{ kind: 'roleQuest', message: 'The jungle quest needs a jungle pet' }]);
+  it('checks the first evolution when the quest is completed', () => {
+    expect(applyRoleQuest({ role: 'jungle', roleQuestCompleted: true, summoners: ['SummonerSmite'] }, data.roleQuests).petFirstEvolution).toBe(true);
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerSmite'] }, data.roleQuests).petFirstEvolution).toBeUndefined();
+  });
+
+  it('moves the consumed pet to the role quest slot once completed, still counting its gold', () => {
+    const six = Array(6).fill(sword);
+    expect(kinds(jungler({ items: [gust, ...six] }))).toEqual(['tooManyItems']);
+    const done = resolve(jungler({ roleQuestCompleted: true, items: [gust, ...six] }));
+    expect(done.warnings).toEqual([]);
+    expect(done.gold.total).toBe(450 + 6 * 350);
+    expect(resolve(jungler({ roleQuestCompleted: true, items: [gust, ...six, sword] })).warnings)
+      .toEqual([{ kind: 'tooManyItems', count: 8, max: 7 }]);
+  });
+
+  it("gives Scorchclaw's Slash with Primal Smite and Scorchclaw Pup, charged at the start", () => {
+    const effects = resolve(jungler({ roleQuestCompleted: true, items: [pup] })).effects;
+    const slash = effects.find((e) => e.effect.id === 'RoleQuest:jungle:scorchclaw');
+    expect(slash?.state.proc).toBe(true);
+    const hit = computeHit({ type: 'physical', raw: 0, source: 'x', tags: ['auto'] }, { attacker: resolve(jungler()).stats, target, effects });
+    const burn = hit.hits.find((h) => h.source === "Scorchclaw's Slash")!;
+    expect(burn.type).toBe('true');
+    expect(burn.final).toBeCloseTo(0.05 * target.stats.hp.total);
+    expect(resolve(jungler({ items: [pup] })).effects.some((e) => e.effect.id === 'RoleQuest:jungle:scorchclaw')).toBe(false);
+    expect(resolve(jungler({ roleQuestCompleted: true })).effects.some((e) => e.effect.id === 'RoleQuest:jungle:scorchclaw')).toBe(false);
+  });
+
+  it('binds Smite and the jungle pet to the jungle role', () => {
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash'] }, data.roleQuests).summoners).toEqual(['SummonerSmite', 'SummonerFlash']);
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash', 'SummonerSmite'] }, data.roleQuests).summoners).toEqual(['SummonerFlash', 'SummonerSmite']);
+    expect(applyRoleQuest({ role: 'mid', summoners: ['SummonerSmite', 'SummonerFlash'] }, data.roleQuests).summoners).toEqual(['SummonerFlash']);
+    expect(applyRoleQuest({ role: TARGET_DUMMY_ROLE, summoners: ['SummonerSmite'] }, data.roleQuests).summoners).toEqual(['SummonerSmite']);
+    expect(applyItems([gust, sword], 'top', false)).toEqual([sword]);
+    expect(applyItems([gust, sword], 'jungle', true)).toEqual([gust, sword]);
+    expect(applyItems([gust, sword], TARGET_DUMMY_ROLE, false)).toEqual([gust, sword]);
+    expect(resolve(jungler({ summoners: ['SummonerFlash'] })).warnings).toEqual([
+      { kind: 'summoners', message: 'A jungler needs Smite' },
+      { kind: 'junglePet', message: 'A jungle pet needs Smite' },
+    ]);
+    expect(resolve(at(9, { role: 'mid', summoners: ['SummonerSmite'] })).warnings).toEqual([{ kind: 'summoners', message: 'Smite is only for the jungle role' }]);
+    expect(kinds(at(9, { role: TARGET_DUMMY_ROLE, summoners: ['SummonerSmite'], items: [gust] }))).toEqual([]);
+  });
+
+  it('needs a pet: for other items, the first evolution and the quest', () => {
+    const noPet = { summoners: ['SummonerSmite'], items: [] as string[] };
+    expect(kinds(jungler(noPet))).toEqual([]);
+    expect(resolve(jungler({ ...noPet, items: [sword] })).warnings).toEqual([{ kind: 'junglePet', message: 'A jungler needs a jungle pet before other items' }]);
+    expect(resolve(jungler({ ...noPet, petFirstEvolution: true })).warnings).toEqual([{ kind: 'junglePet', message: "The pet's first evolution needs a jungle pet" }]);
+    expect(resolve(jungler({ ...noPet, roleQuestCompleted: true })).warnings).toEqual([{ kind: 'roleQuest', message: 'The jungle quest needs a jungle pet' }]);
   });
 });
 
 it('lets every role mark its quest completed', () => {
   for (const role of ['top', 'mid', 'bot', 'support'] as const) {
-    const items = applyRoleQuest([], role, true, data.roleQuests);
+    const items = applyItems([], role, true);
     expect(kinds(at(9, { role, roleQuestCompleted: true, items }))).toEqual([]);
   }
 });
@@ -221,6 +284,6 @@ describe('roles', () => {
 
   it('never changes a target dummy\'s items', () => {
     const items = [idOf("Berserker's Greaves"), idOf('Gunmetal Greaves'), idOf('World Atlas'), idOf('Bloodsong')];
-    for (const done of [true, false]) expect(applyRoleQuest(items, TARGET_DUMMY_ROLE, done, data.roleQuests)).toEqual(items);
+    for (const done of [true, false]) expect(applyItems(items, TARGET_DUMMY_ROLE, done)).toEqual(items);
   });
 });
