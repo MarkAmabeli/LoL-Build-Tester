@@ -4,25 +4,20 @@
     "slot": "Q",
     "maxRank": 5,
     "cooldown": [
-      7.5,
       7,
       6.5,
       6,
       5.5,
-      5,
-      4.5
+      5
     ],
     "cost": [
       50,
       46,
       42,
       38,
-      34,
-      30
+      34
     ],
     "range": [
-      900,
-      900,
       900,
       900,
       900,
@@ -124,30 +119,25 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      22,
       21,
       20,
       19,
       18,
-      17,
-      16
+      17
     ],
     "cost": [
       60,
       75,
       90,
       105,
-      120,
-      135
+      120
     ],
     "range": [
-      900,
       1000,
       1050,
       1100,
       1150,
-      1200,
-      1250
+      1200
     ],
     "dataValues": {
       "BaseDamage": [
@@ -252,15 +242,6 @@
     "path": "Characters/TahmKench/Spells/TahmKenchPassiveAbility/TahmKenchPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "Duration": [
         5,
@@ -351,31 +332,10 @@
     "path": "Characters/TahmKench/Spells/TahmKenchRWrapperAbility/TahmKenchRWrapper",
     "slot": "R",
     "maxRank": 3,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "EnemyDuration": [
@@ -588,13 +548,9 @@
       3,
       3,
       3,
-      3,
-      3,
       3
     ],
     "range": [
-      2400,
-      2400,
       2400,
       2400,
       2400,

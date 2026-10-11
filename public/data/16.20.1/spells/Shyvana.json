@@ -3,20 +3,7 @@
     "path": "Characters/Shyvana/Spells/ShyvanaRAbility/ShyvanaR",
     "slot": "R",
     "maxRank": 3,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      1050,
-      1050,
-      1050,
-      1050,
       1050,
       1050,
       1050
@@ -291,21 +278,10 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9,
       8,
       7,
-      6,
       6
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "EnhanceDuration": [
@@ -574,16 +550,12 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       11,
       10,
       9,
-      8,
       8
     ],
     "range": [
-      800,
-      800,
       800,
       800,
       800,
@@ -942,16 +914,12 @@
     "maxRank": 5,
     "cooldown": [
       13,
-      13,
       12.25,
       11.5,
       10.75,
-      10,
       10
     ],
     "range": [
-      350,
-      350,
       350,
       350,
       350,
@@ -1321,15 +1289,6 @@
     "path": "Characters/Shyvana/Spells/ShyvanaPassiveAbility/ShyvanaPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "BonusArmor": [
         0.30000001192092896,

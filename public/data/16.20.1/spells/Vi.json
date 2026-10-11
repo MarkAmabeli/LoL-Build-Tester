@@ -5,26 +5,15 @@
     "maxRank": 3,
     "cooldown": [
       140,
-      140,
       115,
-      90,
-      90,
-      90,
       90
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
     ],
     "range": [
-      800,
-      800,
-      800,
-      800,
       800,
       800,
       800
@@ -164,11 +153,9 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       10.5,
       9,
       7.5,
-      6,
       6
     ],
     "cost": [
@@ -176,12 +163,9 @@
       60,
       70,
       80,
-      90,
-      80
+      90
     ],
     "range": [
-      250,
-      250,
       250,
       250,
       250,
@@ -375,8 +359,6 @@
       1,
       1,
       1,
-      1,
-      1,
       1
     ],
     "cost": [
@@ -384,7 +366,6 @@
       32,
       38,
       44,
-      50,
       50
     ],
     "dataValues": {
@@ -498,15 +479,6 @@
     "path": "Characters/Vi/Spells/ViPassiveAbility/ViPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "ShieldDuration": [
         3,
@@ -600,24 +572,6 @@
     "path": "Characters/Vi/Spells/ViWAbility/ViW",
     "slot": "W",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
-    ],
     "dataValues": {
       "ADCoefficient": [
         0.03500000014901161,

@@ -5,29 +5,17 @@
     "maxRank": 5,
     "cooldown": [
       6,
-      6,
       5.5,
       5,
       4.5,
-      4,
-      3.5
+      4
     ],
     "cost": [
       20,
       20,
       20,
       20,
-      20,
       20
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "CherryGhoulPassiveSpawnRate": [
@@ -171,26 +159,15 @@
     "maxRank": 3,
     "cooldown": [
       160,
-      160,
       130,
-      100,
-      100,
-      100,
       100
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
     ],
     "range": [
-      600,
-      600,
-      600,
-      600,
       600,
       600,
       600
@@ -426,12 +403,10 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      22,
       20,
       18,
       16,
       14,
-      12,
       12
     ],
     "cost": [
@@ -439,12 +414,9 @@
       70,
       70,
       70,
-      70,
       70
     ],
     "range": [
-      600,
-      600,
       600,
       600,
       600,
@@ -507,12 +479,10 @@
     "slot": "E",
     "maxRank": 5,
     "cooldown": [
-      13,
       12,
       11,
       10,
       9,
-      8,
       8
     ],
     "cost": [
@@ -520,12 +490,9 @@
       55,
       60,
       65,
-      70,
-      75
+      70
     ],
     "range": [
-      700,
-      700,
       700,
       700,
       700,
@@ -738,15 +705,6 @@
     "path": "Characters/Yorick/Spells/YorickPassiveAbility/YorickPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "YorickPassiveGhoulMax": [
         4,

@@ -3,24 +3,6 @@
     "path": "Characters/Sylas/Spells/SylasPassiveAbility/SylasPassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "AoE": [
         300,
@@ -143,20 +125,17 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       10.5,
       9,
       7.5,
-      6,
-      5.25
+      6
     ],
     "cost": [
       50,
       60,
       70,
       80,
-      90,
-      100
+      90
     ],
     "dataValues": {
       "Damage": [
@@ -328,26 +307,15 @@
     "maxRank": 3,
     "cooldown": [
       80,
-      80,
       55,
-      30,
-      10,
-      10,
-      10
+      30
     ],
     "cost": [
-      75,
-      75,
-      75,
       75,
       75,
       75
     ],
     "range": [
-      950,
-      950,
-      950,
-      950,
       950,
       950,
       950
@@ -421,11 +389,9 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9,
       8,
       7,
-      6,
       6
     ],
     "cost": [
@@ -433,12 +399,9 @@
       55,
       55,
       55,
-      55,
       55
     ],
     "range": [
-      850,
-      850,
       850,
       850,
       850,
@@ -624,15 +587,12 @@
     "maxRank": 5,
     "cooldown": [
       13,
-      13,
       12,
       11,
       10,
-      9,
       9
     ],
     "cost": [
-      65,
       65,
       65,
       65,
@@ -705,18 +665,7 @@
   "SylasE2": {
     "path": "Characters/Sylas/Spells/SylasEAbility/SylasE2",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      850,
-      850,
       850,
       850,
       850,

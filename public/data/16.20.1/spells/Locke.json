@@ -8,12 +8,9 @@
       40,
       50,
       60,
-      70,
-      80
+      70
     ],
     "range": [
-      425,
-      425,
       425,
       425,
       425,
@@ -153,26 +150,15 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       100,
-      80,
-      80,
-      80,
       80
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
     ],
     "range": [
-      1000,
-      1000,
-      1000,
-      1000,
       1000,
       1000,
       1000
@@ -361,11 +347,9 @@
     "maxRank": 5,
     "cooldown": [
       20,
-      20,
       18,
       16,
       14,
-      12,
       12
     ],
     "cost": [
@@ -373,12 +357,9 @@
       50,
       50,
       50,
-      50,
       50
     ],
     "range": [
-      250,
-      250,
       250,
       250,
       250,
@@ -669,24 +650,6 @@
   "LockeWRecast": {
     "path": "Characters/Locke/Spells/LockeWAbility/LockeWRecast",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "BaseDamage": [
         40,
@@ -853,11 +816,9 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9,
       8,
       7,
-      6,
       6
     ],
     "cost": [
@@ -865,12 +826,9 @@
       70,
       70,
       70,
-      70,
       70
     ],
     "range": [
-      950,
-      950,
       950,
       950,
       950,
@@ -1138,24 +1096,6 @@
     "path": "Characters/Locke/Spells/LockePassiveAbility/LockePassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "MinOnHitStartValue": [
         5,

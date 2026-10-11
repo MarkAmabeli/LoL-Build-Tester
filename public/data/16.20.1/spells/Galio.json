@@ -5,29 +5,18 @@
     "maxRank": 3,
     "cooldown": [
       180,
-      180,
       160,
-      140,
-      140,
-      140,
       140
     ],
     "cost": [
-      100,
-      100,
-      100,
       100,
       100,
       100
     ],
     "range": [
       4000,
-      4000,
       4750,
-      5500,
-      0,
-      0,
-      0
+      5500
     ],
     "dataValues": {
       "BaseDamage": [
@@ -103,24 +92,6 @@
   "GalioW2": {
     "path": "Characters/Galio/Spells/GalioWAbility/GalioW2",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "BaseDamage": [
         20,
@@ -151,11 +122,9 @@
     "maxRank": 5,
     "cooldown": [
       18,
-      18,
       17,
       16,
       15,
-      14,
       14
     ],
     "cost": [
@@ -163,12 +132,9 @@
       50,
       50,
       50,
-      50,
       50
     ],
     "range": [
-      275,
-      275,
       275,
       275,
       275,
@@ -573,15 +539,6 @@
     "path": "Characters/Galio/Spells/GalioPassiveAbility/GalioPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "ChargeRatePerHit": [
         3,
@@ -696,11 +653,9 @@
     "maxRank": 5,
     "cooldown": [
       11,
-      11,
       10,
       9,
       8,
-      7,
       7
     ],
     "cost": [
@@ -708,17 +663,7 @@
       65,
       70,
       75,
-      80,
       80
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -866,11 +811,9 @@
     "maxRank": 5,
     "cooldown": [
       11,
-      11,
       10,
       9,
       8,
-      7,
       7
     ],
     "cost": [
@@ -878,17 +821,7 @@
       50,
       50,
       50,
-      50,
       50
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [

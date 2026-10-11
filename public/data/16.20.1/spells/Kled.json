@@ -4,17 +4,13 @@
     "slot": "E",
     "maxRank": 5,
     "cooldown": [
-      14,
       13,
       12,
       11,
       10,
-      9,
       9
     ],
     "range": [
-      550,
-      550,
       550,
       550,
       550,
@@ -131,18 +127,7 @@
       3,
       3,
       3,
-      3,
-      3,
       3
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
     ],
     "dataValues": {
       "CouragePerPellet": [
@@ -296,17 +281,13 @@
     "slot": "Q",
     "maxRank": 5,
     "cooldown": [
-      12,
       11,
       10,
       9,
       8,
-      7,
-      6
+      7
     ],
     "range": [
-      800,
-      800,
       800,
       800,
       800,
@@ -512,20 +493,12 @@
     "maxRank": 3,
     "cooldown": [
       140,
-      140,
       125,
-      110,
-      110,
-      110,
       110
     ],
     "range": [
       3500,
-      3500,
       4000,
-      4500,
-      4500,
-      4500,
       4500
     ],
     "dataValues": {
@@ -748,24 +721,6 @@
     "path": "Characters/Kled/Spells/KledPassiveAbility/KledPassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "CourageVsChamps": [
         15,
@@ -1118,22 +1073,11 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      14,
       13,
       12,
       11,
       10,
-      9,
       9
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "WCooldown": [

@@ -5,15 +5,12 @@
     "maxRank": 5,
     "cooldown": [
       15,
-      15,
       14,
       13,
       12,
-      11,
-      10
+      11
     ],
     "cost": [
-      80,
       80,
       80,
       80,
@@ -21,8 +18,6 @@
       80
     ],
     "range": [
-      825,
-      825,
       825,
       825,
       825,
@@ -132,15 +127,6 @@
     "path": "Characters/Aurora/Spells/AuroraPassiveAbility/AuroraPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "DebuffDuration": [
         4,
@@ -436,26 +422,15 @@
     "maxRank": 3,
     "cooldown": [
       140,
-      140,
       120,
-      100,
-      13,
-      10,
-      10
+      100
     ],
     "cost": [
-      100,
-      100,
-      100,
       100,
       100,
       100
     ],
     "range": [
-      700,
-      700,
-      700,
-      700,
       700,
       700,
       700
@@ -599,15 +574,12 @@
     "maxRank": 5,
     "cooldown": [
       9,
-      9,
       8.5,
       8,
       7.5,
-      7,
-      6.5
+      7
     ],
     "cost": [
-      60,
       60,
       60,
       60,
@@ -615,8 +587,6 @@
       60
     ],
     "range": [
-      900,
-      900,
       900,
       900,
       900,
@@ -786,24 +756,6 @@
   "AuroraQReturnMissile": {
     "path": "Characters/Aurora/Spells/AuroraQAbility/AuroraQReturnMissile",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
-    ],
     "dataValues": {
       "BaseDamage": [
         35,
@@ -874,15 +826,12 @@
     "maxRank": 5,
     "cooldown": [
       22,
-      22,
       21,
       20,
       19,
-      18,
-      17
+      18
     ],
     "cost": [
-      80,
       80,
       80,
       80,

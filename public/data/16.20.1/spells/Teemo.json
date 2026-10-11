@@ -8,8 +8,6 @@
       14,
       14,
       14,
-      14,
-      14,
       14
     ],
     "cost": [
@@ -17,12 +15,9 @@
       40,
       40,
       40,
-      40,
       40
     ],
     "range": [
-      20,
-      20,
       20,
       20,
       20,
@@ -78,27 +73,16 @@
     "cooldown": [
       0.25,
       0.25,
-      0.25,
-      0.25,
-      0.25,
-      0.25,
       0.25
     ],
     "cost": [
       75,
       55,
-      35,
-      35,
-      35,
       35
     ],
     "range": [
       600,
-      600,
       750,
-      900,
-      900,
-      900,
       900
     ],
     "dataValues": {
@@ -274,18 +258,7 @@
     "path": "Characters/Teemo/Spells/TeemoEAbility/TeemoE",
     "slot": "E",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      680,
-      680,
       680,
       680,
       680,
@@ -549,8 +522,6 @@
       7,
       7,
       7,
-      7,
-      7,
       7
     ],
     "cost": [
@@ -558,12 +529,9 @@
       75,
       80,
       85,
-      90,
-      95
+      90
     ],
     "range": [
-      680,
-      680,
       680,
       680,
       680,
@@ -677,15 +645,6 @@
     "path": "Characters/Teemo/Spells/TeemoPassiveAbility/TeemoPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "AttackSpeedDuration": [
         5,

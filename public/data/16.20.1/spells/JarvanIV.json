@@ -2,15 +2,6 @@
   "JarvanIVMartialCadence": {
     "path": "Characters/JarvanIV/Spells/JarvanIVMartialCadenceAbility/JarvanIVMartialCadence",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "MaximumCadenceDamage": [
         400,
@@ -101,11 +92,9 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9,
       8,
       7,
-      6,
       6
     ],
     "cost": [
@@ -113,12 +102,9 @@
       50,
       55,
       60,
-      65,
-      70
+      65
     ],
     "range": [
-      770,
-      770,
       770,
       770,
       770,
@@ -186,18 +172,11 @@
     "slot": "R",
     "maxRank": 3,
     "cooldown": [
-      0,
       120,
       105,
-      90,
-      8,
-      5,
-      0
+      90
     ],
     "cost": [
-      100,
-      100,
-      100,
       100,
       100,
       100
@@ -205,11 +184,7 @@
     "range": [
       650,
       650,
-      650,
-      650,
-      650,
-      650,
-      700
+      650
     ],
     "dataValues": {
       "BaseDamage": [
@@ -274,8 +249,6 @@
       9,
       9,
       9,
-      9,
-      9,
       9
     ],
     "cost": [
@@ -283,12 +256,9 @@
       30,
       30,
       30,
-      30,
       30
     ],
     "range": [
-      625,
-      625,
       625,
       625,
       625,
@@ -354,11 +324,9 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       11.5,
       11,
       10.5,
-      10,
       10
     ],
     "cost": [
@@ -366,17 +334,7 @@
       55,
       55,
       55,
-      55,
       55
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "EDashSpeed": [

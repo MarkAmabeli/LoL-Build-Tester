@@ -3,15 +3,6 @@
     "path": "Characters/Zeri/Spells/ZeriPassiveAbility/ZeriPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "ShieldDuration": [
         3,
@@ -112,18 +103,7 @@
   "ZeriQMis": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMis",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      750,
-      750,
       750,
       750,
       750,
@@ -214,18 +194,7 @@
   "ZeriQMisEmpoweredPierce": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisEmpoweredPierce",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      750,
-      750,
       750,
       750,
       750,
@@ -317,24 +286,6 @@
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQ",
     "slot": "Q",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
-    ],
     "dataValues": {
       "MinCooldown": [
         0.5,
@@ -675,18 +626,7 @@
   "ZeriQMisPierce": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisPierce",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      750,
-      750,
       750,
       750,
       750,
@@ -777,18 +717,7 @@
   "ZeriQMisEmpowered": {
     "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisEmpowered",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      750,
-      750,
       750,
       750,
       750,
@@ -882,11 +811,9 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       11,
       10,
       9,
-      8,
       8
     ],
     "cost": [
@@ -894,12 +821,9 @@
       60,
       70,
       80,
-      90,
-      100
+      90
     ],
     "range": [
-      1200,
-      1200,
       1200,
       1200,
       1200,
@@ -1101,29 +1025,13 @@
     "maxRank": 3,
     "cooldown": [
       80,
-      80,
       75,
-      70,
-      70,
-      70,
       70
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "StackDuration": [
@@ -1338,11 +1246,9 @@
     "maxRank": 5,
     "cooldown": [
       24,
-      24,
       22.5,
       21,
       19.5,
-      18,
       18
     ],
     "cost": [
@@ -1350,17 +1256,7 @@
       85,
       80,
       75,
-      70,
       70
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MaxDistance": [

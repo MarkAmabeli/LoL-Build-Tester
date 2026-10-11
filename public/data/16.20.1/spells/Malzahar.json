@@ -8,8 +8,6 @@
       8,
       8,
       8,
-      8,
-      8,
       8
     ],
     "cost": [
@@ -17,17 +15,7 @@
       45,
       50,
       55,
-      60,
       60
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "VoidlingDuration": [
@@ -229,24 +217,6 @@
   "MalzaharWCancel": {
     "path": "Characters/Malzahar/Spells/MalzaharWAbility/MalzaharWCancel",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
-    ],
     "dataValues": {
       "VoidlingDuration": [
         8,
@@ -453,8 +423,6 @@
       6,
       6,
       6,
-      6,
-      6,
       6
     ],
     "cost": [
@@ -462,12 +430,9 @@
       65,
       70,
       75,
-      80,
       80
     ],
     "range": [
-      900,
-      900,
       900,
       900,
       900,
@@ -542,15 +507,6 @@
     "path": "Characters/Malzahar/Spells/MalzaharPassiveAbility/MalzaharPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "DRPercent": [
         90,
@@ -632,26 +588,15 @@
     "maxRank": 3,
     "cooldown": [
       140,
-      140,
       110,
-      80,
-      80,
-      80,
       80
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
     ],
     "range": [
-      700,
-      700,
-      700,
-      700,
       700,
       700,
       700
@@ -828,11 +773,9 @@
     "maxRank": 5,
     "cooldown": [
       11,
-      11,
       10,
       9,
       8,
-      7,
       7
     ],
     "cost": [
@@ -840,12 +783,9 @@
       70,
       80,
       90,
-      100,
-      110
+      100
     ],
     "range": [
-      650,
-      650,
       650,
       650,
       650,

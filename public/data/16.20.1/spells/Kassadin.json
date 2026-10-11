@@ -4,21 +4,18 @@
     "slot": "E",
     "maxRank": 5,
     "cooldown": [
-      22,
       21,
       20,
       19,
       18,
-      17,
-      16
+      17
     ],
     "cost": [
       60,
       65,
       70,
       75,
-      80,
-      85
+      80
     ],
     "dataValues": {
       "ReductionPerSpellCast": [
@@ -107,24 +104,19 @@
     "maxRank": 5,
     "cooldown": [
       9,
-      9,
       8.5,
       8,
       7.5,
-      7,
-      8
+      7
     ],
     "cost": [
       60,
       65,
       70,
       75,
-      80,
       80
     ],
     "range": [
-      650,
-      650,
       650,
       650,
       650,
@@ -231,21 +223,9 @@
       7,
       7,
       7,
-      7,
-      7,
       7
     ],
     "cost": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
-    "range": [
-      1,
-      1,
       1,
       1,
       1,
@@ -350,15 +330,6 @@
   "VoidStone": {
     "path": "Characters/Kassadin/Spells/VoidStoneAbility/VoidStone",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "DamageReductionPercent": [
         0.10000000149011612,
@@ -380,29 +351,13 @@
     "maxRank": 3,
     "cooldown": [
       5,
-      5,
       3.5,
-      2,
-      2,
-      2,
       2
     ],
     "cost": [
       40,
       40,
-      40,
-      40,
-      40,
       40
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseCD": [

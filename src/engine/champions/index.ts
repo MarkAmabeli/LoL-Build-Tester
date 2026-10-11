@@ -7,7 +7,7 @@ import { dataValue, spellOf } from './spells';
 import type { AbilityContext, ChampionDefinition, ChampionSpells, Ranks } from './types';
 
 export * from './types';
-export { dataValue, selfFormula } from './spells';
+export { abilityCooldown, abilityCostAndRange, abilitySpell, dataValue, selfFormula } from './spells';
 export { CHAMPIONS, getChampion } from './registry';
 
 export interface AbilityInput {

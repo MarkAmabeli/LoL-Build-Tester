@@ -8,18 +8,7 @@
       13,
       13,
       13,
-      13,
-      13,
       13
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -88,17 +77,13 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      12,
       11,
       10,
       9,
       8,
-      7,
       7
     ],
     "range": [
-      650,
-      650,
       650,
       650,
       650,
@@ -168,21 +153,10 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9,
       8,
       7,
-      6,
       6
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "ShieldAmount": [
@@ -253,15 +227,6 @@
     "path": "Characters/Riven/Spells/RivenPassiveAbility/RivenPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "Charges": [
         3,
@@ -345,19 +310,11 @@
     "slot": "R",
     "maxRank": 3,
     "cooldown": [
-      10,
       120,
       90,
-      60,
-      60,
-      10,
-      10
+      60
     ],
     "range": [
-      200,
-      200,
-      200,
-      200,
       200,
       200,
       200

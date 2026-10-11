@@ -7,18 +7,7 @@
       0.5,
       0.5,
       0.5,
-      0.5,
-      0.5,
       0.5
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MSDuration": [
@@ -111,7 +100,6 @@
       6.5,
       6.5,
       6.5,
-      6.5,
       6.5
     ],
     "cost": [
@@ -121,15 +109,6 @@
       65,
       70,
       75
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MissileDamage": [
@@ -382,18 +361,7 @@
   "YuumiWCast": {
     "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiWCast",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      700,
-      700,
       700,
       700,
       700,
@@ -418,18 +386,7 @@
   "YuumiWAttach": {
     "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiWAttach",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      700,
-      700,
       700,
       700,
       700,
@@ -455,24 +412,6 @@
     "path": "Characters/Yuumi/Spells/YuumiWAbility/YuumiW",
     "slot": "W",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
-    ],
     "dataValues": {
       "DashSpeed": [
         1250,
@@ -639,18 +578,7 @@
       0.25,
       0.25,
       0.25,
-      0.25,
-      0.25,
       0.25
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "CastForgivenessRange": [
@@ -688,15 +616,6 @@
   "YuumiP": {
     "path": "Characters/Yuumi/Spells/YuumiPAbility/YuumiP",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "TakedownCompanionship": [
         2,
@@ -861,26 +780,15 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       110,
-      100,
-      100,
-      100,
       100
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
     ],
     "range": [
-      1100,
-      1100,
-      1100,
-      1100,
       1100,
       1100,
       1100
@@ -1210,17 +1118,7 @@
       90,
       100,
       110,
-      120,
-      130
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
+      120
     ],
     "dataValues": {
       "MSDuration": [
@@ -1353,12 +1251,10 @@
     "path": "Characters/Yuumi/Spells/YuumiEURF",
     "maxRank": 5,
     "cooldown": [
-      10,
       15,
       13.75,
       12.5,
       11.25,
-      10,
       10
     ],
     "cost": [
@@ -1366,17 +1262,7 @@
       90,
       100,
       110,
-      120,
-      130
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
+      120
     ],
     "dataValues": {
       "MSDuration": [

@@ -9,6 +9,12 @@ export type Slot = 'P' | 'Q' | 'W' | 'E' | 'R';
 export interface SpellRecord {
   slot?: Slot;
   maxRank: number;
+  /** Per rank (index 0 = rank 1), before ability haste. Missing when the data has no usable cooldown. */
+  cooldown?: number[];
+  /** Per rank, in the champion's resource (champions.json `resource`). Missing when free. */
+  cost?: number[];
+  /** Per rank, in game units. Missing when the data only has a placeholder (self-cast, global). */
+  range?: number[];
   dataValues: Record<string, number[]>;
   formulas: Record<string, Formula>;
   unsupported: Record<string, string>;
@@ -41,6 +47,8 @@ export interface AbilityDefinition {
   name: string;
   /** Slot whose rank the ability uses. Abilities using the R rank deal ultimate damage. */
   slot: Slot;
+  /** Spell record for cooldown, cost and range; defaults to the record tagged with `slot`. */
+  spell?: string;
   state?: StateField[];
   /** How the ability's 'combat' state fields change over a fight (see cycles.ts). */
   cycles?: Cycle[];

@@ -116,6 +116,12 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
       where: ['scripts/spell-formulas.ts', 'scripts/spell-formulas.test.ts', 'scripts/spell-data.test.ts'],
     },
     {
+      id: 'spell-ranks',
+      what: 'Spell cooldown, cost and range become one value per rank (index 0 = rank 1). Missing or all-zero cooldowns and costs are omitted; ranges are omitted when any rank is a placeholder (≤ 1 or ≥ 10000). Slotted abilities without a cooldown are listed in the build log',
+      why: 'cooldownTime and castRange have a placeholder entry 0 (rank N = entry N) but mana does not (rank N = entry N − 1); ranges like 0, 1, 10000 and 25000 stand for self-cast or global',
+      where: ['scripts/spell-ranks.ts', 'scripts/spell-ranks.test.ts', 'scripts/fetch-data.ts', 'scripts/spell-data.test.ts'],
+    },
+    {
       id: 'item-group-names',
       what: 'Four hashed group keys get readable names (Spellblade, SpellShield, Thorns, HydraItems); limits above 10 are treated as unlimited',
       why: 'Some group keys and IDs are only hashes; Arena groups use 99',
@@ -138,6 +144,7 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
     'Windup: Root basicAttack.mAttackDelayCastOffsetPercent (windup = 0.3 + offset), or mAttackCastTime / mAttackTotalTime for newer champions (Yunara). mAttackDelayCastOffsetPercentAttackSpeedRatio is the windup modifier (Darius 0.5). Not imported yet.',
     "Missile speed: use the attack spell's mMissileSpec.movementComponent.mSpeed. The top-level missileSpeed field disagrees with the wiki (Veigar 1100 vs 1500, Yunara 2000 vs 2500). Melee attacks have 0.",
     'Vi damagePerLevelModifiable is 3.9; the wiki says 3.5 (16.20). Game data used.',
+    '31 Q/W/E/R spells have no usable cooldown (16.20), e.g. Veigar W, Lux Q, Morgana Q, Yunara Q/W; some are passives (Vayne W), others keep it elsewhere. Shown as unknown, pending the per-champion review.',
   ],
 };
 

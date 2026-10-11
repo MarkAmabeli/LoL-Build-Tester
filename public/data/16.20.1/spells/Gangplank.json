@@ -4,9 +4,7 @@
     "maxRank": 5,
     "cooldown": [
       160,
-      160,
       140,
-      120,
       120,
       120,
       120
@@ -16,17 +14,7 @@
       100,
       100,
       100,
-      100,
       100
-    ],
-    "range": [
-      30000,
-      30000,
-      30000,
-      30000,
-      30000,
-      30000,
-      30000
     ],
     "dataValues": {
       "DamagePerWave": [
@@ -229,29 +217,13 @@
     "maxRank": 3,
     "cooldown": [
       160,
-      160,
       140,
-      120,
-      120,
-      120,
       120
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
-    ],
-    "range": [
-      30000,
-      30000,
-      30000,
-      30000,
-      30000,
-      30000,
-      30000
     ],
     "dataValues": {
       "DamagePerWave": [
@@ -451,8 +423,6 @@
       4.5,
       4.5,
       4.5,
-      4.5,
-      4.5,
       4.5
     ],
     "cost": [
@@ -460,12 +430,9 @@
       45,
       40,
       35,
-      30,
       30
     ],
     "range": [
-      625,
-      625,
       625,
       625,
       625,
@@ -622,18 +589,7 @@
     "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankESpellPassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      1000,
-      1000,
       1000,
       1000,
       1000,
@@ -668,18 +624,7 @@
     "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankE",
     "slot": "E",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "range": [
-      1000,
-      1000,
       1000,
       1000,
       1000,
@@ -853,12 +798,10 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      24,
       22,
       20,
       18,
       16,
-      14,
       14
     ],
     "cost": [
@@ -866,8 +809,7 @@
       70,
       80,
       90,
-      100,
-      110
+      100
     ],
     "dataValues": {
       "BaseHeal": [
@@ -955,15 +897,6 @@
     "path": "Characters/Gangplank/Spells/GangplankPassiveAbility/GangplankPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "Cooldown": [
         15,

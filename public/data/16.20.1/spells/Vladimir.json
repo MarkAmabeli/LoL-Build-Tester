@@ -4,17 +4,13 @@
     "slot": "E",
     "maxRank": 5,
     "cooldown": [
-      15,
       13,
       11,
       9,
       7,
-      5,
       5
     ],
     "range": [
-      550,
-      550,
       550,
       550,
       550,
@@ -189,15 +185,6 @@
   "VladimirBloodGorged": {
     "path": "Characters/Vladimir/Spells/VladimirBloodGorgedAbility/VladimirBloodGorged",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "HPforAP": [
         30,
@@ -355,20 +342,12 @@
     "cooldown": [
       120,
       120,
-      120,
-      120,
-      120,
-      120,
       120
     ],
     "range": [
       625,
       625,
-      625,
-      625,
-      625,
-      625,
-      700
+      625
     ],
     "dataValues": {
       "BaseDamage": [
@@ -475,17 +454,13 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      31,
       28,
       25,
       22,
       19,
-      16,
       16
     ],
     "range": [
-      1050,
-      1050,
       1050,
       1050,
       1050,
@@ -630,17 +605,13 @@
     "slot": "Q",
     "maxRank": 5,
     "cooldown": [
-      10.100000381469727,
       9,
       7.900000095367432,
       6.800000190734863,
       5.699999809265137,
-      4.599999904632568,
-      3.5
+      4.599999904632568
     ],
     "range": [
-      600,
-      600,
       600,
       600,
       600,

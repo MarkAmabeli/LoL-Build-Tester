@@ -5,21 +5,10 @@
     "maxRank": 5,
     "cooldown": [
       8,
-      8,
       7,
       6,
       5,
-      4,
       4
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "QBaseDamage": [
@@ -187,21 +176,10 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       11,
       10,
       9,
-      8,
       8
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "Duration": [
@@ -358,16 +336,12 @@
     "maxRank": 5,
     "cooldown": [
       18,
-      18,
       16,
       14,
       12,
-      10,
       10
     ],
     "range": [
-      700,
-      700,
       700,
       700,
       700,
@@ -471,18 +445,10 @@
     "maxRank": 3,
     "cooldown": [
       140,
-      140,
       120,
-      100,
-      90,
-      80,
-      8
+      100
     ],
     "range": [
-      650,
-      650,
-      650,
-      650,
       650,
       650,
       650
@@ -533,24 +499,6 @@
     "path": "Characters/Mordekaiser/Spells/MordekaiserPassiveAbility/MordekaiserPassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "CombatTrackingDuration": [
         4,

@@ -2,24 +2,6 @@
   "DrMundoP": {
     "path": "Characters/DrMundo/Spells/DrMundoPassiveAbility/DrMundoP",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "CannisterGroundDuration": [
         7,
@@ -222,21 +204,10 @@
     "maxRank": 5,
     "cooldown": [
       9,
-      9,
       8.25,
       7.5,
       6.75,
-      6,
       6
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "AttackOverrideDuration": [
@@ -419,16 +390,12 @@
     "maxRank": 5,
     "cooldown": [
       6,
-      6,
       5.5,
       5,
       4.5,
-      4,
       4
     ],
     "range": [
-      325,
-      325,
       325,
       325,
       325,
@@ -551,16 +518,12 @@
     "maxRank": 5,
     "cooldown": [
       17,
-      17,
       16.5,
       16,
       15.5,
-      15,
       15
     ],
     "range": [
-      325,
-      325,
       325,
       325,
       325,
@@ -736,17 +699,9 @@
     "cooldown": [
       120,
       120,
-      120,
-      120,
-      120,
-      120,
       120
     ],
     "range": [
-      20,
-      20,
-      20,
-      20,
       20,
       20,
       20
@@ -820,13 +775,9 @@
       4,
       4,
       4,
-      4,
-      4,
       4
     ],
     "range": [
-      1050,
-      1050,
       1050,
       1050,
       1050,

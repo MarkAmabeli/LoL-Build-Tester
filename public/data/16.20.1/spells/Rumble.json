@@ -8,13 +8,9 @@
       6,
       6,
       6,
-      6,
-      6,
       6
     ],
     "range": [
-      20,
-      20,
       20,
       20,
       20,
@@ -188,16 +184,12 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9,
       8,
       7,
-      6,
       6
     ],
     "range": [
-      600,
-      600,
       600,
       600,
       600,
@@ -454,18 +446,7 @@
       0.5,
       0.5,
       0.5,
-      0.5,
-      0.5,
       0.5
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -605,18 +586,10 @@
     "maxRank": 3,
     "cooldown": [
       130,
-      130,
       105,
-      80,
-      80,
-      80,
       80
     ],
     "range": [
-      1700,
-      1700,
-      1700,
-      1700,
       1700,
       1700,
       1700
@@ -743,15 +716,6 @@
   "RumbleHeatSystem": {
     "path": "Characters/Rumble/Spells/RumbleHeatSystemAbility/RumbleHeatSystem",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "OverheatDuration": [
         4,

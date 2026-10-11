@@ -18,6 +18,18 @@ describe('committed spell data', () => {
     }
   });
 
+  it('has one cooldown, cost and range value per rank where present', () => {
+    for (const f of files) {
+      const records = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as Record<string, Record<string, unknown> & { maxRank: number }>;
+      for (const [name, spell] of Object.entries(records)) {
+        for (const key of ['cooldown', 'cost', 'range']) {
+          const values = spell[key] as number[] | undefined;
+          if (values !== undefined) expect(values.length, `${f} ${name} ${key}`).toBe(spell.maxRank);
+        }
+      }
+    }
+  });
+
   it('reads data values for every champion', () => {
     const withValues = new Set(spells.filter((s) => s.keys.length > 0).map((s) => s.file));
     expect(files.filter((f) => !withValues.has(f))).toEqual([]);

@@ -5,16 +5,12 @@
     "maxRank": 5,
     "cooldown": [
       20,
-      20,
       19,
       18,
       17,
-      16,
       16
     ],
     "range": [
-      350,
-      350,
       350,
       350,
       350,
@@ -149,15 +145,6 @@
   "AkaliPWeapon": {
     "path": "Characters/Akali/Spells/AkaliPAbility/AkaliPWeapon",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {},
     "calculations": {
       "EnergyRestore": {
@@ -327,15 +314,6 @@
   "AkaliP": {
     "path": "Characters/Akali/Spells/AkaliPAbility/AkaliP",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "PassiveAPRatio": [
         0.550000011920929,
@@ -506,15 +484,6 @@
   "AkaliPZoneGround": {
     "path": "Characters/Akali/Spells/AkaliPAbility/AkaliPZoneGround",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {},
     "calculations": {
       "EnergyRestore": {
@@ -685,15 +654,6 @@
     "path": "Characters/Akali/Spells/AkaliQAbility/AkaliQSpellPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {},
     "calculations": {
       "EnergyRestore": {
@@ -869,8 +829,6 @@
       1.5,
       1.5,
       1.5,
-      1.5,
-      1.5,
       1.5
     ],
     "cost": [
@@ -878,12 +836,9 @@
       100,
       90,
       80,
-      70,
-      60
+      70
     ],
     "range": [
-      550,
-      550,
       550,
       550,
       550,
@@ -1022,24 +977,6 @@
   "AkaliRb": {
     "path": "Characters/Akali/Spells/AkaliRAbility/AkaliRb",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
-    ],
     "dataValues": {
       "R2BaseDamage": [
         0,
@@ -1101,18 +1038,10 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       90,
-      60,
-      60,
-      60,
       60
     ],
     "range": [
-      675,
-      675,
-      675,
-      675,
       675,
       675,
       675
@@ -1289,15 +1218,12 @@
     "maxRank": 5,
     "cooldown": [
       16,
-      16,
       14.5,
       13,
       11.5,
-      10,
-      8.5
+      10
     ],
     "cost": [
-      30,
       30,
       30,
       30,
@@ -1305,8 +1231,6 @@
       30
     ],
     "range": [
-      825,
-      825,
       825,
       825,
       825,

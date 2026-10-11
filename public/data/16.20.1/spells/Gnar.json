@@ -8,18 +8,7 @@
       7,
       7,
       7,
-      7,
-      7,
       7
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "MiniBaseDamage": [
@@ -181,22 +170,9 @@
     "slot": "R",
     "maxRank": 3,
     "cooldown": [
-      0,
       90,
       60,
-      30,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
+      30
     ],
     "dataValues": {
       "RBaseDamage": [
@@ -343,22 +319,11 @@
     "slot": "Q",
     "maxRank": 5,
     "cooldown": [
-      17.5,
       16,
       14.5,
       13,
       11.5,
-      10,
       10
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
     ],
     "dataValues": {
       "MiniBaseDamage": [
@@ -570,15 +535,6 @@
     "path": "Characters/Gnar/Spells/GnarPassiveAbility/GnarPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "MegaHealthStartingValue": [
         100,
@@ -846,22 +802,11 @@
     "path": "Characters/Gnar/Spells/GnarBigQAbility/GnarBigQ",
     "maxRank": 5,
     "cooldown": [
-      17.5,
       16,
       14.5,
       13,
       11.5,
-      10,
       10
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
     ],
     "dataValues": {
       "MegaBaseDamage": [
@@ -968,22 +913,11 @@
     "slot": "E",
     "maxRank": 5,
     "cooldown": [
-      24.5,
       22,
       19.5,
       17,
       14.5,
-      12,
       12
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MinibAS": [

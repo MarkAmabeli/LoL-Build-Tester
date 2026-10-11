@@ -4,30 +4,18 @@
     "slot": "Q",
     "maxRank": 5,
     "cooldown": [
-      6.5,
       6,
       5.5,
       5,
       4.5,
-      4,
-      3.5
+      4
     ],
     "cost": [
       30,
       35,
       40,
       45,
-      50,
       50
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
     ],
     "dataValues": {
       "APRatio": [
@@ -93,15 +81,6 @@
     "path": "Characters/Veigar/Spells/VeigarPassiveAbility/VeigarPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "dQKillStacks": [
         1,
@@ -182,11 +161,9 @@
     "maxRank": 5,
     "cooldown": [
       20,
-      20,
       18.5,
       17,
       15.5,
-      14,
       14
     ],
     "cost": [
@@ -194,12 +171,9 @@
       75,
       80,
       85,
-      90,
-      95
+      90
     ],
     "range": [
-      700,
-      700,
       700,
       700,
       700,
@@ -234,26 +208,14 @@
     "path": "Characters/Veigar/Spells/VeigarDarkMatterAbility/VeigarDarkMatter",
     "slot": "W",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "cost": [
       60,
       65,
       70,
       75,
-      80,
-      85
+      80
     ],
     "range": [
-      950,
-      950,
       950,
       950,
       950,
@@ -344,26 +306,15 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       90,
-      60,
-      30,
-      30,
-      30
+      60
     ],
     "cost": [
-      100,
-      100,
-      100,
       100,
       100,
       100
     ],
     "range": [
-      650,
-      650,
-      650,
-      650,
       650,
       650,
       650

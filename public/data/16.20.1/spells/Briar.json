@@ -5,16 +5,12 @@
     "maxRank": 5,
     "cooldown": [
       14,
-      14,
       13,
       12,
       11,
-      10,
       10
     ],
     "range": [
-      350,
-      350,
       350,
       350,
       350,
@@ -267,16 +263,12 @@
     "maxRank": 5,
     "cooldown": [
       13,
-      13,
       12,
       11,
       10,
-      9,
-      8
+      9
     ],
     "range": [
-      475,
-      475,
       475,
       475,
       475,
@@ -386,15 +378,6 @@
   "BriarP": {
     "path": "Characters/Briar/Spells/BriarPAbility/BriarP",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "BleedDuration": [
         5,
@@ -689,21 +672,8 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       100,
-      80,
-      70,
-      70,
-      70
-    ],
-    "range": [
-      12000,
-      12000,
-      12000,
-      12000,
-      12000,
-      12000,
-      12000
+      80
     ],
     "dataValues": {
       "BaseDamage": [
@@ -862,8 +832,6 @@
     "slot": "E",
     "maxRank": 5,
     "cooldown": [
-      16,
-      16,
       16,
       16,
       16,

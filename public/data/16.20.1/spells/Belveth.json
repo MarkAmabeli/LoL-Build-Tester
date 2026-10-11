@@ -5,16 +5,12 @@
     "maxRank": 5,
     "cooldown": [
       4,
-      4,
       3.25,
       2.5,
       1.75,
-      1,
       1
     ],
     "range": [
-      450,
-      450,
       450,
       450,
       450,
@@ -229,17 +225,9 @@
     "cooldown": [
       1,
       1,
-      1,
-      1,
-      1,
-      1,
       1
     ],
     "range": [
-      450,
-      450,
-      450,
-      450,
       450,
       450,
       450
@@ -576,15 +564,6 @@
     "path": "Characters/Belveth/Spells/BelvethPassiveAbility/BelvethPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "MonsterStacks": [
         1,
@@ -800,16 +779,12 @@
     "maxRank": 5,
     "cooldown": [
       12,
-      12,
       11,
       10,
       9,
-      8,
-      10
+      8
     ],
     "range": [
-      715,
-      715,
       715,
       715,
       715,
@@ -895,16 +870,12 @@
     "maxRank": 5,
     "cooldown": [
       24,
-      24,
       21,
       18,
       15,
-      12,
       12
     ],
     "range": [
-      500,
-      500,
       500,
       500,
       500,

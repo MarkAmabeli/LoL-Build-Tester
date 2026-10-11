@@ -8,8 +8,6 @@
       17,
       17,
       17,
-      17,
-      17,
       17
     ],
     "cost": [
@@ -17,12 +15,9 @@
       40,
       40,
       40,
-      40,
       40
     ],
     "range": [
-      530,
-      530,
       530,
       530,
       530,
@@ -122,29 +117,18 @@
     "maxRank": 3,
     "cooldown": [
       2,
-      2,
       1.5,
-      1,
-      2,
-      2,
-      2
+      1
     ],
     "cost": [
-      40,
-      40,
-      40,
       40,
       40,
       40
     ],
     "range": [
       1300,
-      1300,
       1550,
-      1800,
-      1200,
-      1200,
-      1200
+      1800
     ],
     "dataValues": {
       "Damage": [
@@ -369,8 +353,6 @@
       7,
       7,
       7,
-      7,
-      7,
       7
     ],
     "cost": [
@@ -378,12 +360,9 @@
       40,
       40,
       40,
-      40,
       40
     ],
     "range": [
-      1200,
-      1200,
       1200,
       1200,
       1200,
@@ -480,8 +459,6 @@
       12,
       12,
       12,
-      12,
-      12,
       12
     ],
     "cost": [
@@ -489,17 +466,7 @@
       55,
       70,
       85,
-      100,
-      110
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
+      100
     ],
     "dataValues": {
       "BaseDamage": [
@@ -590,8 +557,6 @@
       8,
       8,
       8,
-      8,
-      8,
       8
     ],
     "cost": [
@@ -599,12 +564,9 @@
       70,
       70,
       70,
-      70,
       70
     ],
     "range": [
-      600,
-      600,
       600,
       600,
       600,
@@ -673,15 +635,6 @@
   "KogMawIcathianDisplay": {
     "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianDisplay",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "TooltipPassiveMS": [
         0.4000000059604645,
@@ -744,15 +697,6 @@
   "KogMawIcathianSurpriseReady": {
     "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianSurpriseReady",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "TooltipPassiveMS": [
         0.5,

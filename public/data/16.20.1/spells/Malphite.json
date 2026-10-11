@@ -2,15 +2,6 @@
   "MalphiteShield": {
     "path": "Characters/Malphite/Spells/MalphiteShieldAbility/MalphiteShield",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {},
     "calculations": {
       "PassiveCooldown": {
@@ -89,11 +80,9 @@
     "maxRank": 5,
     "cooldown": [
       10,
-      10,
       9.5,
       9,
       8.5,
-      8,
       8
     ],
     "cost": [
@@ -101,8 +90,7 @@
       35,
       40,
       45,
-      50,
-      55
+      50
     ],
     "dataValues": {
       "ThunderclapBuffDuration": [
@@ -356,26 +344,15 @@
     "maxRank": 3,
     "cooldown": [
       130,
-      130,
       115,
-      100,
-      100,
-      100,
       100
     ],
     "cost": [
       100,
       100,
-      100,
-      0,
-      0,
-      0
+      100
     ],
     "range": [
-      1000,
-      1000,
-      1000,
-      1000,
       1000,
       1000,
       1000
@@ -441,8 +418,6 @@
       8,
       8,
       8,
-      8,
-      8,
       8
     ],
     "cost": [
@@ -450,12 +425,9 @@
       75,
       80,
       85,
-      90,
-      95
+      90
     ],
     "range": [
-      625,
-      625,
       625,
       625,
       625,
@@ -535,8 +507,6 @@
       7,
       7,
       7,
-      7,
-      7,
       7
     ],
     "cost": [
@@ -544,8 +514,7 @@
       55,
       60,
       65,
-      70,
-      75
+      70
     ],
     "dataValues": {
       "BaseDamage": [

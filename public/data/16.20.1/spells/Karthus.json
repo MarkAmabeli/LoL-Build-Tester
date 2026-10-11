@@ -3,26 +3,14 @@
     "path": "Characters/Karthus/Spells/KarthusLayWasteA1Ability/KarthusLayWasteA1",
     "slot": "Q",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "cost": [
       20,
       25,
       30,
       35,
-      40,
-      45
+      40
     ],
     "range": [
-      875,
-      875,
       875,
       875,
       875,
@@ -119,15 +107,6 @@
   "KarthusDeathDefied": {
     "path": "Characters/Karthus/Spells/KarthusDeathDefiedAbility/KarthusDeathDefied",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "PassiveDuration": [
         7,
@@ -149,29 +128,13 @@
     "maxRank": 3,
     "cooldown": [
       200,
-      200,
       180,
-      160,
-      180,
-      180,
-      200
+      160
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -234,8 +197,6 @@
       0.5,
       0.5,
       0.5,
-      0.5,
-      0.5,
       0.5
     ],
     "cost": [
@@ -243,12 +204,9 @@
       42,
       54,
       66,
-      78,
-      90
+      78
     ],
     "range": [
-      550,
-      550,
       550,
       550,
       550,
@@ -350,8 +308,6 @@
       15,
       15,
       15,
-      15,
-      15,
       15
     ],
     "cost": [
@@ -359,12 +315,9 @@
       70,
       70,
       70,
-      70,
       70
     ],
     "range": [
-      1000,
-      1000,
       1000,
       1000,
       1000,

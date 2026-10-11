@@ -8,8 +8,6 @@
       6,
       6,
       6,
-      6,
-      6,
       6
     ],
     "cost": [
@@ -17,12 +15,9 @@
       55,
       60,
       65,
-      70,
-      75
+      70
     ],
     "range": [
-      200,
-      200,
       200,
       200,
       200,
@@ -316,11 +311,9 @@
     "maxRank": 5,
     "cooldown": [
       6,
-      6,
       5.75,
       5.5,
       5.25,
-      5,
       5
     ],
     "cost": [
@@ -328,17 +321,7 @@
       70,
       80,
       90,
-      100,
-      110
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
+      100
     ],
     "dataValues": {
       "BaseDamage": [
@@ -419,26 +402,15 @@
     "maxRank": 3,
     "cooldown": [
       170,
-      170,
       140,
-      110,
-      110,
-      110,
       110
     ],
     "cost": [
       100,
       100,
-      100,
-      115,
-      130,
-      0
+      100
     ],
     "range": [
-      5500,
-      5500,
-      5500,
-      5500,
       5500,
       5500,
       5500
@@ -462,24 +434,6 @@
     "path": "Characters/TwistedFate/Spells/CardmasterStackAbility/CardmasterStack",
     "slot": "E",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "AttackSpeedBonus": [
         5,
@@ -574,15 +528,6 @@
   "SecondSight": {
     "path": "Characters/TwistedFate/Spells/SecondSightAbility/SecondSight",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "GoldRatioMinCherry": [
         0.019999999552965164,

@@ -5,21 +5,10 @@
     "maxRank": 5,
     "cooldown": [
       14,
-      14,
       12,
       10,
       8,
-      6,
       6
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MistDuration": [
@@ -127,21 +116,8 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       100,
-      80,
-      80,
-      80,
       80
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MaxHealthDamage": [
@@ -307,15 +283,6 @@
     "path": "Characters/Viego/Spells/ViegoPassiveAbility/ViegoPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "MoveSpeedPercent": [
         0.10000000149011612,
@@ -455,8 +422,6 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      8,
-      8,
       8,
       8,
       8,
@@ -613,16 +578,12 @@
     "maxRank": 5,
     "cooldown": [
       5,
-      5,
       4.5,
       4,
       3.5,
-      3,
       3
     ],
     "range": [
-      600,
-      600,
       600,
       600,
       600,

@@ -3,15 +3,6 @@
     "path": "Characters/Cassiopeia/Spells/CassiopeiaPassiveAbility/CassiopeiaPassive",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {},
     "calculations": {
       "PercentHasteMod": {
@@ -57,15 +48,6 @@
     "path": "Characters/Cassiopeia/Spells/CassiopeiaPassiveAbility/CassiopeiaPassive_Feats",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "ModesMSMod": [
         1,
@@ -162,8 +144,6 @@
       3.5,
       3.5,
       3.5,
-      3.5,
-      3.5,
       3.5
     ],
     "cost": [
@@ -171,12 +151,9 @@
       55,
       60,
       65,
-      70,
       70
     ],
     "range": [
-      850,
-      850,
       850,
       850,
       850,
@@ -274,8 +251,6 @@
       0.75,
       0.75,
       0.75,
-      0.75,
-      0.75,
       0.75
     ],
     "cost": [
@@ -283,12 +258,9 @@
       40,
       40,
       40,
-      40,
       40
     ],
     "range": [
-      700,
-      700,
       700,
       700,
       700,
@@ -474,29 +446,17 @@
     "maxRank": 5,
     "cooldown": [
       24,
-      24,
       22,
       20,
       18,
-      16,
-      14
+      16
     ],
     "cost": [
       70,
       75,
       80,
       85,
-      90,
       90
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -577,29 +537,18 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       100,
-      80,
-      10,
-      10,
-      10
+      80
     ],
     "cost": [
       100,
       100,
-      100,
-      0,
-      0,
-      0
+      100
     ],
     "range": [
       825,
       825,
-      825,
-      825,
-      825,
-      825,
-      700
+      825
     ],
     "dataValues": {
       "RCCDuration": [

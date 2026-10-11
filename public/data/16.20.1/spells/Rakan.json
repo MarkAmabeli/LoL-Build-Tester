@@ -5,11 +5,9 @@
     "maxRank": 5,
     "cooldown": [
       14,
-      14,
       13,
       12,
       11,
-      10,
       10
     ],
     "cost": [
@@ -17,12 +15,9 @@
       60,
       70,
       80,
-      90,
-      100
+      90
     ],
     "range": [
-      650,
-      650,
       650,
       650,
       650,
@@ -100,29 +95,17 @@
     "maxRank": 5,
     "cooldown": [
       11,
-      11,
       10,
       9,
       8,
-      7,
-      6
+      7
     ],
     "cost": [
       45,
       45,
       45,
       45,
-      45,
       45
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -269,31 +252,12 @@
     "path": "Characters/Rakan/Spells/RakanEAbility/RakanE",
     "slot": "E",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "cost": [
       40,
       45,
       50,
       55,
-      60,
-      65
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
+      60
     ],
     "dataValues": {
       "BaseShield": [
@@ -389,24 +353,6 @@
     "path": "Characters/Rakan/Spells/RakanPassiveAbility/RakanPassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "HitCooldown": [
         1,
@@ -514,26 +460,15 @@
     "maxRank": 3,
     "cooldown": [
       130,
-      130,
       110,
-      90,
-      0,
-      0,
-      0
+      90
     ],
     "cost": [
-      100,
-      100,
-      100,
       100,
       100,
       100
     ],
     "range": [
-      150,
-      150,
-      150,
-      150,
       150,
       150,
       150

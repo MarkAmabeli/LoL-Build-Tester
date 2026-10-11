@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
+  abilityCooldown,
+  abilityCostAndRange,
   abilityHit,
   activate,
   autoAttack,
@@ -235,5 +237,29 @@ describe('Yunara', () => {
     const r = cast('RW', 1, { bonuses: { ad: 10, ap: 100 } });
     expect(r.total).toBeCloseTo(160 + 12 + 75);
     expect(r.hits[0].tags).toContain('ultimate');
+  });
+});
+
+describe('ability cooldown, cost and range', () => {
+  const ability = (champ: string, id: string) => getChampion(champ)!.abilities.find((a) => a.id === id)!;
+
+  it('reads per-rank cooldowns and applies the right haste', () => {
+    const condemn = ability('Vayne', 'E');
+    expect(abilityCooldown(spellsOf('Vayne'), condemn, 1, resolveStats(dummy, 1))).toBe(20);
+    expect(abilityCooldown(spellsOf('Vayne'), condemn, 5, resolveStats(dummy, 1))).toBe(12);
+    const hasted = resolveStats(dummy, 1, { abilityHaste: 20, basicHaste: 10, ultimateHaste: 30 });
+    expect(abilityCooldown(spellsOf('Vayne'), condemn, 1, hasted)).toBeCloseTo((20 * 100) / 130);
+    expect(abilityCooldown(spellsOf('Veigar'), ability('Veigar', 'R'), 1, hasted)).toBeCloseTo((120 * 100) / 150);
+  });
+
+  it('is unknown when the data has no usable cooldown', () => {
+    // Arc of Ruin uses W's spell record, which has no cooldown in the data.
+    expect(abilityCooldown(spellsOf('Yunara'), ability('Yunara', 'RW'), 1, resolveStats(dummy, 1))).toBeUndefined();
+  });
+
+  it('reads cost (no placeholder entry) and range, dropping placeholder ranges', () => {
+    expect(abilityCostAndRange(spellsOf('Veigar'), ability('Veigar', 'Q'), 5)).toEqual({ cost: 50, range: undefined });
+    expect(abilityCostAndRange(spellsOf('Vayne'), ability('Vayne', 'E'), 1)).toEqual({ cost: 90, range: 550 });
+    expect(abilityCostAndRange(spellsOf('Vayne'), ability('Vayne', 'Q'), 1)).toEqual({ cost: 30, range: undefined });
   });
 });

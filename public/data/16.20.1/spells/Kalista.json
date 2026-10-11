@@ -5,26 +5,15 @@
     "maxRank": 3,
     "cooldown": [
       160,
-      160,
       140,
-      120,
-      100,
-      80,
-      60
+      120
     ],
     "cost": [
-      100,
-      100,
-      100,
       100,
       100,
       100
     ],
     "range": [
-      1000,
-      1000,
-      1000,
-      1000,
       1000,
       1000,
       1000
@@ -48,15 +37,6 @@
     "path": "Characters/Kalista/Spells/KalistaPassiveBuffAbility/KalistaPassiveBuff",
     "slot": "P",
     "maxRank": 5,
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "DashSpeedDivisor": [
         1.5,
@@ -219,18 +199,7 @@
       30,
       30,
       30,
-      30,
-      30,
       30
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "MarkDuration": [
@@ -293,8 +262,6 @@
       9,
       9,
       9,
-      9,
-      9,
       9
     ],
     "cost": [
@@ -302,17 +269,7 @@
       65,
       70,
       75,
-      80,
-      85
-    ],
-    "range": [
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000,
-      10000
+      80
     ],
     "dataValues": {
       "BaseDamage": [
@@ -373,17 +330,7 @@
     "path": "Characters/Kalista/Spells/KalistaExpungeWrapperAbility/KalistaExpungeWrapper",
     "slot": "E",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "cost": [
-      30,
       30,
       30,
       30,
@@ -391,8 +338,6 @@
       30
     ],
     "range": [
-      1000,
-      1000,
       1000,
       1000,
       1000,

@@ -14,6 +14,7 @@ import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
 import { dedupeItemsByName } from './item-dedupe.ts';
 import { COMMUNITY_DRAGON, DATA_DRAGON } from './sources.ts';
+import { cooldownByRank, costByRank, rangeByRank } from './spell-ranks.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
 import { translateSpell, type Calculation } from './spell-formulas.ts';
 import { cleanText, parseShardText } from './shard-stats.ts';
@@ -182,6 +183,8 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
   const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
   /** Champion id → AD per level from the champion's game data (Data Dragon has 0 for everyone). */
   const adPerLevel = new Map<string, number>();
+  /** "Champion Q (Spell)" for Q/W/E/R spells with no usable cooldown in the data. */
+  const noCooldown: string[] = [];
 
   await mapLimit(championIds, CONCURRENCY, async (id) => {
     const alias = id.toLowerCase();
@@ -229,13 +232,16 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
         const kind = reason.replace(/"[^"]*"/g, '"…"');
         coverage.reasons[kind] = (coverage.reasons[kind] ?? 0) + 1;
       }
+      const cooldown = cooldownByRank(spell.cooldownTime, maxRank);
+      if (slot && slot !== 'P' && !cooldown) noCooldown.push(`${id} ${slot} (${name})`);
       spells[name] = {
         path: binPath,
         ...(slot ? { slot } : {}),
         maxRank,
-        cooldown: spell.cooldownTime,
-        cost: spell.mana,
-        range: spell.castRange,
+        // One value per rank (index 0 = rank 1); omitted when the data has nothing usable.
+        cooldown,
+        cost: costByRank(spell.mana, maxRank),
+        range: rangeByRank(spell.castRange, maxRank),
         ...raw,
         formulas,
         unsupported,
@@ -244,7 +250,7 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
     await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
   });
 
-  return { failures, coverage, adPerLevel };
+  return { failures, coverage, adPerLevel, noCooldown: noCooldown.sort() };
 }
 
 async function buildItems(version: string) {
@@ -370,9 +376,10 @@ async function main() {
   console.log(`  ${droppedItems.length} items listed more than once; kept one each (see item-dedupe.ts):`);
   for (const d of droppedItems) console.log(`    ${d.name}: kept ${d.kept}, dropped ${d.dropped.join(', ')}`);
 
-  const { failures, coverage, adPerLevel } = await buildSpells(version, champions.map((c) => c.id), outDir);
+  const { failures, coverage, adPerLevel, noCooldown } = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);
   for (const f of failures) console.warn(`  ! ${f}`);
+  console.log(`  ${noCooldown.length} abilities have no usable cooldown in the data (shown as unknown): ${noCooldown.join(', ')}`);
 
   // Data Dragon's attackdamageperlevel is 0 for every champion; take the game data's value instead.
   for (const champ of champions) {

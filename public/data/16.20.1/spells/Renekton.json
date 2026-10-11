@@ -4,17 +4,13 @@
     "slot": "W",
     "maxRank": 5,
     "cooldown": [
-      0,
       16,
       14,
       12,
       10,
-      8,
-      0
+      8
     ],
     "range": [
-      300,
-      300,
       300,
       300,
       300,
@@ -161,24 +157,6 @@
   "RenektonPredator": {
     "path": "Characters/Renekton/Spells/RenektonPredatorAbility/RenektonPredator",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {
       "FuryPerAttack": [
         5,
@@ -235,21 +213,10 @@
     "maxRank": 5,
     "cooldown": [
       18,
-      18,
       17,
       16,
       15,
-      14,
-      18
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
+      14
     ],
     "dataValues": {
       "BaseDamage": [
@@ -272,21 +239,10 @@
     "maxRank": 5,
     "cooldown": [
       16,
-      16,
       14.5,
       13,
       11.5,
-      10,
       10
-    ],
-    "range": [
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000,
-      25000
     ],
     "dataValues": {
       "BaseDamage": [
@@ -487,18 +443,14 @@
       7,
       7,
       7,
-      7,
-      7,
       7
     ],
     "range": [
-      20,
       325,
       325,
       325,
       325,
-      325,
-      20
+      325
     ],
     "dataValues": {
       "BaseDamage": [
@@ -824,18 +776,10 @@
     "maxRank": 3,
     "cooldown": [
       120,
-      120,
       100,
-      80,
-      80,
-      80,
       80
     ],
     "range": [
-      20,
-      20,
-      20,
-      20,
       20,
       20,
       20

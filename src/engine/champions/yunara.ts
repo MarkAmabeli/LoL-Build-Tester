@@ -67,6 +67,8 @@ export const yunara: ChampionDefinition = {
       id: 'RW',
       name: 'Arc of Ruin',
       slot: 'R',
+      // Assumes it shares W's cooldown, not Transcend One's Self's (W has no usable cooldown in the data).
+      spell: 'YunaraW',
       hits: (ctx) => [{ type: 'magic', raw: ctx.formula('YunaraR', 'Calc_RW_Damage'), source: 'Arc of Ruin', tags: ['ability', 'aoe'] }],
     },
   ],

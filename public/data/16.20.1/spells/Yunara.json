@@ -3,31 +3,12 @@
     "path": "Characters/Yunara/Spells/YunaraQAbility/YunaraQ",
     "slot": "Q",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "cost": [
       30,
       30,
       30,
       30,
-      30,
       30
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "Resource_Max": [
@@ -293,24 +274,6 @@
     "path": "Characters/Yunara/Spells/YunaraPassiveAbility/YunaraPassive",
     "slot": "P",
     "maxRank": 5,
-    "cooldown": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
     "dataValues": {},
     "calculations": {
       "Calc_Damage_Amp": {
@@ -351,8 +314,6 @@
       9,
       9,
       9,
-      9,
-      9,
       9
     ],
     "cost": [
@@ -360,17 +321,7 @@
       40,
       40,
       40,
-      40,
       40
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "Buff_Duration": [
@@ -456,12 +407,9 @@
       60,
       60,
       60,
-      60,
       60
     ],
     "range": [
-      1150,
-      1150,
       1150,
       1150,
       1150,
@@ -743,29 +691,13 @@
     "maxRank": 3,
     "cooldown": [
       100,
-      100,
       90,
-      80,
-      70,
-      60,
-      50
+      80
     ],
     "cost": [
       100,
       100,
-      100,
-      100,
-      100,
       100
-    ],
-    "range": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
     ],
     "dataValues": {
       "Buff_Duration": [

@@ -1,6 +1,7 @@
 import { evaluateFormula } from '../damage';
+import { cooldownWithHaste, hasteFor } from '../stats';
 import type { ResolvedStats } from '../types';
-import type { ChampionSpells, SpellRecord } from './types';
+import type { AbilityDefinition, ChampionSpells, SpellRecord } from './types';
 
 export function spellOf(spells: ChampionSpells, name: string): SpellRecord {
   const spell = spells[name];
@@ -28,4 +29,41 @@ export function selfFormula(spells: ChampionSpells, spell: string, name: string,
   const formula = spellOf(spells, spell).formulas[name];
   if (!formula) throw new Error(`No translated formula "${name}" in spell "${spell}"`);
   return evaluateFormula(formula, rank, stats, { stats });
+}
+
+/** The spell record an ability's cooldown, cost and range come from: its `spell`, else the one in its slot. */
+export function abilitySpell(spells: ChampionSpells, ability: AbilityDefinition): SpellRecord | undefined {
+  if (ability.spell) return spellOf(spells, ability.spell);
+  return Object.values(spells).find((s) => s.slot === ability.slot);
+}
+
+/** Per-rank value at a rank (1-based), clamped to the known ranks. */
+function atRank(values: number[] | undefined, rank: number): number | undefined {
+  if (!values || values.length === 0) return undefined;
+  return values[Math.min(values.length, Math.max(1, rank)) - 1];
+}
+
+/**
+ * An ability's cooldown at a rank after ability haste (the ultimate also gets ultimate haste,
+ * basic abilities basic haste). Undefined when the data has no usable cooldown.
+ */
+export function abilityCooldown(
+  spells: ChampionSpells,
+  ability: AbilityDefinition,
+  rank: number,
+  stats: ResolvedStats,
+): number | undefined {
+  const base = atRank(abilitySpell(spells, ability)?.cooldown, rank);
+  if (base === undefined) return undefined;
+  return cooldownWithHaste(base, hasteFor(stats, ability.slot === 'R' ? 'ultimate' : 'basic'));
+}
+
+/** An ability's cost and range at a rank, when the data has them. */
+export function abilityCostAndRange(
+  spells: ChampionSpells,
+  ability: AbilityDefinition,
+  rank: number,
+): { cost?: number; range?: number } {
+  const spell = abilitySpell(spells, ability);
+  return { cost: atRank(spell?.cost, rank), range: atRank(spell?.range, rank) };
 }
