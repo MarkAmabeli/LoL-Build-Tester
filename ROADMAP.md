@@ -27,7 +27,7 @@ Damage is calculated against a **target dummy**: max health, current health, arm
 
 ## Items and gold (in order)
 1. [x] **Gold tracking.** Items keep their shop price (`gold`); `resolveLoadout` returns the inventory's cost (`gold.total`, per item in `gold.items`), without adding the components an item was built from. Role quest upgrades replace the item they upgrade and count at its price: tier 3 boots at their tier 2's, Bounty of Worlds' upgrades (e.g. Bloodsong) at World Atlas's 400, even in an invalid build (`itemCost`). Role quest gold and per-minion gold bonuses aren't tracked.
-2. [ ] **Support starting item.** A support loadout automatically gets the support starting item (World Atlas, `role-quests.json` `supportStarter`), and is marked invalid if it doesn't have it.
+2. [x] **Support starting item.** The support item is bound to the support role (wiki). Its stages World Atlas → Runic Compass → Bounty of Worlds (`supportStages`; the last two aren't purchasable, so the import keeps them by ID) are selectable and count at 400. `applyRoleQuest` puts World Atlas in the first slot when the role becomes support (a full inventory gets a `tooManyItems` warning), removes every form of the support item when the role changes to another, upgrades World Atlas and Runic Compass to Bounty of Worlds when the support quest is checked, and an upgrade back to Bounty of Worlds when unchecked. `resolveLoadout` warns when a support has no support item (`supportItem`) and when another role holds one (`roleItem`); with no role set, it's allowed.
 3. [ ] **Gold efficiency.** The gold value of an item's stats compared with its cost.
 
 ## Later

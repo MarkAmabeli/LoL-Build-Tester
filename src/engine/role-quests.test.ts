@@ -71,13 +71,67 @@ describe('mid lane quest', () => {
 });
 
 describe('support quest', () => {
+  const atlas = idOf('World Atlas');
+  const compass = idOf('Runic Compass');
+  const bounty = idOf('Bounty of Worlds');
+  const bloodsong = idOf('Bloodsong');
+  const sword = idOf('Long Sword');
+
   it("allows Bounty of Worlds' upgrades only for a completed support quest", () => {
-    const bloodsong = [idOf('Bloodsong')];
-    expect(kinds(at(1, { role: 'support', roleQuestCompleted: true, items: bloodsong }))).toEqual([]);
-    expect(resolve(at(1, { role: 'support', items: bloodsong })).warnings).toEqual([
-      { kind: 'roleItem', id: idOf('Bloodsong'), name: 'Bloodsong', needs: 'support' },
+    expect(kinds(at(1, { role: 'support', roleQuestCompleted: true, items: [bloodsong] }))).toEqual([]);
+    expect(resolve(at(1, { role: 'support', items: [bloodsong] })).warnings).toEqual([
+      { kind: 'roleItem', id: bloodsong, name: 'Bloodsong', needs: 'support' },
     ]);
-    expect(kinds(at(1, { items: [idOf('World Atlas')] }))).toEqual([]);
+  });
+
+  it('needs the support item, in any of its forms', () => {
+    expect(resolve(at(1, { role: 'support', items: [sword] })).warnings).toEqual([
+      { kind: 'supportItem', message: 'A support needs the support item (World Atlas or what it becomes)' },
+    ]);
+    for (const id of [atlas, compass, bounty]) expect(kinds(at(1, { role: 'support', items: [id] }))).toEqual([]);
+    expect(kinds(at(1, { role: 'mid', items: [sword] }))).toEqual([]);
+  });
+
+  it('is bound to the support role: other roles warn, no role is allowed', () => {
+    for (const id of [atlas, compass, bounty]) {
+      expect(resolve(at(1, { role: 'top', items: [id] })).warnings).toEqual([
+        { kind: 'roleItem', id, name: data.items.find((i) => i.id === id)!.name, needs: 'support' },
+      ]);
+    }
+    expect(kinds(at(1, { items: [atlas] }))).toEqual([]);
+  });
+
+  it("counts every stage at World Atlas's price and adds their health", () => {
+    for (const id of [compass, bounty]) expect(resolve(at(1, { role: 'support', items: [id] })).gold.total).toBe(400);
+    expect(resolve(at(1, { role: 'support', items: [compass] })).bonuses.hp).toBe(60);
+    expect(resolve(at(1, { role: 'support', items: [bounty] })).bonuses.hp).toBe(200);
+  });
+
+  it('puts World Atlas in the first slot when the role becomes support', () => {
+    expect(applyRoleQuest([sword], 'support', false, data.roleQuests)).toEqual([atlas, sword]);
+    expect(applyRoleQuest([sword, compass], 'support', false, data.roleQuests)).toEqual([sword, compass]);
+    // A full inventory still gets it, with a warning rather than a dropped item.
+    const full = applyRoleQuest(Array(6).fill(sword), 'support', false, data.roleQuests);
+    expect(full[0]).toBe(atlas);
+    expect(kinds(at(1, { role: 'support', items: full }))).toEqual(['tooManyItems']);
+  });
+
+  it('removes every form of the support item when the role changes away from support', () => {
+    for (const id of [atlas, compass, bounty, bloodsong]) expect(applyRoleQuest([id, sword], 'bot', false, data.roleQuests)).toEqual([sword]);
+    expect(applyRoleQuest([atlas, sword], undefined, false, data.roleQuests)).toEqual([atlas, sword]);
+  });
+
+  it('upgrades World Atlas to Bounty of Worlds when completed, and upgrades back when not', () => {
+    for (const id of [atlas, compass]) expect(applyRoleQuest([id], 'support', true, data.roleQuests)).toEqual([bounty]);
+    expect(applyRoleQuest([sword], 'support', true, data.roleQuests)).toEqual([bounty, sword]);
+    expect(applyRoleQuest([bloodsong], 'support', true, data.roleQuests)).toEqual([bloodsong]);
+    expect(applyRoleQuest([bloodsong], 'support', false, data.roleQuests)).toEqual([bounty]);
+    // Checking or unchecking never leaves an invalid support item.
+    for (const done of [true, false]) {
+      for (const id of [atlas, compass, bounty, bloodsong]) {
+        expect(kinds(at(1, { role: 'support', roleQuestCompleted: done, items: applyRoleQuest([id], 'support', done, data.roleQuests) }))).toEqual([]);
+      }
+    }
   });
 });
 
@@ -137,6 +191,7 @@ describe('jungle quest', () => {
 
 it('lets every role mark its quest completed', () => {
   for (const role of ['top', 'mid', 'bot', 'support'] as const) {
-    expect(kinds(at(9, { role, roleQuestCompleted: true }))).toEqual([]);
+    const items = applyRoleQuest([], role, true, data.roleQuests);
+    expect(kinds(at(9, { role, roleQuestCompleted: true, items }))).toEqual([]);
   }
 });

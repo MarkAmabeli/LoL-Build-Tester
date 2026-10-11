@@ -11,6 +11,9 @@ import { addBonus, MAX_LEVEL } from './stats';
  *   - mid:     +8% bonus AD and AP, and tier 2 boots upgrade to tier 3 (tier 3 boots are mid-only)
  *   - bot:     boots move to their own slot, so 6 other items fit
  *   - support: Bounty of Worlds' upgrades (Bloodsong, Celestial Opposition, …) become available
+ * The support item is bound to the support role (wiki: "World Atlas"): a support starts with it and
+ * other roles can't buy it. Its stages (World Atlas → Runic Compass → Bounty of Worlds) come from its
+ * own gold quest, not the role quest.
  */
 export type Role = 'top' | 'jungle' | 'mid' | 'bot' | 'support';
 
@@ -23,7 +26,12 @@ export interface RoleQuestItems {
   junglePets: string[];
   /** The support starting item (World Atlas). */
   supportStarter: string;
+  /** The support item's stages before the role quest; the last (Bounty of Worlds) is what the upgrades replace. */
+  supportStages: string[];
 }
+
+/** Every form of the support item: its stages and Bounty of Worlds' upgrades. */
+export const supportItems = (data: RoleQuestItems): string[] => [...data.supportStages, ...data.supportUpgrades];
 
 const MID_AMP = sourced('roleQuest.mid.bonusAdApAmp', item('1206', 'BonusADAP', 0.08));
 const TOP_LEVEL_CAP_BONUS = sourced('roleQuest.top.levelCapBonus', item('1221', 'LevelCap', 2));
@@ -62,12 +70,28 @@ export function smiteTier(role?: Role, done?: boolean): 'basic' | 'primal' {
 }
 
 /**
- * The items after the mid lane reward: with the mid quest completed, tier 2 boots become their
- * tier 3 version; otherwise tier 3 boots go back to tier 2. Call it when the role or quest
- * changes (the game upgrades boots automatically); `resolveLoadout` never changes items itself.
+ * The items after a role or quest change, as the game would hold them. Call it when the role or
+ * quest changes; `resolveLoadout` never changes items itself.
+ *   - mid: with the quest completed, tier 2 boots become their tier 3 version; otherwise tier 3
+ *     boots go back to tier 2.
+ *   - support: World Atlas goes in the first slot if no form of the support item is there. With
+ *     the quest completed, World Atlas and Runic Compass become Bounty of Worlds (its upgrade is
+ *     the player's choice); otherwise an upgrade goes back to Bounty of Worlds.
+ *   - any other role: every form of the support item is removed. With no role, items are kept.
  */
 export function applyRoleQuest(items: string[], role: Role | undefined, done: boolean | undefined, data: RoleQuestItems): string[] {
   const up = data.bootsUpgrades;
   const down = Object.fromEntries(Object.entries(up).map(([t2, t3]) => [t3, t2]));
-  return completed(role, done, 'mid') ? items.map((id) => up[id] ?? id) : items.map((id) => down[id] ?? id);
+  let result = completed(role, done, 'mid') ? items.map((id) => up[id] ?? id) : items.map((id) => down[id] ?? id);
+
+  const forms = new Set(supportItems(data));
+  if (role === 'support') {
+    if (!result.some((id) => forms.has(id))) result = [data.supportStarter, ...result];
+    const bounty = data.supportStages[data.supportStages.length - 1];
+    const toBounty = new Set(done ? data.supportStages : data.supportUpgrades);
+    result = result.map((id) => (toBounty.has(id) ? bounty : id));
+  } else if (role) {
+    result = result.filter((id) => !forms.has(id));
+  }
+  return result;
 }

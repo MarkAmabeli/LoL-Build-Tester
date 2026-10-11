@@ -18,7 +18,7 @@ import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
 import { runWithRetry, sleep } from './concurrency.ts';
 import { dedupeItemsByName } from './item-dedupe.ts';
-import { buildRoleQuestItems } from './role-quests.ts';
+import { buildRoleQuestItems, SUPPORT_STAGES } from './role-quests.ts';
 import { itemValues, perkValues, type ValueMap } from './game-values.ts';
 import { COMMUNITY_DRAGON, DATA_DRAGON } from './sources.ts';
 import { cooldownByRank, costByRank, rangeByRank } from './spell-ranks.ts';
@@ -300,8 +300,10 @@ async function buildItems(version: string) {
   const { data } = await getJson<{ data: Record<string, DDItem> }>(
     `${DDRAGON}/cdn/${version}/data/${LOCALE}/item.json`,
   );
+  // Support item stages after World Atlas aren't purchasable but are held in builds (sources.ts).
+  const stages: readonly string[] = SUPPORT_STAGES;
   const store = Object.entries(data)
-    .filter(([, item]) => item.maps?.[SUMMONERS_RIFT] && item.gold?.purchasable && item.inStore !== false)
+    .filter(([id, item]) => item.maps?.[SUMMONERS_RIFT] && ((item.gold?.purchasable && item.inStore !== false) || stages.includes(id)))
     .filter(([, item]) => !item.requiredChampion && !item.requiredAlly)
     .map(([id, item]) => ({ ...item, id }));
   const { items: unique, dropped } = dedupeItemsByName(store);

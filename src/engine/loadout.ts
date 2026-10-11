@@ -7,7 +7,7 @@ import { checkItemLimits } from './items';
 import { shardBonuses } from './shards';
 import { clampLevel, resolveStats, sumBonuses } from './stats';
 import type { SummonerSpellRecord } from './summoners';
-import { BOT_BOOTS_SLOTS, roleQuestEffects, roleQuestLevelCap, smiteTier, type Role, type RoleQuestItems } from './role-quests';
+import { BOT_BOOTS_SLOTS, roleQuestEffects, roleQuestLevelCap, smiteTier, supportItems, type Role, type RoleQuestItems } from './role-quests';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
 
 /** Inventory slots. Role quests will change this for bot lane (boots get their own slot); not modeled yet. */
@@ -45,15 +45,15 @@ export interface BuildCost {
 /**
  * An item's cost in a build. Role quest upgrades replace the item they upgrade and cost
  * nothing to upgrade, so they count at that item's price: tier 3 boots at their tier 2's,
- * Bounty of Worlds' upgrades (e.g. Bloodsong) at the support starting item's (World Atlas).
- * This holds even when the build is invalid. Components an item was built from aren't added;
+ * every form of the support item (Runic Compass, Bounty of Worlds and its upgrades, e.g.
+ * Bloodsong) at the support starting item's (World Atlas). This holds even when the build is invalid. Components an item was built from aren't added;
  * its price already includes them.
  */
 export function itemCost(id: string, data: Pick<LoadoutData, 'items' | 'roleQuests'>): number {
   const price = (itemId: string) => data.items.find((i) => i.id === itemId)?.gold ?? 0;
   const tier2 = Object.entries(data.roleQuests.bootsUpgrades).find(([, t3]) => t3 === id)?.[0];
   if (tier2) return price(tier2);
-  if (data.roleQuests.supportUpgrades.includes(id)) return price(data.roleQuests.supportStarter);
+  if (supportItems(data.roleQuests).includes(id)) return price(data.roleQuests.supportStarter);
   return price(id);
 }
 
@@ -110,8 +110,13 @@ export type LoadoutWarning =
   | { kind: 'skillRanks'; message: string }
   | { kind: 'summoners'; message: string }
   | { kind: 'level'; message: string }
-  /** An item only a completed role quest unlocks (tier 3 boots: mid; Bounty of Worlds upgrades: support). */
+  /**
+   * An item the loadout's role can't hold: tier 3 boots need the completed mid quest, Bounty of
+   * Worlds' upgrades the completed support quest, and the support item's stages the support role.
+   */
   | { kind: 'roleItem'; id: string; name: string; needs: Role }
+  /** A support without the support item (World Atlas or what it becomes). */
+  | { kind: 'supportItem'; message: string }
   | { kind: 'roleQuest'; message: string };
 
 export interface ResolvedLoadout {
@@ -225,9 +230,18 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
   if (items.length - ownSlot > MAX_ITEMS) warnings.push({ kind: 'tooManyItems', count: items.length, max: MAX_ITEMS + ownSlot });
   const tier3Boots = new Set(Object.values(data.roleQuests.bootsUpgrades));
   const supportUpgrades = new Set(data.roleQuests.supportUpgrades);
+  const supportStages = new Set(data.roleQuests.supportStages);
+  // With no role there's no role binding, so the support item's stages are allowed.
+  const offSupport = role !== undefined && role !== 'support';
   for (const id of new Set(items)) {
-    const needs: Role | undefined = tier3Boots.has(id) && !quest('mid') ? 'mid' : supportUpgrades.has(id) && !quest('support') ? 'support' : undefined;
+    const needs: Role | undefined =
+      tier3Boots.has(id) && !quest('mid') ? 'mid'
+      : (supportUpgrades.has(id) && !quest('support')) || (supportStages.has(id) && offSupport) ? 'support'
+      : undefined;
     if (needs) warnings.push({ kind: 'roleItem', id, name: byId.get(id)!.name, needs });
+  }
+  if (role === 'support' && !items.some((id) => supportStages.has(id) || supportUpgrades.has(id))) {
+    warnings.push({ kind: 'supportItem', message: 'A support needs the support item (World Atlas or what it becomes)' });
   }
   if (quest('jungle') && !items.some((id) => data.roleQuests.junglePets.includes(id))) {
     warnings.push({ kind: 'roleQuest', message: 'The jungle quest needs a jungle pet' });

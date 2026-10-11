@@ -37,5 +37,10 @@
     "1102",
     "1103"
   ],
-  "supportStarter": "3865"
+  "supportStarter": "3865",
+  "supportStages": [
+    "3865",
+    "3866",
+    "3867"
+  ]
 }

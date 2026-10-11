@@ -550,7 +550,9 @@
       "GoldPer",
       "Lane"
     ],
-    "from": [],
+    "from": [
+      "3867"
+    ],
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3877.png",
     "stats": {
@@ -622,6 +624,32 @@
       "moveSpeed": 55
     },
     "description": "<mainText><stats><attention>55</attention> Move Speed</stats><br><br><passive>Fleetfooted</passive><br>Reduce the effectiveness of <keyword>Slows</keyword> by 25%.</mainText>"
+  },
+  {
+    "id": "3867",
+    "name": "Bounty of Worlds",
+    "plaintext": "",
+    "gold": 400,
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "from": [],
+    "into": [
+      "3869",
+      "3870",
+      "3871",
+      "3876",
+      "3877"
+    ],
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3867.png",
+    "stats": {
+      "hp": 200
+    },
+    "description": "<mainText><stats><attention>5</attention> Gold Per 10 Seconds<br><attention>75%</attention> Base Health Regen<br><attention>75%</attention> Base Mana Regen<br><attention>200</attention> Health</stats><br><br><passive>Upgrade</passive> <br>This item can be upgraded into <rarityLegendary>Bloodsong</rarityLegendary>, <rarityLegendary>Celestial Opposition</rarityLegendary>, <rarityLegendary>Dream Maker</rarityLegendary>, <rarityLegendary>Zaz'Zak's Realmspike</rarityLegendary>, or <rarityLegendary>Solstice Sleigh</rarityLegendary> for free.<active>Active</active> (4 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
   },
   {
     "id": "3076",
@@ -735,7 +763,9 @@
       "GoldPer",
       "Lane"
     ],
-    "from": [],
+    "from": [
+      "3867"
+    ],
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3869.png",
     "stats": {
@@ -1305,7 +1335,9 @@
       "GoldPer",
       "Lane"
     ],
-    "from": [],
+    "from": [
+      "3867"
+    ],
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3870.png",
     "stats": {
@@ -3811,6 +3843,26 @@
     "description": "<mainText><stats><attention>40%</attention> Attack Speed<br><attention>25%</attention> Critical Strike Chance<br><attention>5%</attention> Move Speed</stats><br><br><passive>Wind's Fury</passive><br>Attacks fire bolts at 2 additional enemies near the target.<br>Each bolt deals <physicalDamage>physical damage</physicalDamage> and applies <OnHit>On-Hit</OnHit> effects.</mainText>"
   },
   {
+    "id": "3866",
+    "name": "Runic Compass",
+    "plaintext": "",
+    "gold": 400,
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "from": [],
+    "into": [],
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3866.png",
+    "stats": {
+      "hp": 60
+    },
+    "description": "<mainText><stats><attention>60</attention> Health<br><attention>75%</attention> Base Health Regen<br><attention>50%</attention> Base Mana Regen<br><attention>5</attention> Gold Per 10 Seconds</stats><br><br><passive>Support Quest</passive><br>Earn <keywordMajor>0</keywordMajor> gold from this item to transform it into <rarityGeneric>Bounty of Worlds</rarityGeneric>. <br><br><passive>Shared Riches</passive> (0s, max 0 charges)<br>While near an ally champion, damage enemy champions or kill minions to gain gold.<active>Active</active> (3 charges)<br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.</mainText>"
+  },
+  {
     "id": "3116",
     "name": "Rylai's Crystal Scepter",
     "plaintext": "Abilities slow enemies",
@@ -4115,7 +4167,9 @@
       "GoldPer",
       "Lane"
     ],
-    "from": [],
+    "from": [
+      "3867"
+    ],
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3876.png",
     "stats": {
@@ -5136,7 +5190,9 @@
       "GoldPer",
       "Lane"
     ],
-    "from": [],
+    "from": [
+      "3867"
+    ],
     "into": [],
     "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3871.png",
     "stats": {

@@ -8,6 +8,7 @@ describe('committed role quest items', () => {
     bootsUpgrades: Record<string, string>;
     supportUpgrades: string[];
     junglePets: string[];
+    supportStages: string[];
   };
   const items = JSON.parse(readFileSync(`public/data/${latest}/items.json`, 'utf8')) as Array<{ id: string; name: string }>;
   const name = (id: string) => items.find((i) => i.id === id)?.name;
@@ -27,5 +28,11 @@ describe('committed role quest items', () => {
   it("lists Bounty of Worlds' five upgrades and the jungle pets", () => {
     expect(rq.supportUpgrades.map(name).sort()).toEqual(['Bloodsong', 'Celestial Opposition', 'Dream Maker', 'Solstice Sleigh', "Zaz'Zak's Realmspike"]);
     expect(rq.junglePets.map(name).sort()).toEqual(['Gustwalker Hatchling', 'Mosstomper Seedling', 'Scorchclaw Pup']);
+  });
+
+  it("lists the support item's stages in order, the upgrades built from the last", () => {
+    expect(rq.supportStages.map(name)).toEqual(['World Atlas', 'Runic Compass', 'Bounty of Worlds']);
+    const bounty = items.find((i) => i.id === rq.supportStages[2]) as { into?: string[] } | undefined;
+    expect([...(bounty?.into ?? [])].sort()).toEqual([...rq.supportUpgrades].sort());
   });
 });
