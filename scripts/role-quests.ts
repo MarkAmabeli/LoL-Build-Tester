@@ -8,16 +8,20 @@ import type { ItemLimitGroup } from '../src/engine/types.ts';
  *                      a tier 2 has a recipe of its own, unlike basic Boots
  *   - supportUpgrades: items built from Bounty of Worlds, which only the support reward unlocks
  *   - junglePets:      the jungle pet group (the jungle quest feeds a pet)
+ *   - supportStarter:  the support starting item; its upgrades replace it and count at its price
  */
 export interface RoleQuestItems {
   boots: string[];
   bootsUpgrades: Record<string, string>;
   supportUpgrades: string[];
   junglePets: string[];
+  supportStarter: string;
 }
 
 /** The support item the support quest upgrades into; not in the store, so only its recipes point at it. */
 export const BOUNTY_OF_WORLDS = '3867';
+/** World Atlas: the support starting item. It upgrades through items outside the store, so no recipe links it to Bounty of Worlds. */
+export const WORLD_ATLAS = '3865';
 const BOOTS_GROUP = 'Boots';
 const JUNGLE_PET_GROUP = 'HuntersTalismanGroup';
 
@@ -43,5 +47,6 @@ export function buildRoleQuestItems(
     if (from.length === 1 && bootSet.has(from[0]) && builtFrom(from[0]).length > 0) bootsUpgrades[from[0]] = id;
   }
   const supportUpgrades = [...ids].filter((id) => builtFrom(id).includes(BOUNTY_OF_WORLDS)).sort();
-  return { boots, bootsUpgrades, supportUpgrades, junglePets: group(JUNGLE_PET_GROUP) };
+  if (!ids.has(WORLD_ATLAS)) throw new Error(`Support starting item ${WORLD_ATLAS} isn't in the item list`);
+  return { boots, bootsUpgrades, supportUpgrades, junglePets: group(JUNGLE_PET_GROUP), supportStarter: WORLD_ATLAS };
 }

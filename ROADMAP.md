@@ -25,6 +25,11 @@ Damage is calculated against a **target dummy**: max health, current health, arm
 - [ ] Tier 3 boots passives that affect damage (e.g. Swiftmarch: 5% move speed as adaptive force)
 - [ ] Review the `32xxxx`/`66xxxx` item variants dropped by `scripts/item-dedupe.ts` (no link to role quests found in the data)
 
+## Items and gold (in order)
+1. [x] **Gold tracking.** Items keep their shop price (`gold`); `resolveLoadout` returns the inventory's cost (`gold.total`, per item in `gold.items`), without adding the components an item was built from. Role quest upgrades replace the item they upgrade and count at its price: tier 3 boots at their tier 2's, Bounty of Worlds' upgrades (e.g. Bloodsong) at World Atlas's 400, even in an invalid build (`itemCost`). Role quest gold and per-minion gold bonuses aren't tracked.
+2. [ ] **Support starting item.** A support loadout automatically gets the support starting item (World Atlas, `role-quests.json` `supportStarter`), and is marked invalid if it doesn't have it.
+3. [ ] **Gold efficiency.** The gold value of an item's stats compared with its cost.
+
 ## Later
 - [ ] Healing and sustain: life steal and omnivamp stats, healing from items, runes and abilities (Conqueror, BotRK, Darius), for duels and time-to-kill
 - [ ] Move speed soft caps (above 415 and 490), for move-speed-scaling effects

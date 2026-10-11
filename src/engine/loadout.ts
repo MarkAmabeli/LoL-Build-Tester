@@ -29,8 +29,32 @@ const ULTIMATE_LEVELS = [6, 11, 16].map((level, i) => hand(`loadout.ultimateLeve
 export interface ItemRecord {
   id: string;
   name: string;
+  /** Shop price, components included (Data Dragon's total). */
+  gold: number;
   tags: string[];
   stats: StatBonuses;
+}
+
+/** A build's gold: what its inventory is worth, item by item. */
+export interface BuildCost {
+  total: number;
+  /** In inventory order, duplicates included. */
+  items: Array<{ id: string; cost: number }>;
+}
+
+/**
+ * An item's cost in a build. Role quest upgrades replace the item they upgrade and cost
+ * nothing to upgrade, so they count at that item's price: tier 3 boots at their tier 2's,
+ * Bounty of Worlds' upgrades (e.g. Bloodsong) at the support starting item's (World Atlas).
+ * This holds even when the build is invalid. Components an item was built from aren't added;
+ * its price already includes them.
+ */
+export function itemCost(id: string, data: Pick<LoadoutData, 'items' | 'roleQuests'>): number {
+  const price = (itemId: string) => data.items.find((i) => i.id === itemId)?.gold ?? 0;
+  const tier2 = Object.entries(data.roleQuests.bootsUpgrades).find(([, t3]) => t3 === id)?.[0];
+  if (tier2) return price(tier2);
+  if (data.roleQuests.supportUpgrades.includes(id)) return price(data.roleQuests.supportStarter);
+  return price(id);
 }
 
 /** A rune tree as written to runes.json (Data Dragon runesReforged). Row 0 holds the keystones. */
@@ -102,6 +126,8 @@ export interface ResolvedLoadout {
   smite: 'basic' | 'primal';
   /** Highest level the loadout can reach (20 with the top lane quest). */
   levelCap: number;
+  /** The inventory's gold (skipped items don't count). */
+  gold: BuildCost;
   /**
    * Problems that would make the build impossible in game. The loadout is still resolved
    * (excluded and unknown items are skipped), so "what if" setups keep working.
@@ -254,5 +280,7 @@ export function resolveLoadout(loadout: Loadout, data: LoadoutData): ResolvedLoa
 
   const bonuses = sumBonuses(...items.map((id) => byId.get(id)!.stats), ...shardStats);
   const stats = resolveStats(loadout.stats, loadout.level, bonuses, effects, { currentHpPct: loadout.currentHpPct, levelCap });
-  return { stats, effects, bonuses, summoners, smite: smiteTier(role, done), levelCap, warnings };
+  const costs = items.map((id) => ({ id, cost: itemCost(id, data) }));
+  const gold = { total: costs.reduce((sum, c) => sum + c.cost, 0), items: costs };
+  return { stats, effects, bonuses, summoners, smite: smiteTier(role, done), levelCap, gold, warnings };
 }

@@ -16,6 +16,7 @@ describe('role quest items', () => {
       bootsUpgrades: { '3006': '3172', '3009': '3170' },
       supportUpgrades: ['3877'],
       junglePets: ['1101'],
+      supportStarter: '3865',
     });
   });
 });

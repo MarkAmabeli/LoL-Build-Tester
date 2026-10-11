@@ -21,6 +21,8 @@ export interface RoleQuestItems {
   bootsUpgrades: Record<string, string>;
   supportUpgrades: string[];
   junglePets: string[];
+  /** The support starting item (World Atlas). */
+  supportStarter: string;
 }
 
 const MID_AMP = sourced('roleQuest.mid.bonusAdApAmp', item('1206', 'BonusADAP', 0.08));

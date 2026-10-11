@@ -106,6 +106,36 @@ describe('resolveLoadout', () => {
   });
 });
 
+describe('build gold', () => {
+  const gold = (items: string[], more: Partial<Loadout> = {}) => resolveLoadout(at(1, { items, ...more }), data).gold;
+
+  it('adds up the inventory at shop price, components included once', () => {
+    expect(gold([idOf('Infinity Edge'), idOf('Long Sword'), idOf('Long Sword')])).toEqual({
+      total: 3500 + 350 + 350,
+      items: [{ id: idOf('Infinity Edge'), cost: 3500 }, { id: idOf('Long Sword'), cost: 350 }, { id: idOf('Long Sword'), cost: 350 }],
+    });
+  });
+
+  it('skips trinkets, consumables and unknown items', () => {
+    expect(gold([idOf('Stealth Ward'), idOf('Health Potion'), '999999', idOf('Long Sword')]).total).toBe(350);
+  });
+
+  it('counts tier 3 boots at their tier 2 price', () => {
+    for (const [tier2, tier3] of Object.entries(data.roleQuests.bootsUpgrades)) {
+      expect(gold([tier3], { role: 'mid', roleQuestCompleted: true }).total).toBe(data.items.find((i) => i.id === tier2)!.gold);
+    }
+  });
+
+  it("counts Bounty of Worlds' upgrades at World Atlas's price, even in an invalid build", () => {
+    const atlas = data.items.find((i) => i.id === data.roleQuests.supportStarter)!;
+    expect(atlas.name).toBe('World Atlas');
+    expect(gold([idOf('Bloodsong')], { role: 'support', roleQuestCompleted: true }).total).toBe(atlas.gold);
+    const invalid = resolveLoadout(at(1, { items: [idOf('Bloodsong')] }), data);
+    expect(invalid.warnings.map((w) => w.kind)).toEqual(['roleItem']);
+    expect(invalid.gold.total).toBe(atlas.gold);
+  });
+});
+
 describe('summoner spells in a loadout', () => {
   it('resolves known spells and warns about unknown, duplicate or extra ones', () => {
     const r = resolveLoadout(at(1, { summoners: ['SummonerFlash', 'SummonerDot'] }), data);

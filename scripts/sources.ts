@@ -82,7 +82,7 @@ export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersR
     },
     {
       id: 'role-quest-items',
-      what: "role-quests.json: boots (shop group), tier 2 → tier 3 boots (a tier 3 is built from exactly one tier 2, which has its own recipe), Bounty of Worlds' upgrades (built from item 3867) and jungle pets (shop group), from the full recipes before items.json filters them",
+      what: "role-quests.json: boots (shop group), tier 2 → tier 3 boots (a tier 3 is built from exactly one tier 2, which has its own recipe), Bounty of Worlds' upgrades (built from item 3867), jungle pets (shop group) and the support starting item (World Atlas, 3865, named by ID since its upgrade path is outside the store), from the full recipes before items.json filters them",
       why: 'Role quest rewards decide which items a build can hold; Bounty of Worlds is not in the store, so only the raw recipes link its upgrades',
       where: ['scripts/role-quests.ts', 'scripts/role-quests.test.ts', 'scripts/role-quests-data.test.ts', 'scripts/fetch-data.ts', 'src/engine/role-quests.ts'],
     },
