@@ -1,0 +1,3760 @@
+{
+  "items": {
+    "1035": {
+      "Omnivamp": 0.07,
+      "ImmolatingReductionPercent": 0.1,
+      "ImmolatingBurnBaseDamage": 14.5,
+      "ImmolatingBurnPerLvlDmg": 1.5,
+      "ImmolatingMarkDuration": 4,
+      "ImmolatingBurnDuration": 2.5,
+      "TooltipUpgradedSmiteValue": 900,
+      "TooltipMinionDamageFlat": 500,
+      "TooltipMinionDamagePercentHealth": 0.1,
+      "calc:TotalBurnDamage.0.mEffectIndex": 1,
+      "calc:TotalBurnDamage.1.mCoefficient": 0.3,
+      "calc:TotalBurnDamage.2.mStat": 2,
+      "calc:TotalBurnDamage.2.mStatFormula": 2,
+      "calc:TotalBurnDamage.2.mCoefficient": 0.05,
+      "calc:TotalBurnDamage.3.mStat": 12,
+      "calc:TotalBurnDamage.3.mStatFormula": 2,
+      "calc:TotalBurnDamage.3.mCoefficient": 0.02,
+      "calc:ImmolatingBurnDamageTooltip.mMultiplier.mNumber": 3,
+      "calc:ImmolatingBurnDamageTooltip.0.mLevel1Value": 16,
+      "calc:ImmolatingBurnDamageTooltip.0.mInitialBonusPerLevel": 1.5,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1039": {
+      "Omnivamp": 0.07,
+      "ChillingSlowDuration": 2,
+      "ChillingSlowDrain": -0.2,
+      "TooltipUpgradedSmiteValue": 900,
+      "TooltipMinionDamageFlat": 500,
+      "TooltipMinionDamagePercentHealth": 0.1,
+      "calc:TotalBurnDamage.0.mEffectIndex": 1,
+      "calc:TotalBurnDamage.1.mCoefficient": 0.3,
+      "calc:TotalBurnDamage.2.mStat": 2,
+      "calc:TotalBurnDamage.2.mStatFormula": 2,
+      "calc:TotalBurnDamage.2.mCoefficient": 0.05,
+      "calc:TotalBurnDamage.3.mStat": 12,
+      "calc:TotalBurnDamage.3.mStatFormula": 2,
+      "calc:TotalBurnDamage.3.mCoefficient": 0.02,
+      "calc:TotalChillingDamage.0.mLevel1Value": 20,
+      "calc:TotalChillingDamage.0.mInitialBonusPerLevel": 8,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1040": {
+      "Omnivamp": 0.08,
+      "ChillingSlowDuration": 2,
+      "ChillingSlowDrain": -0.2,
+      "TooltipUpgradedSmiteValue": 900,
+      "TooltipMinionDamageFlat": 500,
+      "TooltipMinionDamagePercentHealth": 0.1,
+      "calc:TotalBurnDamage.0.mEffectIndex": 1,
+      "calc:TotalBurnDamage.1.mCoefficient": 0.3,
+      "calc:TotalBurnDamage.2.mStat": 2,
+      "calc:TotalBurnDamage.2.mStatFormula": 2,
+      "calc:TotalBurnDamage.2.mCoefficient": 0.05,
+      "calc:TotalBurnDamage.3.mStat": 12,
+      "calc:TotalBurnDamage.3.mStatFormula": 2,
+      "calc:TotalBurnDamage.3.mCoefficient": 0.02,
+      "calc:TotalChillingDamage.0.mLevel1Value": 20,
+      "calc:TotalChillingDamage.0.mInitialBonusPerLevel": 8,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1043": {
+      "OnHitDamage": 15,
+      "calc:{e4493c5b}.DamageType": 0
+    },
+    "1054": {
+      "RegenDuration": 8,
+      "BonusDamageToMinions": 5,
+      "MaxRegenAmount": 40,
+      "RangeRegenMult": 0.66,
+      "MaxRangeRegenAmount": 30,
+      "calc:{592c02e8}.DamageType": 0
+    },
+    "1056": {
+      "BonusDamage": 5,
+      "ManaRestorePerSecond": 1,
+      "ManaToHealthConversion": 0.45,
+      "HealthRestorePerSecond": 0.55,
+      "ManaRestorePerSecondUpgraded": 2,
+      "UpgradeDuration": 5,
+      "calc:{592c02e8}.DamageType": 0
+    },
+    "1082": {
+      "MaxGloryStacks": 10,
+      "APPerGlory": 4,
+      "GloryOnKill": 2,
+      "GloryOnAssist": 1,
+      "GloryLossOnDeath": 5
+    },
+    "1083": {
+      "MinionKillGold": 1,
+      "CompleteGold": 350,
+      "MinionKillThreshold": 100,
+      "OnHitHeal": 3
+    },
+    "1086": {
+      "HealthOnHit": 3
+    },
+    "1101": {
+      "Omnivamp": 0.07,
+      "AvatarMaxHPBurnTotal": 0.05,
+      "AvatarBurnDuration": 4,
+      "AvatarSlowAmount": 0.3,
+      "AvatarSlowDuration": 3,
+      "AvatarDistPerStack": 60,
+      "AvatarMaxStacks": 100,
+      "AvatarTickRatePerXSeconds": 1,
+      "AvatarAoERadius": 250,
+      "TotalCounters": 35,
+      "Breakpoint1": 20,
+      "ChampKillAmount": 1,
+      "MonsterKillAmount": 1,
+      "EpicKillAmount": 1,
+      "StacksPerHalfSec": 3,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1102": {
+      "Omnivamp": 0.07,
+      "AvatarCampMoveSpeed": 0.3,
+      "CampMSDuration": 1.5,
+      "TotalCounters": 35,
+      "Breakpoint1": 20,
+      "ChampKillAmount": 1,
+      "MonsterKillAmount": 1,
+      "EpicKillAmount": 1,
+      "AvatarEnhancedCampMS": 0.45,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1103": {
+      "AvatarDamageCD": 10,
+      "TotalCounters": 35,
+      "Breakpoint1": 20,
+      "ChampKillAmount": 1,
+      "MonsterKillAmount": 1,
+      "EpicKillAmount": 1,
+      "FallOffBuffDuration": 1.5,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6,
+      "calc:MaxShield.0.mLevel1Value": 200,
+      "calc:MaxShield.0.mBreakpoints.0.mLevel": 11,
+      "calc:MaxShield.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 20
+    },
+    "1105": {
+      "AvatarDamageCD": 10,
+      "TotalCounters": 40,
+      "Breakpoint1": 20,
+      "ChampKillAmount": 1,
+      "MonsterKillAmount": 1,
+      "EpicKillAmount": 1,
+      "FallOffBuffDuration": 1.5,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6,
+      "calc:MaxShield.0.mLevel1Value": 180,
+      "calc:MaxShield.0.mBreakpoints.0.mLevel": 11,
+      "calc:MaxShield.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 15
+    },
+    "1106": {
+      "Omnivamp": 0.07,
+      "AvatarCampMoveSpeed": 0.3,
+      "CampMSDuration": 2,
+      "TotalCounters": 40,
+      "Breakpoint1": 20,
+      "ChampKillAmount": 1,
+      "MonsterKillAmount": 1,
+      "EpicKillAmount": 1,
+      "AvatarEnhancedCampMS": 0.45,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1107": {
+      "Omnivamp": 0.07,
+      "AvatarMaxHPBurnTotal": 0.04,
+      "AvatarBurnDuration": 4,
+      "AvatarSlowAmount": 0.3,
+      "AvatarSlowDuration": 2,
+      "AvatarDistPerStack": 60,
+      "AvatarMaxStacks": 100,
+      "AvatarTickRatePerXSeconds": 1,
+      "AvatarAoERadius": 250,
+      "TotalCounters": 40,
+      "Breakpoint1": 20,
+      "ChampKillAmount": 1,
+      "MonsterKillAmount": 1,
+      "EpicKillAmount": 1,
+      "StacksPerHalfSec": 3,
+      "calc:ManaRestoreForTooltip.0.mLevel1Value": 8,
+      "calc:ManaRestoreForTooltip.0.mInitialBonusPerLevel": 0.6
+    },
+    "1111": {
+      "SlowResistTooltip": 25,
+      "SummonerHaste": 10,
+      "DamageReduction": 0.1
+    },
+    "1120": {
+      "BonusDamageToMinions": 5
+    },
+    "1203": {
+      "QuestGoldRequirement": 400,
+      "GoldOnHit": 20,
+      "GoldOnHitMelee": 22,
+      "ExecuteMinionGold": 15,
+      "ExecuteCannonGold": 20,
+      "QuestGoldRequirement2": 800,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "1206": {
+      "BonusADAP": 0.08
+    },
+    "1207": {
+      "MinionGold": 2,
+      "TakedownGold": 40,
+      "LumpGold": 300
+    },
+    "1208": {
+      "QuestGoldRequirement": 400,
+      "GoldOnHit": 20,
+      "GoldOnHitMelee": 22,
+      "ExecuteMinionGold": 15,
+      "ExecuteCannonGold": 20,
+      "MaxJammerCharges": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "1220": {
+      "ChannelDuration": 8,
+      "UpgradeTimeMins": 15,
+      "Cooldown": 390,
+      "XPMultTT": 0.11,
+      "XPBonusTakedownTT": 80,
+      "LevelCapTT": 2,
+      "LumpXPTT": 600
+    },
+    "1221": {
+      "LumpXP": 600,
+      "XPMult": 0.11,
+      "XPFlatTakedown": 80,
+      "LevelCap": 2,
+      "ShieldDuration": 10,
+      "CDReduction": 30,
+      "calc:{15c79d00}.0.mStat": 12,
+      "calc:{15c79d00}.0.mCoefficient": 0.35
+    },
+    "1500": {
+      "HeatingUpMultiplier": 0.5,
+      "HeatingUpMaxStacks": 3,
+      "HeatingUpMaxPerc": 1.5,
+      "HeatingUpDuration": 5,
+      "MaxDamagePercentTooltip": 2.5,
+      "ArmorPenetration": 0.3,
+      "calc:MaxHitDamage.mSimpleTooltipCalculationDisplay": 5,
+      "calc:MaxHitDamage.0.mStat": 2
+    },
+    "1501": {
+      "MechanicStart": 0.1,
+      "DurationInMinutes": 0.15,
+      "DurationMid": 0.15,
+      "DamageReductionPercent": 95,
+      "MinionDamageMultiplier": 10,
+      "BuffDuration": 20,
+      "MidBuffDuration": 6,
+      "ChampionDamageMultiplier": 10,
+      "ChampionDamageTaken": 0.5,
+      "DamageReductionRadius": 600
+    },
+    "1502": {
+      "DamageReduction": 80,
+      "MeleeChampionBonusDamage": 0.2
+    },
+    "1503": {
+      "TrueSightRadius": 1100
+    },
+    "1505": {
+      "DamageReduction": 80,
+      "MeleeChampionBonusDamage": 0.2
+    },
+    "1506": {
+      "DamageReduction": 80,
+      "MeleeChampionBonusDamage": 0.2
+    },
+    "1507": {
+      "StartTime": 55,
+      "DamageTime": 60,
+      "DamageInterval": 30
+    },
+    "1508": {
+      "MinionCurrentHealthDamage": 0.05,
+      "TurretDamageBonus": 0.4,
+      "MidLaneAttackSpeedBonus": 0.3
+    },
+    "1509": {
+      "MinionCurrentHealthDamage": 0.02
+    },
+    "1510": {
+      "MinionCurrentHealthDamage": 0.035
+    },
+    "1515": {
+      "BulwarkResists": 30,
+      "BulwarkResistsPerAdditionalChampion": 5,
+      "BulwarkDuration": 20,
+      "Tier1SRPalisadeCount": 5,
+      "Tier2PalisadeCount": 5,
+      "Tier2PalisadeValue": 120,
+      "Tier1PalisadeGold": 120,
+      "OuterDecayPerMinute": -15,
+      "OuterGoldDecay": -10,
+      "OuterDecayBegins": 660,
+      "OuterDecayEnds": 900,
+      "OuterTotalBonusAD": 168,
+      "OuterBonusADPerMinute": 12,
+      "OtherBonusADPerMinute": 16,
+      "MeleeChampionBonusDamage": 0.2
+    },
+    "1516": {
+      "UseNewValues": 1,
+      "UpdateRate": 5,
+      "BountyInformTime": 6,
+      "ComebacksAvailableTime": 14,
+      "ComebackMultiplier": 0.1,
+      "MaximumPayout": 1000,
+      "BasePayout": 500,
+      "VoidGrubValue": 0.08,
+      "MidTurretValue": 0.2,
+      "SideTurretValue": 0.1,
+      "NexusTurretValue": 0.2,
+      "ExperienceMaxPoints": 4,
+      "ExperienceMaxThreshold": 1.3,
+      "GoldMaxPoints": 8,
+      "GoldMaxThreshold": 1.3,
+      "OuterTurretPayoutPercent": 0.5,
+      "InnerTurretPayoutPercent": 0.8,
+      "BaseTurretPayoutPercent": 0.8,
+      "BaronPayoutPercent": 0.6,
+      "ElementalDragonPayoutPercent": 1,
+      "HeraldPayoutPercent": 1,
+      "GrubPayoutPercent": 0.3,
+      "ElderDragonPayoutPercent": 1,
+      "AtakhanPayoutPercent": 1
+    },
+    "1521": {
+      "DamageReductionPer": 0.3,
+      "FortificationTimer": 60
+    },
+    "1522": {
+      "NexsusTurretExtraArmorPerMinute": 0.5,
+      "NexsusTurretExtraMRPerMinute": 0.5,
+      "StatAddEndTime": 490,
+      "BonusStatsFalloffTime": 720,
+      "InhibNexusDamageAmpEndTime": 900
+    },
+    "1523": {
+      "StartTime": 20,
+      "DamageTime": 25,
+      "DamageInterval": 2,
+      "MaxHealthPerMinute": 1,
+      "SuddenDeathAnnouncementTime": 1500,
+      "TowerShredInterval": 60,
+      "ResistShredPerStack": -0.35,
+      "SuddenDeathWarningTime": 1320
+    },
+    "1524": {
+      "BuildupVisualThresholdLarge": 0.75,
+      "BuildupVisualThresholdMed": 0.25,
+      "DamageBase": 1.6,
+      "DamagePerLevel": 0.4,
+      "BuildupStartTime": 60,
+      "BuildupEndTime": 300,
+      "BuildupStartDamageMult": 1,
+      "BuildupEndDamageMultMin": 1.65,
+      "BuildupEndDamageMultMax": 2.15,
+      "BuildupProcCooldown": 90
+    },
+    "2003": {
+      "HealAmount": 120,
+      "PotionDuration": 15
+    },
+    "2010": {
+      "PotionDurationTOOLTIP": 5,
+      "BonusMaxHealthTOOLTIP": 30,
+      "FlatHealTOOLTIP": 20,
+      "MaxHPMultiplierTOOLTIP": 0.015,
+      "MaxHealIncreaseTOOLTIP": 100,
+      "MinHPThresholdTOOLTIP": 0.3,
+      "calc:TotalHealCalcTOOLTIP.0.mStat": 12
+    },
+    "2015": {
+      "EnergizedDamage": 50
+    },
+    "2019": {
+      "FlatDR": 3
+    },
+    "2020": {
+      "LethalityAmount": 5
+    },
+    "2031": {
+      "HealAmount": 100,
+      "PotionDuration": 12,
+      "MaxCharges": 2
+    },
+    "2033": {
+      "HealAmount": 100,
+      "ManaAmount": 75,
+      "TotalDamage": 15,
+      "PotionDuration": 12,
+      "DoTDuration": 3,
+      "AoERatio": 0.5,
+      "MaxCharges": 3,
+      "EmpoweredTotalDamage": 20
+    },
+    "2049": {
+      "HPRegenPer1NonMana": 0.6
+    },
+    "2056": {
+      "Duration": 60
+    },
+    "2065": {
+      "ActiveMoveSpeed": 0.3,
+      "BuffDuration": 4,
+      "ActiveCooldown": 75,
+      "ItemRange": 1000,
+      "PerChampCD": 4,
+      "Cooldown": 75
+    },
+    "2138": {
+      "RequiredLevel": 9,
+      "TOOLTIPMinimumCost": 600,
+      "TOOLTIPReductionPerPink": 75,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mLevel": 9,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mAdditionalBonusAtThisLevel": 1
+    },
+    "2139": {
+      "RequiredLevel": 9,
+      "TOOLTIPMinimumCost": 600,
+      "TOOLTIPReductionPerPink": 75,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mLevel": 9,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mAdditionalBonusAtThisLevel": 1
+    },
+    "2140": {
+      "RequiredLevel": 9,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mLevel": 9,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mAdditionalBonusAtThisLevel": 1
+    },
+    "2141": {
+      "APPerStack": 10,
+      "ADPerStack": 6,
+      "HPPerStack": 100,
+      "PercentSizeIncrease": 10,
+      "MaxStack": 40,
+      "CalloutThreshold": 10
+    },
+    "2142": {
+      "APMult": 0.1,
+      "APBaseline": 30,
+      "ADMult": 0.1,
+      "ADBaseline": 18
+    },
+    "2143": {
+      "HPMult": 0.1,
+      "HPBaseline": 300
+    },
+    "2144": {
+      "AHMult": 0.15,
+      "AHBaseline": 20
+    },
+    "2145": {
+      "RerollsToGrant": 1
+    },
+    "2146": {
+      "RerollsToGrant": 5
+    },
+    "2147": {
+      "LevelToGrant": 1
+    },
+    "2151": {
+      "OnHitDamage": 5,
+      "Duration": 60,
+      "GoldAmount": 60
+    },
+    "2152": {
+      "AdaptiveAmount": 25,
+      "Duration": 60
+    },
+    "2161": {
+      "APMult": 0.03,
+      "APBaseline": 20,
+      "ADMult": 0.03,
+      "ADBaseline": 12
+    },
+    "2162": {
+      "HPMult": 0.03,
+      "HPBaseline": 200
+    },
+    "2163": {
+      "AHMult": 0.05,
+      "AHBaseline": 10
+    },
+    "2403": {
+      "Cooldown": 10
+    },
+    "2420": {
+      "Duration": 2.5
+    },
+    "2501": {
+      "HPToADPercentage": 0.025,
+      "MissingHealthAD": 0.12,
+      "MissingHealthThreshold": 0.7,
+      "calc:RemainingHealthThreshold.mMultiplier.mNumber": -1,
+      "calc:RemainingHealthThreshold.mExpandedTooltipCalculationDisplay": 5,
+      "calc:RemainingHealthThreshold.0.mNumber": -1
+    },
+    "2502": {
+      "DrainRange": 650,
+      "Cooldown": 4,
+      "BonusHealthDrainPercentage": 0.03,
+      "HealMultiplier": 2.5,
+      "calc:DrainCalc.0.mStat": 12,
+      "calc:DrainCalc.0.mStatFormula": 2
+    },
+    "2503": {
+      "BurnFlatDamagePerSecond": 20,
+      "APRatio": 0.02,
+      "BurnDuration": 3,
+      "MonsterDamageBonus": 20,
+      "TickFrequency": 0.5,
+      "APPerStack": 0.04,
+      "MinionDPS": 20,
+      "MinionAP": 0.02,
+      "MonsterDPS": 40,
+      "MonsterAP": 0.02
+    },
+    "2504": {
+      "ShieldAmount": 0.15,
+      "OutOfCombatDuration": 15,
+      "calc:ShieldCalc.0.mStat": 12
+    },
+    "2508": {
+      "BurnFlatDamagePerSecond": 5,
+      "BurnDuration": 3,
+      "MonsterDamageBonus": 15,
+      "TickFrequency": 0.5
+    },
+    "2510": {
+      "SpellbladeCooldown": 1.5,
+      "Cooldown": 1.5,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1,
+      "calc:SpellbladeDamage.0.mCoefficient": 0.75,
+      "calc:SpellbladeDamage.1.mCoefficient": 0.1,
+      "calc:SpellbladeHealing.0.mCoefficient": 0.1,
+      "calc:SpellbladeHealing.1.mStat": 12,
+      "calc:SpellbladeHealing.1.mStatFormula": 2,
+      "calc:SpellbladeHealing.1.mCoefficient": 0.03
+    },
+    "2512": {
+      "UltimateHaste": 30,
+      "Cooldown": 45,
+      "Duration": 8,
+      "BonusTrueDamage": 0.15,
+      "BonusAS": 0.5,
+      "NumberOfAttacks": 3,
+      "CritModifier": 0.8
+    },
+    "2517": {
+      "OmnivampOnTakedown": 0.15,
+      "OmnivampDuration": 8,
+      "TakedownWindow": 3,
+      "calc:{e4d9f16b}.0.mNumber": 5,
+      "calc:{e4d9f16b}.1.mStat": 2,
+      "calc:{e4d9f16b}.1.mStatFormula": 2,
+      "calc:{e4d9f16b}.1.mCoefficient": 0.13,
+      "calc:{87892572}.0.mNumber": 5,
+      "calc:{87892572}.1.mStat": 2,
+      "calc:{87892572}.1.mStatFormula": 2,
+      "calc:{87892572}.1.mCoefficient": 0.1
+    },
+    "2520": {
+      "LethalityAmount": 22,
+      "Cooldown": 20,
+      "TakedownWindow": 3,
+      "BuffDuration": 90,
+      "RangeModifier": 0.8,
+      "DoTDuration": 3,
+      "AbilityDamageRangeMod": 0.5,
+      "calc:DamageCalc.0.mNumber": 300,
+      "calc:DamageCalc.1.mStat": 29,
+      "calc:DamageCalc.1.mCoefficient": 25,
+      "calc:AbilityDamageCalc.0.mNumber": 50,
+      "calc:AbilityDamageCalc.1.mStat": 29,
+      "calc:AbilityDamageCalc.1.mCoefficient": 1.5
+    },
+    "2522": {
+      "Cooldown": 60,
+      "Duration": 8,
+      "ManaCostIncrease": 1,
+      "CooldownTick": 0.3,
+      "OverflowAddition": 3,
+      "OverflowRevert": 1,
+      "calc:ManaCalc.mMultiplier.mNumber": 0.01,
+      "calc:ManaCalc.0.mNumber": 15,
+      "calc:ManaCalc.1.mCoefficient": 0.005,
+      "calc:ManaCalc.1.mStatFormula": 2,
+      "calc:ManaCalc.mPrecision": 1
+    },
+    "2523": {
+      "ExtraRange": 100,
+      "TakedownWindow": 3,
+      "Duration": 8,
+      "MaxRange": 500,
+      "MaxDamageAmp": 0.1
+    },
+    "2524": {
+      "EnemyDetectRange": 400,
+      "Duration": 8,
+      "MeleeAuraAttackSpeed": 0.3,
+      "AuraRange": 900,
+      "ASDuration": 1,
+      "MoveSpeed": 20,
+      "RangedAttackSpeedMultiplier": 0.667,
+      "calc:BuffDuration.mRangedMultiplier.mNumber": 0.5
+    },
+    "2525": {
+      "LowHealthThreshold": 0.3,
+      "Duration": 5,
+      "MSAmount": 0.1,
+      "TenacityAmount": 0.25,
+      "Cooldown": 90,
+      "SizeIncrease": 0.15,
+      "calc:TotalHealthRegen.0.mStartValue": 100,
+      "calc:TotalHealthRegen.0.mEndValue": 400,
+      "calc:TotalHealthRegen.1.mStat": 1,
+      "calc:TotalHealthRegen.1.mStatFormula": 2,
+      "calc:TotalHealthRegen.1.mCoefficient": 1.75,
+      "calc:TotalHealthRegen.2.mStat": 6,
+      "calc:TotalHealthRegen.2.mStatFormula": 2,
+      "calc:TotalHealthRegen.2.mCoefficient": 1.75,
+      "calc:MaxHealthGain.0.mStartValue": 100,
+      "calc:MaxHealthGain.0.mEndValue": 300
+    },
+    "2526": {
+      "ManaChargeAmmoCD": 8,
+      "ManaChargeMaxAmmo": 5,
+      "ManaPerCharge": 4,
+      "MaxMana": 360,
+      "InternalCDPerCastID": 6.5,
+      "calc:BonusHSPCalc.0.mCoefficient": 0.005,
+      "calc:BonusHSPCalc.0.mStatFormula": 2
+    },
+    "2530": {
+      "PercentManaToHeal": 0.01,
+      "AllyRangeCheck": 900,
+      "AllyCombatDuration": 3,
+      "calc:BonusHSPCalc.0.mCoefficient": 0.005,
+      "calc:BonusHSPCalc.0.mStatFormula": 2,
+      "calc:ManaToHeal.0.mCoefficient": 0.008
+    },
+    "3001": {
+      "AmpAmount": 0.07,
+      "AoERadius": 600,
+      "AmpDuration": 5,
+      "MythicStat": 5,
+      "calc:{3066c1c3}.0.Coefficient": 1,
+      "calc:{3066c1c3}.0.epicness": 5
+    },
+    "3002": {
+      "MaxMovementSpeed": 20,
+      "MaxStacks": 100,
+      "DurationToMaxStack": 4,
+      "MaxStackSlowAmount": 0.5,
+      "MaxStackSlowDuration": 1,
+      "MovespeedDonation": 0.15
+    },
+    "3003": {
+      "ManaPerCharge": 5,
+      "ManaChargeAmmoCD": 8,
+      "ManaChargeMaxAmmo": 5,
+      "MaxMana": 360,
+      "InternalCDPerCastID": 6.5,
+      "APFromMana": 0.01
+    },
+    "3004": {
+      "ManaPerCharge": 3,
+      "ManaChargeAmmoCD": 8,
+      "ManaChargeMaxAmmo": 4,
+      "MaxMana": 360,
+      "InternalCDPerCastID": 6.5,
+      "calc:BonusADFromMana.0.mCoefficient": 0.02
+    },
+    "3005": {
+      "Cooldown": 60,
+      "MSBonus": 125,
+      "Duration": 6,
+      "FuzzyWallThreshold": 50
+    },
+    "3006": {
+      "FeatsAS": 0.05
+    },
+    "3008": {
+      "OmnivampOnTakedown": 0.006,
+      "MaxStacks": 10
+    },
+    "3009": {
+      "SlowResistTooltip": 25,
+      "FeatsMS": 5
+    },
+    "3010": {
+      "MaxCharge": 150,
+      "MaxDistance": 150000,
+      "MSBonus": 10,
+      "DistanceCap": 500
+    },
+    "3011": {
+      "GrievousAmount": 0.4,
+      "GrievousDuration": 3
+    },
+    "3012": {
+      "HPRegenIncrease": 0.25,
+      "BaseManaRegen": 0.25
+    },
+    "3013": {
+      "MSBonus": 45,
+      "FeatsMS": 5
+    },
+    "3020": {
+      "FeatsMPen": 2
+    },
+    "3026": {
+      "Cooldown": 300
+    },
+    "3032": {
+      "ASDuration": 6,
+      "CritMax": 25,
+      "Cooldown": 30,
+      "AACDR": 1,
+      "CritCDR": 2,
+      "ASMod": 0.3,
+      "CritPerStackMelee": 0.4,
+      "StackRangedMultiplier": 0.5,
+      "calc:CritPerStackCalc.mPrecision": 1
+    },
+    "3033": {
+      "GrievousDuration": 3,
+      "GrievousAmount": 0.4
+    },
+    "3036": {
+      "MaxBonusDamagePercent": 0.15,
+      "MaxBonusHealth": 1500
+    },
+    "3039": {
+      "BonusCritCap": 0.3,
+      "BonusCritPerHundred": 0.01,
+      "calc:{a6bd9178}.mMultiplier.mStat": 12,
+      "calc:{a6bd9178}.mMultiplier.mStatFormula": 2,
+      "calc:{a6bd9178}.mMultiplier.mCoefficient": 1
+    },
+    "3040": {
+      "APFromMana": 0.02,
+      "HealthThreshold": 0.3,
+      "ShieldDuration": 3,
+      "LifelineCooldown": 90,
+      "Cooldown": 90,
+      "calc:ShieldValue.0.mCoefficient": 0.18,
+      "calc:BonusAPCalc.0.mCoefficient": 0.02,
+      "calc:BonusAPCalc.0.mStatFormula": 2
+    },
+    "3041": {
+      "MaxGloryStacks": 25,
+      "APPerGlory": 5,
+      "GloryOnKill": 4,
+      "GloryOnAssist": 2,
+      "GloryLossOnDeath": 10,
+      "GloryThreshold": 10,
+      "MoveSpeedMod": 0.1
+    },
+    "3042": {
+      "BonusADManaRatioTOOLTIPONLY": 0.02,
+      "OnHitManaRatioTOOLTIPONLY": 0.012,
+      "AbilityManaRatioRangedTOOLTIPONLY": 0.03,
+      "PerCastIDLockout": 6.5,
+      "AbilityManaRatioMeleeTOOLTIPONLY": 0.04,
+      "calc:BonusADFromMana.0.mCoefficient": 0.02,
+      "calc:OnHitDamage.0.mCoefficient": 0.012,
+      "calc:MeleeItemCalcValue.0.mCoefficient": 0.04,
+      "calc:RangedItemCalcValue.0.mCoefficient": 0.03,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "3044": {
+      "MoveSpeedBonus": 20,
+      "MoveSpeedDuration": 2,
+      "RangedMod": 0.5,
+      "calc:MSBonusSplit.mExpandedTooltipCalculationDisplay": 5
+    },
+    "3047": {
+      "FeatsArmor": 5
+    },
+    "3050": {
+      "Duration": 5,
+      "Cooldown": 45,
+      "SlowAmount": 0.3,
+      "DamagePerSecond": 30,
+      "StormRadius": 350,
+      "UltimateHaste": 15,
+      "ReadyDuration": 5
+    },
+    "3053": {
+      "LowHealthThreshold": 0.3,
+      "ShieldDuration": 4.5,
+      "HealthPercent": 0.1,
+      "HealPercent": 0.02,
+      "RangedEffectiveness": 0.6,
+      "ReductionAmount": 0.5,
+      "BaseShieldRatio": 0.6,
+      "HealDuration": 5,
+      "ADtoAD": 0.5,
+      "TimeBeforeDecay": 0.75,
+      "TenacityDuration": 8,
+      "SizeIncrease": 0.1,
+      "Cooldown": 90,
+      "calc:MeleeItemCalcValue.mSimpleTooltipCalculationDisplay": 6,
+      "calc:MeleeItemCalcValue.mExpandedTooltipCalculationDisplay": 6,
+      "calc:MeleeItemCalcValue.0.mStat": 12,
+      "calc:BonusShield.mMultiplier.mCoefficient": 1,
+      "calc:MeleeItemCalcValueB.0.mStat": 12,
+      "calc:MeleeItemCalcValueB.0.mStatFormula": 2,
+      "calc:RangedItemCalcValueB.mSimpleTooltipCalculationDisplay": 6,
+      "calc:RangedItemCalcValueB.mExpandedTooltipCalculationDisplay": 6,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:ChampRange.0.mCeiling": 3,
+      "calc:ChampRange.0.mFloor": 2,
+      "calc:ChampRange.0.0.mStat": 31,
+      "calc:ChampRange.0.0.mStatFormula": 1,
+      "calc:ChampRange.0.0.mSubpart.mNumber": 0.01,
+      "calc:ShieldSize.0.mStat": 12,
+      "calc:ShieldSize.0.mStatFormula": 2,
+      "calc:BonusAD.0.mStat": 2,
+      "calc:BonusAD.0.mStatFormula": 1
+    },
+    "3057": {
+      "SpellbladeCooldown": 1.5,
+      "Cooldown": 1.5,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1,
+      "calc:SpellbladeDamage.0.mCoefficient": 1
+    },
+    "3065": {
+      "HealingIncrease": 0.25,
+      "ShieldIncrease": 0.25
+    },
+    "3068": {
+      "Range": 300,
+      "MinionMod": 0.5,
+      "MaxStacks": 1,
+      "MonsterMod": 0.8,
+      "AuraDuration": 3,
+      "TicksPerSecond": 1,
+      "BaseDamagePerTickTOOLTIPONLY": 20,
+      "HPRatioPerTickTOOLTIPONLY": 1.5,
+      "calc:DamagePerTick.0.mNumber": 20,
+      "calc:DamagePerTick.1.mStat": 12,
+      "calc:DamagePerTick.1.mStatFormula": 2,
+      "calc:DamagePerTick.1.mCoefficient": 0.015,
+      "calc:{049cea52}.mMultiplier.mNumber": 1
+    },
+    "3070": {
+      "ManaPerCharge": 3,
+      "ManaChargeAmmoCD": 8,
+      "BonusMinionDamage": 5,
+      "MaxMana": 360,
+      "ManaChargeMaxAmmo": 4,
+      "InternalCDPerCastID": 6.5,
+      "calc:{592c02e8}.DamageType": 0
+    },
+    "3071": {
+      "DebuffDuration": 6,
+      "MoveSpeedBonus": 20,
+      "MoveSpeedDuration": 2,
+      "InternalCD": 0.01,
+      "MaxStacks": 5,
+      "ShredPerStack": 0.06,
+      "RangedMod": 0.5,
+      "calc:MSBonusSplit.mExpandedTooltipCalculationDisplay": 5
+    },
+    "3072": {
+      "Threshold": 0.7,
+      "DecayTime": 25,
+      "calc:OvershieldCalc.0.mLevel1Value": 165,
+      "calc:OvershieldCalc.0.mBreakpoints.0.mLevel": 9,
+      "calc:OvershieldCalc.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 15
+    },
+    "3073": {
+      "UltimateHaste": 30,
+      "MovementSpeedBonus": 0.2,
+      "HasteDuration": 8,
+      "Cooldown": 30,
+      "BonusASRanged": 25,
+      "BonusASMelee": 50,
+      "BonusMSRanged": 10,
+      "BonusMSMelee": 20
+    },
+    "3074": {
+      "CleaveRadius": 350,
+      "Cooldown": 10,
+      "Radius": 450,
+      "ActiveADRatio": 0.8,
+      "VampAmp": 1,
+      "MaxProcPerAuto": 10,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:MeleeItemCalcValue.0.mStat": 2,
+      "calc:MeleeItemCalcValue.0.mCoefficient": 0.4,
+      "calc:RangedItemCalcValue.0.mStat": 2,
+      "calc:RangedItemCalcValue.0.mCoefficient": 0.2,
+      "calc:PrimaryDamage.0.mStat": 2
+    },
+    "3075": {
+      "BaseDamage": 20,
+      "BonusArmorDamageRatio": 0.1,
+      "GrievousAmount": 0.4,
+      "GrievousDuration": 3,
+      "EnhancedGrievousAmount": 0.4,
+      "calc:TotalDamage.1.mStat": 1,
+      "calc:TotalDamage.1.mStatFormula": 2
+    },
+    "3076": {
+      "GrievousAmount": 0.4,
+      "GrievousDuration": 3,
+      "BaseDamage": 10
+    },
+    "3077": {
+      "CleaveRadius": 350,
+      "Cooldown": 10,
+      "Radius": 450,
+      "ActiveADRatio": 0.75,
+      "MaxProcPerAuto": 10,
+      "calc:MeleeItemCalcValue.0.mStat": 2,
+      "calc:MeleeItemCalcValue.0.mCoefficient": 0.4,
+      "calc:RangedItemCalcValue.0.mStat": 2,
+      "calc:RangedItemCalcValue.0.mCoefficient": 0.2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{06387172}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:PrimaryDamage.0.mStat": 2
+    },
+    "3078": {
+      "SpellbladeMultiplier": 2,
+      "MoveSpeedBonus": 20,
+      "MSDuration": 2,
+      "SpellbladeCooldown": 1.5,
+      "Cooldown": 1.5,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1,
+      "calc:{6e4cefdc}.0.mNumber": 20
+    },
+    "3082": {
+      "MaxHPRatio": 0.005,
+      "WardenDamageMax": 0.2,
+      "BlockBase": 15
+    },
+    "3083": {
+      "MaxHealthRatio": 0.015,
+      "SecondsPerHeal": 0.5,
+      "HealthThreshold": 2000,
+      "OOCTimerChampion": 8,
+      "OOCTimer": 3,
+      "HPAmp": 0.12,
+      "calc:TotalHealing.0.mStat": 12,
+      "calc:TotalHealingTooltip.mMultiplier.mNumber": 2
+    },
+    "3084": {
+      "PerTargetCooldown": 30,
+      "BaseDamage": 70,
+      "HPRatio": 0.06,
+      "DamageToMaxHealthRatio": 0.1,
+      "DistanceToChampion": 700,
+      "NumTicksToTrigger": 6,
+      "RangeTrackingBuffDuration": 5,
+      "TrackerTickRate": 0.5,
+      "MaxHPRatio": 0.06,
+      "HealthSizeThreshold": 1000,
+      "SizeAmount": 0.03,
+      "SizeCap": 0.3,
+      "Cooldown": 30,
+      "calc:DamageProcCalc.1.mStat": 12,
+      "calc:TotalDemolishTime.mSimpleTooltipCalculationDisplay": 5,
+      "calc:TotalDemolishTime.mExpandedTooltipCalculationDisplay": 5,
+      "calc:DamageCalc.0.mStat": 12
+    },
+    "3085": {
+      "BoltMinPercent": 40,
+      "BoltMaxPercent": 40,
+      "ExtraRangeOnBoltCheck": 65,
+      "calc:BoltDamage.0.mStat": 2,
+      "calc:BoltDamage.0.mSubpart.mNumber": 0.6,
+      "calc:{232dac8a}.0.mNumber": 0.6,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "3087": {
+      "BounceRange": 500,
+      "BonusEnergizedStacks": 9,
+      "ChainDamage": 60,
+      "NonChampChainDamage": 90,
+      "calc:BounceCount.0.mLevel1Value": 4,
+      "calc:BounceCount.0.mBreakpoints.0.mLevel": 6,
+      "calc:BounceCount.0.mBreakpoints.0.mAdditionalBonusAtThisLevel": 1,
+      "calc:BounceCount.0.mBreakpoints.1.mLevel": 10,
+      "calc:BounceCount.0.mBreakpoints.1.mAdditionalBonusAtThisLevel": 1,
+      "calc:BounceCount.0.mBreakpoints.2.mLevel": 14,
+      "calc:BounceCount.0.mBreakpoints.2.mAdditionalBonusAtThisLevel": 1,
+      "calc:BounceCount.0.mBreakpoints.3.mLevel": 20,
+      "calc:BounceCount.0.mBreakpoints.3.mAdditionalBonusAtThisLevel": 1
+    },
+    "3089": {
+      "APAmp": 0.3
+    },
+    "3091": {
+      "calc:OnHitDamage.DamageType": 1,
+      "calc:OnHitDamage.0.mNumber": 45
+    },
+    "3094": {
+      "RangePercentIncrease": 0.35,
+      "MaxRangeIncrease": 150,
+      "BonusDamage": 40
+    },
+    "3095": {
+      "BuffStrength": 0.45,
+      "BuffDuration": 1.5,
+      "calc:TotalProcDamage.0.mNumber": 100
+    },
+    "3100": {
+      "SpellbladeCooldown": 1.5,
+      "LichBaneAPValue": 0.45,
+      "SpellbladeADRatio": 0.75,
+      "SheenASBuff": 0.5,
+      "Cooldown": 1.5,
+      "SpellBladeDuration": 10,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1
+    },
+    "3102": {
+      "Cooldown": 40
+    },
+    "3107": {
+      "HealMin": 150,
+      "HealMax": 350,
+      "DamageToChampions": 0.1,
+      "Cooldown": 90,
+      "AOESize": 550,
+      "CastRange": 5500,
+      "DiminishedEffect": 0.5,
+      "DiminishedTimer": 8,
+      "HPRegenIncrease": 0.25,
+      "BaseManaRegen": 0.25,
+      "calc:HealAmount.0.1.mPart1.mEndValue": 1,
+      "calc:HealAmount.0.1.mPart2.0.0.mPart2.mNumber": -1
+    },
+    "3109": {
+      "DamageRedirection": 0.14,
+      "DamageRedirectionThreshold": 0.3,
+      "TetherRange": 1250,
+      "AllyHealingConversion": 0.12,
+      "Cooldown": 60
+    },
+    "3110": {
+      "ASPDSlow": -0.2,
+      "AuraRadius": 700
+    },
+    "3111": {
+      "FeatsMR": 5
+    },
+    "3115": {
+      "NashorsBaseValue": 15,
+      "NashorsAPValue": 0.15,
+      "calc:TotalOnHitDamage.DamageType": 1
+    },
+    "3116": {
+      "SlowAmount": 0.3,
+      "SlowDuration": 1
+    },
+    "3118": {
+      "AOESize": 250,
+      "UltimateHaste": 20,
+      "GroundDuration": 3,
+      "BaseDamage": 60,
+      "APRatio": 0.05,
+      "MaxRadius": 550,
+      "calc:{8e8f7a34}.mMultiplier.mNumber": 0.25,
+      "calc:{8e8f7a34}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{8e8f7a34}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:MagicResistanceShred.0.mNumber": 10
+    },
+    "3119": {
+      "ManaPerCharge": 3,
+      "ManaChargeAmmoCD": 8,
+      "ManaChargeMaxAmmo": 4,
+      "MaxMana": 360,
+      "InternalCDPerCastID": 6.5,
+      "calc:BonusHPFromMana.0.mCoefficient": 0.15,
+      "calc:BonusHPFromMana.0.mStatFormula": 2
+    },
+    "3121": {
+      "Cooldown": 8,
+      "ShieldDuration": 3,
+      "CurrentManaShieldRatio": 0.045,
+      "Multiplier": 0.8,
+      "calc:BonusHPFromMana.0.mCoefficient": 0.15,
+      "calc:BonusHPFromMana.0.mStatFormula": 2,
+      "calc:ShieldBase.0.mNumber": 100
+    },
+    "3123": {
+      "GrievousDuration": 3,
+      "GrievousAmount": 0.4
+    },
+    "3124": {
+      "OnHitDamage": 30,
+      "AttackSpeedPerStack": 0.08,
+      "MaxStacks": 4,
+      "BuffDuration": 4,
+      "calc:TotalMagicPen.0.epicness": 5,
+      "calc:TotalArmorPen.0.epicness": 5,
+      "calc:{592c02e8}.DamageType": 1
+    },
+    "3128": {
+      "DamageAmp": 0.15,
+      "MaxHealthDamage": 0.15,
+      "Cooldown": 90,
+      "Duration": 4
+    },
+    "3131": {
+      "LethalityAmount": 18,
+      "Cooldown": 90
+    },
+    "3134": {
+      "LethalityAmount": 10
+    },
+    "3137": {
+      "BaseHeal": 100,
+      "HealAPRatio": 0.2,
+      "ItemCooldown": 60,
+      "TakedownWindow": 3,
+      "Cooldown": 60
+    },
+    "3139": {
+      "Cooldown": 90,
+      "MSDuration": 2,
+      "MoveSpeed": 0.5
+    },
+    "3140": {
+      "Cooldown": 90
+    },
+    "3142": {
+      "LethalityAmount": 18,
+      "CombatTimer": 3,
+      "Cooldown": 45,
+      "MeleeItemCalcValueB": 20,
+      "RangedItemCalcValueB": 15,
+      "DurationNDV": 6,
+      "OOCMSndv": 20,
+      "BaseOOCMS": 20,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:Duration.0.mNumber": 6,
+      "calc:Duration.mRangedMultiplier.mNumber": 0.667,
+      "calc:OOCMS.mRangedMultiplier.mNumber": 0.5
+    },
+    "3143": {
+      "PercentCritDamageReduction": 0.3,
+      "SlowAmount": 0.7,
+      "SlowDuration": 2,
+      "Radius": 500,
+      "Cooldown": 90
+    },
+    "3144": {
+      "Cooldown": 40,
+      "calc:DamageAmount.0.mNumber": 40
+    },
+    "3145": {
+      "Cooldown": 40,
+      "calc:DamageAmount.0.mNumber": 65
+    },
+    "3146": {
+      "SlowAmount": 0.25,
+      "SlowDuration": 1.5,
+      "Cooldown": 60,
+      "calc:ActiveDamage.0.mStartValue": 175,
+      "calc:ActiveDamage.0.mEndValue": 253,
+      "calc:ActiveDamage.1.mCoefficient": 0.3
+    },
+    "3147": {
+      "BuffCounterDuration": 3,
+      "SecondsInCombat": 3,
+      "DamageIncreasePerSecond": 0.02,
+      "DamageIncreaseMax": 0.06
+    },
+    "3152": {
+      "Cooldown": 50,
+      "BaseDamage": 135,
+      "APRatio": 0.15
+    },
+    "3153": {
+      "MoveSpeedMod": -0.3,
+      "MoveSpeedDuration": 1,
+      "Cooldown": 15,
+      "RangedValue": 0.06,
+      "MeleeValue": 0.09,
+      "MonsterDamageCap": 100,
+      "AttackCounterDuration": 6,
+      "RangedMoveSpeedMod": -0.15,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:SiphonDamage.0.mLevel1Value": 40,
+      "calc:SiphonDamage.0.mBreakpoints.0.mLevel": 10,
+      "calc:SiphonDamage.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 7,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:MeleeItemCalcValueB.mMultiplier.mNumber": -1,
+      "calc:RangedItemCalcValueB.mMultiplier.mNumber": -1,
+      "calc:{405deeb1}.DamageType": 0,
+      "calc:{405deeb1}.0.mStat": 13,
+      "calc:{405deeb1}.0.mCoefficient": 1
+    },
+    "3155": {
+      "LowHealthThreshold": 0.3,
+      "ShieldLifetime": 2.5,
+      "Cooldown": 90,
+      "calc:MeleeItemCalcValue.0.mStartValue": 110,
+      "calc:MeleeItemCalcValue.0.mEndValue": 280,
+      "calc:RangedItemCalcValue.mMultiplier.mNumber": 0.75
+    },
+    "3156": {
+      "ShieldSize": 200,
+      "LowHealthThreshold": 0.3,
+      "ShieldDuration": 3,
+      "ShieldADScaling": 1.5,
+      "BuffDuration": 5,
+      "BuffExtension": 3,
+      "BuffVamp": 0.1,
+      "RangedShieldMod": 0.75,
+      "Cooldown": 90,
+      "calc:MeleeItemCalcValue.1.mStat": 2,
+      "calc:MeleeItemCalcValue.1.mStatFormula": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "3157": {
+      "Cooldown": 120,
+      "Duration": 2.5
+    },
+    "3158": {
+      "SummonerHaste": 10,
+      "FeatsHaste": 5
+    },
+    "3161": {
+      "SpellDamageIncrease": 0.03,
+      "AHBase": 25,
+      "StackDuration": 6,
+      "StackCount": 4,
+      "RangedMod": 0.5,
+      "TooltipValue": 3,
+      "CastIDLockout": 1,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "3165": {
+      "GrievousAmount": 0.4,
+      "GrievousDuration": 3
+    },
+    "3168": {
+      "OmnivampOnTakedown": 0.006,
+      "MaxStacks": 10,
+      "DamageMod": 0.04,
+      "HealingMod": 0.12
+    },
+    "3170": {
+      "MoveSpeedMultiplier": 0.04,
+      "SlowResistTooltip": 0.25,
+      "MSAdaptiveRatio": 0.05,
+      "calc:{5e4a31e2}.0.mCoefficient": 1,
+      "calc:MSToAdaptiveCalc.0.mStat": 7
+    },
+    "3171": {
+      "SummonerHaste": 20,
+      "MeleeMS": 0.1,
+      "Duration": 4,
+      "RangedMSMultiplier": 0.8,
+      "calc:{5e4a31e2}.0.mCoefficient": 1
+    },
+    "3172": {
+      "MeleeMS": 0.15,
+      "RangedMSMultiplier": 0.667,
+      "Duration": 2,
+      "calc:{5e4a31e2}.0.mCoefficient": 1
+    },
+    "3173": {
+      "Cooldown": 15,
+      "ShieldAmount": 0.08,
+      "ShieldDuration": 5,
+      "calc:ShieldAmountCalc.0.mLevel1Value": 90,
+      "calc:ShieldAmountCalc.0.mBreakpoints.0.mLevel": 9,
+      "calc:ShieldAmountCalc.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 10,
+      "calc:ShieldAmountCalc.1.mStat": 12,
+      "calc:ShieldAmountCalc.1.mStatFormula": 2,
+      "calc:{5e4a31e2}.0.mCoefficient": 1
+    },
+    "3174": {
+      "DamageReduction": 0.1,
+      "Cooldown": 15,
+      "ShieldAmount": 0.08,
+      "ShieldDuration": 5,
+      "calc:ShieldAmountCalc.0.mLevel1Value": 90,
+      "calc:ShieldAmountCalc.0.mBreakpoints.0.mLevel": 9,
+      "calc:ShieldAmountCalc.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 10,
+      "calc:ShieldAmountCalc.1.mStat": 12,
+      "calc:ShieldAmountCalc.1.mStatFormula": 2,
+      "calc:{5e4a31e2}.0.mCoefficient": 1
+    },
+    "3175": {
+      "calc:{5e4a31e2}.0.mCoefficient": 1
+    },
+    "3176": {
+      "MSBonus": 45,
+      "MoveSpeedMultiplier": 0.08,
+      "calc:{5e4a31e2}.0.mCoefficient": 1
+    },
+    "3179": {
+      "LethalityAmount": 18,
+      "MeleeDamage": 3,
+      "RangedDamage": 2,
+      "Cooldown": 90,
+      "OutOfVisionDuration": 1,
+      "AttackReadyDuration": 4,
+      "calc:MeleeItemCalcValue.mSimpleTooltipCalculationDisplay": 5,
+      "calc:MeleeItemCalcValue.mExpandedTooltipCalculationDisplay": 5,
+      "calc:RangedItemCalcValue.mSimpleTooltipCalculationDisplay": 5,
+      "calc:RangedItemCalcValue.mExpandedTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:ProcDamage.0.mNumber": 50,
+      "calc:ProcDamage.1.mStat": 29,
+      "calc:ProcDamage.1.mCoefficient": 1.5,
+      "calc:TotalWardDamage.0.mNumber": 3,
+      "calc:TotalWardDamage.mRangedMultiplier.mNumber": 0.667
+    },
+    "3181": {
+      "SkipperADRatio": 1.2,
+      "SkipperADRatioVSStructures": 3,
+      "MaxStackDamageHPRatio": 0.05,
+      "MaxStackDamageVSStructuresHPRatio": 0.1,
+      "SkipperStackDuration": 10,
+      "RangedSkipperADRatio": 0.7,
+      "RangedSkipperADRatioVSStructures": 2,
+      "calc:MaxStackDamage.0.mStat": 2,
+      "calc:MaxStackDamage.0.mStatFormula": 1,
+      "calc:MaxStackDamage.1.mStat": 12,
+      "calc:MaxStackDamage.mRangedMultiplier.mNumber": 0.7,
+      "calc:MaxStackDamageVSStructures.0.mStat": 2,
+      "calc:MaxStackDamageVSStructures.0.mStatFormula": 1,
+      "calc:MaxStackDamageVSStructures.1.mStat": 12,
+      "calc:MaxStackDamageVSStructures.mRangedMultiplier.mNumber": 0.7,
+      "calc:BonusMinionResists.0.mLevel1Value": 70,
+      "calc:BonusMinionResists.0.mBreakpoints.0.mLevel": 9,
+      "calc:BonusMinionResists.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 6,
+      "calc:BonusMinionResists.mRangedMultiplier.mNumber": 0.5
+    },
+    "3190": {
+      "ShieldDuration": 2.5,
+      "DiminishedEffectMulitplier": 0.25,
+      "DiminishedTimer": 20,
+      "Cooldown": 90,
+      "ShieldRange": 850,
+      "ShieldMinTOOLTIP": 290,
+      "ShieldMaxTOOLTIP": 360,
+      "calc:ShieldAmount.0.mLevel1Value": 290,
+      "calc:ShieldAmount.0.mBreakpoints.0.mLevel": 9,
+      "calc:ShieldAmount.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 7
+    },
+    "3193": {
+      "BuffDuration": 6,
+      "BonusResist": 0.05,
+      "ShieldDuration": 2.5,
+      "SizeIncrease": 0.25,
+      "BonusHealthShieldRatio": 0.9,
+      "BaseShieldAmount": 100,
+      "ActiveCooldown": 90,
+      "calc:BonusArmor.0.mStat": 1,
+      "calc:BonusArmor.0.mStatFormula": 2,
+      "calc:BonusMR.0.mStat": 6,
+      "calc:BonusMR.0.mStatFormula": 2,
+      "calc:BonusHP.0.mStat": 12,
+      "calc:BonusHP.0.mStatFormula": 2,
+      "calc:BonusHP.0.mCoefficient": 1,
+      "calc:TotalShield.1.mStat": 12,
+      "calc:TotalShield.1.mStatFormula": 2
+    },
+    "3211": {
+      "HealthRegenDuration": 10,
+      "DamageToRegenDurationRatio": 0.333
+    },
+    "3222": {
+      "CleanseCooldown": 120,
+      "HealAmountMin": 100,
+      "HealAmountMax": 250,
+      "Cooldown": 120,
+      "calc:AmountToHeal.0.1.mPart1.mEndValue": 1,
+      "calc:AmountToHeal.0.1.mPart2.0.0.mPart2.mNumber": -1
+    },
+    "3302": {
+      "BuffDuration": 5,
+      "DebuffDuration": 5,
+      "PenMax": 0.3,
+      "PenPerHit": 0.1,
+      "calc:ARMRPerHitScaling.0.mLevel1Value": 6,
+      "calc:ARMRPerHitScaling.0.mBreakpoints.0.mLevel": 11,
+      "calc:ARMRPerHitScaling.0.mBreakpoints.0.mAdditionalBonusAtThisLevel": 1,
+      "calc:ARMRPerHitScaling.0.mBreakpoints.1.mLevel": 14,
+      "calc:ARMRPerHitScaling.0.mBreakpoints.1.mAdditionalBonusAtThisLevel": 1,
+      "calc:ARMRMaxScaling.mMultiplier.mNumber": 3,
+      "calc:{592c02e8}.DamageType": 1,
+      "calc:OnHitDamage.0.mNumber": 30,
+      "calc:OnHitDamage.1.mStat": 2,
+      "calc:OnHitDamage.1.mStatFormula": 2,
+      "calc:OnHitDamage.1.mCoefficient": 0.1,
+      "calc:OnHitDamage.2.mCoefficient": 0.1
+    },
+    "3330": {
+      "calc:EffigyDuration.0.mStartValue": 130,
+      "calc:EffigyDuration.0.mEndValue": 300,
+      "calc:AMMORECHARGETIME.0.mStartValue": 115,
+      "calc:AMMORECHARGETIME.0.mEndValue": 30
+    },
+    "3340": {
+      "MaxWardsPlaced": 3,
+      "GameTimeThreshold": 14,
+      "MaxAmmo": 2,
+      "StartingSingleChargeTime": 210,
+      "EndingSingleChargeTime": 90
+    },
+    "3348": {
+      "SweeperCD": 30,
+      "RevealDuration": 3,
+      "MistDuration": 5
+    },
+    "3349": {
+      "SlowLingerDuration": 1,
+      "Cooldown": 6,
+      "VisionRadius": 650,
+      "AoE": 310,
+      "MarkDuration": 6,
+      "PassivePercentCurrentHPDamage": 0.2,
+      "PassivePercentMaxHPDamage": 0.15,
+      "calc:TotalDamage.0.mStartValue": 40,
+      "calc:TotalDamage.0.mEndValue": 400,
+      "calc:TotalDamage.1.mCoefficient": 0.8,
+      "calc:Slow.0.mStartValue": -0.25,
+      "calc:Slow.0.mEndValue": -0.5
+    },
+    "3363": {
+      "RequiredLevel": 9,
+      "TOOLTIPMinimumCost": 600,
+      "TOOLTIPReductionPerPink": 75,
+      "PersistVisionRange": 500,
+      "ScryerVisionRange": 800,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mLevel": 9,
+      "calc:ChampLevelReached.0.mBreakpoints.0.mAdditionalBonusAtThisLevel": 1
+    },
+    "3364": {
+      "Duration": 8,
+      "MaxAmmo": 2,
+      "StartingSingleChargeTime": 160,
+      "EndingSingleChargeTime": 100,
+      "GameTimeThreshold": 14,
+      "MaxAmmoPre": 1,
+      "StartingRadius": 600,
+      "EndingRadius": 750
+    },
+    "3430": {
+      "CritPerCast": 0.025,
+      "Duration": 6,
+      "StaleCastTime": 5,
+      "BonusCritCap": 0.2,
+      "ShieldDuration": 3,
+      "calc:ShieldCalc.0.mStartValue": 70,
+      "calc:ShieldCalc.0.mEndValue": 210,
+      "calc:ShieldCalc.1.mCoefficient": 0.15,
+      "calc:ShieldCalc.2.mStat": 2,
+      "calc:ShieldCalc.2.mStatFormula": 2,
+      "calc:ShieldCalc.2.mCoefficient": 0.25
+    },
+    "3504": {
+      "AttackSpeedMin": 0.25,
+      "Duration": 6,
+      "OnHitMin": 20
+    },
+    "3508": {
+      "FlatManaRefund": 15,
+      "ManaRefundRatio": 0.15,
+      "BaseADRatio": 1.25,
+      "CritChanceMultiplier": 50,
+      "SpellbladeCooldown": 1.5,
+      "Cooldown": 1.5,
+      "calc:TotalManaRefund.mMultiplier.mNumber": 0.5,
+      "calc:TotalManaRefund.mExpandedTooltipCalculationDisplay": 0,
+      "calc:SpellbladeDamage.mExpandedTooltipCalculationDisplay": 0,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1,
+      "calc:SpellbladeDamage.1.mStat": 8
+    },
+    "3513": {
+      "TransformDuration": 30,
+      "StatMultiplier": 0.333,
+      "EyePercentHealthDamage": 0.25,
+      "GlimpseAndTrinketDuration": 300,
+      "EyePickUpDuration": 20,
+      "NexusBlitzGlimpseAndTrinketDuration": 180
+    },
+    "3742": {
+      "MaxMovementSpeed": 20,
+      "MaxStacks": 100,
+      "BonusDamagePerStack": 0.4,
+      "MaxStacksADRatio": 1,
+      "DurationToMaxStack": 4,
+      "SlowResistTooltip": 0.15,
+      "calc:MaxDamageCalc.0.mStat": 2,
+      "calc:MaxDamageCalc.0.mStatFormula": 1,
+      "calc:MaxDamageCalc.1.mPart2.mNumber": 100
+    },
+    "3748": {
+      "PrimaryTargetHPRatio": 0.01,
+      "SplashHPRatio": 0.03,
+      "RangedEffectiveness": 0.5,
+      "ActivePrimaryTargetHPRatio": 0.04,
+      "ActiveSplashHPRatio": 0.09,
+      "Cooldown": 10,
+      "MaxProcPerAuto": 10,
+      "calc:CalcValueB.mSimpleTooltipCalculationDisplay": 6,
+      "calc:CalcValueB.0.mStat": 12,
+      "calc:CalcValue.mSimpleTooltipCalculationDisplay": 6,
+      "calc:CalcValue.0.mStat": 12,
+      "calc:CalcValueC.mSimpleTooltipCalculationDisplay": 6,
+      "calc:CalcValueC.0.mStat": 12,
+      "calc:CalcValueD.mSimpleTooltipCalculationDisplay": 6,
+      "calc:CalcValueD.0.mStat": 12,
+      "calc:OnHitDamageCalc.0.mStat": 12,
+      "calc:OnHitDamageCalc.0.mCoefficient": 0.01,
+      "calc:OnHitDamageCalc.mRangedMultiplier.mNumber": 0.5,
+      "calc:ConeDamageCalc.0.mStat": 12,
+      "calc:ConeDamageCalc.0.mCoefficient": 0.03,
+      "calc:ConeDamageCalc.mRangedMultiplier.mNumber": 0.5
+    },
+    "3802": {
+      "ManaRestorePercent": 0.2,
+      "RestorationDuration": 3
+    },
+    "3803": {
+      "EternityManaRestore": 0.1,
+      "EternityHealthRestore": 0.25,
+      "EternityMaxHealPerCast": 20,
+      "EternityCDPerCast": 1
+    },
+    "3814": {
+      "LethalityAmount": 15,
+      "Cooldown": 40
+    },
+    "3851": {
+      "StealthWardCap": 3
+    },
+    "3853": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300
+    },
+    "3854": {
+      "MeleeValue": 0.5,
+      "RangedValue": 0.3,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "3855": {
+      "StealthWardCap": 3
+    },
+    "3857": {
+      "StealthWardCap": 4
+    },
+    "3858": {
+      "MeleeValue": 0.5,
+      "RangedValue": 0.3,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "3859": {
+      "StealthWardCap": 3
+    },
+    "3860": {
+      "StealthWardCap": 4
+    },
+    "3863": {
+      "StealthWardCap": 3
+    },
+    "3864": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300
+    },
+    "3865": {
+      "GP10": 3,
+      "QuestGoldRequirement": 400,
+      "ChargeCooldown": 20,
+      "MaxCharges": 3,
+      "AllyChampNearbyRadius": 2000,
+      "GoldOnHit": 18,
+      "GoldOnHitMelee": 18,
+      "ExecuteMinionGold": 18,
+      "MeleeExecutePerc": 0.5,
+      "RangedExecutePerc": 0.333,
+      "ExecuteCannonGold": 20,
+      "AllyChampNearbyRadiusMinion": 1300,
+      "FirstChargeOffset": 20,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:ExecuteDamage.0.mStat": 12,
+      "calc:ExecuteDamage.0.mCoefficient": 1,
+      "calc:ExecuteDamage.1.mStat": 2,
+      "calc:ExecuteDamage.1.mCoefficient": 1,
+      "calc:{79b6144b}.DamageType": 2,
+      "calc:{79b6144b}.mConditionalCalculationRequirements.mSubRequirements.1.mRange": 1300,
+      "calc:ExecuteHealthThreshold.0.mStat": 12,
+      "calc:ExecuteHealthThreshold.1.mStat": 2,
+      "calc:ExecuteHealthThreshold.1.mCoefficient": 1
+    },
+    "3866": {
+      "StealthWardCap": 3,
+      "GP10": 5,
+      "QuestGoldRequirement": 800,
+      "ChargeCooldown": 20,
+      "MaxCharges": 3,
+      "AllyChampNearbyRadius": 2000,
+      "GoldOnHit": 21,
+      "GoldOnHitMelee": 21,
+      "ExecuteMinionGold": 21,
+      "MeleeExecutePerc": 0.5,
+      "RangedExecutePerc": 0.333,
+      "ExecuteCannonGold": 28,
+      "AllyChampNearbyRadiusMinion": 1300,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:ExecuteDamage.0.mStat": 12,
+      "calc:ExecuteDamage.0.mCoefficient": 1,
+      "calc:ExecuteDamage.1.mStat": 2,
+      "calc:ExecuteDamage.1.mCoefficient": 1,
+      "calc:{79b6144b}.DamageType": 2,
+      "calc:{79b6144b}.mConditionalCalculationRequirements.mSubRequirements.1.mRange": 1300,
+      "calc:ExecuteHealthThreshold.0.mStat": 12,
+      "calc:ExecuteHealthThreshold.1.mStat": 2,
+      "calc:ExecuteHealthThreshold.1.mCoefficient": 1
+    },
+    "3867": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300,
+      "GP10": 5
+    },
+    "3869": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300,
+      "GP10": 9,
+      "Cooldown": 18,
+      "MeleeShieldDRPercentage": 0.35,
+      "RangedShieldDRPercentage": 0.25,
+      "ShieldLingerAfterInitiallyPopped": 2,
+      "Radius": 500,
+      "SlowDuration": 1.5,
+      "SlowAmount": 0.5
+    },
+    "3870": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300,
+      "GP10": 9,
+      "RechargeTime": 8,
+      "MaxBubbleStack": 2,
+      "BubbleDuration": 3,
+      "PurpleBubbleAoEMod": 0.333,
+      "MinHealAmount": 20,
+      "Cooldown": 8,
+      "calc:FlatDR.0.mLevel1Value": 50,
+      "calc:FlatDR.0.mBreakpoints.0.mLevel": 7,
+      "calc:FlatDR.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 12,
+      "calc:ProcDmg.0.mLevel1Value": 40,
+      "calc:ProcDmg.0.mBreakpoints.0.mLevel": 7,
+      "calc:ProcDmg.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 10
+    },
+    "3871": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300,
+      "GP10": 9,
+      "APRatio": 0.15,
+      "PercentHPDamage": 0.03,
+      "MonsterDamageCap": 300,
+      "BaseDamage": 10,
+      "calc:Cooldown.0.mNumber": 10
+    },
+    "3876": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300,
+      "GP10": 9,
+      "Cooldown": 30,
+      "BuffDuration": 2.5,
+      "MoveSpeedBuff": 0.2,
+      "MoveSpeedRange": 1500,
+      "BonusHealthBuffRatio": 0.07,
+      "calc:BonusHealthBuff.0.mLevel1Value": 50,
+      "calc:BonusHealthBuff.0.mBreakpoints.0.mLevel": 7,
+      "calc:BonusHealthBuff.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 15
+    },
+    "3877": {
+      "StealthWardCap": 4,
+      "IncreasedWardRange": 300,
+      "GP10": 9,
+      "BaseADRatio": 0.1,
+      "SheenMult": 1,
+      "SpellbladeCooldown": 1.5,
+      "DebuffDuration": 4,
+      "MeleeDamageAmp": 0.08,
+      "RangedDamageAmp": 0.05,
+      "Cooldown": 1.5,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:{ce8aadac}.0.mStat": 2,
+      "calc:{ce8aadac}.0.mStatFormula": 1,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1
+    },
+    "3916": {
+      "GrievousAmount": 0.4,
+      "GrievousDuration": 3
+    },
+    "4003": {
+      "Duration": 4,
+      "Cooldown": 45,
+      "LethalityAmount": 5
+    },
+    "4004": {
+      "Duration": 4,
+      "Cooldown": 45,
+      "LethalityAmount": 15
+    },
+    "4005": {
+      "DamageAmp": 0.07,
+      "DamageAmpDuration": 4,
+      "ImmobilizingAbilityAH": 20
+    },
+    "4010": {
+      "ShredPerStack": 0.075,
+      "DebuffDuration": 6,
+      "InternalCD": 0.3,
+      "MaxStacks": 4
+    },
+    "4011": {
+      "BaseHealAmountTOOLTIPMIN": 15,
+      "BaseHealAmountTOOLTIPMAX": 45,
+      "ASPerHS": 1.2,
+      "HealbADRatio": 0.1,
+      "HealAPRatio": 0.1,
+      "calc:TotalHealing.0.mStartValue": 15,
+      "calc:TotalHealing.0.mEndValue": 45,
+      "calc:TotalHealing.1.mStat": 2,
+      "calc:TotalHealing.1.mStatFormula": 2,
+      "calc:TotalAS.0.mStat": 34,
+      "calc:TotalAS.mPrecision": 2
+    },
+    "4012": {
+      "Cooldown": 20,
+      "EffectRadius": 1400
+    },
+    "4013": {
+      "ChainCadence": 1,
+      "AbilityDamageMod": 0.2,
+      "AbilityDamageChain": 0.666,
+      "ChainRange": 900
+    },
+    "4014": {
+      "MoveSpeedModPerStackMELEE": 0.07,
+      "MoveSpeedModPerStackRANGED": 0.05,
+      "MoveSpeedModMax": 0.35,
+      "SlowDuration": 1.5,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "4015": {
+      "MaxBonusDamagePercent": 0.15,
+      "MaxHealthDifference": 3000
+    },
+    "4016": {
+      "APShare": 0.1,
+      "AHShare": 0.1,
+      "TetherRange": 1250,
+      "Cooldown": 15
+    },
+    "4017": {
+      "CurrentHealthHeal": 0.07,
+      "MissingHealthPerTick": 0.007,
+      "bADPerTick": 0.06,
+      "APPerTick": 0.05,
+      "TicksPerSecond": 2,
+      "SecondsOfBurn": 4,
+      "MonsterCapPerTick": 150,
+      "LethalityAmount": 12,
+      "StaleCastTime": 2.5,
+      "CurrentHealthBaseDamage": 0.07,
+      "HealthFactor": 1000,
+      "MaxMultiplier": 3,
+      "Cooldown": 8,
+      "calc:FlatDamagePerSecondTOOLTIP.0.mNumber": 2,
+      "calc:FlatDamagePerSecondTOOLTIP.1.mStat": 29,
+      "calc:FlatDamagePerSecondTOOLTIP.1.mCoefficient": 0.15,
+      "calc:{c8e45bc3}.0.mNumber": 2,
+      "calc:{c8e45bc3}.1.mStat": 29,
+      "calc:{c8e45bc3}.1.mCoefficient": 0.15,
+      "calc:CurrentHealthCalc.1.mStat": 29,
+      "calc:CurrentHealthCalc.1.mCoefficient": 0.0005,
+      "calc:{2ec13fd1}.mMultiplier.mNumber": 100
+    },
+    "4401": {
+      "BuffDuration": 7,
+      "MoveSpeed": 0.06,
+      "MaxStacks": 8,
+      "ImmobilizeStacks": 2,
+      "StackRefreshTimer": 1,
+      "BonusMagicResist": 70
+    },
+    "4402": {
+      "EternityManaRestore": 0.15,
+      "EternityHealthRestore": 0.25,
+      "EternityMaxHealPerCast": 20,
+      "EternityCDPerCast": 1
+    },
+    "4628": {
+      "BuffDuration": 6,
+      "SnipeRange": 600,
+      "ItemCooldown": 30,
+      "VisionRadius": 1400,
+      "VisionDuration": 2,
+      "SecondaryBuffDuration": 3,
+      "Cooldown": 30,
+      "DamageAmp": 0.1
+    },
+    "4629": {
+      "StackDuration": 4,
+      "MaxStacks": 3,
+      "MovespeedToGrant": 40,
+      "MaxMovespeedTooltip": 0.15,
+      "ItemCooldown": 10,
+      "calc:MoveSpeedAmount.0.mNumber": 20
+    },
+    "4632": {
+      "MagicResistPerStack": 0.3,
+      "Period": 60,
+      "MaxMR": 9,
+      "CooldownReductionAmount": 0.05,
+      "SpellShieldCooldown": 60,
+      "Cooldown": 60
+    },
+    "4633": {
+      "SecondsInCombat": 4,
+      "EternityDamageIncreasePerSecond": 0.02,
+      "EternityDamageIncreaseMax": 0.08,
+      "BuffCounterDuration": 4,
+      "HealthToAPConversionPercent": 0.02,
+      "MaxAPMultiplier": 0.05,
+      "VampAmountMelee": 0.1,
+      "VampAmountRanged": 0.06,
+      "calc:{1247259a}.0.mStat": 12,
+      "calc:{1247259a}.0.mStatFormula": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "4635": {
+      "calc:{3221488f}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{3221488f}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{3221488f}.0.mCeiling": 1,
+      "calc:{3221488f}.0.0.Coefficient": 1,
+      "calc:{3221488f}.0.0.epicness": 6,
+      "calc:{3221488f}.0.1.mCoefficient": 1
+    },
+    "4636": {
+      "MovementSpeedDuration": 1.5,
+      "PercentMovespeedGain": 0.25,
+      "TimerDuration": 30,
+      "MythicPassiveAbilityHaste": 5,
+      "BaseDamage": 125,
+      "APRatio": 0.15,
+      "calc:MythicPassiveBonus.0.Coefficient": 1,
+      "calc:MythicPassiveBonus.0.epicness": 5
+    },
+    "4637": {
+      "Duration": 4,
+      "RangedMaxHealthDamagePerTick": 0.01,
+      "TickRatePerXSeconds": 1,
+      "MeleeMaxHealthDamagePerTick": 0.016,
+      "HealthToAPConversionPercent": 0.02,
+      "MonsterCap": 40,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:MeleeItemCalcValue.mPrecision": 1,
+      "calc:RangedItemCalcValue.mPrecision": 1,
+      "calc:{1247259a}.0.mStat": 12,
+      "calc:{1247259a}.0.mStatFormula": 2,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "4638": {
+      "MaxJammerCharges": 3,
+      "NewWardMax": 3
+    },
+    "4641": {
+      "MaxJammerCharges": 2,
+      "TOOLTIPMinimumCost": 600,
+      "TOOLTIPReductionPerPink": 75
+    },
+    "4643": {
+      "MaxJammerCharges": 3,
+      "WardIncrease": 1,
+      "NewWardMax": 4,
+      "BonusStatMod": 0.2,
+      "BaseWardMax": 3
+    },
+    "4644": {
+      "OutOfCombatDuration": 40,
+      "MythicMovespeed": 0.01,
+      "GraceDuration": 3,
+      "ShieldDRPercentage": 0.4,
+      "ShieldLingerAfterInitiallyPopped": 2.5,
+      "TooltipAPMin": 10,
+      "TooltipAPMax": 40,
+      "MythicAbilityPower": 8,
+      "calc:BonusStatWhenShieldActive.0.mLevel1Value": 10,
+      "calc:BonusStatWhenShieldActive.0.mBreakpoints.0.mLevel": 9,
+      "calc:BonusStatWhenShieldActive.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 3
+    },
+    "4645": {
+      "HealthThreshold": 0.4,
+      "SpellItemDamageAmp": 0.2,
+      "DamageOverTimeAmp": 0.2
+    },
+    "4646": {
+      "WindowDuration": 2.5,
+      "Cooldown": 30,
+      "DelayDuration": 2,
+      "APRatio": 0.1,
+      "DamageThreshold": 0.25,
+      "ProcMoveSpeedDuration": 1.5,
+      "RangedProcDamageMod": 1,
+      "BaseDamage": 125,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "6029": {
+      "Cooldown": 20,
+      "HealthThreshold": 0.5,
+      "Radius": 450,
+      "ActiveADRatio": 1,
+      "calc:PrimaryDamage.0.mStat": 2,
+      "calc:PrimaryDamage.0.mStatFormula": 1
+    },
+    "6035": {
+      "Tenacity": 0.5,
+      "SlowResist": 0.5,
+      "Duration": 3
+    },
+    "6333": {
+      "BleedDurationWorst": 3,
+      "HealDuration": 2,
+      "MS": 0.4,
+      "TakedownWindow": 3,
+      "BonusADRatio": 0.75,
+      "calc:HealTotal.0.mStat": 2,
+      "calc:HealTotal.0.mStatFormula": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:MeleeItemCalcValue.0.mNumber": 0.3,
+      "calc:RangedItemCalcValue.0.mNumber": 0.1,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "6609": {
+      "GrievousAmount": 0.4,
+      "GrievousDuration": 3
+    },
+    "6610": {
+      "CritModifier": 0.8,
+      "Cooldown": 10,
+      "HealBaseADRatio": 0.9,
+      "MissingHealthHeal": 0.04,
+      "RangedHealMod": 0.5,
+      "calc:{01099b16}.0.mStat": 2,
+      "calc:{01099b16}.0.mStatFormula": 1
+    },
+    "6616": {
+      "BuffDuration": 6,
+      "APMod": 40,
+      "AHMod": 15
+    },
+    "6617": {
+      "EffectRange": 800,
+      "ChainHeal": 0.3,
+      "ChainShield": 0.35,
+      "SingleHeal": 0.3,
+      "SingleShield": 0.35
+    },
+    "6620": {
+      "DamageStorageRate": 0.3,
+      "ChargeToHealConversion": 1,
+      "MinimumHealToTrigger": 10,
+      "calc:MaxCharges.0.mLevel1Value": 80,
+      "calc:MaxCharges.0.mInitialBonusPerLevel": 10
+    },
+    "6621": {
+      "APPerManaRegen": 10,
+      "HSPowerPerManaRegen": 0.02
+    },
+    "6630": {
+      "Cooldown": 15,
+      "ADRatio": 1.75,
+      "MissingHealthHeal": 0.08,
+      "MythicHasteAmount": 3,
+      "CleaveRadius": 450,
+      "HealBaseADRatio": 0.2,
+      "MythicHealthAmount": 75,
+      "calc:SlashDamage.0.mStat": 2,
+      "calc:SlashDamage.0.mStatFormula": 1,
+      "calc:CurrentMythicBonus.0.Coefficient": 1,
+      "calc:CurrentMythicBonus.0.epicness": 5,
+      "calc:Heal.0.mStat": 2,
+      "calc:MythicHealthBonus.0.Coefficient": 1,
+      "calc:MythicHealthBonus.0.epicness": 5
+    },
+    "6631": {
+      "Cooldown": 15,
+      "ADRatio": 0.8,
+      "MSSlow": -0.35,
+      "Duration": 3,
+      "CleaveRadius": 450,
+      "ActiveMS": 0.35,
+      "PassiveRadius": 350,
+      "MoveSpeedDuration": 2,
+      "DecayRate": 0.8,
+      "MaxProcPerAuto": 10,
+      "calc:SlashDamage.0.mStat": 2,
+      "calc:MeleeItemCalcValue.0.mStat": 2,
+      "calc:MeleeItemCalcValue.0.mCoefficient": 0.4,
+      "calc:RangedItemCalcValue.0.mStat": 2,
+      "calc:RangedItemCalcValue.0.mCoefficient": 0.2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{06387172}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "6632": {
+      "MythicPenAmount": 0.03,
+      "MeleePercentHP": 0.04,
+      "ADConversion": 0.25,
+      "SheenMult": 1.6,
+      "RangedValue": 0.03,
+      "MeleeValue": 0.06,
+      "SpellbladeCooldown": 1.5,
+      "RangedPercentHP": 0.02,
+      "HealConversionPercent": 0.55,
+      "calc:BonusPenFromMythics.0.Coefficient": 1,
+      "calc:BonusPenFromMythics.0.epicness": 5,
+      "calc:MinSpellbladeDamage.0.mStat": 2,
+      "calc:MinSpellbladeDamage.0.mStatFormula": 1,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:MonsterCap.mSimpleTooltipCalculationDisplay": 6,
+      "calc:MonsterCap.mExpandedTooltipCalculationDisplay": 6,
+      "calc:MonsterCap.0.mStat": 2,
+      "calc:MonsterCap.0.mStatFormula": 1,
+      "calc:MonsterCap.0.mCoefficient": 2.5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "6653": {
+      "BurnDuration": 3,
+      "BurnPercentHealthDamage": 0.02,
+      "DamageIncreasePerSecond": 0.02,
+      "DamageIncreaseMax": 0.06,
+      "TickFrequency": 0.5,
+      "MonsterDamageCap": 40,
+      "MaxDamageHPThreshold": 1250,
+      "BuffCounterDuration": 3,
+      "MaxStackNumber": 3
+    },
+    "6655": {
+      "Cooldown": 12,
+      "BaseDamage": 75,
+      "APRatio": 0.05,
+      "MaxCharges": 6,
+      "RepeatDamageReduction": 0.2,
+      "MissileRange": 650,
+      "calc:SingleTargetMax.mMultiplier.mNumber": 2
+    },
+    "6656": {
+      "MythicStatAmount": 10,
+      "SlowAmount": 0.65,
+      "SlowDuration": 1,
+      "Cooldown": 30,
+      "calc:DamageAmount.0.mNumber": 100,
+      "calc:DamageAmount.1.mCoefficient": 0.3
+    },
+    "6657": {
+      "HealthPerStack": 10,
+      "ManaPerStack": 30,
+      "APPerStack": 3,
+      "MaxStacks": 10,
+      "EternityManaRestore": 0.1,
+      "EternityHealthRestore": 0.25,
+      "EternityMaxHealPerCast": 20,
+      "EternityCDPerCast": 1,
+      "SecondsPerStack": 60
+    },
+    "6660": {
+      "Range": 300,
+      "MinionMod": 0.5,
+      "Cooldown": 12,
+      "MonsterMod": 1,
+      "AuraDuration": 3,
+      "TicksPerSecond": 1,
+      "calc:DamagePerTick.0.mNumber": 15
+    },
+    "6662": {
+      "SlowAmount": 0.25,
+      "SlowFieldDuration": 2,
+      "AoERadius": 300,
+      "MonsterMod": 1.5,
+      "AuraDuration": 3,
+      "RangedSlowAmount": 0.125,
+      "SpellbladeMultiplier": 1.5,
+      "SpellbladeCooldown": 1.5,
+      "Cooldown": 1.5,
+      "calc:SpellbladeDamage.0.mStat": 2,
+      "calc:SpellbladeDamage.0.mStatFormula": 1
+    },
+    "6664": {
+      "MinionMod": 0.25,
+      "MonsterMod": 0.25,
+      "Range": 300,
+      "AuraDuration": 3,
+      "TicksPerSecond": 1,
+      "BaseDamagePerTickTOOLTIPONLY": 10,
+      "HPRatioPerTickTOOLTIPONLY": 1.75,
+      "Cooldown": 12,
+      "ProcAoE": 350,
+      "ProcDPSMultiplier": 2,
+      "ChampProcDPSMultiplier": 4,
+      "TakedownWindow": 3,
+      "ChampProcAoE": 500,
+      "calc:DamagePerTick.0.mNumber": 15,
+      "calc:DamagePerTick.1.mStat": 12,
+      "calc:DamagePerTick.1.mStatFormula": 2,
+      "calc:DamagePerTick.1.mCoefficient": 0.01,
+      "calc:{049cea52}.mMultiplier.mNumber": 1
+    },
+    "6665": {
+      "BonusResistPercentage": 0.3,
+      "MaxStacks": 5
+    },
+    "6667": {
+      "AuraRange": 1200,
+      "MythicPassiveHealth": 75,
+      "PercentMaxHealthIncrease": 0.125,
+      "TranscendDuration": 9,
+      "HealCadence": 3,
+      "PercentMaxHealthPeriodicHeal": 0.025,
+      "TranscendCooldown": 90,
+      "calc:{3066c1c3}.0.Coefficient": 1,
+      "calc:{3066c1c3}.0.epicness": 5,
+      "calc:HealthIncrease.0.mStat": 12,
+      "calc:{fe5a2b1e}.0.mPart1.mStat": 12,
+      "calc:{fe5a2b1e}.0.mPart1.mSubpart.0.mNumber": 1,
+      "calc:TotalHealingTooltip.mMultiplier.mNumber": 4
+    },
+    "6671": {
+      "MythicStatAmount": 5,
+      "Cooldown": 120,
+      "MaxDistance": 425,
+      "MinDistance": 200,
+      "DashSpeed": 1350,
+      "ExecuteMaxThreshold": 0.25,
+      "ExecuteMaxDamage": 0.5,
+      "MaxDamageFromCrit": 200,
+      "MinDamageTooltip": 150,
+      "MaxDamageTooltip": 350,
+      "calc:DamageAmount.0.mLevel1Value": 150,
+      "calc:DamageAmount.0.mBreakpoints.0.mLevel": 9,
+      "calc:DamageAmount.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 20,
+      "calc:DamageAmount.1.mStat": 2,
+      "calc:DamageAmount.1.mStatFormula": 2,
+      "calc:DamageAmount.1.mCoefficient": 0.45,
+      "calc:MaximumDamage.mMultiplier.0.mNumber": 1,
+      "calc:MythicAD.0.Coefficient": 1,
+      "calc:MythicAD.0.epicness": 5
+    },
+    "6672": {
+      "AttackCount": 3,
+      "BuffDuration": 4,
+      "MaxAmpNumber": 1.75,
+      "RangedDamageMultiplier": 0.8,
+      "calc:DamageAmount.0.mLevel1Value": 150,
+      "calc:DamageAmount.0.mBreakpoints.0.mLevel": 9,
+      "calc:DamageAmount.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 5
+    },
+    "6673": {
+      "ShieldDuration": 3,
+      "Cooldown": 90,
+      "BuffDuration": 8,
+      "HealthThreshold": 0.3,
+      "calc:ShieldAmount.0.mLevel1Value": 400,
+      "calc:ShieldAmount.0.mBreakpoints.0.mLevel": 9,
+      "calc:ShieldAmount.0.mBreakpoints.0.mBonusPerLevelAtAndAfter": 30,
+      "calc:ShieldAmount.mRangedMultiplier.mNumber": 0.8
+    },
+    "6675": {
+      "CDRAmount": 0.15
+    },
+    "6676": {
+      "LethalityAmount": 10,
+      "ExecuteThreshold": 0.05,
+      "GoldAmount": 25
+    },
+    "6677": {
+      "OnHitDamage": 20,
+      "AttackSpeedPerStack": 0.05,
+      "MaxStacks": 3,
+      "BuffDuration": 3
+    },
+    "6691": {
+      "LethalityAmount": 18,
+      "MythicHasteAmount": 5,
+      "StealthDuration": 1.5,
+      "Cooldown": 30,
+      "TakedownWindow": 3,
+      "SlowAmount": 0.99,
+      "SlowDuration": 0.25,
+      "MeleeBaseDamage": 75,
+      "MeleeBonusADRatio": 0.3,
+      "RangedBaseDamage": 55,
+      "RangedBonusADRatio": 0.25,
+      "MythicMovespeedAmount": 5,
+      "MaxAmpAmount": 1,
+      "MinHealthThreshold": 0.3,
+      "SpellMaxAmp": 0.16,
+      "calc:MeleeItemCalcValue.1.mStat": 2,
+      "calc:MeleeItemCalcValue.1.mStatFormula": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:RangedItemCalcValue.1.mStat": 2,
+      "calc:RangedItemCalcValue.1.mStatFormula": 2,
+      "calc:MythicPassiveMSToolTip.0.Coefficient": 1,
+      "calc:MythicPassiveMSToolTip.0.epicness": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2
+    },
+    "6692": {
+      "WindowDuration": 2,
+      "MeleePercMaxHP": 0.08,
+      "RangedPercMaxHPMult": 0.625,
+      "Cooldown": 6,
+      "ShieldDuration": 2,
+      "MeleeBaseShield": 150,
+      "MeleeBonusADShieldRatio": 0.4,
+      "RangedShieldMult": 0.5,
+      "calc:{d02ea590}.1.mStat": 2,
+      "calc:{d02ea590}.1.mStatFormula": 2
+    },
+    "6693": {
+      "LethalityAmount": 22,
+      "Cooldown": 30,
+      "MeleeBaseDamage": 85,
+      "RangedBaseDamage": 65,
+      "BuffDuration": 4,
+      "SlowAmount": 0.99,
+      "SlowDuration": 0.5,
+      "MissingHPPerc": 0.1,
+      "CurrentHPPerc": 0.1,
+      "calc:MeleeItemCalcValue.1.mStat": 2,
+      "calc:MeleeItemCalcValue.1.mStatFormula": 2,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:RangedItemCalcValue.1.mStat": 2,
+      "calc:RangedItemCalcValue.1.mStatFormula": 2
+    },
+    "6694": {
+      "SlowAmount": 0.3,
+      "SlowDuration": 1,
+      "LethalityAmount": 15,
+      "SlowThreshold": 0.5,
+      "calc:PenCalc.1.mStat": 29
+    },
+    "6695": {
+      "LethalityAmount": 15,
+      "ShieldShred": 50,
+      "ShieldWounds": 50,
+      "DebuffDuration": 3,
+      "ShieldWoundsRange": 35,
+      "ShieldShredRange": 35
+    },
+    "6696": {
+      "UltimateRefundBase": 10,
+      "LethalityAmount": 18,
+      "ResetWindow": 3,
+      "calc:UltimateRefund.1.mStat": 29,
+      "calc:UltimateRefund.1.mCoefficient": 0.25
+    },
+    "6697": {
+      "LethalityAmount": 18,
+      "MSDuration": 3,
+      "MinHealthThreshold": 0.3,
+      "TakedownWindow": 3,
+      "SpeedAmount": 0.3,
+      "BonusLethality": 15,
+      "ADPerStatue": 3,
+      "BuffDuration": 90,
+      "BaseADBonus": 12,
+      "calc:{5974e68a}.0.mCoefficient": 1
+    },
+    "6698": {
+      "LethalityAmount": 18,
+      "Cooldown": 10,
+      "CleaveRadius": 350,
+      "ActiveRadius": 450,
+      "HealthThreshold": 0.5,
+      "MaxProcPerAuto": 10,
+      "calc:SlashDamageBase.0.mStat": 2,
+      "calc:SlashDamageBase.0.mCoefficient": 0.8,
+      "calc:SlashDamageMax.0.mStat": 2,
+      "calc:SlashDamageMax.0.mCoefficient": 0.8,
+      "calc:ChampRange.mSimpleTooltipCalculationDisplay": 5,
+      "calc:ChampRange.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{792cf56b}.0.mNumber": 1,
+      "calc:{06387172}.mSimpleTooltipCalculationDisplay": 5,
+      "calc:{06387172}.mExpandedTooltipCalculationDisplay": 5,
+      "calc:{06387172}.0.mNumber": 2,
+      "calc:MeleeItemCalcValue.0.mStat": 2,
+      "calc:MeleeItemCalcValue.0.mCoefficient": 0.4,
+      "calc:RangedItemCalcValue.0.mStat": 2,
+      "calc:RangedItemCalcValue.0.mCoefficient": 0.2,
+      "calc:CleaveDamage.0.mStat": 2,
+      "calc:CleaveDamage.0.mCoefficient": 0.4,
+      "calc:CleaveDamage.mRangedMultiplier.mNumber": 0.5
+    },
+    "6699": {
+      "PercentCurrentHPMelee": 9,
+      "PercentCurrentHPRanged": 7,
+      "LethalityBonusModMelee": 15,
+      "LethalityBonusModRanged": 12,
+      "LethalityBonusDuration": 4,
+      "LethalityAmount": 10,
+      "NonChampCap": 200
+    },
+    "6700": {
+      "Cooldown": 8,
+      "MSProc": 0.2
+    },
+    "6701": {
+      "LethalityAmount": 18,
+      "SpeedBaseline": 50,
+      "SpeedKill": 200,
+      "MSDuration": 1.5,
+      "CombatTimer": 8,
+      "DamageWindowDuration": 3,
+      "RangedLethalityMultiplier": 0.455,
+      "calc:BonusLethalityCalc.mExpandedTooltipCalculationDisplay": 5,
+      "calc:BonusLethalityCalc.0.mNumber": 11
+    },
+    "6702": {
+      "SweeperCD": 60,
+      "RevealDuration": 3,
+      "MistDuration": 5
+    },
+    "8001": {
+      "ActiveCooldown": 90,
+      "MaxDRStacks": 30,
+      "SecondsPerStack": 2,
+      "DebuffRadius": 700,
+      "PercentTenacityReduc": 20,
+      "CombatCD": 15,
+      "TooltipMaxStackTime": 60,
+      "Cooldown": 90
+    },
+    "8010": {
+      "ShredPerStack": 0.075,
+      "DebuffDuration": 6,
+      "InternalCD": 0.3,
+      "MaxStacks": 4
+    },
+    "8020": {
+      "Radius": 700,
+      "DamageAmp": 0.12
+    }
+  },
+  "perks": {
+    "5001": {
+      "StatGainMin": 10,
+      "StatGainMax": 180
+    },
+    "5002": {
+      "StatGain": 6
+    },
+    "5003": {
+      "StatGain": 8
+    },
+    "5004": {
+      "StatGain": 5.6
+    },
+    "5005": {
+      "StatGain": 10
+    },
+    "5006": {
+      "StatGain": 9
+    },
+    "5007": {
+      "HasteGain": 8
+    },
+    "5008": {
+      "StatGain2": 9,
+      "StatGain1": 5.4
+    },
+    "5009": {
+      "{86600d85}": 3,
+      "{92602069}": 1.8,
+      "{3b68cb47}": 22,
+      "{2768abcb}": 12
+    },
+    "5010": {
+      "StatGain1": 2.5
+    },
+    "5011": {
+      "StatGain": 65
+    },
+    "5012": {
+      "StatGainMin": 1,
+      "StatGainMax": 8
+    },
+    "5013": {
+      "StatGain": 15
+    },
+    "8004": {
+      "AttackSpeed": 0,
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8005": {
+      "MinDamage": 40,
+      "MaxDamage": 160,
+      "BonusADRatio": 0,
+      "APRatio": 0,
+      "LethalityRatio": 0,
+      "HitsRequired": 3,
+      "TimeBetweenHits": 4,
+      "AmpPotencyMaxSelf": 0.08,
+      "AmpDuration": 5,
+      "AmpPotencyMaxOthers": 0.08,
+      "AmpPotencyStartSelf": 0.08,
+      "AmpPotencyStartOthers": 0.08,
+      "BonusPercentDamage": 0.08,
+      "OutOfCombatTimer": 5,
+      "Cooldown": 6
+    },
+    "8006": {
+      "AttackSpeed": 0,
+      "Health": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8007": {
+      "AttackSpeed": 0
+    },
+    "8008": {
+      "Duration": 6,
+      "MaxStacks": 6,
+      "TTASPerStackMelee": 0.06,
+      "PerfectlyTimedForgivance": 0.25,
+      "TTASPerStackRanged": 0.04,
+      "TTMinNoteDamageMelee": 9,
+      "TTMaxNoteDamageMelee": 30,
+      "TTMinNoteDamageRanged": 6,
+      "TTMaxNoteDamageRanged": 24
+    },
+    "8009": {
+      "PercentManaRestore": 0.15,
+      "CooldownDuration": 8,
+      "MinFlatRestore": 6,
+      "MaxFlatRestore": 50,
+      "EnergyRestore": 6
+    },
+    "8010": {
+      "MinAdaptivePerStack": 1.8,
+      "MaxAdaptivePerStack": 4,
+      "MaxStacks": 12,
+      "BuffDuration": 5,
+      "TimeUntilNextStackFromSameSpell": 4,
+      "HealingPercent": 0.08,
+      "RangedHealingPercent": 0.05
+    },
+    "8014": {
+      "EnemyHealthPercentageThreshold": 0.4,
+      "BonusPercentDamage": 0.08
+    },
+    "8016": {
+      "AttackSpeed": 0,
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8017": {
+      "MinBonusDamagePercent": 0.05,
+      "MaxBonusDamagePercent": 0.15,
+      "MinHealthDifference": 0.1,
+      "MaxHealthDifference": 1,
+      "EnemyHealthPercentageThreshold": 0.6,
+      "BonusPercentDamage": 0.08
+    },
+    "8021": {
+      "HealBonusADRatio": 0.1,
+      "HealAPRatio": 0.05,
+      "HealBase": 15,
+      "HealMax": 160,
+      "MSBuff": 0.2,
+      "MSDuration": 1,
+      "RangedMSMod": 0.75,
+      "RangedHealMod": 0.6,
+      "MinionHealMod": 0.15
+    },
+    "8105": {
+      "OOCMS": 8,
+      "StartingOOCMS": 0
+    },
+    "8106": {
+      "AdditionalUltAH": 5,
+      "StartingUltAH": 6
+    },
+    "8109": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8112": {
+      "Cooldown": 20,
+      "DamageBase": 70,
+      "DamageMax": 240,
+      "BonusADRatio": 0.1,
+      "WindowDuration": 3,
+      "APRatio": 0.05,
+      "CooldownMin": 20
+    },
+    "8114": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "Health": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8115": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8120": {
+      "MaxDuration": 90,
+      "AdaptiveForce": 2,
+      "CompletionBonus": 10,
+      "MaxStacks": 10,
+      "RevealDuration": 6
+    },
+    "8124": {
+      "InitialTimer": 0,
+      "{13a08f19}": 120,
+      "MSBase": 0.1,
+      "{f218c654}": 0.25,
+      "{f95758f2}": 1800,
+      "HuntDuration": 10,
+      "DamageMin": 20,
+      "DamageMax": 180,
+      "ADRatio": 0.25,
+      "APRatio": 0.15,
+      "CooldownMin": 60,
+      "ChannelDuration": 1.5,
+      "{89005c04}": 0.5
+    },
+    "8126": {
+      "DamageIncMin": 10,
+      "DamageIncMax": 45,
+      "Cooldown": 4
+    },
+    "8127": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "AttackSpeed": 0
+    },
+    "8128": {
+      "HarvestThreshold": 0.5,
+      "Cooldown": 35,
+      "BaseDamage": 30,
+      "ADRatio": 0.1,
+      "APRatio": 0.05,
+      "DamagePerSoulEssence": 11,
+      "CooldownResetValue": 1
+    },
+    "8134": {
+      "ActiveItemAHPerStack": 6,
+      "StartingActiveItemAH": 20
+    },
+    "8135": {
+      "BaseGoldAmount": 50,
+      "GoldGrowth": 20,
+      "TOOLTIPMaxGoldAmount": 130
+    },
+    "8136": {
+      "WardDuration": 120,
+      "{fcc6f3ad}": 1,
+      "AdaptiveForce": 2,
+      "CompletionBonus": 10,
+      "MaxStacks": 10
+    },
+    "8137": {
+      "{d3bd04a2}": 900,
+      "MeleeItemCalcValue": 250,
+      "RangedItemCalcValue": 250,
+      "LevelThreshold": 11,
+      "RevealDuration": 10
+    },
+    "8138": {
+      "AdaptiveForce": 2,
+      "StacksPerTakedown": 1,
+      "MaxEyeballs": 10,
+      "CompletionBonus": 10,
+      "StacksPerAssist": 1
+    },
+    "8139": {
+      "HealAmount": 16,
+      "Cooldown": 20,
+      "HealAmountMax": 40,
+      "RegenDuration": 4,
+      "ADRatio": 0.1,
+      "APRatio": 0.05
+    },
+    "8140": {
+      "TrinketAH": 6,
+      "StacksPerTakedown": 1,
+      "SummonerAH": 3,
+      "MaxStacks": 18
+    },
+    "8141": {
+      "ExtraHealth": 1,
+      "LevelThreshold": 9,
+      "TTDurationIncreaseMin": 30,
+      "TTDurationIncreaseMax": 45,
+      "TTTrinketDurationIncreaseMin": 45,
+      "TTTrinketDurationIncreaseMax": 150
+    },
+    "8143": {
+      "ArmedDuration": 4,
+      "Cooldown": 10,
+      "MinDamageTooltip": 20,
+      "MaxDamageTooltip": 80
+    },
+    "8205": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "AttackSpeed": 0
+    },
+    "8207": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8208": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "Health": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8210": {
+      "HasteBonus1": 0.05,
+      "LevelToTurnOn": 5,
+      "LevelToTurnOn2": 8,
+      "HasteBonus2": 0.05,
+      "KillCooldownRefund": 0.2,
+      "LevelToTurnOn3": 11
+    },
+    "8214": {
+      "ShieldBase": 20,
+      "ShieldMax": 100,
+      "ShieldRatio": 0.05,
+      "DamageMax": 50,
+      "DamageBase": 10,
+      "DamageAPRatio": 0.05,
+      "DamageADRatio": 0.1,
+      "ShieldRatioAD": 0.1,
+      "ShieldDuration": 2.5
+    },
+    "8220": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8224": {
+      "UltimateRefundBase": 7,
+      "DamageAmp": 0.12,
+      "AOEAmp": 0.08
+    },
+    "8226": {
+      "{2f748280}": 0.1,
+      "Cooldown": 15,
+      "{2cde474e}": 0.4,
+      "ManaIncrease": 25,
+      "MaxManaIncrease": 250,
+      "PercentManaRestore": 0.01,
+      "PercentManaRestoreCooldown": 5
+    },
+    "8229": {
+      "RechargeTime": 20,
+      "DamageBase": 15,
+      "DamageMax": 100,
+      "APRatio": 0.05,
+      "ADRatio": 0.1,
+      "RechargeTimeMin": 8,
+      "PercentRefund": 0.2,
+      "DotPercentRefund": 0.05,
+      "AoEPercentRefund": 0.1,
+      "MaxDamageAmp": 1,
+      "MaxRange": 750
+    },
+    "8230": {
+      "SlowResist": 0.5,
+      "Duration": 4,
+      "Window": 3,
+      "MinCooldown": 10,
+      "MaxCooldown": 20,
+      "RangedEffectiveness": 0.75,
+      "DamageThreshold": 0.25,
+      "HasteMax": 0.48
+    },
+    "8232": {
+      "MovementSpeed": 10,
+      "{6f2f0d30}": 1,
+      "MinAdaptive": 13,
+      "MaxAdaptive": 30
+    },
+    "8233": {
+      "HealthPercent": 0.7,
+      "MinAdaptive": 3,
+      "MaxAdaptive": 30
+    },
+    "8234": {
+      "PercentHasteMod": 0.07,
+      "PercentMS": 0.01
+    },
+    "8236": {
+      "UpdateAfterMinutes": 10,
+      "AdaptiveAP": 8,
+      "AdaptiveAD": 6,
+      "{c5d14564}": 8
+    },
+    "8237": {
+      "BurnlockoutDuration": 10,
+      "Damage": 20,
+      "DamageMax": 40,
+      "DotDuration": 1,
+      "OOCTimer": 0,
+      "{89367404}": 0.1
+    },
+    "8242": {
+      "ResistMin": 10,
+      "ResistMax": 10,
+      "Duration": 2
+    },
+    "8275": {
+      "Duration": 2,
+      "LowCDMSBoost": 0.15,
+      "{1c32110c}": 0.35,
+      "HighCDMSBoost": 0.45,
+      "{2fd68801}": 100,
+      "{b0d06764}": 250
+    },
+    "8299": {
+      "MinBonusDamagePercent": 0.05,
+      "MaxBonusDamagePercent": 0.11,
+      "HealthThresholdStart": 0.6,
+      "HealthThresholdEnd": 0.3
+    },
+    "8304": {
+      "GiveBootsAtMinute": 12,
+      "{c07791e4}": 300,
+      "SecondsSoonerPerTakedown": 45,
+      "AdditionalMovementSpeed": 10
+    },
+    "8306": {
+      "ChannelDuration": 2,
+      "{c85ef93c}": 10,
+      "CooldownTime": 20,
+      "ChampionCombatCooldown": 10,
+      "MinimumChannelDuration": 1,
+      "{d6487c09}": 0.5
+    },
+    "8313": {
+      "FirstElixirLevel": 3,
+      "SecondElixirLevel": 6,
+      "ThirdElixirLevel": 9
+    },
+    "8316": {
+      "{1b48f5ea}": 8,
+      "{55d14eea}": 20,
+      "HastePerStack": 1
+    },
+    "8318": {
+      "AdaptiveForce": 0,
+      "{38d2ce32}": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0
+    },
+    "8319": {
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "{38d2ce32}": 0
+    },
+    "8320": {
+      "Health": 0,
+      "{38d2ce32}": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8321": {
+      "{d856a8af}": 0,
+      "GoldLowerBoundPerMinute": 8,
+      "{c0de5a7f}": 8,
+      "DebtAccumulationStartsAtMinute": 2,
+      "{7957e8a3}": 20,
+      "{8d08b1b5}": 0,
+      "ExcessCostPenaltyFlat": 50,
+      "GoldLowerBoundInitial": 100,
+      "{fa03b4f1}": 150,
+      "{ebbc116e}": -150,
+      "PercentRefund": 0.075
+    },
+    "8339": {
+      "EndTime": 10,
+      "HealthBonus": 100,
+      "ChampionDamagePenalty": 0.1,
+      "MonsterDamagePenalty": 0.1
+    },
+    "8344": {
+      "AttackSpeed": 0,
+      "{38d2ce32}": 0
+    },
+    "8345": {
+      "BiscuitMinuteInterval": 2,
+      "SwapOverMinute": 6,
+      "PermanentHP": 30,
+      "HealthHealPercent": 0.015,
+      "DurationOfEffect": 5,
+      "FlatHeal": 20,
+      "{936e8fc2}": 0.3,
+      "MaximumHealIncrease": 1
+    },
+    "8347": {
+      "ItemHaste": 10,
+      "SummonerHaste": 18
+    },
+    "8351": {
+      "SlowZoneDuration": 3,
+      "SlowZoneSlowBase": 20,
+      "SlowZoneLength": 700,
+      "SlowZoneWidth": 80,
+      "RayCount": 3,
+      "Cooldown": 25,
+      "BeamPosIndent": 100,
+      "CCCarryOverRatio": 100,
+      "DmgReduction": 0.15,
+      "SlowZoneSlowAPRatio": 0.06,
+      "SlowZoneSlowbADRatio": 0.07,
+      "SlowZoneSlowHealShieldRatio": 90
+    },
+    "8352": {
+      "BonusMS": 0,
+      "RestorationPercentage": 0.4,
+      "Cooldown": 20
+    },
+    "8359": {
+      "MeleeRangeIncrease": 0,
+      "RangedRangeIncrease": 0,
+      "{49990055}": 5,
+      "{7b433348}": 60,
+      "{17c9208f}": 0.1,
+      "{98dcc5a5}": 0.7,
+      "{50a64b4d}": 0.15,
+      "{06754de4}": 120,
+      "{f42fdf5e}": 1,
+      "{bfee400f}": 2,
+      "{5b90fdb9}": 4,
+      "{848aadb6}": 1,
+      "{8eb3bb97}": 1,
+      "{0c1d9ab7}": 1,
+      "{975ae1db}": 1,
+      "{a9a67a86}": 2,
+      "{46b7a76d}": 2,
+      "{f2a59282}": 5,
+      "{7b4d3445}": 1,
+      "{9b828003}": 2,
+      "{67d7205c}": 1,
+      "{26b124a0}": 1,
+      "{f0047b10}": 3,
+      "{d3b81c76}": 1,
+      "{9b78c5b9}": 1,
+      "{00ae0d2e}": 1,
+      "{5a22ff59}": 1,
+      "{c6c44884}": 2,
+      "{2d77192c}": 1,
+      "{cbee6b99}": 1,
+      "{eb8937ea}": 1,
+      "{b7afbe93}": 4,
+      "{07b4e7fe}": 3,
+      "{81db2d24}": 3,
+      "{8ae96429}": 4,
+      "{b89c85f3}": 3,
+      "{af8f1a95}": 3,
+      "{62c6bdf9}": 1,
+      "{068734fe}": 3,
+      "{0bdb38f1}": 3,
+      "{d8af7bd8}": 3,
+      "{3ba1f41d}": 1,
+      "{377e6dfb}": 6,
+      "{60c3e07f}": 20,
+      "{05b57c81}": 0.75,
+      "{96725803}": 15,
+      "{8188e7c5}": 0.35,
+      "{cd2b5fde}": 3,
+      "{99b25804}": 0.2,
+      "{a91c15ec}": 0.33,
+      "{27e742e8}": 0.2,
+      "{20dd4169}": 0.2,
+      "{df57a340}": 8,
+      "KleptoCharges": 2
+    },
+    "8360": {
+      "{ea768132}": 1,
+      "{9a847429}": 0,
+      "{0f920874}": 1,
+      "ShardRechargeMinutes": 4.5,
+      "ShardFirstMinutes": 6,
+      "{9d01feeb}": 5,
+      "{b7e0131f}": 5,
+      "NumSummonersBeforeRepeat": 3,
+      "ShardRechargeReductionSeconds": 25,
+      "{a8402a49}": 10,
+      "{0bb7b933}": 6
+    },
+    "8369": {
+      "Duration": 3,
+      "DamageAmp": 0.07,
+      "OOCTimer": 10,
+      "GoldProcBonus": 10,
+      "GoldPercentBonus": 0.5,
+      "GoldPercentBonusRanged": 0.35,
+      "GraceWindow": 0.25,
+      "TooltipOnlyCooldownStartAmount": 25,
+      "TooltipOnlyCooldownEndAmount": 15,
+      "MissileNoiseNumberLimiter": 3,
+      "MissileNoiseRangeLimiter": 1500,
+      "ModesCooldownReduction": 1,
+      "{b50bc5ec}": 0.5,
+      "{7563bf99}": 0.7
+    },
+    "8401": {
+      "ProcDuration": 2,
+      "ShieldRatio": 15,
+      "BonusHealthRatio": 2.5,
+      "BonusShieldMult": 0.1,
+      "ProcBaseMin": 5,
+      "ProcBaseMax": 30
+    },
+    "8410": {
+      "MovementSpeedPercentBonus": 0.15,
+      "ActivationDistance": 1000
+    },
+    "8414": {
+      "Health": 0,
+      "AttackSpeed": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8415": {
+      "Health": 0,
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8416": {
+      "Health": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8429": {
+      "ArmorBase": 8,
+      "MRBase": 8,
+      "ExtraResist": 0.03,
+      "Range": 800,
+      "MinutesRequired": 12
+    },
+    "8430": {
+      "ArmorBase": 5,
+      "TotalExtraArmor": 0.05,
+      "EvolveArmorDuration": 3,
+      "FlatHealThreshold": 20
+    },
+    "8435": {
+      "MRBase": 6,
+      "EvolveShellDuration": 3,
+      "FlatHealThreshold": 20,
+      "EvolveBonusMR": 0.05
+    },
+    "8437": {
+      "PercentHealthDamage": 0.035,
+      "Window": 5,
+      "TriggerTime": 4,
+      "PercentHealthHeal": 0.013,
+      "MaxHealthPerProc": 5,
+      "RangedPenaltyMod": 0.4,
+      "RangedHealthPerProc": 2,
+      "MeleeFlatHeal": 0
+    },
+    "8439": {
+      "DamageRadius": 350,
+      "Cooldown": 20,
+      "StartingBaseDamage": 25,
+      "MaxBaseDamage": 120,
+      "DelayBeforeBurst": 2.5,
+      "HealthRatio": 0.08,
+      "FlatResists": 45,
+      "BonusResistMin": 80,
+      "BonusResistMax": 150,
+      "PercentBonusResist": 0.75
+    },
+    "8444": {
+      "RegenSeconds": 10,
+      "RegenPercentMax": 0.04,
+      "RegenFlat": 0
+    },
+    "8446": {
+      "CooldownSeconds": 30,
+      "{8d810998}": 8,
+      "{97664ba4}": 3,
+      "BaseDamageMelee": 85,
+      "BaseDamageRanged": 50,
+      "HPRatioMelee": 0.28,
+      "HPRatioRanged": 0.2
+    },
+    "8451": {
+      "{1663f8e7}": 0.75,
+      "Range": 1400,
+      "UnitsPerTier": 8,
+      "{ca029a2b}": 2,
+      "FlatHealthPerTier": 3,
+      "ThresholdUnits": 120,
+      "ThresholdMaxHealthRatio": 0.035
+    },
+    "8453": {
+      "HealShieldPower": 0.05,
+      "HealthCutOff": 40,
+      "ExtraAmp": 10
+    },
+    "8454": {
+      "Health": 0,
+      "AdaptiveForce": 0,
+      "AdaptiveAP": 0,
+      "AdaptiveAD": 0,
+      "HealthPerLevel": 0,
+      "HealthAtEighteen": 0
+    },
+    "8463": {
+      "Cooldown": 20,
+      "RangedMod": 0.7
+    },
+    "8465": {
+      "SnuggleRange": 350,
+      "ShieldBase": 40,
+      "ShieldMax": 150,
+      "APRatio": 0.2,
+      "HPRatio": 0.06,
+      "ShieldDuration": 1.5,
+      "Cooldown": 75,
+      "GuardDuration": 2.5,
+      "CooldownMaxLevel": 40,
+      "ThresholdMin": 50,
+      "ThresholdMax": 165
+    },
+    "8472": {
+      "AdaptiveForce": 10,
+      "StartingHealth": 40,
+      "MaxTakedowns": 4,
+      "PercentHealthConsumed": 1
+    },
+    "8473": {
+      "BlockBase": 30,
+      "BlockMax": 60,
+      "BlockCount": 3,
+      "BlockDuration": 1.5,
+      "Cooldown": 55
+    },
+    "8992": {
+      "ADRatio": 0.07,
+      "APRatio": 0.025,
+      "Duration": 4,
+      "TimeToAmp": 3,
+      "DamageMultiplier": 0.75,
+      "AoEDuration": 2,
+      "DotDuration": 1,
+      "Level1DamageTOOLTIP": 3,
+      "{2156e250}": 12,
+      "TicksPerSecond": 2,
+      "APRatioTT": 2.5,
+      "ADRatioTT": 7
+    },
+    "9101": {
+      "TooltipMinHeal": 1,
+      "TooltipMaxHeal": 23
+    },
+    "9103": {
+      "LifeStealPerStack": 0.45,
+      "LifeStealBase": 0,
+      "MaxLegendStacks": 15,
+      "{3e1fdd4a}": 100,
+      "{8fb410e2}": 100,
+      "{f6570baa}": 100,
+      "LargeMonsterKillValue": 25,
+      "MinionKillValue": 4,
+      "BonusHealth": 85
+    },
+    "9104": {
+      "AttackSpeedPerStack": 0.015,
+      "AttackSpeedBase": 0.03,
+      "MaxLegendStacks": 10,
+      "{3e1fdd4a}": 100,
+      "{8fb410e2}": 100,
+      "{f6570baa}": 100,
+      "LargeMonsterKillValue": 25,
+      "MinionKillValue": 4
+    },
+    "9105": {
+      "HastePerStack": 1.5,
+      "HasteBase": 0,
+      "MaxLegendStacks": 10,
+      "{3e1fdd4a}": 100,
+      "{8fb410e2}": 100,
+      "{f6570baa}": 100,
+      "LargeMonsterKillValue": 25,
+      "MinionKillValue": 4
+    },
+    "9111": {
+      "MissingHealthRestored": 0.05,
+      "BonusGold": 20,
+      "TriumphMaxHealthRestored": 0.025
+    },
+    "9923": {
+      "NumHits": 3,
+      "Duration": 3,
+      "ASBoost": 0.9,
+      "Cooldown": 10,
+      "ASBoostRanged": 0.6,
+      "BonusDamageMin": 2,
+      "BonusDamageMax": 20,
+      "BonusADRatio": 0.12,
+      "APRatio": 0.1,
+      "MaxBonusHits": 2
+    }
+  },
+  "champions": {
+    "Aatrox": {
+      "critDamageMultiplier": 2
+    },
+    "Ahri": {
+      "critDamageMultiplier": 2
+    },
+    "Akshan": {
+      "critDamageMultiplier": 2
+    },
+    "Akali": {
+      "critDamageMultiplier": 2
+    },
+    "Alistar": {
+      "critDamageMultiplier": 2
+    },
+    "Ashe": {
+      "critDamageMultiplier": 1
+    },
+    "AurelionSol": {
+      "critDamageMultiplier": 2
+    },
+    "Ambessa": {
+      "critDamageMultiplier": 2
+    },
+    "Aurora": {
+      "critDamageMultiplier": 2
+    },
+    "Anivia": {
+      "critDamageMultiplier": 2
+    },
+    "Bard": {
+      "critDamageMultiplier": 2
+    },
+    "Azir": {
+      "critDamageMultiplier": 2
+    },
+    "Belveth": {
+      "critDamageMultiplier": 2
+    },
+    "Blitzcrank": {
+      "critDamageMultiplier": 2
+    },
+    "Braum": {
+      "critDamageMultiplier": 2
+    },
+    "Brand": {
+      "critDamageMultiplier": 2
+    },
+    "Caitlyn": {
+      "critDamageMultiplier": 2
+    },
+    "Camille": {
+      "critDamageMultiplier": 2
+    },
+    "Cassiopeia": {
+      "critDamageMultiplier": 2
+    },
+    "Annie": {
+      "critDamageMultiplier": 2
+    },
+    "Aphelios": {
+      "critDamageMultiplier": 2
+    },
+    "Chogath": {
+      "critDamageMultiplier": 2
+    },
+    "Corki": {
+      "critDamageMultiplier": 2
+    },
+    "Darius": {
+      "critDamageMultiplier": 2
+    },
+    "Diana": {
+      "critDamageMultiplier": 2
+    },
+    "Ekko": {
+      "critDamageMultiplier": 2
+    },
+    "DrMundo": {
+      "critDamageMultiplier": 2
+    },
+    "Draven": {
+      "critDamageMultiplier": 2
+    },
+    "Elise": {
+      "critDamageMultiplier": 2
+    },
+    "Evelynn": {
+      "critDamageMultiplier": 2
+    },
+    "Fiddlesticks": {
+      "critDamageMultiplier": 2
+    },
+    "Fiora": {
+      "critDamageMultiplier": 2
+    },
+    "Ezreal": {
+      "critDamageMultiplier": 2
+    },
+    "Fizz": {
+      "critDamageMultiplier": 2
+    },
+    "Amumu": {
+      "critDamageMultiplier": 2
+    },
+    "Gangplank": {
+      "critDamageMultiplier": 2
+    },
+    "Galio": {
+      "critDamageMultiplier": 2
+    },
+    "Garen": {
+      "critDamageMultiplier": 2
+    },
+    "Gragas": {
+      "critDamageMultiplier": 2
+    },
+    "Gwen": {
+      "critDamageMultiplier": 2
+    },
+    "Heimerdinger": {
+      "critDamageMultiplier": 2
+    },
+    "Graves": {
+      "critDamageMultiplier": 2
+    },
+    "Gnar": {
+      "critDamageMultiplier": 2
+    },
+    "Hwei": {
+      "critDamageMultiplier": 2
+    },
+    "Illaoi": {
+      "critDamageMultiplier": 2
+    },
+    "Irelia": {
+      "critDamageMultiplier": 2
+    },
+    "Ivern": {
+      "critDamageMultiplier": 2
+    },
+    "Janna": {
+      "critDamageMultiplier": 2
+    },
+    "Briar": {
+      "critDamageMultiplier": 2
+    },
+    "Jax": {
+      "critDamageMultiplier": 2
+    },
+    "Jayce": {
+      "critDamageMultiplier": 2
+    },
+    "Jhin": {
+      "critDamageMultiplier": 2
+    },
+    "Jinx": {
+      "critDamageMultiplier": 2
+    },
+    "KSante": {
+      "critDamageMultiplier": 2
+    },
+    "Kalista": {
+      "critDamageMultiplier": 2
+    },
+    "Kaisa": {
+      "critDamageMultiplier": 2
+    },
+    "Karma": {
+      "critDamageMultiplier": 2
+    },
+    "Karthus": {
+      "critDamageMultiplier": 2
+    },
+    "Kassadin": {
+      "critDamageMultiplier": 2
+    },
+    "Kennen": {
+      "critDamageMultiplier": 2
+    },
+    "Katarina": {
+      "critDamageMultiplier": 2
+    },
+    "Kayn": {
+      "critDamageMultiplier": 2
+    },
+    "Khazix": {
+      "critDamageMultiplier": 2
+    },
+    "KogMaw": {
+      "critDamageMultiplier": 2
+    },
+    "Leblanc": {
+      "critDamageMultiplier": 2
+    },
+    "Kindred": {
+      "critDamageMultiplier": 2
+    },
+    "Kled": {
+      "critDamageMultiplier": 2
+    },
+    "LeeSin": {
+      "critDamageMultiplier": 2
+    },
+    "Leona": {
+      "critDamageMultiplier": 2
+    },
+    "Lissandra": {
+      "critDamageMultiplier": 2
+    },
+    "Locke": {
+      "critDamageMultiplier": 2
+    },
+    "Lillia": {
+      "critDamageMultiplier": 2
+    },
+    "Lucian": {
+      "critDamageMultiplier": 2
+    },
+    "Hecarim": {
+      "critDamageMultiplier": 2
+    },
+    "Lulu": {
+      "critDamageMultiplier": 2
+    },
+    "JarvanIV": {
+      "critDamageMultiplier": 2
+    },
+    "Lux": {
+      "critDamageMultiplier": 2
+    },
+    "Malzahar": {
+      "critDamageMultiplier": 2
+    },
+    "Malphite": {
+      "critDamageMultiplier": 2
+    },
+    "Maokai": {
+      "critDamageMultiplier": 2
+    },
+    "MasterYi": {
+      "critDamageMultiplier": 2
+    },
+    "Mel": {
+      "critDamageMultiplier": 2
+    },
+    "Milio": {
+      "critDamageMultiplier": 2
+    },
+    "MissFortune": {
+      "critDamageMultiplier": 2
+    },
+    "Morgana": {
+      "critDamageMultiplier": 2
+    },
+    "Mordekaiser": {
+      "critDamageMultiplier": 2
+    },
+    "Naafiri": {
+      "critDamageMultiplier": 2
+    },
+    "Nasus": {
+      "critDamageMultiplier": 2
+    },
+    "Nami": {
+      "critDamageMultiplier": 2
+    },
+    "Neeko": {
+      "critDamageMultiplier": 2
+    },
+    "Nidalee": {
+      "critDamageMultiplier": 2
+    },
+    "Nocturne": {
+      "critDamageMultiplier": 2
+    },
+    "Nilah": {
+      "critDamageMultiplier": 2
+    },
+    "Olaf": {
+      "critDamageMultiplier": 2
+    },
+    "Kayle": {
+      "critDamageMultiplier": 2
+    },
+    "Orianna": {
+      "critDamageMultiplier": 2
+    },
+    "Ornn": {
+      "critDamageMultiplier": 2
+    },
+    "Pantheon": {
+      "critDamageMultiplier": 2
+    },
+    "Poppy": {
+      "critDamageMultiplier": 2
+    },
+    "Pyke": {
+      "critDamageMultiplier": 2
+    },
+    "Quinn": {
+      "critDamageMultiplier": 2
+    },
+    "Qiyana": {
+      "critDamageMultiplier": 2
+    },
+    "Rakan": {
+      "critDamageMultiplier": 2
+    },
+    "Rammus": {
+      "critDamageMultiplier": 2
+    },
+    "RekSai": {
+      "critDamageMultiplier": 2
+    },
+    "Rell": {
+      "critDamageMultiplier": 2
+    },
+    "Renekton": {
+      "critDamageMultiplier": 2
+    },
+    "Renata": {
+      "critDamageMultiplier": 2
+    },
+    "Riven": {
+      "critDamageMultiplier": 2
+    },
+    "Rumble": {
+      "critDamageMultiplier": 2
+    },
+    "Samira": {
+      "critDamageMultiplier": 2
+    },
+    "Sejuani": {
+      "critDamageMultiplier": 2
+    },
+    "Senna": {
+      "critDamageMultiplier": 2
+    },
+    "Sett": {
+      "critDamageMultiplier": 2
+    },
+    "Seraphine": {
+      "critDamageMultiplier": 2
+    },
+    "Shaco": {
+      "critDamageMultiplier": 2
+    },
+    "Shen": {
+      "critDamageMultiplier": 2
+    },
+    "Nautilus": {
+      "critDamageMultiplier": 2
+    },
+    "Shyvana": {
+      "critDamageMultiplier": 2
+    },
+    "Singed": {
+      "critDamageMultiplier": 2
+    },
+    "Nunu": {
+      "critDamageMultiplier": 2
+    },
+    "Sivir": {
+      "critDamageMultiplier": 2
+    },
+    "Skarner": {
+      "critDamageMultiplier": 2
+    },
+    "Smolder": {
+      "critDamageMultiplier": 2
+    },
+    "Sona": {
+      "critDamageMultiplier": 2
+    },
+    "Soraka": {
+      "critDamageMultiplier": 2
+    },
+    "Swain": {
+      "critDamageMultiplier": 2
+    },
+    "Sylas": {
+      "critDamageMultiplier": 2
+    },
+    "Syndra": {
+      "critDamageMultiplier": 2
+    },
+    "TahmKench": {
+      "critDamageMultiplier": 2
+    },
+    "Taliyah": {
+      "critDamageMultiplier": 2
+    },
+    "Taric": {
+      "critDamageMultiplier": 2
+    },
+    "Teemo": {
+      "critDamageMultiplier": 2
+    },
+    "Thresh": {
+      "critDamageMultiplier": 2
+    },
+    "Rengar": {
+      "critDamageMultiplier": 2
+    },
+    "Tristana": {
+      "critDamageMultiplier": 2
+    },
+    "Trundle": {
+      "critDamageMultiplier": 2
+    },
+    "Tryndamere": {
+      "critDamageMultiplier": 2
+    },
+    "TwistedFate": {
+      "critDamageMultiplier": 2
+    },
+    "Udyr": {
+      "critDamageMultiplier": 2
+    },
+    "Urgot": {
+      "critDamageMultiplier": 2
+    },
+    "Ryze": {
+      "critDamageMultiplier": 2
+    },
+    "Vayne": {
+      "critDamageMultiplier": 2
+    },
+    "Sion": {
+      "critDamageMultiplier": 2
+    },
+    "Vex": {
+      "critDamageMultiplier": 2
+    },
+    "Velkoz": {
+      "critDamageMultiplier": 2
+    },
+    "Veigar": {
+      "critDamageMultiplier": 2
+    },
+    "Vi": {
+      "critDamageMultiplier": 2
+    },
+    "Viego": {
+      "critDamageMultiplier": 2
+    },
+    "Viktor": {
+      "critDamageMultiplier": 2
+    },
+    "Volibear": {
+      "critDamageMultiplier": 2
+    },
+    "MonkeyKing": {
+      "critDamageMultiplier": 2
+    },
+    "Xerath": {
+      "critDamageMultiplier": 2
+    },
+    "XinZhao": {
+      "critDamageMultiplier": 2
+    },
+    "Talon": {
+      "critDamageMultiplier": 2
+    },
+    "Yasuo": {
+      "critDamageMultiplier": 2
+    },
+    "Yorick": {
+      "critDamageMultiplier": 2
+    },
+    "Yone": {
+      "critDamageMultiplier": 2
+    },
+    "Yunara": {
+      "critDamageMultiplier": 2
+    },
+    "Twitch": {
+      "critDamageMultiplier": 2
+    },
+    "Zaahen": {
+      "critDamageMultiplier": 2
+    },
+    "Zed": {
+      "critDamageMultiplier": 2
+    },
+    "Yuumi": {
+      "critDamageMultiplier": 2
+    },
+    "Varus": {
+      "critDamageMultiplier": 2
+    },
+    "Zeri": {
+      "critDamageMultiplier": 2
+    },
+    "Zoe": {
+      "critDamageMultiplier": 2
+    },
+    "Ziggs": {
+      "critDamageMultiplier": 2
+    },
+    "Vladimir": {
+      "critDamageMultiplier": 2
+    },
+    "Zyra": {
+      "critDamageMultiplier": 2
+    },
+    "Warwick": {
+      "critDamageMultiplier": 2
+    },
+    "Xayah": {
+      "critDamageMultiplier": 2
+    },
+    "Zac": {
+      "critDamageMultiplier": 2
+    },
+    "Zilean": {
+      "critDamageMultiplier": 2
+    }
+  }
+}

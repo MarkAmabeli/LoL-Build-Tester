@@ -1,14 +1,16 @@
 import { targetHpPct } from '../../damage';
 import { isRanged } from '../../stats';
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/6672: 150 at level 1, +5 per level from level 9;
-// RangedDamageMultiplier 0.8; MaxAmpNumber 1.75.
-const BASE = 150;
-const BREAKPOINT_LEVEL = 9;
-const PER_LEVEL_AFTER = 5;
-const RANGED_MULT = 0.8;
-const MAX_AMP = 1.75;
+// Base damage at level 1, plus a bonus per level from the breakpoint level.
+const BASE = sourced('kraken.base', item('6672', 'calc:DamageAmount.0.mLevel1Value', 150));
+const BREAKPOINT_LEVEL = sourced('kraken.breakpointLevel', item('6672', 'calc:DamageAmount.0.mBreakpoints.0.mLevel', 9));
+const PER_LEVEL_AFTER = sourced('kraken.perLevelAfter', item('6672', 'calc:DamageAmount.0.mBreakpoints.0.mBonusPerLevelAtAndAfter', 5));
+const RANGED_MULT = sourced('kraken.rangedMult', item('6672', 'RangedDamageMultiplier', 0.8));
+const MAX_AMP = sourced('kraken.maxAmp', item('6672', 'MaxAmpNumber', 1.75));
+const ATTACKS = sourced('kraken.attacks', item('6672', 'AttackCount', 3));
+const COUNT_SECONDS = sourced('kraken.countSeconds', item('6672', 'BuffDuration', 4));
 
 export function krakenBaseDamage(level: number): number {
   return BASE + PER_LEVEL_AFTER * Math.max(0, level - BREAKPOINT_LEVEL + 1);
@@ -26,8 +28,8 @@ export const krakenSlayer: Effect = {
   kind: 'item',
   verifiedPatch: '16.20',
   state: [{ key: 'proc', label: 'Third attack (proc)', scope: 'combat', kind: 'toggle', default: false }],
-  // AttackCount 3; the count lasts BuffDuration 4 after each attack.
-  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: 3, window: { seconds: 4, from: 'last' } }],
+  // The count lasts COUNT_SECONDS after each attack.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: ATTACKS, window: { seconds: COUNT_SECONDS, from: 'last' } }],
   onHit: ({ attacker, target, state }) => {
     if (!state.proc) return [];
     const missingPct = 1 - targetHpPct(target);

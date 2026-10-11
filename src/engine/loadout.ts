@@ -1,6 +1,7 @@
 import { championEffects } from './champions';
 import type { ChampionDefinition, ChampionSpells, Ranks, Slot } from './champions/types';
 import { activate, getEffect } from './effects/registry';
+import { assumed, hand } from './hand';
 import type { ActiveEffect, EffectState } from './effects/types';
 import { checkItemLimits } from './items';
 import { shardBonuses } from './shards';
@@ -8,13 +9,18 @@ import { clampLevel, resolveStats, sumBonuses } from './stats';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
 
 /** Inventory slots. Role quests will change this for bot lane (boots get their own slot); not modeled yet. */
-export const MAX_ITEMS = 6;
+export const MAX_ITEMS = hand('loadout.maxItems', 6, assumed('Standard inventory: six item slots'));
 /** Item tags that aren't part of a build here. */
 const EXCLUDED_TAGS = ['Trinket', 'Consumable'] as const;
 /** Default max ranks when there's no spell data; per-champion maxima come from the spell files. */
-const DEFAULT_MAX_RANK = { basic: 5, ultimate: 3 };
+const DEFAULT_MAX_RANK = {
+  basic: hand('loadout.defaultMaxRank.basic', 5, assumed('Standard basic ability max rank')),
+  ultimate: hand('loadout.defaultMaxRank.ultimate', 3, assumed('Standard ultimate max rank')),
+};
 /** Levels at which each ultimate rank can be learned (the standard rule; some champions differ). */
-const ULTIMATE_LEVELS = [6, 11, 16];
+/** A basic ability's rank N needs level 2N − 1: one rank per this many levels. */
+const LEVELS_PER_BASIC_RANK = hand('loadout.levelsPerBasicRank', 2, assumed('Standard rule: basic ability rank N needs level 2N − 1'));
+const ULTIMATE_LEVELS = [6, 11, 16].map((level, i) => hand(`loadout.ultimateLevel${i + 1}`, level, assumed('Standard ultimate rank levels')));
 
 /** An item as written to items.json (the fields used here). */
 export interface ItemRecord {
@@ -133,7 +139,7 @@ export function checkSkillRanks(ranks: Ranks, level: number, spells?: ChampionSp
     total += rank;
     const max = maxRankOf(spells, slot);
     if (rank > max) problems.push(`${slot} rank ${rank} is above its max rank ${max}`);
-    const needs = slot === 'R' ? ULTIMATE_LEVELS[Math.min(rank, ULTIMATE_LEVELS.length) - 1] : 2 * rank - 1;
+    const needs = slot === 'R' ? ULTIMATE_LEVELS[Math.min(rank, ULTIMATE_LEVELS.length) - 1] : LEVELS_PER_BASIC_RANK * rank - 1;
     if (lvl < needs) problems.push(`${slot} rank ${rank} needs level ${needs}`);
   }
   if (total > lvl) problems.push(`${total} skill points spent at level ${lvl}`);

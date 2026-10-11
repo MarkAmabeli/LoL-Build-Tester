@@ -1,13 +1,14 @@
 import { targetHpPct } from '../../damage';
 import type { Effect, HitContext } from '../types';
 import { adaptiveProc } from './adaptive';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Domination/DarkHarvest: 30 + 11 per soul, +0.1 bonus AD, +0.05 AP, below 50% health.
-const BASE = 30;
-const PER_SOUL = 11;
-const BONUS_AD_RATIO = 0.1;
-const AP_RATIO = 0.05;
-const HEALTH_THRESHOLD = 0.5;
+const BASE = sourced('darkHarvest.base', perk('8128', 'BaseDamage', 30));
+const PER_SOUL = sourced('darkHarvest.perSoul', perk('8128', 'DamagePerSoulEssence', 11));
+const BONUS_AD_RATIO = sourced('darkHarvest.bonusAdRatio', perk('8128', 'ADRatio', 0.1));
+const AP_RATIO = sourced('darkHarvest.apRatio', perk('8128', 'APRatio', 0.05));
+const HEALTH_THRESHOLD = sourced('darkHarvest.healthThreshold', perk('8128', 'HarvestThreshold', 0.5));
+const COOLDOWN = sourced('darkHarvest.cooldown', perk('8128', 'Cooldown', 35));
 
 const proc = ({ attacker, target, state }: HitContext) => {
   if (!state.proc || targetHpPct(target) >= HEALTH_THRESHOLD) return [];
@@ -25,8 +26,8 @@ export const darkHarvest: Effect = {
     { key: 'proc', label: 'Off cooldown', scope: 'combat', kind: 'toggle', default: true },
     { key: 'souls', label: 'Souls collected', scope: 'setup', kind: 'number', default: 0, min: 0, max: 100 },
   ],
-  // Cooldown 35 (resets to 1s on takedown, not modeled); only hits below HarvestThreshold count.
-  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: 35, requires: 'targetBelowHalfHealth' }],
+  // The reset on takedown isn't modeled; only hits below the health threshold count.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: COOLDOWN, requires: 'targetBelowHalfHealth' }],
   onHit: proc,
   onAbilityHit: proc,
 };

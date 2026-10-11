@@ -1,9 +1,9 @@
 import { amplify } from '../amplify';
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3036: MaxBonusDamagePercent 0.15, MaxBonusHealth 1500.
-const MAX_AMP = 0.15;
-const MAX_BONUS_HP = 1500;
+const MAX_AMP = sourced('ldr.maxAmp', item('3036', 'MaxBonusDamagePercent', 0.15));
+const MAX_BONUS_HP = sourced('ldr.maxBonusHealth', item('3036', 'MaxBonusHealth', 1500));
 
 /**
  * Giant Slayer: up to 15% more damage against champions by their bonus health, maxed at 1500.

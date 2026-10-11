@@ -1,10 +1,10 @@
 import { targetHpPct } from '../../damage';
 import { amplify } from '../amplify';
 import type { Effect } from '../types';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Precision/CoupDeGrace: EnemyHealthPercentageThreshold 0.4, BonusPercentDamage 0.08.
-const THRESHOLD = 0.4;
-const DAMAGE_AMP = 0.08;
+const THRESHOLD = sourced('coupDeGrace.threshold', perk('8014', 'EnemyHealthPercentageThreshold', 0.4));
+const DAMAGE_AMP = sourced('coupDeGrace.amp', perk('8014', 'BonusPercentDamage', 0.08));
 
 /** Deal 8% more damage to champions below 40% health. */
 export const coupDeGrace: Effect = {

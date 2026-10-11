@@ -1,12 +1,12 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3118: UltimateHaste 20; BaseDamage 60, APRatio 0.05 (per second, ticking every 0.25s),
-// GroundDuration 3; MagicResistanceShred 10.
-const DAMAGE_PER_SECOND = 60;
-const AP_RATIO_PER_SECOND = 0.05;
-const MAX_SECONDS = 3;
-const MR_SHRED = 10;
-const ULTIMATE_HASTE = 20;
+// Hatefog damage is per second, ticking every 0.25s.
+const DAMAGE_PER_SECOND = sourced('malignance.damagePerSecond', item('3118', 'BaseDamage', 60));
+const AP_RATIO_PER_SECOND = sourced('malignance.apRatioPerSecond', item('3118', 'APRatio', 0.05));
+const MAX_SECONDS = sourced('malignance.maxSeconds', item('3118', 'GroundDuration', 3));
+const MR_SHRED = sourced('malignance.mrShred', item('3118', 'calc:MagicResistanceShred.0.mNumber', 10));
+const ULTIMATE_HASTE = sourced('malignance.ultimateHaste', item('3118', 'UltimateHaste', 20));
 
 /**
  * Hatefog: your ultimate burns the ground under the target for 3s, dealing 60 (+5% AP)

@@ -1,8 +1,9 @@
 import type { Effect, HitContext } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/4646: BaseDamage 125, APRatio 0.1, DamageThreshold 0.25, WindowDuration 2.5.
-const BASE = 125;
-const AP_RATIO = 0.1;
+const BASE = sourced('stormsurge.base', item('4646', 'BaseDamage', 125));
+const AP_RATIO = sourced('stormsurge.apRatio', item('4646', 'APRatio', 0.1));
+const COOLDOWN = sourced('stormsurge.cooldown', item('4646', 'Cooldown', 30));
 
 const squall = ({ attacker, state }: HitContext) =>
   state.proc ? [{ type: 'magic' as const, raw: BASE + AP_RATIO * attacker.ap, source: 'Squall', tags: ['proc' as const] }] : [];
@@ -14,9 +15,9 @@ export const stormsurge: Effect = {
   kind: 'item',
   verifiedPatch: '16.20',
   state: [{ key: 'proc', label: 'Squall (proc)', scope: 'combat', kind: 'toggle', default: false }],
-  // Cooldown 30. The damage threshold (DamageThreshold 0.25 in WindowDuration 2.5) is reported by
-  // the combo simulator; the Squall lands after DelayDuration 2, which isn't modeled.
-  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: 30, requires: 'damageThreshold' }],
+  // The damage threshold (DamageThreshold in WindowDuration) is reported by the combo
+  // simulator; the Squall's delay (DelayDuration) isn't modeled.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: COOLDOWN, requires: 'damageThreshold' }],
   onHit: squall,
   onAbilityHit: squall,
 };

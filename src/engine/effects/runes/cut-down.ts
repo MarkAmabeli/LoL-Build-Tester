@@ -1,12 +1,12 @@
 import { targetHpPct } from '../../damage';
 import { amplify } from '../amplify';
 import type { Effect } from '../types';
+import { notApplied, perk, sourced } from '../../hand';
 
-// CommunityDragon perks Precision/CutDown: EnemyHealthPercentageThreshold 0.6, BonusPercentDamage 0.08.
-// The bin also still carries the old 5–15% by-health-difference values; the
-// in-game description matches the flat 8%, so those are ignored.
-const THRESHOLD = 0.6;
-const DAMAGE_AMP = 0.08;
+const THRESHOLD = sourced('cutDown.threshold', perk('8017', 'EnemyHealthPercentageThreshold', 0.6));
+const DAMAGE_AMP = sourced('cutDown.amp', perk('8017', 'BonusPercentDamage', 0.08));
+notApplied('cutDown.minBonusDamage', perk('8017', 'MinBonusDamagePercent', 0.05), 'Old by-health-difference value; the in-game description is a flat 8%');
+notApplied('cutDown.maxBonusDamage', perk('8017', 'MaxBonusDamagePercent', 0.15), 'Old by-health-difference value; the in-game description is a flat 8%');
 
 /** Deal 8% more damage to champions above 60% health. */
 export const cutDown: Effect = {

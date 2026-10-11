@@ -1,7 +1,7 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/6676: ExecuteThreshold 0.05.
-const EXECUTE_THRESHOLD = 0.05;
+const EXECUTE_THRESHOLD = sourced('collector.executeThreshold', item('6676', 'ExecuteThreshold', 0.05));
 
 /** Death: your damage executes champions left below 5% health. Taxes (bonus gold) isn't modeled. */
 export const theCollector: Effect = {

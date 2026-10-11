@@ -1,9 +1,9 @@
 import { addBonus } from '../../stats';
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/6697: BaseADBonus 12, ADPerStatue 3, BuffDuration 90.
-const BASE_AD = 12;
-const AD_PER_STACK = 3;
+const BASE_AD = sourced('hubris.baseAd', item('6697', 'BaseADBonus', 12));
+const AD_PER_STACK = sourced('hubris.adPerStack', item('6697', 'ADPerStatue', 3));
 
 /** Eminence: after a takedown, gain 12 AD plus 3 per stack (champions killed) for 90s. */
 export const hubris: Effect = {

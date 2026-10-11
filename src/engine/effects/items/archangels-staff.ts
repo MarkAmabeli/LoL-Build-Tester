@@ -1,8 +1,9 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3003: APFromMana 0.01; Items/3040 (Seraph's Embrace): APFromMana 0.02. Both of bonus mana.
-const ARCHANGEL_RATIO = 0.01;
-const SERAPH_RATIO = 0.02;
+// Both ratios are of bonus mana.
+const ARCHANGEL_RATIO = sourced('archangels.apFromMana', item('3003', 'APFromMana', 0.01));
+const SERAPH_RATIO = sourced('seraphs.apFromMana', item('3040', 'APFromMana', 0.02));
 
 /**
  * Awe: AP equal to 1% of bonus mana. Runs in the 'add' phase, before Rabadon's

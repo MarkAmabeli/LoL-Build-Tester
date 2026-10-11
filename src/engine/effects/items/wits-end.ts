@@ -1,7 +1,7 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3091: OnHitDamage 45 (magic).
-const DAMAGE = 45;
+const DAMAGE = sourced('witsEnd.damage', item('3091', 'calc:OnHitDamage.0.mNumber', 45));
 
 /** Fray: attacks deal 45 bonus magic damage on-hit. */
 export const witsEnd: Effect = {

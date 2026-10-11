@@ -10,8 +10,10 @@
  *     the code that does it (`where`). sources.test.ts checks those files exist.
  *   - Anything learned about a source that isn't a change (quirks, mismatches checked and
  *     accepted, dead ends) goes in `notes`, with the patch it was checked on.
- *   - Hand-entered gameplay constants in item, rune and champion effects are tracked
- *     separately (ROADMAP "Next up" step 4).
+ *   - Hand-entered gameplay constants in the engine are declared through src/engine/hand.ts,
+ *     each with its source and the value it was checked against; src/engine/hand-entered.test.ts
+ *     flags any whose source changed in the latest data (game-values.json, spell files,
+ *     descriptions). This file covers how the import reads and changes each source.
  */
 
 export interface Modification {
@@ -105,7 +107,8 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
   clientDataPath: 'plugins/rcp-be-lol-game-data/global/default/v1',
   provides: [
     'game/data/characters/<id>/<id>.bin.json: spell DataValues and SpellCalculations; CharacterRecords/Root base stats',
-    'game/items.cdtb.bin.json: shop limit groups',
+    'game/items.cdtb.bin.json: shop limit groups, and item values for game-values.json',
+    'game/perks.cdtb.bin.json: rune values for game-values.json',
     '<clientDataPath>/perks.json and perkstyles.json: stat shard rows and text',
   ],
   modifications: [
@@ -120,6 +123,12 @@ export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: strin
       what: 'Spell cooldown, cost and range become one value per rank (index 0 = rank 1). Missing or all-zero cooldowns and costs are omitted; ranges are omitted when any rank is a placeholder (≤ 1 or ≥ 10000). Slotted abilities without a cooldown are listed in the build log',
       why: 'cooldownTime and castRange have a placeholder entry 0 (rank N = entry N) but mana does not (rank N = entry N − 1); ranges like 0, 1, 10000 and 25000 stand for self-cast or global',
       where: ['scripts/spell-ranks.ts', 'scripts/spell-ranks.test.ts', 'scripts/fetch-data.ts', 'scripts/spell-data.test.ts'],
+    },
+    {
+      id: 'game-values',
+      what: 'game-values.json snapshots item data values and calculation numbers (4-digit IDs), rune effect amounts and champion Root values, rounded to 7 significant digits',
+      why: 'Hand-entered engine constants (src/engine/hand.ts) are checked against it in npm test, without network access',
+      where: ['scripts/game-values.ts', 'scripts/game-values.test.ts', 'scripts/fetch-data.ts', 'src/engine/hand-entered.test.ts'],
     },
     {
       id: 'item-group-names',

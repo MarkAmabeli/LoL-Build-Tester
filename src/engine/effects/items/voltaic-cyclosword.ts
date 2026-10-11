@@ -1,11 +1,17 @@
 import { isRanged } from '../../stats';
 import type { Effect } from '../types';
 import { ENERGIZED_CYCLE } from './energized';
+import { hand, item, sourced } from '../../hand';
+const LETHALITY_SECONDS = sourced('voltaic.lethalitySeconds', item('6699', 'LethalityBonusDuration', 4));
 
-// CommunityDragon Items/6699: PercentCurrentHPMelee 9, PercentCurrentHPRanged 7;
-// LethalityBonusModMelee 15, LethalityBonusModRanged 12, LethalityBonusDuration 4.
-const CURRENT_HP_RATIO = { melee: 0.09, ranged: 0.07 };
-const BONUS_LETHALITY = { melee: 15, ranged: 12 };
+const CURRENT_HP_RATIO = {
+  melee: hand('voltaic.currentHpRatio.melee', 0.09, item('6699', 'PercentCurrentHPMelee', 9), 'percent'),
+  ranged: hand('voltaic.currentHpRatio.ranged', 0.07, item('6699', 'PercentCurrentHPRanged', 7), 'percent'),
+};
+const BONUS_LETHALITY = {
+  melee: sourced('voltaic.lethality.melee', item('6699', 'LethalityBonusModMelee', 15)),
+  ranged: sourced('voltaic.lethality.ranged', item('6699', 'LethalityBonusModRanged', 12)),
+};
 
 /**
  * Firmament: the Energized attack deals 9% (ranged 7%) of the target's current health
@@ -20,10 +26,10 @@ export const voltaicCyclosword: Effect = {
     { key: 'proc', label: 'Energized attack (proc)', scope: 'combat', kind: 'toggle', default: true },
     { key: 'lethality', label: 'Firmament lethality active', scope: 'combat', kind: 'toggle', default: false },
   ],
-  // Energized, starting charged (see energized.ts); LethalityBonusDuration 4 after the proc.
+  // Energized, starting charged (see energized.ts); lethality for LETHALITY_SECONDS after the proc.
   cycles: [
     ENERGIZED_CYCLE,
-    { kind: 'buff', field: 'lethality', startedBy: 'proc', lasts: 4 },
+    { kind: 'buff', field: 'lethality', startedBy: 'proc', lasts: LETHALITY_SECONDS },
   ],
   modifyStats: (stats, state) =>
     state.lethality

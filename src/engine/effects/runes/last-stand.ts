@@ -1,11 +1,11 @@
 import { amplify } from '../amplify';
 import type { Effect } from '../types';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Precision/LastStand: 5% at HealthThresholdStart 0.6, up to 11% at HealthThresholdEnd 0.3.
-const MIN_AMP = 0.05;
-const MAX_AMP = 0.11;
-const START = 0.6;
-const END = 0.3;
+const MIN_AMP = sourced('lastStand.minAmp', perk('8299', 'MinBonusDamagePercent', 0.05));
+const MAX_AMP = sourced('lastStand.maxAmp', perk('8299', 'MaxBonusDamagePercent', 0.11));
+const START = sourced('lastStand.start', perk('8299', 'HealthThresholdStart', 0.6));
+const END = sourced('lastStand.end', perk('8299', 'HealthThresholdEnd', 0.3));
 
 /**
  * Damage increase from your own health: none at 60% or more, 5% just below 60%,

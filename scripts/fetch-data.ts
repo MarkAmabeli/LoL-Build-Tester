@@ -13,6 +13,7 @@ import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
 import { dedupeItemsByName } from './item-dedupe.ts';
+import { itemValues, perkValues, type ValueMap } from './game-values.ts';
 import { COMMUNITY_DRAGON, DATA_DRAGON } from './sources.ts';
 import { cooldownByRank, costByRank, rangeByRank } from './spell-ranks.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
@@ -127,6 +128,7 @@ interface BinSpellObject {
   };
   /** On the champion's CharacterRecords/Root record. */
   damagePerLevelModifiable?: { baseValue?: number };
+  critDamageMultiplier?: number;
 }
 
 const SUMMONERS_RIFT = DATA_DRAGON.summonersRiftMap;
@@ -183,6 +185,8 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
   const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
   /** Champion id → AD per level from the champion's game data (Data Dragon has 0 for everyone). */
   const adPerLevel = new Map<string, number>();
+  /** Champion id → Root values hand-entered engine constants are checked against (game-values.json). */
+  const rootValues: Record<string, ValueMap> = {};
   /** "Champion Q (Spell)" for Q/W/E/R spells with no usable cooldown in the data. */
   const noCooldown: string[] = [];
 
@@ -205,6 +209,7 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
     const adGrowth = root?.damagePerLevelModifiable?.baseValue;
     // The bin stores floats (2.3499999); the stat itself has at most a few decimals.
     if (adGrowth !== undefined) adPerLevel.set(id, Math.round(adGrowth * 1e4) / 1e4);
+    if (root?.critDamageMultiplier !== undefined) rootValues[id] = { critDamageMultiplier: root.critDamageMultiplier };
 
     const slotOf = new Map(detail.spells.map((s, i) => [s.id.toLowerCase(), { slot: SLOTS[i], maxRank: s.maxrank }]));
 
@@ -250,7 +255,7 @@ async function buildSpells(version: string, championIds: string[], outDir: strin
     await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
   });
 
-  return { failures, coverage, adPerLevel, noCooldown: noCooldown.sort() };
+  return { failures, coverage, adPerLevel, rootValues, noCooldown: noCooldown.sort() };
 }
 
 async function buildItems(version: string) {
@@ -376,7 +381,7 @@ async function main() {
   console.log(`  ${droppedItems.length} items listed more than once; kept one each (see item-dedupe.ts):`);
   for (const d of droppedItems) console.log(`    ${d.name}: kept ${d.kept}, dropped ${d.dropped.join(', ')}`);
 
-  const { failures, coverage, adPerLevel, noCooldown } = await buildSpells(version, champions.map((c) => c.id), outDir);
+  const { failures, coverage, adPerLevel, rootValues, noCooldown } = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);
   for (const f of failures) console.warn(`  ! ${f}`);
   console.log(`  ${noCooldown.length} abilities have no usable cooldown in the data (shown as unknown): ${noCooldown.join(', ')}`);
@@ -390,6 +395,14 @@ async function main() {
     else stats.attackdamageperlevel = growth;
   }
   await writeJson(path.join(outDir, 'champions.json'), champions);
+
+  // Values hand-entered engine constants are checked against (src/engine/hand.ts).
+  const perksBin = await getCdragonJson<Record<string, unknown>>(cdragonPatch(version), 'game/perks.cdtb.bin.json');
+  await writeJson(path.join(outDir, 'game-values.json'), {
+    items: itemValues(itemsBin as Record<string, unknown>),
+    perks: perkValues(perksBin),
+    champions: rootValues,
+  });
   const total = coverage.translated + coverage.unsupported;
   console.log(
     `  formulas: ${coverage.translated}/${total} calculations translated ` +

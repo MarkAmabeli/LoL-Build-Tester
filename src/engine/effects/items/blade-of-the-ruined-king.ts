@@ -1,9 +1,10 @@
 import { isRanged } from '../../stats';
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3153: MeleeValue 0.09, RangedValue 0.06 (of the target's current health, physical).
-const MELEE_RATIO = 0.09;
-const RANGED_RATIO = 0.06;
+// Ratios of the target's current health, physical damage.
+const MELEE_RATIO = sourced('botrk.meleeRatio', item('3153', 'MeleeValue', 0.09));
+const RANGED_RATIO = sourced('botrk.rangedRatio', item('3153', 'RangedValue', 0.06));
 
 /** Mist's Edge: attacks deal 9% (ranged 6%) of the target's current health as bonus physical damage on-hit. */
 export const bladeOfTheRuinedKing: Effect = {

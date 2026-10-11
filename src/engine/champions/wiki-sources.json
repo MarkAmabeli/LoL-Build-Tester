@@ -1,5 +1,5 @@
 {
-  "_about": "Wiki pages (wiki.leagueoflegends.com) used to fill in mechanics the game data lacks. 'changes' is the champion's last-changed patch in Module:ChampionData/data when checked; 'revision' pins the page text used; 'matched' lists numbers that agreed with our spell data (the cross-check). Run `npm run wiki:check` before regenerating data for a new patch.",
+  "_about": "Wiki pages (wiki.leagueoflegends.com) used to fill in mechanics the game data lacks. 'changes' is the champion's last-changed patch in Module:ChampionData/data when checked; 'revision' pins the page text used; 'matched' lists numbers that agreed with our spell data (the cross-check). 'pages' are general pages used by hand-entered engine values (src/engine/hand.ts). Run `npm run wiki:check` before regenerating data for a new patch.",
   "champions": {
     "Vayne": {
       "checkedPatch": "16.20",
@@ -52,5 +52,11 @@
         { "page": "Template:Data Yunara/Transcend One's Self", "revision": 4038856, "facts": ["Upgrades W into Arc of Ruin during the ultimate"], "matched": ["cooldown 100–80"] }
       ]
     }
-  }
+  },
+  "pages": [
+    { "page": "Attack speed", "revision": 4073067, "facts": ["The attack speed cap is 1 attack per 0.333s (≈3.003)"], "matched": [] },
+    { "page": "Adaptive force", "revision": 4063874, "facts": ["1 adaptive force = 0.6 bonus AD or 1 AP, by the higher bonus; the champion's adaptive type breaks ties"], "matched": [] },
+    { "page": "Champion statistic", "revision": 4069636, "facts": ["Growth by level: g × (n − 1) × (0.7025 + 0.0175 × (n − 1))"], "matched": [] },
+    { "page": "Critical strike", "revision": 4059009, "facts": ["Crits deal 200% since V26.01 (175% from V10.23)"], "matched": [] }
+  ]
 }

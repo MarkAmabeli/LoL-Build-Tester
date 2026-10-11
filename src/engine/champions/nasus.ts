@@ -3,11 +3,11 @@ import { addBonus } from '../stats';
 import type { Effect } from '../effects/types';
 import { dataValue } from './spells';
 import type { ChampionDefinition, ChampionSpells } from './types';
+import { sourced, spell } from '../hand';
 
 // Spell data: spells/Nasus.json (16.20). Mechanics cross-checked against the wiki: wiki-sources.json.
 
-const R_DAMAGE_CAP_PER_SECOND = 240; // NasusR MaxDamageCap; wiki: "capped at 240 per second"
-const R_MAX_SECONDS = 15;
+const R_MAX_SECONDS = sourced('nasus.rDuration', spell('Nasus', 'NasusR', 'Duration', 15));
 
 /** Fury of the Sands: bonus health, armor and MR while active. */
 const furyOfTheSands = (rank: number, spells: ChampionSpells): Effect => ({
@@ -80,7 +80,7 @@ export const nasus: ChampionDefinition = {
       state: [{ key: 'seconds', label: 'Seconds of aura damage', scope: 'action', kind: 'number', default: 1, min: 0, max: R_MAX_SECONDS }],
       hits: (ctx) => {
         const seconds = Math.min(R_MAX_SECONDS, Math.max(0, Number(ctx.state.seconds)));
-        const perSecond = Math.min(R_DAMAGE_CAP_PER_SECOND, ctx.formula('NasusR', 'DamageCalc') * ctx.target.stats.hp.total);
+        const perSecond = Math.min(ctx.value('NasusR', 'MaxDamageCap'), ctx.formula('NasusR', 'DamageCalc') * ctx.target.stats.hp.total);
         return [{ type: 'magic', raw: perSecond * seconds, source: 'Fury of the Sands', tags: ['ability', 'aoe', 'dot'] }];
       },
     },

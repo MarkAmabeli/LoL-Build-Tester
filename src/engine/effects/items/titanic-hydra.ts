@@ -1,9 +1,10 @@
 import { isRanged } from '../../stats';
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3748: PrimaryTargetHPRatio 0.01 (of max health, physical), RangedEffectiveness 0.5.
-const HP_RATIO = 0.01;
-const RANGED_MULT = 0.5;
+// Ratio of the attacker's max health, physical damage.
+const HP_RATIO = sourced('titanicHydra.hpRatio', item('3748', 'PrimaryTargetHPRatio', 0.01));
+const RANGED_MULT = sourced('titanicHydra.rangedMult', item('3748', 'RangedEffectiveness', 0.5));
 
 /**
  * Cleave: attacks deal 1% of your max health as bonus physical damage on-hit (ranged

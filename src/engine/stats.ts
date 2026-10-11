@@ -1,17 +1,20 @@
 import type { ActiveEffect } from './effects/types';
+import { assumed, champion, hand, sourced, wiki } from './hand';
 import type { ChampionBaseStats, ResolvedStats, SplitStat, StatBonuses } from './types';
 
 export const MIN_LEVEL = 1;
-export const MAX_LEVEL = 18;
-/** Crits deal 200% (it was 175% from V10.23 until V26.01). */
-export const BASE_CRIT_MULTIPLIER = 2;
+export const MAX_LEVEL = hand('engine.maxLevel', 18, assumed('The standard champion level cap'));
+/** Crits deal 200% (it was 175% from V10.23 until V26.01); every champion bin checked has 2. */
+export const BASE_CRIT_MULTIPLIER = sourced('engine.critMultiplier', champion('Vayne', 'critDamageMultiplier', 2));
 /** One attack per 0.333s. */
-export const ATTACK_SPEED_CAP = 1 / 0.333;
+export const ATTACK_SPEED_CAP = hand('engine.attackSpeedCap', 1 / 0.333, wiki('Attack speed', 'precisely 1/0.333'));
 /** Champions with a longer attack range than this count as ranged (melee tops out around 250). */
-export const MELEE_RANGE_MAX = 250;
+export const MELEE_RANGE_MAX = hand('engine.meleeRangeMax', 250, assumed('Melee ranges top out around 250; ranged start at 300+'));
 /** One point of adaptive force is worth 0.6 AD or 1 AP. */
-export const ADAPTIVE_AD_PER_POINT = 0.6;
-export const ADAPTIVE_AP_PER_POINT = 1;
+export const ADAPTIVE_AD_PER_POINT = hand('engine.adaptiveAd', 0.6, wiki('Adaptive force', '1 point of Adaptive Force provides 0.6 bonus AD or 1 AP'));
+export const ADAPTIVE_AP_PER_POINT = hand('engine.adaptiveAp', 1, wiki('Adaptive force', '1 point of Adaptive Force provides 0.6 bonus AD or 1 AP'));
+const GROWTH_BASE = hand('engine.growthBase', 0.7025, wiki('Champion statistic', 'g × (n − 1) × (0.7025 + 0.0175 × (n − 1))'));
+const GROWTH_PER_LEVEL = hand('engine.growthPerLevel', 0.0175, wiki('Champion statistic', 'g × (n − 1) × (0.7025 + 0.0175 × (n − 1))'));
 
 /**
  * Total growth gained by `level`, using Riot's non-linear growth curve:
@@ -20,7 +23,7 @@ export const ADAPTIVE_AP_PER_POINT = 1;
  */
 export function growthAtLevel(growth: number, level: number): number {
   const n = clampLevel(level) - 1;
-  return growth * n * (0.7025 + 0.0175 * n);
+  return growth * n * (GROWTH_BASE + GROWTH_PER_LEVEL * n);
 }
 
 export function clampLevel(level: number): number {

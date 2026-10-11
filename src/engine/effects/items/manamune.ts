@@ -1,11 +1,14 @@
 import { addBonus, isRanged } from '../../stats';
 import type { Effect, HitContext } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3004 and 3042 BonusADFromMana: 0.02 × max mana.
-const MANA_TO_AD = 0.02;
-// Items/3042: OnHitDamage 0.012 × max mana; ability damage 0.04 (melee) / 0.03 (ranged) × max mana.
-const ON_HIT_MANA_RATIO = 0.012;
-const ABILITY_MANA_RATIO = { melee: 0.04, ranged: 0.03 };
+const MANA_TO_AD = sourced('manamune.adFromMana', item('3004', 'calc:BonusADFromMana.0.mCoefficient', 0.02));
+// Muramana's Shock: ratios of max mana.
+const ON_HIT_MANA_RATIO = sourced('muramana.onHitManaRatio', item('3042', 'calc:OnHitDamage.0.mCoefficient', 0.012));
+const ABILITY_MANA_RATIO = {
+  melee: sourced('muramana.abilityManaRatio.melee', item('3042', 'calc:MeleeItemCalcValue.0.mCoefficient', 0.04)),
+  ranged: sourced('muramana.abilityManaRatio.ranged', item('3042', 'calc:RangedItemCalcValue.0.mCoefficient', 0.03)),
+};
 
 const awe = (stats: Parameters<NonNullable<Effect['modifyStats']>>[0]) => ({
   ...stats,

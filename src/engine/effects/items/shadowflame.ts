@@ -1,10 +1,10 @@
 import { targetHpPct } from '../../damage';
 import { amplify } from '../amplify';
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/4645: HealthThreshold 0.4, SpellItemDamageAmp 0.2, DamageOverTimeAmp 0.2.
-const THRESHOLD = 0.4;
-const DAMAGE_AMP = 0.2;
+const THRESHOLD = sourced('shadowflame.threshold', item('4645', 'HealthThreshold', 0.4));
+const DAMAGE_AMP = sourced('shadowflame.amp', item('4645', 'SpellItemDamageAmp', 0.2));
 
 /** Cinderbloom: magic and true damage deal 20% more to enemies below 40% health. */
 export const shadowflame: Effect = {

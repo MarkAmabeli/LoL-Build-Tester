@@ -1,12 +1,11 @@
 import { addBonus } from '../../stats';
 import type { Effect } from '../types';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Resolve/Overgrowth: FlatHealthPerTier 3, UnitsPerTier 8, ThresholdUnits 120,
-// ThresholdMaxHealthRatio 0.035.
-const HEALTH_PER_TIER = 3;
-const UNITS_PER_TIER = 8;
-const THRESHOLD_UNITS = 120;
-const MAX_HEALTH_AMP = 0.035;
+const HEALTH_PER_TIER = sourced('overgrowth.healthPerTier', perk('8451', 'FlatHealthPerTier', 3));
+const UNITS_PER_TIER = sourced('overgrowth.unitsPerTier', perk('8451', 'UnitsPerTier', 8));
+const THRESHOLD_UNITS = sourced('overgrowth.thresholdUnits', perk('8451', 'ThresholdUnits', 120));
+const MAX_HEALTH_AMP = sourced('overgrowth.maxHealthAmp', perk('8451', 'ThresholdMaxHealthRatio', 0.035));
 
 /**
  * Gain 3 max health per 8 monsters or minions absorbed; at 120, gain another 3.5% max health.

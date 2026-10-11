@@ -1,10 +1,10 @@
 import { addBonusAttackSpeed } from '../../stats';
 import type { Effect } from '../types';
+import { hand, perk, sourced } from '../../hand';
 
-// CommunityDragon perks Precision/LegendAlacrity: AttackSpeedBase 0.03, AttackSpeedPerStack 0.015, MaxLegendStacks 10.
-const BASE_PCT = 3;
-const PER_STACK_PCT = 1.5;
-const MAX_STACKS = 10;
+const BASE_PCT = hand('legendAlacrity.base', 3, perk('9104', 'AttackSpeedBase', 0.03), 'percent');
+const PER_STACK_PCT = hand('legendAlacrity.perStack', 1.5, perk('9104', 'AttackSpeedPerStack', 0.015), 'percent');
+const MAX_STACKS = sourced('legendAlacrity.maxStacks', perk('9104', 'MaxLegendStacks', 10));
 
 /** Gain 3% attack speed plus 1.5% per Legend stack (up to 10). */
 export const legendAlacrity: Effect = {

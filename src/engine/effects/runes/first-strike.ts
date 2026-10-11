@@ -1,8 +1,11 @@
 import { amplify } from '../amplify';
 import type { Effect } from '../types';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Inspiration/FirstStrike: DamageAmp 0.07.
-const DAMAGE_AMP = 0.07;
+const DAMAGE_AMP = sourced('firstStrike.amp', perk('8369', 'DamageAmp', 0.07));
+const DURATION = sourced('firstStrike.duration', perk('8369', 'Duration', 3));
+const COOLDOWN_L1 = sourced('firstStrike.cooldownL1', perk('8369', 'TooltipOnlyCooldownStartAmount', 25));
+const COOLDOWN_L18 = sourced('firstStrike.cooldownL18', perk('8369', 'TooltipOnlyCooldownEndAmount', 15));
 
 /**
  * While active, deal 7% extra damage to champions. The game shows the extra as a
@@ -15,8 +18,7 @@ export const firstStrike: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [{ key: 'active', label: 'First Strike active', scope: 'combat', kind: 'toggle', default: true }],
-  // Duration 3; cooldown 25–15 by level (TooltipOnlyCooldownStart/EndAmount). It also needs 10s out
-  // of combat (OOCTimer) to trigger again, which isn't modeled.
-  cycles: [{ kind: 'proc', field: 'active', counts: 'hit', hits: 1, lasts: 3, cooldown: { from: 25, to: 15 } }],
+  // It also needs time out of combat (OOCTimer) to trigger again, which isn't modeled.
+  cycles: [{ kind: 'proc', field: 'active', counts: 'hit', hits: 1, lasts: DURATION, cooldown: { from: COOLDOWN_L1, to: COOLDOWN_L18 } }],
   preMitigation: (hit, { state }) => (state.active ? amplify(hit, DAMAGE_AMP) : hit),
 };

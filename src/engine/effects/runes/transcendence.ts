@@ -1,8 +1,10 @@
 import type { Effect } from '../types';
+import { hand, perk, sourced } from '../../hand';
 
-// CommunityDragon perks Sorcery/Transcendence: LevelToTurnOn 5 / LevelToTurnOn2 8, HasteBonus 0.05 each
-// (shown as 5 ability haste in game).
-const STEPS = [{ level: 5, haste: 5 }, { level: 8, haste: 5 }];
+const STEPS = [
+  { level: sourced('transcendence.level1', perk('8210', 'LevelToTurnOn', 5)), haste: hand('transcendence.haste1', 5, perk('8210', 'HasteBonus1', 0.05), 'Shown as 5 ability haste in game') },
+  { level: sourced('transcendence.level2', perk('8210', 'LevelToTurnOn2', 8)), haste: hand('transcendence.haste2', 5, perk('8210', 'HasteBonus2', 0.05), 'Shown as 5 ability haste in game') },
+];
 
 /** +5 ability haste at level 5 and another +5 at level 8. The level 11 takedown refund isn't modeled. */
 export const transcendence: Effect = {

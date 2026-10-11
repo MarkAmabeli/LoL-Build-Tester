@@ -1,5 +1,6 @@
 import type { Cycle } from '../cycles';
 import type { Effect, StateField } from '../types';
+import { item, sourced } from '../../hand';
 
 // Energized: moving and attacking charges an Energized attack. Energized items don't share
 // a shop limit, so each built item adds its own effect to the same attack.
@@ -9,8 +10,7 @@ const ENERGIZED: StateField = { key: 'proc', label: 'Energized attack (proc)', s
 // combat": the stacks build while walking into the fight, so the first attack is Energized.
 export const ENERGIZED_CYCLE: Cycle = { kind: 'proc', field: 'proc', counts: 'attack', hits: 1, requires: 'energized', startsReady: true };
 
-// CommunityDragon Items/3087: ChainDamage 60 (magic), BounceCount 4–8 by level.
-const SHIV_DAMAGE = 60;
+const SHIV_DAMAGE = sourced('statikk.damage', item('3087', 'ChainDamage', 60));
 
 /**
  * Electrospark: the Energized attack fires chain lightning for 60 magic damage. Only the
@@ -26,8 +26,7 @@ export const statikkShiv: Effect = {
   onHit: ({ state }) => (state.proc ? [{ type: 'magic', raw: SHIV_DAMAGE, source: 'Statikk Shiv', tags: ['onhit'] }] : []),
 };
 
-// Items/3094: BonusDamage 40 (magic), RangePercentIncrease 0.35, MaxRangeIncrease 150.
-const RFC_DAMAGE = 40;
+const RFC_DAMAGE = sourced('rfc.damage', item('3094', 'BonusDamage', 40));
 
 /** Sharpshooter: the Energized attack deals 40 bonus magic damage. The bonus range isn't modeled. */
 export const rapidFirecannon: Effect = {

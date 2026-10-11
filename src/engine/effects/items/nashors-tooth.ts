@@ -1,8 +1,8 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3115: NashorsBaseValue 15, NashorsAPValue 0.15
-const BASE = 15;
-const AP_RATIO = 0.15;
+const BASE = sourced('nashors.base', item('3115', 'NashorsBaseValue', 15));
+const AP_RATIO = sourced('nashors.apRatio', item('3115', 'NashorsAPValue', 0.15));
 
 /** Icathian Bite: attacks deal 15 (+15% AP) bonus magic damage on-hit. */
 export const nashorsTooth: Effect = {

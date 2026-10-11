@@ -10,6 +10,8 @@ export interface WikiPageSource {
 
 export interface WikiSources {
   champions: Record<string, { checkedPatch: string; changes: string; pages: WikiPageSource[] }>;
+  /** General pages (not one champion's) used by hand-entered engine values. */
+  pages?: WikiPageSource[];
 }
 
 /**

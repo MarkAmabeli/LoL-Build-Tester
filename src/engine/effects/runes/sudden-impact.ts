@@ -1,9 +1,11 @@
 import { byLevel } from '../../stats';
 import type { Effect, HitContext } from '../types';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Domination/SuddenImpact: 20–80 by level, ArmedDuration 4, Cooldown 10.
-const DAMAGE_L1 = 20;
-const DAMAGE_L18 = 80;
+const DAMAGE_L1 = sourced('suddenImpact.damageL1', perk('8143', 'MinDamageTooltip', 20));
+const DAMAGE_L18 = sourced('suddenImpact.damageL18', perk('8143', 'MaxDamageTooltip', 80));
+const ARMED_SECONDS = sourced('suddenImpact.armedSeconds', perk('8143', 'ArmedDuration', 4));
+const COOLDOWN = sourced('suddenImpact.cooldown', perk('8143', 'Cooldown', 10));
 
 const proc = ({ attacker, state }: HitContext) =>
   state.proc
@@ -17,8 +19,8 @@ export const suddenImpact: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [{ key: 'proc', label: 'After dash or stealth (proc)', scope: 'combat', kind: 'toggle', default: false }],
-  // A dash arms it for ArmedDuration 4; the next hit procs; Cooldown 10.
-  cycles: [{ kind: 'proc', field: 'proc', counts: 'dash', hits: 1, consumedBy: 'hit', armedFor: 4, cooldown: 10 }],
+  // A dash arms it for ARMED_SECONDS; the next hit procs.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'dash', hits: 1, consumedBy: 'hit', armedFor: ARMED_SECONDS, cooldown: COOLDOWN }],
   onHit: proc,
   onAbilityHit: proc,
 };

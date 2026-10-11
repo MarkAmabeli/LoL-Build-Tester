@@ -3,10 +3,13 @@ import { addBonus, stackPct } from '../stats';
 import type { Effect } from '../effects/types';
 import { dataValue, selfFormula } from './spells';
 import type { ChampionDefinition, ChampionSpells } from './types';
+import { hand, sourced, spell, wiki } from '../hand';
 
 // Spell data: spells/Darius.json (16.20). Mechanics cross-checked against the wiki: wiki-sources.json.
 
-const MAX_STACKS = 5;
+const MAX_STACKS = sourced('darius.hemorrhageMaxStacks', spell('Darius', 'DariusHemoMarker', 'MaxStacks', 5));
+const BLEED_SECONDS = sourced('darius.bleedSeconds', spell('Darius', 'DariusHemoMarker', 'BleedDuration', 5));
+const NOXIAN_MIGHT_SECONDS = hand('darius.noxianMightSeconds', 5, wiki('Template:Data Darius/Hemorrhage', 'empowered with Noxian Might for 5 seconds'));
 
 /** Noxian Might: at 5 Hemorrhage stacks on a champion, bonus AD by level for 5s. */
 const noxianMight = (spells: ChampionSpells): Effect => ({
@@ -15,8 +18,8 @@ const noxianMight = (spells: ChampionSpells): Effect => ({
   kind: 'champion',
   verifiedPatch: '16.20',
   state: [{ key: 'active', label: 'Noxian Might active', scope: 'combat', kind: 'toggle', default: false }],
-  // Fifth Hemorrhage stack (MaxStacks 5, each lasting BleedDuration 5), then 5s of bonus AD from the next hit.
-  cycles: [{ kind: 'proc', field: 'active', counts: 'hit', hits: MAX_STACKS, window: { seconds: 5, from: 'last' }, lasts: 5, fromNext: true }],
+  // The fifth Hemorrhage stack starts Noxian Might; its bonus AD applies from the next hit.
+  cycles: [{ kind: 'proc', field: 'active', counts: 'hit', hits: MAX_STACKS, window: { seconds: BLEED_SECONDS, from: 'last' }, lasts: NOXIAN_MIGHT_SECONDS, fromNext: true }],
   modifyStats: (stats, state) =>
     state.active
       ? { ...stats, ad: addBonus(stats.ad, selfFormula(spells, 'DariusHemoMarker', 'NoxianMightBonusAD', 1, stats)) }
@@ -82,8 +85,8 @@ export const darius: ChampionDefinition = {
       name: 'Noxian Guillotine',
       slot: 'R',
       state: [{ key: 'stacks', label: 'Hemorrhage stacks on target', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS }],
-      // Attacks and damaging abilities apply a stack; BleedDuration 5.
-      cycles: [{ kind: 'stacks', field: 'stacks', counts: 'hit', max: MAX_STACKS, expiresAfter: 5 }],
+      // Attacks and damaging abilities apply a stack.
+      cycles: [{ kind: 'stacks', field: 'stacks', counts: 'hit', max: MAX_STACKS, expiresAfter: BLEED_SECONDS }],
       hits: (ctx) => {
         const amp = ctx.value('DariusExecute', 'RDamagePercentPerHemoStack') * Math.min(MAX_STACKS, Number(ctx.state.stacks));
         return [{ type: 'true', raw: ctx.formula('DariusExecute', 'Damage') * (1 + amp), source: 'Noxian Guillotine', tags: ['ability'] }];

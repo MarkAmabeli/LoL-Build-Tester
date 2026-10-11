@@ -1,10 +1,13 @@
 import { addAdaptiveForce } from '../../stats';
 import type { Effect } from '../types';
+import { hand, perk, runeText, sourced } from '../../hand';
 
-// CommunityDragon perks Inspiration/JackOfAllTrades: HastePerStack 1, plus two unnamed values 8 and 20
-// (the adaptive force at 5 and 10 stacks). The data gives no stack cap.
-const HASTE_PER_STACK = 1;
-const ADAPTIVE_STEPS = [{ stacks: 10, force: 20 }, { stacks: 5, force: 8 }];
+// The adaptive force values are unnamed in the bin. The data gives no stack cap.
+const HASTE_PER_STACK = sourced('jackOfAllTrades.hastePerStack', perk('8316', 'HastePerStack', 1));
+const ADAPTIVE_STEPS = [
+  { stacks: hand('jackOfAllTrades.stacks2', 10, runeText(8316, 'at 5 and 10 stacks')), force: sourced('jackOfAllTrades.force2', perk('8316', '{55d14eea}', 20)) },
+  { stacks: hand('jackOfAllTrades.stacks1', 5, runeText(8316, 'at 5 and 10 stacks')), force: sourced('jackOfAllTrades.force1', perk('8316', '{1b48f5ea}', 8)) },
+];
 
 /** One stack per different stat from items; each grants 1 ability haste, and 5 / 10 stacks grant 8 / 20 adaptive force. */
 export const jackOfAllTrades: Effect = {

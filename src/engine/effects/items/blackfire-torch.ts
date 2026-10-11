@@ -1,10 +1,10 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/2503: BurnFlatDamagePerSecond 20, APRatio 0.02, BurnDuration 3; APPerStack 0.04.
-const BURN_PER_SECOND = 20;
-const AP_RATIO_PER_SECOND = 0.02;
-const BURN_SECONDS = 3;
-const AP_AMP_PER_TARGET = 0.04;
+const BURN_PER_SECOND = sourced('blackfire.burnPerSecond', item('2503', 'BurnFlatDamagePerSecond', 20));
+const AP_RATIO_PER_SECOND = sourced('blackfire.apRatioPerSecond', item('2503', 'APRatio', 0.02));
+const BURN_SECONDS = sourced('blackfire.burnSeconds', item('2503', 'BurnDuration', 3));
+const AP_AMP_PER_TARGET = sourced('blackfire.apAmpPerTarget', item('2503', 'APPerStack', 0.04));
 
 /**
  * Baleful Blaze: damaging abilities burn for 20 (+2% AP) magic damage per second for 3s

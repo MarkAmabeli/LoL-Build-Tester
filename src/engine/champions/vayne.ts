@@ -3,8 +3,12 @@ import { addBonus } from '../stats';
 import type { Effect } from '../effects/types';
 import { dataValue } from './spells';
 import type { ChampionDefinition, ChampionSpells } from './types';
+import { hand, sourced, spell, wiki } from '../hand';
 
 // Spell data: spells/Vayne.json (16.20). Mechanics cross-checked against the wiki: wiki-sources.json.
+
+const SILVER_BOLTS_HITS = hand('vayne.silverBoltsHits', 3, wiki('Template:Data Vayne/Silver Bolts', 'The third stack consumes them all'));
+const SILVER_BOLTS_SECONDS = sourced('vayne.silverBoltsSeconds', spell('Vayne', 'VayneSilveredBolts', 'DebuffDuration', 3.5));
 
 /** Silver Bolts: every third hit deals true damage, a % of the target's max health with a minimum. */
 const silverBolts = (rank: number, spells: ChampionSpells): Effect => ({
@@ -13,8 +17,7 @@ const silverBolts = (rank: number, spells: ChampionSpells): Effect => ({
   kind: 'champion',
   verifiedPatch: '16.20',
   state: [{ key: 'proc', label: 'Third hit (proc)', scope: 'combat', kind: 'toggle', default: false }],
-  // Three consecutive attacks; the marks last DebuffDuration 3.5 after each.
-  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: 3, window: { seconds: 3.5, from: 'last' } }],
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: SILVER_BOLTS_HITS, window: { seconds: SILVER_BOLTS_SECONDS, from: 'last' } }],
   onHit: ({ target, state }) => {
     if (!state.proc) return [];
     const ratio = dataValue(spells, 'VayneSilveredBolts', 'MaxHealthRatio', rank);

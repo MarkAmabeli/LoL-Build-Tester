@@ -1,7 +1,7 @@
 import type { Effect } from '../types';
+import { item, sourced } from '../../hand';
 
-// CommunityDragon Items/3089: APAmp 0.3
-const AP_AMP = 0.3;
+const AP_AMP = sourced('rabadons.apAmp', item('3089', 'APAmp', 0.3));
 
 /** Magical Opus: increases total AP by 30%. */
 export const rabadonsDeathcap: Effect = {

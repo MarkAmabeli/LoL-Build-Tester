@@ -1,10 +1,10 @@
 import { addAdaptiveForce, byLevel } from '../../stats';
 import type { Effect } from '../types';
+import { perk, sourced } from '../../hand';
 
-// CommunityDragon perks Sorcery/AbsoluteFocus: 3–30 adaptive force by level, above HealthPercent 0.7.
-const HEALTH_THRESHOLD = 0.7;
-const ADAPTIVE_L1 = 3;
-const ADAPTIVE_L18 = 30;
+const HEALTH_THRESHOLD = sourced('absoluteFocus.healthThreshold', perk('8233', 'HealthPercent', 0.7));
+const ADAPTIVE_L1 = sourced('absoluteFocus.adaptiveL1', perk('8233', 'MinAdaptive', 3));
+const ADAPTIVE_L18 = sourced('absoluteFocus.adaptiveL18', perk('8233', 'MaxAdaptive', 30));
 
 /** While above 70% health (the attacker's current health), gain 3–30 adaptive force by level. */
 export const absoluteFocus: Effect = {

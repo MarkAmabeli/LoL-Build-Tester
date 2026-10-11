@@ -58,7 +58,8 @@ async function main() {
   const changes = parseChampionChanges(module.slots.main['*']);
   console.log(`Data patch ${latest} (wiki ${dataPatch}); Module:ChampionData/data last edited ${module.timestamp} "${module.comment ?? ''}"`);
 
-  const titles = Object.values(sources.champions).flatMap((c) => c.pages.map((p) => p.page));
+  const general = sources.pages ?? [];
+  const titles = [...Object.values(sources.champions).flatMap((c) => c.pages.map((p) => p.page)), ...general.map((p) => p.page)];
   const revisions = await latestRevisions(titles);
   const problems: string[] = [];
 
@@ -75,6 +76,14 @@ async function main() {
       else if (rev.revid !== page.revision) {
         problems.push(`${page.page}: revision ${rev.revid} (${rev.timestamp} "${rev.comment ?? ''}"), recorded ${page.revision}`);
       }
+    }
+  }
+
+  for (const page of general) {
+    const rev = revisions.get(page.page);
+    if (!rev) problems.push(`${page.page}: page not found`);
+    else if (rev.revid !== page.revision) {
+      problems.push(`${page.page}: revision ${rev.revid} (${rev.timestamp} "${rev.comment ?? ''}"), recorded ${page.revision}`);
     }
   }
 
