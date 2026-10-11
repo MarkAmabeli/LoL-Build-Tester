@@ -4,24 +4,23 @@
  *   npm run data              # latest patch
  *   npm run data -- 16.19.1   # a specific Data Dragon version
  *
- * Sources
- *   - Data Dragon: champion base stats, items, runes (official Riot static data)
- *   - CommunityDragon: per-champion game .bin data, which holds the actual spell
- *     values (DataValues) and formulas (SpellCalculations). Data Dragon tooltips no
- *     longer carry usable ability numbers. Also rune stat shards, which Data Dragon lacks,
- *     and item shop limits (item groups) from items.cdtb.bin.
+ * Sources: Data Dragon (base stats, items, runes) and CommunityDragon (spell values and
+ * formulas, stat shards, shop limits). Their settings, every change this script makes to
+ * their data, and notes on each are in sources.ts; add to it when changing the import.
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { ShardData, StatShard } from '../src/engine/types.ts';
 import { buildItemGroups, type ItemsBin } from './item-groups.ts';
+import { dedupeItemsByName } from './item-dedupe.ts';
+import { COMMUNITY_DRAGON, DATA_DRAGON } from './sources.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
 import { translateSpell, type Calculation } from './spell-formulas.ts';
 import { cleanText, parseShardText } from './shard-stats.ts';
 
-const DDRAGON = 'https://ddragon.leagueoflegends.com';
-const CDRAGON = 'https://raw.communitydragon.org';
-const LOCALE = 'en_US';
+const DDRAGON = DATA_DRAGON.baseUrl;
+const CDRAGON = COMMUNITY_DRAGON.baseUrl;
+const LOCALE = DATA_DRAGON.locale;
 const CONCURRENCY = 8;
 const OUT_ROOT = path.resolve('public/data');
 const OVERRIDES = path.resolve('scripts/overrides');
@@ -69,7 +68,7 @@ async function getCdragonJson<T>(patch: string, subpath: string): Promise<T> {
     return await getJson<T>(`${CDRAGON}/${patch}/${subpath}`);
   } catch (err) {
     try {
-      return await getJson<T>(`${CDRAGON}/latest/${subpath}`);
+      return await getJson<T>(`${CDRAGON}/${COMMUNITY_DRAGON.fallbackFolder}/${subpath}`);
     } catch {
       throw err;
     }
@@ -129,7 +128,7 @@ interface BinSpellObject {
   damagePerLevelModifiable?: { baseValue?: number };
 }
 
-const SUMMONERS_RIFT = '11';
+const SUMMONERS_RIFT = DATA_DRAGON.summonersRiftMap;
 
 /**
  * Build champions, adding `stats.adaptiveType` from the hand-maintained list in
@@ -252,10 +251,17 @@ async function buildItems(version: string) {
   const { data } = await getJson<{ data: Record<string, DDItem> }>(
     `${DDRAGON}/cdn/${version}/data/${LOCALE}/item.json`,
   );
-  return Object.entries(data)
+  const store = Object.entries(data)
     .filter(([, item]) => item.maps?.[SUMMONERS_RIFT] && item.gold?.purchasable && item.inStore !== false)
     .filter(([, item]) => !item.requiredChampion && !item.requiredAlly)
-    .map(([id, item]) => {
+    .map(([id, item]) => ({ ...item, id }));
+  const { items: unique, dropped } = dedupeItemsByName(store);
+  // Recipes only link items in this list: Data Dragon's also point at dropped variants
+  // (Kindlegem → 323050), items from other modes (Atma's Reckoning) and unbuyable ones (Trailblazer).
+  const listed = new Set(unique.map((i) => i.id));
+  const recipe = (ids: string[] = []) => ids.filter((x) => listed.has(x));
+  const built = unique
+    .map(({ id, ...item }) => {
       const textStats = parseItemDescriptionStats(item.description);
       return {
         id,
@@ -263,8 +269,8 @@ async function buildItems(version: string) {
         plaintext: item.plaintext,
         gold: item.gold.total,
         tags: item.tags,
-        from: item.from ?? [],
-        into: item.into ?? [],
+        from: recipe(item.from),
+        into: recipe(item.into),
         icon: `${DDRAGON}/cdn/${version}/img/item/${item.image.full}`,
         stats: toStatBonuses(item.stats, textStats),
         // Kept so passives can be modeled (and audited) later.
@@ -272,6 +278,7 @@ async function buildItems(version: string) {
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
+  return { items: built, dropped };
 }
 
 async function buildRunes(version: string) {
@@ -279,7 +286,7 @@ async function buildRunes(version: string) {
 }
 
 // ---- CommunityDragon client data shapes (only the fields we use) ----
-const CD_CLIENT_DATA = 'plugins/rcp-be-lol-game-data/global/default/v1';
+const CD_CLIENT_DATA = COMMUNITY_DRAGON.clientDataPath;
 interface CDPerk {
   id: number;
   name: string;
@@ -343,7 +350,7 @@ async function main() {
   const outDir = path.join(OUT_ROOT, version);
   console.log(`Building data for ${version} -> ${path.relative(process.cwd(), outDir)}`);
 
-  const [{ champions, warnings: championWarnings }, items, runes, shards] = await Promise.all([
+  const [{ champions, warnings: championWarnings }, { items, dropped: droppedItems }, runes, shards] = await Promise.all([
     buildChampions(version),
     buildItems(version),
     buildRunes(version),
@@ -360,6 +367,8 @@ async function main() {
       `${Object.keys(shards.data.shards).length} stat shards`,
   );
   for (const w of [...championWarnings, ...shards.warnings]) console.warn(`  ! ${w}`);
+  console.log(`  ${droppedItems.length} items listed more than once; kept one each (see item-dedupe.ts):`);
+  for (const d of droppedItems) console.log(`    ${d.name}: kept ${d.kept}, dropped ${d.dropped.join(', ')}`);
 
   const { failures, coverage, adPerLevel } = await buildSpells(version, champions.map((c) => c.id), outDir);
   console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);

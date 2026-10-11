@@ -3,7 +3,7 @@
 ## Next up (in order)
 From the engine review before starting the UI. Work these top to bottom.
 
-1. [ ] **Duplicate items.** 26 items appear twice in `items.json` (e.g. Frozen Heart `3110` and `323110`); both pass the Summoner's Rift/purchasable filter. Keep one entry per item, choosing by best assumption (e.g. the ID effects are registered under); a manual review of the item list follows.
+1. [x] **Duplicate items.** 26 items appeared twice in `items.json` (e.g. Frozen Heart `3110` and `323110`). `scripts/item-dedupe.ts` keeps one per name by assumption (the entry on the most maps, then the lowest ID); the build log lists what was dropped. Recipes (`from`/`into`) now only link items in the list. A manual review of the item list follows.
 2. [ ] **Proc state starts unstacked.** At the start of a combat or combo, procs are not ready: Electrocute only procs once its hit count is reached, Silver Bolts on the third hit, Spellblade after an ability. Track what's needed to cycle them: hit counters (Vayne W procs again on the next third hit), cooldowns (Electrocute can't proc again until its cooldown expires and it's re-stacked), buff windows. This is the state the combo simulator (section 5) drives; the static table uses the same "unstacked at start" defaults.
 3. [ ] **Engine helpers for the UI.** One call that sums a build's item stats, shards and checks shop limits; add `cooldown`, `cost` and `range` to the engine's `SpellRecord` type (they're already in the spell files) for cooldown-with-haste columns. Raise questions and feedback before implementing.
 4. [ ] **Tracked hand-entered values.** Every hand-entered value or override (item/rune/champion constants, data interpretations, overrides files) is declared in one consistent, findable way so none lingers untracked. Each records the source value it was checked against; after a data fetch, flag any whose source value changed and now conflicts. Conflicts that existed before and didn't change with the update aren't flagged.
@@ -30,6 +30,7 @@ Damage is calculated against a **target dummy**: max health, current health, arm
 - [x] Translate SpellCalculations into `Formula`s (base per rank and by level + ratios), with Q/W/E/R slots and max ranks from Data Dragon; 90.5% of calculations translate, the rest are listed per spell as unsupported with a reason
 - [ ] Raise formula coverage: crit damage (stat 9), cooldown multipliers, conditional calculations, `ByCharLevelFormula`, `EffectValue`, clamps, stat × stat
 - [ ] Hand-maintained overrides file for cases the raw data gets wrong (started: `scripts/overrides/adaptive-magic.json`)
+- [x] `scripts/sources.ts`: per-source settings, every modification the import makes (with the code that does it) and notes, as the single place to check before a refresh
 - [ ] Schema validation on generated output
 
 ## 2. Stat engine

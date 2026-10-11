@@ -1,0 +1,166 @@
+/**
+ * Single source of truth for every external data source: how it's accessed (settings the
+ * scripts read from here), every explicit change we make to its data (modifications), and
+ * what we've learned about it (notes). Read this before refreshing data or investigating
+ * a source, so the same ground isn't covered twice.
+ *
+ * Rules:
+ *   - A script that reads a source takes its URL, paths and access settings from here.
+ *   - Any change the import makes to a source's data gets a `modifications` entry naming
+ *     the code that does it (`where`). sources.test.ts checks those files exist.
+ *   - Anything learned about a source that isn't a change (quirks, mismatches checked and
+ *     accepted, dead ends) goes in `notes`, with the patch it was checked on.
+ *   - Hand-entered gameplay constants in item, rune and champion effects are tracked
+ *     separately (ROADMAP "Next up" step 4).
+ */
+
+export interface Modification {
+  /** Short stable key, e.g. "items-dedupe". */
+  readonly id: string;
+  /** What changes in the data. */
+  readonly what: string;
+  /** Why the source's data can't be used as is. */
+  readonly why: string;
+  /** Files that implement it (repo-relative). */
+  readonly where: readonly string[];
+}
+
+export interface Source {
+  readonly name: string;
+  /** What we read from it. */
+  readonly provides: readonly string[];
+  readonly modifications: readonly Modification[];
+  readonly notes: readonly string[];
+}
+
+export const DATA_DRAGON: Source & { baseUrl: string; locale: string; summonersRiftMap: string } = {
+  name: 'Data Dragon (Riot)',
+  baseUrl: 'https://ddragon.leagueoflegends.com',
+  locale: 'en_US',
+  /** `maps` key for Summoner's Rift in item.json. */
+  summonersRiftMap: '11',
+  provides: [
+    'api/versions.json: patch list; the newest is the default data version',
+    'champion.json: base stats, tags, resource, icons',
+    'champion/<id>.json: Q/W/E/R spell IDs and max ranks',
+    'item.json: items, gold, recipes, stats, descriptions',
+    'runesReforged.json: rune trees',
+  ],
+  modifications: [
+    {
+      id: 'champion-ad-per-level',
+      what: "attackdamageperlevel is replaced by the champion bin's damagePerLevelModifiable when Data Dragon's is 0",
+      why: 'Data Dragon 16.20.1 ships 0 for all 173 champions. The bin values match the wiki for 172; Senna is genuinely 0',
+      where: ['scripts/fetch-data.ts', 'scripts/champion-data.test.ts'],
+    },
+    {
+      id: 'champion-adaptive-type',
+      what: 'stats.adaptiveType added (adaptive force tie-break), AP for the champions listed in the overrides file',
+      why: "Data Dragon doesn't have it",
+      where: ['scripts/fetch-data.ts', 'scripts/overrides/adaptive-magic.json', 'scripts/overrides.test.ts'],
+    },
+    {
+      id: 'items-store-filter',
+      what: "Only items on Summoner's Rift that are purchasable, in store, and not champion- or ally-locked",
+      why: 'item.json holds every mode and internal item',
+      where: ['scripts/fetch-data.ts'],
+    },
+    {
+      id: 'items-dedupe',
+      what: 'One entry per item name: the one on the most maps, then the lowest ID. Dropped IDs are printed in the build log',
+      why: "26 names appear twice (32xxxx/66xxxx variants, jungle pets 1105–1107), all passing the store filter. What unlocks the variants is unconfirmed; this is an assumption pending manual review",
+      where: ['scripts/item-dedupe.ts', 'scripts/item-dedupe.test.ts', 'scripts/item-data.test.ts'],
+    },
+    {
+      id: 'items-recipe-links',
+      what: 'from/into only keep IDs that are in the written item list',
+      why: 'Recipes point at dropped variants, other-mode items (Atma\'s Reckoning) and unbuyable ones (Trailblazer)',
+      where: ['scripts/fetch-data.ts', 'scripts/item-data.test.ts'],
+    },
+    {
+      id: 'items-description-stats',
+      what: 'Ability haste, lethality, penetration and crit damage are parsed from the description <stats> block; percentages are converted to the engine units',
+      why: "The structured `stats` field doesn't include them",
+      where: ['scripts/item-stats.ts', 'scripts/item-stats.test.ts'],
+    },
+    {
+      id: 'spell-slots',
+      what: "Spells get a Q/W/E/R slot and max rank from champion/<id>.json; others get 'P' if the name contains 'passive', and max rank 5",
+      why: 'The bins have no slot or rank count',
+      where: ['scripts/fetch-data.ts'],
+    },
+  ],
+  notes: [
+    'No attack speed ratio, windup or missile speed; those are in the CommunityDragon champion bins.',
+    'Ability tooltips no longer carry usable numbers; spell values come from the CommunityDragon bins.',
+    'Base stats other than AD per level matched the wiki for Vayne, Darius, Veigar, Nasus and Yunara (16.20).',
+  ],
+};
+
+export const COMMUNITY_DRAGON: Source & { baseUrl: string; fallbackFolder: string; clientDataPath: string } = {
+  name: 'CommunityDragon (raw game files)',
+  baseUrl: 'https://raw.communitydragon.org',
+  /** Used when the patch folder ("16.20") isn't published yet. */
+  fallbackFolder: 'latest',
+  clientDataPath: 'plugins/rcp-be-lol-game-data/global/default/v1',
+  provides: [
+    'game/data/characters/<id>/<id>.bin.json: spell DataValues and SpellCalculations; CharacterRecords/Root base stats',
+    'game/items.cdtb.bin.json: shop limit groups',
+    '<clientDataPath>/perks.json and perkstyles.json: stat shard rows and text',
+  ],
+  modifications: [
+    {
+      id: 'spell-formulas',
+      what: 'SpellCalculations are translated into engine formulas; untranslatable ones are listed per spell with a reason',
+      why: 'The game format is a tree of calculation parts, not a damage formula',
+      where: ['scripts/spell-formulas.ts', 'scripts/spell-formulas.test.ts', 'scripts/spell-data.test.ts'],
+    },
+    {
+      id: 'item-group-names',
+      what: 'Four hashed group keys get readable names (Spellblade, SpellShield, Thorns, HydraItems); limits above 10 are treated as unlimited',
+      why: 'Some group keys and IDs are only hashes; Arena groups use 99',
+      where: ['scripts/item-groups.ts', 'scripts/item-groups.test.ts', 'scripts/item-groups-data.test.ts'],
+    },
+    {
+      id: 'shard-text',
+      what: "Stat shard values are parsed from perks.json description text; the first rune tree's shard rows are used",
+      why: 'Shard values only exist as text; every tree lists the same rows (checked, warns if not)',
+      where: ['scripts/shard-stats.ts', 'scripts/shard-stats.test.ts', 'scripts/shard-data.test.ts'],
+    },
+  ],
+  notes: [
+    'The folder is the patch without its last part: Data Dragon 16.20.1 → "16.20".',
+    'Spell data values use name/values in current files; older files use mName/mValues. Both are read.',
+    'Entry 0 of each data value list is a placeholder: rank N is entry N.',
+    'Stat codes (inferred): 0 AP, 1 armor, 2 AD, 4 AS, 6 MR, 7 MS, 8 crit chance, 9 crit damage, 12 health, 13 current health, 29 lethality. mStatFormula: 0 total, 1 base, 2 bonus. {a8cb9c14} marks a target stat; {f3cbe7b2} is a reference to another calculation.',
+    'Root record (16.20): baseDamageModifiable, damagePerLevelModifiable, attackSpeedModifiable, attackSpeedRatioModifiable, attackSpeedPerLevelModifiable, critDamageMultiplier (2.0 for the five MVP champions; the engine uses a constant 2).',
+    'Attack speed ratio is not imported; the engine uses base AS. Vayne is the known exception (bin 0.67, wiki 0.658, base 0.658); left for the per-champion review.',
+    'Windup: Root basicAttack.mAttackDelayCastOffsetPercent (windup = 0.3 + offset), or mAttackCastTime / mAttackTotalTime for newer champions (Yunara). mAttackDelayCastOffsetPercentAttackSpeedRatio is the windup modifier (Darius 0.5). Not imported yet.',
+    "Missile speed: use the attack spell's mMissileSpec.movementComponent.mSpeed. The top-level missileSpeed field disagrees with the wiki (Veigar 1100 vs 1500, Yunara 2000 vs 2500). Melee attacks have 0.",
+    'Vi damagePerLevelModifiable is 3.9; the wiki says 3.5 (16.20). Game data used.',
+  ],
+};
+
+export const LOL_WIKI: Source & { apiUrl: string; userAgent: string; championDataModule: string } = {
+  name: 'League of Legends Wiki (wiki.leagueoflegends.com)',
+  apiUrl: 'https://wiki.leagueoflegends.com/en-us/api.php',
+  /** The wiki blocks browser-like user agents from scripts; MediaWiki asks for a descriptive one. */
+  userAgent: 'LoL-Build-Tester/0.1 (wiki source check)',
+  /** Per-champion stats and the last-changed patch. */
+  championDataModule: 'Module:ChampionData/data',
+  provides: [
+    'Mechanics the game data lacks (damage types, what crits, conditions), per page in src/engine/champions/wiki-sources.json',
+    'Module:ChampionData/data: base stats, as_ratio, attack_delay_offset, windup_modifier, missile_speed, attack_cast_time/total_time, changes (last-changed patch)',
+  ],
+  modifications: [],
+  notes: [
+    'Use this wiki, not leagueoflegends.fandom.com (stale, and it blocks fetches).',
+    'Patch names: Data Dragon 16.20.1 = wiki V26.20 (year-based names; inferred from edit summaries).',
+    'Read pages through the API (action=parse or query+revisions). Revision IDs pin the text used; `npm run wiki:check` flags changed pages and `changes` values before a refresh.',
+    'Values are often rounded (Vayne as_ratio 0.658 vs game 0.67; an edit correcting it was reverted for that reason). Game data wins on mismatches unless noted.',
+    "Crits are 200% again since V26.01 (were 175% from V10.23). Sundered Sky's crit became 80% of crit damage in the same patch.",
+    'The attack speed cap is 1/0.333 (≈3.003).',
+  ],
+};
+
+export const SOURCES: Record<string, Source> = { dataDragon: DATA_DRAGON, communityDragon: COMMUNITY_DRAGON, wiki: LOL_WIKI };

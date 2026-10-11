@@ -11,11 +11,11 @@
  * Needs network access, so it isn't part of `npm test`.
  */
 import { readFile } from 'node:fs/promises';
+import { LOL_WIKI } from './sources.ts';
 import { compareWikiPatch, dataPatchToWiki, parseChampionChanges, type WikiSources } from './wiki-sources.ts';
 
-const API = 'https://wiki.leagueoflegends.com/en-us/api.php';
-// The wiki blocks browser-like user agents from scripts; MediaWiki asks for a descriptive one.
-const HEADERS = { 'User-Agent': 'LoL-Build-Tester/0.1 (wiki source check)', Accept: 'application/json' };
+const API = LOL_WIKI.apiUrl;
+const HEADERS = { 'User-Agent': LOL_WIKI.userAgent, Accept: 'application/json' };
 
 interface Revision {
   revid: number;
@@ -53,8 +53,8 @@ async function main() {
   const { latest } = JSON.parse(await readFile('public/data/manifest.json', 'utf8')) as { latest: string };
   const dataPatch = dataPatchToWiki(latest);
 
-  const module = (await latestRevisions(['Module:ChampionData/data'], true)).get('Module:ChampionData/data');
-  if (!module?.slots) throw new Error('Could not read Module:ChampionData/data');
+  const module = (await latestRevisions([LOL_WIKI.championDataModule], true)).get(LOL_WIKI.championDataModule);
+  if (!module?.slots) throw new Error(`Could not read ${LOL_WIKI.championDataModule}`);
   const changes = parseChampionChanges(module.slots.main['*']);
   console.log(`Data patch ${latest} (wiki ${dataPatch}); Module:ChampionData/data last edited ${module.timestamp} "${module.comment ?? ''}"`);
 
