@@ -57,7 +57,7 @@ describe('on-hit items', () => {
   });
 
   it('Terminus adds 30 + 10% bonus AD + 10% AP magic, and 10% armor and magic pen per Dark stack', () => {
-    const r = hit(dummy, { ad: 20, ap: 50 }, [activate(item('3302'))], auto);
+    const r = hit(dummy, { ad: 20, ap: 50 }, [activate(item('3302'), { dark: 3 })], auto);
     expect(r.hits[1]).toMatchObject({ type: 'magic', raw: 30 + 2 + 5 });
     expect(r.attacker.armorPenPct).toBeCloseTo(0.3);
     const withLdr = resolveStats(dummy, 1, { armorPenPct: 0.3 }, [activate(item('3302'), { dark: 1 })]);
@@ -71,14 +71,14 @@ describe('on-hit items', () => {
   });
 
   it("Guinsoo's Rageblade adds 30 magic and 8% attack speed per stack", () => {
-    const r = hit(dummy, {}, [activate(item('3124'))], auto);
+    const r = hit(dummy, {}, [activate(item('3124'), { stacks: 4 })], auto);
     expect(r.hits[1]).toMatchObject({ type: 'magic', raw: 30 });
     expect(r.attacker.attackSpeed).toBeCloseTo(0.625 * 1.32);
   });
 
   it('Hullbreaker deals 120% base AD + 5% max health every fifth attack (ranged × 0.7)', () => {
-    expect(hit(melee, { hp: 400 }, [activate(item('3181'))], auto).hits[1].raw).toBeCloseTo(72 + 50);
-    expect(hit(dummy, { hp: 400 }, [activate(item('3181'))], auto).hits[1].raw).toBeCloseTo((72 + 50) * 0.7);
+    expect(hit(melee, { hp: 400 }, [activate(item('3181'), { proc: true })], auto).hits[1].raw).toBeCloseTo(72 + 50);
+    expect(hit(dummy, { hp: 400 }, [activate(item('3181'), { proc: true })], auto).hits[1].raw).toBeCloseTo((72 + 50) * 0.7);
     expect(hit(melee, {}, [activate(item('3181'), { proc: false })], auto).hits).toHaveLength(1);
   });
 
@@ -88,8 +88,8 @@ describe('on-hit items', () => {
   });
 
   it('Voltaic Cyclosword deals 9% (ranged 7%) current health, and grants lethality after', () => {
-    expect(hit(melee, {}, [activate(item('6699'))], auto).hits[1].raw).toBeCloseTo(54);
-    expect(hit(dummy, {}, [activate(item('6699'))], auto).hits[1].raw).toBeCloseTo(42);
+    expect(hit(melee, {}, [activate(item('6699'), { proc: true })], auto).hits[1].raw).toBeCloseTo(54);
+    expect(hit(dummy, {}, [activate(item('6699'), { proc: true })], auto).hits[1].raw).toBeCloseTo(42);
     expect(resolveStats(melee, 1, {}, [activate(item('6699'), { lethality: true })]).lethality).toBe(15);
   });
 });
@@ -112,13 +112,13 @@ describe('damage amps', () => {
   });
 
   it("Liandry's burns for 6% max health over 3s and amplifies up to 6%", () => {
-    const r = hit(dummy, {}, [activate(item('6653'))], () => ability);
+    const r = hit(dummy, {}, [activate(item('6653'), { seconds: 3 })], () => ability);
     expect(r.hits.map((h) => h.final)).toEqual([expect.closeTo(106), expect.closeTo(36 * 1.06)]);
     expect(hit(dummy, {}, [activate(item('6653'), { burn: false, seconds: 1 })], auto).total).toBeCloseTo(60 * 1.02);
   });
 
   it('Riftmaker converts 2% bonus health to AP and amplifies up to 8%', () => {
-    const r = hit(dummy, { hp: 1000 }, [activate(item('4633'))], () => ability);
+    const r = hit(dummy, { hp: 1000 }, [activate(item('4633'), { seconds: 4 })], () => ability);
     expect(r.attacker.ap).toBeCloseTo(20);
     expect(r.total).toBeCloseTo(108);
   });
@@ -155,8 +155,8 @@ describe('stats from stats', () => {
   });
 
   it('Experimental Hexplate grants 50% (ranged 25%) attack speed during Overdrive', () => {
-    expect(resolveStats(melee, 1, {}, [activate(item('3073'))]).attackSpeed).toBeCloseTo(0.625 * 1.5);
-    expect(resolveStats(dummy, 1, {}, [activate(item('3073'))]).attackSpeed).toBeCloseTo(0.625 * 1.25);
+    expect(resolveStats(melee, 1, {}, [activate(item('3073'), { overdrive: true })]).attackSpeed).toBeCloseTo(0.625 * 1.5);
+    expect(resolveStats(dummy, 1, {}, [activate(item('3073'), { overdrive: true })]).attackSpeed).toBeCloseTo(0.625 * 1.25);
   });
 });
 
@@ -175,13 +175,13 @@ describe('ability procs', () => {
   });
 
   it('Stormsurge Squall deals 125 + 10% AP', () => {
-    expect(procs(hit(dummy, { ap: 100 }, [activate(item('4646'))], () => ability))).toEqual([['Squall', 'magic', 135]]);
+    expect(procs(hit(dummy, { ap: 100 }, [activate(item('4646'), { proc: true })], () => ability))).toEqual([['Squall', 'magic', 135]]);
   });
 });
 
 describe('Spellblade items', () => {
   const proc = (id: string, bonuses: StatBonuses = {}, champ = dummy) =>
-    hit(champ, bonuses, [activate(item(id))], auto).hits.slice(1).map((h) => [h.type, h.raw]);
+    hit(champ, bonuses, [activate(item(id), { proc: true })], auto).hits.slice(1).map((h) => [h.type, h.raw]);
 
   it('scale with base AD (and AP for the magic ones)', () => {
     expect(proc('3057')).toEqual([['physical', 60]]);
@@ -196,19 +196,19 @@ describe('Spellblade items', () => {
   });
 
   it('only proc on attacks, when ready', () => {
-    expect(hit(dummy, {}, [activate(item('3078'))], () => ability).hits).toHaveLength(1);
+    expect(hit(dummy, {}, [activate(item('3078'), { proc: true })], () => ability).hits).toHaveLength(1);
     expect(hit(dummy, {}, [activate(item('3078'), { proc: false })], auto).hits).toHaveLength(1);
   });
 
   it('Bloodsong Maim amplifies all damage by 8% (ranged 5%)', () => {
-    expect(hit(melee, {}, [activate(item('3877'), { proc: false })], () => ability).total).toBeCloseTo(108);
-    expect(hit(dummy, {}, [activate(item('3877'))], auto).total).toBeCloseTo(120 * 1.05);
+    expect(hit(melee, {}, [activate(item('3877'), { maim: true })], () => ability).total).toBeCloseTo(108);
+    expect(hit(dummy, {}, [activate(item('3877'), { proc: true, maim: true })], auto).total).toBeCloseTo(120 * 1.05);
   });
 });
 
 describe('Energized items', () => {
   it('Statikk Shiv and Rapid Firecannon both add to the same Energized attack', () => {
-    const effects = [activate(item('3087')), activate(item('3094'))];
+    const effects = [activate(item('3087'), { proc: true }), activate(item('3094'), { proc: true })];
     expect(procs(hit(dummy, {}, effects, auto))).toEqual([['Statikk Shiv', 'magic', 60], ['Rapid Firecannon', 'magic', 40]]);
     expect(hit(dummy, {}, [activate(item('3087'), { proc: false })], auto).hits).toHaveLength(1);
   });
@@ -247,7 +247,7 @@ describe('Sundered Sky', () => {
   });
 
   it('procs see the modified hit', () => {
-    const effects = [activate(item('6610')), activate(item('3087'))];
+    const effects = [activate(item('6610')), activate(item('3087'), { proc: true })];
     expect(hit(dummy, {}, effects, auto).total).toBeCloseTo(96 + 60);
   });
 });

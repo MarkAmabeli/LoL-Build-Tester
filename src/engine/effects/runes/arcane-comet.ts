@@ -22,9 +22,12 @@ export const arcaneComet: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [
-    { key: 'proc', label: 'Off cooldown', kind: 'toggle', default: true },
-    { key: 'distance', label: 'Distance to target', kind: 'number', default: 0, min: 0, max: MAX_RANGE },
+    { key: 'proc', label: 'Comet (proc)', scope: 'combat', kind: 'toggle', default: true },
+    { key: 'distance', label: 'Distance to target', scope: 'action', kind: 'number', default: 0, min: 0, max: MAX_RANGE },
   ],
+  // RechargeTime 20, RechargeTimeMin 8 (by level). The cooldown refund from hits (PercentRefund 0.2,
+  // DotPercentRefund 0.05, AoEPercentRefund 0.1) isn't modeled.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'ability', hits: 1, cooldown: { from: 20, to: 8 } }],
   onAbilityHit: ({ attacker, state }) => {
     if (!state.proc) return [];
     const base = byLevel(DAMAGE_L1, DAMAGE_L18, attacker.level) + BONUS_AD_RATIO * attacker.ad.bonus + AP_RATIO * attacker.ap;

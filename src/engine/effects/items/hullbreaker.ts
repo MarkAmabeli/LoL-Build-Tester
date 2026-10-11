@@ -12,7 +12,9 @@ export const hullbreaker: Effect = {
   name: 'Hullbreaker',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Fifth attack (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Fifth attack (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  // Five stacks (wiki: "the fifth stack consumes them all"; not in the bin), SkipperStackDuration 10.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: 5, window: { seconds: 10, from: 'last' } }],
   onHit: ({ attacker, state }) => {
     if (!state.proc) return [];
     const raw = (BASE_AD_RATIO * attacker.ad.base + HP_RATIO * attacker.hp.total) * (isRanged(attacker) ? RANGED_MULT : 1);

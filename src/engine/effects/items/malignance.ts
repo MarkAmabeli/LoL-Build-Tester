@@ -18,7 +18,7 @@ export const malignance: Effect = {
   name: 'Malignance',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'seconds', label: 'Seconds in Hatefog', kind: 'number', default: MAX_SECONDS, min: 0, max: MAX_SECONDS }],
+  state: [{ key: 'seconds', label: 'Seconds in Hatefog', scope: 'action', kind: 'number', default: MAX_SECONDS, min: 0, max: MAX_SECONDS }],
   modifyStats: (stats) => ({ ...stats, ultimateHaste: stats.ultimateHaste + ULTIMATE_HASTE }),
   onAbilityHit: ({ attacker, state, hit }) => {
     const seconds = Math.min(MAX_SECONDS, Number(state.seconds));

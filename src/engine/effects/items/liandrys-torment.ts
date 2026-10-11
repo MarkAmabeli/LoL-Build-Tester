@@ -19,9 +19,11 @@ export const liandrysTorment: Effect = {
   kind: 'item',
   verifiedPatch: '16.20',
   state: [
-    { key: 'burn', label: 'Torment burn', kind: 'toggle', default: true },
-    { key: 'seconds', label: 'Seconds in combat', kind: 'number', default: MAX_SECONDS, min: 0, max: MAX_SECONDS },
+    { key: 'burn', label: 'Torment burn', scope: 'setup', kind: 'toggle', default: true },
+    { key: 'seconds', label: 'Seconds in combat', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_SECONDS },
   ],
+  // MaxStackNumber 3, BuffCounterDuration 3.
+  cycles: [{ kind: 'stacks', field: 'seconds', counts: 'second', max: MAX_SECONDS, expiresAfter: 3 }],
   onAbilityHit: ({ target, state }) =>
     state.burn
       ? [{

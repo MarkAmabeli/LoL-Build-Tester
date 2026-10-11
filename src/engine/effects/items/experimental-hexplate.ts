@@ -15,7 +15,9 @@ export const experimentalHexplate: Effect = {
   name: 'Experimental Hexplate',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'overdrive', label: 'Overdrive active', kind: 'toggle', default: true }],
+  state: [{ key: 'overdrive', label: 'Overdrive active', scope: 'combat', kind: 'toggle', default: false }],
+  // HasteDuration 8 after casting the ultimate; Cooldown 30.
+  cycles: [{ kind: 'proc', field: 'overdrive', counts: 'ultimateCast', hits: 1, lasts: 8, cooldown: 30 }],
   modifyStats: (base, state) => {
     const stats = { ...base, ultimateHaste: base.ultimateHaste + ULTIMATE_HASTE };
     if (!state.overdrive) return stats;

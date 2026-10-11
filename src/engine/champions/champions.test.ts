@@ -83,16 +83,16 @@ describe('Vayne', () => {
   });
 
   it('Silver Bolts: the third hit deals % max health true damage, with a minimum', () => {
-    const w1 = effects({ W: 1 });
+    const w1 = effects({ W: 1 }, { 'Vayne:W': { proc: true } });
     expect(parts(computeHit(autoAttack(resolveStats(dummy, 1), false), { attacker: resolveStats(dummy, 1), target: bare, effects: w1 })))
       .toEqual([['Auto attack', 60], ['Silver Bolts', 40]]);
-    const w5 = effects({ W: 5 });
+    const w5 = effects({ W: 5 }, { 'Vayne:W': { proc: true } });
     const attacker = resolveStats(dummy, 1);
     expect(computeHit(autoAttack(attacker, false), { attacker, target: big(3000), effects: w5 }).hits[1].raw).toBeCloseTo(300);
   });
 
   it("Tumble's attack applies on-hit effects like Silver Bolts", () => {
-    expect(cast('Q', 1, { effects: effects({ W: 1 }) }).total).toBeCloseTo(60 + 45 + 40);
+    expect(cast('Q', 1, { effects: effects({ W: 1 }, { 'Vayne:W': { proc: true } }) }).total).toBeCloseTo(60 + 45 + 40);
   });
 
   it('Condemn: 50 (+50% bonus AD), plus 150% more into a wall', () => {
@@ -111,7 +111,8 @@ describe('Darius', () => {
   const { cast, effects } = setup('Darius');
 
   it('Hemorrhage: 13–30 (+30% bonus AD) per stack over 5s', () => {
-    expect(cast('P', 1).total).toBeCloseTo(5 * 13);
+    expect(cast('P', 1).total).toBeCloseTo(13);
+    expect(cast('P', 1, { state: { stacks: 5 } }).total).toBeCloseTo(5 * 13);
     expect(cast('P', 1, { level: 18, bonuses: { ad: 100 }, state: { stacks: 2 } }).total).toBeCloseTo(2 * (30 + 30));
   });
 
@@ -129,7 +130,7 @@ describe('Darius', () => {
 
   it('Noxian Guillotine: true damage, +20% per Hemorrhage stack, tagged ultimate', () => {
     const armored: TargetState = { stats: resolveStats(dummy, 18) };
-    const r = cast('R', 1, { bonuses: { ad: 40 }, target: armored });
+    const r = cast('R', 1, { bonuses: { ad: 40 }, target: armored, state: { stacks: 5 } });
     expect(r.total).toBeCloseTo((125 + 30) * 2);
     expect(r.hits[0].tags).toContain('ultimate');
     expect(cast('R', 1, { state: { stacks: 0 } }).total).toBeCloseTo(125);

@@ -38,7 +38,7 @@ const ability = { type: 'magic' as const, raw: 100, source: 'Q', tags: ['ability
 
 describe('registry', () => {
   it('fills state defaults and applies overrides', () => {
-    expect(activate(cleaver).state).toEqual({ stacks: 5 });
+    expect(activate(cleaver).state).toEqual({ stacks: 0 }); // start of combat
     expect(activate(cleaver, { stacks: 2 }).state).toEqual({ stacks: 2 });
   });
 
@@ -76,7 +76,7 @@ describe('Black Cleaver', () => {
   const target = { stats: resolveStats(dummy, 1, { armor: 70 }) }; // 100 armor
 
   it('shreds 6% armor per stack', () => {
-    const effects = [activate(cleaver)]; // 5 stacks: 100 -> 70 armor
+    const effects = [activate(cleaver, { stacks: 5 })]; // 5 stacks: 100 -> 70 armor
     const { total, hits } = computeHit(autoAttack(attacker, false), { attacker, target, effects });
     expect(hits[0].effectiveResist).toBeCloseTo(70);
     expect(total).toBeCloseTo(60 * 100 / 170);
@@ -89,13 +89,13 @@ describe('Black Cleaver', () => {
 
   it('applies before lethality', () => {
     const lethal = resolveStats(dummy, 1, { lethality: 10 });
-    const effects = [activate(cleaver)];
+    const effects = [activate(cleaver, { stacks: 5 })];
     const { hits } = computeHit(autoAttack(lethal, false), { attacker: lethal, target, effects });
     expect(hits[0].effectiveResist).toBeCloseTo(60); // 100 × 0.7 − 10
   });
 
   it('does not reduce magic resist', () => {
-    const effects = [activate(cleaver)];
+    const effects = [activate(cleaver, { stacks: 5 })];
     const mrTarget = { stats: resolveStats(dummy, 1, { mr: 70 }) };
     expect(computeHit(ability, { attacker, target: mrTarget, effects }).total).toBeCloseTo(50);
   });
@@ -130,7 +130,7 @@ describe('Kraken Slayer', () => {
   });
 
   it('deals 80% damage when ranged', () => {
-    const effects = [activate(kraken)];
+    const effects = [activate(kraken, { proc: true })];
     const ranged = resolveStats(dummy, 1);
     const meleeStats = resolveStats(melee, 1);
     expect(computeHit(autoAttack(ranged, false), { attacker: ranged, target, effects }).hits[1].final).toBeCloseTo(120);
@@ -138,7 +138,7 @@ describe('Kraken Slayer', () => {
   });
 
   it('increases with target missing health, up to ×1.75', () => {
-    const effects = [activate(kraken)];
+    const effects = [activate(kraken, { proc: true })];
     const attacker = resolveStats(melee, 1);
     const half = computeHit(autoAttack(attacker, false), { attacker, target: { ...target, currentHp: 300 }, effects });
     expect(half.hits[1].raw).toBeCloseTo(150 * 1.375);

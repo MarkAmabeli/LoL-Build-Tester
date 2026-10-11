@@ -18,7 +18,9 @@ export const lethalTempo: Effect = {
   name: 'Lethal Tempo',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'stacks', label: 'Stacks', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
+  state: [{ key: 'stacks', label: 'Stacks', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS }],
+  // Duration 6.
+  cycles: [{ kind: 'stacks', field: 'stacks', counts: 'attack', max: MAX_STACKS, expiresAfter: 6 }],
   modifyStats: (stats, state) => {
     const perStack = isRanged(stats) ? AS_PER_STACK.ranged : AS_PER_STACK.melee;
     return addBonusAttackSpeed(stats, perStack * Math.min(MAX_STACKS, Number(state.stacks)));

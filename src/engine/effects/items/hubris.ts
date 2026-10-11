@@ -12,8 +12,8 @@ export const hubris: Effect = {
   kind: 'item',
   verifiedPatch: '16.20',
   state: [
-    { key: 'active', label: 'Eminence active', kind: 'toggle', default: true },
-    { key: 'stacks', label: 'Eminence stacks', kind: 'number', default: 0, min: 0, max: 50 },
+    { key: 'active', label: 'Eminence active', scope: 'setup', kind: 'toggle', default: true },
+    { key: 'stacks', label: 'Eminence stacks', scope: 'setup', kind: 'number', default: 0, min: 0, max: 50 },
   ],
   modifyStats: (stats, state) =>
     state.active

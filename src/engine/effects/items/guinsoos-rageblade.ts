@@ -16,7 +16,9 @@ export const guinsoosRageblade: Effect = {
   name: "Guinsoo's Rageblade",
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'stacks', label: 'Seething Strike stacks', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
+  state: [{ key: 'stacks', label: 'Seething Strike stacks', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS }],
+  // BuffDuration 4.
+  cycles: [{ kind: 'stacks', field: 'stacks', counts: 'attack', max: MAX_STACKS, expiresAfter: 4 }],
   modifyStats: (stats, state) => addBonusAttackSpeed(stats, AS_PER_STACK_PCT * Math.min(MAX_STACKS, Number(state.stacks))),
   onHit: () => [{ type: 'magic', raw: DAMAGE, source: "Guinsoo's Rageblade", tags: ['onhit'] }],
 };

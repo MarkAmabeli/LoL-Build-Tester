@@ -17,7 +17,9 @@ export const riftmaker: Effect = {
   name: 'Riftmaker',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'seconds', label: 'Seconds in combat', kind: 'number', default: MAX_SECONDS, min: 0, max: MAX_SECONDS }],
+  state: [{ key: 'seconds', label: 'Seconds in combat', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_SECONDS }],
+  // BuffCounterDuration 4 out of combat resets it.
+  cycles: [{ kind: 'stacks', field: 'seconds', counts: 'second', max: MAX_SECONDS, expiresAfter: 4 }],
   modifyStats: (stats) => ({ ...stats, ap: stats.ap + HP_TO_AP * stats.hp.bonus }),
   preMitigation: (hit, { state }) => {
     const amp = AMP_PER_SECOND * Math.min(MAX_SECONDS, Number(state.seconds));

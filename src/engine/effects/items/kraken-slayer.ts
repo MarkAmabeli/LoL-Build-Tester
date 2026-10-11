@@ -25,7 +25,9 @@ export const krakenSlayer: Effect = {
   name: 'Kraken Slayer',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Third attack (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Third attack (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  // AttackCount 3; the count lasts BuffDuration 4 after each attack.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: 3, window: { seconds: 4, from: 'last' } }],
   onHit: ({ attacker, target, state }) => {
     if (!state.proc) return [];
     const missingPct = 1 - targetHpPct(target);

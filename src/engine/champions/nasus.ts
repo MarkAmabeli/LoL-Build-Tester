@@ -15,7 +15,7 @@ const furyOfTheSands = (rank: number, spells: ChampionSpells): Effect => ({
   name: 'Fury of the Sands',
   kind: 'champion',
   verifiedPatch: '16.20',
-  state: [{ key: 'active', label: 'Fury of the Sands active', kind: 'toggle', default: false }],
+  state: [{ key: 'active', label: 'Fury of the Sands active', scope: 'action', kind: 'toggle', default: false }],
   modifyStats: (stats, state) => {
     if (!state.active) return stats;
     const resist = dataValue(spells, 'NasusR', 'InitialResistGain', rank);
@@ -34,7 +34,7 @@ const spiritFireShred = (rank: number, spells: ChampionSpells): Effect => ({
   name: 'Spirit Fire (armor reduction)',
   kind: 'champion',
   verifiedPatch: '16.20',
-  state: [{ key: 'active', label: 'Target in Spirit Fire', kind: 'toggle', default: false }],
+  state: [{ key: 'active', label: 'Target in Spirit Fire', scope: 'action', kind: 'toggle', default: false }],
   targetResist: ({ state }) =>
     state.active ? { armor: { pct: -dataValue(spells, 'NasusE', 'ArmorShredPercent', rank) } } : {},
 });
@@ -48,7 +48,7 @@ export const nasus: ChampionDefinition = {
       id: 'Q',
       name: 'Siphoning Strike',
       slot: 'Q',
-      state: [{ key: 'stacks', label: 'Siphoning Strike stacks', kind: 'number', default: 0, min: 0, max: 10000 }],
+      state: [{ key: 'stacks', label: 'Siphoning Strike stacks', scope: 'setup', kind: 'number', default: 0, min: 0, max: 10000 }],
       hits: (ctx) => [{
         type: 'physical',
         raw: ctx.formula('NasusQ', 'TotalDamage', { stacks: Number(ctx.state.stacks) }) * critFactor(ctx.attacker, ctx.crit),
@@ -62,7 +62,7 @@ export const nasus: ChampionDefinition = {
       id: 'E',
       name: 'Spirit Fire',
       slot: 'E',
-      state: [{ key: 'seconds', label: 'Seconds in the fire', kind: 'number', default: 0, min: 0, max: 5 }],
+      state: [{ key: 'seconds', label: 'Seconds in the fire', scope: 'action', kind: 'number', default: 0, min: 0, max: 5 }],
       hits: (ctx) => {
         const seconds = Math.min(ctx.value('NasusE', 'Duration'), Math.max(0, Number(ctx.state.seconds)));
         const dot = (ctx.formula('NasusE', 'TotalDotDamage') * seconds) / ctx.value('NasusE', 'Duration');
@@ -77,7 +77,7 @@ export const nasus: ChampionDefinition = {
       id: 'R',
       name: 'Fury of the Sands (aura)',
       slot: 'R',
-      state: [{ key: 'seconds', label: 'Seconds of aura damage', kind: 'number', default: 1, min: 0, max: R_MAX_SECONDS }],
+      state: [{ key: 'seconds', label: 'Seconds of aura damage', scope: 'action', kind: 'number', default: 1, min: 0, max: R_MAX_SECONDS }],
       hits: (ctx) => {
         const seconds = Math.min(R_MAX_SECONDS, Math.max(0, Number(ctx.state.seconds)));
         const perSecond = Math.min(R_DAMAGE_CAP_PER_SECOND, ctx.formula('NasusR', 'DamageCalc') * ctx.target.stats.hp.total);

@@ -12,7 +12,7 @@ export const legendAlacrity: Effect = {
   name: 'Legend: Alacrity',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'stacks', label: 'Legend stacks', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
+  state: [{ key: 'stacks', label: 'Legend stacks', scope: 'setup', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
   modifyStats: (stats, state) =>
     addBonusAttackSpeed(stats, BASE_PCT + PER_STACK_PCT * Math.min(MAX_STACKS, Number(state.stacks))),
 };

@@ -11,7 +11,8 @@ export const scorch: Effect = {
   name: 'Scorch',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Burn ready (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Burn (proc)', scope: 'combat', kind: 'toggle', default: true }],
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'ability', hits: 1, cooldown: 10 }],
   onAbilityHit: ({ attacker, state }) =>
     state.proc
       ? [{ type: 'magic', raw: byLevel(DAMAGE_L1, DAMAGE_L18, attacker.level), source: 'Scorch', tags: ['proc', 'dot'] }]

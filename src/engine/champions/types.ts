@@ -1,4 +1,5 @@
 import type { FormulaContext, TargetState } from '../damage';
+import type { Cycle } from '../effects/cycles';
 import type { Effect, EffectState, StateField } from '../effects/types';
 import type { DamageInstance, Formula, ResolvedStats } from '../types';
 
@@ -41,6 +42,8 @@ export interface AbilityDefinition {
   /** Slot whose rank the ability uses. Abilities using the R rank deal ultimate damage. */
   slot: Slot;
   state?: StateField[];
+  /** How the ability's 'combat' state fields change over a fight (see cycles.ts). */
+  cycles?: Cycle[];
   /**
    * The hits one use deals, before items and runes. The first one triggers procs: on-hit
    * if tagged `auto`, on-ability if tagged `ability` (empowered attacks are both).

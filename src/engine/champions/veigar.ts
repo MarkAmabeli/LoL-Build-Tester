@@ -14,7 +14,7 @@ const phenomenalEvil: Effect = {
   name: 'Phenomenal Evil',
   kind: 'champion',
   verifiedPatch: '16.20',
-  state: [{ key: 'stacks', label: 'Phenomenal Evil stacks', kind: 'number', default: 0, min: 0, max: 10000 }],
+  state: [{ key: 'stacks', label: 'Phenomenal Evil stacks', scope: 'setup', kind: 'number', default: 0, min: 0, max: 10000 }],
   modifyStats: (stats, state) => ({ ...stats, ap: stats.ap + Math.max(0, Number(state.stacks)) }),
 };
 

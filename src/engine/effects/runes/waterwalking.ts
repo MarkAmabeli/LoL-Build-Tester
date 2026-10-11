@@ -12,7 +12,7 @@ export const waterwalking: Effect = {
   name: 'Waterwalking',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'river', label: 'In the river', kind: 'toggle', default: true }],
+  state: [{ key: 'river', label: 'In the river', scope: 'setup', kind: 'toggle', default: true }],
   modifyStats: (stats, state) =>
     state.river
       ? { ...addAdaptiveForce(stats, byLevel(ADAPTIVE_L1, ADAPTIVE_L18, stats.level)), moveSpeed: stats.moveSpeed + MOVE_SPEED }

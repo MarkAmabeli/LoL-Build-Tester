@@ -19,7 +19,7 @@ export const overgrowth: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   statPhase: 'multiply',
-  state: [{ key: 'units', label: 'Units absorbed', kind: 'number', default: THRESHOLD_UNITS, min: 0, max: 1000 }],
+  state: [{ key: 'units', label: 'Units absorbed', scope: 'setup', kind: 'number', default: THRESHOLD_UNITS, min: 0, max: 1000 }],
   modifyStats: (stats, state) => {
     const units = Math.max(0, Number(state.units));
     const flat = HEALTH_PER_TIER * Math.floor(units / UNITS_PER_TIER);

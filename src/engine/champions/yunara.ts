@@ -32,7 +32,7 @@ const cultivation = (rank: number, spells: ChampionSpells): Effect => ({
   name: 'Cultivation of Spirit',
   kind: 'champion',
   verifiedPatch: '16.20',
-  state: [{ key: 'active', label: 'Cultivation of Spirit active', kind: 'toggle', default: false }],
+  state: [{ key: 'active', label: 'Cultivation of Spirit active', scope: 'action', kind: 'toggle', default: false }],
   modifyStats: (stats, state) =>
     state.active ? addBonusAttackSpeed(stats, 100 * selfFormula(spells, 'YunaraQ', 'Calc_Attack_Speed', rank, stats)) : stats,
   onHit: ({ attacker, state }) => [
@@ -51,7 +51,7 @@ export const yunara: ChampionDefinition = {
       id: 'W',
       name: 'Arc of Judgment',
       slot: 'W',
-      state: [{ key: 'seconds', label: 'Seconds in the lingering bead', kind: 'number', default: 0, min: 0, max: 5 }],
+      state: [{ key: 'seconds', label: 'Seconds in the lingering bead', scope: 'action', kind: 'number', default: 0, min: 0, max: 5 }],
       hits: (ctx) => {
         const seconds = Math.max(0, Number(ctx.state.seconds));
         return [

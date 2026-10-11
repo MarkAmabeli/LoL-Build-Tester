@@ -1,11 +1,15 @@
 import { isRanged } from '../../stats';
 import { amplify } from '../amplify';
 import type { ResolvedStats } from '../../types';
+import type { Cycle } from '../cycles';
 import type { Effect, StateField } from '../types';
 
 // Spellblade: after using an ability, the next attack deals bonus damage on-hit (1.5s cooldown).
 // The items share a shop limit group, so only one is ever built (see item-groups.json).
-const READY: StateField = { key: 'proc', label: 'Spellblade ready (proc)', kind: 'toggle', default: true };
+const READY: StateField = { key: 'proc', label: 'Spellblade (proc)', scope: 'combat', kind: 'toggle', default: false };
+// Casting an ability arms it (10s, per the in-game description); the next attack procs.
+// SpellbladeCooldown 1.5 on every Spellblade item.
+const SPELLBLADE_CYCLE: Cycle = { kind: 'proc', field: 'proc', counts: 'cast', hits: 1, consumedBy: 'attack', armedFor: 10, cooldown: 1.5 };
 
 function spellblade(
   id: string,
@@ -19,6 +23,7 @@ function spellblade(
     kind: 'item',
     verifiedPatch: '16.20',
     state: [READY],
+    cycles: [SPELLBLADE_CYCLE],
     onHit: ({ attacker, state }) =>
       state.proc ? [{ type, raw: damage(attacker), source: name, tags: ['onhit'] }] : [],
   };
@@ -64,7 +69,8 @@ const MAIM_AMP = { melee: 0.08, ranged: 0.05 };
  */
 export const bloodsong: Effect = {
   ...spellblade('3877', 'Bloodsong', 'physical', (a) => a.ad.base),
-  state: [READY, { key: 'maim', label: 'Target Maimed', kind: 'toggle', default: true }],
+  state: [READY, { key: 'maim', label: 'Target Maimed', scope: 'combat', kind: 'toggle', default: false }],
+  cycles: [SPELLBLADE_CYCLE, { kind: 'buff', field: 'maim', startedBy: 'proc', lasts: 4 }],
   preMitigation: (hit, { attacker, state }) =>
     state.maim ? amplify(hit, isRanged(attacker) ? MAIM_AMP.ranged : MAIM_AMP.melee) : hit,
 };

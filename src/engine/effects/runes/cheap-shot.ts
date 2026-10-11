@@ -16,7 +16,8 @@ export const cheapShot: Effect = {
   name: 'Cheap Shot',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Target impaired (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Target impaired (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: 4, requires: 'targetImpaired' }],
   onHit: proc,
   onAbilityHit: proc,
 };

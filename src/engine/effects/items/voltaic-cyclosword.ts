@@ -1,5 +1,6 @@
 import { isRanged } from '../../stats';
 import type { Effect } from '../types';
+import { ENERGIZED_CYCLE } from './energized';
 
 // CommunityDragon Items/6699: PercentCurrentHPMelee 9, PercentCurrentHPRanged 7;
 // LethalityBonusModMelee 15, LethalityBonusModRanged 12, LethalityBonusDuration 4.
@@ -16,8 +17,13 @@ export const voltaicCyclosword: Effect = {
   kind: 'item',
   verifiedPatch: '16.20',
   state: [
-    { key: 'proc', label: 'Energized attack (proc)', kind: 'toggle', default: true },
-    { key: 'lethality', label: 'Firmament lethality active', kind: 'toggle', default: false },
+    { key: 'proc', label: 'Energized attack (proc)', scope: 'combat', kind: 'toggle', default: true },
+    { key: 'lethality', label: 'Firmament lethality active', scope: 'combat', kind: 'toggle', default: false },
+  ],
+  // Energized, starting charged (see energized.ts); LethalityBonusDuration 4 after the proc.
+  cycles: [
+    ENERGIZED_CYCLE,
+    { kind: 'buff', field: 'lethality', startedBy: 'proc', lasts: 4 },
   ],
   modifyStats: (stats, state) =>
     state.lethality

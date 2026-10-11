@@ -17,8 +17,8 @@ export const blackfireTorch: Effect = {
   verifiedPatch: '16.20',
   statPhase: 'multiply',
   state: [
-    { key: 'burn', label: 'Baleful Blaze burn', kind: 'toggle', default: true },
-    { key: 'burning', label: 'Enemies burning', kind: 'number', default: 1, min: 0, max: 10 },
+    { key: 'burn', label: 'Baleful Blaze burn', scope: 'setup', kind: 'toggle', default: true },
+    { key: 'burning', label: 'Enemies burning', scope: 'setup', kind: 'number', default: 1, min: 0, max: 10 },
   ],
   modifyStats: (stats, state) => ({ ...stats, ap: stats.ap * (1 + AP_AMP_PER_TARGET * Math.max(0, Number(state.burning))) }),
   onAbilityHit: ({ attacker, state }) =>

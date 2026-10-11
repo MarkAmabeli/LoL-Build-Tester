@@ -13,7 +13,9 @@ export const ludensEcho: Effect = {
   name: "Luden's Echo",
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Echo ready (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Echo (proc)', scope: 'combat', kind: 'toggle', default: true }],
+  // Items/6655 Cooldown 12.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'ability', hits: 1, cooldown: 12 }],
   onAbilityHit: ({ attacker, state }) =>
     state.proc
       ? [{ type: 'magic', raw: SINGLE_TARGET_MULT * (BASE + AP_RATIO * attacker.ap), source: "Luden's Echo", tags: ['proc'] }]

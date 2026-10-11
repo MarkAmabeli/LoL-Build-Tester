@@ -14,7 +14,9 @@ export const sunderedSky: Effect = {
   name: 'Sundered Sky',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Lightshield Strike ready (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Lightshield Strike (proc)', scope: 'combat', kind: 'toggle', default: true }],
+  // Items/6610 Cooldown 10 (per target).
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: 1, cooldown: 10 }],
   modifyHit: (hit, { attacker, state }) =>
     state.proc && hit.tags?.includes('auto')
       ? {

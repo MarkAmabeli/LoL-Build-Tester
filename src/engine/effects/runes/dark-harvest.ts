@@ -22,9 +22,11 @@ export const darkHarvest: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [
-    { key: 'proc', label: 'Off cooldown', kind: 'toggle', default: true },
-    { key: 'souls', label: 'Souls collected', kind: 'number', default: 0, min: 0, max: 100 },
+    { key: 'proc', label: 'Off cooldown', scope: 'combat', kind: 'toggle', default: true },
+    { key: 'souls', label: 'Souls collected', scope: 'setup', kind: 'number', default: 0, min: 0, max: 100 },
   ],
+  // Cooldown 35 (resets to 1s on takedown, not modeled); only hits below HarvestThreshold count.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: 35, requires: 'targetBelowHalfHealth' }],
   onHit: proc,
   onAbilityHit: proc,
 };

@@ -12,7 +12,10 @@ export const conqueror: Effect = {
   name: 'Conqueror',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'stacks', label: 'Stacks', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
+  state: [{ key: 'stacks', label: 'Stacks', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS }],
+  // 2 stacks per hit, 1 per ranged attack (in-game description); BuffDuration 5. Abilities only stack
+  // once per cast instance (wiki), which counts as one event here.
+  cycles: [{ kind: 'stacks', field: 'stacks', counts: 'hit', perHit: { melee: 2, ranged: 1 }, perAbilityHit: 2, max: MAX_STACKS, expiresAfter: 5 }],
   modifyStats: (stats, state) =>
     addAdaptiveForce(stats, Math.min(MAX_STACKS, Number(state.stacks)) * byLevel(PER_STACK_L1, PER_STACK_L18, stats.level)),
 };

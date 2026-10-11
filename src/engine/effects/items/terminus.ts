@@ -17,7 +17,10 @@ export const terminus: Effect = {
   name: 'Terminus',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'dark', label: 'Dark stacks', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS }],
+  state: [{ key: 'dark', label: 'Dark stacks', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS }],
+  // Attacks alternate Light and Dark; assumes the first is Light, so every second attack adds a
+  // Dark stack. BuffDuration 5.
+  cycles: [{ kind: 'stacks', field: 'dark', counts: 'attack', every: 2, max: MAX_STACKS, expiresAfter: 5 }],
   modifyStats: (stats, state) => {
     const pen = PEN_PER_STACK * Math.min(MAX_STACKS, Number(state.dark));
     return { ...stats, armorPenPct: stackPct(stats.armorPenPct, pen), magicPenPct: stackPct(stats.magicPenPct, pen) };

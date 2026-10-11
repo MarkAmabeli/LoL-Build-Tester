@@ -19,6 +19,6 @@ export const gatheringStorm: Effect = {
   name: 'Gathering Storm',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'minutes', label: 'Game time (minutes)', kind: 'number', default: 0, min: 0, max: 90 }],
+  state: [{ key: 'minutes', label: 'Game time (minutes)', scope: 'setup', kind: 'number', default: 0, min: 0, max: 90 }],
   modifyStats: (stats, state) => addAdaptiveForce(stats, gatheringStormForce(Number(state.minutes))),
 };

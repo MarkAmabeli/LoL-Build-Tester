@@ -16,7 +16,7 @@ export const conditioning: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   statPhase: 'multiply',
-  state: [{ key: 'active', label: 'Past 12 minutes', kind: 'toggle', default: true }],
+  state: [{ key: 'active', label: 'Past 12 minutes', scope: 'setup', kind: 'toggle', default: true }],
   modifyStats: (stats, state) => {
     if (!state.active) return stats;
     const amp = (s: typeof stats.armor) => addBonus(s, FLAT + (s.total + FLAT) * RESIST_AMP);

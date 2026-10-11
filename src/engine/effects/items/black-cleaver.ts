@@ -11,8 +11,10 @@ export const blackCleaver: Effect = {
   kind: 'item',
   verifiedPatch: '16.20',
   state: [
-    { key: 'stacks', label: 'Carve stacks on target', kind: 'number', default: MAX_STACKS, min: 0, max: MAX_STACKS },
+    { key: 'stacks', label: 'Carve stacks on target', scope: 'combat', kind: 'number', default: 0, min: 0, max: MAX_STACKS },
   ],
+  // DebuffDuration 6.
+  cycles: [{ kind: 'stacks', field: 'stacks', counts: 'physicalHit', max: MAX_STACKS, expiresAfter: 6 }],
   targetResist: ({ state }) => ({
     armor: { pct: SHRED_PER_STACK * Math.min(MAX_STACKS, Number(state.stacks)) },
   }),

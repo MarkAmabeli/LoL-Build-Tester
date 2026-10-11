@@ -13,7 +13,10 @@ export const stormsurge: Effect = {
   name: 'Stormsurge',
   kind: 'item',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Squall (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Squall (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  // Cooldown 30. The damage threshold (DamageThreshold 0.25 in WindowDuration 2.5) is reported by
+  // the combo simulator; the Squall lands after DelayDuration 2, which isn't modeled.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 1, cooldown: 30, requires: 'damageThreshold' }],
   onHit: squall,
   onAbilityHit: squall,
 };

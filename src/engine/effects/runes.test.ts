@@ -72,19 +72,19 @@ describe('adaptive damage type', () => {
 
 describe('effect ordering', () => {
   it("runs Conqueror's adaptive force before Rabadon's multiplier, whatever the list order", () => {
-    const effects = [activate(rune('3089')), activate(rune('8010'))];
+    const effects = [activate(rune('3089')), activate(rune('8010'), { stacks: 12 })];
     expect(resolveStats(dummy, 1, { ap: 100 }, effects).ap).toBeCloseTo((100 + 12 * 1.8) * 1.3);
   });
 });
 
 describe('Conqueror', () => {
   it('grants 1.8 adaptive force per stack at level 1, as AD by default', () => {
-    const s = resolveStats(dummy, 1, {}, [activate(rune('8010'))]);
+    const s = resolveStats(dummy, 1, {}, [activate(rune('8010'), { stacks: 12 })]);
     expect(s.ad.bonus).toBeCloseTo(12 * 1.8 * 0.6);
   });
 
   it('grants 4 per stack at level 18, as AP when AP is higher', () => {
-    expect(resolveStats(dummy, 18, { ap: 50 }, [activate(rune('8010'))]).ap).toBeCloseTo(50 + 48);
+    expect(resolveStats(dummy, 18, { ap: 50 }, [activate(rune('8010'), { stacks: 12 })]).ap).toBeCloseTo(50 + 48);
   });
 
   it('scales with the stack count', () => {
@@ -93,7 +93,7 @@ describe('Conqueror', () => {
 });
 
 describe('Electrocute', () => {
-  const effects = [activate(rune('8112'))];
+  const effects = [activate(rune('8112'), { proc: true })];
 
   it('deals 70 (+5% AP) magic damage at level 1 for an AP attacker', () => {
     const { hits } = hit(dummy, 1, { ap: 100 }, effects, auto);
@@ -144,7 +144,7 @@ describe('Arcane Comet', () => {
 
 describe('Lethal Tempo', () => {
   it('grants 6% attack speed per stack for melee and procs at 6 stacks', () => {
-    const { attacker, hits } = hit(melee, 1, {}, [activate(rune('8008'))], auto);
+    const { attacker, hits } = hit(melee, 1, {}, [activate(rune('8008'), { stacks: 6 })], auto);
     expect(attacker.bonusAttackSpeedPct).toBeCloseTo(36);
     expect(attacker.attackSpeed).toBeCloseTo(0.625 * 1.36);
     expect(hits[1]).toMatchObject({ type: 'physical', source: 'Lethal Tempo' });
@@ -152,14 +152,14 @@ describe('Lethal Tempo', () => {
   });
 
   it('uses the ranged values', () => {
-    const { attacker, hits } = hit(dummy, 1, {}, [activate(rune('8008'))], auto);
+    const { attacker, hits } = hit(dummy, 1, {}, [activate(rune('8008'), { stacks: 6 })], auto);
     expect(attacker.bonusAttackSpeedPct).toBeCloseTo(24);
     expect(hits[1].raw).toBeCloseTo(6 * 1.24);
   });
 
   it('counts level-growth attack speed as bonus attack speed', () => {
     // Level 18: growth 2 × 17 = 34%, plus 36% from stacks.
-    const { hits } = hit(melee, 18, {}, [activate(rune('8008'))], auto);
+    const { hits } = hit(melee, 18, {}, [activate(rune('8008'), { stacks: 6 })], auto);
     expect(hits[1].raw).toBeCloseTo(30 * 1.7);
   });
 
@@ -172,7 +172,7 @@ describe('Lethal Tempo', () => {
 
 describe('Press the Attack', () => {
   it('amplifies damage by 8% while the target is exposed', () => {
-    expect(hit(dummy, 1, {}, [activate(rune('8005'))], auto).total).toBeCloseTo(60 * 1.08);
+    expect(hit(dummy, 1, {}, [activate(rune('8005'), { exposed: true })], auto).total).toBeCloseTo(60 * 1.08);
   });
 
   it('deals 40 adaptive damage on the proc, without amplifying that hit', () => {
@@ -189,7 +189,7 @@ describe('Press the Attack', () => {
 
 describe('First Strike', () => {
   it('amplifies every instance by 7%, including procs', () => {
-    const effects = [activate(rune('8369')), activate(rune('8112'))];
+    const effects = [activate(rune('8369')), activate(rune('8112'), { proc: true })];
     expect(hit(dummy, 1, { ap: 100 }, effects, () => ability).total).toBeCloseTo((100 + 75) * 1.07);
   });
 
@@ -264,10 +264,10 @@ describe('Gathering Storm', () => {
 
 describe('Cheap Shot and Sudden Impact', () => {
   it('add level-scaled true damage to attacks and abilities', () => {
-    const cheap = [activate(rune('8126'))];
+    const cheap = [activate(rune('8126'), { proc: true })];
     expect(hit(dummy, 1, {}, cheap, auto).total).toBeCloseTo(60 + 10);
     expect(hit(dummy, 18, {}, cheap, () => ability).hits[1]).toMatchObject({ type: 'true', raw: 45 });
-    const sudden = [activate(rune('8143'))];
+    const sudden = [activate(rune('8143'), { proc: true })];
     expect(hit(dummy, 18, {}, sudden, () => ability).total).toBeCloseTo(100 + 80);
   });
 

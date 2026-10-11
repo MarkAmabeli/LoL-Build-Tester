@@ -12,7 +12,7 @@ export const jackOfAllTrades: Effect = {
   name: 'Jack of All Trades',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'stacks', label: 'Different item stats', kind: 'number', default: 0, min: 0, max: 20 }],
+  state: [{ key: 'stacks', label: 'Different item stats', scope: 'setup', kind: 'number', default: 0, min: 0, max: 20 }],
   modifyStats: (stats, state) => {
     const stacks = Number(state.stacks);
     const force = ADAPTIVE_STEPS.find((s) => stacks >= s.stacks)?.force ?? 0;

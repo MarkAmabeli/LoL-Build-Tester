@@ -20,8 +20,14 @@ export const pressTheAttack: Effect = {
   kind: 'rune',
   verifiedPatch: '16.20',
   state: [
-    { key: 'proc', label: 'Third attack (proc)', kind: 'toggle', default: false },
-    { key: 'exposed', label: 'Target exposed', kind: 'toggle', default: true },
+    { key: 'proc', label: 'Third attack (proc)', scope: 'combat', kind: 'toggle', default: false },
+    { key: 'exposed', label: 'Target exposed', scope: 'combat', kind: 'toggle', default: false },
+  ],
+  // HitsRequired 3, TimeBetweenHits 4, Cooldown 6. Exposure lasts until 5s out of combat
+  // (OutOfCombatTimer 5), so hits refresh it.
+  cycles: [
+    { kind: 'proc', field: 'proc', counts: 'attack', hits: 3, window: { seconds: 4, from: 'last' }, cooldown: 6 },
+    { kind: 'buff', field: 'exposed', startedBy: 'proc', lasts: 5, refreshedBy: 'hit' },
   ],
   onHit: ({ attacker, state }) =>
     state.proc ? [adaptiveProc(attacker, byLevel(DAMAGE_L1, DAMAGE_L18, attacker.level), 'Press the Attack')] : [],

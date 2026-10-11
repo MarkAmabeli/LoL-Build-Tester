@@ -12,7 +12,9 @@ const silverBolts = (rank: number, spells: ChampionSpells): Effect => ({
   name: 'Silver Bolts',
   kind: 'champion',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Third hit (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Third hit (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  // Three consecutive attacks; the marks last DebuffDuration 3.5 after each.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'attack', hits: 3, window: { seconds: 3.5, from: 'last' } }],
   onHit: ({ target, state }) => {
     if (!state.proc) return [];
     const ratio = dataValue(spells, 'VayneSilveredBolts', 'MaxHealthRatio', rank);
@@ -27,7 +29,7 @@ const finalHour = (rank: number, spells: ChampionSpells): Effect => ({
   name: 'Final Hour',
   kind: 'champion',
   verifiedPatch: '16.20',
-  state: [{ key: 'active', label: 'Final Hour active', kind: 'toggle', default: false }],
+  state: [{ key: 'active', label: 'Final Hour active', scope: 'action', kind: 'toggle', default: false }],
   modifyStats: (stats, state) =>
     state.active
       ? { ...stats, ad: addBonus(stats.ad, dataValue(spells, 'VayneInquisition', 'BonusAttackDamage', rank)) }
@@ -52,7 +54,7 @@ export const vayne: ChampionDefinition = {
       id: 'E',
       name: 'Condemn',
       slot: 'E',
-      state: [{ key: 'wall', label: 'Knocked into a wall', kind: 'toggle', default: false }],
+      state: [{ key: 'wall', label: 'Knocked into a wall', scope: 'action', kind: 'toggle', default: false }],
       hits: (ctx) => [
         { type: 'physical', raw: ctx.formula('VayneCondemn', 'TotalDamage'), source: 'Condemn', tags: ['ability'] },
         ...(ctx.state.wall

@@ -16,7 +16,9 @@ export const suddenImpact: Effect = {
   name: 'Sudden Impact',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'After dash or stealth (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'After dash or stealth (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  // A dash arms it for ArmedDuration 4; the next hit procs; Cooldown 10.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'dash', hits: 1, consumedBy: 'hit', armedFor: 4, cooldown: 10 }],
   onHit: proc,
   onAbilityHit: proc,
 };

@@ -14,6 +14,9 @@ export const firstStrike: Effect = {
   name: 'First Strike',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'active', label: 'First Strike active', kind: 'toggle', default: true }],
+  state: [{ key: 'active', label: 'First Strike active', scope: 'combat', kind: 'toggle', default: true }],
+  // Duration 3; cooldown 25–15 by level (TooltipOnlyCooldownStart/EndAmount). It also needs 10s out
+  // of combat (OOCTimer) to trigger again, which isn't modeled.
+  cycles: [{ kind: 'proc', field: 'active', counts: 'hit', hits: 1, lasts: 3, cooldown: { from: 25, to: 15 } }],
   preMitigation: (hit, { state }) => (state.active ? amplify(hit, DAMAGE_AMP) : hit),
 };

@@ -23,7 +23,9 @@ export const electrocute: Effect = {
   name: 'Electrocute',
   kind: 'rune',
   verifiedPatch: '16.20',
-  state: [{ key: 'proc', label: 'Third hit (proc)', kind: 'toggle', default: true }],
+  state: [{ key: 'proc', label: 'Third hit (proc)', scope: 'combat', kind: 'toggle', default: false }],
+  // Three separate hits within WindowDuration 3 of the first (non-refreshing); Cooldown 20.
+  cycles: [{ kind: 'proc', field: 'proc', counts: 'hit', hits: 3, window: { seconds: 3, from: 'first' }, cooldown: 20 }],
   onHit: proc,
   onAbilityHit: proc,
 };
