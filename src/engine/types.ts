@@ -46,7 +46,7 @@ export interface StatBonuses {
   attackSpeedPct?: number;
   /** Crit chance, 0-1. */
   critChance?: number;
-  /** Extra crit damage on top of the base 175%, as a fraction (0.4 = +40%). */
+  /** Extra crit damage on top of the base 200%, as a fraction (0.3 = +30%, e.g. Infinity Edge). */
   critDamageBonus?: number;
   abilityHaste?: number;
   /** Ability haste for basic abilities only, on top of `abilityHaste` (e.g. Legend: Haste). */

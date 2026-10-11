@@ -230,9 +230,15 @@ describe('The Collector', () => {
 });
 
 describe('Sundered Sky', () => {
-  it('makes the attack a 150% crit, whatever the crit chance', () => {
+  it('makes the attack a crit for 80% of crit damage (160%), whatever the crit chance', () => {
     const r = hit(dummy, { critChance: 0.5 }, [activate(item('6610'))], auto);
-    expect(r.hits[0]).toMatchObject({ raw: 90, tags: ['auto', 'crit'] });
+    expect(r.hits[0].tags).toEqual(['auto', 'crit']);
+    expect(r.hits[0].raw).toBeCloseTo(60 * 1.6);
+  });
+
+  it("is affected by crit damage modifiers (Infinity Edge's +30%)", () => {
+    const r = hit(dummy, { critDamageBonus: 0.3 }, [activate(item('6610'))], auto);
+    expect(r.hits[0].raw).toBeCloseTo(60 * 0.8 * 2.3);
   });
 
   it('leaves abilities and spent procs alone', () => {
@@ -242,7 +248,7 @@ describe('Sundered Sky', () => {
 
   it('procs see the modified hit', () => {
     const effects = [activate(item('6610')), activate(item('3087'))];
-    expect(hit(dummy, {}, effects, auto).total).toBeCloseTo(90 + 60);
+    expect(hit(dummy, {}, effects, auto).total).toBeCloseTo(96 + 60);
   });
 });
 

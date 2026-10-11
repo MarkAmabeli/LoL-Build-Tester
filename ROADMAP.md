@@ -8,7 +8,7 @@ From the engine review before starting the UI. Work these top to bottom.
 3. [ ] **Engine helpers for the UI.** One call that sums a build's item stats, shards and checks shop limits; add `cooldown`, `cost` and `range` to the engine's `SpellRecord` type (they're already in the spell files) for cooldown-with-haste columns. Raise questions and feedback before implementing.
 4. [ ] **Tracked hand-entered values.** Every hand-entered value or override (item/rune/champion constants, data interpretations, overrides files) is declared in one consistent, findable way so none lingers untracked. Each records the source value it was checked against; after a data fetch, flag any whose source value changed and now conflicts. Conflicts that existed before and didn't change with the update aren't flagged.
 5. [ ] **Summoner spells.** Ignite (true damage over time) first, then the others that affect damage (e.g. Exhaust once defence exists).
-6. [ ] **Fix the stale comment** in `src/engine/types.ts` (`critDamageBonus` still says base 175%).
+6. [x] **Fix the stale comment** in `src/engine/types.ts` (`critDamageBonus` said base 175%). Also fixed Sundered Sky, which used a fixed 150% crit instead of 80% of crit damage.
 
 Damage is calculated against a **target dummy**: max health, current health, armor and magic resist only, with no defensive items or effects. Defence comes in phase 2.
 
