@@ -60,6 +60,8 @@ export const JUNGLE_PET_SLOTS = hand('roleQuest.jungle.petSlots', 1, assumed('Th
 export const SMITE = 'SummonerSmite';
 /** Scorchclaw Pup: its Primal Smite gives Scorchclaw's Slash. */
 export const SCORCHCLAW_PUP = '1101';
+/** The pet a jungler gets when the role becomes jungle without one: Gustwalker Hatchling (the blue pet). */
+export const DEFAULT_JUNGLE_PET = '1102';
 
 export type SmiteTier = 'basic' | 'unleashed' | 'primal';
 
@@ -100,7 +102,7 @@ export function smiteTier(role: Role, done?: boolean, petFirstEvolution?: boolea
   return done ? 'primal' : petFirstEvolution ? 'unleashed' : 'basic';
 }
 
-/** The parts of a loadout that role and quest changes touch. */
+/** The parts of a loadout that role and quest changes touch (`applyRoleQuest` in loadout.ts). */
 export interface RoleSetup {
   role: Role;
   roleQuestCompleted?: boolean;
@@ -108,47 +110,4 @@ export interface RoleSetup {
   summoners?: string[];
   /** Jungle only: the pet's first evolution (Unleashed Smite). Ignored once the quest is done. */
   petFirstEvolution?: boolean;
-}
-
-/**
- * The loadout after a role or quest change, as the game would hold it. Call it when the role or
- * quest changes; `resolveLoadout` never changes the loadout itself.
- *   - mid: with the quest completed, tier 2 boots become their tier 3 version; otherwise tier 3
- *     boots go back to tier 2.
- *   - support: World Atlas goes in the first slot if no form of the support item is there. With
- *     the quest completed, World Atlas and Runic Compass become Bounty of Worlds (its upgrade is
- *     the player's choice); otherwise an upgrade goes back to Bounty of Worlds.
- *   - jungle: Smite goes in the first summoner slot if it isn't taken. Completing the quest also
- *     checks the pet's first evolution.
- *   - any other player role: every form of the support item, Smite and the jungle pet are removed.
- *   - target dummy: nothing changes.
- */
-export function applyRoleQuest<T extends RoleSetup>(setup: T, data: RoleQuestItems): T & RoleSetup {
-  const { role, roleQuestCompleted: done } = setup;
-  if (role === TARGET_DUMMY_ROLE) return setup;
-  const up = data.bootsUpgrades;
-  const down = Object.fromEntries(Object.entries(up).map(([t2, t3]) => [t3, t2]));
-  const items0 = setup.items ?? [];
-  let items = completed(role, done, 'mid') ? items0.map((id) => up[id] ?? id) : items0.map((id) => down[id] ?? id);
-  let summoners = setup.summoners ?? [];
-  let petFirstEvolution = setup.petFirstEvolution;
-
-  const forms = new Set(supportItems(data));
-  if (role === 'support') {
-    if (!items.some((id) => forms.has(id))) items = [data.supportStarter, ...items];
-    const bounty = data.supportStages[data.supportStages.length - 1];
-    const toBounty = new Set(done ? data.supportStages : data.supportUpgrades);
-    items = items.map((id) => (toBounty.has(id) ? bounty : id));
-  } else {
-    items = items.filter((id) => !forms.has(id));
-  }
-  if (role === 'jungle') {
-    if (!summoners.includes(SMITE)) summoners = [SMITE, ...summoners];
-    if (done) petFirstEvolution = true;
-  } else {
-    const pets = new Set(data.junglePets);
-    summoners = summoners.filter((id) => id !== SMITE);
-    items = items.filter((id) => !pets.has(id));
-  }
-  return { ...setup, items, summoners, ...(petFirstEvolution !== undefined ? { petFirstEvolution } : {}) };
 }

@@ -10,6 +10,7 @@ import { clampLevel, resolveStats, sumBonuses } from './stats';
 import type { SummonerSpellRecord } from './summoners';
 import {
   BOT_BOOTS_SLOTS,
+  DEFAULT_JUNGLE_PET,
   DEFAULT_PLAYER_ROLE,
   JUNGLE_PET_SLOTS,
   roleQuestEffects,
@@ -21,6 +22,7 @@ import {
   type PlayerRole,
   type Role,
   type RoleQuestItems,
+  type RoleSetup,
   type SmiteTier,
 } from './role-quests';
 import type { ChampionBaseStats, ItemLimitGroup, ResolvedStats, ShardData, StatBonuses } from './types';
@@ -175,6 +177,92 @@ export function playerLoadout(stats: ChampionBaseStats, level: number, role: Pla
 /** A new target dummy build: the target dummy role, which only target dummy builds use. */
 export function targetDummyLoadout(stats: ChampionBaseStats, level: number): Loadout {
   return { stats, level, role: TARGET_DUMMY_ROLE };
+}
+
+/**
+ * The loadout after a role or quest change, as the game would hold it. Call it when the role or
+ * quest changes; `resolveLoadout` never changes the loadout itself. A required item or Smite goes
+ * in the first slot, the rest shifting down; when the slots are full it replaces the first slot
+ * instead. Only items that count toward the six are counted (not trinkets, consumables or unknown IDs).
+ *   - mid: with the quest completed, tier 2 boots become their tier 3 version; otherwise tier 3
+ *     boots go back to tier 2.
+ *   - support: World Atlas (Bounty of Worlds with the quest completed) is added if no form of the
+ *     support item is there. With the quest completed, World Atlas and Runic Compass become Bounty
+ *     of Worlds (its upgrade is the player's choice); otherwise an upgrade goes back to Bounty of Worlds.
+ *   - jungle: Smite is added if it isn't taken, and Gustwalker Hatchling if there's no pet. With
+ *     the quest completed the pet is in the role quest slot, so it replaces nothing, and the pet's
+ *     first evolution is checked. Unchecking the quest with six other items puts the pet in the first slot.
+ *   - any other player role: every form of the support item and the jungle pet are removed, and
+ *     Smite is replaced by the first summoner spell (in data order) that isn't taken.
+ *   - boots without their own slot (any role but a completed bot lane) are dropped when the inventory overflows.
+ *   - target dummy: nothing changes.
+ */
+export function applyRoleQuest<T extends RoleSetup>(setup: T, data: Pick<LoadoutData, 'items' | 'roleQuests' | 'summoners'>): T & RoleSetup {
+  const { role, roleQuestCompleted: done } = setup;
+  if (role === TARGET_DUMMY_ROLE) return setup;
+  const rq = data.roleQuests;
+  const byId = new Map(data.items.map((i) => [i.id, i]));
+  const counts = (id: string) => {
+    const item = byId.get(id);
+    return !!item && !EXCLUDED_TAGS.some((t) => item.tags.includes(t));
+  };
+  const used = (list: string[]) => list.filter(counts).length;
+  /** Put `id` in the first slot, replacing it when the slots are full. */
+  const place = (list: string[], id: string) => {
+    const first = list.findIndex(counts);
+    if (used(list) < MAX_ITEMS || first < 0) return [id, ...list];
+    return list.map((x, i) => (i === first ? id : x));
+  };
+
+  const up = rq.bootsUpgrades;
+  const down = Object.fromEntries(Object.entries(up).map(([t2, t3]) => [t3, t2]));
+  const items0 = setup.items ?? [];
+  let items = role === 'mid' && done ? items0.map((id) => up[id] ?? id) : items0.map((id) => down[id] ?? id);
+  let summoners = setup.summoners ?? [];
+  let petFirstEvolution = setup.petFirstEvolution;
+
+  const forms = new Set(supportItems(rq));
+  const pets = new Set(rq.junglePets);
+  if (role !== 'support') items = items.filter((id) => !forms.has(id));
+  if (role !== 'jungle') items = items.filter((id) => !pets.has(id));
+
+  if (role === 'support') {
+    const bounty = rq.supportStages[rq.supportStages.length - 1];
+    if (!items.some((id) => forms.has(id))) items = place(items, done ? bounty : rq.supportStarter);
+    const toBounty = new Set(done ? rq.supportStages : rq.supportUpgrades);
+    items = items.map((id) => (toBounty.has(id) ? bounty : id));
+  }
+
+  if (role === 'jungle') {
+    const pet = items.find((id) => pets.has(id));
+    if (done) {
+      if (!pet) items = [DEFAULT_JUNGLE_PET, ...items];
+      petFirstEvolution = true;
+    } else if (!pet) {
+      items = place(items, DEFAULT_JUNGLE_PET);
+    } else if (used(items) > MAX_ITEMS) {
+      // Out of the role quest slot with six other items: the pet takes the first slot.
+      items = place(items.filter((id) => id !== pet), pet);
+    }
+    if (!summoners.includes(SMITE)) {
+      summoners = summoners.length < MAX_SUMMONERS ? [SMITE, ...summoners] : summoners.map((id, i) => (i === 0 ? SMITE : id));
+    }
+  } else if (summoners.includes(SMITE)) {
+    const spare = data.summoners.find((s) => s.id !== SMITE && !summoners.includes(s.id));
+    summoners = spare ? summoners.map((id) => (id === SMITE ? spare.id : id)) : summoners.filter((id) => id !== SMITE);
+  }
+
+  // Boots keep their own slot only with the bot lane reward; otherwise they're dropped to fit.
+  const boots = new Set(rq.boots);
+  const ownSlot = role === 'jungle' && done && items.some((id) => pets.has(id)) ? JUNGLE_PET_SLOTS : 0;
+  if (!(role === 'bot' && done)) {
+    while (used(items) > MAX_ITEMS + ownSlot) {
+      const last = items.findLastIndex((id) => boots.has(id));
+      if (last < 0) break;
+      items = items.filter((_, i) => i !== last);
+    }
+  }
+  return { ...setup, items, summoners, ...(petFirstEvolution !== undefined ? { petFirstEvolution } : {}) };
 }
 
 /** Check a rune page: one keystone, a rune from each primary row, two secondary runes from different rows of another tree. */

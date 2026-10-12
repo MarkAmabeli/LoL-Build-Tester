@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { activate, getEffect } from './effects/registry';
 import { computeHit } from './hit';
-import { playerLoadout, resolveLoadout, targetDummyLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
-import { applyRoleQuest, DEFAULT_PLAYER_ROLE, TARGET_DUMMY_ROLE, type Role, type RoleQuestItems } from './role-quests';
+import { applyRoleQuest, playerLoadout, resolveLoadout, targetDummyLoadout, type ItemRecord, type Loadout, type LoadoutData, type RuneTree } from './loadout';
+import { DEFAULT_PLAYER_ROLE, TARGET_DUMMY_ROLE, type Role, type RoleQuestItems } from './role-quests';
 import { summonerHit, type SummonerSpellRecord } from './summoners';
 import type { ChampionBaseStats, ItemLimitGroup, ShardData } from './types';
 
@@ -37,7 +37,7 @@ const at = (level: number, more: Partial<Loadout> = {}): Loadout => ({ ...player
 const resolve = (l: Loadout) => resolveLoadout(l, data);
 const kinds = (l: Loadout) => resolve(l).warnings.map((w) => w.kind);
 /** The items after a role or quest change. */
-const applyItems = (items: string[], role: Role, done: boolean | undefined) => applyRoleQuest({ role, roleQuestCompleted: done, items }, data.roleQuests).items!;
+const applyItems = (items: string[], role: Role, done: boolean | undefined) => applyRoleQuest({ role, roleQuestCompleted: done, items }, data).items!;
 
 describe('mid lane quest', () => {
   it('grants +8% bonus AD and +8% AP when completed', () => {
@@ -113,10 +113,14 @@ describe('support quest', () => {
   it('puts World Atlas in the first slot when the role becomes support', () => {
     expect(applyItems([sword], 'support', false)).toEqual([atlas, sword]);
     expect(applyItems([sword, compass], 'support', false)).toEqual([sword, compass]);
-    // A full inventory still gets it, with a warning rather than a dropped item.
-    const full = applyItems(Array(6).fill(sword), 'support', false);
-    expect(full[0]).toBe(atlas);
-    expect(kinds(at(1, { role: 'support', items: full }))).toEqual(['tooManyItems']);
+    expect(applyItems([sword], 'support', true)).toEqual([bounty, sword]);
+    // A full inventory gets it in place of the first item; trinkets and consumables don't take a slot.
+    const tome = idOf('Amplifying Tome');
+    const ward = idOf('Stealth Ward');
+    const full = applyItems([ward, tome, ...Array(5).fill(sword)], 'support', false);
+    expect(full).toEqual([ward, atlas, ...Array(5).fill(sword)]);
+    expect(kinds(at(1, { role: 'support', items: full }))).toEqual(['excludedItem']);
+    expect(applyItems([tome, ...Array(5).fill(sword)], 'support', true)).toEqual([bounty, ...Array(5).fill(sword)]);
   });
 
   it('removes every form of the support item when the role changes away from support', () => {
@@ -145,6 +149,24 @@ describe('bot lane quest', () => {
     expect(kinds(at(1, { role: 'bot', items: [...six, idOf('Boots')] }))).toEqual(['tooManyItems']);
     expect(resolve(at(1, { role: 'bot', roleQuestCompleted: true, items: [...six, idOf('Long Sword')] })).warnings)
       .toEqual([{ kind: 'tooManyItems', count: 7, max: 6 }]);
+  });
+});
+
+describe('boots leaving the bot lane slot', () => {
+  const boots = idOf('Boots');
+  const sword = idOf('Long Sword');
+  const tome = idOf('Amplifying Tome');
+  const six = [tome, ...Array(5).fill(sword)];
+
+  it('drops boots that no longer fit once they lose their own slot', () => {
+    expect(applyItems([...six, boots], 'bot', true)).toEqual([...six, boots]);
+    expect(applyItems([...six, boots], 'bot', false)).toEqual(six);
+    expect(applyItems([...six, boots], 'mid', true)).toEqual(six);
+    expect(applyItems([...Array(5).fill(sword), boots], 'top', false)).toEqual([...Array(5).fill(sword), boots]);
+    // Support: World Atlas replaces the first item and the boots go.
+    expect(applyItems([...six, boots], 'support', false)).toEqual([idOf('World Atlas'), ...Array(5).fill(sword)]);
+    // Jungle with the quest completed: the pet takes the role quest slot, so the boots go.
+    expect(applyItems([...six, boots], 'jungle', true)).toEqual([idOf('Gustwalker Hatchling'), ...six]);
   });
 });
 
@@ -202,8 +224,8 @@ describe('jungle quest', () => {
   });
 
   it('checks the first evolution when the quest is completed', () => {
-    expect(applyRoleQuest({ role: 'jungle', roleQuestCompleted: true, summoners: ['SummonerSmite'] }, data.roleQuests).petFirstEvolution).toBe(true);
-    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerSmite'] }, data.roleQuests).petFirstEvolution).toBeUndefined();
+    expect(applyRoleQuest({ role: 'jungle', roleQuestCompleted: true, summoners: ['SummonerSmite'] }, data).petFirstEvolution).toBe(true);
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerSmite'] }, data).petFirstEvolution).toBeUndefined();
   });
 
   it('moves the consumed pet to the role quest slot once completed, still counting its gold', () => {
@@ -229,12 +251,16 @@ describe('jungle quest', () => {
   });
 
   it('binds Smite and the jungle pet to the jungle role', () => {
-    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash'] }, data.roleQuests).summoners).toEqual(['SummonerSmite', 'SummonerFlash']);
-    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash', 'SummonerSmite'] }, data.roleQuests).summoners).toEqual(['SummonerFlash', 'SummonerSmite']);
-    expect(applyRoleQuest({ role: 'mid', summoners: ['SummonerSmite', 'SummonerFlash'] }, data.roleQuests).summoners).toEqual(['SummonerFlash']);
-    expect(applyRoleQuest({ role: TARGET_DUMMY_ROLE, summoners: ['SummonerSmite'] }, data.roleQuests).summoners).toEqual(['SummonerSmite']);
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash'] }, data).summoners).toEqual(['SummonerSmite', 'SummonerFlash']);
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash', 'SummonerSmite'] }, data).summoners).toEqual(['SummonerFlash', 'SummonerSmite']);
+    expect(applyRoleQuest({ role: 'jungle', summoners: ['SummonerFlash', 'SummonerDot'] }, data).summoners).toEqual(['SummonerSmite', 'SummonerDot']);
+    // Off jungle, Smite's slot gets the first summoner spell not taken (data order).
+    expect(applyRoleQuest({ role: 'mid', summoners: ['SummonerSmite', 'SummonerFlash'] }, data).summoners).toEqual(['SummonerBarrier', 'SummonerFlash']);
+    expect(applyRoleQuest({ role: 'mid', summoners: ['SummonerBarrier', 'SummonerSmite'] }, data).summoners).toEqual(['SummonerBarrier', 'SummonerBoost']);
+    expect(applyRoleQuest({ role: TARGET_DUMMY_ROLE, summoners: ['SummonerSmite'] }, data).summoners).toEqual(['SummonerSmite']);
     expect(applyItems([gust, sword], 'top', false)).toEqual([sword]);
     expect(applyItems([gust, sword], 'jungle', true)).toEqual([gust, sword]);
+    expect(applyItems([sword, pup], 'jungle', false)).toEqual([sword, pup]);
     expect(applyItems([gust, sword], TARGET_DUMMY_ROLE, false)).toEqual([gust, sword]);
     expect(resolve(jungler({ summoners: ['SummonerFlash'] })).warnings).toEqual([
       { kind: 'summoners', message: 'A jungler needs Smite' },
@@ -242,6 +268,20 @@ describe('jungle quest', () => {
     ]);
     expect(resolve(at(9, { role: 'mid', summoners: ['SummonerSmite'] })).warnings).toEqual([{ kind: 'summoners', message: 'Smite is only for the jungle role' }]);
     expect(kinds(at(9, { role: TARGET_DUMMY_ROLE, summoners: ['SummonerSmite'], items: [gust] }))).toEqual([]);
+  });
+
+  it('adds Gustwalker Hatchling when the role becomes jungle, replacing the first item when full', () => {
+    const tome = idOf('Amplifying Tome');
+    const five = Array(5).fill(sword);
+    expect(applyItems([sword], 'jungle', false)).toEqual([gust, sword]);
+    expect(applyItems([tome, ...five], 'jungle', false)).toEqual([gust, ...five]);
+    // With the quest completed the pet is in the role quest slot, so nothing is replaced.
+    const done = applyRoleQuest({ role: 'jungle', roleQuestCompleted: true, items: [tome, ...five], summoners: ['SummonerFlash', 'SummonerDot'] }, data);
+    expect(done.items).toEqual([gust, tome, ...five]);
+    expect(kinds(at(9, done))).toEqual([]);
+    // Unchecking the quest with six other items puts the pet in the first slot.
+    expect(applyItems([tome, ...five, pup], 'jungle', false)).toEqual([pup, ...five]);
+    expect(applyItems([pup, tome, ...five], 'jungle', false)).toEqual([pup, ...five]);
   });
 
   it('needs a pet: for other items, the first evolution and the quest', () => {
@@ -254,9 +294,9 @@ describe('jungle quest', () => {
 });
 
 it('lets every role mark its quest completed', () => {
-  for (const role of ['top', 'mid', 'bot', 'support'] as const) {
-    const items = applyItems([], role, true);
-    expect(kinds(at(9, { role, roleQuestCompleted: true, items }))).toEqual([]);
+  for (const role of ['top', 'jungle', 'mid', 'bot', 'support'] as const) {
+    const setup = applyRoleQuest({ role, roleQuestCompleted: true, items: [], summoners: ['SummonerFlash'] }, data);
+    expect(kinds(at(9, setup))).toEqual([]);
   }
 });
 
