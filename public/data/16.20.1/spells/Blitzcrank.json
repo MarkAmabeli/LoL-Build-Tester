@@ -1,0 +1,560 @@
+{
+  "PowerFist": {
+    "path": "Characters/Blitzcrank/Spells/PowerFistAbility/PowerFist",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      6.5,
+      6,
+      5.5,
+      5
+    ],
+    "cost": [
+      25,
+      25,
+      25,
+      25,
+      25
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "CCDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 2,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{a9d6b924}": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1.75,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 2
+          },
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "{a9d6b924}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.75
+          },
+          {
+            "stat": "AP",
+            "value": 1.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "StaticField": {
+    "path": "Characters/Blitzcrank/Spells/StaticFieldAbility/StaticField",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      60,
+      40,
+      20
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "PassiveBaseDamage": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300
+      ],
+      "ZapCountdown": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ActiveRange": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "ActiveBaseDamage": [
+        150,
+        275,
+        400,
+        525,
+        650,
+        775,
+        900
+      ],
+      "SilenceDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "PassiveAPRatio": [
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "ActiveAPRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "PassiveManaRatio": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ]
+    },
+    "calculations": {
+      "ActiveDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ActiveAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "PassiveAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ActiveDamage": {
+        "base": [
+          275,
+          400,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "PassiveDamage": {
+        "base": [
+          50,
+          100,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.3,
+              0.4,
+              0.5
+            ]
+          },
+          {
+            "stat": "maxMana",
+            "value": 0.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RocketGrab": {
+    "path": "Characters/Blitzcrank/Spells/RocketGrabAbility/RocketGrab",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        60,
+        110,
+        160,
+        210,
+        260,
+        310,
+        360
+      ],
+      "LolipopLength": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
+      "APRatio": [
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158
+      ],
+      "CherryBonusHaste": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          110,
+          160,
+          210,
+          260,
+          310
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "Overdrive": {
+    "path": "Characters/Blitzcrank/Spells/OverdriveAbility/Overdrive",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "dataValues": {
+      "MoveSpeedMod": [
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421,
+        0.699999988079071,
+        0.75,
+        0.800000011920929,
+        0.8500000238418579
+      ],
+      "AttackSpeedMod": [
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "Duration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MoveSpeedModReduction": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "SlowDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "MoveSpeedModMin": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "MoveSpeedModMinTime": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "PercentHealthDamage": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ]
+    },
+    "calculations": {
+      "{c01903c1}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 60,
+            "mInitialBonusPerLevel": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{c01903c1}": {
+        "base": 0,
+        "baseByLevel": [
+          60,
+          80,
+          100,
+          120,
+          140,
+          160,
+          165,
+          170,
+          175,
+          180,
+          185,
+          190,
+          195,
+          200,
+          205,
+          210,
+          215,
+          220
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ManaBarrierIcon": {
+    "path": "Characters/Blitzcrank/Spells/ManaBarrierIconAbility/ManaBarrierIcon",
+    "maxRank": 5,
+    "dataValues": {
+      "HealthThreshold": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "ManaPercent": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "ShieldDuration": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "Cooldown": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "ManaRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "ShieldAmount": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mCoefficient": 0.3499999940395355,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ShieldAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxMana",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

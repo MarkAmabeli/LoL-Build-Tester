@@ -1,0 +1,803 @@
+{
+  "JhinE": {
+    "path": "Characters/Jhin/Spells/JhinEAbility/JhinE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "AmmoRechargeRateBaseTooltip": [
+        26.5,
+        24,
+        21.5,
+        19,
+        16.5,
+        14,
+        11.5
+      ],
+      "TrapSlowAmount": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "ReducedDamagePercent": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ],
+      "BaseDamage": [
+        -40,
+        20,
+        80,
+        140,
+        200,
+        260,
+        320
+      ],
+      "TrapDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "TrapAoERadius": [
+        260,
+        260,
+        260,
+        260,
+        260,
+        260,
+        260
+      ],
+      "TrapTriggerRadius": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "TrapDetonationTime": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "TrapRevealDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "TrapArmTime": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AmmoRechargeRateTooltip": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mDataValue": "AmmoRechargeRateBaseTooltip",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              {
+                "mPart1": {
+                  "mStat": 10,
+                  "mCoefficient": 1,
+                  "__type": "StatByCoefficientCalculationPart"
+                },
+                "mPart2": {
+                  "mDataValue": "AmmoRechargeRateBaseTooltip",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          80,
+          140,
+          200,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "AmmoRechargeRateTooltip": "stat code 10/0"
+    }
+  },
+  "JhinPassive": {
+    "path": "Characters/Jhin/Spells/JhinPassiveAbility/JhinPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MaxAmmo": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ReloadTime": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "HasteDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "OutOfCombatTimeBeforeReload": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "FourthShotDamageMult": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CritReductionPercent": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "BaseAttackSpeed": [
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625
+      ],
+      "PercentAttackSpeedPerLevel": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ],
+      "CritMoveSpeedPercentASRatio": [
+        0.4399999976158142,
+        0.4399999976158142,
+        0.4399999976158142,
+        0.4399999976158142,
+        0.4399999976158142,
+        0.4399999976158142,
+        0.4399999976158142
+      ]
+    },
+    "calculations": {
+      "FourthShotExecutePercent": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.15000000596046448,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalADPercent": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.03999999910593033,
+            "mInitialBonusPerLevel": 0.009999999776482582,
+            "mBreakpoints": [
+              {
+                "mLevel": 10,
+                "mBonusPerLevelAtAndAfter": 0.019999999552965164,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mBonusPerLevelAtAndAfter": 0.03999999910593033,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 8,
+            "mCoefficient": 0.3499999940395355,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 4,
+            "mStatFormula": 2,
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "CritMoveSpeedPercent": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.14000000059604645,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 4,
+            "mStatFormula": 2,
+            "mDataValue": "CritMoveSpeedPercentASRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FourthShotExecutePercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "TotalADPercent": {
+        "base": 0,
+        "baseByLevel": [
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.1,
+          0.11,
+          0.12,
+          0.14,
+          0.16,
+          0.2,
+          0.24,
+          0.28,
+          0.32,
+          0.36,
+          0.4,
+          0.44
+        ],
+        "ratios": [
+          {
+            "stat": "critChance",
+            "value": 0.35
+          },
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 0.3
+          }
+        ]
+      },
+      "CritMoveSpeedPercent": {
+        "base": 0.14,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 0.44
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "JhinR": {
+    "path": "Characters/Jhin/Spells/JhinRAbility/JhinR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      105,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "Damage": [
+        0,
+        64,
+        128,
+        192,
+        256,
+        320,
+        384
+      ],
+      "FourthShotMultiplier": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowPercent": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "PercentMissingAmp": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "MInimumDelayBetweenShots": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ADRatio": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxIncreaseCalc": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "PercentMissingAmp",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "DamageCalc",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          64,
+          128,
+          192
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.25
+          }
+        ]
+      },
+      "MaxIncreaseCalc": {
+        "base": [
+          256,
+          512,
+          768
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "JhinW": {
+    "path": "Characters/Jhin/Spells/JhinWAbility/JhinW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        70,
+        105,
+        140,
+        175,
+        210,
+        245
+      ],
+      "RootDuration": [
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25,
+        2.5
+      ],
+      "MinionMod": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "SpottingDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "JhinQ": {
+    "path": "Characters/Jhin/Spells/JhinQAbility/JhinQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      6.5,
+      6,
+      5.5,
+      5
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        19,
+        44,
+        69,
+        94,
+        119,
+        144,
+        169
+      ],
+      "ADRatio": [
+        0.36500000953674316,
+        0.4399999976158142,
+        0.5149999856948853,
+        0.5899999737739563,
+        0.6650000214576721,
+        0.7400000095367432,
+        0.8149999976158142
+      ],
+      "PercentAmpOnKill": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "NumberOfBounces": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BounceRange": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TooltipMaxTargetsHit": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mNumber": 1,
+                "__type": "NumberCalculationPart"
+              },
+              {
+                "mNumber": 3,
+                "__type": "NumberCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          44,
+          69,
+          94,
+          119,
+          144
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.44,
+              0.515,
+              0.59,
+              0.665,
+              0.74
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "TooltipMaxTargetsHit": {
+        "base": 4
+      }
+    },
+    "unsupported": {}
+  }
+}

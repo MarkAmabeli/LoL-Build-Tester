@@ -1,0 +1,432 @@
+{
+  "SingedP": {
+    "path": "Characters/Singed/Spells/SingedPAbility/SingedP",
+    "maxRank": 5,
+    "range": [
+      225,
+      225,
+      225,
+      225,
+      225
+    ],
+    "dataValues": {
+      "MSPercent": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MSDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PerTargetCD": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "TriggerArea": [
+        225,
+        225,
+        225,
+        225,
+        225,
+        225,
+        225
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "PoisonTrail": {
+    "path": "Characters/Singed/Spells/PoisonTrailAbility/PoisonTrail",
+    "slot": "Q",
+    "maxRank": 5,
+    "cost": [
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "BaseDamagePerSecond": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "APRatioPerSecond": [
+        0.42500001192092896,
+        0.42500001192092896,
+        0.42500001192092896,
+        0.42500001192092896,
+        0.42500001192092896,
+        0.42500001192092896,
+        0.42500001192092896
+      ],
+      "ToggleCooldown": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CloudDuration": [
+        3.25,
+        3.25,
+        3.25,
+        3.25,
+        3.25,
+        3.25,
+        3.25
+      ],
+      "PoisonDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "TicksPerSecond": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "MaxLingerTicks": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "DamagePerTick": []
+    },
+    "calculations": {
+      "DamagePerSecond": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerSecond",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ApproximateTotalDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 4.75,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "DamagePerSecond",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.425
+          }
+        ]
+      },
+      "ApproximateTotalDamageTooltip": {
+        "base": [
+          95,
+          142.5,
+          190,
+          237.5,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.01875
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "Fling": {
+    "path": "Characters/Singed/Spells/FlingAbility/Fling",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9.5,
+      9,
+      8.5,
+      8
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      125,
+      125,
+      125,
+      125,
+      125
+    ],
+    "dataValues": {
+      "BaseDamageValue": [
+        50,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "RootDuration": [
+        0.75,
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25
+      ],
+      "MaxHPDamage": [
+        6,
+        6,
+        6.5,
+        7,
+        7.5,
+        8,
+        8.5
+      ],
+      "FlingDistance": [
+        420,
+        420,
+        420,
+        420,
+        420,
+        420,
+        420
+      ],
+      "NonChampionDamageCap": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ]
+    },
+    "calculations": {
+      "BaseDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "InsanityPotion": {
+    "path": "Characters/Singed/Spells/InsanityPotionAbility/InsanityPotion",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "StatAmount": [
+        -5,
+        25,
+        55,
+        85,
+        115,
+        145,
+        175
+      ],
+      "Duration": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "GrievousAmount": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "GrievousDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "MegaAdhesive": {
+    "path": "Characters/Singed/Spells/MegaAdhesiveAbility/MegaAdhesive",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      17,
+      16,
+      15,
+      14,
+      13
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "SlowPercent": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "WDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "WRadius": [
+        265,
+        265,
+        265,
+        265,
+        265,
+        265,
+        265
+      ],
+      "DelayExecute": [
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.375
+      ],
+      "Radius": []
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

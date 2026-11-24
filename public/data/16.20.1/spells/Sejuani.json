@@ -1,0 +1,712 @@
+{
+  "SejuaniR": {
+    "path": "Characters/Sejuani/Spells/SejuaniRAbility/SejuaniR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      105,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        0,
+        125,
+        150,
+        175,
+        0,
+        0,
+        0
+      ],
+      "BaseStunDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ZoneDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ExplosionSlowAmount": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "ExplosionSlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "EmpoweredStunDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "EmpoweredBaseDamage": [
+        0,
+        200,
+        300,
+        400,
+        0,
+        0,
+        30
+      ],
+      "ZoneSlowAmount": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "EmpoweredBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinorDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "MinorDamageTooltip": {
+        "base": [
+          125,
+          150,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SejuaniPassive": {
+    "path": "Characters/Sejuani/Spells/SejuaniPassiveAbility/SejuaniPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "FrostArmorDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "EpicMonsterCap": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "BonusArmorRatio": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "BonusMRRatio": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "BonusArmorBase": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "BonusMRBase": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "PercentHPDamageBase": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ]
+    },
+    "calculations": {
+      "PercentHPDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHPDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalArmorTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusArmorBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "BonusArmorRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalMRTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusMRBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mDataValue": "BonusMRRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "FrostArmorOOC": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 12,
+            "mEndValue": 6,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PercentHPDamage": {
+        "base": 0.1
+      },
+      "TotalArmorTooltip": {
+        "base": 10,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.75
+          }
+        ]
+      },
+      "TotalMRTooltip": {
+        "base": 10,
+        "ratios": [
+          {
+            "stat": "bonusMR",
+            "value": 0.75
+          }
+        ]
+      },
+      "FrostArmorOOC": {
+        "base": 0,
+        "baseByLevel": [
+          12,
+          11.64706,
+          11.29412,
+          10.94118,
+          10.58824,
+          10.23529,
+          9.882353,
+          9.529412,
+          9.176471,
+          8.823529,
+          8.470588,
+          8.117647,
+          7.764706,
+          7.411765,
+          7.058824,
+          6.705882,
+          6.352941,
+          6
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SejuaniE": {
+    "path": "Characters/Sejuani/Spells/SejuaniEAbility/SejuaniE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "PerChampionCD": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "BaseDamage": [
+        5,
+        55,
+        105,
+        155,
+        205,
+        255,
+        305
+      ],
+      "APRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "CCDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MaxStacks": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "StackDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "AuraRange": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          55,
+          105,
+          155,
+          205,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SejuaniW": {
+    "path": "Characters/Sejuani/Spells/SejuaniWAbility/SejuaniW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "dataValues": {
+      "SlowAmount": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "SlowDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "BaseDamageOne": [
+        -5,
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "BaseDamageTwo": [
+        -15,
+        5,
+        25,
+        45,
+        65,
+        85,
+        105
+      ],
+      "APRatioOne": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "APRatioTwo": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "HPRatioOne": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033
+      ],
+      "HPRatioTwo": [
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066
+      ]
+    },
+    "calculations": {
+      "FirstHitDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageOne",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioOne",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "HPRatioOne",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondHitDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageTwo",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioTwo",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "HPRatioTwo",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FirstHitDamageTooltip": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.04
+          }
+        ]
+      },
+      "SecondHitDamageTooltip": {
+        "base": [
+          5,
+          25,
+          45,
+          65,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "maxHP",
+            "value": 0.08
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SejuaniQ": {
+    "path": "Characters/Sejuani/Spells/SejuaniQAbility/SejuaniQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      18,
+      16.5,
+      15,
+      13.5,
+      12
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        90,
+        140,
+        190,
+        240,
+        290,
+        340
+      ],
+      "APRatio": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "MaxTravelDistance": [
+        625,
+        625,
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
+      "DashSpeed": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "KnockupDurationTOOLTIPONLY": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          90,
+          140,
+          190,
+          240,
+          290
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

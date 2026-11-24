@@ -1,0 +1,2295 @@
+{
+  "ApheliosP": {
+    "path": "Characters/Aphelios/Spells/ApheliosPAbility/ApheliosP",
+    "maxRank": 5,
+    "cooldown": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "MaxRanksPerStat": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "ADPerRank": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ASPerRank": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869
+      ],
+      "APPerRank": [
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5
+      ]
+    },
+    "calculations": {
+      "AttackSpeed": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{f6907f1b}",
+            "mDataValue": "ASPerRank",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "AttackSpeedMax": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "MaxRanksPerStat",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "ASPerRank",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "AttackDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{eb906dca}",
+            "mDataValue": "ADPerRank",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackDamageMax": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "MaxRanksPerStat",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "ADPerRank",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ArPenBonus": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{f79080ae}",
+            "mDataValue": "APPerRank",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "ArPenBonusMax": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "MaxRanksPerStat",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "APPerRank",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "AttackSpeed": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.09
+          }
+        ]
+      },
+      "AttackSpeedMax": {
+        "base": 0.54
+      },
+      "AttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 4
+          }
+        ]
+      },
+      "AttackDamageMax": {
+        "base": 24
+      },
+      "ArPenBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 4.5
+          }
+        ]
+      },
+      "ArPenBonusMax": {
+        "base": 27
+      }
+    },
+    "unsupported": {}
+  },
+  "ApheliosGravitumQ": {
+    "path": "Characters/Aphelios/Spells/ApheliosGravitumQAbility/ApheliosGravitumQ",
+    "maxRank": 5,
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "dataValues": {
+      "SlowDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "RootDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "SlowAmountInitial": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.30000001192092896,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{dec81e53}": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.15000000596046448,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mLevel1Value": 0.3199999928474426,
+              "mBreakpoints": [
+                {
+                  "mLevel": 3,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 5,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 9,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 11,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "GravitumQCD": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 12,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "SlowAmountInitial": {
+        "base": 0.3
+      },
+      "{dec81e53}": {
+        "base": 0.15
+      },
+      "AttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "Damage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          50,
+          65,
+          65,
+          80,
+          80,
+          95,
+          95,
+          110,
+          110,
+          125,
+          125,
+          140,
+          140,
+          140,
+          140,
+          140,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0,
+            "valueByLevel": [
+              0.32,
+              0.32,
+              0.35,
+              0.35,
+              0.38,
+              0.38,
+              0.41,
+              0.41,
+              0.44,
+              0.44,
+              0.47,
+              0.47,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "GravitumQCD": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "ApheliosCrescendumQ": {
+    "path": "Characters/Aphelios/Spells/ApheliosCrescendumQAbility/ApheliosCrescendumQ",
+    "maxRank": 5,
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "MiniBuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MiniBuffResetDuration": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "UnitsPerPercentAttackSpeedPerSecond": [
+        750,
+        750,
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
+      "TurretDurationIdle": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "TurretDurationActive": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "AttackRange": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "AggroRange": [],
+      "MiniDamageRatioMax": [
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213
+      ],
+      "MiniDamageRatioMin": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "MiniBaseDamage": [
+        15,
+        25,
+        35,
+        45,
+        55,
+        65,
+        75
+      ],
+      "TurretAPRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MiniDamageRatioDecPer": [
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873
+      ]
+    },
+    "calculations": {
+      "{c61fdd37}": {
+        "mSimpleTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mNumber": 600,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 4,
+            "mStatFormula": 2,
+            "mDataValue": "UnitsPerPercentAttackSpeedPerSecond",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MiniDamageMin": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "MiniDamageRatioMin",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MiniDamageMax": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "MiniDamageRatioMax",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TurretDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 35,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mLevel1Value": 0.3400000035762787,
+              "mBreakpoints": [
+                {
+                  "mLevel": 3,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 5,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 9,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 11,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          },
+          {
+            "mDataValue": "TurretAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CrescendumQCD": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 9,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{c61fdd37}": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 750
+          }
+        ]
+      },
+      "MiniDamageMin": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.05
+          }
+        ]
+      },
+      "MiniDamageMax": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.16
+          }
+        ]
+      },
+      "TurretDamage": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          35,
+          50,
+          50,
+          65,
+          65,
+          80,
+          80,
+          95,
+          95,
+          110,
+          110,
+          125,
+          125,
+          125,
+          125,
+          125,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0,
+            "valueByLevel": [
+              0.34,
+              0.34,
+              0.37,
+              0.37,
+              0.4,
+              0.4,
+              0.43,
+              0.43,
+              0.46,
+              0.46,
+              0.49,
+              0.49,
+              0.52,
+              0.52,
+              0.52,
+              0.52,
+              0.52,
+              0.52
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "AttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CrescendumQCD": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "ApheliosInfernumQ": {
+    "path": "Characters/Aphelios/Spells/ApheliosInfernumQAbility/ApheliosInfernumQ",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "InfernumDamageMultiplier": [
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858
+      ],
+      "MinionPenaltyBase": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ]
+    },
+    "calculations": {
+      "InfernumQCD": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 8,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QWaveDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mLevel1Value": 0.15000000596046448,
+              "mBreakpoints": [
+                {
+                  "mLevel": 3,
+                  "mAdditionalBonusAtThisLevel": 0.009999999776482582,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 5,
+                  "mAdditionalBonusAtThisLevel": 0.009999999776482582,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.009999999776482582,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 9,
+                  "mAdditionalBonusAtThisLevel": 0.009999999776482582,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 11,
+                  "mAdditionalBonusAtThisLevel": 0.009999999776482582,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.009999999776482582,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackDamage": {
+        "mMultiplier": {
+          "mDataValue": "InfernumDamageMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondaryTargetPenalty": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.75,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MinionPenalty": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinionPenaltyBase",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "SecondaryMinionPenalty": {
+        "mMultiplier": {
+          "mDataValue": "MinionPenaltyBase",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "SecondaryTargetPenalty",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "QWaveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20,
+          35,
+          35,
+          50,
+          50,
+          65,
+          65,
+          80,
+          80,
+          95,
+          95,
+          110,
+          110,
+          110,
+          110,
+          110,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0,
+            "valueByLevel": [
+              0.15,
+              0.15,
+              0.16,
+              0.16,
+              0.17,
+              0.17,
+              0.18,
+              0.18,
+              0.19,
+              0.19,
+              0.2,
+              0.2,
+              0.21,
+              0.21,
+              0.21,
+              0.21,
+              0.21,
+              0.21
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "AttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      },
+      "SecondaryTargetPenalty": {
+        "base": 0,
+        "baseByLevel": [
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "MinionPenalty": {
+        "base": 0.3
+      },
+      "SecondaryMinionPenalty": {
+        "base": 0,
+        "baseByLevel": [
+          0.225,
+          0.225,
+          0.225,
+          0.225,
+          0.225,
+          0.225,
+          0.225,
+          0.225,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      }
+    },
+    "unsupported": {
+      "InfernumQCD": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "ApheliosR": {
+    "path": "Characters/Aphelios/Spells/ApheliosRAbility/ApheliosR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      110,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1300,
+      1300,
+      1300
+    ],
+    "dataValues": {
+      "RBaseDamage": [
+        75,
+        125,
+        175,
+        225,
+        275,
+        325,
+        375
+      ],
+      "SeverumRHealBonus": [
+        150,
+        250,
+        350,
+        450,
+        550,
+        650,
+        750
+      ],
+      "CalibrumRMarkBonusDamage": [
+        20,
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "CrescendumRBonusMinis": [
+        0,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "InfernumRBonusDamageBase": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300
+      ],
+      "GravitumRBonusSlowBase": [
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432
+      ],
+      "CritDamageMod": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "GravitumRRootDuration": [
+        1.350000023841858,
+        1.350000023841858,
+        1.350000023841858,
+        1.350000023841858,
+        1.350000023841858,
+        1.350000023841858,
+        1.350000023841858
+      ]
+    },
+    "calculations": {
+      "MaxDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "InfernumRBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "InfernumRBonusDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "GravitumRBonusSlow": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "GravitumRBonusSlowBase",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "CritDamageModCalc": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mPart1": {
+              "mDataValue": "CritDamageMod",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mPart1": {
+                "mStat": 8,
+                "mCoefficient": 1,
+                "__type": "StatByCoefficientCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "InfernumRPenalty": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.8999999761581421,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{36ebd3cf}": {
+        "mFormulaParts": [
+          {
+            "mStat": 9,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MaxDamage": {
+        "base": [
+          125,
+          175,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "InfernumRBonusDamage": {
+        "base": [
+          50,
+          100,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.25
+          }
+        ]
+      },
+      "GravitumRBonusSlow": {
+        "base": 0.99
+      },
+      "InfernumRPenalty": {
+        "base": 0.9
+      }
+    },
+    "unsupported": {
+      "CritDamageModCalc": "stat code 9/0",
+      "{36ebd3cf}": "stat code 9/0"
+    }
+  },
+  "ApheliosCalibrumQ": {
+    "path": "Characters/Aphelios/Spells/ApheliosCalibrumQAbility/ApheliosCalibrumQ",
+    "maxRank": 5,
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      1450,
+      1450,
+      1450,
+      1450,
+      1450
+    ],
+    "dataValues": {
+      "MarkDuration": [
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5
+      ],
+      "BonusRange": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "MoonlightCost": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "BonusAS": [
+        0.05000000074505806,
+        0.09000000357627869,
+        0.12999999523162842,
+        0.17000000178813934,
+        0.20999999344348907,
+        0.25,
+        0.28999999165534973
+      ],
+      "BonusASMax": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MaxMarkRange": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ]
+    },
+    "calculations": {
+      "BonusDamagePerMark": {
+        "mFormulaParts": [
+          {
+            "mNumber": 15,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SpellDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 80,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mLevel1Value": 0.41999998688697815,
+              "mBreakpoints": [
+                {
+                  "mLevel": 3,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 5,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 9,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 11,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "CalibrumQCD": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "{ee06b7fb}": {
+        "mMultiplier": {
+          "mNumber": 0.4000000059604645,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "BonusDamagePerMark",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "BonusDamagePerMark": {
+        "base": 15,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.15
+          }
+        ]
+      },
+      "SpellDamage": {
+        "base": 0,
+        "baseByLevel": [
+          80,
+          80,
+          95,
+          95,
+          110,
+          110,
+          125,
+          125,
+          140,
+          140,
+          155,
+          155,
+          170,
+          170,
+          170,
+          170,
+          170,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0,
+            "valueByLevel": [
+              0.42,
+              0.42,
+              0.45,
+              0.45,
+              0.48,
+              0.48,
+              0.51,
+              0.51,
+              0.54,
+              0.54,
+              0.57,
+              0.57,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "AttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "{ee06b7fb}": {
+        "base": 6,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CalibrumQCD": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "ApheliosSeverumQ": {
+    "path": "Characters/Aphelios/Spells/ApheliosSeverumQAbility/ApheliosSeverumQ",
+    "maxRank": 5,
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "dataValues": {
+      "Duration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "DecayTakes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "ASCoeff": [
+        0.33333998918533325,
+        0.33333998918533325,
+        0.33333998918533325,
+        0.33333998918533325,
+        0.33333998918533325,
+        0.33333998918533325,
+        0.33333998918533325
+      ],
+      "StartingAttacks": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "calculations": {
+      "NumAttacks": {
+        "mMultiplier": {
+          "mDataValue": "StartingAttacks",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 4,
+            "mStatFormula": 2,
+            "mDataValue": "ASCoeff",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{9480e64f}": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mLevel1Value": 0.20000000298023224,
+              "mBreakpoints": [
+                {
+                  "mLevel": 3,
+                  "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 5,
+                  "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 9,
+                  "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 11,
+                  "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mMultiplier": {
+          "mStat": 2,
+          "mSubpart": {
+            "mLevel1Value": 0.1899999976158142,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 0.03500000014901161,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          "__type": "StatBySubPartCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mModifiedGameCalculation": "NumAttacks",
+        "__type": "GameCalculationModified"
+      },
+      "Haste": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.25,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": 0.0010000000474974513,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "HealAmount": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.019999999552965164,
+            "mEndValue": 0.07999999821186066,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "AttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxShield": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mCoefficient": 0.05999999865889549,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SeverumQCD": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.3330000042915344,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{3f4c2ea7}": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 25,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDecayDurationForTooltip": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 25,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "DecayTakes",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{31c5a522}": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 35,
+            "mEndValue": 100,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "OnHitDamageReduction": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.25,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "HealAmountSpell": {
+        "mMultiplier": {
+          "mNumber": 2.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "HealAmount",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "NumAttacks": {
+        "base": 6,
+        "ratios": [
+          {
+            "stat": "bonusAttackSpeed",
+            "value": 2.00004
+          }
+        ]
+      },
+      "{9480e64f}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.2,
+              0.2,
+              0.235,
+              0.235,
+              0.27,
+              0.27,
+              0.305,
+              0.305,
+              0.34,
+              0.34,
+              0.375,
+              0.375,
+              0.41,
+              0.41,
+              0.41,
+              0.41,
+              0.41,
+              0.41
+            ]
+          }
+        ]
+      },
+      "Haste": {
+        "base": 0.25,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.001
+          }
+        ]
+      },
+      "HealAmount": {
+        "base": 0,
+        "baseByLevel": [
+          0.02,
+          0.02352941,
+          0.02705882,
+          0.03058823,
+          0.03411765,
+          0.03764706,
+          0.04117647,
+          0.04470588,
+          0.04823529,
+          0.0517647,
+          0.05529412,
+          0.05882353,
+          0.06235294,
+          0.06588235,
+          0.06941176,
+          0.07294117,
+          0.07647059,
+          0.08
+        ]
+      },
+      "AttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "MaxShield": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.06
+          }
+        ]
+      },
+      "{3f4c2ea7}": {
+        "base": 25
+      },
+      "TotalDecayDurationForTooltip": {
+        "base": 5,
+        "baseByLevel": [
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25,
+          25
+        ]
+      },
+      "{31c5a522}": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          38.82353,
+          42.64706,
+          46.47059,
+          50.29412,
+          54.11765,
+          57.94118,
+          61.76471,
+          65.58824,
+          69.41176,
+          73.23529,
+          77.05882,
+          80.88235,
+          84.70588,
+          88.52941,
+          92.35294,
+          96.17647,
+          100
+        ]
+      },
+      "OnHitDamageReduction": {
+        "base": 0.25
+      },
+      "HealAmountSpell": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.05882353,
+          0.06764706,
+          0.07647059,
+          0.08529412,
+          0.09411764,
+          0.1029412,
+          0.1117647,
+          0.1205882,
+          0.1294118,
+          0.1382353,
+          0.1470588,
+          0.1558823,
+          0.1647059,
+          0.1735294,
+          0.1823529,
+          0.1911765,
+          0.2
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamage": "StatBySubPartCalculationPart scales with a stat (stat × stat)",
+      "SeverumQCD": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "ApheliosW": {
+    "path": "Characters/Aphelios/Spells/ApheliosWAbility/ApheliosW",
+    "slot": "W",
+    "maxRank": 6,
+    "cooldown": [
+      0.800000011920929,
+      0.800000011920929,
+      0.800000011920929,
+      0.800000011920929,
+      0.800000011920929,
+      0.800000011920929
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "Test": []
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,692 @@
+{
+  "DianaOrbs": {
+    "path": "Characters/Diana/Spells/DianaOrbsAbility/DianaOrbs",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      13.5,
+      12,
+      10.5,
+      9
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "ShieldBase": [
+        30,
+        45,
+        60,
+        75,
+        90,
+        105,
+        120
+      ],
+      "OrbDamage": [
+        8,
+        20,
+        32,
+        44,
+        56,
+        68,
+        80
+      ],
+      "ShieldAPRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "ShieldDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "OrbAPRatio": [
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737
+      ],
+      "ShieldBHPRatio": [
+        0.14000000059604645,
+        0.14000000059604645,
+        0.14000000059604645,
+        0.14000000059604645,
+        0.14000000059604645,
+        0.14000000059604645,
+        0.14000000059604645
+      ]
+    },
+    "calculations": {
+      "ShieldValue": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "ShieldBHPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "OrbDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "OrbAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalMaxDamage": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "ShieldValue": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.14
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          20,
+          32,
+          44,
+          56,
+          68
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.18
+          }
+        ]
+      },
+      "TotalMaxDamage": {
+        "base": [
+          60,
+          96,
+          132,
+          168,
+          204
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.54
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DianaQ": {
+    "path": "Characters/Diana/Spells/DianaQAbility/DianaQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "dataValues": {
+      "MoonlightDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BaseDamage": [
+        35,
+        70,
+        105,
+        140,
+        175,
+        210,
+        245
+      ],
+      "APRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DianaR": {
+    "path": "Characters/Diana/Spells/DianaRAbility/DianaR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      90,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "Damage": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "Delay": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SlowPotency": [
+        -0.30000001192092896,
+        -0.4000000059604645,
+        -0.5,
+        -0.6000000238418579,
+        -0.699999988079071,
+        -0.800000011920929,
+        -0.8999999761581421
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowTooltip": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "MultihitAmp": [
+        10,
+        35,
+        60,
+        85,
+        110,
+        135,
+        160
+      ]
+    },
+    "calculations": {
+      "RExplosionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RMultiHitAmplification": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MultiHitAmp",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mMultiplier": {
+          "mNumber": 5,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "RMultiHitAmplification",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "RExplosionDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "RMultiHitAmplification": {
+        "base": [
+          35,
+          60,
+          85
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          175,
+          300,
+          425
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DianaTeleport": {
+    "path": "Characters/Diana/Spells/DianaTeleportAbility/DianaTeleport",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      22,
+      20,
+      18,
+      16,
+      14
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        50,
+        70,
+        90,
+        110,
+        130,
+        150
+      ],
+      "APRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "CDResetTime": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DianaPassive": {
+    "path": "Characters/Diana/Spells/DianaPassiveAbility/DianaPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "cooldown": [
+      28,
+      24,
+      20,
+      16,
+      12
+    ],
+    "dataValues": {
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "AttackSpeedValue": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "AttackCount": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "MonsterMod": [
+        2.700000047683716,
+        2.700000047683716,
+        2.700000047683716,
+        2.700000047683716,
+        2.700000047683716,
+        2.700000047683716,
+        2.700000047683716
+      ]
+    },
+    "calculations": {
+      "CleaveDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mInitialBonusPerLevel": 5,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mBonusPerLevelAtAndAfter": 15,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 17,
+                "mBonusPerLevelAtAndAfter": 25,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusAS": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.15000000596046448,
+            "mEndValue": 0.3499999940395355,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "EmpoweredAS": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "BonusAS",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "CleaveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          55,
+          65,
+          75,
+          85,
+          95,
+          110,
+          125,
+          140,
+          155,
+          170,
+          195,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "BonusAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.1617647,
+          0.1735294,
+          0.1852941,
+          0.1970588,
+          0.2088235,
+          0.2205882,
+          0.2323529,
+          0.2441176,
+          0.2558824,
+          0.2676471,
+          0.2794118,
+          0.2911765,
+          0.3029412,
+          0.3147059,
+          0.3264706,
+          0.3382353,
+          0.35
+        ]
+      },
+      "EmpoweredAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.45,
+          0.4852941,
+          0.5205882,
+          0.5558824,
+          0.5911765,
+          0.6264706,
+          0.6617647,
+          0.6970588,
+          0.7323529,
+          0.7676471,
+          0.8029412,
+          0.8382353,
+          0.8735294,
+          0.9088235,
+          0.9441176,
+          0.9794118,
+          1.014706,
+          1.05
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

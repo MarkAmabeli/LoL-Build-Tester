@@ -1,0 +1,724 @@
+{
+  "TeemoW": {
+    "path": "Characters/Teemo/Spells/TeemoWAbility/TeemoW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "PassiveMoveSpeedBonus": [
+        0.07999999821186066,
+        0.11999999731779099,
+        0.1599999964237213,
+        0.20000000298023224,
+        0.23999999463558197,
+        0.2800000011920929,
+        0.3199999928474426
+      ],
+      "ActiveMoveSpeedBuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ActiveMoveSpeedBonus": [
+        0.1599999964237213,
+        0.23999999463558197,
+        0.3199999928474426,
+        0.4000000059604645,
+        0.47999998927116394,
+        0.5600000023841858,
+        0.6399999856948853
+      ],
+      "PassiveCooldownOnDamageTaken": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TeemoR": {
+    "path": "Characters/Teemo/Spells/TeemoRAbility/TeemoR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25
+    ],
+    "cost": [
+      75,
+      55,
+      35
+    ],
+    "range": [
+      600,
+      750,
+      900
+    ],
+    "dataValues": {
+      "TriggerRadius": [
+        160,
+        160,
+        160,
+        160,
+        160,
+        160,
+        160
+      ],
+      "MaxAmmo": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "MaxBounceDistance": [
+        360,
+        360,
+        440,
+        550,
+        550,
+        550,
+        550
+      ],
+      "ArmTime": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MushroomDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BaseDamage": [
+        75,
+        200,
+        325,
+        450,
+        575,
+        700,
+        825
+      ],
+      "SlowAmount": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "DebuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "APRatioPerTick": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "ExplosionRadius": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "MaxTraps": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "MinTossDistanceBounceThreshold": [
+        150,
+        220,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "VisionRadius": [
+        210,
+        210,
+        210,
+        210,
+        210,
+        210,
+        210
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerTick",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          325,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TeemoRDot": {
+    "path": "Characters/Teemo/Spells/TeemoRAbility/TeemoRDot",
+    "maxRank": 5,
+    "dataValues": {
+      "VisionRadius": [
+        175,
+        175,
+        175,
+        175,
+        175,
+        175,
+        175
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TeemoE": {
+    "path": "Characters/Teemo/Spells/TeemoEAbility/TeemoE",
+    "slot": "E",
+    "maxRank": 5,
+    "range": [
+      680,
+      680,
+      680,
+      680,
+      680
+    ],
+    "dataValues": {
+      "TickBaseDamage": [
+        0,
+        6,
+        12,
+        18,
+        24,
+        30,
+        36
+      ],
+      "TickAPRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "ImpactBaseDamage": [
+        -5,
+        9,
+        23,
+        37,
+        51,
+        65,
+        79
+      ],
+      "ImpactAPRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "PoisonDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "TickFrequency": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MonsterMod": [
+        1.600000023841858,
+        1.600000023841858,
+        1.600000023841858,
+        1.600000023841858,
+        1.600000023841858,
+        1.600000023841858,
+        1.600000023841858
+      ],
+      "TickBonusADRatio": [
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903
+      ],
+      "ImpactBonusADRatio": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ]
+    },
+    "calculations": {
+      "TickCalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "TickBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "TickAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "TickBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ImpactCalculatedDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ImpactBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ImpactAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ImpactBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDotDamage": {
+        "mMultiplier": {
+          "mDataValue": "PoisonDuration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "TickCalculatedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{8b70cfd6}": {
+        "mMultiplier": {
+          "mDataValue": "monstermod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "ImpactCalculatedDamage",
+        "__type": "GameCalculationModified"
+      },
+      "{938cba49}": {
+        "mMultiplier": {
+          "mDataValue": "monstermod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TickCalculatedDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TickCalculatedDamage": {
+        "base": [
+          6,
+          12,
+          18,
+          24,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.025
+          }
+        ]
+      },
+      "ImpactCalculatedDamage": {
+        "base": [
+          9,
+          23,
+          37,
+          51,
+          65
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.05
+          }
+        ]
+      },
+      "TotalDotDamage": {
+        "base": [
+          24,
+          48,
+          72,
+          96,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "{8b70cfd6}": {
+        "base": [
+          14.4,
+          36.8,
+          59.2,
+          81.6,
+          104
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.48
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.08
+          }
+        ]
+      },
+      "{938cba49}": {
+        "base": [
+          9.6,
+          19.2,
+          28.8,
+          38.4,
+          48
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.16
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.04
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TeemoQ": {
+    "path": "Characters/Teemo/Spells/TeemoQAbility/TeemoQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      680,
+      680,
+      680,
+      680,
+      680
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        80,
+        125,
+        170,
+        215,
+        260,
+        305
+      ],
+      "APRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "BlindDuration": [
+        1.75,
+        2,
+        2.25,
+        2.5,
+        2.75,
+        3,
+        3.25
+      ],
+      "MissChance": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MinionMonsterDurationMod": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "CalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{0f87e4ba}": {
+        "mMultiplier": {
+          "mDataValue": "MinionMonsterDurationMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BlindDuration",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "CalculatedDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "{0f87e4ba}": {
+        "base": [
+          4,
+          4.5,
+          5,
+          5.5,
+          6
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TeemoPassive": {
+    "path": "Characters/Teemo/Spells/TeemoPassiveAbility/TeemoPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "AttackSpeedDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "StealthCooldownDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "BonusAttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.20000000298023224,
+            "mBreakpoints": [
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 10,
+                "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mAdditionalBonusAtThisLevel": 0.20000000298023224,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusAttackSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

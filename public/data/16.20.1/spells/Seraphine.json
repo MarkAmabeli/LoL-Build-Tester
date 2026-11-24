@@ -1,0 +1,724 @@
+{
+  "SeraphineW": {
+    "path": "Characters/Seraphine/Spells/SeraphineWAbility/SeraphineW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      22,
+      22,
+      22,
+      22,
+      22
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "ShieldDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "ShieldStrength": [
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160
+      ],
+      "ShieldAPRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "WMSBonus": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "WMSBonusAPRatio": [
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503
+      ],
+      "HasteValueForAllies": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "WMissingHPBase": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ],
+      "WMissingHPPer100AP": [],
+      "WHealSplitDelay": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "ShieldAmpForSeraphine": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalShieldStrength": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldStrength",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WMSBonusTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WMSBonus",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "WMSBonusAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "WMissingHPHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WMissingHPBase",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "HasteValueAllies": {
+        "mMultiplier": {
+          "mDataValue": "HasteValueForAllies",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "WMSBonusTotal",
+        "__type": "GameCalculationModified"
+      },
+      "ShieldValueSeraphine": {
+        "mMultiplier": {
+          "mDataValue": "ShieldAmpForSeraphine",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "TotalShieldStrength",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalShieldStrength": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "WMSBonusTotal": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "WMissingHPHeal": {
+        "base": [
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      "HasteValueAllies": {
+        "base": 0.08,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00008
+          }
+        ]
+      },
+      "ShieldValueSeraphine": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SeraphineE": {
+    "path": "Characters/Seraphine/Spells/SeraphineEAbility/SeraphineE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10.5,
+      10,
+      9.5,
+      9
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      1300,
+      1300,
+      1300,
+      1300,
+      1300
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        70,
+        100,
+        130,
+        160,
+        190,
+        220
+      ],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "SlowValue": [
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99
+      ],
+      "SlowDuration": [
+        1,
+        1.100000023841858,
+        1.2000000476837158,
+        1.2999999523162842,
+        1.399999976158142,
+        1.5,
+        1.600000023841858
+      ],
+      "MinionDamageMod": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ]
+    },
+    "calculations": {
+      "FinalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FinalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SeraphineQ": {
+    "path": "Characters/Seraphine/Spells/SeraphineQAbility/SeraphineQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        60,
+        85,
+        110,
+        135,
+        160,
+        185
+      ],
+      "APRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "ExecuteThreshold": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "DamageAmp": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ]
+    },
+    "calculations": {
+      "ExplosionDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalEmpoweredDamage": {
+        "mMultiplier": {
+          "mNumber": 1.75,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "ExplosionDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "ExplosionDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalEmpoweredDamage": {
+        "base": [
+          105,
+          148.75,
+          192.5,
+          236.25,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SeraphinePassive": {
+    "path": "Characters/Seraphine/Spells/SeraphinePassiveAbility/SeraphinePassive",
+    "slot": "P",
+    "maxRank": 5,
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "EchoCastDelay": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "AutoAPRatio": [
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224
+      ],
+      "MaxNotes": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "AllyNoteDamagePercent": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "NoteDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "BonusAARange": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "DelayBetweenNoteCasts": [
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224,
+        0.07500000298023224
+      ],
+      "NoteRadius": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "DelayBetweenNoteCastsDecayRate": [
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071
+      ],
+      "MinionDamageMultiplier": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "NoteAPRatio": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033
+      ]
+    },
+    "calculations": {
+      "AutoDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStartValue": 4,
+            "mEndValue": 25,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "NoteAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "AutoDamage": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          5.235294,
+          6.470588,
+          7.705882,
+          8.941176,
+          10.17647,
+          11.41176,
+          12.64706,
+          13.88235,
+          15.11765,
+          16.35294,
+          17.58824,
+          18.82353,
+          20.05882,
+          21.29412,
+          22.52941,
+          23.76471,
+          25
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.04
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SeraphineR": {
+    "path": "Characters/Seraphine/Spells/SeraphineRAbility/SeraphineR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      160,
+      140,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "RChannelDuration": [
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25,
+        2.5
+      ],
+      "R1BaseDamage": [
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400
+      ],
+      "R1APRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "RRange": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "RMinSlow": [
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645
+      ],
+      "RMaxSlow": [
+        -0.9900000095367432,
+        -0.9900000095367432,
+        -0.9900000095367432,
+        -0.9900000095367432,
+        -0.9900000095367432,
+        -0.9900000095367432,
+        -0.9900000095367432
+      ]
+    },
+    "calculations": {
+      "R1TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "R1BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "R1APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "R1TotalDamage": {
+        "base": [
+          150,
+          200,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

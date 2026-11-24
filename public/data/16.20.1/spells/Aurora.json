@@ -1,0 +1,892 @@
+{
+  "AuroraE": {
+    "path": "Characters/Aurora/Spells/AuroraEAbility/AuroraE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "SlowPercent": [
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929
+      ],
+      "SelfKnockBackDistance": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "AoELength": [
+        825,
+        825,
+        825,
+        825,
+        825,
+        825,
+        825
+      ],
+      "AoEWidth": [
+        175,
+        175,
+        175,
+        175,
+        175,
+        175,
+        175
+      ],
+      "SlowDecay": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AuroraPassive": {
+    "path": "Characters/Aurora/Spells/AuroraPassiveAbility/AuroraPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "DebuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "SpiritModeDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "BaseHPDamage": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "MonsterMaxDamage": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "MSIncrease": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BonusMsIncrease": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164
+      ]
+    },
+    "calculations": {
+      "ProcDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.0002699999895412475,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MoveSpeedCalc": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.05000000074505806,
+            "mBreakpoints": [
+              {
+                "mLevel": 2,
+                "mAdditionalBonusAtThisLevel": 0.0020000000949949026,
+                "mBonusPerLevelAtAndAfter": 0.0020000000949949026,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.0003000000142492354,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "HealCalc": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 3,
+            "mEndValue": 20,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{394d1781}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mInitialBonusPerLevel": 10,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "MonsterMaxDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusMSCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusMsIncrease",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.0001500000071246177,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "CooldownDuration": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 5,
+            "mEndValue": 5,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{406b6e3e}": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "{a8cb9c14}": true,
+            "mStat": 12,
+            "mSubpart": {
+              "mSpellCalculationKey": "ProcDamage",
+              "__type": "{f3cbe7b2}"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ProcDamage": {
+        "base": 0.01,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00027
+          }
+        ]
+      },
+      "MoveSpeedCalc": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.054,
+          0.056,
+          0.058,
+          0.06,
+          0.062,
+          0.064,
+          0.066,
+          0.068,
+          0.07,
+          0.072,
+          0.074,
+          0.076,
+          0.078,
+          0.08,
+          0.082,
+          0.084,
+          0.086
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "HealCalc": {
+        "base": 0,
+        "baseByLevel": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.02
+          }
+        ]
+      },
+      "{394d1781}": {
+        "base": 90,
+        "baseByLevel": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180
+        ]
+      },
+      "BonusMSCalc": {
+        "base": 0.02,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      },
+      "CooldownDuration": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      }
+    },
+    "unsupported": {
+      "{406b6e3e}": "{f3cbe7b2} scales with a stat (stat × stat)"
+    }
+  },
+  "AuroraR": {
+    "path": "Characters/Aurora/Spells/AuroraRAbility/AuroraR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      120,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        75,
+        175,
+        275,
+        375,
+        475,
+        575,
+        675
+      ],
+      "SlowPercent": [
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896
+      ],
+      "ExitBaseDamage": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300
+      ],
+      "ExitSlowPercent": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "AreaDuration": [
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5
+      ],
+      "RBuffDuration": [
+        2.75,
+        3.5,
+        4.25,
+        5,
+        5.75,
+        6.5,
+        7.25
+      ],
+      "AoESize": [
+        700,
+        700,
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "StunDuration": [
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25,
+        2.5,
+        2.75
+      ],
+      "MSMultiplier": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "JumpMaxDistance": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "JumpMinDistance": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ]
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          175,
+          275,
+          375
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AuroraQ": {
+    "path": "Characters/Aurora/Spells/AuroraQAbility/AuroraQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8.5,
+      8,
+      7.5,
+      7
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        20,
+        45,
+        70,
+        95,
+        120,
+        145,
+        170
+      ],
+      "DamageReduction": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "Q2BaseDamage": [
+        20,
+        45,
+        70,
+        95,
+        120,
+        145,
+        170
+      ],
+      "MarkDuration": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "MinionDamageReduction": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "MissingHealthPercentMod": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "Q2MinionMod": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{f7c018c7}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Q2BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Q2DamageMax": {
+        "mMultiplier": {
+          "mNumber": 1.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "Q2BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "{f7c018c7}": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "Q2DamageMax": {
+        "base": [
+          67.5,
+          105,
+          142.5,
+          180,
+          217.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AuroraQReturnMissile": {
+    "path": "Characters/Aurora/Spells/AuroraQAbility/AuroraQReturnMissile",
+    "maxRank": 5,
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        70,
+        105,
+        140,
+        175,
+        210,
+        245
+      ],
+      "CDRefund": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CD": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AuroraW": {
+    "path": "Characters/Aurora/Spells/AuroraWAbility/AuroraW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      22,
+      21,
+      20,
+      19,
+      18
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "dataValues": {
+      "InvisDuration": [
+        0.8500000238418579,
+        1,
+        1.149999976158142,
+        1.2999999523162842,
+        1.4500000476837158,
+        1.600000023841858,
+        1.75
+      ],
+      "DashBonusSpeed": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "JumpDistance": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "WallCheatDistance": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "MoveSpeedBonus": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

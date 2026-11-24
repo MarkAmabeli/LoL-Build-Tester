@@ -1,0 +1,1138 @@
+{
+  "HeimerdingerW": {
+    "path": "Characters/Heimerdinger/Spells/HeimerdingerWAbility/HeimerdingerW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "dataValues": {
+      "Rockets": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BaseDamage": [
+        25,
+        50,
+        75,
+        100,
+        125,
+        150,
+        175
+      ],
+      "ExtraHitBaseDamage": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "TotalBaseDamage": [
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "InitialDamageAPRatio": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "InitialDamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExtraHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExtraHitBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.11999999731779099,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "TotalBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.0299999713897705,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExtraHitDamageMinions": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "ExtraHitDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "ExtraHitDamage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          90,
+          135,
+          180,
+          225,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.03
+          }
+        ]
+      },
+      "ExtraHitDamageMinions": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.36
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "HeimerdingerR": {
+    "path": "Characters/Heimerdinger/Spells/HeimerdingerRAbility/HeimerdingerR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      85,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      280,
+      280,
+      280
+    ],
+    "dataValues": {
+      "QUltBaseDamage": [
+        60,
+        80,
+        100,
+        120,
+        140,
+        160,
+        180
+      ],
+      "QUltBaseDamageBeam": [
+        60,
+        100,
+        140,
+        180,
+        220,
+        260,
+        300
+      ],
+      "WUltBaseDamage": [
+        90,
+        135,
+        180,
+        225,
+        270,
+        315,
+        360
+      ],
+      "WUltExtraHitBaseDamage": [
+        19,
+        32,
+        45,
+        58,
+        71,
+        84,
+        97
+      ],
+      "WUltTotalBaseDamage": [
+        0,
+        503,
+        697.5,
+        892,
+        1086.5,
+        1281,
+        1475.5
+      ],
+      "EUltBaseDamage": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600
+      ],
+      "WUltSecondaryAPRatio": [
+        0,
+        0.11999999731779099,
+        0.11999999731779099,
+        0.11999999731779099,
+        0,
+        0,
+        0
+      ],
+      "WUltPrimaryAPRatio": [
+        0,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0,
+        0,
+        0
+      ],
+      "WUltPrimaryBaseDamage": [
+        0,
+        135,
+        180,
+        225,
+        0,
+        0,
+        0
+      ],
+      "WUltSecondaryBaseDamage": [
+        0,
+        28,
+        39,
+        49,
+        0,
+        0,
+        0
+      ]
+    },
+    "calculations": {
+      "QUltTurretHealth": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 725,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mBonusPerLevelAtAndAfter": 50,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mBonusPerLevelAtAndAfter": 150,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QUltDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "QUltBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.3499999940395355,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QUltDamageBeam": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "QUltBaseDamageBeam",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WUltDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WUltBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{a8af07ef}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WUltExtraHitBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.11999999731779099,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{f058914b}": {
+        "mMultiplier": {
+          "mNumber": 0.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "{a8af07ef}",
+        "__type": "GameCalculationModified"
+      },
+      "WUltTotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WUltTotalBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.8300000429153442,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EUltDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "EUltBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{0df0e2e2}": {
+        "mMultiplier": {
+          "mNumber": 20,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "WUltTotalDamage",
+        "__type": "GameCalculationModified"
+      },
+      "RQTurretResists": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 30,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "QUltTurretHealth": {
+        "base": 0,
+        "baseByLevel": [
+          725,
+          725,
+          725,
+          725,
+          725,
+          725,
+          750,
+          775,
+          800,
+          825,
+          875,
+          925,
+          975,
+          1025,
+          1075,
+          1225,
+          1375,
+          1525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "QUltDamage": {
+        "base": [
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "QUltDamageBeam": {
+        "base": [
+          100,
+          140,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "WUltDamage": {
+        "base": [
+          135,
+          180,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "{a8af07ef}": {
+        "base": [
+          32,
+          45,
+          58
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.12
+          }
+        ]
+      },
+      "{f058914b}": {
+        "base": [
+          16,
+          22.5,
+          29
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.06
+          }
+        ]
+      },
+      "WUltTotalDamage": {
+        "base": [
+          503,
+          697.5,
+          892
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.83
+          }
+        ]
+      },
+      "EUltDamage": {
+        "base": [
+          100,
+          200,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "{0df0e2e2}": {
+        "base": [
+          10060,
+          13950,
+          17840
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 36.6
+          }
+        ]
+      },
+      "RQTurretResists": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "HeimerdingerE": {
+    "path": "Characters/Heimerdinger/Spells/HeimerdingerEAbility/HeimerdingerE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "cost": [
+      85,
+      85,
+      85,
+      85,
+      85
+    ],
+    "range": [
+      925,
+      925,
+      925,
+      925,
+      925
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        20,
+        60,
+        100,
+        140,
+        180,
+        220,
+        260
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowPercent": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "StunDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "HeimerdingerQ": {
+    "path": "Characters/Heimerdinger/Spells/HeimerdingerQAbility/HeimerdingerQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "MaxTurrets": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "MaxKits": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "KitCost": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DistanceToHeimer": [
+        0,
+        900,
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "BaseDamage": [
+        3,
+        7,
+        11,
+        15,
+        19,
+        23,
+        27
+      ],
+      "BaseDamageBeam": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
+      ],
+      "TurretAPRatio": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "BeamAPRatio": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ],
+      "TurretHealthMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TurretHealth": {
+        "mMultiplier": {
+          "mDataValue": "TurretHealthMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 130,
+            "mEndValue": 640,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mSubpart": {
+              "mLevel1Value": 0.05000000074505806,
+              "mInitialBonusPerLevel": 0.004999999888241291,
+              "mBreakpoints": [
+                {
+                  "mLevel": 10,
+                  "mBonusPerLevelAtAndAfter": 0.03999999910593033,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{f0517331}": {
+        "mFormulaParts": [
+          {
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 8,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 10,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 14,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{8109ae7b}": {
+        "mFormulaParts": [
+          {
+            "mBreakpoints": [
+              {
+                "mLevel": 8,
+                "mAdditionalBonusAtThisLevel": 0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 10,
+                "mAdditionalBonusAtThisLevel": 0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 18,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "KitCooldown": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 20,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BeamCooldown": {
+        "mMultiplier": {
+          "__type": "CooldownMultiplierCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mNumber": 90,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "TurretAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamageBeam": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageBeam",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BeamAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TurretHealth": {
+        "base": 0,
+        "baseByLevel": [
+          130,
+          160,
+          190,
+          220,
+          250,
+          280,
+          310,
+          340,
+          370,
+          400,
+          430,
+          460,
+          490,
+          520,
+          550,
+          580,
+          610,
+          640
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0,
+            "valueByLevel": [
+              0.05,
+              0.055,
+              0.06,
+              0.065,
+              0.07,
+              0.075,
+              0.08,
+              0.085,
+              0.09,
+              0.13,
+              0.17,
+              0.21,
+              0.25,
+              0.29,
+              0.33,
+              0.37,
+              0.41,
+              0.45
+            ]
+          }
+        ]
+      },
+      "{f0517331}": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          5,
+          10,
+          10,
+          15,
+          20,
+          25,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "{8109ae7b}": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0.5,
+          1,
+          1,
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          41
+        ]
+      },
+      "Damage": {
+        "base": [
+          7,
+          11,
+          15,
+          19,
+          23
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "DamageBeam": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "KitCooldown": "part type CooldownMultiplierCalculationPart",
+      "BeamCooldown": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "HeimerdingerPassive": {
+    "path": "Characters/Heimerdinger/Spells/HeimerdingerPassiveAbility/HeimerdingerPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MovementSpeed": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "HeimerdingerPassiveSpeed": {
+    "path": "Characters/Heimerdinger/Spells/HeimerdingerPassiveAbility/HeimerdingerPassiveSpeed",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MovementSpeed": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "Crepe_SingedVsHeimerdinger_HeimerdingerReward": {
+    "path": "{b4cf2b74}",
+    "maxRank": 5,
+    "dataValues": {
+      "ShieldMaxPer": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "TurretRange": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

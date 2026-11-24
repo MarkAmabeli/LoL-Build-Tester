@@ -1,0 +1,693 @@
+{
+  "IllaoiE": {
+    "path": "Characters/Illaoi/Spells/IllaoiEAbility/IllaoiE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12
+    ],
+    "cost": [
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "dataValues": {
+      "BaseDamageTransferPercent": [
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5
+      ],
+      "VesselDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "SpiritDuration": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "SlowDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "SlowAmount": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "EchoTADScalar": [
+        0.0007999999797903001,
+        0.0007999999797903001,
+        0.0007999999797903001,
+        0.0007999999797903001,
+        0.0007999999797903001,
+        0.0007999999797903001,
+        0.0007999999797903001
+      ],
+      "GraceBeforeDormantAfterELand": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "Density": [
+        700,
+        700,
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "SpiritLeashRange": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ]
+    },
+    "calculations": {
+      "TimeBetweenVesselTentacleSlams": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 4,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "EchoPercent": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageTransferPercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "EchoTADScalar",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{87aff6dd}": {
+        "mSimpleTooltipCalculationDisplay": 1,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 5,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TimeBetweenVesselTentacleSlams": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "EchoPercent": {
+        "base": [
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.0008
+          }
+        ]
+      },
+      "{87aff6dd}": {
+        "base": 0,
+        "baseByLevel": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "IllaoiQ": {
+    "path": "Characters/Illaoi/Spells/IllaoiQAbility/IllaoiQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "dataValues": {
+      "TentacleDamageAmp": [
+        0,
+        0.10000000149011612,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355
+      ],
+      "TotalADRatio": [
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858
+      ],
+      "APRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "TentacleLength": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "TentacleWidth": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    "calculations": {
+      "TentacleDamageTotal": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "TentacleDamageAmp",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 9,
+            "mEndValue": 180,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamageIncreaseTooltip": {
+        "mMultiplier": {
+          "mDataValue": "TentacleDamageAmp",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 9,
+            "mEndValue": 162,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TentacleDamageTotal": "Product of a per-rank and a per-level value",
+      "DamageIncreaseTooltip": "Product of a per-rank and a per-level value"
+    }
+  },
+  "IllaoiPassive": {
+    "path": "Characters/Illaoi/Spells/IllaoiPassiveAbility/IllaoiPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MissingHPPercentHeal": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "TentacleDisabledLifetime": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "SpawnRadius": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "SpawnDensity": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "PassiveTentacleLength": [
+        925,
+        925,
+        925,
+        925,
+        925,
+        925,
+        925
+      ],
+      "PassiveTentacleWidth": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    "calculations": {
+      "SpawnCD": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 18,
+            "mEndValue": 7,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "SpawnCD": {
+        "base": 0,
+        "baseByLevel": [
+          18,
+          17.35294,
+          16.70588,
+          16.05882,
+          15.41176,
+          14.76471,
+          14.11765,
+          13.47059,
+          12.82353,
+          12.17647,
+          11.52941,
+          10.88235,
+          10.23529,
+          9.588235,
+          8.941176,
+          8.294118,
+          7.647059,
+          7
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "IllaoiW": {
+    "path": "Characters/Illaoi/Spells/IllaoiWAbility/IllaoiW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "WMinDamage": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "HealthPercentDamage": [
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5
+      ],
+      "HealthDamageADRatio": [
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161
+      ],
+      "CooldownDuringR": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MonsterDamageCap": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "BuffDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "DashSpeedBonus": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ]
+    },
+    "calculations": {
+      "HealthPercentTotal": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealthPercentDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "HealthDamageADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "DashSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DashSpeedBonus",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 7,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "HealthPercentTotal": {
+        "base": [
+          0.03,
+          0.035,
+          0.04,
+          0.045,
+          0.05
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.00035
+          }
+        ]
+      },
+      "DashSpeed": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "IllaoiR": {
+    "path": "Characters/Illaoi/Spells/IllaoiRAbility/IllaoiR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      95,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "BuffRadius": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "Duration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

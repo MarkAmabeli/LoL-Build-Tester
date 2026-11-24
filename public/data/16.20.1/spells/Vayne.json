@@ -1,0 +1,397 @@
+{
+  "VayneCondemn": {
+    "path": "Characters/Vayne/Spells/VayneCondemnAbility/VayneCondemn",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "cost": [
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "Damage": [
+        15,
+        50,
+        85,
+        120,
+        155,
+        190,
+        225
+      ],
+      "StunDamage": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "StunDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "KnockbackDistance": [
+        475,
+        475,
+        475,
+        475,
+        475,
+        475,
+        475
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamageTT": {
+        "mMultiplier": {
+          "mDataValue": "StunDamage",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "EmpoweredDamageTT": {
+        "base": [
+          75,
+          127.5,
+          180,
+          232.5,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "VaynePassive": {
+    "path": "Characters/Vayne/Spells/VaynePassiveAbility/VaynePassive",
+    "slot": "P",
+    "maxRank": 5,
+    "range": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "dataValues": {
+      "MovementSpeed": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "Range": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "VayneInquisition": {
+    "path": "Characters/Vayne/Spells/VayneInquisitionAbility/VayneInquisition",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      85,
+      70
+    ],
+    "cost": [
+      80,
+      80,
+      80
+    ],
+    "dataValues": {
+      "BonusAttackDamage": [
+        20,
+        35,
+        50,
+        65,
+        80,
+        95,
+        110
+      ],
+      "BaseDuration": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18
+      ],
+      "TumbleStealthDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MovementSpeed": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "DurationToAdd": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "DamagedMarkerDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "TumbleCDReduction": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "VayneTumble": {
+    "path": "Characters/Vayne/Spells/VayneTumbleAbility/VayneTumble",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      6,
+      5,
+      4,
+      3,
+      2
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "dataValues": {
+      "TotalADRatio": [
+        0.6499999761581421,
+        0.75,
+        0.8500000238418579,
+        0.949999988079071,
+        1.0499999523162842,
+        1.149999976158142,
+        1.25
+      ],
+      "Duration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "CanBonusDamageCrit": [],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "ADRatioBonus": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "TotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ADRatioBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.75,
+              0.85,
+              0.95,
+              1.05,
+              1.15
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "VayneSilveredBolts": {
+    "path": "Characters/Vayne/Spells/VayneSilveredBoltsAbility/VayneSilveredBolts",
+    "slot": "W",
+    "maxRank": 5,
+    "dataValues": {
+      "MaxHealthRatio": [
+        0.02500000037252903,
+        0.03999999910593033,
+        0.054999999701976776,
+        0.07000000029802322,
+        0.08500000089406967,
+        0.10000000149011612,
+        0.11500000208616257
+      ],
+      "DamageFloor": [
+        25,
+        40,
+        55,
+        70,
+        85,
+        100,
+        115
+      ],
+      "DamageVsMonsters": [
+        125,
+        140,
+        155,
+        170,
+        185,
+        200,
+        215
+      ],
+      "DebuffDuration": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "APRatio": []
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthRatio",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          0.04,
+          0.055,
+          0.07,
+          0.085,
+          0.1
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

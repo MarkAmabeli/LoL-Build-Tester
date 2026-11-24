@@ -1,0 +1,759 @@
+{
+  "KogMawBioArcaneBarrage": {
+    "path": "Characters/KogMaw/Spells/KogMawBioArcaneBarrageAbility/KogMawBioArcaneBarrage",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      17,
+      17,
+      17,
+      17,
+      17
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      530,
+      530,
+      530,
+      530,
+      530
+    ],
+    "dataValues": {
+      "MaxHealthDamage": [
+        2.25,
+        3,
+        3.75,
+        4.5,
+        5.25,
+        6,
+        6.75
+      ],
+      "APRatio": [
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873
+      ],
+      "Range": [
+        110,
+        130,
+        150,
+        170,
+        190,
+        210,
+        230
+      ],
+      "Duration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "MonsterDamageCap": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    "calculations": {
+      "TotalHealthDamage": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalHealthDamage": {
+        "base": [
+          0.03,
+          0.0375,
+          0.045,
+          0.0525,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KogMawLivingArtillery": {
+    "path": "Characters/KogMaw/Spells/KogMawLivingArtilleryAbility/KogMawLivingArtillery",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      2,
+      1.5,
+      1
+    ],
+    "cost": [
+      40,
+      40,
+      40
+    ],
+    "range": [
+      1300,
+      1550,
+      1800
+    ],
+    "dataValues": {
+      "Damage": [
+        60,
+        100,
+        140,
+        180,
+        220,
+        260,
+        300
+      ],
+      "ManaCostDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "Range": [
+        105,
+        130,
+        155,
+        180,
+        205,
+        230,
+        255
+      ],
+      "BaseCost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "ManaCostCap": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "VisionDebuffDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "FinalDamageMult": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MaxExtraCost": [
+        360,
+        360,
+        360,
+        360,
+        360,
+        360,
+        360
+      ],
+      "VisionRadius": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "MidDamageMult": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "TooltipMissingHealthDamageAmp": [
+        0.833329975605011,
+        0.833329975605011,
+        0.833329975605011,
+        0.833329975605011,
+        0.833329975605011,
+        0.833329975605011,
+        0.833329975605011
+      ],
+      "APRatio": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ]
+    },
+    "calculations": {
+      "BaseDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MidDamageCalc": {
+        "mMultiplier": {
+          "mDataValue": "MidDamageMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "BaseDamageCalc",
+        "__type": "GameCalculationModified"
+      },
+      "MaxDamageCalc": {
+        "mMultiplier": {
+          "mDataValue": "FinalDamageMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "BaseDamageCalc",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "BaseDamageCalc": {
+        "base": [
+          100,
+          140,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.35,
+              0.4,
+              0.45
+            ]
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      },
+      "MidDamageCalc": {
+        "base": [
+          150,
+          210,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.525,
+              0.6,
+              0.675
+            ]
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1.125
+          }
+        ]
+      },
+      "MaxDamageCalc": {
+        "base": [
+          200,
+          280,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.7,
+              0.8,
+              0.9
+            ]
+          },
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KogMawQ": {
+    "path": "Characters/KogMaw/Spells/KogMawQAbility/KogMawQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "AttackSpeed": [
+        0,
+        0.05000000074505806,
+        0.10000000149011612,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896
+      ],
+      "BaseDamage": [
+        35,
+        80,
+        125,
+        170,
+        215,
+        260,
+        305
+      ],
+      "APRatio": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "ShredAmount": [
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36
+      ],
+      "ShredDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KogMawVoidOoze": {
+    "path": "Characters/KogMaw/Spells/KogMawVoidOozeAbility/KogMawVoidOoze",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      40,
+      55,
+      70,
+      85,
+      100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        70,
+        110,
+        150,
+        190,
+        230,
+        270
+      ],
+      "APRatio": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ],
+      "SlowAmount": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "TrailDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "SlowDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KogMawIcathianSurprise": {
+    "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianSurprise",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "TooltipPassiveMS": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "TooltipPassiveDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "PassiveDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 125,
+            "mEndValue": 550,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          125,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325,
+          350,
+          375,
+          400,
+          425,
+          450,
+          475,
+          500,
+          525,
+          550
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KogMawIcathianDisplay": {
+    "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianDisplay",
+    "maxRank": 5,
+    "dataValues": {
+      "TooltipPassiveMS": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "TooltipPassiveDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "PassiveDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 140,
+            "mEndValue": 650,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          140,
+          170,
+          200,
+          230,
+          260,
+          290,
+          320,
+          350,
+          380,
+          410,
+          440,
+          470,
+          500,
+          530,
+          560,
+          590,
+          620,
+          650
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KogMawIcathianSurpriseReady": {
+    "path": "Characters/KogMaw/Spells/KogMawIcathianSurpriseReadyAbility/KogMawIcathianSurpriseReady",
+    "maxRank": 5,
+    "dataValues": {
+      "TooltipPassiveMS": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "TooltipPassiveDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "PassiveDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 140,
+            "mEndValue": 650,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          140,
+          170,
+          200,
+          230,
+          260,
+          290,
+          320,
+          350,
+          380,
+          410,
+          440,
+          470,
+          500,
+          530,
+          560,
+          590,
+          620,
+          650
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

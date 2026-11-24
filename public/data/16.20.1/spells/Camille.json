@@ -1,0 +1,736 @@
+{
+  "CamillePassive": {
+    "path": "Characters/Camille/Spells/CamillePassiveAbility/CamillePassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "ShieldDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "PassiveCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 14,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -3,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldAmount": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mSubpart": {
+              "mLevel1Value": 0.10000000149011612,
+              "mBreakpoints": [
+                {
+                  "mLevel": 7,
+                  "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 13,
+                  "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 19,
+                  "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          11,
+          11,
+          11,
+          11,
+          11,
+          11,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "ShieldAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0,
+            "valueByLevel": [
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.15,
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2,
+              0.2
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CamilleE": {
+    "path": "Characters/Camille/Spells/CamilleEAbility/CamilleE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "dataValues": {
+      "EMinionMonsterGhostDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "KnockupDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "ASBuff": [
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421
+      ],
+      "BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "DashSpeed": [
+        1050,
+        1050,
+        1050,
+        1050,
+        1050,
+        1050,
+        1050
+      ],
+      "ASDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "WallHangDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "E2LongDashRange": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "E2ShortDashRange": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "ECollisionRange": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "BADRatio": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CamilleQ": {
+    "path": "Characters/Camille/Spells/CamilleQAbility/CamilleQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "cost": [
+      25,
+      25,
+      25,
+      25,
+      25
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "QRampUpTime": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "BonusAARange": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "TADRatio": [
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104
+      ],
+      "MSBonus": [
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5
+      ],
+      "MSDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "QEmpoweredAmp": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "Q2Duration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "QTotalRecastTime": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ]
+    },
+    "calculations": {
+      "DamageConversionPercentage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.4000000059604645,
+            "mInitialBonusPerLevel": 0.03999999910593033,
+            "mBreakpoints": [
+              {
+                "mLevel": 17,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "BonusDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "tADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredBonusDamage": {
+        "mMultiplier": {
+          "mDataValue": "QEmpoweredAmp",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "BonusDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "DamageConversionPercentage": {
+        "base": 0,
+        "baseByLevel": [
+          0.4,
+          0.44,
+          0.48,
+          0.52,
+          0.56,
+          0.6,
+          0.64,
+          0.68,
+          0.72,
+          0.76,
+          0.8,
+          0.84,
+          0.88,
+          0.92,
+          0.96,
+          1,
+          1.04,
+          1.08
+        ]
+      },
+      "BonusDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.2,
+              0.25,
+              0.3,
+              0.35,
+              0.4
+            ]
+          }
+        ]
+      },
+      "EmpoweredBonusDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CamilleR": {
+    "path": "Characters/Camille/Spells/CamilleRAbility/CamilleR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      115,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "RPercentCurrentHPDamage": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "ROnHitDamage": [],
+      "RDuration": [
+        1.75,
+        2.5,
+        3.25,
+        4,
+        4.75,
+        5.5,
+        6.25
+      ],
+      "RCircleRadius": [
+        425,
+        425,
+        425,
+        425,
+        425,
+        425,
+        425
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "CamilleW": {
+    "path": "Characters/Camille/Spells/CamilleWAbility/CamilleW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        60,
+        85,
+        110,
+        135,
+        160,
+        185
+      ],
+      "BADRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ChargeDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "SlowPercentage": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "OuterConeMaxHPDamage": [
+        0.06499999761581421,
+        0.07000000029802322,
+        0.07500000298023224,
+        0.07999999821186066,
+        0.08500000089406967,
+        0.09000000357627869,
+        0.0949999988079071
+      ],
+      "ADRequiredFor1PercentDamage": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "ADRequiredTooltipOnly": [
+        0.0002500000118743628,
+        0.0002500000118743628,
+        0.0002500000118743628,
+        0.0002500000118743628,
+        0.0002500000118743628,
+        0.0002500000118743628,
+        0.0002500000118743628
+      ],
+      "MonsterDamageReduction": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "OuterConeHealingRatio": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "BlastLength": [
+        650,
+        650,
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "ConeAngle": [
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        35
+      ]
+    },
+    "calculations": {
+      "OuterEdgeTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "OuterConeMaxHPDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRequiredTooltipOnly",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "BaseDamageTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MonsterHealthDamageCap": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 300,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "OuterEdgeTooltip": {
+        "base": [
+          0.07,
+          0.075,
+          0.08,
+          0.085,
+          0.09
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00025
+          }
+        ]
+      },
+      "BaseDamageTotal": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "MonsterHealthDamageCap": {
+        "base": 300
+      }
+    },
+    "unsupported": {}
+  }
+}

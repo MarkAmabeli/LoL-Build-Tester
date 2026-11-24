@@ -1,0 +1,99 @@
+{
+  "rows": [
+    {
+      "label": "Offense",
+      "options": [
+        5008,
+        5005,
+        5007
+      ]
+    },
+    {
+      "label": "Flex",
+      "options": [
+        5008,
+        5010,
+        5001
+      ]
+    },
+    {
+      "label": "Defense",
+      "options": [
+        5011,
+        5013,
+        5001
+      ]
+    }
+  ],
+  "shards": {
+    "5001": {
+      "id": 5001,
+      "name": "Health Scaling",
+      "description": "+10-180 Health (based on level)",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodshealthplusicon.png",
+      "stats": {},
+      "scaling": [
+        {
+          "stat": "hp",
+          "from": 10,
+          "to": 180
+        }
+      ]
+    },
+    "5005": {
+      "id": 5005,
+      "name": "Attack Speed",
+      "description": "+10% Attack Speed",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodsattackspeedicon.png",
+      "stats": {
+        "attackSpeedPct": 10
+      }
+    },
+    "5007": {
+      "id": 5007,
+      "name": "Ability Haste",
+      "description": "+8 Ability Haste",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodscdrscalingicon.png",
+      "stats": {
+        "abilityHaste": 8
+      }
+    },
+    "5008": {
+      "id": 5008,
+      "name": "Adaptive Force",
+      "description": "+9 Adaptive Force",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodsadaptiveforceicon.png",
+      "stats": {
+        "adaptiveForce": 9
+      }
+    },
+    "5010": {
+      "id": 5010,
+      "name": "Move Speed",
+      "description": "+2.5% Move Speed",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodsmovementspeedicon.png",
+      "stats": {
+        "moveSpeedPct": 0.025
+      }
+    },
+    "5011": {
+      "id": 5011,
+      "name": "Health",
+      "description": "+65 Health",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodshealthscalingicon.png",
+      "stats": {
+        "hp": 65
+      }
+    },
+    "5013": {
+      "id": 5013,
+      "name": "Tenacity and Slow Resist",
+      "description": "+15% Tenacity and Slow Resist",
+      "icon": "https://raw.communitydragon.org/16.20/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/statmods/statmodstenacityicon.png",
+      "stats": {},
+      "unmodeled": [
+        "+15% Tenacity and Slow Resist"
+      ]
+    }
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "Feast": {
+    "path": "Characters/Chogath/Spells/FeastAbility/Feast",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      80,
+      70,
+      60
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      175,
+      175,
+      175
+    ],
+    "dataValues": {
+      "RBaseMonsterDamage": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "RBaseDamage": [
+        125,
+        300,
+        475,
+        650,
+        825,
+        1000,
+        1175
+      ],
+      "RHealthPerStack": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "RMinionMaxStacks": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "RStoneplateRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CastRangePerStack": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "MaxBonusCastRange": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "AttackRangePerStack": [
+        3.200000047683716,
+        4.699999809265137,
+        6.199999809265137,
+        7.699999809265137,
+        9.199999809265137,
+        10.699999809265137,
+        12.199999809265137
+      ],
+      "MaxBonusAttackRange": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ]
+    },
+    "calculations": {
+      "RMonsterDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseMonsterDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusAttackRange": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{8682fc00}",
+            "mDataValue": "AttackRangePerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{9f798bd0}": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{8682fc00}",
+            "mDataValue": "CastRangePerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "RMonsterDamage": {
+        "base": 1200,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "RDamage": {
+        "base": [
+          300,
+          475,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "BonusAttackRange": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": [
+              4.7,
+              6.2,
+              7.7
+            ]
+          }
+        ]
+      },
+      "{9f798bd0}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 2.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "VorpalSpikes": {
+    "path": "Characters/Chogath/Spells/VorpalSpikesAbility/VorpalSpikes",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7,
+      6,
+      5,
+      4
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        10,
+        30,
+        50,
+        70,
+        90,
+        110,
+        130
+      ],
+      "APRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "PercentHealthDamage": [
+        2.1500000953674316,
+        2.5,
+        2.8499999046325684,
+        3.200000047683716,
+        3.549999952316284,
+        3.9000000953674316,
+        4.25
+      ],
+      "FeastStackMultiplier": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MonsterDamageCap": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "SlowAmountPercentage": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "SlowDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "AttackRangeIncrease": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "MaximumAttacks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BuffDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "ModifiedMonsterCap": [
+        50,
+        80,
+        110,
+        140,
+        170,
+        200,
+        230
+      ]
+    },
+    "calculations": {
+      "FlatDamageCalc": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxHealthPercentCalc": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{8682fc00}",
+            "mDataValue": "FeastStackMultiplier",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FlatDamageCalc": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "MaxHealthPercentCalc": {
+        "base": [
+          0.025,
+          0.0285,
+          0.032,
+          0.0355,
+          0.039
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.005
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FeralScream": {
+    "path": "Characters/Chogath/Spells/FeralScreamAbility/FeralScream",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10.5,
+      10,
+      9.5,
+      9
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamageTooltip": "part type EffectValueCalculationPart"
+    }
+  },
+  "Rupture": {
+    "path": "Characters/Chogath/Spells/RuptureAbility/Rupture",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        25,
+        80,
+        135,
+        190,
+        245,
+        300,
+        355
+      ],
+      "SlowAmountPercentage": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          80,
+          135,
+          190,
+          245,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "Carnivore": {
+    "path": "Characters/Chogath/Spells/CarnivoreAbility/Carnivore",
+    "maxRank": 5,
+    "dataValues": {},
+    "calculations": {
+      "ChogathCarnivoreHeal": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 18,
+            "mInitialBonusPerLevel": 2,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ChogathCarnivoreMana": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 4.71999979019165,
+            "mInitialBonusPerLevel": 0.2800000011920929,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ChogathCarnivoreHeal": {
+        "base": 0,
+        "baseByLevel": [
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36,
+          38,
+          40,
+          42,
+          44,
+          46,
+          48,
+          50,
+          52
+        ]
+      },
+      "ChogathCarnivoreMana": {
+        "base": 0,
+        "baseByLevel": [
+          4.72,
+          5,
+          5.28,
+          5.56,
+          5.84,
+          6.12,
+          6.4,
+          6.68,
+          6.96,
+          7.24,
+          7.52,
+          7.8,
+          8.08,
+          8.36,
+          8.64,
+          8.92,
+          9.2,
+          9.48
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,684 @@
+{
+  "NautilusPiercingGaze": {
+    "path": "Characters/Nautilus/Spells/NautilusPiercingGazeAbility/NautilusPiercingGaze",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      700,
+      800,
+      900,
+      1000,
+      1100
+    ],
+    "dataValues": {
+      "ShieldBase": [
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "ShieldHealthRatio": [
+        0.07000000029802322,
+        0.07999999821186066,
+        0.09000000357627869,
+        0.10000000149011612,
+        0.10999999940395355,
+        0.11999999731779099,
+        0.12999999523162842
+      ],
+      "ShieldDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "DotDamageBase": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "DotDamageAPRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "DotDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DotDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DotDamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "ShieldHealthRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DotDamageCalc": {
+        "base": [
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "ShieldCalc": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": [
+              0.08,
+              0.09,
+              0.1,
+              0.11,
+              0.12
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NautilusSplashZone": {
+    "path": "Characters/Nautilus/Spells/NautilusSplashZoneAbility/NautilusSplashZone",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      6.5,
+      6,
+      5.5,
+      5
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "dataValues": {
+      "DamageBase": [
+        20,
+        55,
+        90,
+        125,
+        160,
+        195,
+        230
+      ],
+      "SlowPercent": [
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929
+      ],
+      "SlowDuration": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "MultiHitReduction": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DamageMonsterMod": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "DamageAPRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "ExtraWavePenalty": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DamageRadius": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "MonsterBonusDamage": [
+        85,
+        125,
+        165,
+        205,
+        245,
+        285,
+        325
+      ]
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MonsterBonusCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterBonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          55,
+          90,
+          125,
+          160,
+          195
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "MonsterBonusCalc": {
+        "base": [
+          125,
+          165,
+          205,
+          245,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NautilusAnchorDrag": {
+    "path": "Characters/Nautilus/Spells/NautilusAnchorDragAbility/NautilusAnchorDrag",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        45,
+        85,
+        125,
+        165,
+        205,
+        245,
+        285
+      ],
+      "TerrainCDR": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "TerrainMana": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "TerrainReduction": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "TerrainManaRefund": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "QDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "QDamageCalc": {
+        "base": [
+          85,
+          125,
+          165,
+          205,
+          245
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NautilusGrandLine": {
+    "path": "Characters/Nautilus/Spells/NautilusGrandLineAbility/NautilusGrandLine",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "PrimaryDamage": [
+        25,
+        150,
+        275,
+        400,
+        525,
+        650,
+        775
+      ],
+      "SecondaryDamage": [
+        75,
+        125,
+        175,
+        225,
+        275,
+        325,
+        375
+      ],
+      "StunDuration": [
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5
+      ]
+    },
+    "calculations": {
+      "PrimaryTargetDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PrimaryDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondaryTargetDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SecondaryDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PrimaryTargetDamage": {
+        "base": [
+          150,
+          275,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "SecondaryTargetDamage": {
+        "base": [
+          125,
+          175,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NautilusPassive": {
+    "path": "Characters/Nautilus/Spells/NautilusPassiveAbility/NautilusPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "PerTargetCD": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "calculations": {
+      "BonusDamage": {
+        "mFormulaParts": [
+          {
+            "values": [
+              8,
+              14,
+              20,
+              26,
+              32,
+              38,
+              44,
+              50,
+              56,
+              62,
+              68,
+              74,
+              80,
+              86,
+              92,
+              98,
+              104,
+              110,
+              116,
+              122,
+              128,
+              134,
+              140,
+              146,
+              152,
+              158,
+              164,
+              170,
+              176,
+              182,
+              188
+            ],
+            "__type": "ByCharLevelFormulaCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageTooltip": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "values": [
+              8,
+              14,
+              20,
+              26,
+              32,
+              38,
+              44,
+              50,
+              56,
+              62,
+              68,
+              74,
+              80,
+              86,
+              92,
+              98,
+              104,
+              110,
+              116,
+              122,
+              128,
+              134,
+              140,
+              146,
+              152,
+              158,
+              164,
+              170,
+              176,
+              182,
+              188
+            ],
+            "__type": "ByCharLevelFormulaCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RootDuration": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.75,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 21,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 26,
+                "mAdditionalBonusAtThisLevel": 0.25,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "RootDuration": {
+        "base": 0,
+        "baseByLevel": [
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.25,
+          1.5,
+          1.5,
+          1.5
+        ]
+      }
+    },
+    "unsupported": {
+      "BonusDamage": "part type ByCharLevelFormulaCalculationPart",
+      "TotalDamageTooltip": "part type ByCharLevelFormulaCalculationPart"
+    }
+  }
+}

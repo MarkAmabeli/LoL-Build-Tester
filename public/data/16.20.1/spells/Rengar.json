@@ -1,0 +1,984 @@
+{
+  "RengarW": {
+    "path": "Characters/Rengar/Spells/RengarWAbility/RengarW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        20,
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "DamagePercentageHealed": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "APRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "EmpoweredAPRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "HealingWindow": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CCImmuneDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "MonsterHealingMod": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    "calculations": {
+      "BonusMonsterDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 65,
+            "mEndValue": 130,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageEmpowered": {
+        "mFormulaParts": [
+          {
+            "values": [
+              0,
+              50,
+              60,
+              70,
+              80,
+              90,
+              100,
+              110,
+              120,
+              130,
+              140,
+              150,
+              160,
+              170,
+              180,
+              190,
+              200,
+              210,
+              220,
+              230,
+              240,
+              250,
+              260,
+              270,
+              280,
+              290,
+              300,
+              310,
+              320,
+              330,
+              340
+            ],
+            "__type": "ByCharLevelFormulaCalculationPart"
+          },
+          {
+            "mDataValue": "EmpoweredAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusMonsterDamage": {
+        "base": 0,
+        "baseByLevel": [
+          65,
+          68.82353,
+          72.64706,
+          76.47059,
+          80.29412,
+          84.11765,
+          87.94118,
+          91.76471,
+          95.58824,
+          99.41176,
+          103.2353,
+          107.0588,
+          110.8824,
+          114.7059,
+          118.5294,
+          122.3529,
+          126.1765,
+          130
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamageEmpowered": "part type ByCharLevelFormulaCalculationPart"
+    }
+  },
+  "RengarQ": {
+    "path": "Characters/Rengar/Spells/RengarQAbility/RengarQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        -15,
+        20,
+        55,
+        90,
+        125,
+        160,
+        195
+      ],
+      "BaseADRatio": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "BaseADRatioTooltip": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "EmpoweredADRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "TowerMod": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "ASDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "ASBonus": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "BuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {
+      "EmpoweredQAS": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": 3,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "QBonusDamage": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "DamageType": 0,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "BaseADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{d4a43abe}": {
+        "DamageType": 0,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 35,
+            "mInitialBonusPerLevel": 15,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "EmpoweredADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{95c7ca04}": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mPart1": {
+                  "mSpellCalculationKey": "QBonusDamage",
+                  "__type": "{f3cbe7b2}"
+                },
+                "mPart2": {
+                  "mDataValue": "TowerMod",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{f2ca2500}": {
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mPart1": {
+                  "mSpellCalculationKey": "{d4a43abe}",
+                  "__type": "{f3cbe7b2}"
+                },
+                "mPart2": {
+                  "mDataValue": "TowerMod",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QTotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "DamageType": 0,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "BaseADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredQTotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "DamageType": 0,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 35,
+            "mInitialBonusPerLevel": 15,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "EmpoweredADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "EmpoweredQAS": {
+        "base": 0,
+        "baseByLevel": [
+          0.5,
+          0.53,
+          0.56,
+          0.59,
+          0.62,
+          0.65,
+          0.68,
+          0.71,
+          0.74,
+          0.77,
+          0.8,
+          0.83,
+          0.86,
+          0.89,
+          0.92,
+          0.95,
+          0.98,
+          1.01
+        ]
+      },
+      "QBonusDamage": {
+        "base": [
+          20,
+          55,
+          90,
+          125,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.05
+          }
+        ]
+      },
+      "{d4a43abe}": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          50,
+          65,
+          80,
+          95,
+          110,
+          125,
+          140,
+          150,
+          160,
+          170,
+          180,
+          190,
+          200,
+          210,
+          220,
+          230,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      },
+      "{95c7ca04}": {
+        "base": [
+          12,
+          33,
+          54,
+          75,
+          96
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.03
+          }
+        ]
+      },
+      "{f2ca2500}": {
+        "base": 0,
+        "baseByLevel": [
+          21,
+          30,
+          39,
+          48,
+          57,
+          66,
+          75,
+          84,
+          90,
+          96,
+          102,
+          108,
+          114,
+          120,
+          126,
+          132,
+          138,
+          144
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.12
+          }
+        ]
+      },
+      "QTotalDamage": {
+        "base": [
+          20,
+          55,
+          90,
+          125,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.05
+          }
+        ]
+      },
+      "EmpoweredQTotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          50,
+          65,
+          80,
+          95,
+          110,
+          125,
+          140,
+          150,
+          160,
+          170,
+          180,
+          190,
+          200,
+          210,
+          220,
+          230,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RengarE": {
+    "path": "Characters/Rengar/Spells/RengarEAbility/RengarE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "dataValues": {
+      "RevealDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BaseDamage": [
+        10,
+        55,
+        100,
+        145,
+        190,
+        235,
+        280
+      ],
+      "SlowAmount": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "CCDuration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "BonusADRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalEmpoweredDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": 15,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          55,
+          100,
+          145,
+          190,
+          235
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      },
+      "TotalEmpoweredDamage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          65,
+          80,
+          95,
+          110,
+          125,
+          140,
+          155,
+          170,
+          185,
+          200,
+          215,
+          230,
+          245,
+          260,
+          275,
+          290,
+          305
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RengarR": {
+    "path": "Characters/Rengar/Spells/RengarRAbility/RengarR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      90,
+      80
+    ],
+    "range": [
+      2500,
+      3000,
+      3500
+    ],
+    "dataValues": {
+      "StealthDuration": [
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32
+      ],
+      "EnemyDetectionRange": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
+      "SelfVisionRange": [
+        2000,
+        2500,
+        3000,
+        3500,
+        4000,
+        4500,
+        5000
+      ],
+      "SelfRevealRange": [
+        750,
+        750,
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
+      "StealthMS": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "FadeTime": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ArmorShred": [
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "ArmorShredDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "LeapRange": [
+        725,
+        725,
+        725,
+        725,
+        725,
+        725,
+        725
+      ]
+    },
+    "calculations": {
+      "BonusDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RengarPassive": {
+    "path": "Characters/Rengar/Spells/RengarPassiveAbility/RengarPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MaxFerocity": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "InCombatTimer": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "InCombatTimerVisual": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "EmpoweredMSDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "RengarPassiveRangeIncrease": [
+        620,
+        620,
+        620,
+        620,
+        620,
+        620,
+        620
+      ],
+      "LeapFerocityGeneration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "BonusLeapRange": [
+        620,
+        620,
+        620,
+        620,
+        620,
+        620,
+        620
+      ]
+    },
+    "calculations": {
+      "EmpoweredMS": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.30000001192092896,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 19,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 25,
+                "mAdditionalBonusAtThisLevel": 0.10000000149011612,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "EmpoweredMS": {
+        "base": 0,
+        "baseByLevel": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

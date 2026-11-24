@@ -1,0 +1,1033 @@
+{
+  "GangplankRWithRaiseMorale": {
+    "path": "Characters/Gangplank/Spells/GangplankRAbility/GangplankRWithRaiseMorale",
+    "maxRank": 5,
+    "cooldown": [
+      160,
+      140,
+      120,
+      120,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "DamagePerWave": [
+        10,
+        40,
+        70,
+        100,
+        130,
+        160,
+        190
+      ],
+      "DeathsDaughterBaseDamage": [
+        30,
+        120,
+        210,
+        300,
+        390,
+        480,
+        570
+      ],
+      "RaiseMoraleHaste": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "ZoneDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "CannonDelay": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "CannonInterval": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowPercent": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DeathsDaughterSlow": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "DeathsDaughterSlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "RaiseMoraleHasteDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "TotalWavesTooltip": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    "calculations": {
+      "OneWaveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerWave",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DeathsDaughterDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DeathsDaughterBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageTooltip": {
+        "mMultiplier": {
+          "mDataValue": "TotalWavesTooltip",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "OneWaveDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "OneWaveDamage": {
+        "base": [
+          40,
+          70,
+          100,
+          130,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "DeathsDaughterDamage": {
+        "base": [
+          120,
+          210,
+          300,
+          390,
+          480
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          480,
+          840,
+          1200,
+          1560,
+          1920
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GangplankR": {
+    "path": "Characters/Gangplank/Spells/GangplankRAbility/GangplankR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      160,
+      140,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "DamagePerWave": [
+        10,
+        40,
+        70,
+        100,
+        130,
+        160,
+        190
+      ],
+      "DeathsDaughterBaseDamage": [
+        30,
+        120,
+        210,
+        300,
+        390,
+        480,
+        570
+      ],
+      "RaiseMoraleHaste": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "ZoneDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "CannonDelay": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "CannonInterval": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowPercent": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DeathsDaughterSlow": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "DeathsDaughterSlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "RaiseMoraleHasteDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "TotalWavesTooltip": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    "calculations": {
+      "OneWaveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerWave",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DeathsDaughterDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DeathsDaughterBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageTooltip": {
+        "mMultiplier": {
+          "mDataValue": "TotalWavesTooltip",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "OneWaveDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "OneWaveDamage": {
+        "base": [
+          40,
+          70,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "DeathsDaughterDamage": {
+        "base": [
+          120,
+          210,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          480,
+          840,
+          1200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GangplankQWrapper": {
+    "path": "Characters/Gangplank/Spells/GangplankQWrapperAbility/GangplankQWrapper",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      4.5
+    ],
+    "cost": [
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "SpellDamage": [
+        -20,
+        10,
+        40,
+        70,
+        100,
+        130,
+        160
+      ],
+      "ADRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CherryRatio": [
+        0.07000000029802322,
+        0.07000000029802322,
+        0.07000000029802322,
+        0.07000000029802322,
+        0.07000000029802322,
+        0.07000000029802322,
+        0.07000000029802322
+      ],
+      "GameModeInteger": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CritDamageMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "GoldProc": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "SSProc": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "ManaRefundPercent": [],
+      "PlunderThreshold": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ]
+    },
+    "calculations": {
+      "ShotDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SpellDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShotCrit": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mDataValue": "CritDamageMod",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "ShotDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "ShotDamage": {
+        "base": [
+          10,
+          40,
+          70,
+          100,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ShotCrit": "stat code 9/0"
+    }
+  },
+  "GangplankESpellPassive": {
+    "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankESpellPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "ChampionBonusDamage": [
+        80,
+        80,
+        105,
+        130,
+        155,
+        180,
+        205
+      ],
+      "SlowAmount": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "GangplankE": {
+    "path": "Characters/Gangplank/Spells/GangplankEAbility/GangplankE",
+    "slot": "E",
+    "maxRank": 5,
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "BarrelSlow": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "MaxBarrels": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5
+      ],
+      "DebuffDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BonusDamageToChampions": [
+        55,
+        75,
+        95,
+        115,
+        135,
+        155,
+        175
+      ],
+      "BarrelDuration": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "BarrelBaseDecay": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BarrelEnemyGoldBounty": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "MinionDamagePercentage": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "CooldownBetweenBarrels": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BarrelArmorPenetration": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "calculations": {
+      "FinalSlowAmount": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BarrelSlow",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BarrelDecayTime": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 2,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -0.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FinalSlowAmount": {
+        "base": [
+          40,
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "BarrelDecayTime": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GangplankW": {
+    "path": "Characters/Gangplank/Spells/GangplankWAbility/GangplankW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      22,
+      20,
+      18,
+      16,
+      14
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "dataValues": {
+      "BaseHeal": [
+        20,
+        45,
+        70,
+        95,
+        120,
+        145,
+        170
+      ],
+      "PercentHeal": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "BuffDuration_unused": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "HasteAmount": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "SteroidAmount_unused": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ]
+    },
+    "calculations": {
+      "BaseHealth": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BaseHealth": {
+        "base": [
+          45,
+          70,
+          95,
+          120,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GangplankPassive": {
+    "path": "Characters/Gangplank/Spells/GangplankPassiveAbility/GangplankPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "Cooldown": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "MoveSpeedDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "DoTDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "TurretDamageMult": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "ADRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mExpandedTooltipCalculationDisplay": 0,
+        "mFormulaParts": [
+          {
+            "mStartValue": 50,
+            "mEndValue": 250,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MoveSpeed": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.15000000596046448,
+            "mEndValue": 0.30000001192092896,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          61.76471,
+          73.52941,
+          85.29412,
+          97.05882,
+          108.8235,
+          120.5882,
+          132.3529,
+          144.1176,
+          155.8824,
+          167.6471,
+          179.4118,
+          191.1765,
+          202.9412,
+          214.7059,
+          226.4706,
+          238.2353,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "MoveSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.15,
+          0.1588235,
+          0.1676471,
+          0.1764706,
+          0.1852941,
+          0.1941177,
+          0.2029412,
+          0.2117647,
+          0.2205882,
+          0.2294118,
+          0.2382353,
+          0.2470588,
+          0.2558824,
+          0.2647059,
+          0.2735294,
+          0.282353,
+          0.2911765,
+          0.3
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,735 @@
+{
+  "ViR": {
+    "path": "Characters/Vi/Spells/ViRAbility/ViR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      115,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "RBaseSpeed": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "RStunDuration": [
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842
+      ],
+      "RBaseDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "SecondaryTargetDamageMultiplier": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SecondaryTargetKnockbackDistance": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "SecondaryTargetStunDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "SecondaryTargetKnockbackDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "RBonusADRatio": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "RBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondaryTargetDamage": {
+        "mMultiplier": {
+          "mDataValue": "SecondaryTargetDamageMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "Damage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "SecondaryTargetDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ViQ": {
+    "path": "Characters/Vi/Spells/ViQAbility/ViQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      10.5,
+      9,
+      7.5,
+      6
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "KnockbackDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "MinDamage": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
+      ],
+      "MaxDamageMult": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "MinionDamageMult": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MinDashRange": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "ExtraDashRangeAtMaxCharge": [
+        475,
+        475,
+        475,
+        475,
+        475,
+        475,
+        475
+      ],
+      "DashWallCheating": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "ADRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "CanceledRefundTime": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ManaRefundPercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "SelfSlow": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "ChargeDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "VFXChargeDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamageTooltip": {
+        "mMultiplier": {
+          "mDataValue": "MaxDamageMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ViE": {
+    "path": "Characters/Vi/Spells/ViEAbility/ViE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cost": [
+      26,
+      32,
+      38,
+      44,
+      50
+    ],
+    "dataValues": {
+      "ADRatio": [
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858
+      ],
+      "BaseDamage": [
+        -10,
+        10,
+        30,
+        50,
+        70,
+        90,
+        110
+      ],
+      "UnnamedEffectAmount0": [],
+      "BonusRange": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "AttackBuffDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "StaticCooldown": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{36ebd3cf}": {
+        "mFormulaParts": [
+          {
+            "mStat": 9,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mNumber": -1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          10,
+          30,
+          50,
+          70,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{36ebd3cf}": "stat code 9/0"
+    }
+  },
+  "ViPassive": {
+    "path": "Characters/Vi/Spells/ViPassiveAbility/ViPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "ShieldDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "CDReductionOn3Hit": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 16,
+            "mInitialBonusPerLevel": -0.5,
+            "mBreakpoints": [
+              {
+                "mLevel": 10,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 19,
+                "mAdditionalBonusAtThisLevel": -6,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.1
+          }
+        ]
+      },
+      "ShieldCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          16,
+          15.5,
+          15,
+          14.5,
+          14,
+          13.5,
+          13,
+          12.5,
+          12,
+          11.5,
+          11,
+          10.5,
+          10,
+          9.5,
+          9,
+          8.5,
+          8,
+          7.5
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ViW": {
+    "path": "Characters/Vi/Spells/ViWAbility/ViW",
+    "slot": "W",
+    "maxRank": 5,
+    "dataValues": {
+      "ADCoefficient": [
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161,
+        0.03500000014901161
+      ],
+      "MaxHealthDamage": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "SharedBuffsDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "AttackSpeed": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "ShredAmount": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "MonsterDamageCap": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "MarkerBuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "StacksBeforeEffect": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADCoefficient",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          0.04,
+          0.05,
+          0.06,
+          0.07,
+          0.08
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00035
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "Crepe_WarwickVsVi_ViReward": {
+    "path": "{1cbfc886}",
+    "maxRank": 5,
+    "dataValues": {
+      "BonusDamagePerc": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "Distance": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "HealthThreshold": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "BonusMS": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,681 @@
+{
+  "SionE": {
+    "path": "Characters/Sion/Spells/SionEAbility/SionE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "cost": [
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        65,
+        100,
+        135,
+        170,
+        205,
+        240
+      ],
+      "SlowAmount": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "ArmorShred": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "SlowDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "ArmorShredDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "APRatio": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          100,
+          135,
+          170,
+          205
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SionW": {
+    "path": "Characters/Sion/Spells/SionWAbility/SionW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      65,
+      70,
+      75,
+      80,
+      85
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "ShieldPercentHealthTooltip": [
+        0.05999999865889549,
+        0.07999999821186066,
+        0.10000000149011612,
+        0.11999999731779099,
+        0.14000000059604645,
+        0.1599999964237213,
+        0.18000000715255737
+      ],
+      "DamagePercentHealthTooltip": [
+        0.09000000357627869,
+        0.10000000149011612,
+        0.10999999940395355,
+        0.11999999731779099,
+        0.12999999523162842,
+        0.14000000059604645,
+        0.15000000596046448
+      ],
+      "HPPerChampKill": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "HPPerKill": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "HPPerLargeKill": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "ShieldAPRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "DamageAPRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "BaseShield": [
+        60,
+        60,
+        75,
+        90,
+        105,
+        120,
+        120
+      ],
+      "BaseDamage": [
+        15,
+        40,
+        65,
+        90,
+        115,
+        140,
+        165
+      ],
+      "MaxHPDamageRatio": [
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "DetonateRecastCooldown": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ShieldDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "ShieldPercentHealthTooltip",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          60,
+          75,
+          90,
+          105,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          },
+          {
+            "stat": "maxHP",
+            "value": [
+              0.08,
+              0.1,
+              0.12,
+              0.14,
+              0.16
+            ]
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SionPassive": {
+    "path": "Characters/Sion/Spells/SionPassiveAbility/SionPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "Lifesteal": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "PercentMaxHP": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "NonChampCap": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "StructureMod": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "SionR": {
+    "path": "Characters/Sion/Spells/SionRAbility/SionR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      100,
+      60
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "MinDamage": [
+        0,
+        150,
+        300,
+        450,
+        600,
+        750,
+        900
+      ],
+      "MaxDamage": [
+        0,
+        400,
+        800,
+        1200,
+        1600,
+        2000,
+        2400
+      ],
+      "SlowAmount": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "MinionDamagePercent": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "MinStunDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "MaxStunDuration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "MoveSpeedCap": [
+        950,
+        950,
+        950,
+        950,
+        950,
+        950,
+        950
+      ]
+    },
+    "calculations": {
+      "MinDamageTotal": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamageTotal": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MinDamageTotal": {
+        "base": [
+          150,
+          300,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageTotal": {
+        "base": [
+          400,
+          800,
+          1200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SionQ": {
+    "path": "Characters/Sion/Spells/SionQAbility/SionQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "cost": [
+      45,
+      45,
+      45,
+      45,
+      45
+    ],
+    "dataValues": {
+      "ADRatioMin": [
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929,
+        0.8999999761581421
+      ],
+      "ADRatioMax": [
+        0.8999999761581421,
+        1.2000000476837158,
+        1.5,
+        1.7999999523162842,
+        2.0999999046325684,
+        2.4000000953674316,
+        2.700000047683716
+      ],
+      "LowDamage": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "HighDamage": [
+        25,
+        90,
+        155,
+        220,
+        285,
+        350,
+        415
+      ],
+      "MinionRatio": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "MonsterRatio": [
+        165,
+        165,
+        165,
+        165,
+        165,
+        165,
+        165
+      ],
+      "BaseStunTime": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "SlowAmount": [
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929,
+        -0.800000011920929
+      ]
+    },
+    "calculations": {
+      "MinDamageTotal": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "LowDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatioMin",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamageTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HighDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatioMax",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MinDamageTotal": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8
+            ]
+          }
+        ]
+      },
+      "MaxDamageTotal": {
+        "base": [
+          90,
+          155,
+          220,
+          285,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.2,
+              1.5,
+              1.8,
+              2.1,
+              2.4
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

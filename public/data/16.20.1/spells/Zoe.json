@@ -1,0 +1,534 @@
+{
+  "ZoeE": {
+    "path": "Characters/Zoe/Spells/ZoeEAbility/ZoeE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      18,
+      17,
+      16,
+      15,
+      14
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "PercentPen": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "BaseDamage": [
+        30,
+        70,
+        110,
+        150,
+        190,
+        230,
+        270
+      ],
+      "CooldownRefresh": [
+        0.125,
+        0.1599999964237213,
+        0.19499999284744263,
+        0.23000000417232513,
+        0.26499998569488525,
+        0.30000001192092896,
+        0.33500000834465027
+      ],
+      "TrapLife": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "DrowsySlow": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355
+      ],
+      "DrowsyDuration": [
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142
+      ],
+      "SleepDuration": [
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25
+      ],
+      "BrittleLinger": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BreakDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.44999998807907104,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "BreakDamageTooltip": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZoeW": {
+    "path": "Characters/Zoe/Spells/ZoeWAbility/ZoeW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "dataValues": {
+      "TotalBaseDamage": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55,
+        65
+      ],
+      "TotalAPRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "MoveSpeedMod": [
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "MoveSpeedDuration": [
+        1.75,
+        2,
+        2.25,
+        2.5,
+        2.75,
+        3,
+        3.25
+      ],
+      "DurationOfSummonerCanCast": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "MovementSpeed": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "MSDuration": [
+        2,
+        2,
+        2.25,
+        2.5,
+        2.75,
+        3,
+        3.25
+      ]
+    },
+    "calculations": {
+      "MissileDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "TotalBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "TotalAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MissileDamageTooltip": {
+        "base": [
+          15,
+          25,
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZoeQ": {
+    "path": "Characters/Zoe/Spells/ZoeQAbility/ZoeQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8.5,
+      8,
+      7.5,
+      7,
+      6.5
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        20,
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "APRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "MinionDamageMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "UnnamedEffectAmount1": []
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mLevel1Value": 2,
+            "mInitialBonusPerLevel": 2,
+            "mBreakpoints": [
+              {
+                "mLevel": 10,
+                "mBonusPerLevelAtAndAfter": 3,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 14,
+                "mBonusPerLevelAtAndAfter": 4,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamageTooltip": {
+        "mMultiplier": {
+          "mNumber": 2.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamageTooltip",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "baseByLevel": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          21,
+          24,
+          27,
+          30,
+          34,
+          38,
+          42,
+          46,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "MaxDamageTooltip": {
+        "base": [
+          125,
+          200,
+          275,
+          350,
+          425
+        ],
+        "baseByLevel": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          52.5,
+          60,
+          67.5,
+          75,
+          85,
+          95,
+          105,
+          115,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZoePassive": {
+    "path": "Characters/Zoe/Spells/ZoePassiveAbility/ZoePassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "APRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "WPickupDurationMinion": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "WPickupDurationChampion": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "calculations": {
+      "PassiveDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 16,
+            "mInitialBonusPerLevel": 4,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 6,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mBonusPerLevelAtAndAfter": 8,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": 0,
+        "baseByLevel": [
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          42,
+          48,
+          54,
+          60,
+          66,
+          74,
+          82,
+          90,
+          100,
+          110,
+          120,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

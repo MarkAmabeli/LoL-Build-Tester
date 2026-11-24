@@ -1,0 +1,600 @@
+{
+  "NocturneP": {
+    "path": "Characters/Nocturne/Spells/NocturnePAbility/NocturneP",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "dataValues": {
+      "AACDR": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "AAChampMonsterCDR": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "Cooldown": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "Radius": [
+        360,
+        360,
+        360,
+        360,
+        360,
+        360,
+        360
+      ],
+      "DamageMinionMod": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "HealMinionMod": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "HealingAPRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "HealLevel1Value": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "HealLevel18Value": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "TotalDamageNoCritADRatio": [
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158
+      ],
+      "TotalDamageCritADRatio": [
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858
+      ]
+    },
+    "calculations": {
+      "TotalDamageNoCrit": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "TotalDamageNoCritADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHealing": {
+        "mFormulaParts": [
+          {
+            "StartDataValue": "HealLevel1Value",
+            "EndDataValue": "HealLevel18Value",
+            "__type": "{ee18a47b}"
+          },
+          {
+            "mDataValue": "HealingAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageCrit": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "TotalDamageCritADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageNoCrit": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          }
+        ]
+      },
+      "TotalDamageCrit": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalHealing": "part type {ee18a47b}"
+    }
+  },
+  "NocturneShroudofDarkness": {
+    "path": "Characters/Nocturne/Spells/NocturneShroudofDarknessAbility/NocturneShroudofDarkness",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "ActiveAS": [
+        30,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "PassiveAS": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "ShieldDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "DoubleASDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "NocturneDuskbringer": {
+    "path": "Characters/Nocturne/Spells/NocturneDuskbringerAbility/NocturneDuskbringer",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        25,
+        65,
+        105,
+        145,
+        185,
+        225,
+        265
+      ],
+      "MoveSpeed": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "BonusTrailAD": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55,
+        65
+      ],
+      "TrailDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8500000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          105,
+          145,
+          185,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NocturneParanoia2": {
+    "path": "Characters/Nocturne/Spells/NocturneParanoiaAbility/NocturneParanoia2",
+    "maxRank": 5,
+    "cooldown": [
+      150,
+      125,
+      100,
+      75,
+      75
+    ],
+    "range": [
+      2500,
+      3250,
+      4000,
+      2500,
+      2500
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        150,
+        150,
+        275,
+        400,
+        525,
+        650,
+        775
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          275,
+          400,
+          525,
+          650
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NocturneParanoia": {
+    "path": "Characters/Nocturne/Spells/NocturneParanoiaAbility/NocturneParanoia",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      115,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      2500,
+      3250,
+      4000
+    ],
+    "dataValues": {
+      "ParanoiaDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "TrackDistance": [
+        3500,
+        3500,
+        4250,
+        5000,
+        5750,
+        6500,
+        7250
+      ],
+      "BaseDamage": [
+        150,
+        150,
+        275,
+        400,
+        525,
+        650,
+        775
+      ],
+      "DashSpeed": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          275,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NocturneUnspeakableHorror": {
+    "path": "Characters/Nocturne/Spells/NocturneUnspeakableHorrorAbility/NocturneUnspeakableHorror",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "range": [
+      425,
+      425,
+      425,
+      425,
+      425
+    ],
+    "dataValues": {
+      "TooltipFearMS": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "DamageToDeal": [
+        35,
+        80,
+        125,
+        170,
+        215,
+        260,
+        305
+      ],
+      "CCDuration": [
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25,
+        2.5
+      ],
+      "LeashDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "LeashBreakRange": [
+        465,
+        465,
+        465,
+        465,
+        465,
+        465,
+        465
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageToDeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

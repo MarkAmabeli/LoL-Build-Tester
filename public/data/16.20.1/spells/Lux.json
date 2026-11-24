@@ -1,0 +1,441 @@
+{
+  "LuxPrismaticWave": {
+    "path": "Characters/Lux/Spells/LuxPrismaticWaveAbility/LuxPrismaticWave",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11.5,
+      11,
+      10.5,
+      10
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "dataValues": {
+      "BaseShieldAmount": [
+        25,
+        40,
+        55,
+        70,
+        85,
+        100,
+        115
+      ],
+      "APRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "ShieldDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "calculations": {
+      "TotalShieldTT": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShieldTT": {
+        "base": [
+          40,
+          55,
+          70,
+          85,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LuxLightBinding": {
+    "path": "Characters/Lux/Spells/LuxLightBindingAbility/LuxLightBinding",
+    "slot": "Q",
+    "maxRank": 5,
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "APRatio": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "RootDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "TotalDamageTT": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTT": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LuxIlluminationPassive": {
+    "path": "Characters/Lux/Spells/LuxIlluminationPassiveAbility/LuxIlluminationPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "DebuffDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "APRatio": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "values": [
+              20,
+              30,
+              40,
+              50,
+              60,
+              70,
+              80,
+              90,
+              100,
+              110,
+              120,
+              130,
+              140,
+              150,
+              160,
+              170,
+              180,
+              190,
+              200,
+              210,
+              220,
+              230,
+              240,
+              250,
+              260,
+              270,
+              280,
+              290,
+              300,
+              310,
+              320
+            ],
+            "__type": "ByCharLevelFormulaCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
+    }
+  },
+  "LuxLightStrikeKugel": {
+    "path": "Characters/Lux/Spells/LuxLightStrikeKugelAbility/LuxLightStrikeKugel",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9.5,
+      9,
+      8.5,
+      8
+    ],
+    "cost": [
+      70,
+      80,
+      90,
+      100,
+      110
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "VisionRadius": [
+        650,
+        650,
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "SlowLingerDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SlowPercent": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "SlowZoneDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BaseDamage": [
+        20,
+        65,
+        115,
+        165,
+        215,
+        265,
+        315
+      ]
+    },
+    "calculations": {
+      "TotalDamageTT": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{ee9714e4}": {
+        "mMultiplier": {
+          "mNumber": -0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlowPercent",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTT": {
+        "base": [
+          65,
+          115,
+          165,
+          215,
+          265
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "{ee9714e4}": {
+        "base": [
+          -0.25,
+          -0.3,
+          -0.35,
+          -0.4,
+          -0.45
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LuxR": {
+    "path": "Characters/Lux/Spells/LuxRAbility/LuxR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      60,
+      50,
+      40
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "Damage": [
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800
+      ],
+      "ResetPercent": [
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "ResetAssistWindow": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          300,
+          400,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

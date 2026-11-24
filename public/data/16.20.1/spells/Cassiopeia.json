@@ -1,0 +1,623 @@
+{
+  "CassiopeiaPassive": {
+    "path": "Characters/Cassiopeia/Spells/CassiopeiaPassiveAbility/CassiopeiaPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {},
+    "calculations": {
+      "PercentHasteMod": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.05000000074505806,
+            "mInitialBonusPerLevel": 0.017999999225139618,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PercentHasteMod": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.068,
+          0.086,
+          0.104,
+          0.122,
+          0.14,
+          0.158,
+          0.176,
+          0.194,
+          0.212,
+          0.23,
+          0.248,
+          0.266,
+          0.284,
+          0.302,
+          0.32,
+          0.338,
+          0.356
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CassiopeiaPassive_Feats": {
+    "path": "Characters/Cassiopeia/Spells/CassiopeiaPassiveAbility/CassiopeiaPassive_Feats",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "ModesMSMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalMovementSpeed": {
+        "mMultiplier": {
+          "mDataValue": "ModesMSMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 4,
+            "mInitialBonusPerLevel": 4,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusAbilityPower": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 3,
+            "mInitialBonusPerLevel": 3,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalMovementSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60,
+          64,
+          68,
+          72
+        ]
+      },
+      "BonusAbilityPower": {
+        "base": 0,
+        "baseByLevel": [
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21,
+          24,
+          27,
+          30,
+          33,
+          36,
+          39,
+          42,
+          45,
+          48,
+          51,
+          54
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CassiopeiaQ": {
+    "path": "Characters/Cassiopeia/Spells/CassiopeiaQAbility/CassiopeiaQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        65,
+        100,
+        135,
+        170,
+        205,
+        240
+      ],
+      "PoisonDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ChampHitMSBonus": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        50
+      ],
+      "ChampHitMSDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "NumDamageTicks": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    "calculations": {
+      "TooltipTotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TooltipTotalDamage": {
+        "base": [
+          65,
+          100,
+          135,
+          170,
+          205
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CassiopeiaE": {
+    "path": "Characters/Cassiopeia/Spells/CassiopeiaEAbility/CassiopeiaE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "BasicAPRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "BonusDamage": [
+        -5,
+        20,
+        45,
+        70,
+        95,
+        120,
+        145
+      ],
+      "BonusAPRatio": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ],
+      "HealRatio": [
+        0.08500000089406967,
+        0.10000000149011612,
+        0.11500000208616257,
+        0.12999999523162842,
+        0.14499999582767487,
+        0.1599999964237213,
+        0.17499999701976776
+      ],
+      "MinionReductionModifier": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "HealingRatio": []
+    },
+    "calculations": {
+      "HealCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusPoisonedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BonusAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BasicDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": 4.117599964141846,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "BasicAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealCalcMinion": {
+        "mMultiplier": {
+          "mDataValue": "MinionReductionModifier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "HealCalc",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "HealCalc": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.1,
+              0.115,
+              0.13,
+              0.145,
+              0.16
+            ]
+          }
+        ]
+      },
+      "BonusPoisonedDamage": {
+        "base": [
+          20,
+          45,
+          70,
+          95,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "BasicDamage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          54.1176,
+          58.2352,
+          62.3528,
+          66.4704,
+          70.588,
+          74.7056,
+          78.8232,
+          82.9408,
+          87.0584,
+          91.176,
+          95.2936,
+          99.4112,
+          103.5288,
+          107.6464,
+          111.764,
+          115.8816,
+          119.9992
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "HealCalcMinion": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.025,
+              0.02875,
+              0.0325,
+              0.03625,
+              0.04
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CassiopeiaW": {
+    "path": "Characters/Cassiopeia/Spells/CassiopeiaWAbility/CassiopeiaW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      24,
+      22,
+      20,
+      18,
+      16
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        20,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "SlowPercent": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "PoisonDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CloudDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {
+      "DamagePerSecond": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "CassiopeiaR": {
+    "path": "Characters/Cassiopeia/Spells/CassiopeiaRAbility/CassiopeiaR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "RCCDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RSlowPercent": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "RBaseDamage": [
+        25,
+        125,
+        225,
+        325,
+        425,
+        525,
+        625
+      ],
+      "APRatio": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "calculations": {
+      "RDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "RDamage": {
+        "base": [
+          125,
+          225,
+          325
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

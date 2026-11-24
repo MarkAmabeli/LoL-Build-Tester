@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "data": "tsx scripts/fetch-data.ts"
+    "data": "tsx scripts/fetch-data.ts",
+    "wiki:check": "tsx scripts/wiki-check.ts"
   },
   "dependencies": {
     "react": "^19.2.8",

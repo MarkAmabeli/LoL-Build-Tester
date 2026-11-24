@@ -1,0 +1,754 @@
+{
+  "PoppyR": {
+    "path": "Characters/Poppy/Spells/PoppyRAbility/PoppyR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      120,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        200,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "ChannelDistanceUpdateTick": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "ChannelMaxDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "MaxKnockbackDistance": [
+        3400,
+        3400,
+        3400,
+        3400,
+        3400,
+        3400,
+        3400
+      ],
+      "KnockupDurationCharged": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "KnockupDurationSnap": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DurationUntilFullyCharged": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SelfSlow": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "CancelCDRefund": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "SnapCastDamageRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HalfDamage": {
+        "mMultiplier": {
+          "mDataValue": "SnapCastDamageRatio",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "Damage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "HalfDamage": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.45
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "PoppyW": {
+    "path": "Characters/Poppy/Spells/PoppyWAbility/PoppyW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "dataValues": {
+      "GroundingDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowAmount": [
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25
+      ],
+      "PassiveResistPercent": [
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213,
+        0.1599999964237213
+      ],
+      "PassiveEmpoweredHealthPercent": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "Duration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "Haste": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "KnockupDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DamageValue": [
+        30,
+        70,
+        110,
+        150,
+        190,
+        230,
+        270
+      ]
+    },
+    "calculations": {
+      "BonusArmor": {
+        "mFormulaParts": [
+          {
+            "mStat": 1,
+            "mDataValue": "PassiveResistPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusMR": {
+        "mFormulaParts": [
+          {
+            "mStat": 6,
+            "mDataValue": "PassiveResistPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "InterruptDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusArmor": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": 0.16
+          }
+        ]
+      },
+      "BonusMR": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalMR",
+            "value": 0.16
+          }
+        ]
+      },
+      "InterruptDamage": {
+        "base": [
+          70,
+          110,
+          150,
+          190,
+          230
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "PoppyQ": {
+    "path": "Characters/Poppy/Spells/PoppyQAbility/PoppyQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7,
+      6,
+      5,
+      4
+    ],
+    "cost": [
+      35,
+      40,
+      45,
+      50,
+      55
+    ],
+    "range": [
+      430,
+      430,
+      430,
+      430,
+      430
+    ],
+    "dataValues": {
+      "HealthDamagePercent": [
+        6.5,
+        7,
+        7.5,
+        8,
+        8.5,
+        9,
+        9.5
+      ],
+      "BaseDamageValue": [
+        30,
+        30,
+        55,
+        80,
+        105,
+        130,
+        130
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseMoveSpeedMod": [
+        0.17000000178813934,
+        0.20000000298023224,
+        0.23000000417232513,
+        0.25999999046325684,
+        0.28999999165534973,
+        0.3199999928474426,
+        0.3499999940395355
+      ],
+      "DelayBetweenTwoHits": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MaxHealthDamageToNonHeroes": [
+        35,
+        70,
+        105,
+        140,
+        175,
+        210,
+        245
+      ]
+    },
+    "calculations": {
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MoveSpeedMod": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMoveSpeedMod",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.00007999999797903001,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          30,
+          55,
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      },
+      "MoveSpeedMod": {
+        "base": [
+          0.2,
+          0.23,
+          0.26,
+          0.29,
+          0.32
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.00008
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "PoppyPassive": {
+    "path": "Characters/Poppy/Spells/PoppyPassiveAbility/PoppyPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "BonusRange": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "ShieldDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ShieldPickUpTime": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "ActualCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 16,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": -4,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": -4,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 19,
+                "mAdditionalBonusAtThisLevel": -2,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 20,
+            "mEndValue": 180,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldValue": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mSubpart": {
+              "mStartValue": 0.10999999940395355,
+              "mEndValue": 0.20000000298023224,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ActualCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "TotalDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          29.41176,
+          38.82353,
+          48.23529,
+          57.64706,
+          67.05882,
+          76.47059,
+          85.88235,
+          95.29412,
+          104.7059,
+          114.1176,
+          123.5294,
+          132.9412,
+          142.3529,
+          151.7647,
+          161.1765,
+          170.5882,
+          180
+        ]
+      },
+      "ShieldValue": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0,
+            "valueByLevel": [
+              0.11,
+              0.1152941,
+              0.1205882,
+              0.1258824,
+              0.1311765,
+              0.1364706,
+              0.1417647,
+              0.1470588,
+              0.1523529,
+              0.1576471,
+              0.1629412,
+              0.1682353,
+              0.1735294,
+              0.1788235,
+              0.1841176,
+              0.1894118,
+              0.1947059,
+              0.2
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "PoppyE": {
+    "path": "Characters/Poppy/Spells/PoppyEAbility/PoppyE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "BaseDamageValue": [
+        0,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
+      ],
+      "WallDamage": [
+        0,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
+      ],
+      "StunDuration": [
+        1.5,
+        1.600000023841858,
+        1.7000000476837158,
+        1.7999999523162842,
+        1.899999976158142,
+        2,
+        2.0999999046325684
+      ],
+      "DashSpeed": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ],
+      "MaxEnemyPushbackDistance": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    "calculations": {
+      "TackleDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TackleDamage": {
+        "base": [
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

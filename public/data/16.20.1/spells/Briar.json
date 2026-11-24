@@ -1,0 +1,1094 @@
+{
+  "BriarW": {
+    "path": "Characters/Briar/Spells/BriarWAbility/BriarW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "TauntRange": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "MinDashDistance": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "MaxDashDistance": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "MaxRangeOverWalls": [
+        650,
+        650,
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "DashSpeed": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "BerserkDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BerserkAS": [
+        0.44999998807907104,
+        0.550000011920929,
+        0.6499999761581421,
+        0.75,
+        0.8500000238418579,
+        0.949999988079071,
+        1.0499999523162842
+      ],
+      "BerserkMS": [
+        0.15000000596046448,
+        0.23999999463558197,
+        0.33000001311302185,
+        0.41999998688697815,
+        0.5099999904632568,
+        0.6000000238418579,
+        0.6899999976158142
+      ],
+      "AttackBonusDamage": [
+        -10,
+        5,
+        20,
+        35,
+        50,
+        65,
+        80
+      ],
+      "AttackPercentMissingHealth": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "AttackHealPercent": [
+        0.20000000298023224,
+        0.24000000953674316,
+        0.2800000011920929,
+        0.3199999928474426,
+        0.36000001430511475,
+        0.4000000059604645,
+        0.4399999976158142
+      ],
+      "MaxMonsterDamage": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "AoEAttackRadius": [
+        275,
+        275,
+        275,
+        275,
+        275,
+        275,
+        275
+      ],
+      "AoEAttackDamagePercent": [
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929,
+        0.8999999761581421,
+        1,
+        1.100000023841858
+      ],
+      "MonsterAndMinionPercentMod": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ]
+    },
+    "calculations": {
+      "TotalAttackBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AttackBonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1.0499999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAoEDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "AoEAttackDamagePercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAttackPercentMissingHealth": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AttackPercentMissingHealth",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.02500000037252903,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AttackMaxHPHeal": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalAttackBonusDamage": {
+        "base": [
+          5,
+          20,
+          35,
+          50,
+          65
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.05
+          }
+        ]
+      },
+      "TotalAoEDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ]
+          }
+        ]
+      },
+      "TotalAttackPercentMissingHealth": {
+        "base": 9,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.025
+          }
+        ]
+      },
+      "AttackMaxHPHeal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BriarQ": {
+    "path": "Characters/Briar/Spells/BriarQAbility/BriarQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      12,
+      11,
+      10,
+      9
+    ],
+    "range": [
+      475,
+      475,
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        60,
+        85,
+        110,
+        135,
+        160,
+        185
+      ],
+      "DashSpeedBase": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "ExtraDashSpeedBasedOnDistance": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "StunDuration": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579
+      ],
+      "ShredPercent": [
+        0.07500000298023224,
+        0.10000000149011612,
+        0.125,
+        0.15000000596046448,
+        0.17499999701976776,
+        0.20000000298023224,
+        0.22499999403953552
+      ],
+      "ShredDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BriarP": {
+    "path": "Characters/Briar/Spells/BriarPAbility/BriarP",
+    "maxRank": 5,
+    "dataValues": {
+      "BleedDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BleedTickRate": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "HealPercent": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "HealShieldPerMissingHPPercent": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "CurrentHealthPercentCost": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "BleedPercentAdd": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MaxBleedStacks": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "PercentOfBleedHealedOnKill": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ]
+    },
+    "calculations": {
+      "{15da76ad}": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 2,
+            "mEndValue": 10,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{f06e5a79}": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{15da76ad}",
+        "__type": "GameCalculationModified"
+      },
+      "BleedDamageOverDurationTooltip": {
+        "mMultiplier": {
+          "mDataValue": "BleedDuration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{15da76ad}",
+        "__type": "GameCalculationModified"
+      },
+      "BleedMaxDamageOverDurationTooltip": {
+        "mMultiplier": {
+          "mPart1": {
+            "mDataValue": "BleedDuration",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          "mPart2": {
+            "mNumber": 2,
+            "__type": "NumberCalculationPart"
+          },
+          "__type": "ProductOfSubPartsCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{15da76ad}",
+        "__type": "GameCalculationModified"
+      },
+      "{b38f3487}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealShieldPerMissingHPPercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.0002500000118743628,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHealPerMissingHPPercentTooltip": {
+        "mMultiplier": {
+          "mNumber": 100,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "{b38f3487}",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "{15da76ad}": {
+        "base": 0,
+        "baseByLevel": [
+          2,
+          2.470588,
+          2.941176,
+          3.411765,
+          3.882353,
+          4.352941,
+          4.823529,
+          5.294118,
+          5.764706,
+          6.235294,
+          6.705882,
+          7.176471,
+          7.647059,
+          8.117647,
+          8.588235,
+          9.058824,
+          9.529412,
+          10
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          }
+        ]
+      },
+      "{f06e5a79}": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          7.411765,
+          8.823529,
+          10.23529,
+          11.64706,
+          13.05882,
+          14.47059,
+          15.88235,
+          17.29412,
+          18.70588,
+          20.11765,
+          21.52941,
+          22.94118,
+          24.35294,
+          25.76471,
+          27.17647,
+          28.58824,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.3
+          }
+        ]
+      },
+      "BleedDamageOverDurationTooltip": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          12.35294,
+          14.70588,
+          17.05882,
+          19.41176,
+          21.76471,
+          24.11765,
+          26.47059,
+          28.82353,
+          31.17647,
+          33.52941,
+          35.88235,
+          38.23529,
+          40.58824,
+          42.94118,
+          45.29412,
+          47.64706,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "BleedMaxDamageOverDurationTooltip": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          24.70588,
+          29.41176,
+          34.11765,
+          38.82353,
+          43.52941,
+          48.23529,
+          52.94118,
+          57.64706,
+          62.35294,
+          67.05882,
+          71.76471,
+          76.47059,
+          81.17647,
+          85.88235,
+          90.58824,
+          95.29412,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "{b38f3487}": {
+        "base": 0.4,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.00025
+          }
+        ]
+      },
+      "TotalHealPerMissingHPPercentTooltip": {
+        "base": 40,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BriarR": {
+    "path": "Characters/Briar/Spells/BriarRAbility/BriarR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "HuntDuration": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "FearDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "FleeSlowPercent": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "AoERadius": [
+        575,
+        575,
+        575,
+        575,
+        575,
+        575,
+        575
+      ],
+      "MinDashSpeed": [
+        2500,
+        2500,
+        2500,
+        2500,
+        2500,
+        2500,
+        2500
+      ],
+      "MaxDashSpeed": [
+        5000,
+        5000,
+        5000,
+        5000,
+        5000,
+        5000,
+        5000
+      ],
+      "IdealDashTime": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "LifestealPercent": [
+        0.05000000074505806,
+        0.10000000149011612,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355
+      ],
+      "ResistADRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "ExtraMoveSpeedPercent": [
+        0,
+        0.10000000149011612,
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.2999999523162842,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalResists": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "ResistADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.3
+          }
+        ]
+      },
+      "TotalResists": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BriarE": {
+    "path": "Characters/Briar/Spells/BriarEAbility/BriarE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "dataValues": {
+      "MaxBaseDamage": [
+        45,
+        80,
+        115,
+        150,
+        185,
+        220,
+        255
+      ],
+      "WallHitBaseDamage": [
+        65,
+        140,
+        215,
+        290,
+        365,
+        440,
+        515
+      ],
+      "MinMissileRange": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "MaxMissileRange": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "Width": [
+        380,
+        380,
+        380,
+        380,
+        380,
+        380,
+        380
+      ],
+      "RectangleDistanceBehindCaster": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "RectangleDistanceInFrontOfCaster": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "RKnockupHeight": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RKnockupDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "RKnockTowardsSpeed": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ],
+      "WallStunDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "KnockbackDistance": [
+        575,
+        575,
+        575,
+        575,
+        575,
+        575,
+        575
+      ],
+      "SlowPercent": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DRPercent": [
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        35
+      ],
+      "HealHPPercent": [
+        0.08500000089406967,
+        0.10000000149011612,
+        0.11500000208616257,
+        0.12999999523162842,
+        0.14499999582767487,
+        0.1599999964237213,
+        0.17499999701976776
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WallHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WallHitBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 2.4000000953674316,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 2.4000000953674316,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PercentMaxHPHeal": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "HealHPPercent",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "WallHitDamage": {
+        "base": [
+          140,
+          215,
+          290,
+          365,
+          440
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.4
+          },
+          {
+            "stat": "AP",
+            "value": 2.4
+          }
+        ]
+      },
+      "PercentMaxHPHeal": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": [
+              0.1,
+              0.115,
+              0.13,
+              0.145,
+              0.16
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

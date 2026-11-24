@@ -1,0 +1,969 @@
+{
+  "GwenQ": {
+    "path": "Characters/Gwen/Spells/GwenQAbility/GwenQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      6.5,
+      5.75,
+      5,
+      4.25,
+      3.5
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      500,
+      500,
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "InitialArcLength": [
+        475,
+        475,
+        475,
+        475,
+        475,
+        475,
+        475
+      ],
+      "SwipeDamageBase": [
+        35,
+        60,
+        85,
+        110,
+        135,
+        160,
+        185
+      ],
+      "MiniDamageRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "APRatio": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "BuffDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "MiniSwipeBaseDamage": [
+        6,
+        10,
+        14,
+        18,
+        22,
+        26,
+        30
+      ],
+      "TrueDamageConversion": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "ExecuteBonus": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "MinionMod": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "ExecuteThreshold": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "MiniSwipeAPRatio": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ]
+    },
+    "calculations": {
+      "FinalSwipeDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SwipeDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MiniSwipeDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MiniSwipeBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MiniSwipeAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mSubparts": [
+              {
+                "mSubparts": [
+                  {
+                    "mDataValue": "SwipeDamageBase",
+                    "__type": "NamedDataValueCalculationPart"
+                  },
+                  {
+                    "mDataValue": "APRatio",
+                    "__type": "StatByNamedDataValueCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              {
+                "mPart1": {
+                  "mDataValue": "MiniSwipeAPRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                },
+                "mPart2": {
+                  "mNumber": 5,
+                  "__type": "NumberCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              },
+              {
+                "mPart1": {
+                  "mDataValue": "MiniSwipeBaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                "mPart2": {
+                  "mNumber": 5,
+                  "__type": "NumberCalculationPart"
+                },
+                "__type": "ProductOfSubPartsCalculationPart"
+              }
+            ],
+            "__type": "SumOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FinalSwipeDamage": {
+        "base": [
+          60,
+          85,
+          110,
+          135,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "MiniSwipeDamage": {
+        "base": [
+          10,
+          14,
+          18,
+          22,
+          26
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          110,
+          155,
+          200,
+          245,
+          290
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GwenW": {
+    "path": "Characters/Gwen/Spells/GwenWAbility/GwenW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      22,
+      21,
+      20,
+      19,
+      18
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "dataValues": {
+      "ZONE_VARS": [],
+      "ZoneDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ZoneRadius": [
+        370,
+        370,
+        370,
+        370,
+        370,
+        370,
+        370
+      ],
+      "ZonePullSpeed": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ],
+      "PullOffset": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "ZoneWallOffset": [
+        -100,
+        -100,
+        -100,
+        -100,
+        -100,
+        -100,
+        -100
+      ],
+      "NewDashCooldown": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RecastDelay": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseResists": [
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32
+      ],
+      "DashTargetForgiveness": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ]
+    },
+    "calculations": {
+      "TotalResists": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseResists",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.07000000029802322,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalResists": {
+        "base": [
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.07
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GwenE": {
+    "path": "Characters/Gwen/Spells/GwenEAbility/GwenE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      12.5,
+      12,
+      11.5,
+      11
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "dataValues": {
+      "DashRange": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "DashSpeed": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "WallCheatDistance": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "BuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "BaseAttackSpeed": [
+        17.5,
+        30,
+        42.5,
+        55,
+        67.5,
+        80,
+        92.5
+      ],
+      "CDRefund": [
+        0.15000000596046448,
+        0.25,
+        0.3499999940395355,
+        0.44999998807907104,
+        0.550000011920929,
+        0.6499999761581421,
+        0.75
+      ],
+      "BonusAttackRange": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "BaseDamage": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    "calculations": {
+      "BonusAttackSpeed": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseAttackSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "OnHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusAttackSpeed": {
+        "base": [
+          0.3,
+          0.425,
+          0.55,
+          0.675,
+          0.8
+        ]
+      },
+      "OnHitDamage": {
+        "base": 15,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GwenR": {
+    "path": "Characters/Gwen/Spells/GwenRAbility/GwenR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1300,
+      1300,
+      1300
+    ],
+    "dataValues": {
+      "DebuffDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "SlowAmount": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "BaseDamage": [
+        10,
+        30,
+        50,
+        70,
+        90,
+        110,
+        130
+      ],
+      "InitialSlow": [
+        -0.30000001192092896,
+        -0.4000000059604645,
+        -0.5,
+        -0.6000000238418579,
+        -0.699999988079071,
+        -0.800000011920929,
+        -0.8999999761581421
+      ],
+      "SubsequentSlow": [
+        -0.10000000149011612,
+        -0.15000000596046448,
+        -0.20000000298023224,
+        -0.25,
+        -0.30000001192092896,
+        -0.3499999940395355,
+        -0.4000000059604645
+      ],
+      "LockoutTime": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mMultiplier": {
+          "mNumber": 9,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      },
+      "TotalDamage3": {
+        "mMultiplier": {
+          "mNumber": 3,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      },
+      "TotalDamage5": {
+        "mMultiplier": {
+          "mNumber": 5,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          50,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          270,
+          450,
+          630
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      },
+      "TotalDamage3": {
+        "base": [
+          90,
+          150,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalDamage5": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GwenP": {
+    "path": "Characters/Gwen/Spells/GwenPAbility/GwenP",
+    "maxRank": 5,
+    "dataValues": {
+      "ExecuteThreshold": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "HealingPercent": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.6700000166893005,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{540bce84}": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": 0.006000000052154064,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "HealCap": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 12,
+            "mEndValue": 40,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.07000000029802322,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PercentHealth1000Cuts": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "{540bce84}",
+        "__type": "GameCalculationModified"
+      },
+      "MonsterDamageCap": {
+        "mFormulaParts": [
+          {
+            "mNumber": 3,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveMaxQTooltip": {
+        "mMultiplier": {
+          "mNumber": 0.05999999865889549,
+          "__type": "NumberCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "{540bce84}",
+        "__type": "GameCalculationModified"
+      },
+      "PassiveMaxRTooltip": {
+        "mMultiplier": {
+          "mNumber": 0.09000000357627869,
+          "__type": "NumberCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "{540bce84}",
+        "__type": "GameCalculationModified"
+      },
+      "{4197830d}": {
+        "mMultiplier": {
+          "mNumber": 0.029999999329447746,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "{540bce84}",
+        "__type": "GameCalculationModified"
+      },
+      "{4097817a}": {
+        "mMultiplier": {
+          "mNumber": 0.05000000074505806,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "{540bce84}",
+        "__type": "GameCalculationModified"
+      },
+      "{5bade13c}": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{9d0c98ec}",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExecuteDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mStartValue": 8,
+            "mEndValue": 30,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "HealingPercent": {
+        "base": 0.67
+      },
+      "{540bce84}": {
+        "base": 1,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.006
+          }
+        ]
+      },
+      "HealCap": {
+        "base": 0,
+        "baseByLevel": [
+          12,
+          13.64706,
+          15.29412,
+          16.94118,
+          18.58824,
+          20.23529,
+          21.88235,
+          23.52941,
+          25.17647,
+          26.82353,
+          28.47059,
+          30.11765,
+          31.76471,
+          33.41176,
+          35.05882,
+          36.70588,
+          38.35294,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.07
+          }
+        ]
+      },
+      "PercentHealth1000Cuts": {
+        "base": 0.01,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00006
+          }
+        ]
+      },
+      "MonsterDamageCap": {
+        "base": 3,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "PassiveMaxQTooltip": {
+        "base": 0.06,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00036
+          }
+        ]
+      },
+      "PassiveMaxRTooltip": {
+        "base": 0.09,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00054
+          }
+        ]
+      },
+      "{4197830d}": {
+        "base": 0.03,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00018
+          }
+        ]
+      },
+      "{4097817a}": {
+        "base": 0.05,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "{5bade13c}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      },
+      "ExecuteDamage": {
+        "base": 0,
+        "baseByLevel": [
+          8,
+          9.294118,
+          10.58824,
+          11.88235,
+          13.17647,
+          14.47059,
+          15.76471,
+          17.05882,
+          18.35294,
+          19.64706,
+          20.94118,
+          22.23529,
+          23.52941,
+          24.82353,
+          26.11765,
+          27.41176,
+          28.70588,
+          30
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

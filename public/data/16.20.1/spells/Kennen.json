@@ -1,0 +1,552 @@
+{
+  "KennenPassive": {
+    "path": "Characters/Kennen/Spells/KennenPassiveAbility/KennenPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "EnergyRestore": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "StunDuration": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "ReducedStunDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MarkDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "DiminishingReturnDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "KennenShurikenStorm": {
+    "path": "Characters/Kennen/Spells/KennenShurikenStormAbility/KennenShurikenStorm",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      120,
+      120
+    ],
+    "range": [
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        0,
+        40,
+        80,
+        120,
+        160,
+        200,
+        240
+      ],
+      "APRatio": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "DamageAmp": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "KennenRTickRate": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "KennenRDefenses": [
+        0,
+        25,
+        50,
+        75,
+        100,
+        125,
+        150
+      ],
+      "KennenRDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {
+      "PerTickDamageCalculated": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PerTickDamageCalculated": {
+        "base": [
+          40,
+          80,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KennenLightningRush": {
+    "path": "Characters/Kennen/Spells/KennenLightningRushAbility/KennenLightningRush",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "EnergyRefund": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "defenses": [],
+      "MovementSpeed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DurationAsBall": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "TotalAS": [
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929,
+        0.8999999761581421,
+        1
+      ],
+      "DurationAfterBall": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "DamageToMinions": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ],
+      "DamageRadius": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "linger": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "CritDurationBonus": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KennenShurikenHurlMissile1": {
+    "path": "Characters/Kennen/Spells/KennenShurikenHurlMissile1Ability/KennenShurikenHurlMissile1",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      6.25,
+      5.5,
+      4.75,
+      4
+    ],
+    "cost": [
+      60,
+      55,
+      50,
+      45,
+      40
+    ],
+    "range": [
+      1050,
+      1050,
+      1050,
+      1050,
+      1050
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        25,
+        75,
+        125,
+        175,
+        225,
+        275,
+        325
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          125,
+          175,
+          225,
+          275
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KennenBringTheLight": {
+    "path": "Characters/Kennen/Spells/KennenBringTheLightAbility/KennenBringTheLight",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      11.25,
+      9.5,
+      7.75,
+      6
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      725,
+      725,
+      725,
+      725,
+      725
+    ],
+    "dataValues": {
+      "bADRatio": [
+        0.699999988079071,
+        0.800000011920929,
+        0.8999999761581421,
+        1,
+        1.100000023841858,
+        1.2000000476837158,
+        1.2999999523162842
+      ],
+      "BaseOnHitDamage": [
+        25,
+        35,
+        45,
+        55,
+        65,
+        75,
+        85
+      ],
+      "BaseDamageActive": [
+        45,
+        70,
+        95,
+        120,
+        145,
+        170,
+        195
+      ],
+      "APRatioActive": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ]
+    },
+    "calculations": {
+      "TotalDamagePassive": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseOnHitDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.3499999940395355,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mDataValue": "BADRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageActive": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageActive",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioActive",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamagePassiveCrit": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1.399999976158142,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mStat": 9,
+              "mStatFormula": 2,
+              "mCoefficient": 0.4000000059604645,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamagePassive",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamagePassive": {
+        "base": [
+          35,
+          45,
+          55,
+          65,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          },
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.8,
+              0.9,
+              1,
+              1.1,
+              1.2
+            ]
+          }
+        ]
+      },
+      "TotalDamageActive": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "TotalDamagePassiveCrit": "stat code 9/2"
+    }
+  }
+}

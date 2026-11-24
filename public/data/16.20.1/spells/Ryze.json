@@ -1,0 +1,531 @@
+{
+  "RyzeW": {
+    "path": "Characters/Ryze/Spells/RyzeWAbility/RyzeW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10.5,
+      10,
+      9.5,
+      9
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "SlowAmount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "CCDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "WDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.029999999329447746,
+            "mStatFormula": 2,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "WDamageCalc": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          },
+          {
+            "stat": "bonusMana",
+            "value": 0.03
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RyzeQWrapper": {
+    "path": "Characters/Ryze/Spells/RyzeQWrapperAbility/RyzeQWrapper",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "cost": [
+      40,
+      38,
+      36,
+      34,
+      32
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        55,
+        75,
+        95,
+        115,
+        135,
+        155,
+        175
+      ],
+      "DamageAmp": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "MovementSpeedAmount": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "MovementSpeedDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MaximumRunes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RuneDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "QDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "mStatFormula": 2,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "QDamageCalc": {
+        "base": [
+          75,
+          95,
+          115,
+          135,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          },
+          {
+            "stat": "bonusMana",
+            "value": 0.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RyzeR": {
+    "path": "Characters/Ryze/Spells/RyzeRAbility/RyzeR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      180,
+      160,
+      140
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "ChargeTime": [
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684
+      ],
+      "TeleportTime": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ],
+      "AllyIndicatorBuffDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "ChargeTimeTooltip": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "OverloadDamageBonus": [
+        15,
+        40,
+        65,
+        90,
+        115,
+        140,
+        165
+      ],
+      "OverloadHealPercent": [
+        0,
+        20,
+        25,
+        30,
+        40,
+        50,
+        60
+      ],
+      "HealPercentMinionMod": [
+        0.33000001311302185,
+        0.33000001311302185,
+        0.33000001311302185,
+        0.33000001311302185,
+        0.33000001311302185,
+        0.33000001311302185,
+        0.33000001311302185
+      ],
+      "MinimumCastRange": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "RyzeE": {
+    "path": "Characters/Ryze/Spells/RyzeEAbility/RyzeE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      3.5,
+      3.25,
+      3,
+      2.75,
+      2.5
+    ],
+    "cost": [
+      40,
+      50,
+      60,
+      70,
+      80
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "DebuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "BounceRadius": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "DamageAmp": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60
+      ],
+      "BounceRadiusLargeUnit": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "BounceRadiusQSmallUnit": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "BounceRadiusQLargeUnit": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ]
+    },
+    "calculations": {
+      "EDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "mStatFormula": 2,
+            "__type": "AbilityResourceByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "EDamageCalc": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          },
+          {
+            "stat": "bonusMana",
+            "value": 0.02
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RyzePassive": {
+    "path": "Characters/Ryze/Spells/RyzePassiveAbility/RyzePassive",
+    "slot": "P",
+    "maxRank": 5,
+    "range": [
+      625,
+      625,
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "PercentManaIncrease": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "APAmount": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    "calculations": {
+      "{92bc0080}": {
+        "mFormulaParts": [
+          {
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveManaCalcTooltip": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentManaIncrease",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{92bc0080}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "PassiveManaCalcTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,1409 @@
+{
+  "ShyvanaR": {
+    "path": "Characters/Shyvana/Spells/ShyvanaRAbility/ShyvanaR",
+    "slot": "R",
+    "maxRank": 3,
+    "range": [
+      1050,
+      1050,
+      1050
+    ],
+    "dataValues": {
+      "MinCastRange": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "JumpDelay": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "JumpDampening": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
+      "JumpGravity": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "JumpForwardMultiplier": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "Width": [
+        225,
+        225,
+        225,
+        225,
+        225,
+        225,
+        225
+      ],
+      "FuryGain": [
+        0.25,
+        0.5,
+        0.75,
+        1,
+        1.25,
+        1.5,
+        1.75
+      ],
+      "FuryDrainPerSecond": [
+        6.666659832000732,
+        6.666659832000732,
+        6.666659832000732,
+        6.666659832000732,
+        6.666659832000732,
+        6.666659832000732,
+        6.666659832000732
+      ],
+      "Fury_Generation": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "FuryDragonFormMult": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "Fury_AoE_Efficacy": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "FearDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "BaseDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "BonusHealth": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "SizeScaling": [
+        -0.02500000037252903,
+        0.05000000074505806,
+        0.125,
+        0.20000000298023224,
+        0.2750000059604645,
+        0.3499999940395355,
+        0.42500001192092896
+      ],
+      "BonusAttackRange": [
+        0,
+        25,
+        50,
+        75,
+        100,
+        125,
+        150
+      ],
+      "FuryGainPerUltHaste": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Bonus_Health": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusHealth",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{57d26a55}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 1050,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TT_Fury_Mult": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "FuryDragonFormMult",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mNumber": -1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TT_Fury_AoE_Penalty": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mPart1": {
+              "mNumber": -1,
+              "__type": "NumberCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "Fury_AoE_Efficacy",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      },
+      "Calc_Bonus_Health": {
+        "base": [
+          150,
+          250,
+          350
+        ]
+      },
+      "{57d26a55}": {
+        "base": 1050
+      },
+      "TT_Fury_Mult": {
+        "base": 2
+      },
+      "TT_Fury_AoE_Penalty": {
+        "base": 0.75
+      }
+    },
+    "unsupported": {}
+  },
+  "ShyvanaQ": {
+    "path": "Characters/Shyvana/Spells/ShyvanaQAbility/ShyvanaQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "dataValues": {
+      "EnhanceDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "RecastDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "LockoutDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "Q1Length": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "Q2Radius": [
+        275,
+        275,
+        275,
+        275,
+        275,
+        275,
+        275
+      ],
+      "Cooldown_Reduction": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "Max_Health_Damage": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "Max_Health_AD_Ratio": [
+        0.00011000000085914508,
+        0.00011000000085914508,
+        0.00011000000085914508,
+        0.00011000000085914508,
+        0.00011000000085914508,
+        0.00011000000085914508,
+        0.00011000000085914508
+      ],
+      "Base_Damage": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "Damage_AD_Ratio": [
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858,
+        1.100000023841858
+      ],
+      "Bonus_Attack_Range": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "Damage_Monster_Bonus": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "calculations": {
+      "Calc_Max_Health_Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Max_Health_Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "Max_Health_AD_Ratio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "Calc_Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BASE_DAMAGE",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "Damage_AD_Ratio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Dragon_Form_Damage": {
+        "mMultiplier": {
+          "mNumber": 1.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "Calc_Damage",
+        "__type": "GameCalculationModified"
+      },
+      "Calc_Max_Health_Monster_Minimum": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mNumber": 10,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Max_Health_Monster_Maximum": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 200,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Monster_Bonus": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage_Monster_Bonus",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{aee2a1e8}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Calc_Max_Health_Damage": {
+        "base": 0.01,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.00011
+          }
+        ]
+      },
+      "Calc_Damage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.1
+          },
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "Calc_Dragon_Form_Damage": {
+        "base": [
+          15,
+          22.5,
+          30,
+          37.5,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.65
+          },
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "Calc_Max_Health_Monster_Minimum": {
+        "base": 10
+      },
+      "Calc_Max_Health_Monster_Maximum": {
+        "base": 200
+      },
+      "Calc_Monster_Bonus": {
+        "base": 10
+      },
+      "{aee2a1e8}": {
+        "base": 1
+      }
+    },
+    "unsupported": {}
+  },
+  "ShyvanaE": {
+    "path": "Characters/Shyvana/Spells/ShyvanaEAbility/ShyvanaE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        50,
+        65,
+        80,
+        95,
+        110,
+        125
+      ],
+      "BaseDamagePerSecond": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60
+      ],
+      "GroundLingerDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "GroundRadius": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "TrailRadius": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowAmount": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "DragonGroundRadius": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "DragonTrailRadius": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "DragonCastRangeScale": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "RepeatExplosionDelay": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "DamageAPRatio": [
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421,
+        0.699999988079071,
+        0.75,
+        0.800000011920929,
+        0.8500000238418579
+      ],
+      "MaxHealthDamage": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "DamageDragonMod": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamagePerSecond": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 15,
+            "mBreakpoints": [
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Multihit_Efficacy": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mNumber": 0.4000000059604645,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "Calc_Dragon_Damage": {
+        "mMultiplier": {
+          "mNumber": 1.25,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "Damage",
+        "__type": "GameCalculationModified"
+      },
+      "Calc_Slow": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlowAmount",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "Calc_Slow_Dragon": {
+        "mMultiplier": {
+          "mNumber": 1,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "Calc_Slow",
+        "__type": "GameCalculationModified"
+      },
+      "Calc_Max_Health_Damage": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "Calc_Max_Health_Dragon_Damage": {
+        "mMultiplier": {
+          "mDataValue": "DamageDragonMod",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "Calc_Max_Health_Damage",
+        "__type": "GameCalculationModified"
+      },
+      "Calc_Max_Health_Monster_Minimum": {
+        "mFormulaParts": [
+          {
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Max_Health_Monster_Maximum": {
+        "mFormulaParts": [
+          {
+            "mNumber": 200,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          50,
+          65,
+          80,
+          95,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.6,
+              0.65,
+              0.7,
+              0.75,
+              0.8
+            ]
+          }
+        ]
+      },
+      "DamagePerSecond": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          25,
+          25,
+          25
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "Calc_Multihit_Efficacy": {
+        "base": 0.4
+      },
+      "Calc_Dragon_Damage": {
+        "base": [
+          62.5,
+          81.25,
+          100,
+          118.75,
+          137.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": [
+              0.75,
+              0.8125,
+              0.875,
+              0.9375,
+              1
+            ]
+          }
+        ]
+      },
+      "Calc_Slow": {
+        "base": 0.3
+      },
+      "Calc_Slow_Dragon": {
+        "base": 0.3
+      },
+      "Calc_Max_Health_Damage": {
+        "base": 0.05
+      },
+      "Calc_Max_Health_Dragon_Damage": {
+        "base": 0.0625
+      },
+      "Calc_Max_Health_Monster_Minimum": {
+        "base": null
+      },
+      "Calc_Max_Health_Monster_Maximum": {
+        "base": 200
+      }
+    },
+    "unsupported": {}
+  },
+  "ShyvanaW": {
+    "path": "Characters/Shyvana/Spells/ShyvanaWAbility/ShyvanaW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      12.25,
+      11.5,
+      10.75,
+      10
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "Duration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "Radius": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "Shield": [
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160
+      ],
+      "Shield_Radius": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "BaseMoveSpeed": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "BaseDamage": [
+        60,
+        80,
+        100,
+        120,
+        140,
+        160,
+        180
+      ],
+      "MissingHealthHealMultiplier": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MoveSpeedAmpTowardsEnemies": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "ShieldMaxHealth": [
+        0.11999999731779099,
+        0.11999999731779099,
+        0.11999999731779099,
+        0.11999999731779099,
+        0.11999999731779099,
+        0.11999999731779099,
+        0.11999999731779099
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MoveSpeed": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseMoveSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "Calc_Shield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Shield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "ShieldMaxHealth",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Shield_Per_Nearby_Champion": {
+        "mMultiplier": {
+          "mNumber": 0.30000001192092896,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "Calc_Shield",
+        "__type": "GameCalculationModified"
+      },
+      "Calc_Heal_Min": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 75,
+            "mEndValue": 200,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Calc_Heal_Max": {
+        "mMultiplier": {
+          "mDataValue": "MissingHealthHealMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "Calc_Heal_Min",
+        "__type": "GameCalculationModified"
+      },
+      "MoveSpeedTowardsEnemies": {
+        "mMultiplier": {
+          "mDataValue": "MoveSpeedAmpTowardsEnemies",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "MoveSpeed",
+        "__type": "GameCalculationModified"
+      },
+      "Calc_Missing_Health_Heal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.03999999910593033,
+            "mEndValue": 0.07999999821186066,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "Calc_Base_Heal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 60,
+            "mEndValue": 100,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          80,
+          100,
+          120,
+          140,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      },
+      "MoveSpeed": {
+        "base": 0.25
+      },
+      "Calc_Shield": {
+        "base": [
+          60,
+          80,
+          100,
+          120,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.12
+          }
+        ]
+      },
+      "Calc_Shield_Per_Nearby_Champion": {
+        "base": [
+          18,
+          24,
+          30,
+          36,
+          42
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.036
+          }
+        ]
+      },
+      "Calc_Heal_Min": {
+        "base": 0,
+        "baseByLevel": [
+          75,
+          82.35294,
+          89.70588,
+          97.05882,
+          104.4118,
+          111.7647,
+          119.1176,
+          126.4706,
+          133.8235,
+          141.1765,
+          148.5294,
+          155.8824,
+          163.2353,
+          170.5882,
+          177.9412,
+          185.2941,
+          192.6471,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          },
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      },
+      "Calc_Heal_Max": {
+        "base": 0,
+        "baseByLevel": [
+          150,
+          164.7059,
+          179.4118,
+          194.1176,
+          208.8235,
+          223.5294,
+          238.2353,
+          252.9412,
+          267.6471,
+          282.3529,
+          297.0588,
+          311.7647,
+          326.4706,
+          341.1765,
+          355.8824,
+          370.5882,
+          385.2941,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          },
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "MoveSpeedTowardsEnemies": {
+        "base": 0.4375
+      },
+      "Calc_Missing_Health_Heal": {
+        "base": 0,
+        "baseByLevel": [
+          0.04,
+          0.04235294,
+          0.04470588,
+          0.04705882,
+          0.04941176,
+          0.0517647,
+          0.05411765,
+          0.05647059,
+          0.05882353,
+          0.06117647,
+          0.06352941,
+          0.06588235,
+          0.06823529,
+          0.07058823,
+          0.07294117,
+          0.07529412,
+          0.07764706,
+          0.08
+        ]
+      },
+      "Calc_Base_Heal": {
+        "base": 0,
+        "baseByLevel": [
+          60,
+          62.35294,
+          64.70588,
+          67.05882,
+          69.41176,
+          71.76471,
+          74.11765,
+          76.47059,
+          78.82353,
+          81.17647,
+          83.52941,
+          85.88235,
+          88.23529,
+          90.58824,
+          92.94118,
+          95.29412,
+          97.64706,
+          100
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ShyvanaPassive": {
+    "path": "Characters/Shyvana/Spells/ShyvanaPassiveAbility/ShyvanaPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "BonusArmor": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "BonusMagicResist": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "PassiveScale": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "Stacks_Per_Epic_Monster": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "Stacks_Per_Champion": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "Stacks_Per_Buff_Monster": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "Stacks_Per_Large_Monster": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "Calc_Bonus_Armor": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{bba88b2a}",
+            "mIconKey": "%i:Shyvana%",
+            "mDataValue": "BonusArmor",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "Calc_Bonus_MR": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{bba88b2a}",
+            "mIconKey": "%i:Shyvana%",
+            "mDataValue": "BonusMagicResist",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Calc_Bonus_Armor": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.3
+          }
+        ]
+      },
+      "Calc_Bonus_MR": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

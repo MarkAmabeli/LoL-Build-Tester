@@ -1,0 +1,871 @@
+{
+  "IvernW": {
+    "path": "Characters/Ivern/Spells/IvernWAbility/IvernW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "BuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "AllyBuffDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "BaseDamage": [
+        12.5,
+        20,
+        27.5,
+        35,
+        42.5,
+        50,
+        57.5
+      ],
+      "AllyBaseDamage": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "RevealDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "MaxBrushDuration": [
+        45,
+        45,
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
+      "BrushRadius": [
+        190,
+        190,
+        190,
+        190,
+        190,
+        190,
+        190
+      ],
+      "BrushSpacing": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAllyDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AllyBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          20,
+          27.5,
+          35,
+          42.5,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "TotalAllyDamage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "IvernP": {
+    "path": "Characters/Ivern/Spells/IvernPAbility/IvernP",
+    "maxRank": 5,
+    "dataValues": {
+      "LevelForBuffShare": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "PickupDuration": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "KrugExperience": [
+        58,
+        58,
+        58,
+        58,
+        58,
+        58,
+        58
+      ],
+      "KrugGold": [
+        84,
+        84,
+        84,
+        84,
+        84,
+        84,
+        84
+      ],
+      "ModeSpeedOverride": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "HarvestDuration": {
+        "mMultiplier": {
+          "mDataValue": "ModeSpeedOverride",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 40,
+            "mInitialBonusPerLevel": -2,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": -3,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mBonusPerLevelAtAndAfter": -4,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mBonusPerLevelAtAndAfter": -2,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealthCostPercent": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 15,
+            "mInitialBonusPerLevel": -0.8820000290870667,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{c6433908}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mInitialBonusPerLevel": -1.1749999523162842,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealthTooltip": {
+        "mMultiplier": {
+          "mStat": 12,
+          "mStatFormula": 1,
+          "mCoefficient": 0.009999999776482582,
+          "__type": "StatByCoefficientCalculationPart"
+        },
+        "mModifiedGameCalculation": "HealthCostPercent",
+        "__type": "GameCalculationModified"
+      },
+      "ManaTooltip": {
+        "mMultiplier": {
+          "mCoefficient": 0.009999999776482582,
+          "mStatFormula": 1,
+          "__type": "AbilityResourceByCoefficientCalculationPart"
+        },
+        "mModifiedGameCalculation": "{c6433908}",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "HarvestDuration": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          38,
+          36,
+          34,
+          32,
+          30,
+          27,
+          24,
+          21,
+          18,
+          15,
+          11,
+          7,
+          3,
+          1,
+          -1,
+          -3,
+          -5
+        ]
+      },
+      "HealthCostPercent": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          14.118,
+          13.236,
+          12.354,
+          11.472,
+          10.59,
+          9.708,
+          8.826,
+          7.944,
+          7.062,
+          6.18,
+          5.298,
+          4.416,
+          3.534,
+          2.652,
+          1.77,
+          0.8879995,
+          0.005999506
+        ]
+      },
+      "{c6433908}": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          18.825,
+          17.65,
+          16.475,
+          15.3,
+          14.125,
+          12.95,
+          11.775,
+          10.6,
+          9.425,
+          8.25,
+          7.075001,
+          5.900001,
+          4.725001,
+          3.550001,
+          2.375001,
+          1.200001,
+          0.02500081
+        ]
+      }
+    },
+    "unsupported": {
+      "HealthTooltip": "StatByCoefficientCalculationPart scales with a stat (stat × stat)",
+      "ManaTooltip": "AbilityResourceByCoefficientCalculationPart scales with a stat (stat × stat)"
+    }
+  },
+  "IvernR": {
+    "path": "Characters/Ivern/Spells/IvernRAbility/IvernR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      130,
+      120
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "SpawnBuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MSOnSpawn": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "DROnSpawn": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "DaisyAS": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "DaisyAD": [
+        40,
+        70,
+        100,
+        130,
+        160,
+        190,
+        220
+      ],
+      "DaisyAoeDR": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "DaisyDuration": [
+        45,
+        45,
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
+      "ShockwaveBaseDamage": [
+        40,
+        90,
+        140,
+        190,
+        240,
+        290,
+        340
+      ],
+      "ShockwaveCCDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ShockwaveCD": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {
+      "TotalBonusResists": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 30,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDaisyHP": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 1000,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mBonusPerLevelAtAndAfter": 50,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mBonusPerLevelAtAndAfter": 400,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDaisyAD": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DaisyAD",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalShockwaveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShockwaveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalBonusResists": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "TotalDaisyHP": {
+        "base": 0,
+        "baseByLevel": [
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1050,
+          1100,
+          1150,
+          1200,
+          1600,
+          2000,
+          2400,
+          2800,
+          3200,
+          3600,
+          4000,
+          4400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalDaisyAD": {
+        "base": [
+          70,
+          100,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "TotalShockwaveDamage": {
+        "base": [
+          90,
+          140,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "IvernQ": {
+    "path": "Characters/Ivern/Spells/IvernQAbility/IvernQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      1150,
+      1150,
+      1150,
+      1150,
+      1150
+    ],
+    "dataValues": {
+      "DashSpeed": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "BaseDamage": [
+        35,
+        80,
+        125,
+        170,
+        215,
+        260,
+        305
+      ],
+      "RootDuration": [
+        1.5,
+        1.600000023841858,
+        1.7000000476837158,
+        1.7999999523162842,
+        1.899999976158142,
+        2,
+        2.0999999046325684
+      ],
+      "APRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "IvernE": {
+    "path": "Characters/Ivern/Spells/IvernEAbility/IvernE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "BaseShield": [
+        35,
+        75,
+        115,
+        155,
+        195,
+        235,
+        275
+      ],
+      "ShieldAPRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseDamage": [
+        50,
+        70,
+        90,
+        110,
+        130,
+        150,
+        170
+      ],
+      "DamageAPRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "SlowAmount": [
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ShieldDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          75,
+          115,
+          155,
+          195,
+          235
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          70,
+          90,
+          110,
+          130,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

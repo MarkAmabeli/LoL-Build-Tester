@@ -1,0 +1,682 @@
+{
+  "TwitchHideInShadows": {
+    "path": "Characters/Twitch/Spells/TwitchHideInShadowsAbility/TwitchHideInShadows",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "AttackSpeedMod": [
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421
+      ],
+      "AttackSpeedDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "StealthDuration": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "MaxFadeTime": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "StealthDetectionRange": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "MoveSpeedMod": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "HiddenSpeed": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "MoveBonusRange": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TwitchDeadlyVenomMarker": {
+    "path": "Characters/Twitch/Spells/TwitchDeadlyVenomMarkerAbility/TwitchDeadlyVenomMarker",
+    "maxRank": 5,
+    "dataValues": {
+      "Duration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "MaxStacks": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "APRatio": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ]
+    },
+    "calculations": {
+      "DamagePerSecond": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 1,
+            "mBreakpoints": [
+              {
+                "mLevel": 5,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 17,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 21,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 25,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 29,
+                "mAdditionalBonusAtThisLevel": 1,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamagePerSecondMax": {
+        "mMultiplier": {
+          "mDataValue": "MaxStacks",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "DamagePerSecond",
+        "__type": "GameCalculationModified"
+      },
+      "DamageMaxTotal": {
+        "mMultiplier": {
+          "mPart1": {
+            "mDataValue": "Duration",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          "mPart2": {
+            "mDataValue": "MaxStacks",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          "__type": "ProductOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "DamagePerSecond",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": 0,
+        "baseByLevel": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.03
+          }
+        ]
+      },
+      "DamagePerSecondMax": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          6,
+          6,
+          6,
+          12,
+          12,
+          12,
+          12,
+          18,
+          18,
+          18,
+          18,
+          24,
+          24,
+          24,
+          24,
+          30,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.18
+          }
+        ]
+      },
+      "DamageMaxTotal": {
+        "base": 0,
+        "baseByLevel": [
+          36,
+          36,
+          36,
+          36,
+          72,
+          72,
+          72,
+          72,
+          108,
+          108,
+          108,
+          108,
+          144,
+          144,
+          144,
+          144,
+          180,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.08
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TwitchFullAutomatic": {
+    "path": "Characters/Twitch/Spells/TwitchFullAutomaticAbility/TwitchFullAutomatic",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      90,
+      90,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "BonusRange": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "FallOffDamage": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "MinimumFallOffDamage": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "BonusAD": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "Duration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "OvershootMult": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "OvershootMin": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TwitchExpunge": {
+    "path": "Characters/Twitch/Spells/TwitchExpungeAbility/TwitchExpunge",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "BasePhysicalDamagePerStack": [
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "bADRatioPerStack": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "APRatioPerStack": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "MaxStacks": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "calculations": {
+      "PhysicalDamagePerStack": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BasePhysicalDamagePerStack",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "bADRatioPerStack",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MagicDamagePerStack": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "APRatioPerStack",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxPhysicalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mPart1": {
+              "mDataValue": "MaxStacks",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "BasePhysicalDamagePerStack",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mPart1": {
+                "mDataValue": "bADRatioPerStack",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mDataValue": "MaxStacks",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxMagicDamage": {
+        "mMultiplier": {
+          "mDataValue": "MaxStacks",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "MagicDamagePerStack",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "PhysicalDamagePerStack": {
+        "base": [
+          15,
+          20,
+          25,
+          30,
+          35
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      },
+      "MagicDamagePerStack": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "MaxPhysicalDamage": {
+        "base": [
+          110,
+          150,
+          190,
+          230,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.1
+          }
+        ]
+      },
+      "MaxMagicDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TwitchVenomCask": {
+    "path": "Characters/Twitch/Spells/TwitchVenomCaskAbility/TwitchVenomCask",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      12,
+      11,
+      10,
+      9
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "BaseSlowAmount": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "Duration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "AoERadius": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "SlowAPRatio": [
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549
+      ]
+    },
+    "calculations": {
+      "TotalSlowAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseSlowAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SlowAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalSlowAmount": {
+        "base": [
+          30,
+          35,
+          40,
+          45,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.06
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

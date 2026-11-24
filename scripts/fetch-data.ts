@@ -4,44 +4,54 @@
  *   npm run data              # latest patch
  *   npm run data -- 16.19.1   # a specific Data Dragon version
  *
- * Sources
- *   - Data Dragon: champion base stats, items, runes (official Riot static data)
- *   - CommunityDragon: per-champion game .bin data, which holds the actual spell
- *     values (DataValues) and formulas (SpellCalculations). Data Dragon tooltips no
- *     longer carry usable ability numbers.
+ * Sources: Data Dragon (base stats, items, runes) and CommunityDragon (spell values and
+ * formulas, stat shards, shop limits). Their settings, every change this script makes to
+ * their data, and notes on each are in sources.ts; add to it when changing the import.
+ *
+ * Every download is retried on errors. Champions that still fail are retried once more after
+ * a short delay; if any fail again, the import stops before writing anything, so a refresh
+ * never leaves partial data.
  */
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import type { ShardData, StatShard } from '../src/engine/types.ts';
+import { buildItemGroups, type ItemsBin } from './item-groups.ts';
+import { runWithRetry, sleep } from './concurrency.ts';
+import { dedupeItemsByName } from './item-dedupe.ts';
+import { buildRoleQuestItems, SUPPORT_STAGES } from './role-quests.ts';
+import { itemValues, perkValues, type ValueMap } from './game-values.ts';
+import { COMMUNITY_DRAGON, DATA_DRAGON } from './sources.ts';
+import { cooldownByRank, costByRank, rangeByRank } from './spell-ranks.ts';
 import { parseItemDescriptionStats, toStatBonuses } from './item-stats.ts';
+import { translateSpell, type Calculation } from './spell-formulas.ts';
+import { cleanText, parseShardText } from './shard-stats.ts';
 
-const DDRAGON = 'https://ddragon.leagueoflegends.com';
-const CDRAGON = 'https://raw.communitydragon.org';
-const LOCALE = 'en_US';
+const DDRAGON = DATA_DRAGON.baseUrl;
+const CDRAGON = COMMUNITY_DRAGON.baseUrl;
+const LOCALE = DATA_DRAGON.locale;
 const CONCURRENCY = 8;
 const OUT_ROOT = path.resolve('public/data');
+const OVERRIDES = path.resolve('scripts/overrides');
 
+/**
+ * Fetch JSON, retrying (with a growing delay) on error statuses and on network errors or
+ * truncated bodies, which `fetch` and `res.json()` throw. A 404 isn't retried.
+ */
 async function getJson<T>(url: string, retries = 2): Promise<T> {
   for (let attempt = 0; ; attempt++) {
-    const res = await fetch(url);
-    if (res.ok) return (await res.json()) as T;
-    if (attempt >= retries || res.status === 404) {
-      throw new Error(`${res.status} ${res.statusText} for ${url}`);
+    let failure: string;
+    try {
+      const res = await fetch(url);
+      if (res.ok) return (await res.json()) as T;
+      if (res.status === 404) throw new Error(`404 ${res.statusText} for ${url}`);
+      failure = `${res.status} ${res.statusText}`;
+    } catch (err) {
+      if ((err as Error).message.startsWith('404 ')) throw err;
+      failure = (err as Error).message;
     }
-    await new Promise((r) => setTimeout(r, 500 * (attempt + 1)));
+    if (attempt >= retries) throw new Error(`${failure} for ${url}`);
+    await sleep(500 * (attempt + 1));
   }
-}
-
-async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let next = 0;
-  async function worker() {
-    while (next < items.length) {
-      const i = next++;
-      results[i] = await fn(items[i]);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
 }
 
 async function writeJson(file: string, data: unknown) {
@@ -54,6 +64,22 @@ function cdragonPatch(version: string): string {
   return version.split('.').slice(0, 2).join('.');
 }
 
+/**
+ * Fetch a CommunityDragon file for a patch, falling back to "latest" in case
+ * CommunityDragon hasn't published this patch's folder yet. Throws the patch URL's error.
+ */
+async function getCdragonJson<T>(patch: string, subpath: string): Promise<T> {
+  try {
+    return await getJson<T>(`${CDRAGON}/${patch}/${subpath}`);
+  } catch (err) {
+    try {
+      return await getJson<T>(`${CDRAGON}/${COMMUNITY_DRAGON.fallbackFolder}/${subpath}`);
+    } catch {
+      throw err;
+    }
+  }
+}
+
 // ---- Data Dragon shapes (only the fields we use) ----
 interface DDChampionSummary {
   id: string;
@@ -64,6 +90,9 @@ interface DDChampionSummary {
   partype: string;
   image: { full: string };
   stats: Record<string, number>;
+}
+interface DDChampionDetail {
+  spells: Array<{ id: string; maxrank: number }>;
 }
 interface DDItem {
   name: string;
@@ -82,8 +111,11 @@ interface DDItem {
 }
 
 // ---- CommunityDragon bin shapes (loose; the format is not officially documented) ----
+// Current bins use `name`/`values`; the `m`-prefixed spellings are kept in case older patches use them.
 interface BinDataValue {
-  mName: string;
+  name?: string;
+  values?: number[];
+  mName?: string;
   mValues?: number[];
 }
 interface BinSpellObject {
@@ -92,19 +124,33 @@ interface BinSpellObject {
   mSpell?: {
     DataValues?: BinDataValue[];
     mDataValues?: BinDataValue[];
-    mSpellCalculations?: Record<string, unknown>;
+    mSpellCalculations?: Record<string, Calculation>;
     cooldownTime?: number[];
     mana?: number[];
     castRange?: number[];
   };
+  /** On the champion's CharacterRecords/Root record. */
+  damagePerLevelModifiable?: { baseValue?: number };
+  critDamageMultiplier?: number;
 }
 
-const SUMMONERS_RIFT = '11';
+const SUMMONERS_RIFT = DATA_DRAGON.summonersRiftMap;
 
+/**
+ * Build champions, adding `stats.adaptiveType` from the hand-maintained list in
+ * scripts/overrides/adaptive-magic.json (Data Dragon doesn't have it).
+ */
 async function buildChampions(version: string) {
-  const { data } = await getJson<{ data: Record<string, DDChampionSummary> }>(
-    `${DDRAGON}/cdn/${version}/data/${LOCALE}/champion.json`,
-  );
+  const [{ data }, overrides] = await Promise.all([
+    getJson<{ data: Record<string, DDChampionSummary> }>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/champion.json`),
+    readFile(path.join(OVERRIDES, 'adaptive-magic.json'), 'utf8').then((t) => JSON.parse(t) as { champions: string[] }),
+  ]);
+  const adaptiveMagic = new Set(overrides.champions);
+  const known = new Set(Object.values(data).map((c) => c.name));
+  const warnings = overrides.champions
+    .filter((name) => !known.has(name))
+    .map((name) => `adaptive-magic.json: no champion named "${name}"`);
+
   const champions = Object.values(data)
     .map((c) => ({
       id: c.id,
@@ -114,66 +160,159 @@ async function buildChampions(version: string) {
       tags: c.tags,
       resource: c.partype,
       icon: `${DDRAGON}/cdn/${version}/img/champion/${c.image.full}`,
-      stats: c.stats,
+      stats: { ...c.stats, adaptiveType: adaptiveMagic.has(c.name) ? 'ap' : 'ad' },
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
-  return champions;
+  return { champions, warnings };
+}
+
+const SLOTS = ['Q', 'W', 'E', 'R'] as const;
+/** Ranks for spells Data Dragon doesn't list (passives, sub-spells like Darius's bleed). */
+const DEFAULT_MAX_RANK = 5;
+
+interface SpellCoverage {
+  translated: number;
+  unsupported: number;
+  /** Reason → count, across all champions. */
+  reasons: Record<string, number>;
+}
+
+/** Wait before retrying champions whose downloads failed, then stop the import if any still fail. */
+const CHAMPION_RETRY_DELAY_MS = 5000;
+
+/** One champion's spell data, built in memory (nothing is written until every champion succeeds). */
+interface ChampionSpellResult {
+  spells: Record<string, unknown>;
+  adGrowth?: number;
+  critDamageMultiplier?: number;
+  translated: number;
+  unsupportedReasons: string[];
+  noCooldown: string[];
 }
 
 /**
- * Pull each champion's spell DataValues + SpellCalculations from CommunityDragon.
- * Stored mostly raw for now; turning SpellCalculations into our DamageComponent
- * model is the next milestone (see ROADMAP.md).
+ * Pull each champion's spell DataValues + SpellCalculations from CommunityDragon,
+ * tag spells with their Q/W/E/R slot and max rank from Data Dragon, and translate
+ * the calculations into engine formulas (see spell-formulas.ts).
+ *
+ * Champions whose downloads fail are retried once after CHAMPION_RETRY_DELAY_MS; if any
+ * still fail, this throws, so the import stops before writing anything.
  */
-async function buildSpells(version: string, championIds: string[], outDir: string) {
+async function buildSpells(version: string, championIds: string[]) {
   const patch = cdragonPatch(version);
-  const failures: string[] = [];
 
-  await mapLimit(championIds, CONCURRENCY, async (id) => {
+  const loadChampion = async (id: string): Promise<ChampionSpellResult> => {
     const alias = id.toLowerCase();
-    const url = `${CDRAGON}/${patch}/game/data/characters/${alias}/${alias}.bin.json`;
-    let bin: Record<string, BinSpellObject>;
-    try {
-      bin = await getJson(url);
-    } catch (err) {
-      // Fall back to "latest" in case CommunityDragon hasn't published this patch's folder yet.
-      try {
-        bin = await getJson(url.replace(`/${patch}/`, '/latest/'));
-      } catch {
-        failures.push(`${id}: ${(err as Error).message}`);
-        return;
-      }
-    }
+    const [bin, detail] = await Promise.all([
+      getCdragonJson<Record<string, BinSpellObject>>(patch, `game/data/characters/${alias}/${alias}.bin.json`),
+      getJson<{ data: Record<string, DDChampionDetail> }>(
+        `${DDRAGON}/cdn/${version}/data/${LOCALE}/champion/${id}.json`,
+      ).then((r) => r.data[id]),
+    ]);
+    const root = Object.entries(bin).find(([binPath]) => binPath.endsWith('/CharacterRecords/Root'))?.[1];
+    const adGrowth = root?.damagePerLevelModifiable?.baseValue;
+    const result: ChampionSpellResult = {
+      spells: {},
+      // The bin stores floats (2.3499999); the stat itself has at most a few decimals.
+      adGrowth: adGrowth === undefined ? undefined : Math.round(adGrowth * 1e4) / 1e4,
+      critDamageMultiplier: root?.critDamageMultiplier,
+      translated: 0,
+      unsupportedReasons: [],
+      noCooldown: [],
+    };
 
-    const spells: Record<string, unknown> = {};
+    const slotOf = new Map(detail.spells.map((s, i) => [s.id.toLowerCase(), { slot: SLOTS[i], maxRank: s.maxrank }]));
     for (const [binPath, obj] of Object.entries(bin)) {
       const spell = obj?.mSpell;
       if (!spell) continue;
       const dataValues = spell.DataValues ?? spell.mDataValues ?? [];
       if (dataValues.length === 0 && !spell.mSpellCalculations) continue;
-      spells[obj.mScriptName ?? binPath] = {
-        path: binPath,
-        cooldown: spell.cooldownTime,
-        cost: spell.mana,
-        range: spell.castRange,
-        dataValues: Object.fromEntries(dataValues.map((d) => [d.mName, d.mValues ?? []])),
+      const name = obj.mScriptName ?? binPath;
+      const known = slotOf.get(name.toLowerCase());
+      const slot = known?.slot ?? (/passive/i.test(name) ? 'P' : undefined);
+      const maxRank = known?.maxRank ?? DEFAULT_MAX_RANK;
+      const raw = {
+        dataValues: Object.fromEntries(
+          dataValues.map((d) => [d.name ?? d.mName ?? '', d.values ?? d.mValues ?? []]),
+        ),
         calculations: spell.mSpellCalculations ?? {},
       };
+      const { formulas, unsupported } = translateSpell(raw, maxRank);
+      result.translated += Object.keys(formulas).length;
+      result.unsupportedReasons.push(...Object.values(unsupported));
+      const cooldown = cooldownByRank(spell.cooldownTime, maxRank);
+      if (slot && slot !== 'P' && !cooldown) result.noCooldown.push(`${id} ${slot} (${name})`);
+      result.spells[name] = {
+        path: binPath,
+        ...(slot ? { slot } : {}),
+        maxRank,
+        // One value per rank (index 0 = rank 1); omitted when the data has nothing usable.
+        cooldown,
+        cost: costByRank(spell.mana, maxRank),
+        range: rangeByRank(spell.castRange, maxRank),
+        ...raw,
+        formulas,
+        unsupported,
+      };
     }
-    await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
-  });
+    return result;
+  };
 
-  return failures;
+  const { results, failed } = await runWithRetry(championIds, loadChampion, {
+    limit: CONCURRENCY,
+    delayMs: CHAMPION_RETRY_DELAY_MS,
+    onRetry: (first) =>
+      console.warn(`  ! ${first.length} champions failed to download (${first.map((f) => f.item).join(', ')}); retrying in ${CHAMPION_RETRY_DELAY_MS / 1000}s`),
+  });
+  if (failed.length > 0) {
+    throw new Error(
+      `Import stopped: ${failed.length} champions still failed after a retry, so nothing was written:\n` +
+        failed.map((f) => `  ${f.item}: ${f.error.message}`).join('\n'),
+    );
+  }
+
+  const coverage: SpellCoverage = { translated: 0, unsupported: 0, reasons: {} };
+  /** Champion id → AD per level from the champion's game data (Data Dragon has 0 for everyone). */
+  const adPerLevel = new Map<string, number>();
+  /** Champion id → Root values hand-entered engine constants are checked against (game-values.json). */
+  const rootValues: Record<string, ValueMap> = {};
+  /** "Champion Q (Spell)" for Q/W/E/R spells with no usable cooldown in the data. */
+  const noCooldown: string[] = [];
+  const spellsById = new Map<string, Record<string, unknown>>();
+  for (const id of championIds) {
+    const r = results.get(id)!;
+    spellsById.set(id, r.spells);
+    if (r.adGrowth !== undefined) adPerLevel.set(id, r.adGrowth);
+    if (r.critDamageMultiplier !== undefined) rootValues[id] = { critDamageMultiplier: r.critDamageMultiplier };
+    noCooldown.push(...r.noCooldown);
+    coverage.translated += r.translated;
+    coverage.unsupported += r.unsupportedReasons.length;
+    for (const reason of r.unsupportedReasons) {
+      // Group by reason kind, not the specific value name.
+      const kind = reason.replace(/"[^"]*"/g, '"…"');
+      coverage.reasons[kind] = (coverage.reasons[kind] ?? 0) + 1;
+    }
+  }
+  return { spellsById, coverage, adPerLevel, rootValues, noCooldown: noCooldown.sort() };
 }
 
 async function buildItems(version: string) {
   const { data } = await getJson<{ data: Record<string, DDItem> }>(
     `${DDRAGON}/cdn/${version}/data/${LOCALE}/item.json`,
   );
-  return Object.entries(data)
-    .filter(([, item]) => item.maps?.[SUMMONERS_RIFT] && item.gold?.purchasable && item.inStore !== false)
+  // Support item stages after World Atlas aren't purchasable but are held in builds (sources.ts).
+  const stages: readonly string[] = SUPPORT_STAGES;
+  const store = Object.entries(data)
+    .filter(([id, item]) => item.maps?.[SUMMONERS_RIFT] && ((item.gold?.purchasable && item.inStore !== false) || stages.includes(id)))
     .filter(([, item]) => !item.requiredChampion && !item.requiredAlly)
-    .map(([id, item]) => {
+    .map(([id, item]) => ({ ...item, id }));
+  const { items: unique, dropped } = dedupeItemsByName(store);
+  // Recipes only link items in this list: Data Dragon's also point at dropped variants
+  // (Kindlegem → 323050), items from other modes (Atma's Reckoning) and unbuyable ones (Trailblazer).
+  const listed = new Set(unique.map((i) => i.id));
+  const recipe = (ids: string[] = []) => ids.filter((x) => listed.has(x));
+  const built = unique
+    .map(({ id, ...item }) => {
       const textStats = parseItemDescriptionStats(item.description);
       return {
         id,
@@ -181,8 +320,8 @@ async function buildItems(version: string) {
         plaintext: item.plaintext,
         gold: item.gold.total,
         tags: item.tags,
-        from: item.from ?? [],
-        into: item.into ?? [],
+        from: recipe(item.from),
+        into: recipe(item.into),
         icon: `${DDRAGON}/cdn/${version}/img/item/${item.image.full}`,
         stats: toStatBonuses(item.stats, textStats),
         // Kept so passives can be modeled (and audited) later.
@@ -190,10 +329,118 @@ async function buildItems(version: string) {
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
+  // Full recipes, for role quest items whose sources aren't in the store (Bounty of Worlds).
+  const recipes = Object.fromEntries(Object.entries(data).map(([id, item]) => [id, item.from]));
+  return { items: built, dropped, recipes };
+}
+
+interface DDSummoner {
+  id: string;
+  key: string;
+  name: string;
+  description: string;
+  modes: string[];
+  image: { full: string };
+}
+
+/** Data Dragon's mode name for Summoner's Rift. */
+const CLASSIC_MODE = 'CLASSIC';
+
+/**
+ * Summoner's Rift summoner spells: names and icons from Data Dragon, values from
+ * CommunityDragon's shared bin (Data Dragon's tooltips have no numbers), translated
+ * like champion spells (one rank).
+ */
+async function buildSummoners(version: string) {
+  const [{ data }, shared] = await Promise.all([
+    getJson<{ data: Record<string, DDSummoner> }>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/summoner.json`),
+    getCdragonJson<Record<string, BinSpellObject>>(cdragonPatch(version), 'game/shared.cdtb.bin.json'),
+  ]);
+  const warnings: string[] = [];
+  const summoners = Object.values(data)
+    .filter((s) => s.modes.includes(CLASSIC_MODE))
+    .map((s) => {
+      const spell = shared[`Shared/Spells/${s.id}`]?.mSpell;
+      if (!spell) warnings.push(`${s.name} (${s.id}): no spell values in shared.cdtb.bin`);
+      const dataValues = spell?.DataValues ?? spell?.mDataValues ?? [];
+      const raw = {
+        dataValues: Object.fromEntries(dataValues.map((d) => [d.name ?? d.mName ?? '', d.values ?? d.mValues ?? []])),
+        calculations: spell?.mSpellCalculations ?? {},
+      };
+      const { formulas, unsupported } = translateSpell(raw, 1);
+      return {
+        id: s.id,
+        key: s.key,
+        name: s.name,
+        description: s.description,
+        icon: `${DDRAGON}/cdn/${version}/img/spell/${s.image.full}`,
+        cooldown: cooldownByRank(spell?.cooldownTime, 1)?.[0],
+        range: rangeByRank(spell?.castRange, 1)?.[0],
+        ...raw,
+        formulas,
+        unsupported,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+  return { summoners, warnings };
 }
 
 async function buildRunes(version: string) {
   return getJson<unknown>(`${DDRAGON}/cdn/${version}/data/${LOCALE}/runesReforged.json`);
+}
+
+// ---- CommunityDragon client data shapes (only the fields we use) ----
+const CD_CLIENT_DATA = COMMUNITY_DRAGON.clientDataPath;
+interface CDPerk {
+  id: number;
+  name: string;
+  shortDesc: string;
+  iconPath: string;
+}
+interface CDPerkStyles {
+  styles: Array<{ name: string; slots: Array<{ type: string; slotLabel: string; perks: number[] }> }>;
+}
+
+/**
+ * Rune stat shards. Every rune tree lists the same shard rows (kStatMod slots),
+ * so the first tree's rows are used and the rest are checked against it.
+ */
+async function buildShards(version: string): Promise<{ data: ShardData; warnings: string[] }> {
+  const patch = cdragonPatch(version);
+  const [perks, perkStyles] = await Promise.all([
+    getCdragonJson<CDPerk[]>(patch, `${CD_CLIENT_DATA}/perks.json`),
+    getCdragonJson<CDPerkStyles>(patch, `${CD_CLIENT_DATA}/perkstyles.json`),
+  ]);
+  const warnings: string[] = [];
+
+  const rowsOf = (style: CDPerkStyles['styles'][number]) =>
+    style.slots
+      .filter((slot) => slot.type === 'kStatMod')
+      .map((slot) => ({ label: slot.slotLabel, options: slot.perks }));
+  const rows = rowsOf(perkStyles.styles[0]);
+  if (rows.length === 0) throw new Error('No stat shard rows found in perkstyles.json');
+  for (const style of perkStyles.styles.slice(1)) {
+    if (JSON.stringify(rowsOf(style)) !== JSON.stringify(rows)) {
+      warnings.push(`${style.name} has different shard rows than ${perkStyles.styles[0].name}; using the latter`);
+    }
+  }
+
+  const shards: Record<number, StatShard> = {};
+  for (const id of new Set(rows.flatMap((r) => r.options))) {
+    const perk = perks.find((p) => p.id === id);
+    if (!perk) throw new Error(`Shard ${id} is listed in perkstyles.json but missing from perks.json`);
+    const parsed = parseShardText(perk.shortDesc);
+    for (const text of parsed.unmodeled ?? []) warnings.push(`${perk.name} (${id}): not modeled: "${text}"`);
+    shards[id] = {
+      id,
+      name: perk.name,
+      description: cleanText(perk.shortDesc),
+      // "/lol-game-data/assets/v1/perk-images/..." -> CommunityDragon's lowercased file path.
+      icon: `${CDRAGON}/${patch}/${CD_CLIENT_DATA}/${perk.iconPath.replace('/lol-game-data/assets/v1/', '').toLowerCase()}`,
+      ...parsed,
+    };
+  }
+  return { data: { rows, shards }, warnings };
 }
 
 async function main() {
@@ -207,19 +454,64 @@ async function main() {
   const outDir = path.join(OUT_ROOT, version);
   console.log(`Building data for ${version} -> ${path.relative(process.cwd(), outDir)}`);
 
-  const [champions, items, runes] = await Promise.all([
+  // Download and build everything first; files are only written once every download has
+  // succeeded, so a failed import leaves the existing data untouched.
+  const [{ champions, warnings: championWarnings }, { items, dropped: droppedItems, recipes }, runes, shards] = await Promise.all([
     buildChampions(version),
     buildItems(version),
     buildRunes(version),
+    buildShards(version),
   ]);
-  await writeJson(path.join(outDir, 'champions.json'), champions);
-  await writeJson(path.join(outDir, 'items.json'), items);
-  await writeJson(path.join(outDir, 'runes.json'), runes);
-  console.log(`  ${champions.length} champions, ${items.length} items`);
+  const [itemsBin, perksBin, summoners] = await Promise.all([
+    getCdragonJson<ItemsBin>(cdragonPatch(version), 'game/items.cdtb.bin.json'),
+    getCdragonJson<Record<string, unknown>>(cdragonPatch(version), 'game/perks.cdtb.bin.json'),
+    buildSummoners(version),
+  ]);
+  const itemGroups = buildItemGroups(itemsBin, items);
+  const { spellsById, coverage, adPerLevel, rootValues, noCooldown } = await buildSpells(version, champions.map((c) => c.id));
 
-  const failures = await buildSpells(version, champions.map((c) => c.id), outDir);
-  console.log(`  spells: ${champions.length - failures.length}/${champions.length} champions`);
-  for (const f of failures) console.warn(`  ! ${f}`);
+  // Data Dragon's attackdamageperlevel is 0 for every champion; take the game data's value instead.
+  for (const champ of champions) {
+    const stats = champ.stats as Record<string, number | string>;
+    const growth = adPerLevel.get(champ.id);
+    if (stats.attackdamageperlevel !== 0) continue;
+    if (growth === undefined) console.warn(`  ! ${champ.id}: no AD per level in game data, left at 0`);
+    else stats.attackdamageperlevel = growth;
+  }
+
+  await writeJson(path.join(outDir, 'items.json'), items);
+  await writeJson(path.join(outDir, 'item-groups.json'), itemGroups);
+  await writeJson(path.join(outDir, 'role-quests.json'), buildRoleQuestItems(items, recipes, itemGroups));
+  await writeJson(path.join(outDir, 'runes.json'), runes);
+  await writeJson(path.join(outDir, 'shards.json'), shards.data);
+  await writeJson(path.join(outDir, 'summoners.json'), summoners.summoners);
+  await writeJson(path.join(outDir, 'champions.json'), champions);
+  for (const [id, spells] of spellsById) await writeJson(path.join(outDir, 'spells', `${id}.json`), spells);
+  // Values hand-entered engine constants are checked against (src/engine/hand.ts).
+  await writeJson(path.join(outDir, 'game-values.json'), {
+    items: itemValues(itemsBin as Record<string, unknown>),
+    perks: perkValues(perksBin),
+    // Sorted: champions finish downloading in any order.
+    champions: Object.fromEntries(Object.entries(rootValues).sort(([a], [b]) => a.localeCompare(b))),
+  });
+
+  console.log(
+    `  ${champions.length} champions, ${items.length} items (${itemGroups.length} shop limit groups), ` +
+      `${Object.keys(shards.data.shards).length} stat shards, ${summoners.summoners.length} summoner spells`,
+  );
+  for (const w of [...championWarnings, ...shards.warnings, ...summoners.warnings]) console.warn(`  ! ${w}`);
+  console.log(`  ${droppedItems.length} items listed more than once; kept one each (see item-dedupe.ts):`);
+  for (const d of droppedItems) console.log(`    ${d.name}: kept ${d.kept}, dropped ${d.dropped.join(', ')}`);
+  console.log(`  spells: ${spellsById.size}/${champions.length} champions`);
+  console.log(`  ${noCooldown.length} abilities have no usable cooldown in the data (shown as unknown): ${noCooldown.join(', ')}`);
+  const total = coverage.translated + coverage.unsupported;
+  console.log(
+    `  formulas: ${coverage.translated}/${total} calculations translated ` +
+      `(${((100 * coverage.translated) / Math.max(1, total)).toFixed(1)}%); unsupported by reason:`,
+  );
+  for (const [reason, count] of Object.entries(coverage.reasons).sort((a, b) => b[1] - a[1])) {
+    console.log(`    ${String(count).padStart(4)}  ${reason}`);
+  }
 
   await writeJson(path.join(OUT_ROOT, 'manifest.json'), {
     latest: version,

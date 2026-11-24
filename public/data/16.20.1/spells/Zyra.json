@@ -1,0 +1,555 @@
+{
+  "ZyraR": {
+    "path": "Characters/Zyra/Spells/ZyraRAbility/ZyraR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      110,
+      100,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "PlantDamageBonus": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "KnockupDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "EnragedBonusHealthPercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseDamage": [
+        200,
+        200,
+        300,
+        400,
+        400,
+        400,
+        400
+      ],
+      "EnragePlantsBonusDamage": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZyraW": {
+    "path": "Characters/Zyra/Spells/ZyraWAbility/ZyraW",
+    "slot": "W",
+    "maxRank": 5,
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "KillAmmoRefundMinion": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "KillAmmoRefundChamp": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "VisionGranted": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SeedDuration": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "FlurryDamageBonus": []
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "ZyraQ": {
+    "path": "Characters/Zyra/Spells/ZyraQAbility/ZyraQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      6.5,
+      6,
+      5.5,
+      5
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        60,
+        60,
+        100,
+        140,
+        180,
+        220,
+        260
+      ]
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZyraE": {
+    "path": "Characters/Zyra/Spells/ZyraEAbility/ZyraE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      1150,
+      1150,
+      1150,
+      1150,
+      1150
+    ],
+    "dataValues": {
+      "MaxSlowStacks": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PheromoneDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "RootDuration": [
+        0.75,
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25
+      ],
+      "BaseDamage": [
+        25,
+        60,
+        95,
+        130,
+        165,
+        200,
+        235
+      ],
+      "SlowAmountPlantAttack": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "SlowDurationPlantAttack": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          60,
+          95,
+          130,
+          165,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZyraP": {
+    "path": "Characters/Zyra/Spells/ZyraPAbility/ZyraP",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "PlantDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "PlantBaseDmg": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "PlantLvlScaling": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "APRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    "calculations": {
+      "SeedCooldown": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 13.600000381469727,
+            "mEndValue": 9.050000190734863,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "PlantDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 15,
+            "mEndValue": 75,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "monstermod": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 50,
+            "mEndValue": 100,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{c951f1e1}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": -1,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "SeedCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          13.6,
+          13.33235,
+          13.06471,
+          12.79706,
+          12.52941,
+          12.26177,
+          11.99412,
+          11.72647,
+          11.45882,
+          11.19118,
+          10.92353,
+          10.65588,
+          10.38824,
+          10.12059,
+          9.852941,
+          9.585294,
+          9.317647,
+          9.05
+        ]
+      },
+      "PlantDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          18.52941,
+          22.05882,
+          25.58824,
+          29.11765,
+          32.64706,
+          36.17647,
+          39.70588,
+          43.23529,
+          46.76471,
+          50.29412,
+          53.82353,
+          57.35294,
+          60.88235,
+          64.41176,
+          67.94118,
+          71.47059,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "monstermod": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          52.94118,
+          55.88235,
+          58.82353,
+          61.76471,
+          64.70588,
+          67.64706,
+          70.58824,
+          73.52941,
+          76.47059,
+          79.41176,
+          82.35294,
+          85.29412,
+          88.23529,
+          91.17647,
+          94.11765,
+          97.05882,
+          100
+        ]
+      },
+      "{c951f1e1}": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          49,
+          48,
+          47,
+          46,
+          45,
+          44,
+          43,
+          42,
+          41,
+          40,
+          39,
+          38,
+          37,
+          36,
+          35,
+          34,
+          33
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,684 @@
+{
+  "GragasW": {
+    "path": "Characters/Gragas/Spells/GragasWAbility/GragasW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "cost": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "AttackRangeBuff": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "MaxHPPercentDamage": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "BaseDamageReduction": [
+        6,
+        10,
+        14,
+        18,
+        22,
+        26,
+        30
+      ],
+      "DamageReductionAP": [
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033,
+        0.03999999910593033
+      ],
+      "BaseDamage": [
+        -10,
+        20,
+        50,
+        80,
+        110,
+        140,
+        170
+      ],
+      "BaseDamageAP": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "MonsterDamageCap": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "DefenseDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "AttackDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "TurretDamageMod": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "DamageReduction": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageReductionAP",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BaseDamageAP",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageReduction": {
+        "base": [
+          0.1,
+          0.14,
+          0.18,
+          0.22,
+          0.26
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          20,
+          50,
+          80,
+          110,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GragasQToggle": {
+    "path": "Characters/Gragas/Spells/GragasQAbility/GragasQToggle",
+    "maxRank": 5,
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ]
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GragasQ": {
+    "path": "Characters/Gragas/Spells/GragasQAbility/GragasQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      850,
+      850,
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "SlowPercent": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BarrelMaxDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "BarrelCookMaxTime": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BarrelCookMaxAmp": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "MinionDamageMod": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
+      ]
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mMultiplier": {
+          "mNumber": 1.5,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "MinDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          120,
+          180,
+          240,
+          300,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GragasE": {
+    "path": "Characters/Gragas/Spells/GragasEAbility/GragasE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13.5,
+      13,
+      12.5,
+      12
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        80,
+        125,
+        170,
+        215,
+        260,
+        305
+      ],
+      "APRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "CooldownRefund": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "StunDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DashSpeed": [
+        900,
+        900,
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "HitboxArea": [
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180
+      ],
+      "ForwardHitbox": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GragasR": {
+    "path": "Characters/Gragas/Spells/GragasRAbility/GragasR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      85,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1050,
+      1050,
+      1050
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "APRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "KnockbackDistance": [
+        900,
+        900,
+        900,
+        900,
+        900,
+        900,
+        900
+      ]
+    },
+    "calculations": {
+      "DamageDone": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageDone": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GragasPassive": {
+    "path": "Characters/Gragas/Spells/GragasPassiveAbility/GragasPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "dataValues": {
+      "HealRatio": [
+        0.054999999701976776,
+        0.054999999701976776,
+        0.054999999701976776,
+        0.054999999701976776,
+        0.054999999701976776,
+        0.054999999701976776,
+        0.054999999701976776
+      ],
+      "Level1Value": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "AdditionalBonusAtThisLevel": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2
+      ],
+      "BonusPerLevelAtAndAfter": []
+    },
+    "calculations": {
+      "HealAmount": {
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mDataValue": "HealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealCooldown": {
+        "mFormulaParts": [
+          {
+            "{91d404a5}": "Level1Value",
+            "{bbd778a2}": "BonusPerLevelAtAndAfter",
+            "{9823b29a}": [
+              {
+                "level": 6,
+                "{ae9b464d}": "AdditionalBonusAtThisLevel",
+                "{b0d8b2ac}": "BonusPerLevelAtAndAfter",
+                "__type": "{0333530c}"
+              },
+              {
+                "level": 11,
+                "{ae9b464d}": "AdditionalBonusAtThisLevel",
+                "{b0d8b2ac}": "BonusPerLevelAtAndAfter",
+                "__type": "{0333530c}"
+              },
+              {
+                "level": 16,
+                "{ae9b464d}": "AdditionalBonusAtThisLevel",
+                "{b0d8b2ac}": "BonusPerLevelAtAndAfter",
+                "__type": "{0333530c}"
+              }
+            ],
+            "__type": "{4ce08984}"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "HealAmount": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.055
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "HealCooldown": "part type {4ce08984}"
+    }
+  }
+}

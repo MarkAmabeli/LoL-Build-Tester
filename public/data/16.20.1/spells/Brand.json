@@ -1,0 +1,614 @@
+{
+  "BrandPassive": {
+    "path": "Characters/Brand/Spells/BrandPassiveAbility/BrandPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MonsterMod": [
+        270,
+        270,
+        270,
+        270,
+        270,
+        270,
+        270
+      ],
+      "PercentHealthDamage": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "EpicMonsterDPSCap": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "JungleMonsterDPSCap": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "ManaRestoration": [
+        20,
+        20,
+        25,
+        30,
+        35,
+        40,
+        40
+      ]
+    },
+    "calculations": {
+      "ManaRestore": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 3,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 9,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 12,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 15,
+                "mAdditionalBonusAtThisLevel": 3.3329999446868896,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 18,
+                "mAdditionalBonusAtThisLevel": 3.3299999237060547,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExplosionDamage": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 6,
+            "mEndValue": 12,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.019999999552965164,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "{4124b2bf}": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "EpicMonsterDPSCap",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mNumber": 0.25,
+              "__type": "NumberCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{afbf404a}": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "JungleMonsterDPSCap",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mNumber": 0.25,
+              "__type": "NumberCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "JungleMonsterExplosionFlatCap": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 270,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 85,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 85,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 85,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ManaRestore": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20,
+          23.33,
+          23.33,
+          23.33,
+          26.66,
+          26.66,
+          26.66,
+          29.99,
+          29.99,
+          29.99,
+          33.32,
+          33.32,
+          33.32,
+          36.653,
+          36.653,
+          36.653,
+          39.983
+        ]
+      },
+      "ExplosionDamage": {
+        "base": 0,
+        "baseByLevel": [
+          0.06,
+          0.06352941,
+          0.06705882,
+          0.07058823,
+          0.07411765,
+          0.07764706,
+          0.08117647,
+          0.08470588,
+          0.08823529,
+          0.0917647,
+          0.09529412,
+          0.09882353,
+          0.1023529,
+          0.1058824,
+          0.1094118,
+          0.1129412,
+          0.1164706,
+          0.12
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "{4124b2bf}": {
+        "base": 20
+      },
+      "{afbf404a}": {
+        "base": 12.5
+      },
+      "JungleMonsterExplosionFlatCap": {
+        "base": 0,
+        "baseByLevel": [
+          270,
+          270,
+          270,
+          270,
+          270,
+          355,
+          355,
+          355,
+          355,
+          355,
+          440,
+          440,
+          440,
+          440,
+          440,
+          525,
+          525,
+          525
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BrandW": {
+    "path": "Characters/Brand/Spells/BrandWAbility/BrandW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9.5,
+      9,
+      8.5,
+      8
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "APRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "BaseDamage": [
+        30,
+        75,
+        120,
+        165,
+        210,
+        255,
+        300
+      ],
+      "PDamageBonus": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamage": {
+        "mMultiplier": {
+          "mNumber": 1.25,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          75,
+          120,
+          165,
+          210,
+          255
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "EmpoweredDamage": {
+        "base": [
+          93.75,
+          150,
+          206.25,
+          262.5,
+          318.75
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.875
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BrandE": {
+    "path": "Characters/Brand/Spells/BrandEAbility/BrandE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      12,
+      11,
+      10,
+      9
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      675,
+      675,
+      675,
+      675,
+      675
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        55,
+        80,
+        105,
+        130,
+        155,
+        180
+      ],
+      "APRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ]
+    },
+    "calculations": {
+      "EDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "EDamageCalc": {
+        "base": [
+          55,
+          80,
+          105,
+          130,
+          155
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BrandR": {
+    "path": "Characters/Brand/Spells/BrandRAbility/BrandR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      90,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        25,
+        100,
+        175,
+        250,
+        325,
+        400,
+        475
+      ],
+      "SlowAmount": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "SlowDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "APRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          100,
+          175,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BrandQ": {
+    "path": "Characters/Brand/Spells/BrandQAbility/BrandQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "dataValues": {
+      "StunDuration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "SpellBaseDamage": [
+        40,
+        70,
+        100,
+        130,
+        160,
+        190,
+        220
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SpellBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

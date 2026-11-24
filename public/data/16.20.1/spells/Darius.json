@@ -1,0 +1,553 @@
+{
+  "DariusNoxianTacticsONH": {
+    "path": "Characters/Darius/Spells/DariusNoxianTacticsONHAbility/DariusNoxianTacticsONH",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "SlowPercent": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "PercentCDRefund": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "ADRatio": [
+        1.5,
+        1.399999976158142,
+        1.4500000476837158,
+        1.5,
+        1.5499999523162842,
+        1.600000023841858,
+        1.649999976158142
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "EmpoweredAttackDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mDataValue": "ADRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "EmpoweredAttackDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.4,
+              1.45,
+              1.5,
+              1.55,
+              1.6
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DariusHemoMarker": {
+    "path": "Characters/Darius/Spells/DariusHemoMarkerAbility/DariusHemoMarker",
+    "maxRank": 5,
+    "dataValues": {
+      "MonsterMod": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "SecondsPerTick": [
+        1.2599999904632568,
+        1.2599999904632568,
+        1.2599999904632568,
+        1.2599999904632568,
+        1.2599999904632568,
+        1.2599999904632568,
+        1.2599999904632568
+      ],
+      "BleedDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MaxStacks": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {
+      "BleedDamagePerStack": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 13,
+            "mEndValue": 30,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "NoxianMightBonusAD": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 30,
+            "mInitialBonusPerLevel": 5,
+            "mBreakpoints": [
+              {
+                "mLevel": 11,
+                "mBonusPerLevelAtAndAfter": 10,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 14,
+                "mBonusPerLevelAtAndAfter": 25,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BleedDamagePerStack": {
+        "base": 0,
+        "baseByLevel": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.3
+          }
+        ]
+      },
+      "NoxianMightBonusAD": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          85,
+          95,
+          105,
+          130,
+          155,
+          180,
+          205,
+          230
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DariusCleave": {
+    "path": "Characters/Darius/Spells/DariusCleaveAbility/DariusCleave",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "cost": [
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    "range": [
+      270,
+      270,
+      270,
+      270,
+      270
+    ],
+    "dataValues": {
+      "MissingHealthHeal": [
+        17,
+        17,
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "TotalADRatio": [
+        90,
+        100,
+        110,
+        120,
+        130,
+        140,
+        150
+      ],
+      "BaseDamage": [
+        10,
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "InnerCircleDamagePercent": [
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        35
+      ],
+      "MissingHealPercent": [
+        51,
+        51,
+        51,
+        51,
+        51,
+        51,
+        51
+      ]
+    },
+    "calculations": {
+      "BladeDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mPart1": {
+                "mDataValue": "TotalADRatio",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mNumber": 0.009999999776482582,
+                "__type": "NumberCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HandleDamage": {
+        "mMultiplier": {
+          "mNumber": 0.3499999940395355,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "BladeDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "BladeDamage": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1,
+              1.1,
+              1.2,
+              1.3,
+              1.4
+            ]
+          }
+        ]
+      },
+      "HandleDamage": {
+        "base": [
+          17.5,
+          28,
+          38.5,
+          49,
+          59.5
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.35,
+              0.385,
+              0.42,
+              0.455,
+              0.49
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "DariusAxeGrabCone": {
+    "path": "Characters/Darius/Spells/DariusAxeGrabConeAbility/DariusAxeGrabCone",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      26,
+      23.5,
+      21,
+      18.5,
+      16
+    ],
+    "cost": [
+      70,
+      60,
+      50,
+      40,
+      30
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "PassivePercentArmorPen": [
+        20,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "SlowPercent": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "DariusExecute": {
+    "path": "Characters/Darius/Spells/DariusExecuteAbility/DariusExecute",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      0
+    ],
+    "range": [
+      475,
+      475,
+      475
+    ],
+    "dataValues": {
+      "RBaseDamage": [
+        0,
+        125,
+        250,
+        375,
+        500,
+        625,
+        750
+      ],
+      "RDamagePercentPerHemoStack": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "RRecastDuration": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaximumDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "Damage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          125,
+          250,
+          375
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.75
+          }
+        ]
+      },
+      "MaximumDamage": {
+        "base": [
+          250,
+          500,
+          750
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "LeeSinPassive": {
+    "path": "Characters/LeeSin/Spells/LeeSinPassiveAbility/LeeSinPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "PassiveAS": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "FirstHitEnergyMult": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "EnergyReturn": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 13,
+                "mAdditionalBonusAtThisLevel": 5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TTFirstHitEnergy": {
+        "mMultiplier": {
+          "mDataValue": "FirstHitEnergyMult",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "EnergyReturn",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "EnergyReturn": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "TTFirstHitEnergy": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          40,
+          40,
+          40,
+          40,
+          40,
+          40
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeeSinQOne": {
+    "path": "Characters/LeeSin/Spells/LeeSinQOneAbility/LeeSinQOne",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "Q1BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "Q2BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "Q1ADRatio": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "Q2ADRatio": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "Q2MaxMissingHealthMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ReactivateTime": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "CherryBonusHaste": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "DashSpeed": [
+        1350,
+        1350,
+        1350,
+        1350,
+        1350,
+        1350,
+        1350
+      ]
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Q1BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "Q1ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RecastDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Q2BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "Q2ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "RecastDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "RecastDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "EmpoweredDamage": {
+        "base": [
+          120,
+          180,
+          240,
+          300,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeeSinR": {
+    "path": "Characters/LeeSin/Spells/LeeSinRAbility/LeeSinR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      110,
+      85,
+      60
+    ],
+    "range": [
+      375,
+      375,
+      375
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        -50,
+        175,
+        400,
+        625,
+        850,
+        1075,
+        1300
+      ],
+      "PercentHPCarryThrough": [
+        12,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27
+      ],
+      "KickDistance": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 2,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          175,
+          400,
+          625
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeeSinEOne": {
+    "path": "Characters/LeeSin/Spells/LeeSinEOneAbility/LeeSinEOne",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "SlowAmount": [
+        25,
+        35,
+        45,
+        55,
+        65,
+        75,
+        85
+      ],
+      "E1Damage": [
+        10,
+        35,
+        60,
+        85,
+        110,
+        135,
+        160
+      ],
+      "ReactivateTime": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "SlowDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "InitialDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "E1Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 0.8999999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "InitialDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeeSinWOne": {
+    "path": "Characters/LeeSin/Spells/LeeSinWOneAbility/LeeSinWOne",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "LifestealAndSpellVamp": [
+        6,
+        10,
+        14,
+        18,
+        22,
+        26,
+        30
+      ],
+      "ShieldValue": [
+        15,
+        60,
+        105,
+        150,
+        195,
+        240,
+        285
+      ],
+      "ShieldDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "DashSpeed": [
+        1350,
+        1350,
+        1350,
+        1350,
+        1350,
+        1350,
+        1350
+      ],
+      "W1ReactivateTime": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "W1CooldownRecovered": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "LifestealAndSpellVampTime": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "ShieldAmount": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ShieldAmount": {
+        "base": [
+          60,
+          105,
+          150,
+          195,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

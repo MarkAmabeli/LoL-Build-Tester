@@ -1,0 +1,552 @@
+{
+  "QuinnW": {
+    "path": "Characters/Quinn/Spells/QuinnWAbility/QuinnW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      50,
+      45,
+      40,
+      35,
+      30
+    ],
+    "range": [
+      2500,
+      2500,
+      2500,
+      2500,
+      2500
+    ],
+    "dataValues": {
+      "AttackSpeedBonus": [
+        0.15000000596046448,
+        0.2800000011920929,
+        0.4099999964237213,
+        0.5400000214576721,
+        0.6700000166893005,
+        0.800000011920929,
+        0.9300000071525574
+      ],
+      "CherryBonusHaste": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "BuffDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MovespeedAmount": [
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104
+      ],
+      "VisionRadius": [
+        2100,
+        2100,
+        2100,
+        2100,
+        2100,
+        2100,
+        2100
+      ],
+      "VisionDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "QuinnR": {
+    "path": "Characters/Quinn/Spells/QuinnRAbility/QuinnR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      3,
+      3,
+      3
+    ],
+    "cost": [
+      50,
+      25,
+      0
+    ],
+    "range": [
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "MovementSpeedMod": [
+        0.4000000059604645,
+        0.699999988079071,
+        1,
+        1.2999999523162842,
+        1.600000023841858,
+        1.899999976158142,
+        2.200000047683716
+      ],
+      "SlowDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "HarrierCooldown": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "RHarrierMarkDuration": [
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5,
+        4.5
+      ],
+      "ADRatio": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          90,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.35
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "QuinnPassive": {
+    "path": "Characters/Quinn/Spells/QuinnPassiveAbility/QuinnPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "RevealDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ModesPassiveDamageMultiplier": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ADRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "BonusDamage": {
+        "mMultiplier": {
+          "mDataValue": "ModesPassiveDamageMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mStartValue": 15,
+            "mEndValue": 120,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusMonsterDmg": {
+        "mFormulaParts": [
+          {
+            "mNumber": 75,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusDamage": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          21.17647,
+          27.35294,
+          33.52941,
+          39.70588,
+          45.88235,
+          52.05882,
+          58.23529,
+          64.41176,
+          70.58824,
+          76.76471,
+          82.94118,
+          89.11765,
+          95.29412,
+          101.4706,
+          107.6471,
+          113.8235,
+          120
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "BonusMonsterDmg": {
+        "base": 75
+      }
+    },
+    "unsupported": {}
+  },
+  "QuinnE": {
+    "path": "Characters/Quinn/Spells/QuinnEAbility/QuinnE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "SlowAmount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseDamage": [
+        40,
+        40,
+        65,
+        90,
+        115,
+        140,
+        140
+      ],
+      "SlowDecayTime": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          40,
+          65,
+          90,
+          115,
+          140
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "QuinnQ": {
+    "path": "Characters/Quinn/Spells/QuinnQAbility/QuinnQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10.5,
+      10,
+      9.5,
+      9
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      1050,
+      1050,
+      1050,
+      1050,
+      1050
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        65,
+        100,
+        135,
+        170,
+        205,
+        240
+      ],
+      "ADRatio": [
+        0.75,
+        0.800000011920929,
+        0.8500000238418579,
+        0.8999999761581421,
+        0.949999988079071,
+        1,
+        1.0499999523162842
+      ],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "VisionReductionRadius": [
+        -1000,
+        -1000,
+        -1000,
+        -1000,
+        -1000,
+        -1000,
+        -1000
+      ],
+      "VisionReductionDuration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "BonusMonsterDmgMult": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageMonster": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "BonusMonsterDmgMult",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          100,
+          135,
+          170,
+          205
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.8,
+              0.85,
+              0.9,
+              0.95,
+              1
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalDamageMonster": {
+        "base": [
+          130,
+          200,
+          270,
+          340,
+          410
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              1.6,
+              1.7,
+              1.8,
+              1.9,
+              2
+            ]
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "KarthusLayWasteA1": {
+    "path": "Characters/Karthus/Spells/KarthusLayWasteA1Ability/KarthusLayWasteA1",
+    "slot": "Q",
+    "maxRank": 5,
+    "cost": [
+      20,
+      25,
+      30,
+      35,
+      40
+    ],
+    "range": [
+      875,
+      875,
+      875,
+      875,
+      875
+    ],
+    "dataValues": {
+      "MonsterMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "BaseDamage": [
+        21,
+        40,
+        59,
+        78,
+        97,
+        116,
+        135
+      ],
+      "APRatio": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ]
+    },
+    "calculations": {
+      "QDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QSingleTargetDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "QDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "QDamage": {
+        "base": [
+          40,
+          59,
+          78,
+          97,
+          116
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.35
+          }
+        ]
+      },
+      "QSingleTargetDamage": {
+        "base": [
+          80,
+          118,
+          156,
+          194,
+          232
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KarthusDeathDefied": {
+    "path": "Characters/Karthus/Spells/KarthusDeathDefiedAbility/KarthusDeathDefied",
+    "maxRank": 5,
+    "dataValues": {
+      "PassiveDuration": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "KarthusFallenOne": {
+    "path": "Characters/Karthus/Spells/KarthusFallenOneAbility/KarthusFallenOne",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      200,
+      180,
+      160
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        50,
+        200,
+        350,
+        500,
+        650,
+        800,
+        950
+      ],
+      "APRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          200,
+          350,
+          500
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KarthusDefile": {
+    "path": "Characters/Karthus/Spells/KarthusDefileAbility/KarthusDefile",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "cost": [
+      30,
+      42,
+      54,
+      66,
+      78
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "DamagePerSecond": [
+        10,
+        30,
+        50,
+        70,
+        90,
+        110,
+        130
+      ],
+      "APRatioPerSecond": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "ManaRestoreOnKill": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60
+      ]
+    },
+    "calculations": {
+      "TotalDPS": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatioPerSecond",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{57456bbc}": {
+        "mMultiplier": {
+          "mNumber": 0.25,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDPS",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDPS": {
+        "base": [
+          30,
+          50,
+          70,
+          90,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "{57456bbc}": {
+        "base": [
+          7.5,
+          12.5,
+          17.5,
+          22.5,
+          27.5
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KarthusWallOfPain": {
+    "path": "Characters/Karthus/Spells/KarthusWallOfPainAbility/KarthusWallOfPain",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      15,
+      15,
+      15,
+      15
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "MagicResistShred": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "TT_WallWidth": [
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300
+      ],
+      "SlowPercent": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "WallDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "DebuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

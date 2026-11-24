@@ -1,0 +1,573 @@
+{
+  "RakanW": {
+    "path": "Characters/Rakan/Spells/RakanWAbility/RakanW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "BasicBootsSpeedBonus": [],
+      "CompletedBootsSpeedBonus": [],
+      "BaseDashSpeed": [
+        1700,
+        1700,
+        1700,
+        1700,
+        1700,
+        1700,
+        1700
+      ],
+      "BaseDamage": [
+        20,
+        70,
+        120,
+        170,
+        220,
+        270,
+        320
+      ],
+      "KnockupDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.800000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          120,
+          170,
+          220,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RakanQ": {
+    "path": "Characters/Rakan/Spells/RakanQAbility/RakanQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "cost": [
+      45,
+      45,
+      45,
+      45,
+      45
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        25,
+        70,
+        115,
+        160,
+        205,
+        250,
+        295
+      ],
+      "HealDelay": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BaseCDActual": [
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "DamageAPRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "HealAPRatio": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHeal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 40,
+            "mEndValue": 210,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mDataValue": "HealAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{b88e1204}": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "BaseCDActual",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "__type": "CooldownMultiplierCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          115,
+          160,
+          205,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      },
+      "TotalHeal": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          130,
+          140,
+          150,
+          160,
+          170,
+          180,
+          190,
+          200,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{b88e1204}": "part type CooldownMultiplierCalculationPart"
+    }
+  },
+  "RakanE": {
+    "path": "Characters/Rakan/Spells/RakanEAbility/RakanE",
+    "slot": "E",
+    "maxRank": 5,
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "dataValues": {
+      "BaseShield": [
+        25,
+        50,
+        75,
+        100,
+        125,
+        150,
+        175
+      ],
+      "RecastWindow": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "Duration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "Cooldown": [
+        20,
+        20,
+        18,
+        16,
+        14,
+        12,
+        12
+      ],
+      "BonusDashSpeed": [
+        1150,
+        1150,
+        1150,
+        1150,
+        1150,
+        1150,
+        1150
+      ],
+      "XayahBonusDashSpeed": [
+        1250,
+        1250,
+        1250,
+        1250,
+        1250,
+        1250,
+        1250
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RakanPassive": {
+    "path": "Characters/Rakan/Spells/RakanPassiveAbility/RakanPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "HitCooldown": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 30,
+            "mEndValue": 225,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.949999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 40,
+            "mInitialBonusPerLevel": -1.5,
+            "mBreakpoints": [
+              {
+                "mLevel": 19,
+                "mBonusPerLevelAtAndAfter": -0.875,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          41.47059,
+          52.94118,
+          64.41176,
+          75.88235,
+          87.35294,
+          98.82353,
+          110.2941,
+          121.7647,
+          133.2353,
+          144.7059,
+          156.1765,
+          167.6471,
+          179.1176,
+          190.5882,
+          202.0588,
+          213.5294,
+          225
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.95
+          }
+        ]
+      },
+      "ShieldCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          38.5,
+          37,
+          35.5,
+          34,
+          32.5,
+          31,
+          29.5,
+          28,
+          26.5,
+          25,
+          23.5,
+          22,
+          20.5,
+          19,
+          17.5,
+          16,
+          14.5
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RakanR": {
+    "path": "Characters/Rakan/Spells/RakanRAbility/RakanR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      130,
+      110,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      150,
+      150,
+      150
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        100,
+        100,
+        200,
+        300,
+        0,
+        0,
+        0
+      ],
+      "Duration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "CharmDuration": [
+        1,
+        1,
+        1.25,
+        1.5,
+        0,
+        0,
+        0
+      ],
+      "BuffExtensionDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "InitialCastSpeed": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "TouchSpeed": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "TouchRadius": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          100,
+          200,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

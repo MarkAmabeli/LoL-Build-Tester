@@ -1,0 +1,2620 @@
+{
+  "KSanteR": {
+    "path": "Characters/KSante/Spells/KSanteRAbility/KSanteR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "AllOutDuration": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "BaseDamage": [
+        45,
+        80,
+        115,
+        150,
+        185,
+        220,
+        255
+      ],
+      "SlamDownStrikeDamage": [
+        45,
+        80,
+        115,
+        150,
+        185,
+        220,
+        255
+      ],
+      "WallStunDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "NoWallStunDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MaxSuppressTime": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "MOVEMENT_VARS": [],
+      "TackleRange": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "TackleSpeed": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ],
+      "CarrySpeed": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "MaxWallCarry": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "MaxWallCarrySR": [
+        5000,
+        5000,
+        5000,
+        5000,
+        5000,
+        5000,
+        5000
+      ],
+      "WallCheckDist": [
+        -25,
+        -25,
+        -25,
+        -25,
+        -25,
+        -25,
+        -25
+      ],
+      "KSanteLandingOffset": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "WallBuffer": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "STAT_CHANGE_VARS": [],
+      "HealthLost": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "DefensesLost": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579
+      ],
+      "Omnivamp": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "AttackSpeed": [
+        0.20000000298023224,
+        0.4000000059604645,
+        0.6000000238418579,
+        0.800000011920929,
+        1,
+        1.2000000476837158,
+        1.399999976158142
+      ],
+      "ArmorPenPercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "KsanteArrivesFirstBySec": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "AfterImageArrivesFirstBySec": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "ManaRegenPercent": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "KnockGrav": [
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "TimeToLast": [
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737,
+        0.18000000715255737
+      ],
+      "TackleRangeOverstatedNoWall": [
+        3000,
+        3000,
+        3000,
+        3000,
+        3000,
+        3000,
+        3000
+      ],
+      "CarrySpeedUnderstatedNoWall": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
+      "CarrySpeedNoWall": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "KsanteAnimLockWall": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "KsanteAnimLockNoWall": [],
+      "DistanceTriggerFasterCarrySpeed": [
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400
+      ],
+      "FasterCarrySpeed": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "AuraOffset": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "LingeringPerceptionPostStun": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "DelayToStartSlamDown": [],
+      "WallLookAhead": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "VfxInWallPerDistance": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "DebugWallExplosions": [],
+      "AnimationDashTime": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "DistanceRatioMin": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "DistanceRatioMax": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ],
+      "CarrySpeedRatioMin": [
+        900,
+        900,
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "CarrySpeedRatioMax": [
+        1700,
+        1700,
+        1700,
+        1700,
+        1700,
+        1700,
+        1700
+      ],
+      "CameraHoldRatioMin": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "CameraHoldRatioMax": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "InitialAnimHoldMin": [],
+      "InitialAnimHoldMax": [
+        0.27000001072883606,
+        0.27000001072883606,
+        0.27000001072883606,
+        0.27000001072883606,
+        0.27000001072883606,
+        0.27000001072883606,
+        0.27000001072883606
+      ],
+      "CastTime": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "WallBufferFailCase": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "VictimCameraZoomMin": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "VictimCameraZoomMax": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ]
+    },
+    "calculations": {
+      "TotalDamageSlamDown": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlamDownStrikeDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageSlamDown": {
+        "base": [
+          80,
+          115,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteRMissile1": {
+    "path": "Characters/KSante/Spells/KSanteRAbility/KSanteRMissile1",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "range": [
+      2000,
+      2000,
+      2000,
+      2000,
+      2000
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
+    }
+  },
+  "KSanteP": {
+    "path": "Characters/KSante/Spells/KSantePAbility/KSanteP",
+    "maxRank": 5,
+    "dataValues": {
+      "MarkDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "BonusRange": [],
+      "RecoveryPercent": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "ArmorMRMultiplier": [
+        0.0020000000949949026,
+        0.0020000000949949026,
+        0.0020000000949949026,
+        0.0020000000949949026,
+        0.0020000000949949026,
+        0.0020000000949949026,
+        0.0020000000949949026
+      ],
+      "PassiveStartingDamage": [
+        0.0035000001080334187,
+        0.0035000001080334187,
+        0.0035000001080334187,
+        0.0035000001080334187,
+        0.0035000001080334187,
+        0.0035000001080334187,
+        0.0035000001080334187
+      ],
+      "MaxHealthDamagePercentBase": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "MaxHealthDamageResistRatio": [
+        0.00009999999747378752,
+        0.00009999999747378752,
+        0.00009999999747378752,
+        0.00009999999747378752,
+        0.00009999999747378752,
+        0.00009999999747378752,
+        0.00009999999747378752
+      ],
+      "FlatDamage": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "MarkDamagePercentMin": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "MarkDamagePercentMax": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164
+      ]
+    },
+    "calculations": {
+      "{281dd874}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.10000000149011612,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.029999999329447746,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "PercentHealthDamage": {
+        "mFormulaParts": [
+          {
+            "StartDataValue": "MarkDamagePercentMin",
+            "EndDataValue": "MarkDamagePercentMax",
+            "__type": "{ee18a47b}"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "MaxHealthDamagePercent": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamagePercentBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{281dd874}": {
+        "base": 0,
+        "baseByLevel": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.13,
+          0.13,
+          0.13,
+          0.13,
+          0.13,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.19,
+          0.19,
+          0.19
+        ]
+      },
+      "MaxHealthDamagePercent": {
+        "base": 0.01,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.0001
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.0001
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "PercentHealthDamage": "part type {ee18a47b}"
+    }
+  },
+  "KSanteESelfDash": {
+    "path": "Characters/KSante/Spells/KSanteEAbility/KSanteESelfDash",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8.5,
+      8,
+      7.5,
+      7
+    ],
+    "dataValues": {
+      "DashDistance": [
+        550,
+        550,
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "AllyDashSpeed": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
+      "TargetingForgiveness": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "ShieldDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ShieldBaseAmount": [
+        20,
+        45,
+        70,
+        95,
+        120,
+        145,
+        170
+      ],
+      "BASE_FORM": [],
+      "FreeTargetRangeBase": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "FreeTargetSpeedBase": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "ULT_FORM": [],
+      "FreeTargetRangeAO": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "FreeTargetSpeedAO": [
+        2100,
+        2100,
+        2100,
+        2100,
+        2100,
+        2100,
+        2100
+      ],
+      "ShieldBaseAmountFast": [
+        25,
+        45,
+        65,
+        85,
+        105,
+        125,
+        145
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBaseAmountFast",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{5eb30a0d}",
+            "mIconKey": "%i:scaleHealth%",
+            "mCoefficient": 0.15000000596046448,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          45,
+          65,
+          85,
+          105,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteEAllyDash": {
+    "path": "Characters/KSante/Spells/KSanteEAbility/KSanteEAllyDash",
+    "maxRank": 5,
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "DashRange": [
+        700,
+        700,
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "DashSpeed": [
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400
+      ],
+      "KnockbackSpeed": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
+      "KnockupDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "KnockbackRange": [
+        325,
+        325,
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "BaseDamage": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "CoolddownRefund": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "TargetingForgiveness": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "SlowLinger": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SlowAmount": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "ShieldDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "ShieldAmountBase": [
+        50,
+        90,
+        130,
+        170,
+        210,
+        250,
+        290
+      ],
+      "ALL_OUT_DASH": [],
+      "FreeTargetRange": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "FreeTargetSpeed": [
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400
+      ],
+      "FixedTravelTime": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "FreeTargetRangeAO": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "FreeTargetSpeedAO": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
+      "SlowDecayFactor": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmountBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{7a26bd77}",
+            "mIconKey": "%i:scaleHealth%",
+            "mCoefficient": 0.10000000149011612,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          90,
+          130,
+          170,
+          210,
+          250
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteE": {
+    "path": "Characters/KSante/Spells/KSanteEAbility/KSanteE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9.5,
+      9,
+      8.5,
+      8
+    ],
+    "cost": [
+      45,
+      50,
+      55,
+      60,
+      65
+    ],
+    "dataValues": {
+      "DashDistance": [
+        550,
+        550,
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "TargetingForgiveness": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "ShieldDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BASE_FORM": [],
+      "FreeTargetRangeBase": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "FreeTargetSpeedBase": [
+        550,
+        550,
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "AllySpeedBase": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "ULT_FORM": [],
+      "FreeTargetRangeAO": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "FreeTargetSpeedAO": [
+        1250,
+        1250,
+        1250,
+        1250,
+        1250,
+        1250,
+        1250
+      ],
+      "AllySpeedAO": [
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400
+      ],
+      "ShieldBaseAmountFast": [
+        27.5,
+        70,
+        112.5,
+        155,
+        197.5,
+        240,
+        282.5
+      ],
+      "DashArrivial": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "ShieldHealthRatio": [
+        0.13500000536441803,
+        0.13500000536441803,
+        0.13500000536441803,
+        0.13500000536441803,
+        0.13500000536441803,
+        0.13500000536441803,
+        0.13500000536441803
+      ],
+      "CooldownModAO": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBaseAmountFast",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "ShieldHealthRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          70,
+          112.5,
+          155,
+          197.5,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.135
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteW": {
+    "path": "Characters/KSante/Spells/KSanteWAbility/KSanteW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        15,
+        45,
+        75,
+        105,
+        135,
+        165,
+        195
+      ],
+      "MaxHealthDamage": [
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066
+      ],
+      "MaxHealthDamageResistRatio": [
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503
+      ],
+      "MaxDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "TimeToFullCharge": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "DashSpeedBase": [
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400
+      ],
+      "DashSpeedAO": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ],
+      "VictimDashMod": [
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842
+      ],
+      "MinKnockbackDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MaxKnockbackDuration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ],
+      "KnockbackSpeed": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "KnockbackDist": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "KnockbackDistOnTopOfMod": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "MinDashBase": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "MaxDashBase": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "MinDurationTOOLTIP": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "AOMinDurationTOOLTIP": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "HexflashBugfixLockout": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "MinChargeTime": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "RDamageIncreaseMin": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "RDamageIncreaseMax": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "MinimumMinionDamage": [
+        30,
+        80,
+        130,
+        180,
+        230,
+        280,
+        330
+      ],
+      "DamageReduction": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "RDamageReduction": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "MaxMonsterDamage": [
+        100,
+        180,
+        260,
+        340,
+        420,
+        500,
+        580
+      ]
+    },
+    "calculations": {
+      "TotalMaxHealthDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mDataValue": "MaxHealthDamageResistRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalMaxHealthDamage": {
+        "base": 0.08,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.0002
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.0002
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteW_AllOut": {
+    "path": "Characters/KSante/Spells/KSanteWAbility/KSanteW_AllOut",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "range": [
+      250,
+      250,
+      250,
+      250,
+      250
+    ],
+    "dataValues": {
+      "MaxDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "TimeToFullCharge": [
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071,
+        0.949999988079071
+      ],
+      "DashSpeedBase": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "VictimDashMod": [
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842,
+        1.2999999523162842
+      ],
+      "KnockbackSpeed": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "KnockbackDist": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "KnockbackDistOnTopOfMod": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "MinDashBase": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "MaxDashBase": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ]
+    },
+    "calculations": {
+      "{98da435c}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 40,
+            "mInitialBonusPerLevel": 12,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxMonsterDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 50,
+            "mInitialBonusPerLevel": 25,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{98da435c}": {
+        "base": 0,
+        "baseByLevel": [
+          40,
+          52,
+          64,
+          76,
+          88,
+          100,
+          112,
+          124,
+          136,
+          148,
+          160,
+          172,
+          184,
+          196,
+          208,
+          220,
+          232,
+          244
+        ]
+      },
+      "MaxMonsterDamage": {
+        "base": 0,
+        "baseByLevel": [
+          50,
+          75,
+          100,
+          125,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325,
+          350,
+          375,
+          400,
+          425,
+          450,
+          475
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteQ3": {
+    "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ3",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "RecastWindow": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "DamageOneBase": [
+        0,
+        15,
+        30,
+        45,
+        60,
+        75,
+        90
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CooldownOneBase": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "RectangleWidth": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "RectangleLength": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "ShieldDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "RDamageBase": [
+        15,
+        35,
+        55,
+        75,
+        95,
+        115,
+        135
+      ],
+      "PercentHealthDamage": [
+        0.009999999776482582,
+        0.019999999552965164,
+        0.029999999329447746,
+        0.03999999910593033,
+        0.05000000074505806,
+        0.05999999865889549,
+        0.07000000029802322
+      ],
+      "CritBonus": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "Q2_VARS": [],
+      "ArcRange": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "ArcAngle": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "ArcSweetSpot": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "Q3_VARS": [],
+      "Range": [
+        700,
+        700,
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "DashSpeed": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
+      "AttackRangeExtension": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "BetweenCastsCD": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "SlowPercent": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "LeapWindow": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "StrikeWidth": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "StrikeRange": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "EdgeDamagePercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MinCastTime": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "MaxCastTime": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "BonusHPToMinCastTime": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "EmpoweredDashSpeed": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "StunDuration": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "KickoffSpeed": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "KickoffDistance": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "DashThroughDistance": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "AllOutPercentHealth": [
+        0.05000000074505806,
+        0.05999999865889549,
+        0.07000000029802322,
+        0.07999999821186066,
+        0.09000000357627869,
+        0.10000000149011612,
+        0.10999999940395355
+      ],
+      "AllOutPercentHealthValor": [
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513
+      ],
+      "SweetSpotWidth": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "DefenseCapforCooldown": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "HealthCapForCastTime": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ]
+    },
+    "calculations": {
+      "{04324da6}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageOneBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{cdd991ce}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "CooldownOneBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": -0.0010000000474974513,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "EmpoweredAttackDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mNumber": 20,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusPercentHealth": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{93574dbd}",
+            "mIconKey": "%i:kindredPassiveIcon%",
+            "mDataValue": "AllOutPercentHealthValor",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": -1,
+        "__type": "GameCalculation"
+      },
+      "BonusResistsTooltip": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusHealthTooltip": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{04324da6}": {
+        "base": [
+          15,
+          30,
+          45,
+          60,
+          75
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "{cdd991ce}": {
+        "base": 4,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": -0.001
+          }
+        ]
+      },
+      "RDamage": {
+        "base": [
+          35,
+          55,
+          75,
+          95,
+          115
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "EmpoweredAttackDamage": {
+        "base": 20,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      },
+      "BonusPercentHealth": {
+        "base": [
+          0.02,
+          0.03,
+          0.04,
+          0.05,
+          0.06
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.001
+          }
+        ]
+      },
+      "BonusResistsTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 1
+          },
+          {
+            "stat": "bonusMR",
+            "value": 1
+          }
+        ]
+      },
+      "BonusHealthTooltip": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteQ": {
+    "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      450,
+      450,
+      450,
+      450,
+      450
+    ],
+    "dataValues": {
+      "FlatDamage": [
+        40,
+        70,
+        100,
+        130,
+        160,
+        190,
+        220
+      ],
+      "RectangleWidth": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "RectangleLength": [
+        465,
+        465,
+        465,
+        465,
+        465,
+        465,
+        465
+      ],
+      "SlowPercent": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "Range": [
+        700,
+        700,
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "RecastWindow": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "RecastLockoutAO": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "Q3_VARS": [],
+      "KnockupDuration": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ],
+      "PullSpeed": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "PullDistance": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "KnockGrav": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "StunDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CAST_TIME_AND_COOLDOWN": [],
+      "MaxCastTime": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ],
+      "MinCastTime": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "MinCastTimeQ3": [
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355,
+        0.3499999940395355
+      ],
+      "BaseCD": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "MinCD": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RCooldownReduction": [
+        0.3333300054073334,
+        0.3333300054073334,
+        0.3333300054073334,
+        0.3333300054073334,
+        0.3333300054073334,
+        0.3333300054073334,
+        0.3333300054073334
+      ],
+      "DefenseCapforCooldown": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "PullSpeedMin": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "PullSpeedMax": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "PullDistanceMin": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "PullDistanceMax": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "LifetimeMax": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ],
+      "MissileOffset": []
+    },
+    "calculations": {
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "FlatDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{9c9367bc}": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{6244221a}",
+            "mIconKey": "%i:scaleArmor%",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          },
+          {
+            "mBuffName": "{e3b83f84}",
+            "mIconKey": "%i:scaleMR%",
+            "mCoefficient": 1,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          70,
+          100,
+          130,
+          160,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.4
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.4
+          }
+        ]
+      },
+      "{9c9367bc}": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "KSanteQ3Missile": {
+    "path": "Characters/KSante/Spells/KSanteQAbility/KSanteQ3Missile",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {},
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type EffectValueCalculationPart"
+    }
+  }
+}

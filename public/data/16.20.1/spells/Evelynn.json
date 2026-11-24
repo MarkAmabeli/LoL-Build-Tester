@@ -1,0 +1,777 @@
+{
+  "EvelynnQ": {
+    "path": "Characters/Evelynn/Spells/EvelynnQAbility/EvelynnQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "TOOLTIP_ONLY_VARS": [],
+      "MissileBaseDamage": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "BonusDamageBase": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55,
+        65
+      ],
+      "CooldownRefund": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "HateSpikeBaseDamage": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "BonusDamageAPRatio": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "HateSpikeAPRatio": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "QStackCount": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "MonsterPercentRefund": [],
+      "FakeCD": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "MissileDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HateSpikeBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HateSpikeAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BonusDamageAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MissileDamage": {
+        "base": [
+          25,
+          30,
+          35,
+          40,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalBonusDamage": {
+        "base": [
+          15,
+          25,
+          35,
+          45,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "EvelynnW": {
+    "path": "Characters/Evelynn/Spells/EvelynnWAbility/EvelynnW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "range": [
+      1200,
+      1300,
+      1400,
+      1500,
+      1600
+    ],
+    "dataValues": {
+      "TOOLTIP_ONLY_VARS": [],
+      "CharmDuration": [
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25,
+        2.5
+      ],
+      "MonsterCharm": [
+        2.75,
+        3,
+        3.25,
+        3.5,
+        3.75,
+        4,
+        4.25
+      ],
+      "MRShred": [
+        0.32499998807907104,
+        0.3499999940395355,
+        0.375,
+        0.4000000059604645,
+        0.42500001192092896,
+        0.44999998807907104,
+        0.4749999940395355
+      ],
+      "ShredDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "MonsterDamage": [
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "SlowAmount": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ],
+      "SlowDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "MonsterExtraCharm": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowDuringCharm": [
+        -0.44999998807907104,
+        -0.44999998807907104,
+        -0.44999998807907104,
+        -0.44999998807907104,
+        -0.44999998807907104,
+        -0.44999998807907104,
+        -0.44999998807907104
+      ],
+      "ActualCD": [
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "BuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "NonCharmSlowDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "MonsterDamageTotalTOOLTIP": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MonsterDamageTotalTOOLTIP": {
+        "base": [
+          250,
+          300,
+          350,
+          400,
+          450
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "EvelynnR": {
+    "path": "Characters/Evelynn/Spells/EvelynnRAbility/EvelynnR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "CritMultiplier": [
+        2.4000000953674316,
+        2.4000000953674316,
+        2.4000000953674316,
+        2.4000000953674316,
+        2.4000000953674316,
+        2.4000000953674316,
+        2.4000000953674316
+      ],
+      "PassiveReset": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "BaseDamage": [
+        0,
+        125,
+        250,
+        375,
+        500,
+        650,
+        775
+      ],
+      "CritBonus": [
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142,
+        1.399999976158142
+      ],
+      "CritTreshold": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CritDamage": {
+        "mMultiplier": {
+          "mDataValue": "CritMultiplier",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "Damage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          125,
+          250,
+          375
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "CritDamage": {
+        "base": [
+          300,
+          600,
+          900
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "EvelynnPassive": {
+    "path": "Characters/Evelynn/Spells/EvelynnPassiveAbility/EvelynnPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "TOOLTIP_ONLY_VARS": [],
+      "DemonShadeTimer": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "StealthDropTimer": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "HealingThresholdTOOLTIP": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 250,
+            "mInitialBonusPerLevel": 20,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 2.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealPerSecondTOOLTIP": {
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mStartValue": 15,
+            "mEndValue": 150,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "HealingThresholdTOOLTIP": {
+        "base": 0,
+        "baseByLevel": [
+          250,
+          270,
+          290,
+          310,
+          330,
+          350,
+          370,
+          390,
+          410,
+          430,
+          450,
+          470,
+          490,
+          510,
+          530,
+          550,
+          570,
+          590
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 2.5
+          }
+        ]
+      },
+      "HealPerSecondTOOLTIP": {
+        "base": 0,
+        "baseByLevel": [
+          15,
+          22.94118,
+          30.88235,
+          38.82353,
+          46.76471,
+          54.70588,
+          62.64706,
+          70.58824,
+          78.52941,
+          86.47059,
+          94.41176,
+          102.3529,
+          110.2941,
+          118.2353,
+          126.1765,
+          134.1176,
+          142.0588,
+          150
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "EvelynnE2": {
+    "path": "Characters/Evelynn/Spells/EvelynnEAbility/EvelynnE2",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      210,
+      210,
+      210,
+      210,
+      210
+    ],
+    "dataValues": {
+      "MoveSpeed": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "EvelynnE": {
+    "path": "Characters/Evelynn/Spells/EvelynnEAbility/EvelynnE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "range": [
+      210,
+      210,
+      210,
+      210,
+      210
+    ],
+    "dataValues": {
+      "TOOLTIP_ONLY": [],
+      "BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "EmpoweredDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "BasePercentHealth": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "EmpoweredPercentHealth": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "MonsterCap": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "SpeedAmount": [
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929
+      ],
+      "SpeedDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MoveSpeed": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.5
+      ],
+      "MSDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MonsterDamageCamp": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ]
+    },
+    "calculations": {
+      "PercentHealthBaseTOOLTIP": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BasePercentHealth",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.014999999664723873,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "PercentHealthEmpoweredTOOLTIP": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "EmpoweredPercentHealth",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.02500000037252903,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PercentHealthBaseTOOLTIP": {
+        "base": 0.03,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00015
+          }
+        ]
+      },
+      "PercentHealthEmpoweredTOOLTIP": {
+        "base": 0.04,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.00025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

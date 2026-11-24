@@ -1,0 +1,597 @@
+{
+  "ThreshQ": {
+    "path": "Characters/Thresh/Spells/ThreshQAbility/ThreshQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      19,
+      16.5,
+      14,
+      11.5,
+      9
+    ],
+    "cost": [
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350
+      ],
+      "APRatio": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "TauntLength": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "SlowPercent": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "HitBonusCooldown": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ThreshW": {
+    "path": "Characters/Thresh/Spells/ThreshWAbility/ThreshW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      21,
+      20,
+      19,
+      18,
+      17
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "ShieldPerSoul": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "LanternDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "BaseShieldValue": [
+        30,
+        50,
+        70,
+        90,
+        110,
+        130,
+        150
+      ],
+      "ShieldDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShieldValue",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mDataValue": "ShieldPerSoul",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          50,
+          70,
+          90,
+          110,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ThreshE": {
+    "path": "Characters/Thresh/Spells/ThreshEAbility/ThreshE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      12.25,
+      11.5,
+      10.75,
+      10
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "dataValues": {
+      "PassiveADRatioTT": [
+        0.6000000238418579,
+        0.8999999761581421,
+        1.2000000476837158,
+        1.5,
+        1.7999999523162842,
+        2.0999999046325684,
+        2.4000000953674316
+      ],
+      "PassiveADRatio": [
+        60,
+        90,
+        120,
+        150,
+        180,
+        210,
+        240
+      ],
+      "APRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "ActiveBaseDamage": [
+        20,
+        65,
+        110,
+        155,
+        200,
+        245,
+        290
+      ],
+      "ActiveSlowPercentage": [
+        20,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "PassiveDmgPerSoul": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "DmgPerSoul": [
+        1.7000000476837158,
+        1.7000000476837158,
+        1.7000000476837158,
+        1.7000000476837158,
+        1.7000000476837158,
+        1.7000000476837158,
+        1.7000000476837158
+      ],
+      "FullChargeDuration": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "Icon1ThresholdPercentage": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "Icon2ThresholdPercentage": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "Icon3ThresholdPercentage": [
+        0.9750000238418579,
+        0.9750000238418579,
+        0.9750000238418579,
+        0.9750000238418579,
+        0.9750000238418579,
+        0.9750000238418579,
+        0.9750000238418579
+      ]
+    },
+    "calculations": {
+      "PAttackDamageMin": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mCoefficient": 1.7000000476837158,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PAttackDamageMax": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mCoefficient": 1.7000000476837158,
+            "__type": "BuffCounterByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "PassiveADRatioTT",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PAttackDamageMin": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1.7
+          }
+        ]
+      },
+      "PAttackDamageMax": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1.7
+          },
+          {
+            "stat": "totalAD",
+            "value": [
+              0.9,
+              1.2,
+              1.5,
+              1.8,
+              2.1
+            ]
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          65,
+          110,
+          155,
+          200,
+          245
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ThreshPassiveSouls": {
+    "path": "Characters/Thresh/Spells/ThreshPassiveSoulsAbility/ThreshPassiveSouls",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "StatValuePerSoul": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SoulsToGainOnPickUp": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "CurrentSoulBonus": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mBuffName": "{5fbfbf13}",
+            "mIconKey": "%i:threshScalingIcon%",
+            "mDataValue": "StatValuePerSoul",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "CurrentSoulBonus": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ThreshRPenta": {
+    "path": "Characters/Thresh/Spells/ThreshRPentaAbility/ThreshRPenta",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      850,
+      850,
+      850
+    ],
+    "dataValues": {
+      "ThreshRCageRadius": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "ThreshRWallThickness": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "ThreshRWallLength": [
+        470.2279968261719,
+        470.2279968261719,
+        470.2279968261719,
+        470.2279968261719,
+        470.2279968261719,
+        470.2279968261719,
+        470.2279968261719
+      ],
+      "APRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "Damage": [
+        0,
+        250,
+        400,
+        550,
+        175,
+        175,
+        0
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowAmount": [
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99
+      ],
+      "WallDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          250,
+          400,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,698 @@
+{
+  "HecarimRamp": {
+    "path": "Characters/Hecarim/Spells/HecarimRampAbility/HecarimRamp",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "MinMoveSpeed": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MaxMoveSpeed": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ],
+      "MinBaseDamage": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "BonusADRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MaxBaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "MinKnockback": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "MaxKnockback": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "Duration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "DistanceToMaxDamage": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "TimeToMaxMoveSpeed": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "calculations": {
+      "MinDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mMultiplier": {
+          "mNumber": 2,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "MinDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.5
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "HecarimRapidSlash": {
+    "path": "Characters/Hecarim/Spells/HecarimRapidSlashAbility/HecarimRapidSlash",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      28,
+      26,
+      24,
+      22,
+      20
+    ],
+    "range": [
+      375,
+      375,
+      375,
+      375,
+      375
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "MinionDamageRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "RampageBonusRatio": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "RampageDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "RampageCooldownReduction": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "BaseDamageBonusAD": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ],
+      "MaxStacks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BuffDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BaseDamageBonusAD",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinionDamage": {
+        "mMultiplier": {
+          "mDataValue": "MinionDamageRatio",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "Damage",
+        "__type": "GameCalculationModified"
+      },
+      "RampageBonusDamagePerc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RampageBonusRatio",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      },
+      "MinionDamage": {
+        "base": [
+          36,
+          54,
+          72,
+          90,
+          108
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.54
+          }
+        ]
+      },
+      "RampageBonusDamagePerc": {
+        "base": 3,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.03
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "HecarimUlt": {
+    "path": "Characters/Hecarim/Spells/HecarimUltAbility/HecarimUlt",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      120,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "FearDurationMin": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "FearDurationMax": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "APRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DashSpeed": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "MaxDashRange": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "RangeForMaxFearDuration": [
+        950,
+        950,
+        950,
+        950,
+        950,
+        950,
+        950
+      ]
+    },
+    "calculations": {
+      "DamageDone": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageDone": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "HecarimW": {
+    "path": "Characters/Hecarim/Spells/HecarimWAbility/HecarimW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      525,
+      525,
+      525,
+      525,
+      525
+    ],
+    "dataValues": {
+      "NonSelfLeechRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DamageLeechPerc": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "Damage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "BuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "TickTime": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MinionHealCap": [
+        90,
+        120,
+        150,
+        180,
+        210,
+        240,
+        270
+      ],
+      "ResistAmount": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "HealBonusADRatio": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164
+      ],
+      "APRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "LeechAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageLeechPerc",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AllyTooltipLeachValue": {
+        "mMultiplier": {
+          "mDataValue": "NonSelfLeechRatio",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "LeechAmount",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "LeechAmount": {
+        "base": 25
+      },
+      "AllyTooltipLeachValue": {
+        "base": 12.5
+      }
+    },
+    "unsupported": {}
+  },
+  "HecarimPassive": {
+    "path": "Characters/Hecarim/Spells/HecarimPassiveAbility/HecarimPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {},
+    "calculations": {
+      "BonusAD": {
+        "mFormulaParts": [
+          {
+            "mStat": 7,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mLevel1Value": 0.11999999731779099,
+              "mBreakpoints": [
+                {
+                  "mLevel": 3,
+                  "mAdditionalBonusAtThisLevel": 0.019999999552965164,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 6,
+                  "mAdditionalBonusAtThisLevel": 0.019999999552965164,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 9,
+                  "mAdditionalBonusAtThisLevel": 0.019999999552965164,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 12,
+                  "mAdditionalBonusAtThisLevel": 0.019999999552965164,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 15,
+                  "mAdditionalBonusAtThisLevel": 0.019999999552965164,
+                  "__type": "Breakpoint"
+                },
+                {
+                  "mLevel": 18,
+                  "mAdditionalBonusAtThisLevel": 0.019999999552965164,
+                  "__type": "Breakpoint"
+                }
+              ],
+              "__type": "ByCharLevelBreakpointsCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "BonusAD": "stat code 7/2"
+    }
+  }
+}

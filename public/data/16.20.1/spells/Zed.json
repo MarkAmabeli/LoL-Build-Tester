@@ -1,0 +1,642 @@
+{
+  "ZedPassive": {
+    "path": "Characters/Zed/Spells/ZedPassiveAbility/ZedPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "CurrentHealthThreshold": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "PerUnitCD": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "MonsterDamageCap": [
+        175,
+        175,
+        175,
+        175,
+        175,
+        175,
+        175
+      ],
+      "MonsterDamageMod": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "ShenZedQuestKillCount": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ShenZedQuestBonus": [
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164,
+        0.019999999552965164
+      ]
+    },
+    "calculations": {
+      "{6a1a62e9}": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.05000000074505806,
+            "mBreakpoints": [
+              {
+                "mLevel": 7,
+                "mAdditionalBonusAtThisLevel": 0.02500000037252903,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 17,
+                "mAdditionalBonusAtThisLevel": 0.02500000037252903,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 25,
+                "mAdditionalBonusAtThisLevel": 0.02500000037252903,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "{ad3d785f}": {
+        "mFormulaParts": [
+          {
+            "mSpellCalculationKey": "{6a1a62e9}",
+            "__type": "{f3cbe7b2}"
+          },
+          {
+            "mDataValue": "ShenZedQuestBonus",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "MaxHPDamage": {
+        "mDefaultGameCalculation": "{6a1a62e9}",
+        "mConditionalGameCalculation": "{ad3d785f}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{ecbd8e2e}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "{a8cb9c14}": true,
+            "mStat": 12,
+            "mSubpart": {
+              "mSpellCalculationKey": "MaxHPDamage",
+              "__type": "{f3cbe7b2}"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "FinalDamage": {
+        "DamageType": 1,
+        "mConditionalGameCalculation": "TotalDamage",
+        "mConditionalCalculationRequirements": {
+          "mSubRequirements": [
+            {
+              "mInvertResult": true,
+              "mBuffName": "{0f6b8c16}",
+              "__type": "HasBuffCastRequirement"
+            },
+            {
+              "mInvertResult": true,
+              "DataValue": "CurrentHealthThreshold",
+              "__type": "AboveHealthPercentCastRequirement"
+            }
+          ],
+          "__type": "HasAllSubRequirementsCastRequirement"
+        },
+        "{353099b0}": true,
+        "__type": "GameCalculationConditional"
+      }
+    },
+    "formulas": {
+      "{6a1a62e9}": {
+        "base": 0,
+        "baseByLevel": [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.1,
+          0.1
+        ]
+      },
+      "{ad3d785f}": {
+        "base": 0.02,
+        "baseByLevel": [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.1,
+          0.1
+        ]
+      }
+    },
+    "unsupported": {
+      "MaxHPDamage": "conditional calculation (depends on a game condition)",
+      "TotalDamage": "conditional calculation (depends on a game condition)",
+      "FinalDamage": "conditional calculation (depends on a game condition)"
+    }
+  },
+  "ZedW": {
+    "path": "Characters/Zed/Spells/ZedWAbility/ZedW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      40,
+      35,
+      30,
+      25,
+      20
+    ],
+    "range": [
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "dataValues": {
+      "RecastRange": [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
+        2000
+      ],
+      "MimickRange": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "SwapTimeLimit": [
+        5.25,
+        5.25,
+        5.25,
+        5.25,
+        5.25,
+        5.25,
+        5.25
+      ],
+      "EnergyRestoreDoubleHit": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "ShadowDuration": [
+        5.25,
+        5.25,
+        5.25,
+        5.25,
+        5.25,
+        5.25,
+        5.25
+      ],
+      "ShadowDurationTooltip": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "ZedR": {
+    "path": "Characters/Zed/Spells/ZedRAbility/ZedR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      110,
+      100
+    ],
+    "range": [
+      625,
+      625,
+      625
+    ],
+    "dataValues": {
+      "RDamageAmp": [
+        0.10000000149011612,
+        0.25,
+        0.4000000059604645,
+        0.550000011920929,
+        0.699999988079071,
+        0.8500000238418579,
+        1
+      ],
+      "RReactivateCD": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "RShadowDurationDisplayed": [
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5
+      ],
+      "RDeathMarkDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "RCanSwapBuffDuration": [
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5
+      ],
+      "RGhostedDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "RBaseDamage": [],
+      "RVisionDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "{43a019eb}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RShadowDurationDisplayed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mNumber": 0.5,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "RCalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{43a019eb}": {
+        "base": 8
+      },
+      "RCalculatedDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZedQ": {
+    "path": "Characters/Zed/Spells/ZedQAbility/ZedQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "cost": [
+      75,
+      70,
+      65,
+      60,
+      55
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "BonusADRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassThroughDamage": {
+        "mMultiplier": {
+          "mNumber": 0.6000000238418579,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      },
+      "PassThroughDamage": {
+        "base": [
+          48,
+          72,
+          96,
+          120,
+          144
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZedE": {
+    "path": "Characters/Zed/Spells/ZedEAbility/ZedE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      5,
+      4.5,
+      4,
+      3.5,
+      3
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      290,
+      290,
+      290,
+      290,
+      290
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        47.5,
+        70,
+        92.5,
+        115,
+        137.5,
+        160,
+        182.5
+      ],
+      "ADRatio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "MoveSpeedMod": [
+        -0.15000000596046448,
+        -0.20000000298023224,
+        -0.25,
+        -0.30000001192092896,
+        -0.3499999940395355,
+        -0.4000000059604645,
+        -0.44999998807907104
+      ],
+      "MoveSpeedModBonus": [
+        -0.22499999403953552,
+        -0.30000001192092896,
+        -0.375,
+        -0.44999998807907104,
+        -0.5249999761581421,
+        -0.6000000238418579,
+        -0.675000011920929
+      ],
+      "SlowDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "ShadowHitCDR": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ZedRadius": [
+        315,
+        315,
+        315,
+        315,
+        315,
+        315,
+        315
+      ],
+      "ShadowRadius": [
+        290,
+        290,
+        290,
+        290,
+        290,
+        290,
+        290
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          92.5,
+          115,
+          137.5,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

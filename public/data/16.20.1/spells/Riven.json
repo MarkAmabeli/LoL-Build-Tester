@@ -1,0 +1,450 @@
+{
+  "RivenTriCleave": {
+    "path": "Characters/Riven/Spells/RivenTriCleaveAbility/RivenTriCleave",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        15,
+        45,
+        75,
+        105,
+        135,
+        165,
+        195
+      ],
+      "ADRatio": [
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421,
+        0.699999988079071,
+        0.75,
+        0.800000011920929,
+        0.8500000238418579
+      ]
+    },
+    "calculations": {
+      "FirstSlashDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "FirstSlashDamage": {
+        "base": [
+          45,
+          75,
+          105,
+          135,
+          165
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.6,
+              0.65,
+              0.7,
+              0.75,
+              0.8
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RivenMartyr": {
+    "path": "Characters/Riven/Spells/RivenMartyrAbility/RivenMartyr",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "StunDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "BaseDamage": [
+        30,
+        65,
+        95,
+        125,
+        155,
+        185,
+        215
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          65,
+          95,
+          125,
+          155,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RivenFeint": {
+    "path": "Characters/Riven/Spells/RivenFeintAbility/RivenFeint",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "dataValues": {
+      "ShieldAmount": [
+        45,
+        70,
+        95,
+        120,
+        145,
+        170,
+        195
+      ],
+      "BaseShieldAmount": [
+        50,
+        70,
+        95,
+        120,
+        145,
+        170,
+        235
+      ],
+      "ShieldDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.100000023841858,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RivenPassive": {
+    "path": "Characters/Riven/Spells/RivenPassiveAbility/RivenPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "Charges": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "TowerRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MonsterBonusDamage": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "mStartValue": 0.30000001192092896,
+              "mEndValue": 0.44999998807907104,
+              "__type": "ByCharLevelInterpolationCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0,
+            "valueByLevel": [
+              0.3,
+              0.3088235,
+              0.3176471,
+              0.3264706,
+              0.3352941,
+              0.3441177,
+              0.3529412,
+              0.3617647,
+              0.3705882,
+              0.3794118,
+              0.3882353,
+              0.3970588,
+              0.4058823,
+              0.4147059,
+              0.4235294,
+              0.4323529,
+              0.4411765,
+              0.45
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RivenFengShuiEngine": {
+    "path": "Characters/Riven/Spells/RivenFengShuiEngineAbility/RivenFengShuiEngine",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      90,
+      60
+    ],
+    "range": [
+      200,
+      200,
+      200
+    ],
+    "dataValues": {
+      "MinBase": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350
+      ],
+      "MaxBase": [
+        150,
+        300,
+        450,
+        600,
+        750,
+        900,
+        1050
+      ],
+      "Duration": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "PercentBonusAD": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "TooltipAttackRange": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ]
+    },
+    "calculations": {
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MaxBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.649999976158142,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusAD": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "PercentBonusAD",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MinDamage": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.55
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          300,
+          450,
+          600
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.65
+          }
+        ]
+      },
+      "BonusAD": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

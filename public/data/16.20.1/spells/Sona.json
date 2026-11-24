@@ -1,0 +1,812 @@
+{
+  "SonaW": {
+    "path": "Characters/Sona/Spells/SonaWAbility/SonaW",
+    "slot": "W",
+    "maxRank": 5,
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "BaseHeal": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "BaseShield": [
+        5,
+        25,
+        45,
+        65,
+        85,
+        105,
+        125
+      ],
+      "AuraDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "AuraRange": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "BaseGlobalCD": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DiminuendoDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "HealRange": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "ShieldDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "AccelerandoShieldBreakpoint": [
+        5,
+        25,
+        45,
+        65,
+        85,
+        105,
+        125
+      ],
+      "HealRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "ShieldRatio": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "calculations": {
+      "TotalHeal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDiminuendoWeakenPercent": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.25,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": 0.00039999998989515007,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalHeal": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      },
+      "TotalShield": {
+        "base": [
+          25,
+          45,
+          65,
+          85,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "TotalDiminuendoWeakenPercent": {
+        "base": 0.25,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SonaE": {
+    "path": "Characters/Sona/Spells/SonaEAbility/SonaE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      65,
+      65,
+      65,
+      65,
+      65
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "SelfBaseMovementSpeed": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "AllyBaseMovementSpeed": [
+        0.07999999821186066,
+        0.10000000149011612,
+        0.11999999731779099,
+        0.14000000059604645,
+        0.1599999964237213,
+        0.18000000715255737,
+        0.20000000298023224
+      ],
+      "SelfMovementSpeedDurationMin": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "SelfMovementSpeedDurationMax": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "AllyMovementSpeedDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "AuraRange": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "AuraDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BaseGlobalCD": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "TempoDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "TotalSelfMovementSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SelfBaseMovementSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.00019999999494757503,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalAllyMovementSpeed": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "AllyBaseMovementSpeed",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.00019999999494757503,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "TotalTempoMoveSpeedSlow": {
+        "mFormulaParts": [
+          {
+            "mNumber": 0.5,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mCoefficient": 0.00039999998989515007,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalSelfMovementSpeed": {
+        "base": 0.2,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TotalAllyMovementSpeed": {
+        "base": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          0.18
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TotalTempoMoveSpeedSlow": {
+        "base": 0.5,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0004
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SonaQ": {
+    "path": "Characters/Sona/Spells/SonaQAbility/SonaQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        15,
+        50,
+        85,
+        120,
+        155,
+        190,
+        225
+      ],
+      "BaseOnHitDamage": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "AuraRange": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "OnHitDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "EnemiesToHit": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "AuraDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "BaseGlobalCD": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "OnHitProcs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "OnHitRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalOnHitDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseOnHitDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "OnHitRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalStaccatoDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 30,
+            "mInitialBonusPerLevel": 15,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mBonusPerLevelAtAndAfter": 22.5,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          85,
+          120,
+          155,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalOnHitDamage": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "TotalStaccatoDamage": {
+        "base": 0,
+        "baseByLevel": [
+          30,
+          45,
+          60,
+          75,
+          90,
+          105,
+          120,
+          135,
+          157.5,
+          180,
+          202.5,
+          225,
+          247.5,
+          270,
+          292.5,
+          315,
+          337.5,
+          360
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SonaPassive": {
+    "path": "Characters/Sona/Spells/SonaPassiveAbility/SonaPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "TempoDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PowerChordPassiveCountMax": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "AccelerandoAHPerStack": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "AccelerandoCap": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "AccelerandoUltCDR": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "PowerChordDamage": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 20,
+            "mInitialBonusPerLevel": 10,
+            "mBreakpoints": [
+              {
+                "mLevel": 9,
+                "mBonusPerLevelAtAndAfter": 15,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "AccelerandoAHCurrent": {
+        "mFormulaParts": [
+          {
+            "mBuffName": "{1705b20f}",
+            "mDataValue": "AccelerandoAHPerStack",
+            "__type": "BuffCounterByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PowerChordDamage": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90,
+          105,
+          120,
+          135,
+          150,
+          165,
+          180,
+          195,
+          210,
+          225,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      },
+      "AccelerandoAHCurrent": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "stacks",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "SonaR": {
+    "path": "Characters/Sona/Spells/SonaRAbility/SonaR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      140,
+      120,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "StunDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

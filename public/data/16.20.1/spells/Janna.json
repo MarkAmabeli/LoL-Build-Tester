@@ -1,0 +1,821 @@
+{
+  "ReapTheWhirlwind": {
+    "path": "Characters/Janna/Spells/ReapTheWhirlwindAbility/ReapTheWhirlwind",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      130,
+      115,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      725,
+      725,
+      725
+    ],
+    "dataValues": {
+      "HealBasePerSecond": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350
+      ],
+      "Duration": [
+        0,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0
+      ],
+      "Range": [
+        700,
+        700,
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "MaxKnockback": [
+        875,
+        875,
+        875,
+        875,
+        875,
+        875,
+        875
+      ],
+      "KnockbackBaseRange": [
+        875,
+        875,
+        875,
+        875,
+        875,
+        875,
+        875
+      ],
+      "KnockbackSpeed": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "KnockbackGravity": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "KnockbackDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "HealPerSecond": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealBasePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHeal": {
+        "mMultiplier": {
+          "mDataValue": "Duration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "HealPerSecond",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "HealPerSecond": {
+        "base": [
+          100,
+          150,
+          200
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalHeal": {
+        "base": [
+          300,
+          450,
+          600
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "EyeOfTheStorm": {
+    "path": "Characters/Janna/Spells/EyeOfTheStormAbility/EyeOfTheStorm",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "ECDRefundforCC": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "EmpowerDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "EmpowerPercent": [],
+      "DecayGracePeriod": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "BaseShield": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "ShieldAPRatio": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ],
+      "BonusAD": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "ADAPRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "ShieldDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "TotalShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseShield",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ShieldAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalAD": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusAD",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ADAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalShield": {
+        "base": [
+          80,
+          120,
+          160,
+          200,
+          240
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "TotalAD": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TailwindSelf": {
+    "path": "Characters/Janna/Spells/TailwindSelfAbility/TailwindSelf",
+    "maxRank": 5,
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "MSPercentAlly": [
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549
+      ],
+      "MSPercentSelf": [],
+      "MSBonusMagicDamage": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ]
+    },
+    "calculations": {
+      "MSToOnHitConversionRate": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MSBonusMagicDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "BonusDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mStat": 7,
+            "mStatFormula": 2,
+            "mDataValue": "MSBonusMagicDamage",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MSToOnHitConversionRate": {
+        "base": 0.3
+      }
+    },
+    "unsupported": {
+      "BonusDamage": "stat code 7/2"
+    }
+  },
+  "HowlingGale": {
+    "path": "Characters/Janna/Spells/HowlingGaleAbility/HowlingGale",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "cost": [
+      90,
+      95,
+      100,
+      105,
+      110
+    ],
+    "dataValues": {
+      "MissileTravelTime": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "MinionMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "BaseRange": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "MinDamage": [
+        20,
+        55,
+        90,
+        125,
+        160,
+        195,
+        230
+      ],
+      "MinimumRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BonusDamage": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "BonusRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "ChargeDistancePercent": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "BaseKnockup": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "ChargeKnockup": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MaxDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {
+      "MinimumDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MinimumRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExtraDamagePerSecondCharged": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BonusRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "MinDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MinimumRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mPart1": {
+              "mDataValue": "MaxDuration",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mSubparts": [
+                {
+                  "mDataValue": "BonusDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mDataValue": "BonusRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MaxKnockup": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseKnockup",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mPart1": {
+              "mDataValue": "MaxDuration",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mDataValue": "ChargeKnockup",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MinimumDamage": {
+        "base": [
+          55,
+          90,
+          125,
+          160,
+          195
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "ExtraDamagePerSecondCharged": {
+        "base": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      },
+      "MaxDamage": {
+        "base": [
+          85,
+          135,
+          185,
+          235,
+          285
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      },
+      "MaxKnockup": {
+        "base": 1.25
+      }
+    },
+    "unsupported": {}
+  },
+  "SowTheWind": {
+    "path": "Characters/Janna/Spells/SowTheWindAbility/SowTheWind",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "MSPercent": [
+        0.05000000074505806,
+        0.05999999865889549,
+        0.07000000029802322,
+        0.07999999821186066,
+        0.09000000357627869,
+        0.10000000149011612,
+        0.10999999940395355
+      ],
+      "BaseDamage": [
+        25,
+        55,
+        85,
+        115,
+        145,
+        175,
+        205
+      ],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowPercent": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40
+      ],
+      "MSAPRatio": [
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503,
+        0.00019999999494757503
+      ],
+      "SlowAPRatio": [
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549,
+        0.05999999865889549
+      ]
+    },
+    "calculations": {
+      "TotalMS": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MSPercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "MSAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalSlow": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "SlowPercent",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SlowAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalMS": {
+        "base": [
+          0.06,
+          0.07,
+          0.08,
+          0.09,
+          0.1
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0002
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          55,
+          85,
+          115,
+          145,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      },
+      "TotalSlow": {
+        "base": [
+          0.2,
+          0.24,
+          0.28,
+          0.32,
+          0.36
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0006
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

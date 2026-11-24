@@ -1,0 +1,559 @@
+{
+  "LeonaSunlightPassive": {
+    "path": "Characters/Leona/Spells/LeonaSunlightPassiveAbility/LeonaSunlightPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MarkDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "values": [
+              25,
+              32,
+              39,
+              46,
+              53,
+              60,
+              67,
+              74,
+              81,
+              88,
+              95,
+              102,
+              109,
+              116,
+              123,
+              130,
+              137,
+              144,
+              151,
+              158,
+              165,
+              172,
+              179,
+              186,
+              193,
+              200,
+              207,
+              214,
+              221,
+              228,
+              235
+            ],
+            "__type": "ByCharLevelFormulaCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
+    }
+  },
+  "LeonaShieldOfDaybreak": {
+    "path": "Characters/Leona/Spells/LeonaShieldOfDaybreakAbility/LeonaShieldOfDaybreak",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    "range": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "StunDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "BaseDamage": [
+        10,
+        10,
+        35,
+        60,
+        85,
+        110,
+        135
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.30000001192092896,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          10,
+          35,
+          60,
+          85,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeonaZenithBlade": {
+    "path": "Characters/Leona/Spells/LeonaZenithBladeAbility/LeonaZenithBlade",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      10.5,
+      9,
+      7.5,
+      6
+    ],
+    "cost": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        10,
+        50,
+        90,
+        130,
+        170,
+        210,
+        250
+      ],
+      "RootDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalDamageTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamageTooltip": {
+        "base": [
+          50,
+          90,
+          130,
+          170,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeonaSolarFlare": {
+    "path": "Characters/Leona/Spells/LeonaSolarFlareAbility/LeonaSolarFlare",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      90,
+      75,
+      60
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "OnHitBaseDamage": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "OnHitStacks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "OnHitDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "AttackRangeIncrease": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "OnHitAPRatio": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "ExplosionBaseDamage": [
+        75,
+        150,
+        225,
+        300,
+        375,
+        450,
+        525
+      ],
+      "ExplosionAPRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "SlowPercent": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "CCDuration": [
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75,
+        1.75
+      ]
+    },
+    "calculations": {
+      "{f4c90e5c}": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "OnHitBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "OnHitAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ExplosionCalculatedDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExplosionBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ExplosionAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{f4c90e5c}": {
+        "base": [
+          30,
+          40,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "ExplosionCalculatedDamage": {
+        "base": [
+          150,
+          225,
+          300
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "LeonaSolarBarrier": {
+    "path": "Characters/Leona/Spells/LeonaSolarBarrierAbility/LeonaSolarBarrier",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "dataValues": {
+      "FlatDamageReduction": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28
+      ],
+      "FlatDamageReductionMax": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "APRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "ExplosionBaseDamage": [
+        25,
+        55,
+        85,
+        115,
+        145,
+        175,
+        205
+      ],
+      "MRBaseBonus": [
+        12.5,
+        20,
+        27.5,
+        35,
+        42.5,
+        50,
+        57.5
+      ],
+      "ArmorBaseBonus": [
+        12.5,
+        20,
+        27.5,
+        35,
+        42.5,
+        50,
+        57.5
+      ],
+      "ArmorMRDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {
+      "BonusArmorTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ArmorBaseBonus",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusMRTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ArmorBaseBonus",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamageTooltip": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ExplosionBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusArmorTooltip": {
+        "base": [
+          20,
+          27.5,
+          35,
+          42.5,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.2
+          }
+        ]
+      },
+      "BonusMRTooltip": {
+        "base": [
+          20,
+          27.5,
+          35,
+          42.5,
+          50
+        ],
+        "ratios": [
+          {
+            "stat": "bonusMR",
+            "value": 0.2
+          }
+        ]
+      },
+      "TotalDamageTooltip": {
+        "base": [
+          55,
+          85,
+          115,
+          145,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

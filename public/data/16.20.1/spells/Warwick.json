@@ -1,0 +1,592 @@
+{
+  "WarwickE": {
+    "path": "Characters/Warwick/Spells/WarwickEAbility/WarwickE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      15,
+      14,
+      13,
+      12,
+      11
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      375,
+      375,
+      375,
+      375,
+      375
+    ],
+    "dataValues": {
+      "DRAmount": [
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "DRDuration": [
+        2.75,
+        2.75,
+        2.75,
+        2.75,
+        2.75,
+        2.75,
+        2.75
+      ],
+      "RecastDelay": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "FearDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DRDurationTooltipOnly": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "WarwickP": {
+    "path": "Characters/Warwick/Spells/WarwickPAbility/WarwickP",
+    "maxRank": 5,
+    "dataValues": {
+      "HealingThreshold": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "EmpoweredHealingThreshold": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "HealingRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "EmpoweredHealingRatio": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "HealthRestoreSlushTime": [
+        1.5499999523162842,
+        1.5499999523162842,
+        1.5499999523162842,
+        1.5499999523162842,
+        1.5499999523162842,
+        1.5499999523162842,
+        1.5499999523162842
+      ],
+      "ADRatio": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "APRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ]
+    },
+    "calculations": {
+      "OnHitDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mStartValue": 6,
+            "mEndValue": 55,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "OnHitDamage": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          8.882353,
+          11.76471,
+          14.64706,
+          17.52941,
+          20.41176,
+          23.29412,
+          26.17647,
+          29.05882,
+          31.94118,
+          34.82353,
+          37.70588,
+          40.58824,
+          43.47059,
+          46.35294,
+          49.23529,
+          52.11765,
+          55
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.15
+          },
+          {
+            "stat": "AP",
+            "value": 0.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "WarwickW": {
+    "path": "Characters/Warwick/Spells/WarwickWAbility/WarwickW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      80,
+      70,
+      60,
+      50,
+      40
+    ],
+    "cost": [
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "range": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "PassiveASBonus": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "Duration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "MoveSpeedBonus": [
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "PassiveMSBonus": [
+        27.5,
+        35,
+        42.5,
+        50,
+        57.5,
+        65,
+        72.5
+      ],
+      "NoTargetCDReduction": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "PassiveASDuration": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "FirstHPThreshold": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "SecondHPThreshold": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "MSBonus": [
+        27.5,
+        35,
+        42.5,
+        50,
+        57.5,
+        65,
+        72.5
+      ],
+      "ASBonus": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "WarwickR": {
+    "path": "Characters/Warwick/Spells/WarwickRAbility/WarwickR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      110,
+      90,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "RDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "RBaseDamage": [
+        0,
+        175,
+        350,
+        525,
+        700,
+        875,
+        1050
+      ]
+    },
+    "calculations": {
+      "DamageCumulative": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.6699999570846558,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageCumulative": {
+        "base": [
+          175,
+          350,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.67
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "WarwickQ": {
+    "path": "Characters/Warwick/Spells/WarwickQAbility/WarwickQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "range": [
+      365,
+      365,
+      365,
+      365,
+      365
+    ],
+    "dataValues": {
+      "TargetPercentHPDamage": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "ADRatio": [
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158,
+        1.2000000476837158
+      ],
+      "BiteZoneLength": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "HPDamageCap": [
+        135,
+        150,
+        165,
+        180,
+        195,
+        210,
+        225
+      ],
+      "APRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "LifestealPercent": [
+        12.5,
+        25,
+        37.5,
+        50,
+        62.5,
+        75,
+        87.5
+      ],
+      "CheatLength": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "CheatLengthMoveBlock": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "QCastRangeOverride": [
+        425,
+        425,
+        425,
+        425,
+        425,
+        425,
+        425
+      ]
+    },
+    "calculations": {
+      "BaseBiteDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BaseBiteDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1.2
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "Crepe_WarwickVsVi_StackManager": {
+    "path": "{c8f6de0e}",
+    "maxRank": 5,
+    "dataValues": {
+      "MaxHealthPercent": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "Cooldown": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "Crepe_WarwickVsVi_Shred": {
+    "path": "{e1d2e65d}",
+    "maxRank": 5,
+    "dataValues": {
+      "ReducedArmorPer": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ],
+      "ReducedMRPer": [
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806,
+        0.05000000074505806
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

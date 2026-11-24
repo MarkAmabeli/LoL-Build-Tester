@@ -1,0 +1,474 @@
+{
+  "CurseoftheSadMummy": {
+    "path": "Characters/Amumu/Spells/CurseoftheSadMummyAbility/CurseoftheSadMummy",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      150,
+      125,
+      100
+    ],
+    "cost": [
+      100,
+      150,
+      200
+    ],
+    "range": [
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "RDamage": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "RDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "RCoefficient": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ]
+    },
+    "calculations": {
+      "RCalculatedDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "RDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "RCoefficient",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "RCalculatedDamage": {
+        "base": [
+          200,
+          300,
+          400
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.8
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AmumuP": {
+    "path": "Characters/Amumu/Spells/AmumuPAbility/AmumuP",
+    "maxRank": 5,
+    "dataValues": {
+      "DebuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "DamageAmp": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "AuraofDespair": {
+    "path": "Characters/Amumu/Spells/AuraofDespairAbility/AuraofDespair",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "cost": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "range": [
+      300,
+      300,
+      300,
+      300,
+      300
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "HealthDamage": [
+        0.75,
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2,
+        2.25
+      ],
+      "APRatio": [
+        0.004999999888241291,
+        0.004999999888241291,
+        0.004999999888241291,
+        0.004999999888241291,
+        0.004999999888241291,
+        0.004999999888241291,
+        0.004999999888241291
+      ]
+    },
+    "calculations": {
+      "{c8e45bc3}": {
+        "mMultiplier": {
+          "mNumber": 0.5,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalHealthDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 2,
+        "__type": "GameCalculation"
+      },
+      "{8a96509c}": {
+        "mMultiplier": {
+          "mNumber": 0.004999999888241291,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalHealthDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "{c8e45bc3}": {
+        "base": 5
+      },
+      "TotalHealthDamage": {
+        "base": [
+          1,
+          1.25,
+          1.5,
+          1.75,
+          2
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.005
+          }
+        ]
+      },
+      "{8a96509c}": {
+        "base": [
+          0.005,
+          0.00625,
+          0.0075,
+          0.00875,
+          0.01
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.000025
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "Tantrum": {
+    "path": "Characters/Amumu/Spells/TantrumAbility/Tantrum",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "cost": [
+      35,
+      35,
+      35,
+      35,
+      35
+    ],
+    "range": [
+      350,
+      350,
+      350,
+      350,
+      350
+    ],
+    "dataValues": {
+      "FlatDamageReductionMax": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BaseDamage": [
+        35,
+        65,
+        95,
+        125,
+        155,
+        185,
+        215
+      ],
+      "BaseDamageReduction": [
+        0,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "CDROnHit": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "PassiveScaling": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ]
+    },
+    "calculations": {
+      "DamageReduction": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TantrumDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageReduction": {
+        "base": [
+          5,
+          7,
+          9,
+          11,
+          13
+        ],
+        "ratios": [
+          {
+            "stat": "bonusArmor",
+            "value": 0.03
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.03
+          }
+        ]
+      },
+      "TantrumDamage": {
+        "base": [
+          65,
+          95,
+          125,
+          155,
+          185
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "BandageToss": {
+    "path": "Characters/Amumu/Spells/BandageTossAbility/BandageToss",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        45,
+        70,
+        95,
+        120,
+        145,
+        170,
+        195
+      ],
+      "StunDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "DashSpeed": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.8500000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          95,
+          120,
+          145,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.85
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

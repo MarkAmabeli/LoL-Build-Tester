@@ -1,0 +1,794 @@
+{
+  "AatroxR": {
+    "path": "Characters/Aatrox/Spells/AatroxRAbility/AatroxR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "dataValues": {
+      "RDuration": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "RERechargeBonus": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "RMovementSpeed": [
+        0.10000000149011612,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645
+      ],
+      "RMovementSpeedBonus": [
+        0.4000000059604645,
+        0.6000000238418579,
+        0.800000011920929,
+        1,
+        1.2000000476837158,
+        1.399999976158142,
+        1.600000023841858
+      ],
+      "RTotalADAmp": [
+        0.10000000149011612,
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071
+      ],
+      "RBonusADRange": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "RSpeedMinDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "RFXExtraDuration": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "RPercentBloodWellToBoostToMax": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "RHealingAmp": [
+        0.25,
+        0.5,
+        0.75,
+        1,
+        1.25,
+        1.5,
+        1.75
+      ],
+      "RExtension": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "RFearRadius": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "RMinionFearDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "RChampionFearDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "AatroxQ": {
+    "path": "Characters/Aatrox/Spells/AatroxQAbility/AatroxQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      12,
+      10,
+      8,
+      6
+    ],
+    "dataValues": {
+      "QBaseDamage": [
+        -5,
+        10,
+        25,
+        40,
+        55,
+        70,
+        85
+      ],
+      "QTotalADRatio": [
+        0.5249999761581421,
+        0.6000000238418579,
+        0.675000011920929,
+        0.75,
+        0.824999988079071,
+        0.8999999761581421,
+        0.9750000238418579
+      ],
+      "QSweetSpotBonus": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "QKnockupDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "QRampBonus": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "QMonsterBonus": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "QExtensionTime": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "calculations": {
+      "QDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "QBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "QTotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "QMinionDamage": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.550000011920929,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 16,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 21,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 26,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "QEdgeDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mDataValue": "QSweetSpotBonus",
+              "__type": "NamedDataValueCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "QDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "QDamage": {
+        "base": [
+          10,
+          25,
+          40,
+          55,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              0.6,
+              0.675,
+              0.75,
+              0.825,
+              0.9
+            ]
+          }
+        ]
+      },
+      "QMinionDamage": {
+        "base": 0,
+        "baseByLevel": [
+          0.55,
+          0.55,
+          0.55,
+          0.55,
+          0.55,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.65,
+          0.65,
+          0.65,
+          0.65,
+          0.65,
+          0.7,
+          0.7,
+          0.7
+        ]
+      },
+      "QEdgeDamage": {
+        "base": [
+          17.5,
+          43.75,
+          70,
+          96.25,
+          122.5
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.05,
+              1.18125,
+              1.3125,
+              1.44375,
+              1.575
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AatroxPassive": {
+    "path": "Characters/Aatrox/Spells/AatroxPassiveAbility/AatroxPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "PBonusAARange": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "PChargeRate": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PDamageTADBonusLevel1": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "PDamageTADBonusLevel18": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "PStructureCap": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "PHealShieldReduction": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "PDebuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "PHealingMinionMod": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "PHealingRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "PDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.03999999910593033,
+            "mEndValue": 0.10000000149011612,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "PCooldown": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStartValue": 22,
+            "mEndValue": 10,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MonsterDamageCap": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 100,
+            "mEndValue": 320,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PDamage": {
+        "base": 0,
+        "baseByLevel": [
+          0.04,
+          0.04352941,
+          0.04705882,
+          0.05058823,
+          0.05411765,
+          0.05764706,
+          0.06117647,
+          0.06470588,
+          0.06823529,
+          0.07176471,
+          0.07529412,
+          0.07882353,
+          0.08235294,
+          0.08588235,
+          0.08941177,
+          0.09294118,
+          0.09647059,
+          0.1
+        ]
+      },
+      "PCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          22,
+          21.29412,
+          20.58824,
+          19.88235,
+          19.17647,
+          18.47059,
+          17.76471,
+          17.05882,
+          16.35294,
+          15.64706,
+          14.94118,
+          14.23529,
+          13.52941,
+          12.82353,
+          12.11765,
+          11.41176,
+          10.70588,
+          10
+        ]
+      },
+      "MonsterDamageCap": {
+        "base": 0,
+        "baseByLevel": [
+          100,
+          112.9412,
+          125.8824,
+          138.8235,
+          151.7647,
+          164.7059,
+          177.6471,
+          190.5882,
+          203.5294,
+          216.4706,
+          229.4118,
+          242.3529,
+          255.2941,
+          268.2353,
+          281.1765,
+          294.1176,
+          307.0588,
+          320
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AatroxW": {
+    "path": "Characters/Aatrox/Spells/AatroxWAbility/AatroxW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      18,
+      16.5,
+      15,
+      13.5,
+      12
+    ],
+    "range": [
+      825,
+      825,
+      825,
+      825,
+      825
+    ],
+    "dataValues": {
+      "WBaseDamage": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "WBonusADRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "WSlowPercentage": [
+        -0.25,
+        -0.25,
+        -0.2750000059604645,
+        -0.30000001192092896,
+        -0.32499998807907104,
+        -0.3499999940395355,
+        -0.3499999940395355
+      ],
+      "WSlowDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "WTotalADRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "WDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "WBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "WTotalADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "WDamage": {
+        "base": [
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "AatroxE": {
+    "path": "Characters/Aatrox/Spells/AatroxEAbility/AatroxE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8,
+      7,
+      6,
+      5
+    ],
+    "dataValues": {
+      "ESpellVamp": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "EBonusAD": [
+        5,
+        15,
+        25,
+        35,
+        45,
+        55,
+        65
+      ],
+      "EResistancePerAD": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "EDashSpeed": [
+        800,
+        800,
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "EMaxRange": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "EDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "EBaseRechargeTime": [
+        30,
+        26,
+        22,
+        18,
+        14,
+        10,
+        6
+      ],
+      "EMinRange": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "ESpellVampEmpowered": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "EVampHPRatio": [
+        0.013000000268220901,
+        0.013000000268220901,
+        0.013000000268220901,
+        0.013000000268220901,
+        0.013000000268220901,
+        0.013000000268220901,
+        0.013000000268220901
+      ]
+    },
+    "calculations": {
+      "TotalEVamp": {
+        "mMultiplier": {
+          "mNumber": 0.009999999776482582,
+          "__type": "NumberCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "ESpellVamp",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mDataValue": "EVampHPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalEVamp": {
+        "base": 0.16,
+        "ratios": [
+          {
+            "stat": "bonusHP",
+            "value": 0.00013
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

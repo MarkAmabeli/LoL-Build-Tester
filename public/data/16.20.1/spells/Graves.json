@@ -1,0 +1,616 @@
+{
+  "GravesChargeShot": {
+    "path": "Characters/Graves/Spells/GravesChargeShotAbility/GravesChargeShot",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      80,
+      60
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "RBaseDamage": [
+        125,
+        275,
+        425,
+        575,
+        725,
+        875,
+        1025
+      ],
+      "RFalloffDamage": [
+        80,
+        200,
+        320,
+        440,
+        560,
+        680,
+        800
+      ],
+      "RKnockbackDistance": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "RBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.5,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "FalloffDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mDataValue": "RFalloffDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          275,
+          425,
+          575
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.5
+          }
+        ]
+      },
+      "FalloffDamage": {
+        "base": [
+          200,
+          320,
+          440
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1.2
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GravesQLineSpell": {
+    "path": "Characters/Graves/Spells/GravesQLineSpellAbility/GravesQLineSpell",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      11.25,
+      9.5,
+      7.75,
+      6
+    ],
+    "cost": [
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        25,
+        50,
+        75,
+        100,
+        125,
+        150,
+        175
+      ],
+      "FirstADRatio": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ],
+      "BaseDetonationDamage": [
+        35,
+        80,
+        125,
+        170,
+        215,
+        260,
+        305
+      ],
+      "bADDetonationRatio": [
+        0.30000001192092896,
+        0.44999998807907104,
+        0.6000000238418579,
+        0.75,
+        0.8999999761581421,
+        1.0499999523162842,
+        1.2000000476837158
+      ],
+      "TerrainCollisionDelay": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "FirstADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDetonationDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDetonationDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "bADDetonationRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.55
+          }
+        ]
+      },
+      "TotalDetonationDamage": {
+        "base": [
+          80,
+          125,
+          170,
+          215,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.45,
+              0.6,
+              0.75,
+              0.9,
+              1.05
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GravesSmokeGrenade": {
+    "path": "Characters/Graves/Spells/GravesSmokeGrenadeAbility/GravesSmokeGrenade",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      26,
+      24,
+      22,
+      20,
+      18
+    ],
+    "cost": [
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "range": [
+      950,
+      950,
+      950,
+      950,
+      950
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        10,
+        60,
+        110,
+        160,
+        210,
+        260,
+        310
+      ],
+      "SlowAmount": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "SmokeRadius": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "SmokeDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "SlowDuration": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "ImpactDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ImpactDamage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "GravesPassive": {
+    "path": "Characters/Graves/Spells/GravesPassiveAbility/GravesPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "CritDamageRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "StructureDamageReduction": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "calculations": {
+      "SingleBulletDamage": {
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mSubpart": {
+              "values": [
+                0,
+                0.7000017762184143,
+                0.7112977504730225,
+                0.7233880162239075,
+                0.7362725138664246,
+                0.7499512434005737,
+                0.7644242644309998,
+                0.7796915173530579,
+                0.795753002166748,
+                0.8126087784767151,
+                0.8302587270736694,
+                0.8487030267715454,
+                0.8679414987564087,
+                0.8879742622375488,
+                0.908801257610321,
+                0.9304224848747253,
+                0.9528380036354065,
+                0.9760477542877197,
+                1.000051736831665,
+                1.0248500108718872,
+                1.0504424571990967,
+                1.076829195022583,
+                1.1040102243423462,
+                1.1319855451583862,
+                1.1607550382614136,
+                1.1903187036514282,
+                1.2206767797470093,
+                1.2518290281295776,
+                1.2837754487991333,
+                1.3165162801742554,
+                1.3500512838363647
+              ],
+              "__type": "ByCharLevelFormulaCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MultiBulletDamage": {
+        "mMultiplier": {
+          "mNumber": 0.3330000042915344,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 6,
+        "mModifiedGameCalculation": "SingleBulletDamage",
+        "__type": "GameCalculationModified"
+      },
+      "CritDamageMult": {
+        "mFormulaParts": [
+          {
+            "mPart1": {
+              "mDataValue": "CritDamageRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "mPart2": {
+              "mSubparts": [
+                {
+                  "mNumber": -1,
+                  "__type": "NumberCalculationPart"
+                },
+                {
+                  "mStat": 9,
+                  "mCoefficient": 1,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "SumOfSubPartsCalculationPart"
+            },
+            "__type": "ProductOfSubPartsCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{549cda4d}": {
+        "mFormulaParts": [
+          {
+            "mStat": 9,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "SingleBulletDamage": "part type ByCharLevelFormulaCalculationPart",
+      "MultiBulletDamage": "part type ByCharLevelFormulaCalculationPart",
+      "CritDamageMult": "stat code 9/0",
+      "{549cda4d}": "stat code 9/0"
+    }
+  },
+  "GravesMove": {
+    "path": "Characters/Graves/Spells/GravesMoveAbility/GravesMove",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "dataValues": {
+      "ArmorPerStack": [
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22
+      ],
+      "MRGrantPercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BuffDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "CooldownPerHit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MaxStacks": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "DashSpeed": [
+        750,
+        750,
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
+      "DashMaxDistance": [
+        375,
+        375,
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
+      "DashMinDistance": [
+        275,
+        275,
+        275,
+        275,
+        275,
+        275,
+        275
+      ],
+      "DashAngle": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ]
+    },
+    "calculations": {
+      "MRGrant": {
+        "mMultiplier": {
+          "mDataValue": "MRGrantPercent",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mExpandedTooltipCalculationDisplay": 5,
+        "mFormulaParts": [
+          {
+            "mDataValue": "ArmorPerStack",
+            "__type": "NamedDataValueCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MRGrant": {
+        "base": [
+          3.5,
+          5,
+          6.5,
+          8,
+          9.5
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

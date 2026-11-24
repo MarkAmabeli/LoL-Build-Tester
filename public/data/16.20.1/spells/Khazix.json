@@ -1,0 +1,618 @@
+{
+  "KhazixQ": {
+    "path": "Characters/Khazix/Spells/KhazixQAbility/KhazixQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "range": [
+      325,
+      325,
+      325,
+      325,
+      325
+    ],
+    "dataValues": {
+      "EvolutionIsolationCDRPercentage": [
+        45,
+        45,
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
+      "BonusADRatio": [
+        1.0499999523162842,
+        1.0499999523162842,
+        1.0499999523162842,
+        1.0499999523162842,
+        1.0499999523162842,
+        1.0499999523162842,
+        1.0499999523162842
+      ]
+    },
+    "calculations": {
+      "{ba2719ef}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{8b6fe763}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "IsEvolved": {
+        "tooltipOnly": true,
+        "mDefaultGameCalculation": "{8b6fe763}",
+        "mConditionalGameCalculation": "{ba2719ef}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{99a499bd}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "BaseDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "IsoDamage": {
+        "mMultiplier": {
+          "mNumber": 2.0999999046325684,
+          "__type": "NumberCalculationPart"
+        },
+        "mModifiedGameCalculation": "BaseDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)",
+      "BaseDamage": "part type EffectValueCalculationPart",
+      "IsoDamage": "part type EffectValueCalculationPart"
+    }
+  },
+  "KhazixR": {
+    "path": "Characters/Khazix/Spells/KhazixRAbility/KhazixR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      85,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "StealthDuration": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "RecastWindow": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "BonusMovementSpeedPercent": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "EvolutionsAvailable": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "EvolvedStealthDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "RecastCD": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "NumberOfCasts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "EvolvedNumberOfCasts": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {
+      "{ba2719ef}": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{8b6fe763}": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "IsEvolved": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "tooltipOnly": true,
+        "mDefaultGameCalculation": "{8b6fe763}",
+        "mConditionalGameCalculation": "{ba2719ef}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{7bcf22fa}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)"
+    }
+  },
+  "KhazixE": {
+    "path": "Characters/Khazix/Spells/KhazixEAbility/KhazixE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "dataValues": {
+      "EvolvedLeapRange": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "BaseDamage": [
+        30,
+        65,
+        100,
+        135,
+        170,
+        205,
+        240
+      ],
+      "ADRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "{ba2719ef}": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{8b6fe763}": {
+        "mExpandedTooltipCalculationDisplay": 1,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "IsEvolved": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mDefaultGameCalculation": "{8b6fe763}",
+        "mConditionalGameCalculation": "{ba2719ef}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{0f374711}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)",
+      "TotalDamage": "part type EffectValueCalculationPart"
+    }
+  },
+  "KhazixW": {
+    "path": "Characters/Khazix/Spells/KhazixWAbility/KhazixW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "cost": [
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "dataValues": {
+      "BaseHeal": [
+        35,
+        55,
+        75,
+        95,
+        115,
+        135,
+        155
+      ],
+      "HealAPRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "SlowPercentage": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "SlowDuration": [
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25
+      ],
+      "IsolatedSlowPercentage": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "IsolatedSlowDuration": [
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25,
+        2.25
+      ]
+    },
+    "calculations": {
+      "{ba2719ef}": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mNumber": 1,
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{8b6fe763}": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "__type": "NumberCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "IsEvolved": {
+        "mExpandedTooltipCalculationDisplay": 5,
+        "tooltipOnly": true,
+        "mDefaultGameCalculation": "{8b6fe763}",
+        "mConditionalGameCalculation": "{ba2719ef}",
+        "mConditionalCalculationRequirements": {
+          "mBuffName": "{ff849683}",
+          "__type": "HasBuffCastRequirement"
+        },
+        "__type": "GameCalculationConditional"
+      },
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "HealAmount": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseHeal",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "HealAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "{ba2719ef}": {
+        "base": 1
+      },
+      "{8b6fe763}": {
+        "base": null
+      },
+      "HealAmount": {
+        "base": [
+          55,
+          75,
+          95,
+          115,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "IsEvolved": "conditional calculation (depends on a game condition)",
+      "BaseDamage": "part type EffectValueCalculationPart"
+    }
+  },
+  "KhazixPassive": {
+    "path": "Characters/Khazix/Spells/KhazixPassiveAbility/KhazixPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "SlowAmount": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "IsolationRange": [
+        375,
+        375,
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
+      "BonusADRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "values": [
+              15,
+              22,
+              29,
+              36,
+              43,
+              50,
+              57,
+              64,
+              71,
+              78,
+              85,
+              92,
+              99,
+              106,
+              113,
+              120,
+              127,
+              134,
+              141,
+              148,
+              155,
+              162,
+              169,
+              176,
+              183,
+              190,
+              197,
+              204,
+              211,
+              218,
+              225
+            ],
+            "__type": "ByCharLevelFormulaCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "TotalDamage": "part type ByCharLevelFormulaCalculationPart"
+    }
+  }
+}

@@ -1,0 +1,605 @@
+{
+  "TristanaE": {
+    "path": "Characters/Tristana/Spells/TristanaEAbility/TristanaE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      15.5,
+      15,
+      14.5,
+      14
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "PassiveBaseDamage": [
+        30,
+        45,
+        60,
+        75,
+        90,
+        105,
+        120
+      ],
+      "PassiveRadius": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "ActiveBaseDamage": [
+        35,
+        60,
+        85,
+        110,
+        135,
+        160,
+        185
+      ],
+      "ActiveBADRatio": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "ActiveRadius": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "ActiveTowerRadius": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "ActiveMaxStacks": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ActiveDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ActivePerStackAmp": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "CritChanceModifier": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "PassiveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ActiveDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CritChanceModifier",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mDataValue": "ActiveBADRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ActiveMaxDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mDataValue": "ActivePerStackAmp",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mDataValue": "ActiveMaxStacks",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "ActiveDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "PassiveDamage": {
+        "base": [
+          45,
+          60,
+          75,
+          90,
+          105
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "ActiveDamage": "stat code 9/0",
+      "ActiveMaxDamage": "stat code 9/0"
+    }
+  },
+  "TristanaPassive": {
+    "path": "Characters/Tristana/Spells/TristanaPassiveAbility/TristanaPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {},
+    "calculations": {
+      "BonusPassiveRange": {
+        "mFormulaParts": [
+          {
+            "mEndValue": 150,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BonusPassiveRange": {
+        "base": 0,
+        "baseByLevel": [
+          0,
+          8.823529,
+          17.64706,
+          26.47059,
+          35.29412,
+          44.11765,
+          52.94118,
+          61.76471,
+          70.58824,
+          79.41176,
+          88.23529,
+          97.05882,
+          105.8824,
+          114.7059,
+          123.5294,
+          132.3529,
+          141.1765,
+          150
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TristanaR": {
+    "path": "Characters/Tristana/Spells/TristanaRAbility/TristanaR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      100,
+      100
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        175,
+        225,
+        275,
+        325,
+        375,
+        425,
+        475
+      ],
+      "KnockbackDistance": [
+        400,
+        600,
+        800,
+        1000,
+        1200,
+        1400,
+        1600
+      ],
+      "KnockbackArea": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "StunDuration": [
+        0.25,
+        0.4000000059604645,
+        0.550000011920929,
+        0.699999988079071,
+        0.8500000238418579,
+        1,
+        1.149999976158142
+      ],
+      "APRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "DamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageCalc": {
+        "base": [
+          225,
+          275,
+          325
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          },
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TristanaQ": {
+    "path": "Characters/Tristana/Spells/TristanaQAbility/TristanaQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      20,
+      19,
+      18,
+      17,
+      16
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    "range": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "AttackSpeedMod": [
+        0.44999998807907104,
+        0.6000000238418579,
+        0.75,
+        0.8999999761581421,
+        1.0499999523162842,
+        1.2000000476837158,
+        1.350000023841858
+      ],
+      "BuffDuration": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TristanaSkin80Manager": {
+    "path": "Characters/Tristana/Spells/TristanaSkin80Manager",
+    "maxRank": 5,
+    "dataValues": {
+      "GoldToNextForm": [
+        2000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000,
+        6000
+      ],
+      "SecondsOutOfCombatTillTransform": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "SecondsOutOfCombatTillEmote": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "WEmpoweredFormDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TristanaW": {
+    "path": "Characters/Tristana/Spells/TristanaWAbility/TristanaW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      22,
+      20,
+      18,
+      16,
+      14
+    ],
+    "cost": [
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        35,
+        70,
+        105,
+        140,
+        175,
+        210,
+        245
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowMod": [
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645,
+        -0.4000000059604645
+      ],
+      "DamageRadius": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "ADRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "LandingDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "LandingDamage": {
+        "base": [
+          70,
+          105,
+          140,
+          175,
+          210
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

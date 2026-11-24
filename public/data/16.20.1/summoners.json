@@ -1,0 +1,796 @@
+[
+  {
+    "id": "SummonerBarrier",
+    "key": "21",
+    "name": "Barrier",
+    "description": "Gain a brief Shield.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerBarrier.png",
+    "cooldown": 180,
+    "range": 1200,
+    "dataValues": {
+      "ShieldDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "calculations": {
+      "ShieldStrength": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 100,
+            "mEndValue": 460,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ShieldStrength": {
+        "base": 0,
+        "baseByLevel": [
+          100,
+          121.1765,
+          142.3529,
+          163.5294,
+          184.7059,
+          205.8824,
+          227.0588,
+          248.2353,
+          269.4118,
+          290.5882,
+          311.7647,
+          332.9412,
+          354.1176,
+          375.2941,
+          396.4706,
+          417.6471,
+          438.8235,
+          460
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerBoost",
+    "key": "1",
+    "name": "Cleanse",
+    "description": "Removes all disables (excluding suppression and airborne) and summoner spell debuffs affecting your champion and gives Tenacity.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerBoost.png",
+    "cooldown": 240,
+    "range": 200,
+    "dataValues": {
+      "TenacityValue": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "TenacityDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerExhaust",
+    "key": "3",
+    "name": "Exhaust",
+    "description": "Slows target enemy champion and reduces their damage dealt.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerExhaust.png",
+    "cooldown": 240,
+    "range": 650,
+    "dataValues": {
+      "DebuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "DamageReduction": [
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        35
+      ],
+      "Slow": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ]
+    },
+    "calculations": {
+      "DamageReductionTOOLTIP": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 2,
+            "__type": "EffectValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "DamageReductionTOOLTIP": "part type EffectValueCalculationPart"
+    }
+  },
+  {
+    "id": "SummonerFlash",
+    "key": "4",
+    "name": "Flash",
+    "description": "Teleports you a short distance toward your cursor.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerFlash.png",
+    "cooldown": 300,
+    "dataValues": {},
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerHaste",
+    "key": "6",
+    "name": "Ghost",
+    "description": "Gain Move Speed and ignore unit collision for the duration.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerHaste.png",
+    "cooldown": 240,
+    "range": 200,
+    "dataValues": {
+      "Duration": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "calculations": {
+      "MoveSpeedMod": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.23999999463558197,
+            "mEndValue": 0.47999998927116394,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "{7bcbbf47}": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 4,
+            "mEndValue": 7,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MoveSpeedMod": {
+        "base": 0,
+        "baseByLevel": [
+          0.24,
+          0.2541176,
+          0.2682353,
+          0.2823529,
+          0.2964706,
+          0.3105882,
+          0.3247059,
+          0.3388235,
+          0.3529412,
+          0.3670588,
+          0.3811765,
+          0.3952941,
+          0.4094118,
+          0.4235294,
+          0.437647,
+          0.4517647,
+          0.4658823,
+          0.48
+        ]
+      },
+      "{7bcbbf47}": {
+        "base": 0,
+        "baseByLevel": [
+          4,
+          4.176471,
+          4.352941,
+          4.529412,
+          4.705882,
+          4.882353,
+          5.058824,
+          5.235294,
+          5.411765,
+          5.588235,
+          5.764706,
+          5.941176,
+          6.117647,
+          6.294118,
+          6.470588,
+          6.647059,
+          6.823529,
+          7
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerHeal",
+    "key": "7",
+    "name": "Heal",
+    "description": "Restores Health and grants Move Speed to you and target allied champion.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerHeal.png",
+    "cooldown": 240,
+    "dataValues": {
+      "AllyRange": [
+        900,
+        900,
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "MoveSpeed": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "MoveSpeedDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "StackingHealDebuff": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "DebuffDuration": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "CursorForgiveness": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    "calculations": {
+      "TotalHeal": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 80,
+            "mEndValue": 318,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalHeal": {
+        "base": 0,
+        "baseByLevel": [
+          80,
+          94,
+          108,
+          122,
+          136,
+          150,
+          164,
+          178,
+          192,
+          206,
+          220,
+          234,
+          248,
+          262,
+          276,
+          290,
+          304,
+          318
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerDot",
+    "key": "14",
+    "name": "Ignite",
+    "description": "Deals true damage over time to target enemy champion and reduces healing effects on them for the duration.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerDot.png",
+    "cooldown": 180,
+    "range": 600,
+    "dataValues": {
+      "GrievousAmount": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "SightRadius": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "DotDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "InverseDuration": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ]
+    },
+    "calculations": {
+      "TooltipTrueDamageCalculation": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 70,
+            "mInitialBonusPerLevel": 20,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mBonusPerLevelAtAndAfter": 25,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "DamagePerSecond": {
+        "mMultiplier": {
+          "mDataValue": "InverseDuration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "TooltipTrueDamageCalculation",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TooltipTrueDamageCalculation": {
+        "base": 0,
+        "baseByLevel": [
+          70,
+          90,
+          110,
+          130,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325,
+          350,
+          375,
+          400,
+          425,
+          450,
+          475
+        ]
+      },
+      "DamagePerSecond": {
+        "base": 0,
+        "baseByLevel": [
+          14,
+          18,
+          22,
+          26,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerSmite",
+    "key": "11",
+    "name": "Smite",
+    "description": "Deals true damage to a monster or minion.",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerSmite.png",
+    "cooldown": 15,
+    "range": 500,
+    "dataValues": {
+      "SmiteBaseDamage": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "SmiteUpgradedDamage": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "Smite2ndUpgradedDamage": [
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400,
+        1400
+      ],
+      "AoESmiteRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SmiteSlowAmount": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "SmiteSlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "FirstPVPDamage": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "SecondPVPDamage": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "SmiteComebackXP": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ]
+    },
+    "calculations": {
+      "PetDPS": {
+        "mExpandedTooltipCalculationDisplay": 6,
+        "mFormulaParts": [
+          {
+            "mStartValue": 20,
+            "mEndValue": 150,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.10000000149011612,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.1599999964237213,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mStatFormula": 2,
+            "mCoefficient": 0.03999999910593033,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 1,
+            "mStatFormula": 2,
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mStatFormula": 2,
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PetHPS": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 6,
+            "mBreakpoints": [
+              {
+                "mLevel": 4,
+                "mBonusPerLevelAtAndAfter": 2,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PetDPS": {
+        "base": 0,
+        "baseByLevel": [
+          20,
+          27.64706,
+          35.29412,
+          42.94118,
+          50.58824,
+          58.23529,
+          65.88235,
+          73.52941,
+          81.17647,
+          88.82353,
+          96.47059,
+          104.1176,
+          111.7647,
+          119.4118,
+          127.0588,
+          134.7059,
+          142.3529,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.1
+          },
+          {
+            "stat": "AP",
+            "value": 0.16
+          },
+          {
+            "stat": "bonusHP",
+            "value": 0.04
+          },
+          {
+            "stat": "bonusArmor",
+            "value": 0.25
+          },
+          {
+            "stat": "bonusMR",
+            "value": 0.25
+          }
+        ]
+      },
+      "PetHPS": {
+        "base": 0,
+        "baseByLevel": [
+          6,
+          6,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  {
+    "id": "SummonerTeleport",
+    "key": "12",
+    "name": "Teleport",
+    "description": "After a brief channel, become untargetable and travel to an allied unit. Upgrades into Unleashed Teleport, which significantly increases travel speed. ",
+    "icon": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/spell/SummonerTeleport.png",
+    "cooldown": 300,
+    "dataValues": {
+      "MSDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ChannelDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "MSAmount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "TravelSpeed": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "MaxTravelTime": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "UpgradeMinute": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    "calculations": {
+      "UpgradedCooldown": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 240,
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "UpgradedCooldown": {
+        "base": 0,
+        "baseByLevel": [
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240,
+          240
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+]

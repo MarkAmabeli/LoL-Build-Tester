@@ -1,0 +1,548 @@
+{
+  "TalonR": {
+    "path": "Characters/Talon/Spells/TalonRAbility/TalonR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      100,
+      80,
+      60
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      550,
+      550,
+      550
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "MoveSpeed": [
+        0.25,
+        0.4000000059604645,
+        0.550000011920929,
+        0.699999988079071,
+        0.8500000238418579,
+        1,
+        1.149999976158142
+      ],
+      "Duration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          90,
+          135,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TalonE": {
+    "path": "Characters/Talon/Spells/TalonEAbility/TalonE",
+    "slot": "E",
+    "maxRank": 5,
+    "range": [
+      6000,
+      6000,
+      6000,
+      6000,
+      6000
+    ],
+    "dataValues": {
+      "WallCD": [
+        185,
+        160,
+        135,
+        110,
+        85,
+        60,
+        35
+      ],
+      "WallJumpDistance": [
+        625,
+        625,
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
+      "WallLockoutWidth": [
+        1250,
+        1250,
+        1250,
+        1250,
+        1250,
+        1250,
+        1250
+      ],
+      "DisplayCD": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "TalonPassive": {
+    "path": "Characters/Talon/Spells/TalonPassiveAbility/TalonPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MonsterMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "StackDuration": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "BleedDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BonusADRatio": [
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684,
+        2.0999999046325684
+      ]
+    },
+    "calculations": {
+      "BleedDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 80,
+            "mEndValue": 280,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BleedDamage": {
+        "base": 0,
+        "baseByLevel": [
+          80,
+          91.76471,
+          103.5294,
+          115.2941,
+          127.0588,
+          138.8235,
+          150.5882,
+          162.3529,
+          174.1176,
+          185.8824,
+          197.6471,
+          209.4118,
+          221.1765,
+          232.9412,
+          244.7059,
+          256.4706,
+          268.2353,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 2.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TalonW": {
+    "path": "Characters/Talon/Spells/TalonWAbility/TalonW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8.5,
+      8,
+      7.5,
+      7
+    ],
+    "cost": [
+      50,
+      55,
+      60,
+      65,
+      70
+    ],
+    "range": [
+      650,
+      650,
+      650,
+      650,
+      650
+    ],
+    "dataValues": {
+      "InitialBaseDamage": [
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "ReturnBaseDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "MovespeedSlow": [
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ReturnDelay": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "MonsterDamageMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "InitialBonusADRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "ReturnBonusADRatio": [
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421,
+        0.8999999761581421
+      ]
+    },
+    "calculations": {
+      "TotalInitialDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "InitialBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "InitialBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalReturnDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ReturnBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "ReturnBonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalInitialDamage": {
+        "base": [
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.4
+          }
+        ]
+      },
+      "TotalReturnDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "TalonQ": {
+    "path": "Characters/Talon/Spells/TalonQAbility/TalonQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      575,
+      575,
+      575,
+      575,
+      575
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        45,
+        65,
+        85,
+        105,
+        125,
+        145,
+        165
+      ],
+      "BonusADRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "EnhancedDamageMod": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CooldownRefund": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalHealing": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 9,
+            "mEndValue": 55,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "LeapDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "BonusADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CriticalDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mDataValue": "EnhancedDamageMod",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            {
+              "mStat": 9,
+              "mStatFormula": 2,
+              "mCoefficient": 1,
+              "__type": "StatByCoefficientCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "LeapDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalHealing": {
+        "base": 0,
+        "baseByLevel": [
+          9,
+          11.70588,
+          14.41176,
+          17.11765,
+          19.82353,
+          22.52941,
+          25.23529,
+          27.94118,
+          30.64706,
+          33.35294,
+          36.05882,
+          38.76471,
+          41.47059,
+          44.17647,
+          46.88235,
+          49.58824,
+          52.29412,
+          55
+        ]
+      },
+      "LeapDamage": {
+        "base": [
+          65,
+          85,
+          105,
+          125,
+          145
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CriticalDamage": "stat code 9/2"
+    }
+  }
+}

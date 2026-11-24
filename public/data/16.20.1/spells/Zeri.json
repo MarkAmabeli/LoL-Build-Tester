@@ -1,0 +1,1496 @@
+{
+  "ZeriPassive": {
+    "path": "Characters/Zeri/Spells/ZeriPassiveAbility/ZeriPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "ShieldDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "HastePercent": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "EnergizedDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PercentShieldSteal": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ],
+      "ChampHitHasteDuration": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "calculations": {
+      "PassiveAttackSpeed": {
+        "mFormulaParts": [
+          {
+            "mLevel1Value": 0.20000000298023224,
+            "mBreakpoints": [
+              {
+                "mLevel": 6,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              },
+              {
+                "mLevel": 11,
+                "mAdditionalBonusAtThisLevel": 0.05000000074505806,
+                "__type": "Breakpoint"
+              }
+            ],
+            "__type": "ByCharLevelBreakpointsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveAttackSpeed": {
+        "base": 0,
+        "baseByLevel": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZeriQMis": {
+    "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMis",
+    "maxRank": 5,
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        -5,
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "CDRefund": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CDRefundUrf": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "AttackSpeed": [
+        0.30000001192092896,
+        0.44999998807907104,
+        0.6000000238418579,
+        0.75,
+        0.8999999761581421,
+        1.0499999523162842,
+        1.2000000476837158
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZeriQMisEmpoweredPierce": {
+    "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisEmpoweredPierce",
+    "maxRank": 5,
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        -5,
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "CDRefund": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CDRefundUrf": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "AttackSpeed": [
+        0.30000001192092896,
+        0.44999998807907104,
+        0.6000000238418579,
+        0.75,
+        0.8999999761581421,
+        1.0499999523162842,
+        1.2000000476837158
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZeriQ": {
+    "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "dataValues": {
+      "MinCooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "AttackSpeedCap": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "ExcessAttackSpeedToADMult": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "BaseDamage": [
+        18,
+        22,
+        26,
+        30,
+        34,
+        38,
+        42
+      ],
+      "ActiveADRatio": [
+        1,
+        1.0199999809265137,
+        1.0399999618530273,
+        1.059999942779541,
+        1.0800000429153442,
+        1.100000023841858,
+        1.1200000047683716
+      ],
+      "NumberOfMissiles": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "EnergizedMissiles": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "SlowDuration": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "SlowPercent": [
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432,
+        0.9900000095367432
+      ],
+      "ActivePercentDamageToTowers": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MaxPercentHealthToMonsters": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "ChargePerAttack": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "ChargeDistanceMultiplier": [
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903,
+        0.02500000037252903
+      ]
+    },
+    "calculations": {
+      "ActiveDamageThatCanCrit": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ActiveADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MinDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 10,
+            "mEndValue": 25,
+            "mScaleByStatProgressionMultiplier": true,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.029999999329447746,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "CurrentCritDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 9,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveMaxDamage": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 75,
+            "mEndValue": 160,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 1.100000023841858,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveMaxChargePercentHealth": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 0.009999999776482582,
+            "mEndValue": 0.10999999940395355,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "__type": "GameCalculation"
+      },
+      "PassiveExecuteThreshold": {
+        "DamageType": 2,
+        "mFormulaParts": [
+          {
+            "mStartValue": 70,
+            "mEndValue": 160,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          },
+          {
+            "mCoefficient": 0.20000000298023224,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ActiveDamageThatCanCrit": {
+        "base": [
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": [
+              1.02,
+              1.04,
+              1.06,
+              1.08,
+              1.1
+            ]
+          }
+        ]
+      },
+      "MinDamage": {
+        "base": 0,
+        "baseByLevel": [
+          10,
+          10.88235,
+          11.76471,
+          12.64706,
+          13.52941,
+          14.41176,
+          15.29412,
+          16.17647,
+          17.05882,
+          17.94118,
+          18.82353,
+          19.70588,
+          20.58824,
+          21.47059,
+          22.35294,
+          23.23529,
+          24.11765,
+          25
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.03
+          }
+        ]
+      },
+      "PassiveMaxDamage": {
+        "base": 0,
+        "baseByLevel": [
+          75,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140,
+          145,
+          150,
+          155,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.1
+          }
+        ]
+      },
+      "PassiveMaxChargePercentHealth": {
+        "base": 0,
+        "baseByLevel": [
+          0.01,
+          0.01588235,
+          0.02176471,
+          0.02764706,
+          0.03352941,
+          0.03941176,
+          0.04529412,
+          0.05117647,
+          0.05705882,
+          0.06294118,
+          0.06882353,
+          0.07470588,
+          0.08058823,
+          0.08647059,
+          0.09235294,
+          0.09823529,
+          0.1041176,
+          0.11
+        ]
+      },
+      "PassiveExecuteThreshold": {
+        "base": 0,
+        "baseByLevel": [
+          70,
+          75.29412,
+          80.58824,
+          85.88235,
+          91.17647,
+          96.47059,
+          101.7647,
+          107.0588,
+          112.3529,
+          117.6471,
+          122.9412,
+          128.2353,
+          133.5294,
+          138.8235,
+          144.1176,
+          149.4118,
+          154.7059,
+          160
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "CurrentCritDamage": "stat code 9/0"
+    }
+  },
+  "ZeriQMisPierce": {
+    "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisPierce",
+    "maxRank": 5,
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        -5,
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "CDRefund": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CDRefundUrf": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "AttackSpeed": [
+        0.30000001192092896,
+        0.44999998807907104,
+        0.6000000238418579,
+        0.75,
+        0.8999999761581421,
+        1.0499999523162842,
+        1.2000000476837158
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZeriQMisEmpowered": {
+    "path": "Characters/Zeri/Spells/ZeriQAbility/ZeriQMisEmpowered",
+    "maxRank": 5,
+    "range": [
+      750,
+      750,
+      750,
+      750,
+      750
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        -5,
+        5,
+        15,
+        25,
+        35,
+        45,
+        55
+      ],
+      "CDRefund": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CDRefundUrf": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "AttackSpeed": [
+        0.30000001192092896,
+        0.44999998807907104,
+        0.6000000238418579,
+        0.75,
+        0.8999999761581421,
+        1.0499999523162842,
+        1.2000000476837158
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          5,
+          15,
+          25,
+          35,
+          45
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZeriW": {
+    "path": "Characters/Zeri/Spells/ZeriWAbility/ZeriW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11,
+      10,
+      9,
+      8
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "Damage": [
+        -10,
+        30,
+        70,
+        110,
+        150,
+        190,
+        230
+      ],
+      "ADRatio": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CriticalEffectiveness": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "SlowPercent": [
+        0.25,
+        0.30000001192092896,
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "WallBeamRange": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "BeamWidth": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "BeamCastTime": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.8500000238418579
+      ],
+      "MinCastTime": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "ASpeedCastTimeScalarPerHundrethSecond": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869
+      ],
+      "BaseCastTime": [
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929,
+        0.550000011920929
+      ],
+      "APRatio": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mDataValue": "ADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "WallDamage": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mDataValue": "CriticalEffectiveness",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mModifiedGameCalculation": "TotalDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          30,
+          70,
+          110,
+          150,
+          190
+        ],
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          },
+          {
+            "stat": "AP",
+            "value": 0.5
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "WallDamage": "stat code 9/0"
+    }
+  },
+  "ZeriR": {
+    "path": "Characters/Zeri/Spells/ZeriRAbility/ZeriR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      80,
+      75,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "StackDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MaxStacks": [
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000
+      ],
+      "DurationIncreasePerHit": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "MaxHyperchargeDuration": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "BaseASPercent": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "MSPercent": [
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873,
+        0.014999999664723873
+      ],
+      "RDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BonusMagicDamage": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "ActiveDamage": [
+        50,
+        150,
+        250,
+        350,
+        450,
+        550,
+        650
+      ],
+      "NovaRange": [
+        825,
+        825,
+        825,
+        825,
+        825,
+        825,
+        825
+      ],
+      "StacksPerHit": [],
+      "MaxChainTargets": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "BaseBonusMS": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "ChainADRatio": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ]
+    },
+    "calculations": {
+      "TotalBonusDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusMagicDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.15000000596046448,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalActiveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.100000023841858,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ChainPhysicalDamage": {
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mDataValue": "ChainADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalBonusDamage": {
+        "base": [
+          5,
+          10,
+          15
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.15
+          }
+        ]
+      },
+      "TotalActiveDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.1
+          },
+          {
+            "stat": "bonusAD",
+            "value": 0.6
+          }
+        ]
+      },
+      "ChainPhysicalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "ZeriE": {
+    "path": "Characters/Zeri/Spells/ZeriEAbility/ZeriE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      24,
+      22.5,
+      21,
+      19.5,
+      18
+    ],
+    "cost": [
+      90,
+      85,
+      80,
+      75,
+      70
+    ],
+    "dataValues": {
+      "MaxDistance": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "MaxDistanceOverWalls": [
+        3000,
+        3000,
+        3000,
+        3000,
+        3000,
+        3000,
+        3000
+      ],
+      "BuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "NumberOfPierceShots": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "PenDamagePercent": [
+        0.75,
+        0.800000011920929,
+        0.8500000238418579,
+        0.8999999761581421,
+        0.949999988079071,
+        1,
+        1.0499999523162842
+      ],
+      "CDReductionPerHit": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "ShortHopAnimCutoff": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "MediumHopAnimCutoff": [
+        550,
+        550,
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "RevealRangeOverWalls": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "BonusDamageBase": [
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32
+      ],
+      "BonusAPRatio": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "IndicatorRevealTime": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "CritScalingMod": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "CritCDReductionPerHit": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "CDReductionModNonChamp": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "DashSpeed": {
+        "mFormulaParts": [
+          {
+            "mNumber": 600,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 7,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BonusDamageTotal": {
+        "mMultiplier": {
+          "mSubparts": [
+            {
+              "mNumber": 1,
+              "__type": "NumberCalculationPart"
+            },
+            {
+              "mPart1": {
+                "mStat": 8,
+                "mDataValue": "CritScalingMod",
+                "__type": "StatByNamedDataValueCalculationPart"
+              },
+              "mPart2": {
+                "mSubparts": [
+                  {
+                    "mStat": 9,
+                    "mCoefficient": 1,
+                    "__type": "StatByCoefficientCalculationPart"
+                  },
+                  {
+                    "mNumber": -1,
+                    "__type": "NumberCalculationPart"
+                  }
+                ],
+                "__type": "SumOfSubPartsCalculationPart"
+              },
+              "__type": "ProductOfSubPartsCalculationPart"
+            }
+          ],
+          "__type": "SumOfSubPartsCalculationPart"
+        },
+        "mFormulaParts": [
+          {
+            "mDataValue": "BonusDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "BonusAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{93e3e1a0}": {
+        "mFormulaParts": [
+          {
+            "mNumber": 600,
+            "__type": "NumberCalculationPart"
+          },
+          {
+            "mStat": 7,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DashSpeed": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      },
+      "{93e3e1a0}": {
+        "base": 600,
+        "ratios": [
+          {
+            "stat": "moveSpeed",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "BonusDamageTotal": "stat code 9/0"
+    }
+  }
+}

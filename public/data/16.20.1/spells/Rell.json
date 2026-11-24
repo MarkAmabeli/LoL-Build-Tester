@@ -1,0 +1,855 @@
+{
+  "RellP": {
+    "path": "Characters/Rell/Spells/RellPAbility/RellP",
+    "maxRank": 5,
+    "range": [
+      1500,
+      1500,
+      1500,
+      1500,
+      1500
+    ],
+    "dataValues": {
+      "RefreshDuration": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "StealPercent": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ],
+      "ShredDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MaxStacks": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "MaxPercentTooltipOnly": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    "calculations": {
+      "StealFloor": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 1.5,
+            "mEndValue": 3,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "OnHitDamage": {
+        "DamageType": 1,
+        "mFormulaParts": [
+          {
+            "mStat": 1,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          },
+          {
+            "mStat": 6,
+            "mCoefficient": 0.05000000074505806,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "StealFloor": {
+        "base": 0,
+        "baseByLevel": [
+          1.5,
+          1.588235,
+          1.676471,
+          1.764706,
+          1.852941,
+          1.941176,
+          2.029412,
+          2.117647,
+          2.205882,
+          2.294118,
+          2.382353,
+          2.470588,
+          2.558824,
+          2.647059,
+          2.735294,
+          2.823529,
+          2.911765,
+          3
+        ]
+      },
+      "OnHitDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalArmor",
+            "value": 0.05
+          },
+          {
+            "stat": "totalMR",
+            "value": 0.05
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RellW_Dismount": {
+    "path": "Characters/Rell/Spells/RellW_DismountAbility/RellW_Dismount",
+    "slot": "W",
+    "maxRank": 5,
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "dataValues": {
+      "CrashDownDamage": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "CrashDownKnockupDuration": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "CrashDownStunDuration": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "SlideDistance": [
+        320,
+        320,
+        320,
+        320,
+        320,
+        320,
+        320
+      ],
+      "ResistanceIncrease": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "ShieldBase": [
+        20,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "ShieldHealthRatio": [
+        0.10999999940395355,
+        0.10999999940395355,
+        0.10999999940395355,
+        0.10999999940395355,
+        0.10999999940395355,
+        0.10999999940395355,
+        0.10999999940395355
+      ],
+      "DismountedASBoost": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "DismountedRangeBoost": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "MountUpDamage": [
+        10,
+        10,
+        25,
+        40,
+        55,
+        70,
+        85
+      ],
+      "MountUpSpeed": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "MountUpSpeedDuration": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "MountedMoveSpeed": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "FlipBaseDamage": [
+        -5,
+        10,
+        25,
+        40,
+        55,
+        70,
+        85
+      ],
+      "FlipKnockupDuration": [
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645,
+        0.4000000059604645
+      ],
+      "FlipStunDuration": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ]
+    },
+    "calculations": {
+      "DismountDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "CrashDownDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "Shield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 12,
+            "mDataValue": "ShieldHealthRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "FlipDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MountUpDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{a71a11d7}": {
+        "mFormulaParts": [
+          {
+            "mCeiling": 1,
+            "mFloor": 0.20000000298023224,
+            "mSubparts": [
+              {
+                "buffName": "{5a8747c2}",
+                "Coefficient": 2,
+                "__type": "PercentageOfBuffNameElapsed"
+              }
+            ],
+            "__type": "ClampSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DismountDamage": {
+        "base": [
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "Shield": {
+        "base": [
+          20,
+          40,
+          60,
+          80,
+          100
+        ],
+        "ratios": [
+          {
+            "stat": "maxHP",
+            "value": 0.11
+          }
+        ]
+      },
+      "FlipDamage": {
+        "base": [
+          10,
+          25,
+          40,
+          55,
+          70
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "{a71a11d7}": "part type ClampSubPartsCalculationPart"
+    }
+  },
+  "RellW_MountUp": {
+    "path": "Characters/Rell/Spells/RellW_DismountAbility/RellW_MountUp",
+    "maxRank": 5,
+    "dataValues": {
+      "CrashDownTooltip": [
+        30,
+        60,
+        90,
+        120,
+        150,
+        180,
+        210
+      ],
+      "ShieldBaseTooltip": [
+        20,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "FlipAttackTooltip": [
+        -5,
+        10,
+        25,
+        40,
+        55,
+        70,
+        85
+      ],
+      "MoveSpeedTooltip": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "HasteTooltip": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ]
+    },
+    "calculations": {
+      "{a71a11d7}": {
+        "mFormulaParts": [
+          {
+            "mCeiling": 1,
+            "mFloor": 0.20000000298023224,
+            "mSubparts": [
+              {
+                "buffName": "{5a8747c2}",
+                "Coefficient": 2,
+                "__type": "PercentageOfBuffNameElapsed"
+              }
+            ],
+            "__type": "ClampSubPartsCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {},
+    "unsupported": {
+      "{a71a11d7}": "part type ClampSubPartsCalculationPart"
+    }
+  },
+  "RellE": {
+    "path": "Characters/Rell/Spells/RellEAbility/RellE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      14,
+      13,
+      12,
+      11,
+      10
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      1200,
+      1200,
+      1200,
+      1200,
+      1200
+    ],
+    "dataValues": {
+      "MaxMS": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "MinMS": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "Duration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "MSModPhase1": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ExplosionRadius": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "PercentHealthDamage": [
+        0.04500000178813934,
+        0.05000000074505806,
+        0.054999999701976776,
+        0.05999999865889549,
+        0.06499999761581421,
+        0.07000000029802322,
+        0.07500000298023224
+      ],
+      "PassiveMSCombatPenalty": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "EmpowermentBuffer": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "Phase2Start": [],
+      "Phase3Start": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "MaxHealthDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PercentHealthDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.0003000000142492354,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "PercentHealthDamageCap": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 150,
+            "mEndValue": 300,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "MaxHealthDamageCalc": {
+        "base": [
+          0.05,
+          0.055,
+          0.06,
+          0.065,
+          0.07
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.0003
+          }
+        ]
+      },
+      "PercentHealthDamageCap": {
+        "base": 0,
+        "baseByLevel": [
+          150,
+          158.8235,
+          167.6471,
+          176.4706,
+          185.2941,
+          194.1176,
+          202.9412,
+          211.7647,
+          220.5882,
+          229.4118,
+          238.2353,
+          247.0588,
+          255.8824,
+          264.7059,
+          273.5294,
+          282.3529,
+          291.1765,
+          300
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RellQ": {
+    "path": "Characters/Rell/Spells/RellQAbility/RellQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10.5,
+      10,
+      9.5,
+      9
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      5000,
+      5000,
+      5000,
+      5000,
+      5000
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        20,
+        60,
+        100,
+        140,
+        180,
+        220,
+        260
+      ],
+      "StunDuration": [
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421,
+        0.6499999761581421
+      ]
+    },
+    "calculations": {
+      "Damage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "Damage": {
+        "base": [
+          60,
+          100,
+          140,
+          180,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "RellR": {
+    "path": "Characters/Rell/Spells/RellRAbility/RellR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      200,
+      200,
+      200
+    ],
+    "dataValues": {
+      "Duration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "BaseDamagePerSecond": [
+        25,
+        75,
+        125,
+        175,
+        225,
+        275,
+        325
+      ],
+      "GravityHorizon": [
+        225,
+        225,
+        225,
+        225,
+        225,
+        225,
+        225
+      ],
+      "GravityRadius": [
+        375,
+        375,
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
+      "GravityForce": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "InitialRadius": [
+        425,
+        425,
+        425,
+        425,
+        425,
+        425,
+        425
+      ]
+    },
+    "calculations": {
+      "DamagePerSecond": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamagePerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "mMultiplier": {
+          "mDataValue": "Duration",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "tooltipOnly": true,
+        "mModifiedGameCalculation": "DamagePerSecond",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "DamagePerSecond": {
+        "base": [
+          75,
+          125,
+          175
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.55
+          }
+        ]
+      },
+      "TotalDamage": {
+        "base": [
+          150,
+          250,
+          350
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,564 @@
+{
+  "FioraPassive": {
+    "path": "Characters/Fiora/Spells/FioraPassiveAbility/FioraPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "range": [
+      1100,
+      1100,
+      1100,
+      1100,
+      1100
+    ],
+    "dataValues": {
+      "PassiveDamageADRatio": [
+        0.00039999998989515007,
+        0.00039999998989515007,
+        0.00039999998989515007,
+        0.00039999998989515007,
+        0.00039999998989515007,
+        0.00039999998989515007,
+        0.00039999998989515007
+      ],
+      "PassiveDamageBase": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ],
+      "MovementSpeedDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "calculations": {
+      "PassiveHealAmount": {
+        "mFormulaParts": [
+          {
+            "mStartValue": 35,
+            "mEndValue": 100,
+            "__type": "ByCharLevelInterpolationCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "PassiveDamageTotal": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveDamageBase",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mDataValue": "PassiveDamageADRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "mDisplayAsPercent": true,
+        "mPrecision": 1,
+        "__type": "GameCalculation"
+      },
+      "RDamageTotal": {
+        "mMultiplier": {
+          "mNumber": 4,
+          "__type": "NumberCalculationPart"
+        },
+        "mSimpleTooltipCalculationDisplay": 5,
+        "mModifiedGameCalculation": "PassiveDamageTotal",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "PassiveHealAmount": {
+        "base": 0,
+        "baseByLevel": [
+          35,
+          38.82353,
+          42.64706,
+          46.47059,
+          50.29412,
+          54.11765,
+          57.94118,
+          61.76471,
+          65.58824,
+          69.41176,
+          73.23529,
+          77.05882,
+          80.88235,
+          84.70588,
+          88.52941,
+          92.35294,
+          96.17647,
+          100
+        ]
+      },
+      "PassiveDamageTotal": {
+        "base": 0.03,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0004
+          }
+        ]
+      },
+      "RDamageTotal": {
+        "base": 0.12,
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.0016
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FioraQ": {
+    "path": "Characters/Fiora/Spells/FioraQAbility/FioraQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      13,
+      11.25,
+      9.5,
+      7.75,
+      6
+    ],
+    "cost": [
+      20,
+      20,
+      20,
+      20,
+      20
+    ],
+    "dataValues": {
+      "Damage": [
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "bADRatio": [
+        0.8500000238418579,
+        0.8999999761581421,
+        0.949999988079071,
+        1,
+        1.0499999523162842,
+        1.100000023841858,
+        1.149999976158142
+      ],
+      "CDRefundPercent": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mSubpart": {
+              "mDataValue": "BADRatio",
+              "__type": "NamedDataValueCalculationPart"
+            },
+            "__type": "StatBySubPartCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          70,
+          80,
+          90,
+          100,
+          110
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": [
+              0.9,
+              0.95,
+              1,
+              1.05,
+              1.1
+            ]
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FioraR": {
+    "path": "Characters/Fiora/Spells/FioraRAbility/FioraR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      110,
+      90,
+      70
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      500,
+      500,
+      500
+    ],
+    "dataValues": {
+      "MarkDuration": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "PassiveAS": [
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "PercentMS": [
+        0.20000000298023224,
+        0.30000001192092896,
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929
+      ],
+      "MSRingRadius": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "HealDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "HealPerSecond": [
+        55,
+        80,
+        105,
+        130,
+        155,
+        180,
+        205
+      ],
+      "HealRingRadius": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "MinHealDuration": [],
+      "HealDurationExtension": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "Ratio": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ]
+    },
+    "calculations": {
+      "HealPerSecondCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "HealPerSecond",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mStat": 2,
+            "mStatFormula": 2,
+            "mCoefficient": 0.699999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "HealPerSecondCalc": {
+        "base": [
+          80,
+          105,
+          130
+        ],
+        "ratios": [
+          {
+            "stat": "bonusAD",
+            "value": 0.7
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FioraW": {
+    "path": "Characters/Fiora/Spells/FioraWAbility/FioraW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      24,
+      22,
+      20,
+      18,
+      16
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      3000,
+      3000,
+      3000,
+      3000,
+      3000
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        70,
+        110,
+        150,
+        190,
+        230,
+        270,
+        310
+      ],
+      "ParryDuration": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "CCDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MSSlowPercent": [
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "SmallBlockPercent": [
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746,
+        0.029999999329447746
+      ],
+      "BigBlockPercent": [
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448,
+        0.15000000596046448
+      ],
+      "AttackSlowPercent": [
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25,
+        -0.25
+      ]
+    },
+    "calculations": {
+      "StabDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "StabDamage": {
+        "base": [
+          110,
+          150,
+          190,
+          230,
+          270
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FioraE": {
+    "path": "Characters/Fiora/Spells/FioraEAbility/FioraE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      11,
+      10,
+      9,
+      8,
+      7
+    ],
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      425,
+      425,
+      425,
+      425,
+      425
+    ],
+    "dataValues": {
+      "BuffDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SlowPercent": [
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896,
+        -0.30000001192092896
+      ],
+      "ASPercent": [
+        0.4000000059604645,
+        0.5,
+        0.6000000238418579,
+        0.699999988079071,
+        0.800000011920929,
+        0.8999999761581421,
+        1
+      ],
+      "AttackOnePercentTAD": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "AttackTwoPercentTAD": [
+        1.5,
+        1.600000023841858,
+        1.7000000476837158,
+        1.7999999523162842,
+        1.899999976158142,
+        2,
+        2.0999999046325684
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  }
+}

@@ -1,0 +1,724 @@
+{
+  "FizzE": {
+    "path": "Characters/Fizz/Spells/FizzEAbility/FizzE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      14,
+      12,
+      10,
+      8
+    ],
+    "cost": [
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "dataValues": {
+      "BaseDamage": [
+        30,
+        80,
+        130,
+        180,
+        230,
+        280,
+        330
+      ],
+      "SmallAoESize": [
+        225,
+        225,
+        225,
+        225,
+        225,
+        225,
+        225
+      ],
+      "LargeAoESize": [
+        375,
+        375,
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowAmount": [
+        0.3499999940395355,
+        0.4000000059604645,
+        0.44999998807907104,
+        0.5,
+        0.550000011920929,
+        0.6000000238418579,
+        0.6499999761581421
+      ]
+    },
+    "calculations": {
+      "EDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "BaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.949999988079071,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "EDamage": {
+        "base": [
+          80,
+          130,
+          180,
+          230,
+          280
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.95
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FizzPassive": {
+    "path": "Characters/Fizz/Spells/FizzPassiveAbility/FizzPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "cost": [
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "DamageReduction": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "DamageReductionMax": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MonsterDamageReduction": [
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "APRatio": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ]
+    },
+    "calculations": {
+      "DamageReductionCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "MonsterDamageReductionCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "MonsterDamageReduction",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DamageReductionCalc": {
+        "base": 4,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.01
+          }
+        ]
+      },
+      "MonsterDamageReductionCalc": {
+        "base": 14,
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.01
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FizzW": {
+    "path": "Characters/Fizz/Spells/FizzWAbility/FizzW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      7,
+      6,
+      5,
+      4,
+      3
+    ],
+    "cost": [
+      30,
+      40,
+      50,
+      60,
+      70
+    ],
+    "range": [
+      600,
+      600,
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "DoTBaseDamage": [
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105
+      ],
+      "DoTRatio": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "ActiveBaseDamage": [
+        25,
+        50,
+        75,
+        100,
+        125,
+        150,
+        175
+      ],
+      "ActiveRatio": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104,
+        0.44999998807907104
+      ],
+      "OnHitBuffBaseDamage": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "OnHitRatio": [
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.30000001192092896
+      ],
+      "BleedDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "DoTTicksPerSecond": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ActiveDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "OnHitBuffDuration": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "OnKillManaRefund": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "OnKillNewCooldown": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "PassiveDoTDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "TurretMod": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "BonusMonsterDamage": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ]
+    },
+    "calculations": {
+      "DoTDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "DoTBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "DoTRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ActiveDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ActiveBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "ActiveRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "OnHitBuffDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "OnHitBuffBaseDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "OnHitRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "DoTDamage": {
+        "base": [
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      },
+      "ActiveDamage": {
+        "base": [
+          50,
+          75,
+          100,
+          125,
+          150
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.45
+          }
+        ]
+      },
+      "OnHitBuffDamage": {
+        "base": [
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.3
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FizzR": {
+    "path": "Characters/Fizz/Spells/FizzRAbility/FizzR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      100,
+      80
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "dataValues": {
+      "SmallDamage": [
+        60,
+        180,
+        300,
+        420,
+        540,
+        660,
+        780
+      ],
+      "SmallAPRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "MidDamageMulti": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "LargeDamageMulti": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "SmallFishSize": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "MidFishSize": [
+        325,
+        325,
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "BigFishSize": [
+        450,
+        450,
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "MissileWidthTiers": [
+        40,
+        80,
+        120,
+        160,
+        200,
+        240,
+        280
+      ],
+      "MaxDistance": [
+        1300,
+        1300,
+        1300,
+        1300,
+        1300,
+        1300,
+        1300
+      ],
+      "DetonationTime": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowDuration": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "SlowAmount": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ]
+    },
+    "calculations": {
+      "SmallSharkDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SmallDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "SmallAPRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "{262c3c02}": {
+        "mMultiplier": {
+          "mDataValue": "MidDamageMulti",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "SmallSharkDamage",
+        "__type": "GameCalculationModified"
+      },
+      "BigSharkDamage": {
+        "mMultiplier": {
+          "mDataValue": "LargeDamageMulti",
+          "__type": "NamedDataValueCalculationPart"
+        },
+        "mModifiedGameCalculation": "SmallSharkDamage",
+        "__type": "GameCalculationModified"
+      }
+    },
+    "formulas": {
+      "SmallSharkDamage": {
+        "base": [
+          180,
+          300,
+          420
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "{262c3c02}": {
+        "base": [
+          225,
+          375,
+          525
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "BigSharkDamage": {
+        "base": [
+          270,
+          450,
+          630
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "FizzQ": {
+    "path": "Characters/Fizz/Spells/FizzQAbility/FizzQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      8,
+      7.5,
+      7,
+      6.5,
+      6
+    ],
+    "cost": [
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "range": [
+      550,
+      550,
+      550,
+      550,
+      550
+    ],
+    "dataValues": {},
+    "calculations": {
+      "QDamage": {
+        "mFormulaParts": [
+          {
+            "mEffectIndex": 1,
+            "__type": "EffectValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.550000011920929,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "TotalDamage": {
+        "tooltipOnly": true,
+        "mFormulaParts": [
+          {
+            "mStat": 2,
+            "mCoefficient": 1,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": 0,
+        "ratios": [
+          {
+            "stat": "totalAD",
+            "value": 1
+          }
+        ]
+      }
+    },
+    "unsupported": {
+      "QDamage": "part type EffectValueCalculationPart"
+    }
+  }
+}

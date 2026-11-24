@@ -1,0 +1,765 @@
+{
+  "NeekoW2": {
+    "path": "Characters/Neeko/Spells/NeekoWAbility/NeekoW2",
+    "maxRank": 5,
+    "dataValues": {
+      "CloneDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "StealthDuration": [
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "CloneDamageTimer": [
+        0,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "Haste": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "HasteDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "PassiveDamage": [
+        20,
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "PassiveHaste": [
+        2.5,
+        10,
+        17.5,
+        25,
+        32.5,
+        40,
+        47.5
+      ],
+      "PassiveHasteDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "calculations": {
+      "PassiveBonusDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveBonusDamageCalc": {
+        "base": [
+          50,
+          80,
+          110,
+          140,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NeekoW": {
+    "path": "Characters/Neeko/Spells/NeekoWAbility/NeekoW",
+    "slot": "W",
+    "maxRank": 5,
+    "cooldown": [
+      16,
+      15,
+      14,
+      13,
+      12
+    ],
+    "range": [
+      900,
+      900,
+      900,
+      900,
+      900
+    ],
+    "dataValues": {
+      "CloneDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "StealthDuration": [
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "CloneDamageTimer": [
+        0,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "Haste": [
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "HasteDuration": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "PassiveDamage": [
+        -5,
+        30,
+        65,
+        100,
+        135,
+        170,
+        205
+      ],
+      "PassiveHaste": [
+        2.5,
+        10,
+        17.5,
+        25,
+        32.5,
+        40,
+        47.5
+      ],
+      "PassiveHasteDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "MonsterBonus": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "APRatio": [
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ]
+    },
+    "calculations": {
+      "PassiveBonusDamageCalc": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "PassiveDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mDataValue": "APRatio",
+            "__type": "StatByNamedDataValueCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "PassiveBonusDamageCalc": {
+        "base": [
+          30,
+          65,
+          100,
+          135,
+          170
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NeekoR": {
+    "path": "Characters/Neeko/Spells/NeekoRAbility/NeekoR",
+    "slot": "R",
+    "maxRank": 3,
+    "cooldown": [
+      120,
+      105,
+      90
+    ],
+    "cost": [
+      100,
+      100,
+      100
+    ],
+    "range": [
+      600,
+      600,
+      600
+    ],
+    "dataValues": {
+      "Damage": [
+        -50,
+        150,
+        350,
+        550,
+        750,
+        950,
+        1150
+      ],
+      "Duration": [
+        0,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "StunDuration": [
+        0,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "ShieldAmount": [
+        50,
+        75,
+        100,
+        125,
+        150,
+        175,
+        200
+      ],
+      "ShieldDuration": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "DelayUntilReveal": [
+        0,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "DelayUntilExplosion": [
+        0,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579,
+        0.6000000238418579
+      ],
+      "ShieldPerChampion": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
+      ],
+      "SlowAmount": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "DelayBeforePassiveRemoval": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "calculations": {
+      "TotalDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 1.2000000476837158,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "BaseShield": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldAmount",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.75,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "ShieldMultiplier": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ShieldPerChampion",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.4000000059604645,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "TotalDamage": {
+        "base": [
+          150,
+          350,
+          550
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 1.2
+          }
+        ]
+      },
+      "BaseShield": {
+        "base": [
+          75,
+          100,
+          125
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.75
+          }
+        ]
+      },
+      "ShieldMultiplier": {
+        "base": [
+          40,
+          60,
+          80
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.4
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NeekoQ": {
+    "path": "Characters/Neeko/Spells/NeekoQAbility/NeekoQ",
+    "slot": "Q",
+    "maxRank": 5,
+    "cooldown": [
+      9,
+      8.5,
+      8,
+      7.5,
+      7
+    ],
+    "cost": [
+      50,
+      60,
+      70,
+      80,
+      90
+    ],
+    "range": [
+      800,
+      800,
+      800,
+      800,
+      800
+    ],
+    "dataValues": {
+      "SlowAmount": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "SlowDuration": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ZoneDamage": [
+        10,
+        60,
+        110,
+        160,
+        210,
+        260,
+        310
+      ],
+      "SecondaryDamage": [
+        10,
+        35,
+        60,
+        85,
+        110,
+        135,
+        160
+      ],
+      "RepeatDelay": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "MonsterBonus": [
+        20,
+        35,
+        50,
+        65,
+        80,
+        95,
+        110
+      ]
+    },
+    "calculations": {
+      "ExplosionDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "ZoneDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6000000238418579,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      },
+      "SecondDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "SecondaryDamage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.25,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "ExplosionDamage": {
+        "base": [
+          60,
+          110,
+          160,
+          210,
+          260
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.6
+          }
+        ]
+      },
+      "SecondDamage": {
+        "base": [
+          35,
+          60,
+          85,
+          110,
+          135
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.25
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  },
+  "NeekoPassive": {
+    "path": "Characters/Neeko/Spells/NeekoPassiveAbility/NeekoPassive",
+    "slot": "P",
+    "maxRank": 5,
+    "dataValues": {
+      "MagicPen": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "MagicPenDuration": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ChargeTime": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "PassiveCooldown": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    "calculations": {},
+    "formulas": {},
+    "unsupported": {}
+  },
+  "NeekoE": {
+    "path": "Characters/Neeko/Spells/NeekoEAbility/NeekoE",
+    "slot": "E",
+    "maxRank": 5,
+    "cooldown": [
+      12,
+      11.5,
+      11,
+      10.5,
+      10
+    ],
+    "cost": [
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "range": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "dataValues": {
+      "Damage": [
+        45,
+        80,
+        115,
+        150,
+        185,
+        220,
+        255
+      ],
+      "BaseRootDuration": [
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "MinRootDuration": [
+        0.5,
+        0.699999988079071,
+        0.8999999761581421,
+        1.100000023841858,
+        1.2999999523162842,
+        1.5,
+        1.7000000476837158
+      ],
+      "TargetsRequiredForMaxValue": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "MaxRootDuration": [
+        1.75,
+        2,
+        2.25,
+        2.5,
+        2.75,
+        3,
+        3.25
+      ],
+      "EmpoweredWidth": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "EmpoweredSpeed": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    "calculations": {
+      "BaseDamage": {
+        "mFormulaParts": [
+          {
+            "mDataValue": "Damage",
+            "__type": "NamedDataValueCalculationPart"
+          },
+          {
+            "mCoefficient": 0.6499999761581421,
+            "__type": "StatByCoefficientCalculationPart"
+          }
+        ],
+        "__type": "GameCalculation"
+      }
+    },
+    "formulas": {
+      "BaseDamage": {
+        "base": [
+          80,
+          115,
+          150,
+          185,
+          220
+        ],
+        "ratios": [
+          {
+            "stat": "AP",
+            "value": 0.65
+          }
+        ]
+      }
+    },
+    "unsupported": {}
+  }
+}
